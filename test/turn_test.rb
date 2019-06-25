@@ -25,4 +25,18 @@ class TurnTest < MiniTest::Test
 
     assert_equal "Juneau", turn.guess
   end
+
+  def test_if_the_guess_is_correct_when_it_should_be
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Juneau", card)
+
+    assert turn.correct?
+  end
+
+  def test_if_the_guess_is_incorrect_when_it_should_be
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Anchorage", card)
+
+    refute turn.correct?
+  end
 end
