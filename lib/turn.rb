@@ -7,15 +7,15 @@ class Turn
   end
 
   def guess
-    puts "#{string}"
+    return "#{string}"
   end
 
   def card
-    puts "#{card}"
+    return "#{card}"
   end
 
   def correct?
-      @string == @card
+      @string == @card.answer
   end
 
   def feedback
@@ -27,5 +27,3 @@ class Turn
   end
 
 end
-
-Turn.new("Juneau", "Juneau")
