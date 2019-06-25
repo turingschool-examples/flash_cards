@@ -9,6 +9,20 @@ class Turn
     puts @string
   end
 
-  def 
+  def card
+    puts @card
+  end
 
+  def correct?
+    return true if @string == card.answer
+    false
+  end
+
+  def feedback
+    if turn.correct? = true
+      puts "Correct!"
+    else
+      puts "Incorrect"
+  end
+  
 end
