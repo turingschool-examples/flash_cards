@@ -1,30 +1,32 @@
+
 class Turn
-  attr_accessor :string, :card
+  attr_reader :string, :card
   def initialize(string, card)
-    @string = string
+    @guess = string
     @card = card
   end
 
   def guess
-    puts @string
+    return @guess
   end
 
   def card
     #I dont think this works, i think i need to acess the card.rb file somehow
     #I want this to return the card
-    puts @card
+    return @card
   end
 
   def correct?
-    return true if @string == card.answer
+    return true if @guess == card.answer
     false
   end
 
   def feedback
-    if turn.correct? == true
-      puts "Correct!"
+    if @guess == card.answer
+      return "Correct!"
     else
-      puts "Incorrect"
+      return "Incorrect"
     end
   end
+
 end
