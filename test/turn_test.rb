@@ -39,4 +39,18 @@ class TurnTest < MiniTest::Test
 
     refute turn.correct?
   end
+
+  def test_correct_feedback
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Juneau", card)
+
+    assert_equal "Correct!", turn.feedback
+  end
+
+  def test_incorrect_feedback
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Anchorage", card)
+
+    assert_equal "Incorrect.", turn.feedback
+  end
 end
