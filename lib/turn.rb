@@ -10,6 +10,8 @@ class Turn
   end
 
   def card
+    #I dont think this works, i think i need to acess the card.rb file somehow
+    #I want this to return the card
     puts @card
   end
 
@@ -19,10 +21,10 @@ class Turn
   end
 
   def feedback
-    if turn.correct? = true
+    if turn.correct? == true
       puts "Correct!"
     else
       puts "Incorrect"
+    end
   end
-  
 end
