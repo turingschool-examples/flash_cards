@@ -1,5 +1,11 @@
-class Card1(question, answer, category)
+class Card1
   attr_reader :question, :answer, :category
+
+  def initialize(question, answer, category)
+    @question = question
+    @answer = answer
+    @category = category
+  end
 
   def says_question
     puts "#{question}"
