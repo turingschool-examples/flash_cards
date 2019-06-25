@@ -12,7 +12,7 @@ class Turn
 
   def feedback
     if @guess == @card.answer
-       "You're Right!"
+       "You're right!"
     else
       "Sorry, that's not right"
     end
