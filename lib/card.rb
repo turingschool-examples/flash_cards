@@ -1,4 +1,4 @@
-class Card1
+class Card
   attr_reader :question, :answer, :category
 
   def initialize(question, answer, category)
@@ -21,4 +21,4 @@ class Card1
 
 end
 
-Card1.new("What is the capital of Alaska?", "Juneau", :Geography)
+Card.new("What is the capital of Alaska?", "Juneau", :Geography)
