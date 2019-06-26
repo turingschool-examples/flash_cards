@@ -1,4 +1,4 @@
-#testing github
+
 
 class Card
 
@@ -8,20 +8,16 @@ class Card
     @category = category
   end
 
-  def get_question
+  def question
     @question
   end
 
-  def get_answer
+  def answer
     @answer
   end
 
-  def get_category
+  def category
     @category
   end
 
 end
-
-card = Card.new("This is a question?", "Yes", :test)
-
-puts card.get_question
