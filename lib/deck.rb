@@ -1,16 +1,12 @@
 class Deck
-  @cards_stack = Card.new
-  attr_reader
+  attr_reader :cards_stack
 
-  def self.all_instances
-    @cards_stack
+  def initialize(cards_stack)
+    @cards_stack = []
   end
 
-  def initialize
-    @cards_stack << self
-  end
-
-  def cards
+  def show_deck
     return ["#{@cards_stack}"]
   end
+
 end
