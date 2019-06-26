@@ -10,7 +10,7 @@ class Turn
     return "#{string}"
   end
 
-  def card
+  def self.card
     return "#{card}"
   end
 
