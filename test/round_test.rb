@@ -45,4 +45,21 @@ class RoundTest < MiniTest::Test
   def test_the_new_turn_is_moved_to_turns_array
     assert_equal [@round.take_turn("Juneau")], @round.turns
   end
+
+  def test_the_number_correct_is_1_after_1_correct_answer
+    @round.take_turn("Juneau")
+    assert_equal 1, @round.number_correct
+  end
+
+  def test_the_number_correct_is_3_after_3_correct_answers
+    @round.take_turn("Juneau")
+    @round.take_turn("Mars")
+    @round.take_turn("North north west")
+    assert_equal 3, @round.number_correct
+  end 
+
+  def test_it_gets_a_new_current_card_after_a_turn
+    @round.take_turn("Juneau")
+    assert_equal @card_2, @round.current_card
+  end
 end
