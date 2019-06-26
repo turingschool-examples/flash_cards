@@ -29,15 +29,15 @@ class Round
     this_turn = Turn.new(guess, current_card)
     turns << this_turn
     next_card
-    return this_turn
+    this_turn
   end
 
   def number_correct
-    
+    @turns.select {|turn| turn.correct?}.count
   end
 
   def number_correct_by_category(category)
-
+    @turns.select {|turn| turn.card.category == category && turn.correct?}.count
   end
 
   def percent_correct
@@ -48,10 +48,11 @@ class Round
 
   end
 end
-card1 = Card.new("5 + 5 = ", "10", :Math)
-card2 = Card.new("7 * 6 = ", "42", :Math)
-card3 = Card.new("H2O is", "water", :Science)
-cards = [card1, card2, card3]
-deck = Deck.new(cards)
-round = Round.new(deck)
-binding.pry
+# card1 = Card.new("5 + 5 = ", "10", :Math)
+# card2 = Card.new("7 * 6 = ", "42", :Math)
+# card3 = Card.new("H2O is", "water", :Science)
+# cards = [card1, card2, card3]
+# deck = Deck.new(cards)
+# round = Round.new(deck)
+# turn_1 = round.take_turn("10")
+# binding.pry
