@@ -1,9 +1,10 @@
 
-class Turns
+class Turn
 
   def initialize (answer, card)
     @answer = answer
     @card = card
+    @guess = guess
   end
 
   def guess
@@ -23,8 +24,6 @@ class Turns
       puts "Correct!"
     else
       puts "Incorrect!"
+    end
   end
-
 end
-
-guess
