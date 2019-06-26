@@ -9,8 +9,8 @@ class Deck
     @cards.length
   end
 
-  def cards_in_category(c)
-    cards.select { |item| item.category == c }
+  def cards_in_category(category)
+    @cards.select { |item| item.category == category }
   end
 
 end
