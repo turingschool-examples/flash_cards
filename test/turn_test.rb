@@ -5,48 +5,40 @@ require './lib/card'
 
 class TurnTest < Minitest::Test
 
-  def test_it_exists
-    card = Card.new("What's the airspeed velocity of an unladen swallow?",
+  def setup
+    @card = Card.new("What's the airspeed velocity of an unladen swallow?",
               "I don't know",
               :Biology)
-    turn = Turn.new("25", card)
+    @turn   = Turn.new("25", @card)
+    @turn_2 = Turn.new("I don't know", @card)
+  end
 
-    assert_instance_of Turn, turn
+  def test_turn_exists
+    assert_instance_of Turn, @turn
+    assert_instance_of Turn, @turn_2
   end
 
 
   def test_card_in_turn
-    card = Card.new("What's the airspeed velocity of an unladen swallow?",
-              "I don't know",
-              :Biology)
-    turn = Turn.new("25", card)
-    actual_card = turn.card
-    assert_equal actual_card, card
+    actual_card = @turn.card
+    actual_card_2 = @turn_2.card
+    assert_equal @card, actual_card
+    assert_equal @card, actual_card_2
   end
 
   def test_guess_in_turn
-    card = Card.new("What's the airspeed velocity of an unladen swallow?",
-              "I don't know",
-              :Biology)
-    turn = Turn.new("25", card)
-    assert_equal "25", turn.guess
+    assert_equal "25", @turn.guess
+    assert_equal "I don't know", @turn_2.guess
   end
 
   def test_correct
-    card = Card.new("What's the airspeed velocity of an unladen swallow?",
-              "I don't know",
-              :Biology)
-    turn = Turn.new("25", card)
-    expected_correct = false
-    assert_equal expected_correct, turn.correct?
+    assert_equal false, @turn.correct?
+    assert_equal true, @turn_2.correct?
   end
 
   def test_feedback
-    card = Card.new("What's the airspeed velocity of an unladen swallow?",
-              "I don't know",
-              :Biology)
-    turn = Turn.new("25", card)
-    assert_equal "Incorrect.", turn.feedback
+    assert_equal "Incorrect.", @turn.feedback
+    assert_equal "Correct!", @turn_2.feedback
   end
 
 end
