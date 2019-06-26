@@ -15,11 +15,11 @@ class Turn
   end
 
   def correct?
-    guess == answer
+    guess == @card.answer
   end
 
   def feedback
-    if quess == answer
+    if guess == @card.answer
       puts "Correct!"
     else
       puts "Incorrect!"
@@ -27,8 +27,4 @@ class Turn
   end
 end
 
-#2019-06-25 having issues with pry test starting on pry test
-#pry(main)> turn = Turn.new("Juneau", card)
-
-# pry(main)> pry(main)> turn.card
-# NameError: undefined local variable or method `main' for main:Object
+#2019-06-26 corrected 'question == @answer' statement. Had to add @card before .answer
