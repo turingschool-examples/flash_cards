@@ -9,21 +9,10 @@ attr_reader :cards
   end
 
   def cards_in_category(category)
-    new_array = []
-    # cards.each do |card|
-    #   if category == card.?.category
-    #     new_array << @cards[number]
-    #   end
-    # end
-    if category == cards[0].category
-      new_array << cards[0]
+    cards_with_same_category = []
+    cards.each do |card|
+      cards_with_same_category << card if category == card.category
     end
-    if category == cards[1].category
-      new_array << cards[1]
-    end
-    if category == cards[2].category
-      new_array << cards[2]
-    end
-    new_array
+    cards_with_same_category
   end
 end

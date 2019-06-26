@@ -5,4 +5,9 @@ class Round
     @turns = []
   end
 
+  def current_card
+    num = @turns.count
+    deck.cards[num]
+  end
+
 end
