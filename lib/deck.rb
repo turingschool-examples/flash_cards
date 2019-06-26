@@ -10,10 +10,7 @@ class Deck
   end
 
   def cards_in_category
-    cards.each do |card|
-      if card.include?(:STEM)
-        return cards
-      end
-    end
+    @cards.category
   end
+
 end
