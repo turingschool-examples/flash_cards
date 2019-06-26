@@ -1,30 +1,46 @@
-class Turn < Card
+class Turn
 
-    attr_reader :guess
+    attr_reader :guess, :card
 
-    def initialize(guess)
+    def initialize(guess, card)
       @guess = guess
+      @card = card
+    end
+=begin multilinecomment
+    def card
+      puts @card
     end
 
   def guess guess
-    puts guess
-    guessed = guess
+    puts "#{question}"
+    guess = gets.chomp
+  end
+=end
+
+
+  def correct? guess
+    if guess == @answer
+      return true
+    else
+      return false
   end
 
-  def correct?
-    guessed = guess
-    if guessed == "Tungsten"
-      puts "true"
+  def feedback guess
+    if guess == @answer
+      puts "Correct!"
     else
-      puts "false"
+      puts "Inorrect!"
     end
   end
 
 
 
 end#end class
-
-turn1 = Turn.new ("")
-puts "Please enter a guess..."
-turn1.guess(gets.chomp) #user enters a guess
-turn1.correct?(guessed)
+=begin multilinecomment
+card1 = Card.new("what is the element W?", "Tungsten", :science) #creates new card
+turn1 = Turn.new("Tungsten", card1)
+turn1.card
+turn1.guess
+turn1.correct?
+turn1.feedback
+=end

@@ -24,9 +24,9 @@ end #end init method
     puts "#{@category}"
   end
 end
-card = Card.new("what is the element W?", "Tungsten", :science ) #creates new card
+card1 = Card.new("what is the element W?", "Tungsten", :science ) #creates new card
 
 #begin calling methods
-card.question
-card.answer
-card.category
+card1.question
+card1.answer
+card1.category
