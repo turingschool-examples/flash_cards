@@ -47,7 +47,7 @@ class Round
     if total_questions == 0
       0.0
     else
-      100 * (num_correct.to_f / total_questions).round(1)
+      (100 * (num_correct.to_f / total_questions)).round(1)
     end
   end
 
@@ -57,7 +57,7 @@ class Round
     if num_in_category == 0
       0.0
     else
-      100 * (num_correct.to_f / num_in_category).round(1)
+      (100 * (num_correct.to_f / num_in_category)).round(1)
     end
   end
 end
