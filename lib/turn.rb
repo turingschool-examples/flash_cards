@@ -15,7 +15,7 @@ class Turn
     if @guess == card.answer
       return "Correct!"
     else
-      return "Incorrect"
+      return "Incorrect."
     end
   end
 

@@ -37,11 +37,11 @@ class TurnTest < Minitest::Test
 
   def test_it_has_feedback
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    #turn = Turn.new("Juneau", card)
+    turn = Turn.new("Juneau", card)
     # Also not sure about this text, can I test using or?
-    #assert_equal "Correct!", turn.feedback
+    assert_equal "Correct!", turn.feedback
 
     turn = Turn.new("J", card)
-    assert_equal "Incorrect", turn.feedback
+    assert_equal "Incorrect.", turn.feedback
   end
 end
