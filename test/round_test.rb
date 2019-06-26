@@ -76,32 +76,21 @@ class RoundTest < Minitest::Test
     assert_equal 0.0, @round.percent_correct_by_category(:Science)
   end
 
-  def test_turns_last_feedback
-    skip
-  end
-
-  def test_number_correct_2
-    skip
-  end
-
-  def test_number_correct_by_category_1
-    skip
-  end
-
-  def test_number_correct_by_category_2
-    skip
-  end
-
-  def test_percent_correct
-    skip
-  end
-
-  def test_percent_correct_by_category_1
-    skip
-  end
-
   def test_current_3
-    skip
+    @round.take_turn("10")
+    @round.take_turn("49")
+    turn_3 = @round.take_turn("water")
+    assert_equal "water", turn_3.guess
+    assert_instance_of Turn, turn_3
+    assert turn_3.correct?
+    assert_equal 3, @round.turns.size
+    assert_equal 2, @round.number_correct
+    assert_equal 1, @round.number_correct_by_category(:Math)
+    assert_equal 1, @round.number_correct_by_category(:Science)
+    assert_equal 66.7, @round.percent_correct
+    assert_equal "Correct!", @round.turns.last.feedback
+    assert_equal 50.0, @round.percent_correct_by_category(:Math)
+    assert_equal 100.0, @round.percent_correct_by_category(:Science)
   end
 
 end
