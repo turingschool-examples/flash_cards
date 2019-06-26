@@ -60,8 +60,29 @@ class RoundTest < Minitest::Test
     assert_instance_of Turn , new_turn
 
     assert_equal [new_turn], round.turns
-
-
-
   end
+
+  def test_number_correct
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card_2 = Card.new("Music is composed of what?", "Notes", :STEM)
+    cards = [card_1, card_2]
+    deck = Deck.new(cards)
+    round = Round.new(deck)
+    round.take_turn("Juneau")
+
+    assert_equal 1, round.number_correct
+  end
+
+  def test_number_correct_by_category
+      card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+      card_2 = Card.new("Music is composed of what?", "Notes", :STEM)
+      cards = [card_1, card_2]
+      deck = Deck.new(cards)
+      round = Round.new(deck)
+      round.take_turn("Juneau")
+      round.number_correct_by_category(:Geography)
+
+      assert_equal 1, round.number_correct_by_category(:Geography)
+    end
+
 end
