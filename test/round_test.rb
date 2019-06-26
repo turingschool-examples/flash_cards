@@ -3,6 +3,7 @@ require 'minitest/pride'
 require './lib/turn'
 require './lib/card'
 require './lib/deck'
+require './lib/round'
 require 'pry'
 
 class RoundTest < Minitest::Test
@@ -13,7 +14,54 @@ class RoundTest < Minitest::Test
     @card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
     @cards = [@card_1, @card_2, @card_3]
     @deck = Deck.new(@cards)
+    @round = Round.new(@deck)
   end
+
+  def test_round_exists
+
+    assert_instance_of Round, @round
+  end
+
+  def test_it_has_deck
+
+    assert_equal @deck, @round.deck
+  end
+
+  def test_it_has_turns
+
+    assert_equal [], @round.turns
+  end
+
+  def test_it_has_current_card
+
+    assert_equal @card_1, @round.current_card
+  end
+
+  def test_it_has_class
+    new_turn = @round.take_turn("Juneau")
+
+    assert_equal Turn, new_turn.class
+  end
+
+  def test_it_evaluates_for_correct?
+    new_turn = @round.take_turn("Juneau")
+
+    assert_equal true, new_turn.correct?
+  end
+
+  def test_it_adds_to_turns
+    skip
+
+    assert_equal
+  end
+
+  def test_it_counts_number_correct
+    new_turn = @round.take_turn("Juneau")
+    binding.pry
+
+    assert_equal 1, @round.number_correct
+  end
+
 
 
 

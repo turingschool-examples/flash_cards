@@ -1,25 +1,24 @@
 
 class Round
-  attr_reader :deck, :turns, :current_card
+  attr_reader :deck, :turns, :current_card, :number_correct
 
-  def initialize (deck)
+  def initialize(deck)
     @deck = deck
     @turns = []
     @current_card = @deck.cards[0]
-    #@guess = ""
+    @number_correct = 0
   end
 
-  def take_turn (string)
-    #@guess = string
+  def take_turn(string)
     turn = Turn.new(string, @deck.cards[0])
     @turns << turn
     @deck.cards.unshift
     return turn
   end
 
-end
-
-#deck.cards is an array
-@deck.cards.each do |card|
-
+  def number_correct
+    if @turns[0].guess == @turns[0].card.answer
+      @number_correct += 1
+    end
+  end
 end
