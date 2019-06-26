@@ -94,6 +94,11 @@ class RoundTest < Minitest::Test
       round.take_turn("Juneau")
 
       assert_equal 100.0, round.percentage_correct
+
+      round.take_turn("Wrong answer")
+
+      assert_equal 50.0, round.percentage_correct
+
     end
 
     def test_percent_correct_by_category

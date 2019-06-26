@@ -33,11 +33,11 @@ class Round
   end
 
   def percentage_correct
-    (@turns.count.to_f / number_correct) * 100
+    (number_correct / @turns.count.to_f) * 100
   end
 
   def percentage_correct_by_category(category)
-    (@turns.count.to_f / number_correct_by_category(category)) * 100
+    (number_correct_by_category(category) / @turns.count.to_f) * 100
   end
 
 end
