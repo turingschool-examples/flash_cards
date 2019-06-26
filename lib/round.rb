@@ -10,4 +10,9 @@ class Round
     deck.cards[num]
   end
 
+  def take_turn(guess)
+    return new_turn = Turn.new(guess, current_card)
+    @turns << new_turn
+  end
+
 end
