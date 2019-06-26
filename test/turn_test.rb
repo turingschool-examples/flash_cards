@@ -8,18 +8,17 @@ class TurnTest < Minitest::Test
   def test_turn_exists
     card = Card.new("Baby got what?", "Back", :Music_History)
     turn = Turn.new("Back", card)
-    turn.card
 
     assert_instance_of Turn, turn
   end
 
-  def test_card
+  def test_turn_card
     card = Card.new("Baby got what?", "Back", :Music_History)
     turn = Turn.new("Back", card)
 
-    assert_instance_of Card, turn.card
+    assert_equal card, turn.card
   end
-
+  
   def test_guess_exists
     card = Card.new("Baby got what?", "Back", :Music_History)
     turn = Turn.new("Back", card)
