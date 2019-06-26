@@ -19,11 +19,16 @@ class TurnTest < Minitest::Test
   end
 
   def test_it_has_a_card
-    assert_instance_of Card, @card
+    assert_equal @card, @turn.card
   end
 
   def test_it_has_a_correct_method
-    assert_equal true, @turn.correct?
+    assert @turn.correct?
+  end
+
+  def test_it_handles_error_correctly
+    turn = Turn.new("Saturn", @card)
+    assert_equal false, turn.correct?
   end
 
   def test_it_has_a_feedback_correct
