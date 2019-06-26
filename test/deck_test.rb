@@ -14,6 +14,15 @@ class DeckTest < Minitest::Test
     assert_instance_of Deck, deck
   end
 
+  def test_cards_array
+    card_1 = Card.new("What is cooler than cool?", "Ice Cold", :Geography)
+    card_2 = Card.new("Music is composed of what?", "Notes", :STEM)
+    cards = [card_1, card_2]
+    deck = Deck.new(cards)
+
+    assert_equal [card_1, card_2], deck.cards
+  end
+
   def test_cards_in_category
     card_1 = Card.new("What is cooler than cool?", "Ice Cold", :Geography)
     card_2 = Card.new("Music is composed of what?", "Notes", :STEM)
