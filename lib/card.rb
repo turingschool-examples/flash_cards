@@ -12,21 +12,28 @@ def initialize(question, answer, category) #init variables for card class
 end #end init method
 
 
-  def question
-    puts "#{@question}"
-  end #end method
-
-  def answer
-    puts "#{@answer}"
-  end
-
-  def category
-    puts "#{@category}"
-  end
+  # def question
+  #   puts "ian was here"
+  #   @question
+  # end #end method
+#
+#   def answer
+#     @answer
+#   end
+#
+#   def category
+#     @category
+#   end
 end
-card1 = Card.new("what is the element W?", "Tungsten", :science ) #creates new card
+#
+# #to test initial
+# card1 = Card.new("What is the element W?", "Tungsten", :science ) #creates new card
+
+#to test failure
+
+
 
 #begin calling methods
-card1.question
-card1.answer
-card1.category
+# card1.question
+# card1.answer
+# card1.category

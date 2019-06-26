@@ -1,7 +1,7 @@
+
 class Turn
 
     attr_reader :guess, :card
-
     def initialize(guess, card)
       @guess = guess
       @card = card
@@ -17,27 +17,30 @@ class Turn
   end
 =end
 
+  def correct?
+    if @guess == card.answer
+       true
+     else
+      false
+   end
+end
 
-  def correct? guess
-    if guess == @answer
-      return true
-    else
-      return false
-  end
-
-  def feedback guess
-    if guess == @answer
+  def feedback
+    if @guess ==  card.answer
       puts "Correct!"
     else
       puts "Inorrect!"
     end
   end
 
-
-
 end#end class
+
+
 =begin multilinecomment
 card1 = Card.new("what is the element W?", "Tungsten", :science) #creates new card
+--to test fail answer
+turn1 = Turn.new("Helium", card1)
+--to test correct answer
 turn1 = Turn.new("Tungsten", card1)
 turn1.card
 turn1.guess
