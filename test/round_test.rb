@@ -8,9 +8,9 @@ require "pry"
 
 class RoundTest < Minitest::Test
   def setup
-    @card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    @card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
-    @card_3 = card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+    @card_1 = Card.new("5 + 5 = ", "10", :Math)
+    @card_2 = Card.new("7 * 6 = ", "42", :Math)
+    @card_3 = Card.new("H2O is", "water", :Science)
     @deck = Deck.new([@card_1, @card_2, @card_3])
     @round = Round.new(@deck)
   end
@@ -28,16 +28,22 @@ class RoundTest < Minitest::Test
   end
 
   def test_current_card_1
-    skip
     assert_equal @card_1, @round.current_card
   end
 
-  def test_take_turn_1
-
+  def test_current_card_index
+    assert_equal 0, @round.current_card_index
   end
 
-  def test_turn_1_class
-    skip
+  def test_take_turn_1
+    turn_1 = @round.take_turn("10")
+    assert_equal "10", turn_1.guess
+    assert_instance_of Turn, turn_1
+    assert turn_1.correct?
+    assert_equal 1, @round.turns.size
+    assert_equal 1, @round.number_correct
+    assert_equal 1, @round.number_correct_by_category(:Math)
+    assert_equal 0, @round.number_correct_by_category(:Science)
   end
 
   def test_turn_1_correct
