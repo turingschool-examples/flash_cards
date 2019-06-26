@@ -6,7 +6,7 @@ require './lib/deck'
 class DeckTest < Minitest::Test
 
   def test_deck_exists
-    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card_1 = Card.new("What is cooler than cool?", "Ice Cold", :Geography)
     card_2 = Card.new("Music is composed of what?", "Notes", :STEM)
     cards = [card_1, card_2]
     deck = Deck.new(cards)
@@ -15,7 +15,7 @@ class DeckTest < Minitest::Test
   end
 
   def test_cards_in_category
-    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card_1 = Card.new("What is cooler than cool?", "Ice Cold", :Geography)
     card_2 = Card.new("Music is composed of what?", "Notes", :STEM)
     cards = [card_1, card_2]
     deck = Deck.new(cards)
@@ -25,7 +25,7 @@ class DeckTest < Minitest::Test
   end
 
   def test_deck_card_count
-  card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+  card_1 = Card.new("What is cooler than cool?", "Ice Cold", :Geography)
   card_2 = Card.new("Music is composed of what?", "Notes", :STEM)
   cards = [card_1, card_2]
   deck = Deck.new(cards)
