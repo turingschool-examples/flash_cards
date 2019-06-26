@@ -41,11 +41,24 @@ class Round
   end
 
   def percent_correct
+    num_correct = number_correct
+    total_questions = @turns.count
 
+    if total_questions == 0
+      0.0
+    else
+      100 * (num_correct.to_f / total_questions).round(1)
+    end
   end
 
   def percent_correct_by_category(category)
-
+    num_correct = number_correct_by_category(category)
+    num_in_category = @turns.select {|turn| turn.card.category == category}.count
+    if num_in_category == 0
+      0.0
+    else
+      100 * (num_correct.to_f / num_in_category).round(1)
+    end
   end
 end
 # card1 = Card.new("5 + 5 = ", "10", :Math)

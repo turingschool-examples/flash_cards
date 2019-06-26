@@ -44,26 +44,36 @@ class RoundTest < Minitest::Test
     assert_equal 1, @round.number_correct
     assert_equal 1, @round.number_correct_by_category(:Math)
     assert_equal 0, @round.number_correct_by_category(:Science)
+    assert_equal 100.0, @round.percent_correct
+    assert_equal "Correct!", @round.turns.last.feedback
+    assert_equal 100.0, @round.percent_correct_by_category(:Math)
+    assert_equal 0.0, @round.percent_correct_by_category(:Science)
   end
 
-  def test_turn_1_correct
-    skip
-  end
-
-  def test_turns_array_1
-    skip
-  end
-
-  def test_number_correct_1
-    skip
+  def test_current_card_index_2
+    @round.take_turn("10")
+    assert_equal 1, @round.current_card_index
   end
 
   def test_current_card_2
-    skip
+    @round.take_turn("10")
+    assert_equal @card_2, @round.current_card
   end
 
-  def test_turns_count
-    skip
+  def test_take_turn_2
+    @round.take_turn("10")
+    turn_2 = @round.take_turn("49")
+    assert_equal "49", turn_2.guess
+    assert_instance_of Turn, turn_2
+    refute turn_2.correct?
+    assert_equal 2, @round.turns.size
+    assert_equal 1, @round.number_correct
+    assert_equal 1, @round.number_correct_by_category(:Math)
+    assert_equal 0, @round.number_correct_by_category(:Science)
+    assert_equal 50.0, @round.percent_correct
+    assert_equal "Incorrect.", @round.turns.last.feedback
+    assert_equal 50.0, @round.percent_correct_by_category(:Math)
+    assert_equal 0.0, @round.percent_correct_by_category(:Science)
   end
 
   def test_turns_last_feedback
