@@ -11,8 +11,8 @@ class Round
   end
 
   def take_turn(guess)
-    return new_turn = Turn.new(guess, current_card)
+    new_turn = Turn.new(guess, current_card)
     @turns << new_turn
+    new_turn
   end
-
 end
