@@ -1,8 +1,7 @@
 
 class Turn
 
-  def initialize (answer, card)
-    @answer = answer
+  def initialize (guess, card)
     @card = card
     @guess = guess
   end
