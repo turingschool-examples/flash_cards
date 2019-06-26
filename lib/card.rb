@@ -20,5 +20,3 @@ class Card
   end
 
 end
-
-Card.new("What is the capital of Alaska?", "Juneau", :Geography)

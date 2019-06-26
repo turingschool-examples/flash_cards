@@ -7,19 +7,16 @@ class Turn
   end
 
   def guess
-    return "#{string}"
+    @string
   end
 
-  def self.card
-    return "#{card}"
-  end
 
   def correct?
       @string == @card.answer
   end
 
   def feedback
-    if @string == @card.answer
+    if correct?
       return "Correct!"
     else
       return "Incorrect."
