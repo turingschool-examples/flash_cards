@@ -6,17 +6,4 @@ class Card
     @answer = answer
     @category = category
   end
-
-  # def says_question
-  #   puts "#{question}"
-  # end
-  #
-  # def says_answer
-  #   puts "#{answer}"
-  # end
-  #
-  # def says_category
-  #   puts "#{category}"
-  # end
-
 end
