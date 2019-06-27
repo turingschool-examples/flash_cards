@@ -56,10 +56,20 @@ class RoundTest < MiniTest::Test
     @round.take_turn("Mars")
     @round.take_turn("North north west")
     assert_equal 3, @round.number_correct
-  end 
+  end
 
   def test_it_gets_a_new_current_card_after_a_turn
     @round.take_turn("Juneau")
     assert_equal @card_2, @round.current_card
   end
+
+  def test_it_can_count_the_cards_correct_by_category
+    @round.take_turn("Juneau") # => correct
+    @round.take_turn("Venus") # => incorrect
+    assert_equal 1, @round.number_correct_by_category(:Geography)
+    assert_equal 0, @round.number_correct_by_category(:STEM)
+    @round.take_turn("North north west") # => correct
+    assert_equal 1, @round.number_correct_by_category(:STEM)
+  end
+
 end

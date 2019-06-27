@@ -18,4 +18,15 @@ class Round
     new_turn
   end
 
+  def number_correct_by_category(category)
+    arr_by_category = []
+    @turns.each do |turn|
+      if category == turn.card.category && turn.correct?
+        arr_by_category << turn.card
+      end
+    end
+    arr_by_category.count
+  end
+
+
 end
