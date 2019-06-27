@@ -30,11 +30,10 @@ class DeckTest < Minitest::Test
     actual_cards = @deck.cards_in_category(:STEM)
     expected_cards = [@card_2, @card_3]
     assert_equal expected_cards, actual_cards
-  end
-
-  def test_no_cards_in_category
-    expected_cards = []
-    actual_cards = @deck.cards_in_category(:Science)
-    assert_equal expected_cards, actual_cards
+    actual_cards_2 = @deck.cards_in_category(:Geography)
+    expected_cards_2 = [@card_1]
+    assert_equal expected_cards_2, actual_cards_2
+    actual_cards_3 = @deck.cards_in_category("Pop Culture")
+    assert_equal [], actual_cards_3
   end
 end
