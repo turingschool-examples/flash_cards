@@ -15,14 +15,26 @@ card_5 = Card.new("What year was the song “My Heart Will Go On” from Titanic
 1994, :MOVIES)
 card_6 = Card.new("How many planets are in the Solar System?", 8, :SCIENCE)
 
-cards = [card_1, card_2, card_3, card_4, card_5, card_6]
-deck = Deck.new(cards)
-round = Round.new(deck)
+@cards = [card_1, card_2, card_3, card_4, card_5, card_6]
+@deck = Deck.new(@cards)
+round_1 = Round.new(@deck)
 
-def start
-puts "-" * 50
-puts "This is card number #{@round.current_card} of #{@deck.cards.count}"
 
+def start(round)
+  total_cards = round.deck.cards.count
+  puts "Welcome!, You're playing with #{total_cards} cards!"
+  puts "-" * 50
+    round.deck.cards.each do |card|
+      card_number = (round.deck.cards.index(card)) + 1
+      puts "This is card #{card_number} out of #{total_cards}."
+      puts "Question: #{card.question}"
+      user_input = gets.chomp.upcase
+      round.take_turn(user_input)
+      puts round.turns.last.feedback
+
+
+
+  end
 end
 
-start
+start(round_1)
