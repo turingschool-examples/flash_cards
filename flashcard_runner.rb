@@ -24,7 +24,7 @@ def start(round)
   round.deck.cards.each do |card|
     card_number = round.deck.cards.index(card) + 1
     current_question = card.question
-    puts "You're on card number #{card_number} of 8."
+    puts "You're on card number #{card_number} of #{round.deck.cards.size}."
     puts "Question: #{current_question}"
     print "> "
     user_guess = gets.chomp.downcase
