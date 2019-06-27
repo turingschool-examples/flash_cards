@@ -13,32 +13,26 @@ class DeckTest < MiniTest::Test
   end
 
   def test_it_exists
-
     assert_instance_of Deck, @deck
   end
 
   def test_it_can_reference_its_cards
-
     assert_equal @cards, @deck.cards
   end
 
   def test_it_can_count_the_number_of_cards
-
     assert_equal 3, @deck.count
   end
 
   def test_it_can_collect_cards_by_category_STEM
-
     assert_equal [@card_2, @card_3], @deck.cards_in_category(:STEM)
   end
 
   def test_it_can_collect_cards_by_category_Geography
-
     assert_equal [@card_1], @deck.cards_in_category(:Geography)
   end
 
   def test_it_can_collect_cards_by_any_category
-
     assert_equal [], @deck.cards_in_category("Pop Culture")
   end
 end
