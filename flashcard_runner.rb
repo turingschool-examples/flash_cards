@@ -15,9 +15,9 @@ card_5 = Card.new("What year was the song “My Heart Will Go On” from Titanic
 1994, :MOVIES)
 card_6 = Card.new("How many planets are in the Solar System?", 8, :SCIENCE)
 
-@cards = [card_1, card_2, card_3, card_4, card_5, card_6]
-@deck = Deck.new(@cards)
-round_1 = Round.new(@deck)
+cards = [card_1, card_2, card_3, card_4, card_5, card_6]
+deck = Deck.new(cards)
+round_1 = Round.new(deck)
 
 
 def start(round)
@@ -31,10 +31,13 @@ def start(round)
       user_input = gets.chomp.upcase
       round.take_turn(user_input)
       puts round.turns.last.feedback
+    end
 
+    puts "******* Game Over! *******"
+    puts "You had #{round.number_correct} correct guesses out of #{total_cards} for a total score of #{round.percent_correct}%."
+    puts "Movies - #{round.percent_correct_by_category(:MOVIES)}% correct!"
+    puts "Science - #{round.percent_correct_by_category(:SCIENCE)}% correct!"
 
-
-  end
 end
 
 start(round_1)
