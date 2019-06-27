@@ -19,14 +19,29 @@ class Round
   end
 
   def number_correct_by_category(category)
-    arr_by_category = []
+    correct_in_category = []
     @turns.each do |turn|
       if category == turn.card.category && turn.correct?
-        arr_by_category << turn.card
+        correct_in_category << turn.card
       end
     end
-    arr_by_category.count
+    correct_in_category.count
   end
 
+  def percent_correct
+    percent = (@number_correct.to_f / @deck.cards.count * 100).round(2)
+    percent.to_s + "%"
+  end
+
+  def percent_correct_by_category(category)
+    total_in_category = []
+    @turns.each do |turn|
+      if category == turn.card.category
+        total_in_category << turn.card
+      end
+    end
+    percent = (number_correct_by_category(category).to_f / total_in_category.count * 100).round(2)
+    percent.to_s + "%"
+  end
 
 end
