@@ -61,7 +61,7 @@ class RoundTest < Minitest::Test
     def test_percent_correct_by_category
       @round.take_turn("Juneau")
       assert_equal 100.0, @round.percent_correct_by_category(:Geography)
-      @round.take_turn("Boats")
+      @round.take_turn("Wrong Answer")
       assert_equal 0.0, @round.percent_correct_by_category(:STEM)
     end
 end

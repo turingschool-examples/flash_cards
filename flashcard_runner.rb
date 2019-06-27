@@ -6,14 +6,14 @@ require './lib/round'
 
 
 card_1 = Card.new("Which 1997 film stars Nicolas Cage, John Cusack, and John Malkovich?",
-"CON AIR", :MOVIES)
+"con air", :MOVIES)
 card_2 = Card.new("What type of galaxy is the most common in the universe?",
-  "ELLIPTICAL", :SCIENCE)
-card_3 = Card.new("What year was Forrest Gump released?", 1994, :MOVIES)
-card_4 = Card.new("How many billions of years old is the universe?", 13.8, :SCIENCE)
+  "elliptical", :SCIENCE)
+card_3 = Card.new("What year was Forrest Gump released?", "1994", :MOVIES)
+card_4 = Card.new("How many billions of years old is the universe?", "13.8", :SCIENCE)
 card_5 = Card.new("What year was the song “My Heart Will Go On” from Titanic released?",
-1994, :MOVIES)
-card_6 = Card.new("How many planets are in the Solar System?", 8, :SCIENCE)
+"1997", :MOVIES)
+card_6 = Card.new("How many planets are in the Solar System?", "8", :SCIENCE)
 
 cards = [card_1, card_2, card_3, card_4, card_5, card_6]
 deck = Deck.new(cards)
@@ -28,7 +28,7 @@ def start(round)
       card_number = (round.deck.cards.index(card)) + 1
       puts "This is card #{card_number} out of #{total_cards}."
       puts "Question: #{card.question}"
-      user_input = gets.chomp.upcase
+      user_input = gets.chomp.downcase
       round.take_turn(user_input)
       puts round.turns.last.feedback
     end
