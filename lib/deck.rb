@@ -6,7 +6,7 @@ class Deck
   end
 
   def count
-    cards.size
+    cards.length
   end
 
   def cards_in_category(this_category)
