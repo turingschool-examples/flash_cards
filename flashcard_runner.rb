@@ -16,14 +16,13 @@ card_5 = Card.new("What year was the song “My Heart Will Go On” from Titanic
 card_6 = Card.new("How many planets are in the Solar System?", 8, :SCIENCE)
 
 cards = [card_1, card_2, card_3, card_4, card_5, card_6]
-deck_1 = Deck.new(cards)
-round_1 = Round.new(deck_1)
+deck = Deck.new(cards)
+round = Round.new(deck)
 
 def start
-
-
-
-
-
+puts "-" * 50
+puts "This is card number #{@round.current_card} of #{@deck.cards.count}"
 
 end
+
+start
