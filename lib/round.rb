@@ -33,16 +33,16 @@ class Round
   end
 
   def number_correct
-    @turns.select {|turn| turn.correct?}.count
+    @turns.select {|turn| turn.correct?}.length
   end
 
   def number_correct_by_category(category)
-    @turns.select {|turn| turn.card.category == category && turn.correct?}.count
+    @turns.select {|turn| turn.card.category == category && turn.correct?}.length
   end
 
   def percent_correct
     num_correct = number_correct
-    total_questions = @turns.count
+    total_questions = @turns.length
 
     if total_questions == 0
       0.0
@@ -53,7 +53,7 @@ class Round
 
   def percent_correct_by_category(category)
     num_correct = number_correct_by_category(category)
-    num_in_category = @turns.select {|turn| turn.card.category == category}.count
+    num_in_category = @turns.select {|turn| turn.card.category == category}.length
     if num_in_category == 0
       0.0
     else
