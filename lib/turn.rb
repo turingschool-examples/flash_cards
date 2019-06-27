@@ -27,9 +27,9 @@ end
 
   def feedback
     if @guess ==  card.answer
-      puts "Correct!"
+      "Correct!"
     else
-      puts "Inorrect!"
+      "Incorrect!"
     end
   end
 

@@ -35,7 +35,7 @@ end
 def test_feedback
   card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
   turn = Turn.new("Juneau", card)
-  assert_equal "Correct!",turn.feedback
+  assert_equal "Correct!", turn.feedback
 end
 
 
