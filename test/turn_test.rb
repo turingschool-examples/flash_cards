@@ -2,6 +2,8 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/turn'
 require './lib/card'
+require './lib/round'
+require './lib/deck'
 
 class TurnTest < Minitest::Test
 
@@ -18,7 +20,7 @@ class TurnTest < Minitest::Test
 
     assert_equal card, turn.card
   end
-  
+
   def test_guess_exists
     card = Card.new("Baby got what?", "Back", :Music_History)
     turn = Turn.new("Back", card)

@@ -93,11 +93,11 @@ class RoundTest < Minitest::Test
       round = Round.new(deck)
       round.take_turn("Juneau")
 
-      assert_equal 100.0, round.percentage_correct
+      assert_equal 100.0, round.percent_correct
 
       round.take_turn("Wrong answer")
 
-      assert_equal 50.0, round.percentage_correct
+      assert_equal 50.0, round.percent_correct
 
     end
 
@@ -109,7 +109,11 @@ class RoundTest < Minitest::Test
       round = Round.new(deck)
       round.take_turn("Juneau")
 
-      assert_equal 100.0, round.percentage_correct_by_category(:Geography)
+      assert_equal 100.0, round.percent_correct_by_category(:Geography)
+
+      round.take_turn("Boats")
+
+      assert_equal 0.0, round.percent_correct_by_category(:STEM)
     end
 
 
