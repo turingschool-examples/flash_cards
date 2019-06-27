@@ -20,15 +20,25 @@ def start
   #should i get the card number in a different way
 
   #@deck.cards.map do |card|
-  5.times do
-    puts "This is card number 1 out of #{@deck.count + @round.turns.count}"
+  card_number = 1
+  #I want to change the line below to work based on the actual number of cards
+    @deck.count.times do
+  #@deck.cards.map do |card|
+    puts "This is card number #{card_number} out of #{@deck.count + @round.turns.count}"
     puts "Question: #{@round.current_card.question}"
     answer = gets.chomp
     @round.take_turn(answer)
-    puts @deck.cards.count
     puts @round.turns.last.feedback
+    card_number +=1
     #binding.pry
   end
+
+  puts "****** Game over! ******"
+  #i would like to change 5 to be dependent on an input also
+  puts "You had #{@round.number_correct} guesses out of 5 for a total score of
+  #{@round.percent_correct}"
+  puts "Food - #{@round.percent_correct_by_category(:Food)}% correct"
+  puts "Garden - #{@round.percent_correct_by_category(:Garden)}% correct"
 end
 
 start
