@@ -32,8 +32,10 @@ class TurnTest < Minitest::Test
     turn = Turn.new("Juneau", card)
     # I'm also guessing that this wont work, but I am trying to see if correct?
     # returns a boolean
-    assert_equal true || false, turn.correct?
+    assert true || false, turn.correct?
   end
+
+  #Make a new test for the wrong guess
 
   def test_it_has_feedback
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)

@@ -15,8 +15,8 @@ class RoundTest < Minitest::Test
     @cards = [@card_1, @card_2, @card_3]
     @deck = Deck.new(@cards)
     @round = Round.new(@deck)
+    binding.pry
   end
-
   def test_round_exists
 
     assert_instance_of Round, @round
@@ -76,5 +76,4 @@ class RoundTest < Minitest::Test
     assert_equal 100.0, @round.percent_correct_by_category(:Geography)
     assert_equal @card_3, @round.current_card
   end
-
 end

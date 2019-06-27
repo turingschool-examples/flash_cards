@@ -24,7 +24,8 @@ def start
   #I want to change the line below to work based on the actual number of cards
     @deck.count.times do
   #@deck.cards.map do |card|
-    puts "This is card number #{card_number} out of #{@deck.count + @round.turns.count}"
+    puts "This is card number #{card_number} out of #{@deck.count +
+    @round.turns.count}"
     puts "Question: #{@round.current_card.question}"
     answer = gets.chomp
     @round.take_turn(answer)
