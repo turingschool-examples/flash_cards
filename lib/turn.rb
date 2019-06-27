@@ -14,7 +14,7 @@ class Turn
     if correct?
       p "Correct!"
     else
-      p "WORNG!"
+      p "Incorrect."
     end
   end
 end
