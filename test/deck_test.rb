@@ -5,7 +5,7 @@ require './lib/deck'
 
 
 class DeckTest < Minitest::Test
-  def test_does_deck_exit
+  def test_does_deck_exist
     card_1 = Card.new("What is the capital of Italy?", "Rome", :Geography)
     card_2 = Card.new("What is the capital of England?", "London", :Geography)
     card_3 = Card.new("What is Japan's form of currency?", "Yen", :Finance)
@@ -32,7 +32,7 @@ class DeckTest < Minitest::Test
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
 
-    assert_equal deck.count, cards.count
+    assert_equal cards.count, deck.count
   end
 
   def test_cards_in_category
@@ -44,6 +44,7 @@ class DeckTest < Minitest::Test
     deck.cards_in_category(:Geography)
 
     assert_equal [card_1, card_2], deck.cards_in_category(:Geography)
+    assert_equal [card_3], deck.cards_in_category(:Finance)
   end
 
 end
