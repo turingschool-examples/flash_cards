@@ -28,9 +28,9 @@ class PlayGame
 
     puts "****** Game over! ******"
     puts "You had #{round.number_correct} correct guesses out of #{deck_size} for a total score of #{round.percent_correct}%."
-    # puts "#{card_1.category} - #{percent_correct_by_category(card_1.category)} correct
+    # puts "#{card_1.category} - #{round.percent_correct_by_category(card_1.category)} correct"
 
-    round.deck.cards.each do |card|
+    deck.cards.each do |card|
       puts "#{card.category} - #{round.percent_correct_by_category(card.category)}% correct"
     end
   end
