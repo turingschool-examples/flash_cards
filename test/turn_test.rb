@@ -18,6 +18,11 @@ class TurnTest < Minitest::Test
     assert_equal "Juneau", @turn.guess
   end
 
+  def test_it_returns_empty_string_when_no_guess_is_made
+    turn = Turn.new("", @card)
+    assert_equal "", turn.guess
+  end
+
   def test_it_has_a_card
     assert_equal @card, @turn.card
   end
