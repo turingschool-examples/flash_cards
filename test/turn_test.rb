@@ -21,13 +21,10 @@ class TurnTest < Minitest::Test
 
   def test_card_in_turn
     actual_card = @turn.card
-    actual_card_2 = @turn_2.card
     assert_equal @card, actual_card
-    assert_equal @card, actual_card_2
   end
 
   def test_guess_in_turn
-    assert_equal "25", @turn.guess
     assert_equal "I don't know", @turn_2.guess
   end
 
