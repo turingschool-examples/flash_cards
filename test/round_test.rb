@@ -19,78 +19,74 @@ class RoundTest < Minitest::Test
     assert_instance_of Round, @round
   end
 
-  def test_deck
+  def test_initial_attributes
     assert_equal @deck, @round.deck
-  end
-
-  def test_initial_turns
     assert_equal [], @round.turns
   end
 
-  def test_current_card_1
-    assert_equal @card_1, @round.current_card
-  end
-
-  def test_current_card_index
-    assert_equal 0, @round.current_card_index
-  end
-
-  def test_take_turn_1
-    turn_1 = @round.take_turn("10")
-    assert_equal "10", turn_1.guess
-    assert_instance_of Turn, turn_1
-    assert turn_1.correct?
-    assert_equal 1, @round.turns.size
-    assert_equal 1, @round.number_correct
-    assert_equal 1, @round.number_correct_by_category(:Math)
-    assert_equal 0, @round.number_correct_by_category(:Science)
-    assert_equal 100.0, @round.percent_correct
-    assert_equal "Correct!", @round.turns.last.feedback
-    assert_equal 100.0, @round.percent_correct_by_category(:Math)
-    assert_equal 0.0, @round.percent_correct_by_category(:Science)
-  end
-
-  def test_current_card_index_2
+  def test_can_add_turns_to_turns_array
     @round.take_turn("10")
-    assert_equal 1, @round.current_card_index
+    assert_equal 1, @round.turns.length
+    assert_equal @card_1, @round.turns[0].card
   end
 
-  def test_current_card_2
+  def test_current_card
+    assert_equal @card_1, @round.current_card
     @round.take_turn("10")
     assert_equal @card_2, @round.current_card
   end
 
-  def test_take_turn_2
+  def test_current_card_index
+    assert_equal 0, @round.current_card_index
     @round.take_turn("10")
-    turn_2 = @round.take_turn("49")
-    assert_equal "49", turn_2.guess
-    assert_instance_of Turn, turn_2
-    refute turn_2.correct?
-    assert_equal 2, @round.turns.size
+    assert_equal 1, @round.current_card_index
+  end
+
+  def test_take_turn_1
+    turn_1 = @round.take_turn("10")
+    assert_instance_of Turn, turn_1
+    assert_equal "Correct!", @round.turns.last.feedback
+  end
+
+  def test_number_correct
+    @round.take_turn("10")
     assert_equal 1, @round.number_correct
+    @round.take_turn("49")
+    assert_equal 1, @round.number_correct
+    @round.take_turn("water")
+    assert_equal 2, @round.number_correct
+  end
+
+  def number_correct_by_category
+    @round.take_turn("10")
     assert_equal 1, @round.number_correct_by_category(:Math)
     assert_equal 0, @round.number_correct_by_category(:Science)
-    assert_equal 50.0, @round.percent_correct
-    assert_equal "Incorrect.", @round.turns.last.feedback
-    assert_equal 50.0, @round.percent_correct_by_category(:Math)
-    assert_equal 0.0, @round.percent_correct_by_category(:Science)
-  end
-
-  def test_current_3
-    @round.take_turn("10")
     @round.take_turn("49")
-    turn_3 = @round.take_turn("water")
-    assert_equal "water", turn_3.guess
-    assert_instance_of Turn, turn_3
-    assert turn_3.correct?
-    assert_equal 3, @round.turns.size
-    assert_equal 2, @round.number_correct
+    assert_equal 1, @round.number_correct_by_category(:Math)
+    assert_equal 0, @round.number_correct_by_category(:Science)
+    @round.take_turn("water")
     assert_equal 1, @round.number_correct_by_category(:Math)
     assert_equal 1, @round.number_correct_by_category(:Science)
-    assert_equal 66.7, @round.percent_correct
-    assert_equal "Correct!", @round.turns.last.feedback
-    assert_equal 50.0, @round.percent_correct_by_category(:Math)
-    assert_equal 100.0, @round.percent_correct_by_category(:Science)
   end
 
+  def test_percent_correct
+    @round.take_turn("10")
+    assert_equal 100.0, @round.percent_correct
+    @round.take_turn("49")
+    assert_equal 50.0, @round.percent_correct
+    @round.take_turn("water")
+    assert_equal 66.7, @round.percent_correct
+  end
+
+  def test_percent_correct_by_category
+    @round.take_turn("10")
+    assert_equal 100.0, @round.percent_correct_by_category(:Math)
+    assert_equal 0.0, @round.percent_correct_by_category(:Science)
+    @round.take_turn("49")
+    assert_equal 50.0, @round.percent_correct_by_category(:Math)
+    assert_equal 0.0, @round.percent_correct_by_category(:Science)
+    @round.take_turn("water")
+    assert_equal 50.0, @round.percent_correct_by_category(:Math)
+    assert_equal 100.0, @round.percent_correct_by_category(:Science)
+  end 
 end
