@@ -51,19 +51,21 @@ class RoundTest < Minitest::Test
   end
 
   def test_it_counts_number_correct
-    new_turn = @round.take_turn("Juneau")
+    @round.take_turn("Juneau")
+    @round.take_turn("Mars")
 
-    assert_equal 1, @round.number_correct
+    assert_equal 2, @round.number_correct
   end
 
   def test_it_can_change_current_card
 
-    new_turn = @round.take_turn("Juneau")
+    @round.take_turn("Juneau")
+
     assert_equal @card_2, @round.current_card
   end
 
   def test_new_count
-    new_turn = @round.take_turn("Juneau")
+    @round.take_turn("Juneau")
     @round.take_turn("Venus")
     assert_equal 2, @round.turns.count
     assert_equal "Incorrect.", @round.turns.last.feedback

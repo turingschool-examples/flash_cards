@@ -31,7 +31,7 @@ class DeckTest < Minitest::Test
   end
 
   def test_it_displays_cards_in_category
-
+    binding.pry
     assert_equal [@card_2, @card_3], @deck.cards_in_category(:STEM)
 
     assert_equal [@card_1], @deck.cards_in_category(:Geography)

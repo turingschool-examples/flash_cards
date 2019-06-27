@@ -5,7 +5,7 @@ class Round
   def initialize(deck)
     @deck = deck
     @turns = []
-    @current_card = @deck.cards[0]
+    @current_card = @deck.cards.first
     @number_correct = 0
   end
 
@@ -13,11 +13,11 @@ class Round
     turn = Turn.new(guess, @current_card)
     @turns << turn
     @deck.cards.shift
-    @current_card = @deck.cards[0]
+    @current_card = @deck.cards.first
     if @turns.last.correct?
       @number_correct += 1
     end
-    return turn
+    turn
   end
 
   def number_correct_by_category(category)
@@ -27,7 +27,7 @@ class Round
           num_cor += 1
       end
     end
-    return num_cor
+    num_cor
   end
 
   def percent_correct
@@ -41,7 +41,7 @@ class Round
         num_in_cat += 1
       end
     end
-    return number_correct_by_category(category) / num_in_cat.to_f * 100
+    number_correct_by_category(category) / num_in_cat.to_f * 100
   end
 
 end
