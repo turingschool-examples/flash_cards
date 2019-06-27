@@ -12,7 +12,7 @@ class Round
   end
 
   def current_card
-    deck.cards[@current_card_index]
+    @deck.cards[@current_card_index]
   end
 
   def current_card_index
@@ -20,7 +20,7 @@ class Round
   end
 
   def next_card
-    unless @current_card_index == (deck.count - 1)
+    unless @current_card_index == (@deck.count - 1)
       @current_card_index += 1
     end
   end
