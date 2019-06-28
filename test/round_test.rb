@@ -25,6 +25,10 @@ class RoundTest < Minitest::Test
 
   def test_turns
     assert_equal [], @round.turns
+
+    @round.take_turn("Rome")
+
+    assert_equal "Rome", @round.turns.first.guess
   end
 
     def test_current_card
@@ -35,6 +39,24 @@ class RoundTest < Minitest::Test
     new_turn = Turn.new("Rome", @card_1)
 
     assert_equal new_turn.guess, @round.take_turn("Rome").guess
+  end
+
+  def test_if_new_turn_is_class
+    new_turn = Turn.new("Rome", @card_1)
+
+    assert_equal Turn, new_turn.class
+  end
+
+  def test_if_turn_correct
+      new_turn = Turn.new("Rome", @card_1)
+
+    assert_equal true, new_turn.correct?
+  end
+
+  def test_if_turn_incorrect
+    new_turn_2 = Turn.new("Denver", @card_1)
+
+    refute new_turn_2.correct?
   end
 
   def test_number_correct
