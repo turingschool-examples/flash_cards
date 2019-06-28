@@ -7,13 +7,13 @@ class Round
   end
 
   def current_card
-    @deck.cards[0]
+    @deck.cards[@turns.count]
   end
 
   def take_turn(guess)
     new_turn = Turn.new(guess, current_card)
     @turns << new_turn
-    @deck.cards.shift
+    @deck.cards.rotate
     new_turn
   end
 
@@ -45,8 +45,6 @@ class Round
       number_correct_category(category) / @turns.count {|turn|
         turn.card.category == category}.to_f * 100
   end
-
-
 
 
 end
