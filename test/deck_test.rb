@@ -15,8 +15,31 @@ class Deck_test < Minitest::Test
 
     deck = Deck.new(cards)
     assert_instance_of Deck, deck
-  binding.pry
+
+    binding.pry
 
   end
+
+
+  # end
+
+
+  # pry(main)> deck = Deck.new(cards)
+  # #=> #<Deck:0x00007fa160a38ed8...>
+  #
+  # pry(main)> deck.cards
+  # #=> [#<Card:0x00007fa16104e160...>, #<Card:0x00007fa160a62e90...>, #<Card:0x00007fa161a136f0...>]
+  #
+  # pry(main)> deck.count
+  # #=> 3
+  #
+  # pry(main)> deck.cards_in_category(:STEM)
+  # #=> [#<Card:0x00007fa160a62e90...>, #<Card:0x00007fa161a136f0...>]
+  #
+  # pry(main)> deck.cards_in_category(:Geography)
+  # #=> [#<Card:0x00007fa16104e160...>]
+  #
+  # pry(main)> deck.cards_in_category("Pop Culture")
+  # #=> []
 
 end
