@@ -1,0 +1,8 @@
+Question: What company produces the Destroyer disc golf disc?;Innova;Disc Golf
+Question: Is a Firebird overstable or understable?;overstable;Disc Golf
+Question: How many meters from the basket must you be to legally perform a 'jump putt?';10;Disc Golf
+Question: What is the term that refers to scoring one less than par on a hole?;birdie;Disc Golf
+Finish the quote: Just when I think you couldn't possibly be any dumber, you go and do something like this, and totally _______ yourself!;redeem;Movie Quotes
+Finish the quote: Over the line! I'm sorry, Smokey, you were over the line. That's a foul... Mark it _______.;zero;Movie Quotes
+Finish the quote: But this being a .44 Magnum, the most powerful handgun in the world...you've got to ask yourself one question: 'Do I feel ______?' Well, do ya, punk?;lucky;Movie Quotes
+Finish the quote: I'm going to make him an offer he can't _______.;refuse;Movie Quotes
