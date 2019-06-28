@@ -1,5 +1,5 @@
 class Round
-  attr_reader :deck, :turns, :cards, :current_card, :correct_cards, :round
+  attr_reader :deck, :turns, :cards, :current_card, :round
 
   def initialize(deck)
     @deck = deck
@@ -26,11 +26,7 @@ class Round
      if turn.correct?
        correct_cards += 1
      end
-     correct_cards
-  end 
-   # if @round.feedback == "Correct"
-   #   @correct_cards += 1
-   # end
- end
-
+  end
+  correct_cards
+end
 end
