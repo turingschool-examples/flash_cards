@@ -7,8 +7,7 @@ require './lib/turn'
 class TurnTest < Minitest::Test
 
   def setup
-    @guess = "Rome"
-    @card = Card.new("What is the capital of Italy?", @guess, :Geography)
+    @card = Card.new("What is the capital of Italy?", "Rome", :Geography)
     @turn = Turn.new(@guess, @card)
   end
 
@@ -17,7 +16,7 @@ class TurnTest < Minitest::Test
   end
 
   def test_attributes
-    assert_equal @guess, @turn.guess
+    assert_equal "Rome", @turn.guess
     assert_equal @card, @turn.card
   end
 
