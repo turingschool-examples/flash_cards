@@ -6,42 +6,36 @@ require './lib/turn'
 
 class TurnTest < Minitest::Test
 
-  def test_does_turn_exist
-    card = Card.new("What is the capital of Italy?", "Rome", :Geography)
-    turn = Turn.new("Rome", card)
-
-    assert_instance_of Turn, turn
+  def setup
+    @guess = "Rome"
+    @card = Card.new("What is the capital of Italy?", @guess, :Geography)
+    @turn = Turn.new(@guess, @card)
   end
 
-  def test_does_turn_have_a_guess
-    card = Card.new("What is the capital of Italy?", "Rome", :Geography)
-    turn = Turn.new("Rome", card)
-
-    assert_equal "Rome", turn.guess
+  def test_exist
+    assert_instance_of Turn, @turn
   end
 
-  def test_does_turn_have_a_card
-    card = Card.new("What is the capital of Italy?", "Rome", :Geography)
-    turn = Turn.new("Rome", card)
-
-    assert_equal card, turn.card
+  def test_attributes
+    assert_equal @guess, @turn.guess
+    assert_equal @card, @turn.card
   end
 
-  def test_turn_feedback
-    card = Card.new("What is the capital of Italy?", "Rome", :Geography)
-    turn = Turn.new("Rome", card)
-
-    assert_equal "Correct!", turn.feedback
-
-    turn = Turn.new("Denver", card)
-
-    assert_equal "Incorrect!", turn.feedback
+  def test_turn_correct_answer_is_correct
+    assert @turn.correct?
   end
 
-  def test_turn_correct
-    card = Card.new("What is the capital of Italy?", "Rome", :Geography)
-    turn = Turn.new("Rome", card)
+  def test_turn_incorrect_answer_is_not_correct
+    turn_2 = Turn.new("Denver", @card)
+    refute turn_2.correct?
+  end
 
-    assert_equal turn.guess, card.answer
+  def test_turn_correct_feedback
+    assert_equal "Correct.", @turn.feedback
+  end
+
+  def test_turn_incorrect_feedback
+    turn_2 = Turn.new("Denver", @card)
+    assert_equal "Incorrect.", turn_2.feedback
   end
 end
