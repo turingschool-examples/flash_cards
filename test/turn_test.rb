@@ -31,6 +31,10 @@ class TurnTest < Minitest::Test
   def test_correct
     refute @turn.correct?
     assert @turn_2.correct?
+    new_turn = Turn.new("i don't know", @card)
+    assert new_turn.correct?
+    new_turn_2 = Turn.new("I DON't KnoW", @card)
+    assert new_turn_2.correct?
   end
 
   def test_feedback
