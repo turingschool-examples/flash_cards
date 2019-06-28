@@ -33,5 +33,4 @@ class TurnTest < Minitest::Test
     turn = Turn.new("Front", @card)
     assert_equal "Sorry, that's not right", turn.feedback
   end
-
 end
