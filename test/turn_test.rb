@@ -20,7 +20,7 @@ class TurnTest < Minitest::Test
   def test_card_exist
     card = Card.new("What is the capital of New York?", "Albany", :Geography)
     turn = Turn.new("Albany", card)
-    assert_equal "What is the capital of New York?", card.question
+    assert_equal card, turn.card
   end
 
   def test_correct
