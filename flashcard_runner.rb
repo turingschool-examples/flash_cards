@@ -2,7 +2,7 @@ require './lib/card'
 require './lib/turn'
 require './lib/deck'
 require './lib/round'
-require 'pry'
+# require 'pry'
 
 class PlayGame
   def start
@@ -30,9 +30,10 @@ class PlayGame
     puts "You had #{round.number_correct} correct guesses out of #{deck_size} for a total score of #{round.percent_correct}%."
     # puts "#{card_1.category} - #{round.percent_correct_by_category(card_1.category)} correct"
 
-    deck.cards.each do |card|
-      puts "#{card.category} - #{round.percent_correct_by_category(card.category)}% correct"
-    end
+    results = deck.cards.map do |card|
+       "#{card.category} - #{round.percent_correct_by_category(card.category)}% correct"
+     end.uniq.each { |result| puts result }
+
   end
 end
 
