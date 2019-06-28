@@ -34,10 +34,9 @@ class CardGeneratorTest < Minitest::Test
 
   def test_convert_for_cards
     parts = @card_file.convert_for_cards(",")
-    binding.pry 
     assert_instance_of Array, parts
     assert_equal "What is 5 + 5?", parts[0][0]
     assert_equal "nobody knows", parts[2][1]
-    assert_equal "TuringStaff", parts[2][2]
+    assert_equal "Turing Staff", parts[2][2]
   end
 end
