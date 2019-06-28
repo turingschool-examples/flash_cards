@@ -14,7 +14,6 @@ class RoundTest < Minitest::Test
     @cards = [@card_1, @card_2, @card_3]
     @deck = Deck.new(@cards)
     @round = Round.new(@deck)
-    @turn = Turn.new("Juneau", @card)
   end
 
   def test_that_round_exists
@@ -41,4 +40,8 @@ class RoundTest < Minitest::Test
     assert_instance_of Turn, @round.take_turn("Juneau")
   end
 
+  def test_is_new_turn_correct
+
+    assert_equal true, @round.take_turn("Juneau").correct?
+  end
 end
