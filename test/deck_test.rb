@@ -20,22 +20,21 @@ class DeckTest < Minitest::Test
   end
 
   def test_it_has_cards
-# not sure about this
+
   assert_equal @cards, @deck.cards
   end
 
   def test_it_has_count
-#this seems wrong
+
     assert_equal 3, @deck.count
   end
 
   def test_it_displays_cards_in_category
-    binding.pry
+
     assert_equal [@card_2, @card_3], @deck.cards_in_category(:STEM)
 
     assert_equal [@card_1], @deck.cards_in_category(:Geography)
 
     assert_equal [], @deck.cards_in_category("Pop Culture")
   end
-
 end
