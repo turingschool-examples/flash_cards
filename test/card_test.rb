@@ -5,8 +5,7 @@ require './lib/card'
 class CardTest < Minitest::Test
 
   def setup
-    @guess = "Juneau"
-    @card = Card.new("What is the capital of Alaska?", @guess, :Geography)
+    @card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
   def test_exist
     assert_instance_of Card, @card
