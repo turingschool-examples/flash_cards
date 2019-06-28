@@ -12,7 +12,7 @@ card_9 = Card.new("What is the name for the cooking method that involves cooking
 
 @deck = Deck.new([card_5, card_6, card_7, card_8, card_9])
 @round = Round.new(@deck)
-
+#binding.pry
 def start
   puts "Welcome! You're playing with 5 cards."
   puts "-----------------------------------"
@@ -22,8 +22,8 @@ def start
   #@deck.cards.map do |card|
   card_number = 1
   #I want to change the line below to work based on the actual number of cards
-    @deck.count.times do
-  #@deck.cards.map do |card|
+    #@deck.count.times do
+  @deck.cards.each do |card|
     puts "This is card number #{card_number} out of #{@deck.count +
     @round.turns.count}"
     puts "Question: #{@round.current_card.question}"
@@ -31,7 +31,6 @@ def start
     @round.take_turn(answer)
     puts @round.turns.last.feedback
     card_number +=1
-    #binding.pry
   end
 
   puts "****** Game over! ******"
