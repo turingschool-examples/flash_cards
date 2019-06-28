@@ -34,11 +34,8 @@ class RoundTest < MiniTest::Test
     assert_equal Turn, @round.take_turn("Juneau").class
   end
 
-  def test_the_turn_guess_is_correct_if_it_should_be
+  def test_the_turn_guess_is_correct
     assert @round.take_turn("Juneau").correct?
-  end
-
-  def test_the_turn_guess_is_incorrect_if_it_should_be
     refute @round.take_turn("Anchorage").correct?
   end
 
@@ -46,13 +43,9 @@ class RoundTest < MiniTest::Test
     assert_equal [@round.take_turn("Juneau")], @round.turns
   end
 
-  def test_the_number_correct_is_1_after_1_correct_answer
+  def test_the_number_correct
     @round.take_turn("Juneau")
     assert_equal 1, @round.number_correct
-  end
-
-  def test_the_number_correct_is_3_after_3_correct_answers
-    @round.take_turn("Juneau")
     @round.take_turn("Mars")
     @round.take_turn("North north west")
     assert_equal 3, @round.number_correct
