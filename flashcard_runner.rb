@@ -8,7 +8,9 @@ card_1 = Card.new("What is 5 + 5", "10", :STEM)
 card_2 = Card.new("What is Rachel's favorite animal?", "dog", :"Turing Staff")
 card_3 = Card.new("What is Mike's Middle Name?", "nobody knows", :"Turing Staff")
 card_4 = Card.new("What cardboard cutout lives at Turing?", "Justin Bieber", :"Pop Culture")
-deck = Deck.new([card_1, card_2, card_3, card_4])
+card_5 = Card.new("Who is the best pug ever?", "Larry", :"Pugs")
+card_6 = Card.new("Which planet is red?", "Mars", :"STEM")
+deck = Deck.new([card_1, card_2, card_3, card_4, card_5, card_6])
 round_1 = Round.new(deck)
 
 
@@ -38,3 +40,4 @@ puts "You had #{round_1.number_correct} correct answers out of #{deck.cards.coun
 puts "STEM - #{round_1.percent_correct_category(:STEM)}% correct"
 puts "Turing Staff - #{round_1.percent_correct_category(:"Turing Staff")}% correct"
 puts "Pop Culture - #{round_1.percent_correct_category(:"Pop Culture")}% correct"
+puts "Pugs - #{round_1.percent_correct_category(:"Pugs")}% correct"
