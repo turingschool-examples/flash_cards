@@ -11,9 +11,6 @@ class Deck
     @cards = cards
   end
 
-  #def add_card(card)
-    #@cards << card
-  #end
 
 #returns the number of cards in a deck
   def count
