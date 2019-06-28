@@ -13,13 +13,12 @@ class CardGenerator
 
   def convert_for_cards(sep)
     parts = read_to_string.map {|line| line.split(sep)}
-    parts.map {|part| part[2] = part[2].gsub(" ", "")}
   end
 
   def make_cards(sep)
     card_parts = convert_for_cards(sep)
     card_parts.map do |part|
-      Card.new(part[0], part[1], part[2].to_sym)
+      Card.new(part[0], part[1], part[2])
     end
   end
 end
