@@ -1,0 +1,6 @@
+What is 5 + 5,10,STEM
+What is Rachel's favorite animal?,dog,Turing Staff
+What is Mike's Middle Name?,nobody knows,Turing Staff
+What cardboard cutout lives at Turing?,Justin Bieber,Pop Culture
+Who is the best pug ever?,Larry,Pugs
+Which planet is red?,Mars,STEM
