@@ -44,4 +44,11 @@ class RoundTest < Minitest::Test
 
     assert_equal true, @round.take_turn("Juneau").correct?
   end
+
+  def test_check_what_is_current_turn
+    turn_1 = Turn.new("Juneau", @card_1)
+      @round.take_turn("Juneau")
+      assert_instance_of Turn, @round.turns.last
+      assert_equal 1, @round.turns.length
+  end
 end
