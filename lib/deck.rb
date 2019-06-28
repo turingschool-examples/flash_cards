@@ -22,15 +22,7 @@ class Deck
 
 #returns a number of cards in a category
   def cards_in_category(category)
-
-    #look up select method instead of do
-    cards.select {|card| ategory == card.category}
-
-    cards.each do |card|
-      if category == card.category
-        card_with_same_category << cards
-      end
-    end
+    cards.select {|card| category == card.category}
   end
 
 end
