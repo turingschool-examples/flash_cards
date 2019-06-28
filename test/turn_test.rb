@@ -7,43 +7,31 @@ require './lib/deck'
 
 class TurnTest < Minitest::Test
 
-  def test_turn_exists
-    card = Card.new("Baby got what?", "Back", :Music_History)
-    turn = Turn.new("Back", card)
+  def setup
+    @card = Card.new("Baby got what?", "Back", :Music_History)
+    @turn = Turn.new("Back", @card)
+  end
 
-    assert_instance_of Turn, turn
+  def test_turn_exists
+    assert_instance_of Turn, @turn
   end
 
   def test_turn_card
-    card = Card.new("Baby got what?", "Back", :Music_History)
-    turn = Turn.new("Back", card)
-
-    assert_equal card, turn.card
+    assert_equal @card, @turn.card
   end
 
   def test_guess_exists
-    card = Card.new("Baby got what?", "Back", :Music_History)
-    turn = Turn.new("Back", card)
-
-    assert_equal "Back", turn.guess
+    assert_equal "Back", @turn.guess
   end
 
   def test_if_correct
-    card = Card.new("Baby got what?", "Back", :Music_History)
-    turn = Turn.new("Back", card)
-
-    assert_equal "Back", card.answer
+    assert_equal "Back", @card.answer
   end
 
   def test_feedback
-    card = Card.new("Baby got what?", "Back", :Music_History)
-    turn = Turn.new("Front", card)
-
+    assert_equal "You're right!", @turn.feedback
+    turn = Turn.new("Front", @card)
     assert_equal "Sorry, that's not right", turn.feedback
-
-    turn = Turn.new("Back", card)
-
-    assert_equal "You're right!", turn.feedback
   end
 
 end
