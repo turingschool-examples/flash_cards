@@ -1,4 +1,3 @@
-
 class Round
   attr_reader :deck, :turns, :current_card, :number_correct
 
@@ -43,5 +42,4 @@ class Round
     end
     (number_correct_by_category(category) / num_in_cat.to_f * 100).round(1)
   end
-
 end
