@@ -24,7 +24,7 @@ def start(round)
   total_cards = round.deck.cards.count
   puts "Welcome!, You're playing with #{total_cards} cards!"
   puts "-" * 50
-    round.deck.cards.each do |card|
+      round.deck.cards.each do |card|
       card_number = (round.deck.cards.index(card)) + 1
       puts "This is card #{card_number} out of #{total_cards}."
       puts "Question: #{card.question}"
