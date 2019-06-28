@@ -7,7 +7,7 @@ class Round
   end
 
   def current_card
-    @deck.cards[0]
+    @deck.cards[@turns.count]
   end
 
   def take_turn(guess)
