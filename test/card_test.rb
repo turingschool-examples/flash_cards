@@ -4,6 +4,7 @@ require './lib/turn'
 require './lib/card'
 require './lib/round'
 require './lib/deck'
+require './lib/card_generator'
 
 class CardTest < Minitest::Test
 

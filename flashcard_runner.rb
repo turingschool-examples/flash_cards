@@ -2,6 +2,7 @@ require './lib/card'
 require './lib/deck'
 require './lib/turn'
 require './lib/round'
+require './lib/card_generator'
 require 'pry'
 
 card_1 = Card.new("Which 1997 film stars Nicolas Cage, John Cusack, and John Malkovich?",
