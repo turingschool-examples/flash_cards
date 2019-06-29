@@ -17,6 +17,7 @@ class RoundTest < Minitest::Test
     @round = Round.new(@deck)
   end
 
+
   def test_round_exists
 
     assert_instance_of Round, @round
