@@ -10,4 +10,10 @@ class Round
     @deck.cards[@turns.count]
   end
 
+  def take_turn(guess)
+    Turn.new(guess, @deck.cards.first)
+
+
+  end
+
 end
