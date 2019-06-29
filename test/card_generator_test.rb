@@ -22,7 +22,6 @@ class CardTest < Minitest::Test
   end
 
   def test_data_extraction
-    @card_generator
     refute_empty @card_generator.cards
   end
 end

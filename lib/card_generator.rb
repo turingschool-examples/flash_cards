@@ -9,8 +9,8 @@ class CardGenerator
 
   def cards
     card_file = File.readlines(user_file).collect do |line|
-      card = line.chomp.split(",")
-      Card.new(card[0], card[1], card[2].to_sym)
+      new_card = line.chomp.split(",")
+      Card.new(new_card[0], new_card[1], new_card[2].to_sym)
     end
   end
 end
