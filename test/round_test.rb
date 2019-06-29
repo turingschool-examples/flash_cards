@@ -13,13 +13,13 @@ class Round_test < Minitest::Test
     @card_2 = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
     @card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
     @deck = Deck.new([@card_1, @card_2, @card_3])
-  require "pry"; binding.pry
+    @round = Round.new(@deck)
   end
 
   def test_round_exists
-    round = Round.new(@deck)
+    @round = Round.new(@deck)
+    require "pry"; binding.pry
   end
-# #=> #<Round:0x00007f972a1c7960...>,
 #
 # pry(main)> round.deck
 # #=> #<Deck:0x00007fa160a38ed8...>
