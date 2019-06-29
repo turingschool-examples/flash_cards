@@ -10,3 +10,6 @@ class Deck
     @cards.length
   end
 end
+
+def setup
+end
