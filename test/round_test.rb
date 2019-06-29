@@ -27,18 +27,12 @@ class Round_test < Minitest::Test
 
   def test_round_card
     @round.current_card
-    #require "pry"; binding.pry
   end
 
   def test_new_turn
-    new_turn = @round.take_turn("Juneau")    
+    new_turn = @round.take_turn("Juneau")
+    require "pry"; binding.pry
   end
-#
-# pry(main)> new_turn = round.take_turn("Juneau")
-# #=> #<Turn:0x00007f99842f09e8 @card=#<Card:0x00007f800e29f0c9 @question=""What is the capital of Alaska?", @answer="Juneau", @category=:Geography>, @guess="Juneau">
-#
-# pry(main)> new_turn.class
-# #=> Turn
 #
 # pry(main)> new_turn.correct?
 # #=> true
