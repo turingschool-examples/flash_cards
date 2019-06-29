@@ -15,8 +15,12 @@ card_5 = Card.new("What year was the song “My Heart Will Go On” from Titanic
 "1997", :MOVIES)
 card_6 = Card.new("How many planets are in the Solar System?", "8", :SCIENCE)
 
+@filename = "./lib/cards.txt"
+@card_generator = CardGenerator.new(@filename)
+@inputed_user_cards = @card_generator.cards
+
 cards = [card_1, card_2, card_3, card_4, card_5, card_6]
-deck = Deck.new(cards)
+deck = Deck.new(@inputed_user_cards)
 round_1 = Round.new(deck)
 
 all_categories = []

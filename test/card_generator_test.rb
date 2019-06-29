@@ -5,24 +5,24 @@ require './lib/card'
 require './lib/round'
 require './lib/deck'
 require './lib/card_generator'
-require 'pry'
 
 class CardTest < Minitest::Test
 
   def setup
     @filename = "./lib/cards.txt"
-    @cards = CardGenerator.new(@filename)
+    @card_generator = CardGenerator.new(@filename)
   end
 
   def test_cards_is_a_generator
-    assert_instance_of CardGenerator, @cards
+    assert_instance_of CardGenerator, @card_generator
   end
 
   def test_cards_is_same_file
-    assert File.open("./lib/cards.txt"), @cards.file
+    assert File.open("./lib/cards.txt"), @cards_generator
   end
 
   def test_data_extraction
-    refute_empty @cards.extract_data
+    @card_generator
+    refute_empty @card_generator.cards
   end
 end

@@ -1,28 +1,16 @@
+require './lib/card'
 
-require 'pry'
 class CardGenerator
-  attr_reader :file, :split_lines
+  attr_reader :user_file
 
-  def initialize(file)
-    @file = File.open(file)
-    @split_lines = []
-    @base_cards = []
+  def initialize(user_file)
+    @user_file = user_file
   end
 
-
-  def extract_data
-    @file.read.split(",").each do |item|
-      if item
-
-  end
-
-  def assign_type
-    @split_lines.map{|line| line.include("?")}
+  def cards
+    card_file = File.readlines(user_file).collect do |line|
+      card = line.chomp.split(",")
+      Card.new(card[0], card[1], card[2].to_sym)
+    end
   end
 end
-
-
-filename = "./lib/cards.txt"
-cards = CardGenerator.new(filename)
-
-binding.pry
