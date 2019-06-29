@@ -4,7 +4,7 @@ require './lib/deck'
 require './lib/round'
 require './lib/card_generator'
 
-card_1 = Card.new("Who was the first Disney princess?", "Persephone", :Pop_Culture)
+card_1 = Card.new("Who was the first Disney princess?", "persephone", :Pop_Culture)
 card_2 = Card.new("Janis Joplin, Jimi Hendrix, Jim Morrisson, and Kurt Cobain were all what age when they died?", "27", :Music)
 card_3 = Card.new("Who originally sang the song 'I Love Rock 'N Roll'?", "Arrows", :Pop_Culture)
 card_4 = Card.new("Who was the lead singer of the 1980's group Culture Club?", "Boy George", :Music)

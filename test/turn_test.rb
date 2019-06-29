@@ -8,7 +8,7 @@ class TurnTest < Minitest::Test
 
   def setup
     @card = Card.new("What is the capital of Italy?", "Rome", :Geography)
-    @turn = Turn.new(@guess, @card)
+    @turn = Turn.new("Rome", @card)
   end
 
   def test_exist
