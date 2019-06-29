@@ -61,8 +61,66 @@ class RoundTest < Minitest::Test
   end
 
   def test_show_current_card_2
-    turn_2 = Turn.new("Saturn", @card_2)
-    @round.take_turn("Saturn")
+    turn_2 = Turn.new("Venus", @card_2)
+    @round.take_turn("Venus")
     assert_equal @card_2, @round.current_card
+  end
+
+  def test_current_count
+
+    turn_1 = Turn.new("Juneau", @card_1)
+    turn_2 = Turn.new("Venus", @card_2)
+    @round.take_turn("Juneau")
+    @round.take_turn("Venus")
+    assert_equal 2, @round.turns.count
+  end
+
+  def test_is_second_guess_correct
+
+    turn_1 = Turn.new("Juneau", @card_1)
+    turn_2 = Turn.new("Venus", @card_2)
+    @round.take_turn("Juneau")
+    @round.take_turn("Venus")
+
+  assert_equal "Incorrect.", @round.turns.last.feedback
+  end
+
+  def test_number_of_guesses_correct
+    turn_1 = Turn.new("Juneau", @card_1)
+    turn_2 = Turn.new("Venus", @card_2)
+    @round.take_turn("Juneau")
+    @round.take_turn("Venus")
+
+    assert_equal 1, @round.number_correct
+  end
+
+  def test_number_correct_by_category_geography
+
+    turn_1 = Turn.new("Juneau", @card_1)
+    turn_2 = Turn.new("Venus", @card_2)
+    @round.take_turn("Juneau")
+    @round.take_turn("Venus")
+
+    assert_equal 1, @round.number_correct_by_category(:Geography)
+  end
+
+  def test_number_correct_by_category_geography
+
+    turn_1 = Turn.new("Juneau", @card_1)
+    turn_2 = Turn.new("Venus", @card_2)
+    @round.take_turn("Juneau")
+    @round.take_turn("Venus")
+
+    assert_equal 0, @round.number_correct_by_category(:STEM)
+  end
+
+  def test_what_is_percent_correct
+
+    turn_1 = Turn.new("Juneau", @card_1)
+    turn_2 = Turn.new("Venus", @card_2)
+    @round.take_turn("Juneau")
+    @round.take_turn("Venus")
+
+    assert_equal 50.0, @round.percent_correct
   end
 end
