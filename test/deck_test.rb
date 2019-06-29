@@ -22,13 +22,14 @@ class Deck_test < Minitest::Test
   end
 
   def test_category_exist
-    x =[@card_2, @card_3]
-    assert_equal x , @deck.cards_in_category(:STEM)
+    stems =[@card_2, @card_3]
+    assert_equal stems , @deck.cards_in_category(:STEM)
   end
 
-  # pry(main)> deck.cards_in_category(:STEM)
-  # #=> [#<Card:0x00007fa160a62e90...>, #<Card:0x00007fa161a136f0...>]
-  #
+  def test_geo_category
+    geo =[@card_1]
+    assert_equal geo , @deck.cards_in_category(:Geography)
+  end
   # pry(main)> deck.cards_in_category(:Geography)
   # #=> [#<Card:0x00007fa16104e160...>]
   #
