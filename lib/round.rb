@@ -26,7 +26,7 @@ class Round
   end
 
   def percent_correct
-    percent = (@number_correct.to_f / @deck.cards.count * 100).round(2)
+    percent = (@number_correct.to_f / @deck.cards.count * 100).round
     percent.to_s + "%"
   end
 
@@ -34,7 +34,7 @@ class Round
     total_in_category = @turns.find_all do |turn|
       category == turn.card.category
     end
-    percent = (number_correct_by_category(category).to_f / total_in_category.count * 100).round(2)
+    percent = (number_correct_by_category(category).to_f / total_in_category.count * 100).round
     percent.to_s + "%"
   end
 end
