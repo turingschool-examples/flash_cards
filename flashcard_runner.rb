@@ -4,7 +4,6 @@ require './lib/turn'
 require './lib/round'
 require 'pry'
 
-
 card_1 = Card.new("Which 1997 film stars Nicolas Cage, John Cusack, and John Malkovich?",
 "con air", :MOVIES)
 card_2 = Card.new("What type of galaxy is the most common in the universe?",
@@ -18,6 +17,10 @@ card_6 = Card.new("How many planets are in the Solar System?", "8", :SCIENCE)
 cards = [card_1, card_2, card_3, card_4, card_5, card_6]
 deck = Deck.new(cards)
 round_1 = Round.new(deck)
+
+all_categories = []
+cards.select{|card| all_categories << card.category}
+@uniq_categories = all_categories.uniq
 
 def start(round)
   total_cards = round.deck.cards.count
@@ -34,9 +37,9 @@ def start(round)
 
     puts "******* Game Over! *******"
     puts "You had #{round.number_correct} correct guesses out of #{total_cards} for a total score of #{round.percent_correct}%."
-    puts "Movies - #{(round.percent_correct_by_category(:MOVIES)).round}% correct!"
-    puts "Science - #{(round.percent_correct_by_category(:SCIENCE)).round}% correct!"
-
+    @uniq_categories.each do |category|
+      p "#{category} - #{(round.percent_correct_by_category(category)).round}% correct!"
+    end
 end
 
 start(round_1)
