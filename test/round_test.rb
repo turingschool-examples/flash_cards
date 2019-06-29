@@ -23,12 +23,12 @@ class Round_test < Minitest::Test
   def test_turn_exists
     turns = []
     assert_equal [], @round.turns
-  require "pry"; binding.pry
   end
-#
-# pry(main)> round.turns
-# #=> []
-#
+
+  def test_round_card
+    @round.current_card
+    require "pry"; binding.pry
+  end
 # pry(main)> round.current_card
 # #=> #<Card:0x00007fa16104e160 @answer="Juneau", @question="What is the capital of Alaska?", @category=:Geography>
 #
