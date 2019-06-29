@@ -9,10 +9,8 @@ class Deck
   end
 
   def cards_in_category(category)
-    cards_with_same_category = []
-    cards.each do |card|
-      cards_with_same_category << card if category == card.category
+    card_array_by_category = cards.find_all do |card|
+      category == card.category
     end
-    cards_with_same_category
   end
 end
