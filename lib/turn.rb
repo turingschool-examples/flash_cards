@@ -1,8 +1,8 @@
 class Turn
   attr_reader :guess, :card
 
-  def initialize(string, card)
-    @guess = string
+  def initialize(guess, card)
+    @guess = guess
     @card = card
   end
 
@@ -18,7 +18,4 @@ class Turn
     end
   end
 
-  def test_method
-    if this works, only this branch should be changed
-  end
 end
