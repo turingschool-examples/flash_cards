@@ -30,10 +30,10 @@ class Deck_test < Minitest::Test
     geo =[@card_1]
     assert_equal geo , @deck.cards_in_category(:Geography)
   end
-  # pry(main)> deck.cards_in_category(:Geography)
-  # #=> [#<Card:0x00007fa16104e160...>]
   #
-  # pry(main)> deck.cards_in_category("Pop Culture")
-  # #=> []
+  def test_culture_category
+    pop =[]
+    assert_equal pop , @deck.cards_in_category("Pop Culture")
+  end
 
 end
