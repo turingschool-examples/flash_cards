@@ -9,7 +9,8 @@ class Deck
   def count
     @cards.length
   end
-end
 
-def setup
+  def cards_in_category(category)
+    cards.select {|card| category == card.category}
+  end
 end
