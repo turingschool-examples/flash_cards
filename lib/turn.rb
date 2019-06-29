@@ -17,4 +17,8 @@ class Turn
       "Incorrect."
     end
   end
+
+  def test_method
+    if this works, only this branch should be changed
+  end
 end
