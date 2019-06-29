@@ -18,11 +18,13 @@ class Round_test < Minitest::Test
 
   def test_round_exists
     @round = Round.new(@deck)
-    require "pry"; binding.pry
   end
-#
-# pry(main)> round.deck
-# #=> #<Deck:0x00007fa160a38ed8...>
+
+  def test_turn_exists
+    turns = []
+    assert_equal [], @round.turns
+  require "pry"; binding.pry
+  end
 #
 # pry(main)> round.turns
 # #=> []
