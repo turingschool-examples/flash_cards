@@ -26,8 +26,7 @@ def start
     #@deck.count.times do
   #@deck.cards.each do |card|
   @deck.count.times do
-    puts "This is card number #{card_number} out of #{@deck.count +
-    @round.turns.count}"
+    puts "This is card number #{card_number} out of #{@deck.count}"
     puts "Question: #{@round.current_card.question}"
     answer = gets.chomp
     @round.take_turn(answer)
@@ -39,7 +38,7 @@ def start
   puts "****** Game over! ******"
   #i would like to change 5 to be dependent on an input also
   puts "You had #{@round.number_correct} guesses out of 5 for a total score of
-  #{@round.percent_correct}"
+  #{@round.percent_correct}%"
 
   puts "Food - #{@round.percent_correct_by_category(:Food)}% correct"
   puts "Garden - #{@round.percent_correct_by_category(:Garden)}% correct"
