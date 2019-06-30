@@ -1,5 +1,5 @@
 class Round
-  attr_reader :the_deck, :turns, :number_correct, :number_correct_by_category, :percent_correct
+  attr_reader :the_deck, :turns, :number_correct, :number_correct_by_category, :percent_correct, :percent_correct_by_category
 
   def initialize(the_deck)
     @the_deck = the_deck
@@ -27,5 +27,9 @@ class Round
 
   def percent_correct
     return ((@number_correct.to_f / @turns.count.to_f).to_f) * 100
+  end
+
+  def percent_correct_by_category(category)
+    return ((number_correct_by_category(category).to_f / @the_deck.cards_in_category(category).count)) * 100
   end
 end
