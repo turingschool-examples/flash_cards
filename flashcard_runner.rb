@@ -38,14 +38,7 @@ def start
     results << card.category
   end
 
-  results_uniq = results.uniq
-  results_final = ""
-  results_uniq.each do |result|
-    results_final = result
-  end
-
-  final_result = ""
-  results_uniq.each do |category|
+  results.uniq.each do |category|
     puts "#{category} - #{@round.percent_correct_by_category(category)}% correct"
   end
 
