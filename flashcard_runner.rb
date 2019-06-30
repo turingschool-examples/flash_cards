@@ -37,6 +37,7 @@ def start
   puts "Geography - #{@round.percent_correct_by_category(:Geography)}%"
   puts "Sports - #{@round.percent_correct_by_category(:Sports)}%"
   puts "Music - #{@round.percent_correct_by_category(:Music)}%"
+  puts ""
 end
 
 start
