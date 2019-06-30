@@ -19,13 +19,14 @@ def start
   puts "-----"
   #should i get the card number in a different way
 
+
   #@deck.cards.map do |card|
   card_number = 1
   #I want to change the line below to work based on the actual number of cards
     #@deck.count.times do
-  @deck.cards.each do |card|
-    puts "This is card number #{card_number} out of #{@deck.count +
-    @round.turns.count}"
+  #@deck.cards.each do |card|
+  @deck.count.times do
+    puts "This is card number #{card_number} out of #{@deck.count}"
     puts "Question: #{@round.current_card.question}"
     answer = gets.chomp
     @round.take_turn(answer)
@@ -33,12 +34,34 @@ def start
     card_number +=1
   end
 
+
   puts "****** Game over! ******"
   #i would like to change 5 to be dependent on an input also
   puts "You had #{@round.number_correct} guesses out of 5 for a total score of
-  #{@round.percent_correct}"
-  puts "Food - #{@round.percent_correct_by_category(:Food)}% correct"
-  puts "Garden - #{@round.percent_correct_by_category(:Garden)}% correct"
+  #{@round.percent_correct}%"
+
+
+  #binding.pry
+  results = []
+  @round.deck.cards.each do |card|
+    results << card.category
+  end
+
+  results_uniq = results.uniq
+  #binding.pry
+  results_final = ""
+  results_uniq.each do |result|
+    results_final = result
+  end
+
+  final_result = ""
+  results_uniq.each do |category|
+    puts "#{category} - #{@round.percent_correct_by_category(category)}% correct"
+    #binding.pry
+  end
+
+  #puts "#{results_final} - #{@round.percent_correct_by_category(:Food)}% correct"
+  #puts "#{results_final} - #{@round.percent_correct_by_category(:Garden)}% correct"
 end
 
 start
