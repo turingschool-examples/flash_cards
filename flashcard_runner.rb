@@ -3,6 +3,7 @@ require './lib/turn'
 require './lib/deck'
 require './lib/round'
 
+
 @card_1 = Card.new("What is the capital of Michigan?", "lansing", :Geography)
 @card_2 = Card.new("Which NHL team has won the most Stanley Cups (city + team name)?","montreal canadiens",:Sports)
 @card_3 = Card.new("Which musician recently had a movie released about his life starring Taron Egerton and Richard Madden?","elton john",:Music)
