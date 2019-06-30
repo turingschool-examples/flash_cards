@@ -4,7 +4,6 @@ require './lib/card'
 require './lib/deck'
 require './lib/round'
 require './lib/turn'
-require "pry"
 
 class RoundTest < Minitest::Test
   def setup
@@ -88,5 +87,5 @@ class RoundTest < Minitest::Test
     @round.take_turn("water")
     assert_equal 50.0, @round.percent_correct_by_category(:Math)
     assert_equal 100.0, @round.percent_correct_by_category(:Science)
-  end 
+  end
 end
