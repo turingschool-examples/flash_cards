@@ -60,8 +60,6 @@ def start
     #binding.pry
   end
 
-  #puts "#{results_final} - #{@round.percent_correct_by_category(:Food)}% correct"
-  #puts "#{results_final} - #{@round.percent_correct_by_category(:Garden)}% correct"
 end
 
 start
