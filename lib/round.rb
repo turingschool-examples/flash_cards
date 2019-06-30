@@ -1,3 +1,6 @@
+require './lib/card'
+require './lib/turn'
+require './lib/deck'
 class Round
   attr_reader :deck,:turns
   def initialize(deck)
@@ -8,11 +11,11 @@ class Round
 
 def current_card
 @deck.cards[0]
+
 end
 
 def take_turn(guess) #takes the turn
-current_card = @deck.cards[0]
-new_turn = Turn.new(guess, @deck.cards[0])
+new_turn = Turn.new(guess, current_card)
 @turns << new_turn
 @deck.cards.rotate
 current_card = @deck.cards[0]
@@ -44,8 +47,10 @@ def number_correct_by_category(category)
     end
 
     def percent_correct_category(category)
-      @round.number_correct_by_category(category) / @turns.count {|turn|
-        turn.card.category == category}.to_f * 100
+      turn_cat = @turns.find_all do |turn|
+        turn.card.category == category
+      end.count
+      number_correct_by_category(category).to_f / turn_cat * 100.0
     end
 
 
