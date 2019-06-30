@@ -28,9 +28,9 @@ class TurnTest < Minitest::Test
   end
 
   def test_feedback_on_guess
-    assert_equal "Correct!", @turn.feedback
+    assert_equal "Nailed it!", @turn.feedback
 
     turn_2 = Turn.new("Seattle", @card)
-    assert_equal "Incorrect.", turn_2.feedback
+    assert_equal "Womp womp. Be better.", turn_2.feedback
   end
 end
