@@ -22,7 +22,7 @@ def start(deck, round)
   deck.cards.each do |card|
     puts "This is card number #{round.deck.cards.index(card) + 1} out of #{deck.cards.count}."
     puts "Question: #{card.question}"
-    guess = gets.chomp
+    guess = gets.chomp.downcase
     puts round.take_turn(guess).feedback
   end
 
