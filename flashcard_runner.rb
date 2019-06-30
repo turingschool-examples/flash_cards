@@ -40,8 +40,13 @@ def start
   puts "You had #{@round.number_correct} guesses out of 5 for a total score of
   #{@round.percent_correct}%"
 
-  puts "Food - #{@round.percent_correct_by_category(:Food)}% correct"
-  puts "Garden - #{@round.percent_correct_by_category(:Garden)}% correct"
+  #binding.pry
+  results = @round.deck.cards.each do |card|
+    puts card.category
+  end
+
+  puts "#{results} - #{@round.percent_correct_by_category(:Food)}% correct"
+  puts "#{results} - #{@round.percent_correct_by_category(:Garden)}% correct"
 end
 
 start
