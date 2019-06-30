@@ -19,5 +19,7 @@ class Turn
     else
       "Incorrect!"
     end
+  #OR
+  #correct ? ? "Correct": "Incorrect"
   end
 end
