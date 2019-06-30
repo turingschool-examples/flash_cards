@@ -37,7 +37,7 @@ class Round
     puts "Welcome! You're playing with 8 cards."
     puts "-------------------------------------------------"
     puts "This is card number 1 out of 8."
-    puts "Question: What is the capital of Alaska?"
+    puts "Question: #{current_card.question}"
   end
 
   def correct_answer
@@ -50,37 +50,37 @@ class Round
 
   def start_turn_2
     puts "This is card number 2 out of 8."
-    puts "Question: The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?"
+    puts "Question: #{current_card.question}"
   end
 
   def start_turn_3
     puts "This is card number 3 out of 8."
-    puts "Question: Describe in words the exact direction that is 697.5° clockwise from due north?"
+    puts "Question: #{current_card.question}"
   end
 
   def start_turn_4
     puts "This is card number 4 out of 8."
-    puts "Question: What is the capital of Argentina?"
+    puts "Question: #{current_card.question}"
   end
 
   def start_turn_5
     puts "This is card number 5 out of 8."
-    puts "What is the capital of Rhode Island?"
+    puts "Question: #{current_card.question}"
   end
 
   def start_turn_6
     puts "This is card number 6 out of 8."
-    puts "Which year did The Lord of the Rings: Return of the King win Best Picture at the Academy Awards?"
+    puts "Question: #{current_card.question}"
   end
 
   def start_turn_7
     puts "This is card number 7 out of 8."
-    puts "What is the first movie that grossed over 1 billion dollars worldwide at the box office?"
+    puts "Question: #{current_card.question}"
   end
 
   def start_turn_8
     puts "This is card number 8 out of 8."
-    puts "What was the first movie released in the MCU (Marvel Cinematic Universe)?"
+    puts "Question: #{current_card.question}"
   end
 
   def end_game
