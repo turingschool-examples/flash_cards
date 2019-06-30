@@ -102,3 +102,7 @@ if answer_8 == card_8.answer
   round.correct_answer
 else round.incorrect_answer
 end
+
+### END OF GAME ###
+
+round.end_game

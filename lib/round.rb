@@ -82,4 +82,12 @@ class Round
     puts "This is card number 8 out of 8."
     puts "What was the first movie released in the MCU (Marvel Cinematic Universe)?"
   end
+
+  def end_game
+    puts "****** Game over! ******"
+    puts "You had #{@number_correct} correct guesses out of #{@turns.count} for a total score of #{percent_correct.to_i}%"
+    puts "Geography - #{percent_correct_by_category(:Geography).to_i}% correct"
+    puts "STEM - #{percent_correct_by_category(:STEM).to_i}% correct"
+    puts "Movies - #{percent_correct_by_category(:Movies).to_i}% correct"
+  end
 end
