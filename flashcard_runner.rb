@@ -40,13 +40,28 @@ def start
   puts "You had #{@round.number_correct} guesses out of 5 for a total score of
   #{@round.percent_correct}%"
 
+
   #binding.pry
-  results = @round.deck.cards.each do |card|
-    puts card.category
+  results = []
+  @round.deck.cards.each do |card|
+    results << card.category
   end
 
-  puts "#{results} - #{@round.percent_correct_by_category(:Food)}% correct"
-  puts "#{results} - #{@round.percent_correct_by_category(:Garden)}% correct"
+  results_uniq = results.uniq
+  #binding.pry
+  results_final = ""
+  results_uniq.each do |result|
+    results_final = result
+  end
+
+  final_result = ""
+  results_uniq.each do |category|
+    puts "#{category} - #{@round.percent_correct_by_category(category)}% correct"
+    #binding.pry
+  end
+
+  #puts "#{results_final} - #{@round.percent_correct_by_category(:Food)}% correct"
+  #puts "#{results_final} - #{@round.percent_correct_by_category(:Garden)}% correct"
 end
 
 start
