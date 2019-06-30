@@ -1,11 +1,17 @@
 require 'csv'
 require './lib/card'
-require 'pry'
+# require 'pry'
 
-class ClassGenerator
+class CardGenerator
 
-  arr_of_arrs = CSV.read("lib/cards.txt")
-  cards = arr_of_arrs.each {|row| p Card.new(row[0], row[1], row[2]) }
-  cards
+  def initialize(filename)
+    @filename = filename
+  end
+
+  def generate
+    arr_of_arrs = CSV.read(@filename)
+    cards = arr_of_arrs.map {|row| p Card.new(row[0], row[1], row[2]) }
+    cards
+  end
 
 end
