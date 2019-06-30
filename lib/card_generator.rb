@@ -1,11 +1,9 @@
-require './lib/card'
-
 class CardGenerator
   def initialize(filename = "cards.txt")
     @filename = filename
   end
 
-  def cards
+  def cards_from_file
     first_array = File.readlines(@filename).map do |line|
       line.split(",")
     end
