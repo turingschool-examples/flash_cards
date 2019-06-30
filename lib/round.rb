@@ -1,4 +1,3 @@
-require 'pry'
 require './lib/card'
 require './lib/deck'
 require './lib/turn'
@@ -61,11 +60,3 @@ class Round
     end
   end
 end
-# card1 = Card.new("5 + 5 = ", "10", :Math)
-# card2 = Card.new("7 * 6 = ", "42", :Math)
-# card3 = Card.new("H2O is", "water", :Science)
-# cards = [card1, card2, card3]
-# deck = Deck.new(cards)
-# round = Round.new(deck)
-# turn_1 = round.take_turn("10")
-# binding.pry
