@@ -1,4 +1,3 @@
-require 'pry'
 require './lib/card'
 
 class CardGenerator
@@ -10,7 +9,6 @@ class CardGenerator
     @cards = []
   end
 
-
   def cards
     cards = []
 
@@ -19,8 +17,6 @@ class CardGenerator
       # .chomp removes carriage return \n
       bits = line.chomp.split(',')
 
-      #  card_1 = Card.new("What is Rachel's favorite animal?","red panda", "Turing Staff")
-
       question = bits[0]
       answer = bits[1]
       category = bits[2]
@@ -28,10 +24,10 @@ class CardGenerator
       card = Card.new(question, answer, category)
       cards << card
     end
+
     f.close
     cards
-  end
 
-  binding.pry
+  end
 
 end
