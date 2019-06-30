@@ -32,4 +32,19 @@ class Round
   def percent_correct_by_category(category)
     return ((number_correct_by_category(category).to_f / @the_deck.cards_in_category(category).count)) * 100
   end
+
+  def start
+    puts "Welcome! You're playing with 7 cards."
+    puts "-------------------------------------------------"
+    puts "This is card number 1 out of 7."
+    puts "Question: What is the capital of Alaska?"
+  end
+
+  def correct_answer
+    puts "Correct!"
+  end
+
+  def incorrect_answer
+    puts "Incorrect."
+  end
 end
