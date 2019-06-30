@@ -7,6 +7,7 @@ require 'pry'
 
 
 #create some cards
+<<<<<<< HEAD
 @card_1 = Card.new("Name the main Charecter in FLCL.", "Naota", :ANIME)
 @card_2 = Card.new("Name the robot in FLCL.", "Kanti", :ANIME)
 @card_3 = Card.new("Name the protagonist in FLCL.", "Haruko", :ANIME)
@@ -18,6 +19,19 @@ require 'pry'
 @round = Round.new(@deck) #make new round with anime deck
 
 def start
+=======
+card_1 = Card.new("Name the main Charecter in FLCL.", "Naota", :ANIME)
+card_2 = Card.new("Name the robot in FLCL.", "Kanti", :ANIME)
+card_3 = Card.new("Name the protagonist in FLCL.", "Haruko", :ANIME)
+card_4 = Card.new("Who is the Astro Pirate King?", "Atomisk", :ANIME)
+
+#put those cards into a deck
+@card_stack_anime = [card_1,card_2,card_3,card_4] #first put the cards into an array
+@anime_deck = Deck.new([card_stack_anime]) #put anime card stack array into new deck obj
+@new_round = Round.new(anime_deck) #make new round with anime deck
+
+def start(round)
+>>>>>>> 5d2baf7f1c4949e649cc3d074294cadb67c60155
 
   puts " "
   puts " "
@@ -29,6 +43,7 @@ def start
   puts "This is card number 1 out of 4..."
   puts "--------------------------------------"
 
+<<<<<<< HEAD
 
     @cards.each do |card| #iterates through cards
     puts "Question: #{card.question}"
@@ -50,3 +65,15 @@ end #end start method
 
 
 start #calls start method
+=======
+  @round.deck.each do |card|
+    puts "Question: #{@card.question}"
+    puts "Type your answer -> "
+    @guess = gets.chomp #gets user answer
+    @round.take_turn(guess)
+    puts round.turns.last.feedback
+  end
+end
+
+start(new_round) #calls start method
+>>>>>>> 5d2baf7f1c4949e649cc3d074294cadb67c60155
