@@ -9,11 +9,7 @@ class CardGenerator
     end
     second_array = first_array.flatten
     third_array = second_array.map do |element|
-      if element.include?("\n")
-        element.chomp
-      else
-        element
-      end
+      element.include?("\n") ? element.chomp : element
     end
     fourth_array = third_array.each_slice(3).to_a
     card_array = fourth_array.map do |array|
