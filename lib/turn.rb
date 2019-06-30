@@ -12,7 +12,7 @@ class Turn
 
   def feedback
     if @guess == @card.answer
-      "Correct!"
+      "Nailed it!"
     else
       "Womp womp. Be better."
     end
