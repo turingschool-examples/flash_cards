@@ -15,11 +15,8 @@ class RoundTest < Minitest::Test
     @round = Round.new(@deck)
   end
 
-  def test_does_round_exist
+  def test_attributes
     assert_instance_of Round, @round
-  end
-
-  def test_does_deck_exist_in_round
     assert_equal @deck, @round.deck
   end
 
@@ -50,7 +47,7 @@ class RoundTest < Minitest::Test
   def test_if_turn_correct
       new_turn = Turn.new("Rome", @card_1)
 
-    assert_equal true, new_turn.correct?
+    assert new_turn.correct?
   end
 
   def test_if_turn_incorrect
