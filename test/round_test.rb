@@ -17,26 +17,27 @@ class Round_test < Minitest::Test
   end
 
   def test_round_exists
-    @round = Round.new(@deck)
+    assert_instance_of Round, @round
   end
 
-  def test_turn_exists
-    turns = []
+  def test_round_can_contain_turn
     assert_equal [], @round.turns
   end
 
-  def test_round_card
-    @round.current_card
+  def test_current_card_for_round
+    assert_equal @card_1, @round.current_card
   end
 
-  def test_new_turn
-    new_turn = @round.take_turn("Juneau")
-    require "pry"; binding.pry
+  def test_new_turn #Why new turn returns array and pattern says return "Turn"?
+    new_turn = @round.take_turn ("Juneau")
+
+    assert_instance_of Turn, new_turn.first
   end
-#
-# pry(main)> new_turn.correct?
-# #=> true
-#
+
+  def test_correct_answer
+  new_turn = @round.take_turn("Juneau")
+    assert_equal true, new_turn[0].correct?
+  end
 # pry(main)> round.turns
 # #=> [#<Turn:0x00007f99842f09e8 @card=#<Card:0x00007f800e29f0c9 @question=""What is the capital of Alaska?", @answer="Juneau", @category=:Geography>, @guess="Juneau">]
 #
