@@ -16,12 +16,6 @@ class RoundTest < Minitest::Test
     @deck = Deck.new(@cards)
     @round = Round.new(@deck)
   end
-  #binding.pry
-  #binding.pry
-<<<<<<< HEAD
-
-=======
->>>>>>> 13a30ca220bff3a8dcae9681e94a4d3de0d010bd
 
   def test_round_exists
 

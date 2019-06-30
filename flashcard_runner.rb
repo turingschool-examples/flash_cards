@@ -12,19 +12,12 @@ card_9 = Card.new("What is the name for the cooking method that involves cooking
 
 @deck = Deck.new([card_5, card_6, card_7, card_8, card_9])
 @round = Round.new(@deck)
-#binding.pry
 def start
   puts "Welcome! You're playing with 5 cards."
   puts "-----------------------------------"
   puts "-----"
-  #should i get the card number in a different way
 
-
-  #@deck.cards.map do |card|
   card_number = 1
-  #I want to change the line below to work based on the actual number of cards
-    #@deck.count.times do
-  #@deck.cards.each do |card|
   @deck.count.times do
     puts "This is card number #{card_number} out of #{@deck.count}"
     puts "Question: #{@round.current_card.question}"
@@ -36,19 +29,16 @@ def start
 
 
   puts "****** Game over! ******"
-  #i would like to change 5 to be dependent on an input also
   puts "You had #{@round.number_correct} guesses out of 5 for a total score of
   #{@round.percent_correct}%"
 
 
-  #binding.pry
   results = []
   @round.deck.cards.each do |card|
     results << card.category
   end
 
   results_uniq = results.uniq
-  #binding.pry
   results_final = ""
   results_uniq.each do |result|
     results_final = result
@@ -57,21 +47,8 @@ def start
   final_result = ""
   results_uniq.each do |category|
     puts "#{category} - #{@round.percent_correct_by_category(category)}% correct"
-    #binding.pry
   end
 
-  puts "if I can print this line and not add or commit the changes and
-  then git push origin master and get the message (everything up to date),
-  the issue might be that tylor hasn't commited
-  "
-
-  puts "I am making another change as a test"
 end
 
 start
-
-    #should i get the card number in a different way
-#   puts "This is card number 2 out of #{@deck.count + @round.turns.count}"
-#   puts "Question: #{@round.current_card.question}"
-#
-# end

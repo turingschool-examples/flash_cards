@@ -27,18 +27,13 @@ class TurnTest < Minitest::Test
   end
 
   def test_it_returns_boolean_for_correct?
-    # I'm also guessing that this wont work, but I am trying to see if correct?
-    # returns a boolean
     assert true || false, @turn.correct?
   end
 
-  #Make a new test for the wrong guess
-
   def test_it_has_feedback
-    # Also not sure about this text, can I test using or?
     assert_equal "Correct!", @turn.feedback
 
-    @turn = Turn.new("J", @card)
-    assert_equal "Incorrect.", @turn.feedback
+    turn = Turn.new("J", @card)
+    assert_equal "Incorrect.", turn.feedback
   end
 end

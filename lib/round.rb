@@ -11,9 +11,6 @@ class Round
   def take_turn(guess)
     turn = Turn.new(guess, @current_card)
     @turns << turn
-    #i think the problem is somewhere in here, it rotates The
-    #deck, but then it reverts back to the original after
-    #the method has ended
     @deck.cards.rotate!
     @current_card = @deck.cards.first
     if @turns.last.correct?
@@ -21,17 +18,6 @@ class Round
     end
     turn
   end
-
-  # def take_turn(guess)
-  #   turn = Turn.new(guess, @current_card)
-  #   @turns << turn
-  #   @deck.cards.shift
-  #   @current_card = @deck.cards.first
-  #   if @turns.last.correct?
-  #     @number_correct += 1
-  #   end
-  #   turn
-  # end
 
   def number_correct_by_category(category)
     num_cor = 0
