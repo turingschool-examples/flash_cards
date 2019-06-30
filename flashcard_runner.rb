@@ -64,6 +64,8 @@ def start
   then git push origin master and get the message (everything up to date),
   the issue might be that tylor hasn't commited
   "
+
+  puts "I am making another change as a test"
 end
 
 start
