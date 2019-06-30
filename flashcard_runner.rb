@@ -60,6 +60,10 @@ def start
     #binding.pry
   end
 
+  puts "if I can print this line and not add or commit the changes and
+  then git push origin master and get the message (everything up to date),
+  the issue might be that tylor hasn't commited
+  "
 end
 
 start
