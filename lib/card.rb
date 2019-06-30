@@ -6,8 +6,8 @@ attr_reader :question,
             :category
 
 def initialize(question, answer, category)
-  @question = question 
+  @question = question
   @answer = answer
   @category = category
-end #end init method
+end 
 end#end class
