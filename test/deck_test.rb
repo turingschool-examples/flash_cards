@@ -16,7 +16,6 @@ class DeckTest < Minitest::Test
   end
 
   def test_deck_exists
-
     @card_1
     @card_2
     @card_3
@@ -27,32 +26,23 @@ class DeckTest < Minitest::Test
   end
 
   def test_deck_has_cards
+      @cards
+      @deck
 
+      assert_equal @cards, @deck.cards
+   end
+
+  def test_count_of_cards_in_deck
       @card_1
       @card_2
       @card_3
       @cards
       @deck
 
-      assert_equal @cards, @deck.cards
-      assert_equal @card_1, @deck.cards[0]
-      assert_equal @card_2, @deck.cards[1]
-      assert_equal @card_3, @deck.cards[2]
-  end
-
-def test_count_of_cards_in_deck
-
-  @card_1
-  @card_2
-  @card_3
-  @cards
-  @deck
-
-  assert_equal @cards.count, @deck.count
+  assert_equal @cards.length, @deck.count
 end
 
 def test_category_is_stem
-
   @card_1
   @card_2
   @card_3
