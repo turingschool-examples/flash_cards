@@ -103,7 +103,6 @@ class RoundTest < Minitest::Test
 
     new_turn = round.take_turn("Mars")
     assert_equal 2, round.number_correct
-
   end
 
   def test_number_correct_category
@@ -132,7 +131,6 @@ class RoundTest < Minitest::Test
     round.take_turn("Mars")
 
     assert_equal 100, round.percent_correct
-
   end
 
   def test_percent_correct_category
@@ -145,7 +143,6 @@ class RoundTest < Minitest::Test
     round.take_turn("Mars")
 
     assert_equal 100, round.percent_correct_category(:Geography)
-
   end
 
   def test_current_card
@@ -171,8 +168,4 @@ class RoundTest < Minitest::Test
 
     assert_equal 100, round.percent_correct_category(:STEM)
   end
-
-
-
-
 end

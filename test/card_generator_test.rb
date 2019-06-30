@@ -7,10 +7,10 @@ require 'pry'
 class CardGeneratorTest < Minitest::Test
 
 
-def test_card_generate
-  deck = CardGenerator.new("cards.txt").cards
+  def test_card_generate
+    deck = CardGenerator.new("cards.txt").cards
 
-  assert_instance_of Card, deck.first
-end
+    assert_instance_of Card, deck.first
+  end
 
 end
