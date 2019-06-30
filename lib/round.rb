@@ -12,10 +12,10 @@ class Round
   end
 
   def take_turn(guess)
-     record_turn = Turn.new(guess, current_card)
-     @turns << record_turn
-     record_turn
-     @current_card += 1
+    record_turn = Turn.new(guess, current_card)
+    @turns << record_turn
+    record_turn
+    @current_card += 1
   end
 
   def number_correct
@@ -33,12 +33,11 @@ class Round
   end
 
   def percent_correct
-    (number_correct / @turns.count.to_f) * 100
+    ((number_correct / @turns.count.to_f) * 100).round
   end
 
   def percent_correct_by_category(category)
-    number_correct_by_category(category) / @turns.count {|turn|
-      turn.card.category == category}.to_f * 100
+    (number_correct_by_category(category) / @turns.count {|turn|
+    turn.card.category == category}.to_f * 100).round
   end
-
 end
