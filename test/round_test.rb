@@ -37,7 +37,7 @@ class RoundTest < Minitest::Test
   end
 
   def test_round_current_card_method
-
+    skip
     assert_equal @card_1, @round.current_card
   end
 
@@ -59,6 +59,11 @@ class RoundTest < Minitest::Test
   def test_number_correct_method
 
     assert_equal 1, @round.number_correct
+  end
+
+  def test_number_current_card_new_mars
+
+    assert_equal @card_2, @round.current_card
   end
 
 end
