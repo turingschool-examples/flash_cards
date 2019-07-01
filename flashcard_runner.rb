@@ -17,7 +17,7 @@ round = Round.new(deck)
 
 ### TURN 1 ###
 round.start
-answer_1 = gets.chomp.downcase.to_s
+answer_1 = gets.chomp.downcase.strip.to_s
 turn_1 = Turn.new(answer_1, card_1)
 round.take_turn(answer_1)
 
@@ -28,7 +28,7 @@ end
 
 ### TURN 2 ###
 round.start_turn_2
-answer_2 = gets.chomp.downcase.to_s
+answer_2 = gets.chomp.downcase.strip.to_s
 turn_2 = Turn.new(answer_2, card_2)
 round.take_turn(answer_2)
 
@@ -39,7 +39,7 @@ end
 
 ### TURN 3 ###
 round.start_turn_3
-answer_3 = gets.chomp.downcase.to_s
+answer_3 = gets.chomp.downcase.strip.to_s
 turn_3 = Turn.new(answer_3, card_3)
 round.take_turn(answer_3)
 
@@ -50,7 +50,7 @@ end
 
 ### TURN 4 ###
 round.start_turn_4
-answer_4 = gets.chomp.downcase.to_s
+answer_4 = gets.chomp.downcase.strip.to_s
 turn_4 = Turn.new(answer_4, card_4)
 round.take_turn(answer_4)
 
@@ -61,7 +61,7 @@ end
 
 ### TURN 5 ###
 round.start_turn_5
-answer_5 = gets.chomp.downcase.to_s
+answer_5 = gets.chomp.downcase.strip.to_s
 turn_5 = Turn.new(answer_5, card_5)
 round.take_turn(answer_5)
 
@@ -72,7 +72,7 @@ end
 
 ### TURN 6 ###
 round.start_turn_6
-answer_6 = gets.chomp.downcase.to_s
+answer_6 = gets.chomp.downcase.strip.to_s
 turn_6 = Turn.new(answer_6, card_6)
 round.take_turn(answer_6)
 
@@ -83,7 +83,7 @@ end
 
 ### TURN 7 ###
 round.start_turn_7
-answer_7 = gets.chomp.downcase.to_s
+answer_7 = gets.chomp.downcase.strip.to_s
 turn_7 = Turn.new(answer_7, card_7)
 round.take_turn(answer_7)
 
@@ -94,7 +94,7 @@ end
 
 ### TURN 8 ###
 round.start_turn_8
-answer_8 = gets.chomp.downcase.to_s
+answer_8 = gets.chomp.downcase.strip.to_s
 turn_8 = Turn.new(answer_8, card_8)
 round.take_turn(answer_8)
 
