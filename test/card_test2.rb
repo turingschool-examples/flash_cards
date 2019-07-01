@@ -1,8 +1,8 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require './lib/card'
+require './lib/card2'
 
-class CardTest < Minitest::Test
+class Card2Test < Minitest::Test
 
   def test_it_exists
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
