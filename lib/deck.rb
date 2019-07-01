@@ -18,5 +18,9 @@ class Deck
   def cards_in_category(category)
     @cards.select {|card| category == card.category}
   end
+#why does this? but when called @deck.cards = @deck.cards.rotate, why no work?
+  def rotate_cards
+    @cards = @cards.rotate
+  end
 
 end
