@@ -1,11 +1,9 @@
 class Round
-  attr_reader :deck, :turns, :cards, :current_card, :round
+  attr_reader :deck, :turns, :current_card
 
   def initialize(deck)
     @deck = deck
     @turns = []
-    @cards = cards
-    @round = round
     @current_card = 0
   end
 
@@ -17,15 +15,15 @@ class Round
    new_turn = Turn.new(guess, current_card)
    @turns << new_turn
    @current_card += 1
-   return new_turn
+   new_turn
  end
 
- def number_correct
-   correct_cards = 0
-   turns.each do |turn|
-     if turn.correct?
-       correct_cards += 1
-     end
+  def number_correct
+    correct_cards = 0
+    turns.each do |turn|
+      if turn.correct?
+        correct_cards += 1
+      end
     end
     correct_cards
   end

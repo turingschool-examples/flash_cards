@@ -24,13 +24,14 @@ class TurnTest < Minitest::Test
   end
 
   def test_guess_is_correct
-    assert_equal true, @turn.correct?
+    assert @turn.correct?
   end
 
   def test_feedback_on_guess
     assert_equal "Nailed it!", @turn.feedback
 
     turn_2 = Turn.new("Seattle", @card)
+    refute turn.correct?
     assert_equal "Womp womp. Be better.", turn_2.feedback
   end
 end
