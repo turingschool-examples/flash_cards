@@ -1,3 +1,4 @@
+require './lib/card'
 
 class Turn
 
@@ -9,14 +10,17 @@ class Turn
 
   def correct?
     @guess == @card.answer
+    #require "pry"; binding.pry
  end
 
   def feedback
     if @guess == @card.answer
       "Correct!"
     else
-      "Incorrect!"
+      "Incorrect."
+
     end
+
   end
 
 end#end class
