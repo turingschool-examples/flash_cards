@@ -47,17 +47,16 @@ class RoundTest < Minitest::Test
 
   def test_round_take_turn_correct_method
 
-    new_turn = round.take_turn("Juneau")
+    new_turn = @round.take_turn("Juneau")
 
     assert_equal true, new_turn.correct?
   end
 
   def test_round_turns_return_card_1
-    skip
 
-    new_turn = round.take_turn("Juneau")
+    new_turn = @round.take_turn("Juneau")
 
-    assert_instance_of Turn, round.turns
+    assert_instance_of Array, @round.turns
   end
 
 end
