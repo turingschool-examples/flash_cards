@@ -15,12 +15,15 @@ class RoundTest < Minitest::Test
     @round = Round.new(@deck)
   end
 
-  def test_attributes
+  def test_existance
     assert_instance_of Round, @round
+  end
+
+  def test_attributes
     assert_equal @deck, @round.deck
   end
 
-  def test_turns
+  def test_turns_adds_turn
     assert_equal [], @round.turns
 
     @round.take_turn("Rome")
@@ -28,7 +31,7 @@ class RoundTest < Minitest::Test
     assert_equal "Rome", @round.turns.first.guess
   end
 
-    def test_current_card
+  def test_current_card
     assert_equal @card_1, @round.current_card
   end
 
@@ -45,7 +48,7 @@ class RoundTest < Minitest::Test
   end
 
   def test_if_turn_correct
-      new_turn = Turn.new("Rome", @card_1)
+    new_turn = Turn.new("Rome", @card_1)
 
     assert new_turn.correct?
   end
@@ -73,9 +76,6 @@ class RoundTest < Minitest::Test
   def test_percent_correct
     @round.take_turn("Rome")
     @round.take_turn("Denver")
-    @round.number_correct_by_category(:Geography)
-    @round.number_correct_by_category(:STEM)
-    @round.percent_correct
 
     assert_equal 50.0, @round.percent_correct
   end

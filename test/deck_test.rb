@@ -31,6 +31,7 @@ class DeckTest < Minitest::Test
 
     assert_equal [@card_1, @card_2], @deck.cards_in_category(:Geography)
     assert_equal [@card_3], @deck.cards_in_category(:Finance)
+    assert_equal [], @deck.cards_in_category("Banana")
   end
 
 end
