@@ -19,11 +19,6 @@ class Round
   end
 
   def number_correct
-    # count = 0
-    # @turns.each { |turn| count += 1 if turn.correct? }
-    # count
-
-    # neater version
     @turns.count { |turn| turn.correct? }
   end
 
