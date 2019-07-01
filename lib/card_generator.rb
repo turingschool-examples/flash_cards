@@ -1,33 +1,16 @@
+require 'csv'
 require './lib/card'
 
 class CardGenerator
 
-  attr_reader :filename
-
   def initialize(filename)
     @filename = filename
-    @cards = []
   end
 
-  def cards
-    cards = []
-
-    f = File.open(@filename, "r")
-    f.each_line do |line|
-      # .chomp removes carriage return \n
-      bits = line.chomp.split(',')
-
-      question = bits[0]
-      answer = bits[1]
-      category = bits[2]
-
-      card = Card.new(question, answer, category)
-      cards << card
-    end
-
-    f.close
+  def generate
+    arr_of_arrs = CSV.read(@filename)
+    cards = arr_of_arrs.map {|row| p Card.new(row[0], row[1], row[2]) }
     cards
-
   end
 
 end
