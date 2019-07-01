@@ -23,12 +23,6 @@ end
     assert_instance_of Deck, @deck
   end
 
-  def test_deck_new
-
-    assert_instance_of Deck, @deck
-
-  end
-
   def test_deck_cards_attribute
 
     assert_equal @cards, @deck.cards
@@ -39,7 +33,7 @@ end
     assert_equal 3, @deck.count
   end
 
-  def test_cards_in_category_steam
+  def test_cards_in_category_stem
 
     assert_equal @card_2_and_card_3, @deck.cards_in_category(:STEM)
   end
@@ -53,5 +47,7 @@ end
 
     assert_equal [], @deck.cards_in_category("Pop Culture")
   end
+
+  #when make method, CREATE A TEST. 
 
 end

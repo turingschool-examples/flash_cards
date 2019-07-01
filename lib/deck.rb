@@ -11,7 +11,7 @@ class Deck
 
 #returns the number of cards in a deck
   def count
-    @cards.count
+    @cards.length
   end
 
 #returns a number of cards in a category
@@ -19,8 +19,8 @@ class Deck
     @cards.select {|card| category == card.category}
   end
 #why does this? but when called @deck.cards = @deck.cards.rotate, why no work?
-  def rotate_cards
-    @cards = @cards.rotate
-  end
+  # def rotate_cards
+  #   @cards = @cards.rotate
+  # end
 
 end
