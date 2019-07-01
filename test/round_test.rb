@@ -16,6 +16,9 @@ class RoundTest < Minitest::Test
     @deck = Deck.new([@card_1, @card_2, @card_3])
 
     @round = Round.new(@deck)
+
+    @new_turn = @round.take_turn("Juneau")
+
   end
 
   def test_round_new
@@ -29,7 +32,7 @@ class RoundTest < Minitest::Test
   end
 
   def test_round_turns_method
-
+    skip
     assert_equal [], @round.turns
   end
 
@@ -40,23 +43,22 @@ class RoundTest < Minitest::Test
 
   def test_round_take_turn_method
 
-    new_turn = @round.take_turn("Juneau")
-
-    assert_equal Turn, new_turn.class
+    assert_equal Turn, @new_turn.class
   end
 
   def test_round_take_turn_correct_method
 
-    new_turn = @round.take_turn("Juneau")
-
-    assert_equal true, new_turn.correct?
+    assert_equal true, @new_turn.correct?
   end
 
   def test_round_turns_return_card_1
 
-    new_turn = @round.take_turn("Juneau")
-
     assert_instance_of Array, @round.turns
+  end
+
+  def test_number_correct_method
+
+    assert_equal 1, @round.number_correct
   end
 
 end
