@@ -12,7 +12,7 @@ cards = [card_1, card_2, card_3, card_4]
 deck = Deck.new(cards)
 round = Round.new(deck)
 
-category = {}
+# category = {}
 
 def start (deck, round)
   index = 1
@@ -31,10 +31,9 @@ start(deck, round)
 
 puts "****** Game Over! ******"
 puts "You have #{round.number_correct} correct guesses out of #{round.deck.cards.count} for a total score of #{round.percent_correct.round(2)}."
-round.deck.cards.each do |card|
-  category [card.category] = nil
-end
+all_categories = cards.map{|card|card.category}
+categories = all_categories.uniq
 
-category.each do |key, value|
-  puts "#{key} - #{round.percent_correct_by_category(key)} correct"
+categories.each do |name|
+  puts "#{name} - #{round.percent_correct_by_category(name)} correct"
 end
