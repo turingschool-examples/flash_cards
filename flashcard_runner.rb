@@ -23,7 +23,7 @@ def start
     puts "This is card number #{card_num} out of #{@deck.count}."
     puts "Question: #{@round.current_card.question}"
     puts "Your guess:"
-    @round.take_turn(gets.chomp.downcase)
+    @round.take_turn(gets.chomp)
     puts "#{@round.turns.last.feedback}"
     card_num += 1
   end

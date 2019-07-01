@@ -24,7 +24,7 @@ class DeckTest < Minitest::Test
   end
 
   def test_deck_count
-    assert_equal @cards.count, @deck.count
+    assert_equal @cards.length, @deck.count
   end
 
   def test_cards_in_category
