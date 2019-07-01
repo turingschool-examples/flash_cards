@@ -14,7 +14,6 @@ class DeckTest < Minitest::Test
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
 
-
     assert_instance_of Deck, deck
   end
 

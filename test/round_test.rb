@@ -18,13 +18,14 @@ class RoundTest < Minitest::Test
 
   def test_that_round_exists
 
-  assert_instance_of Round, @round
+    assert_instance_of Round, @round
   end
 
   def test_that_round_has_deck
 
     assert_instance_of Deck, @round.the_deck
   end
+
   def test_that_round_has_turns
 
     assert_equal [], @round.turns
@@ -48,6 +49,7 @@ class RoundTest < Minitest::Test
   def test_check_what_is_current_turn
     turn_1 = Turn.new("Juneau", @card_1)
     @round.take_turn("Juneau")
+
     assert_instance_of Turn, @round.turns.last
     assert_equal 1, @round.turns.length
   end
@@ -63,6 +65,7 @@ class RoundTest < Minitest::Test
   def test_show_current_card_2
     turn_2 = Turn.new("Venus", @card_2)
     @round.take_turn("Venus")
+
     assert_equal @card_2, @round.current_card
   end
 
@@ -72,6 +75,7 @@ class RoundTest < Minitest::Test
     turn_2 = Turn.new("Venus", @card_2)
     @round.take_turn("Juneau")
     @round.take_turn("Venus")
+
     assert_equal 2, @round.turns.count
   end
 
@@ -82,7 +86,7 @@ class RoundTest < Minitest::Test
     @round.take_turn("Juneau")
     @round.take_turn("Venus")
 
-  assert_equal "Incorrect.", @round.turns.last.feedback
+    assert_equal "Incorrect.", @round.turns.last.feedback
   end
 
   def test_number_of_guesses_correct

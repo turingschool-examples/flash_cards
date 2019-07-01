@@ -26,7 +26,7 @@ class Round
   end
 
   def percent_correct
-    return ((@number_correct.to_f / @turns.count.to_f).to_f) * 100
+    return ((@number_correct.to_f / @turns.count)) * 100
   end
 
   def percent_correct_by_category(category)
@@ -34,9 +34,9 @@ class Round
   end
 
   def start
-    puts "Welcome! You're playing with 8 cards."
+    puts "Welcome! You're playing with #{@the_deck.count} cards."
     puts "-------------------------------------------------"
-    puts "This is card number 1 out of 8."
+    puts "This is card number #{@the_deck.cards[0..0].count} out of 8."
     puts "Question: #{current_card.question}"
   end
 
@@ -49,37 +49,37 @@ class Round
   end
 
   def start_turn_2
-    puts "This is card number 2 out of 8."
+    puts "This is card number #{@the_deck.cards[0..1].count} out of 8."
     puts "Question: #{current_card.question}"
   end
 
   def start_turn_3
-    puts "This is card number 3 out of 8."
+    puts "This is card number #{@the_deck.cards[0..2].count} out of 8."
     puts "Question: #{current_card.question}"
   end
 
   def start_turn_4
-    puts "This is card number 4 out of 8."
+    puts "This is card number #{@the_deck.cards[0..3].count} out of 8."
     puts "Question: #{current_card.question}"
   end
 
   def start_turn_5
-    puts "This is card number 5 out of 8."
+    puts "This is card number #{@the_deck.cards[0..4].count} out of 8."
     puts "Question: #{current_card.question}"
   end
 
   def start_turn_6
-    puts "This is card number 6 out of 8."
+    puts "This is card number #{@the_deck.cards[0..5].count} out of 8."
     puts "Question: #{current_card.question}"
   end
 
   def start_turn_7
-    puts "This is card number 7 out of 8."
+    puts "This is card number #{@the_deck.cards[0..6].count} out of 8."
     puts "Question: #{current_card.question}"
   end
 
   def start_turn_8
-    puts "This is card number 8 out of 8."
+    puts "This is card number #{@the_deck.cards[0..7].count} out of 8."
     puts "Question: #{current_card.question}"
   end
 
