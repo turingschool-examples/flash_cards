@@ -9,18 +9,16 @@ class Turn
     end
 
   def correct?
-    @guess == @card.answer
+    @guess.downcase == @card.answer.downcase
     #require "pry"; binding.pry
- end
+  end
 
   def feedback
-    if @guess == @card.answer
+    if correct?
       "Correct!"
     else
       "Incorrect."
-
     end
-
   end
 
 end#end class

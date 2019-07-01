@@ -16,71 +16,36 @@ class DeckTest < Minitest::Test
   end
 
   def test_deck_exists
-    @card_1
-    @card_2
-    @card_3
-    @cards
-    @deck
-
     assert_instance_of Deck, @deck
   end
 
   def test_deck_has_cards
-      @cards
-      @deck
-
-      assert_equal @cards, @deck.cards
-   end
+    assert_equal @cards, @deck.cards
+  end
 
   def test_count_of_cards_in_deck
-      @card_1
-      @card_2
-      @card_3
-      @cards
-      @deck
+    assert_equal @cards.length, @deck.count
+  end
 
-  assert_equal @cards.length, @deck.count
-end
+  def test_category_is_stem
+    actual = [@card_2, @card_3]
+    expected = @deck.cards_in_category(:STEM)
 
-def test_category_is_stem
-  @card_1
-  @card_2
-  @card_3
-  @cards
-  @deck
+    assert_equal actual,expected
+  end
 
-  actual = [@card_2, @card_3]
-  expected = @deck.cards_in_category(:STEM)
+  def test_category_is_geography
+    actual = [@card_1]
+    expected = @deck.cards_in_category(:Geography)
 
-  assert_equal actual,expected
-end
+    assert_equal actual,expected
+  end
 
-def test_category_is_geography
+  def  test_category_are_popculture
+    actual = []
+    expected = @deck.cards_in_category(:Popculture)
 
-  @card_1
-  @card_2
-  @card_3
-  @cards
-  @deck
-
-  actual = [@card_1]
-  expected = @deck.cards_in_category(:Geography)
-
-  assert_equal actual,expected
-end
-
-def  test_category_are_popculture
-
-  @card_1
-  @card_2
-  @card_3
-  @cards
-  @deck
-
-  actual = []
-  expected = @deck.cards_in_category(:Popculture)
-
-  assert_equal actual,expected
-end
+    assert_equal actual,expected
+  end
 
 end #end class

@@ -22,19 +22,10 @@ class RoundTest < Minitest::Test
   end #end setup
 
   def test_if_deck_and_round_exist #pry 1-9
-    @card_1
-    @card_2
-    @card_3
-    @cards
-    @deck
-    @round
-    @turns
-    assert_instance_of Deck, @deck
     assert_instance_of Round, @round
   end
 
   def test_if_round_has_deck
-
     assert_equal @deck, @round.deck
   end
 
@@ -47,18 +38,16 @@ class RoundTest < Minitest::Test
   end
 
   def test_if_new_turn_has_class
-    new_turn = Turn.new("Juneau",@card_1)
-    assert_equal Turn, new_turn.class
-  end
+    new_turn = @round.take_turn("Juneau")
 
-  def test_if_turn_is_correct
-      new_turn = Turn.new("Juneau",@card_1)
-      assert_equal true, new_turn.correct?
+    assert_equal Turn, new_turn.class
+    assert_equal true, new_turn.correct?
   end
 
   def test_new_turns_array
-    new_turn = Turn.new("Juneau", @card_1)
-    assert_equal @turns, @round.turns
+    new_turn = @round.take_turn("Juneau")
+
+    assert_equal [new_turn], @round.turns
   end
 
   def test_for_number_correct
@@ -71,10 +60,18 @@ class RoundTest < Minitest::Test
     assert_equal 1, @round.number_correct_by_category(:Geography)
   end
 
+  def test_for_percent_correct_overall
+      @round.take_turn("Juneau")
+      assert_equal 100, @round.percent_correct
+      @round.take_turn("oops")
+      assert_equal 50, @round.percent_correct
+  end
 
 
   def test_for_percent_by_category
+    @round.take_turn("Juneau")
     assert_equal 100, @round.percent_correct_category(:Geography)
+    assert_equal 0, @round.percent_correct_category(:STEM)
   end
 
 

@@ -12,8 +12,8 @@ class Deck
     @cards.length
   end
 
-  def cards_in_category(category_)
-    cards.select {|card| card.category == category_}
+  def cards_in_category(category_match)
+    cards.select {|card| card.category == category_match}
   end
 
 end #end class
