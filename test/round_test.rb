@@ -40,15 +40,16 @@ class RoundTest < MiniTest::Test
   end
 
   def test_the_new_turn_is_moved_to_turns_array
-    assert_equal [@round.take_turn("Juneau")], @round.turns
+    last_turn = @round.take_turn("Juneau")
+    assert_equal [last_turn], @round.turns
   end
 
   def test_the_number_correct
     @round.take_turn("Juneau")
     assert_equal 1, @round.number_correct
-    @round.take_turn("Mars")
+    @round.take_turn("Saturn") # => incorrect
     @round.take_turn("North north west")
-    assert_equal 3, @round.number_correct
+    assert_equal 2, @round.number_correct
   end
 
   def test_it_gets_a_new_current_card_after_a_turn
@@ -69,14 +70,14 @@ class RoundTest < MiniTest::Test
     @round.take_turn("Juneau")
     @round.take_turn("Venus")
     @round.take_turn("North north west")
-    assert_equal "67%", @round.percent_correct
+    assert_equal 67, @round.percent_correct.round
   end
 
   def test_percent_correct_by_category
     @round.take_turn("Juneau")
     @round.take_turn("Venus")
     @round.take_turn("North north west")
-    assert_equal "100%", @round.percent_correct_by_category(:Geography)
-    assert_equal "50%", @round.percent_correct_by_category(:STEM)
+    assert_equal 100, @round.percent_correct_by_category(:Geography).round
+    assert_equal 50, @round.percent_correct_by_category(:STEM).round
   end
 end
