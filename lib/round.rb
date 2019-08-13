@@ -62,4 +62,22 @@ class Round
         return self.number_correct.to_f / turns.length.to_f * 100
     end
 
+    # Define method to calculate percent correct by category
+    def percent_correct_by_category(category)
+        # Count the number of cards used within the given category
+        cards_in_cat = 0
+        @turns.each do |turn|
+            if turn.card.category == category
+                cards_in_cat += 1
+            end
+        end
+
+        # Return the number correct in given category divided by total cards
+        if cards_in_cat != 0
+            return self.number_correct_by_category(category).to_f / cards_in_cat.to_f * 100
+        # Avoid dividing by 0
+        else
+            return 0
+        end
+    end
 end
