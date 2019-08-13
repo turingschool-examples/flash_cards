@@ -1,8 +1,12 @@
 require 'minitest/autorun'
 require 'minitest/pride'
+require 'pry'
 require './lib/card'
 
 class CardTest < Minitest::Test
+
+  def setup
+  end 
 
   def test_it_exists
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
