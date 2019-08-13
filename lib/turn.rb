@@ -17,4 +17,13 @@ class Turn
             return false
         end
     end
+
+    # Define method to give feedback on guess
+    def feedback
+        if self.correct? == true
+            return "Correct!"
+        else
+            return "Incorrect."
+        end
+    end
 end
