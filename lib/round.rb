@@ -57,4 +57,9 @@ class Round
         return correct
     end
 
+    # Define method to calculate percent correct
+    def percent_correct
+        return self.number_correct.to_f / turns.length.to_f * 100
+    end
+
 end
