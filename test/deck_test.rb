@@ -3,7 +3,7 @@ require 'minitest/pride'
 require './lib/card'
 require './lib/deck'
 
-class CardTest < Minitest::Test
+class DeckTest < Minitest::Test
 
   CARD_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
   CARD_2 = Card.new("The Viking spacecrafte sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
@@ -38,7 +38,7 @@ class CardTest < Minitest::Test
     if test_1.eql?([CARD_1]) && test_2.eql?([CARD_2, CARD_3])
       pass = true
     end
-    
+
     assert_equal true, pass
   end
 
