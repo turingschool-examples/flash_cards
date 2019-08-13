@@ -1,6 +1,6 @@
 class Deck
-    # Allow user to read/write cards after creation of deck
-    attr_accessor :cards
+    # Allow user to read cards after creation of deck
+    attr_reader :cards
 
     # Initialize deck using array of cards
     def initialize(cards)

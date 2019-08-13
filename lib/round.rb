@@ -1,6 +1,6 @@
 class Round
     # Allow user to read deck after round initialization
-    attr_accessor :deck, :turns
+    attr_reader :deck, :turns
 
     # Initialize deck instance variable
     def initialize(deck)
