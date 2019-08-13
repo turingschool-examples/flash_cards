@@ -28,4 +28,18 @@ class Round
         # Return the current turn
         return turn
     end
+
+    # Define method to calculate number of correct turns
+    def number_correct
+        # Initialize a counting variable and count the number of correct turns
+        correct = 0
+        @turns.each do |turn|
+            if turn.correct? == true
+                correct += 1
+            end
+        end
+
+        # Return that number
+        return correct
+    end
 end
