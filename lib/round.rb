@@ -42,4 +42,19 @@ class Round
         # Return that number
         return correct
     end
+
+    # Define method to calculate number of correct turns by category
+    def number_correct_by_category(category)
+        # Initialize a counting variable and count the number of correct turns
+        correct = 0
+        @turns.each do |turn|
+            if turn.card.category == category && turn.correct? == true
+                correct += 1
+            end
+        end
+
+        # Return that number
+        return correct
+    end
+
 end
