@@ -17,4 +17,20 @@ class Deck
     def count
         return cards.length
     end
+
+    # Define method to count number of cards in a certain category
+    def cards_in_category(category)
+        # Initialize an empty array
+        matches = Array.new
+
+        # Iterate over cards and add card to matches array if category is same
+        self.cards.each do |card|
+            if card.category == category
+                matches.push(card)
+            end
+        end
+
+        # Return the matches array
+        return matches
+    end
 end
