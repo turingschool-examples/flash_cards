@@ -1,14 +1,23 @@
 class Deck
-    attr_accessor :cards
+  attr_accessor :cards
 
-    def initialize(cards)
-        @cards = cards
-    end
+  def initialize(cards)
+    @cards = cards
+  end
 
-    def count
-    end
+  def count
+    @cards.length
+  end
 
-    def cards_in_category(category)
+  def cards_in_category(category)
+    ret_cards = []
+    @cards.each do |card| 
+      puts @cards.category
+      if card.category == category
+        ret_cards.push(card)
+      end
     end
-    
+    return ret_cards
+  end
+
 end
