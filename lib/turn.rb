@@ -1,15 +1,12 @@
+require './lib/card'
+
 class Turn
+  attr_reader :guess,
+              :card
+
   def initialize(guess_string, card)
     @guess = guess_string
     @card = card
-  end
-
-  def guess
-    @guess
-  end
-
-  def card
-    @card
   end
 
   def correct?
