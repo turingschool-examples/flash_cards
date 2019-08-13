@@ -6,17 +6,18 @@ class Turn
   end
 
   def feedback
-    if asset_equal @guess, @card
-      puts "Correct!"
+    if @guess == @card
+      "Correct!"
     else
-      puts "Incorrect."
+      "Incorrect."
     end
   end
 
   def correct?
-    if asset_equal @guess, @card
+    if @guess == @card
       return true
     else
       return false
     end
   end
+end
