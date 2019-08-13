@@ -14,9 +14,9 @@ class Turn
   end
 
   def correct?
-    if @guess == @answer
+    if @guess == @card.answer
       true
-    elsif @guess != @answer
+    elsif @guess != @card.answer
       false
     end
   end
