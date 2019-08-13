@@ -8,6 +8,11 @@ class Round
   end
 
   def current_card
-    @deck.cards
+    @deck.cards.find do |card|
+      card 
+    end
   end
+
+
+
 end

@@ -28,6 +28,11 @@ class RoundTest < Minitest::Test
   end
 
   def test_current_card
-    assert_equal @card_1, @round.current_card
+    # assert_equal @card_1, @round.current_card
+    assert_equal @card_2, @round.current_card
+  end
+
+  def test_take_turn
+
   end
 end
