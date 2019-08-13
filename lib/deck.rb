@@ -12,7 +12,6 @@ class Deck
   def cards_in_category(category)
     ret_cards = []
     @cards.each do |card| 
-      puts @cards.category
       if card.category == category
         ret_cards.push(card)
       end
