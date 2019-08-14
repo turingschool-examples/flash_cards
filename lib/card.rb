@@ -1,0 +1,10 @@
+#create card class with Geography as attrbute
+class Card
+  attr_accessor :question, :answer, :category
+  
+  def initialize(question, answer, category)
+    @question=question
+    @answer=answer
+    @category=category
+  end
+end
