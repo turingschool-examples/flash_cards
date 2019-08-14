@@ -65,7 +65,7 @@ class Round
         # Start user experience and initialize a categories array
         puts "Welcome! You're playing with #{@deck.cards.length} cards."
         puts "-" * 50
-        categories = Array.new
+        categories = []
 
         # Iterate over each card in the deck
         @deck.cards.each do |card|
@@ -78,18 +78,16 @@ class Round
             turn = take_turn(gets.chomp)
             puts turn.feedback
 
-            # Add new card categories to the array of categories
-            if !categories.include?(card.category)
-                categories.push(card.category)
-            end
+            # Add card categories to the array of categories
+            categories.push(card.category)
         end
 
         # Display general game statistics
         puts "****** Game over! ******"
         puts "You had #{number_correct} correct guesses out of #{@deck.cards.length} for a total score of #{percent_correct.round}%."
 
-        # Display category-specific statistics
-        categories.each do |cat|
+        # Display category-specific statistics for all unique categories
+        categories.uniq.each do |cat|
             puts "#{cat} - #{percent_correct_by_category(cat).round}% correct"
         end
     end
