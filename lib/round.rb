@@ -5,7 +5,7 @@ class Round
     # Initialize deck instance variable
     def initialize(deck)
         @deck = deck
-        @turns = Array.new
+        @turns = []
         @index = 0
     end
 
@@ -31,16 +31,8 @@ class Round
 
     # Define method to calculate number of correct turns
     def number_correct
-        # Initialize a counting variable and count the number of correct turns
-        correct = 0
-        @turns.each do |turn|
-            if turn.correct? == true
-                correct += 1
-            end
-        end
-
-        # Return that number
-        return correct
+        # Count the number of correct turns taken
+        @turns.count { |turn| turn.correct? }
     end
 
     # Define method to calculate number of correct turns by category
@@ -48,7 +40,7 @@ class Round
         # Initialize a counting variable and count the number of correct turns
         correct = 0
         @turns.each do |turn|
-            if turn.card.category == category && turn.correct? == true
+            if turn.card.category == category && turn.correct?
                 correct += 1
             end
         end
@@ -92,7 +84,7 @@ class Round
         @deck.cards.each do |card|
 
             # Tell the user the card number and the card's question
-            puts "This is card number #{@index + 1} out of #{@deck.cards.length}."
+            puts "This is card number #{@index + 1} out of #{@deck.count}."
             puts "Question: #{card.question}"
 
             # Allow user to input a guess and check correctness
