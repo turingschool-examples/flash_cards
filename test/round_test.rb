@@ -3,29 +3,34 @@ require 'minitest/pride'
 require './lib/card'
 require './lib/turn'
 require './lib/deck'
+require './lib/round'
 
-class Decktest < Minitest::Test
 
+class Roundtest < Minitest::Test
   def setup
     @card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     @card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     @card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
     @cards = [@card_1, @card_2, @card_3]
     @deck = Deck.new(@cards)
+    @round = Round.new(@deck)
   end
 
-  def test_deck_exists
-    assert_instance_of Deck, @deck
+  def test_round_exists
+    assert_instance_of Round, @round
   end
 
-  def test_cards_exist_in_deck
-    assert_equal @cards, @deck.cards
+  def test_turns_exists_in_round
+    assert_equal [], @round.turns
   end
 
-  def test_cards_have_category
-    assert_equal [@card_2, @card_3], @deck.cards_in_category(:STEM)
-    assert_equal [@card_1], @deck.cards_in_category(:Geography)
-    assert_equal [], @deck.cards_in_category("Pop Culture")
+  def test_current_card
+    assert_equal @card_1, @round.current_card
   end
 
+  def test_new_turn
+    new_turn = @round.take_turn("Juneau")
+    assert_instance_of Turn, new_turn
+    # assert_equal new_turn,
+  end
 end

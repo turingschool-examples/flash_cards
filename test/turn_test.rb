@@ -13,7 +13,6 @@ class TurnTest < Minitest::Test
   end
 
   def test_turn_exists
-    assert_instance_of Card, @card
     assert_instance_of Turn, @turn
   end
 
