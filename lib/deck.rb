@@ -2,26 +2,28 @@
 
 class Deck
 
+     attr_reader    :cards
+
      def initialize(cards)
        @cards    = cards
-     end
-
-     def cards()
-          @cards
      end
 
      def count()
           @cards.length
      end
 
+     # def cards_in_category(cat)
+     #      a = []
+     #      @cards.each { |x|
+     #           if x.category == cat
+     #                a << x
+     #           end
+     #      }
+     #      a
+     # end
+
      def cards_in_category(cat)
-          a = []
-          @cards.each { |x|
-               if x.category == cat
-                    a << x
-               end
-          }
-          a
+          @cards.find_all { |x| x.category == cat}
      end
 
 end
