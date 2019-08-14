@@ -35,6 +35,10 @@ class TurnTest < Minitest::Test
     turn = Turn.new("Juneau", card)
 
     assert_equal true, turn.correct?
+
+    turn = Turn.new("Detroit", card)
+
+    assert_equal false, turn.correct?
   end
 
   def test_it_has_a_feedback
@@ -43,6 +47,10 @@ class TurnTest < Minitest::Test
     turn = Turn.new("Juneau", card)
 
     assert_equal "Correct!", turn.feedback
+
+    turn = Turn.new("dsfdgfhkttsrgfhgku", card)
+
+    assert_equal "Incorrect.", turn.feedback
   end
 
 end
