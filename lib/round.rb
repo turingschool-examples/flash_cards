@@ -80,4 +80,38 @@ class Round
             return 0
         end
     end
+
+    # Define method to start a command-line interaction with user
+    def start
+        # Start user experience and initialize a categories array
+        puts "Welcome! You're playing with #{@deck.cards.length} cards."
+        puts "-" * 50
+        categories = Array.new
+
+        # Iterate over each card in the deck
+        @deck.cards.each do |card|
+
+            # Tell the user the card number and the card's question
+            puts "This is card number #{@index + 1} out of #{@deck.cards.length}."
+            puts "Question: #{card.question}"
+
+            # Allow user to input a guess and check correctness
+            turn = self.take_turn(gets.chomp)
+            puts turn.feedback
+
+            # Add new card categories to the array of categories
+            if !categories.include?(card.category)
+                categories.push(card.category)
+            end
+        end
+
+        # Display general game statistics
+        puts "****** Game over! ******"
+        puts "You had #{self.number_correct} correct guesses out of #{@deck.cards.length} for a total score of #{self.percent_correct.round}%."
+
+        # Display category-specific statistics
+        categories.each do |cat|
+            puts "#{cat} - #{self.percent_correct_by_category(cat).round}% correct"
+        end
+    end
 end
