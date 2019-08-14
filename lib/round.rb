@@ -11,7 +11,12 @@ class Round
   end
 
   def take_turn(guess)
-    turn = Turn.new(guess, @deck.cards.shift)
-    @turns.push(turn)
+    new_turn = Turn.new(guess, @deck.cards.shift)
+    @turns.push(new_turn)
+    return new_turn
+  end
+
+  def number_correct
+    @turns.count { |turn| turn.correct? == true }
   end
 end
