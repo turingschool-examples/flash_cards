@@ -12,10 +12,24 @@ card_4 = Card.new("What distant planet circles the Sun every 84 years?", "Uranus
 card_5 = Card.new("What is the only fruit to have its seeds on the outside?", "Strawberry", :Science)
 card_6 = Card.new("Which is the largest country in Africa by area?", "Algeria", :Geography)
 
-# Add the cards to an array and initialize a deck
+# Add the cards to an array and initialize a deck and round
 cards = [card_1, card_2, card_3, card_4, card_5, card_6]
 deck = Deck.new(cards)
+round = Round.new(deck)
 
 # Start user experience
 puts "Welcome! You're playing with #{cards.length} cards."
 puts "-" * 50
+
+# Iterate over each card in the deck
+cards.each_with_index do |card, index|
+
+    # Tell the user the card number and the card's question
+    puts "This is card number #{index + 1} out of #{cards.length}."
+    puts "Question: #{card.question}"
+
+    # Allow user to input a guess and check correctness
+    turn = round.take_turn(gets.chomp)
+    puts turn.feedback
+
+end
