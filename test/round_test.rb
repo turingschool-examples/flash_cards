@@ -48,9 +48,17 @@ class TurnTest < Minitest::Test
     assert_equal 1, @round.turns.length
   end
 
-  def test_if_number_correct_is_incrementing
+  def test_number_correct_collection
     @round.take_turn("Juneau")
     @round.take_turn("WAZZAP")
-    assert_equal 1, @round.number_correct
+    @round.take_turn("North north west")
+    @round.take_turn("John Rock")
+
+    assert_equal 3, @round.number_correct
+    assert_equal 1, @round.number_correct_by_category(:STEM)
+    assert_equal 75, @round.percent_correct
+    assert_equal 2, @round.turns_per_category(:STEM)
+    assert_equal 50, @round.percent_correct_by_category(:STEM)
+
   end
 end

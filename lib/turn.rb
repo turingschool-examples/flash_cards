@@ -21,7 +21,7 @@ class Turn
     if correct?
       "Great job!"
     else
-      "Incorrect"
+      "Incorrect."
     end
   end
 
