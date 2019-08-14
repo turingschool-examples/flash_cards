@@ -1,10 +1,9 @@
 class Turn
-  attr_accessor :guess, :card, :correct
+  attr_accessor :guess, :card
 
   def initialize(guess, card)
     @guess = guess
     @card = card
-    @correct = correct?
   end
 
   def correct?
@@ -12,7 +11,7 @@ class Turn
   end
 
   def feedback
-    if @correct
+    if correct?
       "Correct!"
     else
       "Incorrect." 
