@@ -1,5 +1,5 @@
 class Round
-  attr_accessor :deck, :turns
+  attr_reader :deck, :turns
 
   def initialize(deck)
     @deck = deck
