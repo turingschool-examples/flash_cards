@@ -1,7 +1,11 @@
+# creates a Deck class
 class Deck
+  # attribute reader and attributes
   attr_reader :cards, :count
 
+  # define initialization method
   def initialize(cards)
+    # attributes
     @cards = cards
     @count = @cards.count
     # @cards_in_category
