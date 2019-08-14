@@ -3,24 +3,24 @@
 class Turn
 
      def initialize(string, card)
-       @string    = string
+       @guess    = string
        @card      = card
      end
 
-     def guess(string)
-          string
+     def guess()
+          @guess
      end
 
-     def card(card)
-          card
+     def card()
+          @card
      end
 
-     def correct?(string,card)
-          string == card.answer
+     def correct?()
+          @guess == card.answer
      end
 
-     def feedback(correct?)
-          if correct?
+     def feedback()
+          if self.correct?
                "Correct!"
           else
                "Incorrect."
