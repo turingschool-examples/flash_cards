@@ -1,20 +1,27 @@
-
 class Turn
-  attr_reader :card
+  attr_reader :guess, :card
 
+  def initialize(guess, card)
+    @guess = guess
+    @card = card
+  end
 
-  def guess
-    p question
-    ans = gets.chomp
-
-    if ans == @answer
-      p "Correct!"
-    elsif ans == @answer.lowercase
-      p "Correct!"
-    else p "Incorrect :("
+  def correct?
+    if guess == @card.answer
+        return true
+    elsif guess == @card.answer.downcase
+        return true
+    else
+        return false
     end
   end
-end
 
-turn = Turn.new("card1")
-turn.guess
+  def feedback
+    if correct? == true
+      return "Correct!"
+    elsif correct? == false
+      return "Incorrect."
+    end
+  end
+
+end
