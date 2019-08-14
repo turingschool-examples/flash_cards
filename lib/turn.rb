@@ -19,4 +19,4 @@ class Turn
   end
 end
 
-# turn = Turn.new("Juneau", card)
+ turn = Turn.new("Juneau", card)
