@@ -7,7 +7,7 @@ attr_reader :guess, :card
   end
 
   def correct?
-    if @guess == @card.answer
+    if @guess.downcase == @card.answer.downcase
       true
     else
       false
@@ -21,6 +21,6 @@ attr_reader :guess, :card
       "Incorrect."
     end
   end
-  
+
 
 end
