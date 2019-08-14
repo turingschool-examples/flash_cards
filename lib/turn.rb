@@ -6,21 +6,13 @@ class Turn
     @card = card
   end
 
-  def guess
-    @guess
-  end
-
-  def card
-    Card
-  end
-
   def correct?
-    return True if guess == answer
-    False
+    return true if @guess == card.answer
+    false
   end
 
   def feedback
-    return "Correct!" if guess == answer
+    return "Correct!" if correct?
     "Incorrect."
   end
 
