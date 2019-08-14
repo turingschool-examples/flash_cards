@@ -1,4 +1,4 @@
-class Turns
+class Turn
   attr_accessor :string, :Card
   def initialize(string, card)
     @string = string
@@ -6,20 +6,21 @@ class Turns
   end
 
   def guess
-   .getschomp
+   turn.guess
   end
 
   def card
-    @card
+    turn.card
   end
 
   def correct?
-    @answer = true
+    turn.correct?
   end
 
   def feedback
-    if @answer = true
-      then puts "Correct!"
-    else puts "Incorrect."
+    turn.feedback
+    puts "Correct!"
   end
 end
+
+turn = Turn.new("Juneau", card)
