@@ -2,6 +2,7 @@ require "pry"; binding.pry
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/card'
+require './lib/test'
 
 class CardTest < Minitest::Test
 
