@@ -11,19 +11,15 @@ class Turn
     # Define method that indicates if guess is correct
     def correct?
         # Ignore differences in capitalization
-        if guess.casecmp(card.answer) == 0
-            return true
-        else
-            return false
-        end
+        guess.casecmp(card.answer) == 0
     end
 
     # Define method to give feedback on guess
     def feedback
-        if self.correct? == true
-            return "Correct!"
+        if correct?
+            "Correct!"
         else
-            return "Incorrect."
+            "Incorrect."
         end
     end
 end
