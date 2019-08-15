@@ -36,4 +36,9 @@ class DeckTest < Minitest::Test
     @round1.take_turn("Juneau")
     assert_equal 1, @round1.turns.count
   end
+
+  def test_if_cards_remove
+    @round1.take_turn("Juneau")
+    assert_equal 3, @round1.deck.count
+  end
 end
