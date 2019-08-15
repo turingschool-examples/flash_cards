@@ -18,5 +18,3 @@ class Turn
     end
   end
 end
-
- turn = Turn.new("Juneau", card)
