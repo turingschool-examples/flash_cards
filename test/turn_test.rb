@@ -22,23 +22,21 @@ class TurnTest < Minitest::Test
     assert_equal @card, @turn.card
   end
 
-  def test_guess_is_true
-    assert_equal true, @turn.correct?
-  end
+  def test_guess_is_correct?
+    # Correct result from setup
+    assert @turn.correct?
 
-  def test_guess_is_false
+    # Same card, wrong guess
     @turn = Turn.new("Denver", @card)
-
-    assert_equal false, @turn.correct?
+    refute @turn.correct?
   end
 
-  def test_output_is_correct
+  def test_feedback
+    # Correct result from setup
     assert_equal "Correct!", @turn.feedback
-  end
 
-  def test_output_is_incorrect
+    # Same card, wrong guess
     @turn = Turn.new("Denver", @card)
-
     assert_equal "Incorrect.", @turn.feedback
   end
 end
