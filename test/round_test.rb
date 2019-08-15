@@ -53,4 +53,9 @@ class DeckTest < Minitest::Test
     @round1.correct?
     refute false
   end
+
+  def test_number_correct
+    @round1.take_turn("Incorrect")
+    assert_equal 0, @round1.number_correct
+  end
 end
