@@ -13,16 +13,18 @@ require 'pry'
 
 
   def start
-   card1 = Card.new("What is the smallest atomic element?", "Helium",:Chemistry)
-   card2 = Card.new("What is banned in Japanese restaurants?", "Tipping", :Law)
-   card3 = Card.new("What is illegal to duel with in Massachesetts?", "Water Pistols", :Law)
-   card4 = Card.new("What is a group of unicorns known as?", "A blessing", :Animals)
-   card5 = Card.new("Which animal swallows stones to improve it's stability?", "Crocodile", :Animals)
-   card6 = Card.new("If you expose a glass of water to space it will?", "Boil", :Chemistry)
 
-   cards = [card1, card2, card3, card4, card5, card6]
+  # card1 = Card.new("What is the smallest atomic element?", "Helium",:Chemistry)
+  # card2 = Card.new("What is banned in Japanese restaurants?", "Tipping", :Law)
+  # card3 = Card.new("What is illegal to duel with in Massachesetts?", "Water Pistols", :Law)
+  # card4 = Card.new("What is a group of unicorns known as?", "A blessing", :Animals)
+  # card5 = Card.new("Which animal swallow stones to improve it's stability?", "Crocodile", :Animals)
+  # card6 = Card.new("If you expose a glass of water to space it will?", "Boil", :Chemistry)
 
-    #cards = CardGenerator.new("./lib/cards.txt").cards
+  # cards = [card1, card2, card3, card4, card5, card6]
+
+
+    cards = CardGenerator.new("./lib/cards.txt").cards
 
     deck = Deck.new(cards)
 
@@ -33,7 +35,7 @@ require 'pry'
     Welcome! You're playing with 6 cards
     ----------------------------------------------------------
     This is card number 1 out of 6
-    Question: #{card1.question}
+    Question: #{cards[0].question}
     ----------------------------------------------------------
     """
     guess = gets.chomp
@@ -44,7 +46,7 @@ require 'pry'
     #{guess}
     #{turn1.feedback}
     This is card number 2 out of 6
-    Question: #{card2.question}
+    Question: #{cards[0].question}
     ----------------------------------------------------------
     """
     guess = gets.chomp
@@ -55,7 +57,7 @@ require 'pry'
     #{guess}
     #{turn2.feedback}
     This is card number 3 out of 6
-    Question: #{card3.question}
+    Question: #{cards[0].question}
     ----------------------------------------------------------
     """
     guess = gets.chomp
@@ -66,7 +68,7 @@ require 'pry'
     #{guess}
     #{turn3.feedback}
     This is card number 4 out of 6
-    Question: #{card4.question}
+    Question: #{cards[0].question}
     ----------------------------------------------------------
     """
 
@@ -78,7 +80,7 @@ require 'pry'
     #{guess}
     #{turn4.feedback}
     This is card number 5 out of 6
-    Question: #{card5.question}
+    Question: #{cards[0].question}
     ----------------------------------------------------------
     """
 
@@ -90,7 +92,7 @@ require 'pry'
     #{guess}
     #{turn5.feedback}
     This is card number 6 out of 6
-    Question: #{card6.question}
+    Question: #{cards[0].question}
     ----------------------------------------------------------
     """
 
@@ -108,10 +110,10 @@ require 'pry'
     puts """
     ----------------------------------------------------------
     ****** Game over! ******
-    You had #{round.number_correct_turns} correct guesses out of 6 for a total score of #{round.percent_correct.round}%
-    Chemistry - #{round.percent_correct_by_category(:Chemistry)}% correct
-    Law - #{round.percent_correct_by_category(:Law)}% correct
-    Animals - #{round.percent_correct_by_category(:Animals)}% correct
+    You had #{round.number_correct_turns} correct guesses out of 6 for a total score of #{round.percent_correct}%
+    Chemistry: #{round.percent_correct_by_category(:Chemistry)}% correct
+    Law: #{round.percent_correct_by_category(:Law)}% correct
+    Animals: #{round.percent_correct_by_category(:Animals)}% correct
     ----------------------------------------------------------
     """
   end
