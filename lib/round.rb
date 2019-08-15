@@ -1,3 +1,5 @@
+
+
 class Round
   attr_reader :deck, :turns
 
@@ -13,7 +15,7 @@ class Round
   def take_turn(guess)
     new_turn = Turn.new(guess, @deck.cards.shift)
     @turns.push(new_turn)
-    return new_turn
+    new_turn
   end
 
   def number_correct
