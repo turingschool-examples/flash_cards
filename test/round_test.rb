@@ -47,4 +47,10 @@ class DeckTest < Minitest::Test
     @round1.correct?
     assert true
   end
+
+  def test_if_correct_is_false
+    @round1.take_turn("Incorrect")
+    @round1.correct?
+    refute false
+  end
 end
