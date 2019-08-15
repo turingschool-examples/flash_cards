@@ -1,3 +1,4 @@
+require 'pry'
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/card'
@@ -29,3 +30,4 @@ class CardTest < Minitest::Test
     assert_equal :Geography, card.category
   end
 end
+binding.pry

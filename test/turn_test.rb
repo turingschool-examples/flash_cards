@@ -1,3 +1,4 @@
+require 'pry'
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/card'
@@ -16,4 +17,23 @@ class TurnTest < Minitest::Test
 
     assert_instance_of Turn, turn
   end
+  #
+  def test_if_card_pulled_from_deck
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Anchorage", card)
+
+    assert_equal card, turn.card
+  end
+
+  def test_guess_answer
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Anchorage", card)
+
+    assert_equal "Anchorage", turn.guess
+  end
+  # def test_turn_is_correct
+    # card = Card.new("What is the capital of Alaska?", "Juneau", :Gepgraphy)
+    # turn = Turn.new("Anchorage", card)
+    #
+
 end
