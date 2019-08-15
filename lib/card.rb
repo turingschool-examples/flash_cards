@@ -1,5 +1,5 @@
 class Card
-
+# TODO: go ahead and use an attr_reader 
   def initialize(question, answer, category)
     @question = question
     @answer = answer

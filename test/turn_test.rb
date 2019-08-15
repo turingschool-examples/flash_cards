@@ -34,7 +34,7 @@ class TurnTest < Minitest::Test
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
 
-    assert_equal "Juneau", card.answer
+    assert turn.correct?
   end
 
   # test an incorrect guess against a card's answer
@@ -42,6 +42,6 @@ class TurnTest < Minitest::Test
     card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
     turn = Turn.new("Saturn", card)
 
-    refute_equal turn.guess, card.answer
+    refute turn.correct?
   end
 end

@@ -1,4 +1,3 @@
-require 'pry'
 require './lib/turn'
 require './lib/card'
 require './lib/deck'
@@ -14,11 +13,13 @@ card_deck = [card_1, card_2, card_3, card_4, card_5]
 deck = Deck.new(card_deck)
 start_deck = Deck.new(card_deck)
 
-round = Round.new(start_deck)
+round1 = Round.new(start_deck)
 
 def start(round)
   puts "Welcome! You're playing with #{ round.deck.cards.count } cards."
   puts "---------------------------------------------------------------"
+  puts "This is card number #{ round.current_card } out of #{ round.deck.cards.count }."
+  puts "Question: #{ round.current_card.question }"
 end
 
-binding.pry
+start(round1)

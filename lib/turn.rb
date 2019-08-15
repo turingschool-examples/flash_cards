@@ -10,16 +10,13 @@ class Turn
   end
 
   def correct?
-    if @guess == @card.answer
-      true
-    else
-      false
-    end
+    # TODO: Consider removing if/else `@guess == @card.answer` - now test
+    @guess == @card.answer
   end
 
   def feedback
     if correct?
-      "Great job!"
+      "Correct!"
     else
       "Incorrect."
     end

@@ -1,5 +1,5 @@
 class Deck
-
+# TODO add attr_reader
   def initialize(cards)
     @cards = cards
   end
