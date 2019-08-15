@@ -63,4 +63,9 @@ class DeckTest < Minitest::Test
     @round1.take_turn("Incorrect")
     assert_equal 0, @round1.number_correct_in_category(:Geography)
   end
+
+  def test_percent_correct
+    @round1.take_turn("Incorrect")
+    assert_equal 0.0, @round1.percent_correct
+  end
 end
