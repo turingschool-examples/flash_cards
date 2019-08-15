@@ -14,7 +14,6 @@ class DeckTest < Minitest::Test
     @card4 = Card.new("What is the mile high city", "Denver", :Geography)
     @cards = [@card1, @card2, @card3, @card4]
     @deck1 = Deck.new(@cards)
-    @turn = Turn.new("Juneau", @card)
   end
 
   def test_it_exists
