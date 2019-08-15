@@ -21,8 +21,6 @@ class RoundTest < Minitest::Test
   end
 
   def test_it_has_deck
-    
-
     assert_equal @deck, @round.deck  
   end
 
