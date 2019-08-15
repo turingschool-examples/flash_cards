@@ -31,4 +31,9 @@ class DeckTest < Minitest::Test
     @round1.take_turn("Juneau")
     assert_instance_of Turn, @round1.turns[0]
   end
+
+  def test_if_turn_goes_to_turns
+    @round1.take_turn("Juneau")
+    assert_equal 1, @round1.turns.count
+  end
 end
