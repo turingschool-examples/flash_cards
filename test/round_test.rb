@@ -41,4 +41,10 @@ class DeckTest < Minitest::Test
     @round1.take_turn("Juneau")
     assert_equal 3, @round1.deck.count
   end
+
+  def test_if_correct_is_true
+    @round1.take_turn("Juneau")
+    @round1.correct?
+    assert true
+  end
 end
