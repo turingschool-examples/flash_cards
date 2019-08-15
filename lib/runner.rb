@@ -14,10 +14,12 @@ deck = Deck.new(cards)
 #
 # puts deck.cards_in_category(:STEM)
 
-round = Round.new(deck)
+# round = Round.new(deck)
 # puts round.deck
 # puts round.turns
-puts round.current_card
+# puts round.current_card
+
+new_turn = round.take_turn("Juneau")
 
 # turn = Turn.new("Juneau", card)
 #
