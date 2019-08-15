@@ -25,19 +25,9 @@ class DeckTest < Minitest::Test
     assert_equal @cards.length, @deck.count
   end
 
-  def test_correct_valid_category_output
-    pass = false
-    test_1 = @deck.cards_in_category(:Geography)
-    test_2 = @deck.cards_in_category(:STEM)
-
-    if test_1.eql?([@card_1]) && test_2.eql?([@card_2, @card_3])
-      pass = true
-    end
-
-    assert_equal true, pass
-  end
-
-  def test_correct_invalid_category_output
+  def test_correct_category_output
+    assert_equal [@card_1], @deck.cards_in_category(:Geography)
+    assert_equal [@card_2, @card_3], @deck.cards_in_category(:STEM)
     assert_equal [], @deck.cards_in_category(:empty)
   end
 end
