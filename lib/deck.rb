@@ -15,12 +15,12 @@ class Deck
 
     # Define method to count the number of cards in deck
     def count
-        cards.length
+        @cards.length
     end
 
     # Define method to count number of cards in a certain category
     def cards_in_category(category)
         # Accumulate cards that match the input category using
-        cards.find_all { |card| card.category == category }
+        @cards.find_all { |card| card.category == category }
     end
 end
