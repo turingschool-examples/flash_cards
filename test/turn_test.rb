@@ -1,31 +1,40 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require './lib/card'
-require './lib/turn'
+require '../lib/card'
+require '../lib/turn'
 
 class TurnTest < Minitest::Test
 
-  def test_it_exists
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+  def setup
+    @card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    @turn = Turn.new("Juneau", @card)
+  end
 
-    assert_instance_of Card, card
+  def test_turn_exists
+
+    assert_instance_of Turn, @turn
+  end
+
+  def test_it_has_a_card
+
+    assert_equal @card, @turn.card
   end
 
   def test_it_has_a_guess
-    turn = Turn.new("Juneau", @card_1)
 
-    assert_equal "Juneau", turn.guess
+    assert_equal "Juneau", @turn.guess
   end
 
-#   def test_it_has_an_answer
-#     turn = Turn.new("What is the capital of Alaska?", "Juneau", :Geography)
-#
-#     assert_equal "Juneau", card.answer
-#   end
-#
-#   def test_it_has_a_category
-#     turn = Turn.new("What is the capital of Alaska?", "Juneau", :Geography)
-#
-#     assert_equal :Geography, card.category
-#   end
-# end
+  def test_it_is_correct
+
+    assert_equal true, @turn.correct?
+  end
+
+  def test_it_has_feedback
+
+    assert_equal "Correct!", @turn.feedback
+  end 
+end
+# assert_equal card.question, "What is the capital of Alaska?"
+# assert_equal card.answer, "Juneau"
+# assert_equal turn.guess, "Juneau"
