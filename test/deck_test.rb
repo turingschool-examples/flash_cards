@@ -13,8 +13,11 @@ class DeckTest < Minitest::Test
     @deck = Deck.new(@cards)
   end
 
+  def test_if_deck_exist
+    assert_instance_of Deck, @deck 
+  end
+
   def test_if_it_has_cards
-    # assert_equal expected, actual
     assert_equal @cards, @deck.cards
   end
 
