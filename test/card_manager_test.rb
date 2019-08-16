@@ -16,6 +16,12 @@ class CardManagerTest < Minitest::Test
 
   def test_validate_card_data 
     # make sure data is allowable to make a card
+    valid_line = "What is the capital of Alaska?,Juneau,Geography"
+    valid_line_array = valid_line.split(',')
+    invalid_line = "There, shouldn't be, additional, commas."
+
+    assert_equal valid_line_array, @card_manager.validate_card_data(valid_line)
+    assert_nil @card_manager.validate_card_data(invalid_line)
   end
 
   def test_create_card
