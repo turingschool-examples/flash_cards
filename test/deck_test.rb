@@ -13,29 +13,24 @@ class DeckTest < Minitest::Test
     @deck = Deck.new(@cards)
   end
 
-  def test_it_exists
-    deck = @deck
-
-    assert_instance_of deck.cards
-  end
-
   def test_if_it_has_cards
-    assert_equal deck.cards
+    # assert_equal expected, actual
+    assert_equal @cards, @deck.cards
   end
 
   def test_how_many_cards
-    assert_equal deck.count
+    assert_equal 3, @deck.count
   end
 
   def test_cards_in_category_STEM
-    assert_equal deck.cards_in_category(:STEM)
+    assert_equal [@card_2, @card_3], @deck.cards_in_category(:STEM)
   end
 
   def test_cards_in_category_Geopgraphy
-    assert_equal deck.cards_in_category(:Geography)
+    assert_equal [@card_1], @deck.cards_in_category(:Geography)
   end
 
   def test_cards_in_category_Pop_Culture
-    assert_equal deck.cards_in_category("Pop Culture")
+    assert_equal [], @deck.cards_in_category("Pop Culture")
   end
 end
