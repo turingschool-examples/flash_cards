@@ -14,7 +14,28 @@ class DeckTest < Minitest::Test
   end
 
   def test_it_exists
+    deck = @deck
 
-  assert_instance_of Deck, @deck
+    assert_instance_of deck.cards
+  end
+
+  def test_if_it_has_cards
+    assert_equal deck.cards
+  end
+
+  def test_how_many_cards
+    assert_equal deck.count
+  end
+
+  def test_cards_in_category_STEM
+    assert_equal deck.cards_in_category(:STEM)
+  end
+
+  def test_cards_in_category_Geopgraphy
+    assert_equal deck.cards_in_category(:Geography)
+  end
+
+  def test_cards_in_category_Pop_Culture
+    assert_equal deck.cards_in_category("Pop Culture")
   end
 end
