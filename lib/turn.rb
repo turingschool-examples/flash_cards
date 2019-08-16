@@ -24,4 +24,12 @@ class Turn
     end
   end
 
+  def guess
+    @guess
+  end
+
+  def card
+    @card
+  end
+
 end
