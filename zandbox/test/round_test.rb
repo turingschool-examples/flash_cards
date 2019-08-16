@@ -56,8 +56,6 @@ class RoundTest < Minitest::Test
     assert_equal 2, @round.turns.count
     assert_equal "Incorrect!", @round.turns.last.feedback
     assert_equal 1, @round.number_correct
-    assert_equal 1, @round.test_number_correct_by_category(:Geography)
-
 
     # binding.pry
   end
