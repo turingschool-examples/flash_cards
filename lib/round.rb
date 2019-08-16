@@ -18,6 +18,7 @@ class Round
 
   def number_correct
     correct = []
+    @turns.each do |turn|
       if turn.correct?
         correct << turn
       end
