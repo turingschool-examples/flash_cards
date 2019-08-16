@@ -5,52 +5,39 @@ require './lib/turn'
 
 class TurnTest < Minitest::Test
 
+  def setup
+    @card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    @turn_1 = Turn.new("Juneau", @card)
+    @turn_2 = Turn.new("Detroit", @card)
+  end
+
   def test_it_exists
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
-    turn = Turn.new("Juneau", card)
-
-    assert_instance_of Turn, turn
+    assert_instance_of Turn, @turn_1
   end
 
   def test_it_has_a_guess
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
-    turn = Turn.new("Juneau", card)
-
-    assert_equal "Juneau", turn.guess
+    assert_equal "Juneau", @turn_1.guess
   end
 
   def test_it_has_a_card
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
-    turn = Turn.new("Juneau", card)
-
-    assert_equal card, turn.card
+    assert_equal @card, @turn_1.card
   end
 
-  def test_it_has_a_correct?
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+  def test_correct?
 
-    turn = Turn.new("Juneau", card)
+    assert_equal true, @turn_1.correct?
 
-    assert_equal true, turn.correct?
-
-    turn = Turn.new("Detroit", card)
-
-    assert_equal false, turn.correct?
+    assert_equal false, @turn_2.correct?
   end
 
-  def test_it_has_a_feedback
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+  def test_feedback
 
-    turn = Turn.new("Juneau", card)
+    assert_equal "Correct!", @turn_1.feedback
 
-    assert_equal "Correct!", turn.feedback
-
-    turn = Turn.new("dsfdgfhkttsrgfhgku", card)
-
-    assert_equal "Incorrect.", turn.feedback
+    assert_equal "Incorrect.", @turn_2.feedback
   end
 
 end
