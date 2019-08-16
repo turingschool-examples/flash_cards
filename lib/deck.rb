@@ -8,7 +8,7 @@ class Deck
   def cards_in_category(category)
     array = []
 
-    @cards.each do |card|
+    cards.each do |card|
       if card.category == category
         array <<  card
       end

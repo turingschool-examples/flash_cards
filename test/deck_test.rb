@@ -18,18 +18,23 @@ class DeckTest < Minitest::Test
   end
 
   def test_it_exists
+    
     assert_instance_of Deck, @deck
   end
 
   def test_has_cards
+
     assert_equal @cards, @deck.cards
   end
 
   def test_correct_card_count
+
     assert_equal 3, @deck.count
   end
 
   def test_cards_in_category
+
     assert_equal @correct_cards, @deck.cards_in_category(:STEM)
+
   end
 end
