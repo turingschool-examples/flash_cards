@@ -8,7 +8,6 @@ class Deck
     # attributes
     @cards = cards
     @count = @cards.count
-    # @cards_in_category
   end
 
   # define cards_in_category method to check how many cards are in each category
