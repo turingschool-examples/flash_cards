@@ -21,3 +21,4 @@ end
 
 
 card = Card.new("What is the capital of Alaska?", "Juneau", :geography)
+# card_1 = Card.new("What is Carl's favorite animal?", "Platypus", :animals)
