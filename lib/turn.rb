@@ -10,7 +10,6 @@ class Turn
   end
 
   def correct?
-    # TODO: Consider removing if/else `@guess == @card.answer` - now test
     @guess == @card.answer
   end
 

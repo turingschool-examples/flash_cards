@@ -21,8 +21,9 @@ class Round
   def take_turn(guess)
     # It should create a new Turn object with the appropriate guess and Card.
     # use a method that grabs the first item in the array of cards,
-    # returns that card, and removes it from the array
-    turn_with_guess = Turn.new(guess, @deck.cards.shift)
+    # returns that card, and shoves it into a new array 
+    turn_with_guess = Turn.new(guess, @deck.cards.shift) #find another way to
+    # create a turn array that does not decrease the original array of the cards
     # each turn also needs to add a turn to a turns array
     @turns << turn_with_guess
     return turn_with_guess
