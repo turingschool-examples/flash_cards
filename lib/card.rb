@@ -1,7 +1,7 @@
 # creates a Card class
-class Card\
+class Card
   # attribute reader and attributes
-  attr_reader :queston, :answer, :category
+  attr_reader :question, :answer, :category
 
   # initialization method and parameters
   def initialize(question, answer, category)
