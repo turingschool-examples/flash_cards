@@ -10,7 +10,7 @@ attr_reader :cards
   end
 
   def cards_in_category(category)
-    category_count = {}
+    category_count = {} 
     cards.map do |card|
       category_count[card.category] = 0
     end

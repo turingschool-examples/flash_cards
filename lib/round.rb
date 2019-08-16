@@ -12,7 +12,7 @@ attr_reader :deck, :turns, :number_correct_turns
 
   def take_turn(guess)
     new_turn = Turn.new(guess,@deck.cards.first)
-    @deck.cards.shift 
+    @deck.cards.shift
     @turns << new_turn
     new_turn
   end

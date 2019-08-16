@@ -106,7 +106,7 @@ class RoundTest < Minitest::Test
     turn1 = round.take_turn("Helium")
     turn2 = round.take_turn("Tipping")
     turn3 = round.take_turn("Water Pistols")
-    round.number_correct 
+    round.number_correct
     assert_equal 100.0, round.percent_correct
   end
 
