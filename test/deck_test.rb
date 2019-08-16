@@ -20,19 +20,26 @@ class DeckTest < Minitest::Test
   end
 
  def test_it_exists
+
    assert_instance_of Deck, @deck
  end
 
   def test_cards
+
     assert_equal [@card_1, @card_2, @card_3], @deck.cards
   end
 
   def test_count
+
     assert_equal 3, @deck.count
   end
 
- # def test_cards_in_category
- #
- # end
+   def test_cards_in_category
+
+    assert_equal [@card_2, @card_3], @deck.cards_in_category(:STEM)
+    assert_equal [@card_1], @deck.cards_in_category(:Geography)
+    assert_equal [], @deck.cards_in_category(:Cheese)
+
+   end
 
 end
