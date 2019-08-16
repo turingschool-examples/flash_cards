@@ -12,14 +12,23 @@ card_5 = Card.new("What area of psychology incorporates the body?", "Somatic Psy
 card_deck = [card_1, card_2, card_3, card_4, card_5]
 start_deck = Deck.new(card_deck)
 round1 = Round.new(start_deck)
+# binding.pry
 
 def start(round)
-  puts "Welcome! You're playing with #{ total_cards = round.deck.count } cards."
+  puts "Welcome! You're playing with #{ round.deck.cards.length } cards."
   puts "---------------------------------------------------------------"
-  round.deck.cards.each do |card| # with time, refactor so the original card deck size can be called from either round or deck.rb
-    puts "This is card number #{ round.turns.length + 1 } out of #{ total_cards }."
+  round.deck.cards.length.times do
+    puts "This is card number #{ round.turns.length + 1 } out of #{ round.turns.length + round.deck.cards.length } ."
     puts "Question: #{ round.current_card.question }"
     puts round.take_turn(gets.chomp).feedback
+  end
+  # time to end the round
+  puts "****** Game over! ******"
+  puts "You had #{ round.number_correct} correct guesses out of #{ round.deck.cards.length }
+        for a total score of #{ round.percent_correct }%."
+  # puts "You took #{ round.turns.length } turns"
+  round.turns.each do |turn|
+    puts "#{ turn.card.category } - #{ round.percent_correct_by_category(turn.card.category) }% correct"
   end
 end
 
