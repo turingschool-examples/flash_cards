@@ -11,10 +11,13 @@ class Deck
     # @cards_in_category
   end
 
-
-  # def cards_in_category
-    # here we have to check each card to see if it matches the category we are passing in
-  # end
-
+  # define cards_in_category method to check how many cards are in each category
+  def cards_in_category(category_string)
+    # loop through array and return the cards that match the input category
+    @cards.select do |card|
+        # pluck out the cards that have matching categories to the category_string
+        card.category == category_string
+    end
+  end
 
 end
