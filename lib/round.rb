@@ -4,12 +4,12 @@
 require 'pry'
 
 class Round
-  attr_reader :deck, :turns, :number_correct
+  attr_reader :deck, :turns, :correct-turns
 
   def initialize(deck)
     @deck = deck
     @turns = []
-    @number_correct = 0
+    @correct_turns = []
   end
 
   def current_card
@@ -26,18 +26,25 @@ class Round
      new_turn
   end
 
-
-
   # HERE IS WHERE I STOPPED FOR THE NIGHT BUT THE METHOD DOEST WORK...
-  # def number_correct
-  #   # if my guess from the take_turn matches the
-  #   # if @round.take_turn(guess) == @deck.current_card.answer
-  #     @number_correct += 1
-  #   end
-  # end
+  def number_correct
+  #   # if my guess from the take_turn matches the current cards answer
+    @turns.select do |turn|
+      if turn.correct? == true
+        @correct_turns << turn
+      end
+      end
+      @correct_turns.count
+  end
 
   # def number_correct_by_category(category_string)
   #
+  # end
+
+  # def percent_correct
+  # end
+  #
+  # def percent_correct_by_category()
   # end
 
 end
