@@ -14,6 +14,9 @@ class DeckTest < Minitest::Test
   end
 
   #test exists
+  def test_deck_exists
+    assert_instance_of Deck, @deck
+  end
   #test holds cards
   #test count
   #test cards_in_category with several categories
