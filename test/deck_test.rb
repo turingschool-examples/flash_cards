@@ -22,5 +22,12 @@ class DeckTest < Minitest::Test
     assert_equal @cards, @deck.cards
   end
   #test count
+  def test_deck_count
+    assert_equal 3, @deck.count
+
+    count_deck = Deck.new([@card_1, @card_2])
+
+    assert_equal 2, count_deck.count
+  end
   #test cards_in_category with several categories
 end
