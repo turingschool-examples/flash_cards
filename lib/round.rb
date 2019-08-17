@@ -8,6 +8,7 @@ attr_reader :deck, :turns, :number_correct_turns
     @number_correct_turns = 0
     @cards_per_e_category = {}
     @correct_by_category = {}
+    @cycle_deck = []
   end
 
   def take_turn(guess)
