@@ -29,5 +29,11 @@ class DeckTest < Minitest::Test
 
     assert_equal 2, count_deck.count
   end
+
   #test cards_in_category with several categories
+  def test_deck_cards_in_category
+    assert_equal [@card_1], @deck.cards_in_category(:Pop_Culture)
+    assert_equal [@card_2, @card_3], @deck.cards_in_category(:Corporate_Knowledge)
+    assert_equal [], @deck.cards_in_category(:Seattle_Street_Knowledge)
+  end
 end
