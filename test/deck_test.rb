@@ -3,7 +3,7 @@ require 'minitest/pride'
 require './lib/card'
 require './lib/turn'
 require './lib/deck'
-require 'pry'
+
 
 class DeckTest < Minitest::Test
   def setup
@@ -38,6 +38,5 @@ class DeckTest < Minitest::Test
 
   def test_cards_in_category_pop_culture
     assert_equal [], @deck.cards_in_category("Pop Culture")
-    binding.pry
   end
 end
