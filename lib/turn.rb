@@ -12,4 +12,9 @@ class Turn
   def correct?
     @guess == @card.answer
   end
+
+  def feedback
+    return "That's gay!" if correct?
+    return "Eww, that's straight."
+  end
 end
