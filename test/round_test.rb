@@ -21,4 +21,31 @@ class RoundTest < MiniTest::Test
     assert_instance_of Round, @round
   end
 
+  def test_round_has_deck
+
+    assert_equal @deck, @round.deck
+  end
+
+  def test_round_has_turns
+
+    assert_equal [], @round.turns
+  end
+
+  def test_round_has_current_card
+
+    assert_equal @cards[0], @round.current_card
+  end
+
+  def test_has_new_turn
+
+    assert_instance_of Turn, new_turn = @round.take_turn("Juneau")
+    # assert_equal current_card, @deck.cards[0]
+    #assert_equal
+  end
+
+  def test_if_new_turn_into_turns
+      new_turn = @round.take_turn("Juneau")
+    assert_equal 1, @round.turns.count
+  end  
+
 end
