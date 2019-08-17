@@ -44,16 +44,25 @@ class Round
     @correct_by_category.count
   end
 
-  # def percent_correct
-  #   @turns.select do |turn|
-  #     if turn.correct? == true
-  #       @correct_turns << turn
-  #     end
-  #   end
-  #     @correct_turns.count
-  # end
+  def percent_correct
+    @turns.select do |turn|
+      if turn.correct? == true
+        @correct_turns << turn
+      end
+    end
+    ((@correct_turns.count.to_f / @turns.count) * 100).round(1)
+  end
 
-  # def percent_correct_by_category()
-  # end
+  def percent_correct_by_category(category_string)
+    @turns.select do |turn|
+      if turn.correct? == true && turn.card.category == (category_string)
+        @correct_by_category << turn
+      end
+    end
+    array = @turns.select do |turn|
+      turn.card.category == category_string
+    end
+    (@correct_by_category.count.to_f / array.count) * 100
+  end
 
 end
