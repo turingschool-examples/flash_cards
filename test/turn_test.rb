@@ -26,14 +26,13 @@ class TurnTest < Minitest::Test
     assert_equal "Saturn", @turn_2.guess
   end
 
-  def test_correct_method
+  def test_correct
     assert @turn_1.correct?
     refute @turn_2.correct?
   end
 
-  def test_feedback_method
+  def test_feedback
     assert_equal "Correct!", @turn_1.feedback
     assert_equal "Incorrect.", @turn_2.feedback
   end
-
 end
