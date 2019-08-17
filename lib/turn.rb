@@ -1,14 +1,28 @@
+
+require './lib/card'
+
 class Turn
+  attr_reader :guess,
+              :card
 
-  def initialize (string, card)
+  def initialize (guess, card)
+    @guess = guess
+    @card = card
   end
 
-  def guess (string)
-    guess = gets.chomp
+  def correct?
+    if guess == card.answer
+       true
+    else
+       false
+    end
   end
 
-  def card (card)
-    return card
+  def feedback
+    if correct?
+      puts "Correct!"
+    else
+      puts "Incorrect"
+    end
   end
-
 end
