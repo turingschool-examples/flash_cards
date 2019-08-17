@@ -9,11 +9,11 @@ class Turn
        @card      = card
      end
 
-     def correct?()
+     def correct?
           @guess == @card.answer
      end
 
-     def feedback()
+     def feedback
           if correct?
                "Correct!"
           else
