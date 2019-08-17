@@ -5,6 +5,7 @@ require './lib/turn'
 require './lib/deck'
 require './lib/round'
 
+# FIX ALL ASSERTS FLIPPED EXPECTED & ACTUAL
 ## Can't make new_turn an instance variable bc it breaks other tests, have to keep local variable
 
 class RoundTest < Minitest::Test
@@ -110,27 +111,45 @@ class RoundTest < Minitest::Test
   end
 
   def test_number_correct_2
-    skip
+    new_turn = @round.take_turn("Juneau")
+    new_turn_2 = @round.take_turn("Venus")
+
+    assert @round.number_correct == 1
   end
 
   def test_number_correct_by_category_1
-    skip
+    new_turn = @round.take_turn("Juneau")
+    new_turn_2 = @round.take_turn("Venus")
+    #require 'pry'; binding.pry
+    assert @round.number_correct_by_category(:Geography) == @round.correct_by_category.count
   end
 
   def test_number_correct_by_category_2
-    skip
+    new_turn = @round.take_turn("Juneau")
+    new_turn_2 = @round.take_turn("Venus")
+
+    assert @round.number_correct_by_category(:STEM) == 0
   end
 
   def test_percent_correct
-    skip
+    new_turn = @round.take_turn("Juneau")
+    new_turn_2 = @round.take_turn("Venus")
+    #require 'pry'; binding.pry
+    assert @round.percent_correct == 50.0
   end
 
   def test_percent_correct_by_cateogry
-    skip
+    new_turn = @round.take_turn("Juneau")
+    new_turn_2 = @round.take_turn("Venus")
+
+    assert @round.percent_correct_by_category(:Geography) == 100.0
   end
 
   def test_current_card_3
-    skip
+    new_turn = @round.take_turn("Juneau")
+    new_turn_2 = @round.take_turn("Venus")
+
+    assert_equal @round.current_card, @card_3
   end
 
 end
