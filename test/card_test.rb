@@ -15,6 +15,7 @@ class CardTest < Minitest::Test
 
      assert_equal "What is the capital of Alaska?", card.question
    end
+   
 
    def test_it_has_an_answer
      card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
