@@ -13,4 +13,10 @@ class TurnTest < Minitest::Test
   def test_turn_exists
     assert_instance_of Turn, @turn
   end
+
+  def test_turn_inits_and_exposes_attributes
+    assert_equal @card, @turn.card
+    assert_equal "Crona", @turn.guess
+  end
+
 end
