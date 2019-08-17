@@ -8,19 +8,10 @@ require './lib/card_generator'
 @generator = CardGenerator.new("./data/cards.txt")
 @generator.make_card
 @cards = @generator.cards
-@deck = Deck.new(@cards)
+@deck = Deck.new(@cards, @recall_cards)
 @round = Round.new(@deck)
 
  def start
-   @category_collection = []
-   @cards.each do |card|
-     # if  card.category == @category_collections.find {|collect| card.category}
-     # else
-       cat_card = "#{card.category.to_s} - #{@round.percent_correct_by_category(card.category)}"
-       @category_collection << cat_card
-       binding.pry
-     # end
-   end
   puts ""
   puts "Welcome you're playing with #{@round.deck.count} cards."
   puts "-------------------------------------------------------"
@@ -34,9 +25,23 @@ require './lib/card_generator'
   end
   puts "******** GAME OVER ********"
   puts "You had #{@round.number_correct} out of #{@round.turns.count} correct for a total score of #{@round.percent_correct}%"
+  @category_collection = []
+  cat_card = "#{@round.deck.recall_cards[0].category.to_s} - #{@round.percent_correct_by_category(@round.deck.recall_cards[0].category)}"
+  @category_collection << cat_card
+  @round.deck.recall_cards.each do |card|
+    x = 0
+    if card.category == @category_collection[x].split(" -")[0].to_sym
+      x += 1
+    else
+      cat_card = "#{card.category.to_s} - #{@round.percent_correct_by_category(card.category)}"
+      @category_collection << cat_card
+    end
+  end
   @category_collection.each do |collect|
     puts collect
   end
   puts ""
  end
 start
+
+#@category_collection[0].split(" -")[0].to_sym
