@@ -5,16 +5,16 @@ require './lib/round'
 
 def start()
 
-     index = 1
-     num_cards_round = 0
+     @index = 1
+     @num_cards_round = 0
 
 
      # logic to determine test for Iteration 3 or 4 specifications
      puts "Want to load a file or use default Iteration 3 cards? (Type Y to load file cards.txt.)"
 
-     load_file? = gets.chomp.to_s
+     load_file = gets.chomp.to_s
 
-     if load_file? = "Y"
+     if load_file == "Y"
           deck = Deck.new(CardGenerator.new("cards.txt").cards)
      else
           #setup the 8 cards for features of iteration 3 only
@@ -29,25 +29,25 @@ def start()
           deck = Deck.new([card_1, card_2, card_3, card_4, card_5, card_6, card_7, card_8])
      end
 
-     num_cards_round = deck.length
-     round = Round.new(deck)
+     p @num_cards_round = deck.count
+     @round = Round.new(deck)
 
      def display_welcome
           text = %Q(
-          Welcome! Your're playing with #{num_cards_round} cards.
+          Welcome! Your're playing with #{@num_cards_round} cards.
           --------------------------------------
           )
           puts text
      end
 
      def display_card
-          puts "This is card number #{index} out of #{num_cards_round}."
-          puts "Question: #{round.current_card.question}"
+          puts "This is card number #{@index} out of #{@num_cards_round}."
+          puts "Question: #{@round.current_card.question}"
           print "Answer?  "
           user_guess = gets.chomp.to_s
-          round.take_turn(user_guess)
-          index += 1
-          puts round.last.feedback
+          @round.take_turn(user_guess)
+          @index += 1
+          puts @round.last.feedback
           puts ""
      end
 
@@ -55,10 +55,11 @@ def start()
           text = %Q(
 
           ****** Game over! ******
-          You had #{round.number_correct} correct guesses out of #{num_cards_round} for a total score of #{round.percent_correct}%.
-          STEM - #{round.percent_correct_by_category(:STEM)} correct
-          Geography - #{round.percent_correct_by_category(:Geography)} correct
-          Star Wars - #{round.percent_correct_by_category(:StarWars)} correct
+          You had #{@round.number_correct} correct guesses out of #{@num_cards_round} for a total score of #{@round.percent_correct}%.
+
+          STEM - #{@round.percent_correct_by_category(:STEM)}% correct
+          Geography - #{@round.percent_correct_by_category(:Geography)}% correct
+          Star Wars - #{@round.percent_correct_by_category(:StarWars)}% correct
 
           Practice makes perfect!
 
@@ -79,7 +80,7 @@ def start()
 
      display_welcome
 
-     num_cards_round.times do
+     @num_cards_round.times do
           display_card
      end
 
