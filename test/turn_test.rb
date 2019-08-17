@@ -25,4 +25,9 @@ class TurnTest < Minitest::Test
     refute @turn_wrong_answer.correct?
   end
 
+  def test_turn_feedback
+    assert_equal "That's gay!", @turn.feedback
+    assert_equal "Eww, that's straight.", @turn_wrong_answer.feedback
+  end
+
 end
