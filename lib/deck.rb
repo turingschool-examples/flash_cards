@@ -1,7 +1,8 @@
 class Deck
-  attr_reader :cards
-  def initialize(cards)
+  attr_reader :cards, :recall_cards
+  def initialize(cards, recall_cards)
     @cards = cards
+    @recall_cards = @cards.map {|recall_card| recall_card}
   end
 
   def count
