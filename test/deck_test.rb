@@ -14,6 +14,22 @@ class DeckTest < Minitest::Test
     @deck = Deck.new(@cards)
   end
 
+  def test_card_1
+    assert_instance_of Card, @card_1
+  end
+
+  def test_card_2
+    assert_instance_of Card, @card_2
+  end
+
+  def test_card_3
+    assert_instance_of Card, @card_3
+  end
+
+  def test_cards_array
+    assert @cards = [@card_1, @card_2, @card_3]
+  end
+
   def test_it_exists
     assert_instance_of Deck, @deck
   end
@@ -27,8 +43,9 @@ class DeckTest < Minitest::Test
   end
 
   def test_cards_in_category
-    assert_equal @deck.cards_in_category(:Geography), [@card_1]
     assert_equal @deck.cards_in_category(:STEM), [@card_2, @card_3]
+    assert_equal @deck.cards_in_category(:Geography), [@card_1]
+    assert_equal @deck.cards_in_category("Pop Culture"), []
   end
 
 end

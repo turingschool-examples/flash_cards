@@ -1,6 +1,6 @@
 
 class Round
-  attr_reader :deck, :current_card, :turns
+  attr_accessor :deck, :current_card, :turns
 
   def initialize(deck)
     @deck = deck
@@ -9,11 +9,11 @@ class Round
   end
 
   def take_turn(guess)
-    turn = Turn.new(guess, current_card)
-    @turns << turn
+    new_turn = Turn.new(guess, current_card)
+    @turns << new_turn
     @deck.cards.shift
     @current_card = deck.cards[0]
-    turn
+    new_turn
   end
 
 end
