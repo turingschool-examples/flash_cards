@@ -9,12 +9,20 @@ class Round
     @turns = Array.new
   end
 
-  def take_turn(guess)
-    turn = Turn.new(guess, current_card)
-    @turns << turn
+  def advance_turn # Needs good name
+    # Storing the current turn in the array for all turns
+    @turns << @turn
+    # Discards the top card in the deck
     @deck.cards.shift
+    # Sets the current card to the new top card in the deck
     @current_card = deck.cards[0]
-    turn
+  end
+
+  def take_turn(guess)
+    # Create a new Turn object with parameters for a guess and a card
+    @turn = Turn.new(guess, current_card)
+    advance_turn
+    @turn
   end
 
   def number_correct
@@ -29,7 +37,7 @@ class Round
   end
 
   def number_correct_by_category(category)
-    @turns.find_all{ |turn| turn.correct? && turn.card.category == category}.count
+    @turns.find_all { |turn| turn.correct? && turn.card.category == category}.count
   end
 
   def percent_correct

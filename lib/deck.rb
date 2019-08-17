@@ -12,6 +12,6 @@ class Deck
   end
 
   def cards_in_category(cat)
-    cards.select {|card| card.category == cat}
+    cards.find_all {|card| card.category == cat}
   end
 end
