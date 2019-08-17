@@ -16,7 +16,7 @@ class TurnTest < Minitest::Test
     # your original error on line ten
     # 'initialize'
     # 'new'
-    # 'test_it_exists'
+    # 'test_it_exists'cd ..
     # reads bottom to top. The first message ('initialize') is where the actual error is.
 
     assert_instance_of Turn, @turn
