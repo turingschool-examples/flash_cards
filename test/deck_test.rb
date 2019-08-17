@@ -18,6 +18,9 @@ class DeckTest < Minitest::Test
     assert_instance_of Deck, @deck
   end
   #test holds cards
+  def test_deck_stores_and_exposes_attributes
+    assert_equal @cards, @deck.cards
+  end
   #test count
   #test cards_in_category with several categories
 end
