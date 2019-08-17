@@ -5,7 +5,7 @@ require './lib/turn'
 require './lib/deck'
 require './lib/round'
 
-## CHECK ITERATION PATTERN IN INSTRUCTIONS
+## Can't make new_turn an instance variable bc it breaks other tests, have to keep local variable
 
 class RoundTest < Minitest::Test
 
@@ -19,31 +19,31 @@ class RoundTest < Minitest::Test
   end
 
   def test_card_1
-    skip
+    assert_instance_of Card, @card_1
   end
 
   def test_card_2
-    skip
+    assert_instance_of Card, @card_2
   end
 
   def test_card_3
-    skip
+    assert_instance_of Card, @card_3
   end
 
   def test_deck_var
-    skip
+    assert_instance_of Deck, @deck
   end
 
   def test_round
     assert_instance_of Round, @round
   end
 
-  def test_deck_method
+  def test_deck
     assert_equal @deck, @round.deck
   end
 
-  def test_turn_1
-    skip
+  def test_turns
+    assert @round.turns == []
   end
 
   def test_current_card_1
@@ -51,42 +51,62 @@ class RoundTest < Minitest::Test
   end
 
   def test_take_turn_1
-    turn = @round.take_turn("Juneau")
+    new_turn = @round.take_turn("Juneau")
 
     assert @round.turns.count == 1
     assert_equal @round.current_card, @card_2
   end
 
   def test_turn_class
-    skip
+    new_turn = @round.take_turn("Juneau")
+    # require 'pry'; binding.pry
+    assert_instance_of Turn, new_turn
   end
 
   def test_turn_correct
-    skip
+    new_turn = @round.take_turn("Juneau")
+
+    assert new_turn.correct? == true
   end
 
-  def test_turn_2
-    skip
+  def test_turns_2
+    new_turn = @round.take_turn("Juneau")
+
+    assert @round.turns[0] == new_turn
   end
 
   def test_number_correct_1
-    skip
+    new_turn = @round.take_turn("Juneau")
+
+    assert @round.number_correct == 1
   end
 
   def test_current_card_2
-    skip
+    new_turn = @round.take_turn("Juneau")
+    # require 'pry'; binding.pry
+    assert_equal @round.current_card, @card_2
   end
 
   def test_take_turn_2
-    skip
+    new_turn_1 = @round.take_turn("Juneau")
+    new_turn_2 = @round.take_turn("Venus")
+    # require 'pry'; binding.pry
+    assert @round.turns.count == 2
+    assert_equal @card_3, @round.current_card
   end
 
   def test_turn_count
-    skip
+    new_turn_1 = @round.take_turn("Juneau")
+    new_turn_2 = @round.take_turn("Venus")
+
+    assert @round.turns.count == 2
   end
 
   def test_turn_last_feedback
-    skip
+    new_turn_1 = @round.take_turn("Juneau")
+    new_turn_2 = @round.take_turn("Venus")
+    # require 'pry'; binding.pry
+    assert @round.turns.last.feedback == "Incorrect."
   end
 
   def test_number_correct_2
