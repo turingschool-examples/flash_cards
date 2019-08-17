@@ -1,57 +1,24 @@
 class Round
-  attr_reader :deck, :cards, :turns
+  attr_reader :deck, :turns, :number_correct
 
-  def initialize(deck, cards, turns)
+  def initialize(deck)
     @deck = deck
-    @cards = cards
-    @turn = turns
+    @turns = []
+    @number_correct = 0
   end
 
   def current_card
-
+    @deck.cards[0]
   end
 
-  def class
 
-  end
 
-  def correct?
-
-  end
-
-  def number_correct
-
-  end
-
-  def take_turn
-
-  end
-
-  def count
-
-  end
-
-  def last
-
-  end
-
-  def feedback
-
-  end
-
-  def number_correct_by_category(:Geography)
-
-  end
-
-  def number_correct_by_category(:STEM)
-
-  end
-
-  def percent_correct
-
-  end
-
-  def percent_correct_by_category(:Geography)
-
+  def take_turn(guess)
+    new_turn = Turn.new(guess, current_card)
+    @turns << new_turn
+    if new_turn.correct?
+      @number_correct += 1
+    end
+    new_turn  
   end
 end
