@@ -16,7 +16,7 @@ class RoundTest < Minitest::Test
 
     @round = Round.new(@deck)
 
-    @new_turn = @round.take_turn("Juneau")
+    # new_turn = @round.take_turn("Juneau")
   end
 
   # test Round exists
@@ -31,11 +31,10 @@ class RoundTest < Minitest::Test
     assert_equal @deck, @round.deck
   end
 
-  # this doesnt seem to be working because we already name a new turn...
-  # def test_turns
-  #
-  #   assert_equal [], @round.turns
-  # end
+   def test_turns
+
+     assert_equal [], @round.turns
+   end
 
   # test the current card is the top card of the deck
   def test_current_card
@@ -44,14 +43,73 @@ class RoundTest < Minitest::Test
   end
 
   def test_new_turn_class
+    new_turn = @round.take_turn("Juneau")
 
-    assert_equal Turn, @new_turn.class
+    assert_equal Turn, new_turn.class
   end
 
-  def test_new_turn_correct
+  def test_new_turn_correct?
+    new_turn = @round.take_turn("Juneau")
 
-    assert_equal true, @new_turn.correct?
+    assert_equal true, new_turn.correct?
   end
 
+  def test_turns
+    new_turn = @round.take_turn("Juneau")
+
+    assert_equal new_turn, @round.turns[0]
+  end
+
+  def test_number_correct
+     new_turn = @round.take_turn("Juneau")
+
+     assert_equal 1, @round.number_correct
+  end
+
+  def test_round_current_card_2
+
+    assert_equal @deck.cards[0], @round.current_card
+  end
+
+  def test_round_take_turn_2
+    new_turn = @round.take_turn("Juneau")
+    @round.take_turn("Venus")
+
+    assert_equal new_turn, @round.turns[0]
+  end
+
+  def test_round_turns_count_2
+    new_turn = @round.take_turn("Juneau")
+    @round.take_turn("Venus")
+
+    assert_equal 2, @round.turns.count
+  end
+
+  # Apparently we don't have to test this
+  # def test_turns_count_feedback
+  #
+  #   assert_equal "Incorrect.", @round.turns.last.feedback
+  # end
+
+  def test_round_number_correct
+    new_turn = @round.take_turn("Juneau")
+    @round.take_turn("Venus")
+
+    assert_equal 1, @round.number_correct
+  end
+
+  def test_number_correct_by_category
+    new_turn = @round.take_turn("Juneau")
+    @round.take_turn("Venus")
+
+    assert_equal 1, @round.number_correct_by_category(:Geography)
+  end
+
+  def test_number_correct_by_category
+    new_turn = @round.take_turn("Juneau")
+    @round.take_turn("Venus")
+
+    assert_equal 0, @round.number_correct_by_category(:STEM)
+  end
 
 end
