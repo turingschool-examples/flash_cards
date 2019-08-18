@@ -29,4 +29,8 @@ class Round
   def percent_correct
     number_correct / @turns.count.to_f * 100
   end
+
+  def percent_correct_by_category(category)
+    number_correct_by_category(:Geography) / @turns.count.to_f * 100
+  end
 end
