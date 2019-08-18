@@ -1,17 +1,21 @@
+require 'pry'
 require './lib/card'
 require './lib/deck'
 require './lib/turn'
 require './lib/round'
+require './lib/card_generator'
 
-@card1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-@card2 = Card.new("What is my name?", "David", :Personal)
-@card3 = Card.new("What is 30 * 30", "900", :Math)
-@card4 = Card.new("What is the mile high city", "Denver", :Geography)
-@cards = [@card1, @card2, @card3, @card4]
-@deck = Deck.new(@cards)
+@generator = CardGenerator.new("./data/cards.txt")
+@generator.make_card
+@cards = @generator.cards
+@random_cards = []
+puts "How many cards would you like?"
+userchoice = gets.chomp.to_i
+userchoice.times {@random_cards << @cards.sample}
+@deck = Deck.new(@random_cards, @recall_cards)
 @round = Round.new(@deck)
 
-def start
+ def start
   puts ""
   puts "Welcome you're playing with #{@round.deck.count} cards."
   puts "-------------------------------------------------------"
@@ -25,10 +29,24 @@ def start
   end
   puts "******** GAME OVER ********"
   puts "You had #{@round.number_correct} out of #{@round.turns.count} correct for a total score of #{@round.percent_correct}%"
-  puts "Geography - #{@round.percent_correct_by_category(:Geography)}"
-  puts "Personal - #{@round.percent_correct_by_category(:Personal)}"
-  puts "Math - #{@round.percent_correct_by_category(:Math)}"
+  @category_collection = []
+  @round.deck.recall_cards.each do |card|
+    find_category = @category_collection.find_all {|cat| cat.split(" -")[0].to_sym == card.category}
+    conv_find_category = nil
+    if find_category.count >= 1
+      conv_find_category = find_category[0].split(" -")[0].to_sym
+    end
+    if card.category == conv_find_category
+    else
+      cat_card = "#{card.category.to_s} - #{@round.percent_correct_by_category(card.category)}"
+      @category_collection << cat_card
+    end
+  end
+  @category_collection.each do |collect|
+    puts collect
+  end
   puts ""
-end
-
+ end
 start
+
+#@category_collection[0].split(" -")[0].to_sym
