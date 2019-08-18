@@ -9,14 +9,34 @@ class DeckTest < Minitest::Test
     @card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     @card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     @card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-    @deck = Deck.new(@card_1)
+    cards = [@card_1, @card_2]
+    @deck = Deck.new(cards)
+  end
+
+  def test_deck_exists
+
+    assert_instance_of Deck, @deck
   end
 
   def test_add_card_to_deck
-    @deck.add_card_to_deck(@card_2)
     @deck.add_card_to_deck(@card_3)
 
-    assert_equal [@card_1, @card_2, @card_3], deck.cards
+    assert_equal [@card_1, @card_2, @card_3], @deck.cards
   end
 
+  def test_cards_in_category
+    @deck.add_card_to_deck(@card_3)
+
+    assert_equal [@card_2, @card_3], @deck.cards_in_category(:STEM)
+  end
+
+  def test_count
+
+    assert_equal 2, @deck.count
+  end
+
+  def test_cards
+
+    assert_equal [@card_1, @card_2], @deck.cards
+  end
 end
