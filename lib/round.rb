@@ -4,6 +4,6 @@ class Round
   def initialize(deck_param)
     @deck = deck_param
     @turns = []
-    # @current_card = @deck.cards[0]
+    @current_card = deck_param.cards_in_deck.first
   end
 end
