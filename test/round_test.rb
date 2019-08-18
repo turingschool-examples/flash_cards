@@ -37,13 +37,19 @@ class RoundTest < Minitest::Test
     assert_equal round_1.current_card, @deck.cards[0]
   end
 
-  # def test_new_turn
-  #   round_2 = Round.new(@deck)
-  #   turn_2 = round_2.take_turn("Guess_1")
-  #   assert_equal round_2.turns.second, turn_2
-  # end
-  #
-  # def test_number_correct_by_category
-  #   assert_equal [@card_1 = :Geography, @card_2 = :STEM, @card_3 = :STEM], @cards.category
-  # end
+  def test_new_turn
+    round = Round.new(@deck)
+    turn = round.take_turn("Guess_1")
+    assert_equal round.current_card, @card_2
+  end
+
+  def test_go_through_deck
+      round = Round.new(@deck)
+      assert_equal round.current_card, @card_1
+      round.take_turn("Guess_1")
+      assert_equal round.current_card, @card_2
+      round.take_turn("Guess_1")
+      assert_equal round.current_card, @card_3
+      round.take_turn("Guess_1")
+  end
 end

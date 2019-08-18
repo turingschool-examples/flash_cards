@@ -9,17 +9,9 @@ class Round
   end
 
   def take_turn(guess)
-    new_turn = Turn.new(guess, @current_card)
-    @turns << new_turn
-    if new_turn.correct?
-      @number_correct += 1
-    end
-    if @deck.cards != []
-      @current_card = @deck.cards.shift
-    end
-    new_turn
-  end
-
-  def number_correct_by_category
+    turns << Turn.new(guess, current_card)
+    deck.cards = deck.cards.rotate
+    @current_card = @deck.cards[0]
+    turns.last
   end
 end
