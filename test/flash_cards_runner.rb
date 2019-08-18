@@ -26,12 +26,15 @@ require './lib/card_generator'
   puts "******** GAME OVER ********"
   puts "You had #{@round.number_correct} out of #{@round.turns.count} correct for a total score of #{@round.percent_correct}%"
   @category_collection = []
-  cat_card = "#{@round.deck.recall_cards[0].category.to_s} - #{@round.percent_correct_by_category(@round.deck.recall_cards[0].category)}"
-  @category_collection << cat_card
+  # cat_card = "#{@round.deck.recall_cards[0].category.to_s} - #{@round.percent_correct_by_category(@round.deck.recall_cards[0].category)}"
+  # @category_collection << cat_card
   @round.deck.recall_cards.each do |card|
-    x = 0
-    if card.category == @category_collection[x].split(" -")[0].to_sym
-      x += 1
+    find_category = @category_collection.find_all {|cat| cat.split(" -")[0].to_sym == card.category}
+    conv_find_category = nil
+    if find_category.count >= 1
+      conv_find_category = find_category[0].split(" -")[0].to_sym
+    end
+    if card.category == conv_find_category
     else
       cat_card = "#{card.category.to_s} - #{@round.percent_correct_by_category(card.category)}"
       @category_collection << cat_card
