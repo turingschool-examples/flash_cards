@@ -4,6 +4,7 @@ require './lib/card'
 require './lib/turn'
 require './lib/deck'
 require './lib/round'
+require 'pry'
 
 class RoundTest < Minitest::Test
   def setup
@@ -22,34 +23,34 @@ class RoundTest < Minitest::Test
 # It should store this new Turn, as well as return it from the take_turn method.
 # Also, when the take_turn method is called, the Round should move on to the next card in the deck.
 
-  def test_round_exits
+  def test_round_exists
     assert_instance_of Round, @round
   end
 
-  def test_turns
+  def test_turns_array_is_empty
     assert_equal [], @round.turns
   end
 
-  def test_current_card
+  def test_current_card_matches_first_card
     assert_equal @card_1, @round.current_card
   end
 
-  def test_take_turn
-    new_turn = @round.take_turn("Juneau")
-
-    assert @round.take_turn("Juneau")
+  def test_take_turn_returns_turn
+    result = @round.take_turn("Juneau")
+    assert_instance_of Turn, result
   end
 
-  def test_new_turn_class
-    new_turn = @round.take_turn("Juneau")
+  def test_take_turn_returns_class_turn
+    result = @round.take_turn("Juneau")
 
-    assert_equal Turn, new_turn.class
+    # binding.pry
+    assert_equal Turn, result.class
   end
 
   def test_if_new_turn_is_correct
-    new_turn = @round.take_turn("Juneau")
+    result = @round.take_turn("Juneau")
 
-    assert new_turn.correct?
+    assert result.correct?
   end
 
   def test_new_turn_returns_in_array
@@ -58,9 +59,13 @@ class RoundTest < Minitest::Test
     assert_equal [new_turn], @round.turns
   end
 
-  def test_after_new_turn_number_correct
-    new_turn= @round.take_turn("Juneau")
+  def test_number_correct_of_all_take_turns
+    assert_equal 0, @round.number_correct
 
+    correct_turn = @round.take_turn("Juneau")
+    assert_equal 1, @round.number_correct
+
+    incorrect_turn = @round.take_turn("Saturn")
     assert_equal 1, @round.number_correct
   end
 
@@ -70,35 +75,29 @@ class RoundTest < Minitest::Test
     assert_equal @card_2, @round.current_card
   end
 
-  def test_count_number_correct
-    assert_equal 0, @round.number_correct
+  def test_count_of_turns_taken
+    first_turn = @round.take_turn("Juneau")
+    second_turn = @round.take_turn("Venus")
 
-    correct_turn = @round.take_turn("Juneau")
-
-    assert_equal 1, @round.number_correct
-
-    incorrect_turn = @round.take_turn("Saturn")
-
-    assert_equal 1, @round.number_correct
+    assert_equal 2, @round.turns.count
   end
-  # def test_turn_2_count
-  # end
-  #
-  # def test_turn_2_feedback
-  # end
-  #
-  # def test_if_turn_2_is_correct
-  # end
-  #
-  # def test_after_turn_2_number_correct
-  # end
-  #
-  # def test_number_correct_by_category_geography
-  # end
-  #
-  # def test_number_correct_by_category_stem
-  # end
-  #
+
+  def test_feedback_on_previous_turn
+    first_turn = @round.take_turn("Juneau")
+    second_turn = @round.take_turn("Venus")
+
+    assert_equal "Incorrect.", @round.turns.last.feedback
+  end
+
+  def test_number_correct_turns_by_category
+    #first we need the cards from the turn
+    #then we need the category from the card
+    #next we need to check if the card's answer matches the guess
+    #if the card's answer matches the guess count the category
+    #
+
+  end
+
   # def test_percent_correct
   # end
   #

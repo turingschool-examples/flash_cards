@@ -30,9 +30,8 @@ class Round
     end
   end
 
-  def class
-    new_turn = Turn.new(guess, @current_card)
-    new_turn.class
+  def number_correct_by_category
+
   end
 
 end
