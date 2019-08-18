@@ -1,6 +1,10 @@
 require 'pry'
 class Round
-attr_reader :deck, :turns, :number_correct_turns
+attr_reader :deck,
+            :turns,
+            :number_correct_turns,
+            :cards_per_e_category,
+            :correct_by_category
 
   def initialize(deck)
     @deck = deck
@@ -8,12 +12,11 @@ attr_reader :deck, :turns, :number_correct_turns
     @number_correct_turns = 0
     @cards_per_e_category = {}
     @correct_by_category = {}
-    @cycle_deck = []
   end
 
   def take_turn(guess)
     new_turn = Turn.new(guess,@deck.cards.first)
-    @deck.cards.shift
+    @deck.cards.push(@deck.cards.shift)
     @turns << new_turn
     new_turn
   end
@@ -57,12 +60,12 @@ attr_reader :deck, :turns, :number_correct_turns
   end
 
   def percent_correct
-    ( @number_correct_turns.to_f / @turns.length ) * 100
+    ( @number_correct_turns.to_f / @turns.length ).round(3) * 100
   end
 
   def percent_correct_by_category(category)
     number_correct_by_category(category)
-    (@correct_by_category[category].to_f / @cards_per_e_category[category] ) * 100
+    (@correct_by_category[category].to_f / @cards_per_e_category[category] ).round(3) * 100
   end
 
 end

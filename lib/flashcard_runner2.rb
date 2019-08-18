@@ -13,21 +13,21 @@ require 'pry'
 
 
   def start
-   card1 = Card.new("What is the smallest atomic element?", "Helium",:Chemistry)
-   card2 = Card.new("What is banned in Japanese restaurants?", "Tipping", :Law)
-   card3 = Card.new("What is illegal to duel with in Massachesetts?", "Water Pistols", :Law)
-   card4 = Card.new("What is a group of unicorns known as?", "A blessing", :Animals)
-   card5 = Card.new("Which animal swallows stones to improve it's stability?", "Crocodile", :Animals)
-   card6 = Card.new("If you expose a glass of water to space it will?", "Boil", :Chemistry)
+#   card1 = Card.new("What is the smallest atomic element?", "Helium",:Chemistry)
+#   card2 = Card.new("What is banned in Japanese restaurants?", "Tipping", :Law)
+#   card3 = Card.new("What is illegal to duel with in Massachesetts?", "Water Pistols", :Law)
+#   card4 = Card.new("What is a group of unicorns known as?", "A blessing", :Animals)
+#   card5 = Card.new("Which animal swallows stones to improve it's stability?", "Crocodile", :Animals)
+#   card6 = Card.new("If you expose a glass of water to space it will?", "Boil", :Chemistry)
 
-   cards = [card1, card2, card3, card4, card5, card6]
+#   cards = [card1, card2, card3, card4, card5, card6]
 
-    #cards = CardGenerator.new("./lib/cards.txt").cards
-
+   cards = CardGenerator.new("./lib/cards.txt").cards
+    x = cards.length
     deck = Deck.new(cards)
 
     round = Round.new(deck)
-    i = 0
+    i = 1
 
     puts """
     Welcome! You're playing with #{round.deck.cards.length} cards
@@ -35,12 +35,12 @@ require 'pry'
     """
     round.deck.cards.length.times do
       puts """
-      This is card number #{i} out of #{round.deck.cards.length}
-      Question: #{card1.question}
+      This is card number #{i} out of #{x}
+      Question: #{cards[0].question}
       ----------------------------------------------------------
       """
       guess = gets.chomp
-
+      i += 1
       turn = round.take_turn(guess)
       puts """
       ----------------------------------------------------------

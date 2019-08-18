@@ -16,9 +16,11 @@ class RoundTest < Minitest::Test
 
 
     @round = Round.new(@deck)
+
     @turn1 = @round.take_turn("Helium")
-    @turn2 = @round.take_turn("Tipping")
+    @turn2 = @round.take_turn("Standing")
     @turn3 = @round.take_turn("Water Pistols")
+
   end
 
 
@@ -43,23 +45,23 @@ class RoundTest < Minitest::Test
   def test_it_tracks_turns
 
 
-    assert_equal [], @round.turns
+    assert_equal [@turn1,@turn2,@turn3], @round.turns
 
-    @turn1 = @round.take_turn("Helium")
+  end
 
-    assert_equal [@turn1], @round.turns
+  def test_it_creates_categories
+    @round.create_categories
 
+    assert_equal ({:Chemistry => 0, :Law => 0}), @round.cards_per_e_category
+    assert_equal ({:Chemistry => 0, :Law => 0}), @round.correct_by_category
   end
 
   def test_it_returns_number_correct
 
-
-    assert_equal 3, @round.number_correct
+    assert_equal 2, @round.number_correct
   end
 
   def test_it_returns_number_correct_by_category
-
-
 
     assert @turn1.correct?
     refute @turn2.correct?
@@ -73,12 +75,10 @@ class RoundTest < Minitest::Test
 
 
     @round.number_correct
-    assert_equal 100.0, @round.percent_correct
+    assert_equal 66.7, @round.percent_correct
   end
 
   def test_it_returns_percent_correct_by_category
-
-
 
 
 

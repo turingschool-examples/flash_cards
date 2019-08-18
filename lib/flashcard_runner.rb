@@ -21,88 +21,33 @@ require 'pry'
    card6 = Card.new("If you expose a glass of water to space it will?", "Boil", :Chemistry)
 
    cards = [card1, card2, card3, card4, card5, card6]
-
+   x = cards.length
     #cards = CardGenerator.new("./lib/cards.txt").cards
-
     deck = Deck.new(cards)
 
     round = Round.new(deck)
-
+    i = 1
 
     puts """
-    Welcome! You're playing with 6 cards
-    ----------------------------------------------------------
-    This is card number 1 out of 6
-    Question: #{card1.question}
+    Welcome! You're playing with #{round.deck.cards.length} cards
     ----------------------------------------------------------
     """
-    guess = gets.chomp
+    round.deck.cards.length.times do
+      puts """
+      This is card number #{i} out of #{x}
+      Question: #{cards[0].question}
+      ----------------------------------------------------------
+      """
+      guess = gets.chomp
+      i += 1
+      turn = round.take_turn(guess)
 
-    turn1 = round.take_turn(guess)
-    puts """
-    ----------------------------------------------------------
-    #{guess}
-    #{turn1.feedback}
-    This is card number 2 out of 6
-    Question: #{card2.question}
-    ----------------------------------------------------------
-    """
-    guess = gets.chomp
-
-    turn2 = round.take_turn(guess)
-    puts """
-    ----------------------------------------------------------
-    #{guess}
-    #{turn2.feedback}
-    This is card number 3 out of 6
-    Question: #{card3.question}
-    ----------------------------------------------------------
-    """
-    guess = gets.chomp
-
-    turn3 = round.take_turn(guess)
-    puts """
-    ----------------------------------------------------------
-    #{guess}
-    #{turn3.feedback}
-    This is card number 4 out of 6
-    Question: #{card4.question}
-    ----------------------------------------------------------
-    """
-
-    guess = gets.chomp
-
-    turn4 = round.take_turn(guess)
-    puts """
-    ----------------------------------------------------------
-    #{guess}
-    #{turn4.feedback}
-    This is card number 5 out of 6
-    Question: #{card5.question}
-    ----------------------------------------------------------
-    """
-
-    guess = gets.chomp
-
-    turn5 = round.take_turn(guess)
-    puts """
-    ----------------------------------------------------------
-    #{guess}
-    #{turn5.feedback}
-    This is card number 6 out of 6
-    Question: #{card6.question}
-    ----------------------------------------------------------
-    """
-
-    guess = gets.chomp
-
-    turn6 = round.take_turn(guess)
-    puts """
-    ----------------------------------------------------------
-    #{guess}
-    #{turn6.feedback}
-    ----------------------------------------------------------
-    """
+      puts """
+      ----------------------------------------------------------
+      #{guess}
+      #{turn.feedback}
+      """
+    end
 
     round.number_correct
     puts """
