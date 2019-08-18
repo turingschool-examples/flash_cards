@@ -48,5 +48,3 @@ userchoice.times {@random_cards << @cards.sample}
   puts ""
  end
 start
-
-#@category_collection[0].split(" -")[0].to_sym
