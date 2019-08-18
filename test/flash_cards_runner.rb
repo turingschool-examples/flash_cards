@@ -8,7 +8,11 @@ require './lib/card_generator'
 @generator = CardGenerator.new("./data/cards.txt")
 @generator.make_card
 @cards = @generator.cards
-@deck = Deck.new(@cards, @recall_cards)
+@random_cards = []
+puts "How many cards would you like?"
+userchoice = gets.chomp.to_i
+userchoice.times {@random_cards << @cards.sample}
+@deck = Deck.new(@random_cards, @recall_cards)
 @round = Round.new(@deck)
 
  def start
@@ -26,8 +30,6 @@ require './lib/card_generator'
   puts "******** GAME OVER ********"
   puts "You had #{@round.number_correct} out of #{@round.turns.count} correct for a total score of #{@round.percent_correct}%"
   @category_collection = []
-  # cat_card = "#{@round.deck.recall_cards[0].category.to_s} - #{@round.percent_correct_by_category(@round.deck.recall_cards[0].category)}"
-  # @category_collection << cat_card
   @round.deck.recall_cards.each do |card|
     find_category = @category_collection.find_all {|cat| cat.split(" -")[0].to_sym == card.category}
     conv_find_category = nil
