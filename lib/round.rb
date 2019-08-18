@@ -24,7 +24,7 @@ attr_reader :deck, :turns
   end
 
   def number_correct_by_category(category)
-    @deck.cards.count {|card| card.category && == category}
+    @turns.count {|turn| turn.correct? && category == turn.card.category}
   end
 
 end
