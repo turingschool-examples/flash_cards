@@ -2,6 +2,7 @@ require './lib/card'
 require './lib/turn'
 require './lib/deck'
 require './lib/round'
+require './lib/card_generator'
 
 def start()
 
@@ -15,7 +16,7 @@ def start()
      load_file = gets.chomp.to_s
 
      if load_file == "Y"
-          deck = Deck.new(CardGenerator.new("cards.txt").cards)
+          deck = Deck.new(CardGenerator.new("./lib/cards.txt").cards)
      else
           #setup the 8 cards for features of iteration 3 only
           card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
@@ -29,7 +30,7 @@ def start()
           deck = Deck.new([card_1, card_2, card_3, card_4, card_5, card_6, card_7, card_8])
      end
 
-     p @num_cards_round = deck.count
+     @num_cards_round = deck.count
      @round = Round.new(deck)
 
      def display_welcome
