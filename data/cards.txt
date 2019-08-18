@@ -1,4 +1,20 @@
 What is 5 + 5?|10|STEM
 What is Rachel's favorite animal?|red panda|TuringStaff
 What is Mike's middle name?|nobody knows|TuringStaff
-What cardboard cutout lives at Turing?|Justin bieber|PopCulture
+What cardboard cutout lives at Turing?|Justin Bieber|PopCulture
+How many miles to the sun?(rounded)|93000000|STEM
+How many feet in a mile?|5280|STEM
+What band does Eddie Mercury belong to?|Queen|Bands
+When is my birthday?|Jun 14|Personal
+What year is the next full moon to appear on halloween?|2020|Halloween
+What movie was the highest grossing movie of the 80's?|ET|Movies
+How many squares on a chessboard?|64|Games
+Who starts first in chess?|White|Games
+What year did Elvis die?|1977|Celebrities
+Who is the tallest Basketball player in the world|Manute Boll|Celebrities
+What is the diameter of the earth?(in miles)|8000|STEM
+What group of animals is called a flink?|Cows|Animals
+V-Bucks is an in-game currency for what game?|Fortnite|Games
+What colorful body of water separates Saudi Arabia from Africa|Red Sea|Geography
+What NFL player has won the most playoff games in history?|Tom Brady|Celebrities
+What year was the first iPhone released?|2007|STEM
