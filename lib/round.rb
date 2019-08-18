@@ -4,7 +4,7 @@ class Round
   def initialize(deck)
     @deck = deck
     @turns = []
-    @current_card = @deck.cards[0]
+    @current_card = @deck.cards.shift
     @number_correct = 0
   end
 
@@ -14,6 +14,12 @@ class Round
     if new_turn.correct?
       @number_correct += 1
     end
+    if @deck.cards != []
+      @current_card = @deck.cards.shift
+    end
     new_turn
+  end
+
+  def number_correct_by_category
   end
 end
