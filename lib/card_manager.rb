@@ -4,7 +4,7 @@ class CardManager
 
   def initialize(file_name=nil)
     @cards_by_file = {}
-    @file_name = file_name
+    load_from_file(file_name)
   end
 
   def load_from_file(file_name) 
