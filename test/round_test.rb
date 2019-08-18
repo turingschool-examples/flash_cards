@@ -4,7 +4,6 @@ require './lib/card'
 require './lib/turn'
 require './lib/deck'
 require './lib/round'
-# require 'pry'
 
 class RoundTest < Minitest::Test
   def setup
@@ -53,17 +52,59 @@ class RoundTest < Minitest::Test
     assert new_turn.correct?
   end
 
-  def test_new_turn_turns
+  def test_new_turn_returns_in_array
     new_turn = @round.take_turn("Juneau")
 
     assert_equal [new_turn], @round.turns
   end
 
-  # binding.pry
-  def test_new_turn_number_correct
-    new_turn = @round.take_turn("Juneau")
+  def test_after_new_turn_number_correct
+    new_turn= @round.take_turn("Juneau")
 
     assert_equal 1, @round.number_correct
   end
 
+  def test_take_turn_returns_next_card
+    first_turn = @round.take_turn("Juneau")
+
+    assert_equal @card_2, @round.current_card
+  end
+
+  def test_count_number_correct
+    assert_equal 0, @round.number_correct
+
+    correct_turn = @round.take_turn("Juneau")
+
+    assert_equal 1, @round.number_correct
+
+    incorrect_turn = @round.take_turn("Saturn")
+
+    assert_equal 1, @round.number_correct
+  end
+  # def test_turn_2_count
+  # end
+  #
+  # def test_turn_2_feedback
+  # end
+  #
+  # def test_if_turn_2_is_correct
+  # end
+  #
+  # def test_after_turn_2_number_correct
+  # end
+  #
+  # def test_number_correct_by_category_geography
+  # end
+  #
+  # def test_number_correct_by_category_stem
+  # end
+  #
+  # def test_percent_correct
+  # end
+  #
+  # def test_percent_correct_by_category_geography
+  # end
+  #
+  # def test_current_card_3
+  # end
 end
