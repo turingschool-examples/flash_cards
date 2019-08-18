@@ -23,7 +23,7 @@ def randomize_cards
   end
 end
 @userchoice.times {randomize_cards}
-@deck = Deck.new(@random_cards, @recall_cards)
+@deck = Deck.new(@random_cards)
 @round = Round.new(@deck)
 
  def start
@@ -49,7 +49,7 @@ end
     end
     if card.category == conv_find_category
     else
-      cat_card = "#{card.category.to_s} - #{@round.percent_correct_by_category(card.category)}"
+      cat_card = "#{card.category.to_s} - #{@round.percent_correct_by_category(card.category).round(2)}"
       @category_collection << cat_card
     end
   end
