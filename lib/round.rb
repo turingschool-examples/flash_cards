@@ -15,6 +15,13 @@ class Round
     turns.last
   end
 
+  def number_correct
+    turns.count do |turn|
+      turn.correct?
+    end
+  end
+
+
   def number_correct_by_category(category)
     turns.count do |turn|
       turn.correct? && turn.card.category == category

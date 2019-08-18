@@ -53,6 +53,16 @@ class RoundTest < Minitest::Test
       round.take_turn("Guess_1")
   end
 
+  def test_number_correct
+    round = Round.new(@deck)
+    round.take_turn("Juneau")
+    assert_equal round.number_correct, 1
+    round.take_turn("Mars")
+    assert_equal round.number_correct, 2
+    round.take_turn("North north west")
+    assert_equal round.number_correct, 3
+  end
+
   def test_number_correct_by_category
     round = Round.new(@deck)
     round.take_turn("Juneau")
