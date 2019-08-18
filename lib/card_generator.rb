@@ -1,9 +1,9 @@
 class CardGenerator
-  attr_reader :card_array
+  attr_reader :card_array, :cards
 
   def initialize(filename)
-    @card_array1  = File.open(filename).map {|line| line.split("\n") }
-    @card_array = @card_array1.flatten
+    card_array1  = File.open(filename).map {|line| line.split("\n") }
+    @card_array = card_array1.flatten
     # I have an array of strings separated by commas
   end
 
@@ -18,12 +18,21 @@ class CardGenerator
       self.string_split_card.map {|string| string[0]}
     end
 
-    # OR map the string_split_card array to a hash with question, answer, cards_in_category
+    # map the string_split_card array to a hash with question, answer, cards_in_category
     def card_hash
       card_hash_indv_keys = [:question, :answer, :category]
-      @card_hash_array = self.string_split_card.map do |card_array|
+      card_hash_array = self.string_split_card.map do |card_array|
         card_hash_indv_keys.zip(card_array).to_h
       end
-      @card_hash_array
+      card_hash_array
+    end
+
+    # make a card from the card_hash
+    def cards
+      @cards_in_array = []
+      self.card_hash.each do |card|
+        @cards_in_array << Card.new(card[:question], [:answer], [:category])
+      end
+      @cards_in_array
     end
 end

@@ -1,11 +1,12 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/card_generator'
+require './lib/card'
 
 class CardGeneratorTest < Minitest::Test
 
   def setup
-    filename = "./test/cards.txt"
+    filename = "../flash_cards/cards.txt"
     @cards = CardGenerator.new(filename)
   end
 
@@ -46,8 +47,16 @@ class CardGeneratorTest < Minitest::Test
     assert_equal "nobody knows", @cards.card_hash[2][:answer]
   end
 
-  # def test_card_array_becomes_card_hash
-  #   # mapping the stirng_split_card array to a hash with question, answer, and category keys
-  #   assert_equal {:question "What is 5 + 5?", :answer "10", :category "STEM"}, @cards
-  # end
+  def test_card_dict_becomes_card_class
+    new_card = Card.new(@cards.card_hash[0][:question],[:answer],[:category])
+    assert_instance_of Card, new_card
+  end
+
+  def test_cards
+    cards_are_cards = @cards.cards
+    assert_instance_of Array, cards_are_cards
+    assert_instance_of Card, cards_are_cards[0]
+    assert_instance_of Card, cards_are_cards[1]
+  end
+
 end
