@@ -16,7 +16,7 @@ class Round
       @number_correct + 1
     end
     turn
-    new_deck = @deck.cards.rotate!
+    new_deck = @deck.card\rotate!
     @current_card = new_deck.first
   end
 
