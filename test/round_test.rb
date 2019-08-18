@@ -1,12 +1,12 @@
+require 'pry'
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/card'
 require './lib/turn'
+require './lib/round'
 require './lib/deck'
-require 'pry'
 
-class DeckTest < Minitest::Test
-  # create instance for minitest
+class RoundTest < Minitest::Test
   def setup
     @card_1 = Card.new("What is the capital of Colorado?", "Denver", :Geography)
     @card_2 = Card.new("What is the capital of Washington?", "Olympia", :Geography)
@@ -18,28 +18,23 @@ class DeckTest < Minitest::Test
     @cards = [@card_1, @card_2, @card_3, @card_4, @card_5, @card_6]
 
     @deck = Deck.new(@cards)
+
+    @round = Round.new(@deck)
   end
 
-  def test_deck_exists
-    assert_instance_of Deck, @deck
+  def test_if_round_exists
+    assert_instance_of Round, @round
   end
 
-  def test_cards_in_deck
-     assert_equal @cards, @deck.cards_in_deck
-   # .cars_in_deck linked to attr_reader
+  def test_deck_has_round
+    assert_equal @deck, @round.deck
   end
 
-  def test_num_cards_in_deck
-    assert_equal 6, @cards.length
+  def test_turns_in_round
+    assert_equal [], @round.turns
   end
 
-  def test_cards_in_category
-    # assert_equal 2, @cards_in_deck(:Geography)
-  # ^figure out why this doesn't work^
-  # because cards_in_deck can't give you information about cards in a category on its own!
-    assert_equal [@card_1, @card_2], @deck.cards_in_category(:Geography)
-    # check out array as expected!!!
-    assert_equal [@card_3, @card_4], @deck.cards_in_category(:Astronomy)
-    assert_equal [@card_5, @card_6], @deck.cards_in_category(:Biology)
-  end
+  # def test_first_card_in_deck
+    # assert_equal @deck[0], @round.current_card
+  # end
 end
