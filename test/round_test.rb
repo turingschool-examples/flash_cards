@@ -11,10 +11,9 @@ class RoundTest < Minitest::Test
     @card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     @card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     @card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-    @deck = Deck.new([@card_1, @card_2, @card_3])
+    @cards = [@card_1, @card_2, @card_3]
+    @deck = Deck.new(@cards)
     @round = Round.new(@deck)
-    @new_turn = @round.take_turn("Juneau")
-
   end
 
   def test_it_exists
@@ -22,36 +21,51 @@ class RoundTest < Minitest::Test
   end
 
   def test_the_deck
-    assert_instance_of Deck, @round.deck
+    assert_equal @deck, @round.deck
   end
 
-  def test_class
-    assert Turn
+  def test_turns
+    assert_equal [], @round.turns
   end
 
-  def test_number_correct
-    skip
-    assert_equal 1, @round.number_correct
+  def test_current_card
+    turn_1 = @round.take_turn("Juneau")
+    turn_2 = @round.take_turn("Venus")
+    
+    assert_equal @card_2, @round.turns.last.card
+    assert_equal @card_3, @round.current_card
   end
 
-  def test_take_turn
-    assert Turn, @round.take_turn("Venus")
-  end
+  # def test_class
+  #   assert_instance_of Turn, @new_turn.class
+  # end
 
-  def test_number_correct_by_category
-    assert_equal 1, @round.test_number_correct_by_category(:Geography)
-  end
+  # def test_number_correct
+  #   assert_equal 1, @round.number_correct
+  # end
 
-  def test_number_correct_by_category
-    assert 0, @round.number_correct_by_category(:STEM)
-  end
+  # def test_take_turn
+  #
+  #   assert_equal Turn, @round.take_turn("Venus")
+  # end
 
-  def test_percent_correct
-    skip
-    assert_equal 50.0, @round.percent_correct
-  end
+  # def tests_number_correct
+  #   assert 1, @round.number_correct.count
+  # end
 
-  def test_percent_correct_by_category
-    assert_equal 100.0, @round.percent_correct_by_category(:Geography)
-  end
+  # def test_number_correct_by_category
+  #   assert_equal 1, @round.test_number_correct_by_category(:Geography)
+  # end
+  #
+  # def test_number_correct_by_category
+  #   assert 0, @round.number_correct_by_category(:STEM)
+  # end
+
+  # def test_percent_correct
+  #   assert_equal 50.0, @round.percent_correct
+  # end
+  #
+  # def test_percent_correct_by_category
+  #   assert_equal 100.0, @round.percent_correct_by_category(:Geography)
+  # end
 end
