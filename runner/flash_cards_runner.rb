@@ -39,7 +39,7 @@ end
     puts ""
   end
   puts "******** GAME OVER ********"
-  puts "You had #{@round.number_correct} out of #{@round.turns.count} correct for a total score of #{@round.percent_correct}%"
+  puts "You had #{@round.number_correct} out of #{@round.turns.count} correct for a total score of #{@round.percent_correct.round(2)}%"
   @category_collection = []
   @round.deck.recall_cards.each do |card|
     find_category = @category_collection.find_all {|cat| cat.split(" -")[0].to_sym == card.category}
