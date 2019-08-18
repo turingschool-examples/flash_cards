@@ -52,4 +52,15 @@ class RoundTest < Minitest::Test
       assert_equal round.current_card, @card_3
       round.take_turn("Guess_1")
   end
+
+  def test_number_correct_by_category
+    round = Round.new(@deck)
+    round.take_turn("Juneau")
+    assert_equal round.number_correct_by_category(:Geography), 1
+    round.take_turn("Mars")
+    assert_equal round.number_correct_by_category(:STEM), 1
+    round.take_turn("North north west")
+    assert_equal round.number_correct_by_category(:STEM), 2
+    assert_equal round.number_correct_by_category("Pop Culture"), 0
+  end
 end

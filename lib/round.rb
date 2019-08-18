@@ -14,4 +14,10 @@ class Round
     @current_card = @deck.cards[0]
     turns.last
   end
+
+  def number_correct_by_category(category)
+    turns.count do |turn|
+      turn.correct? && turn.card.category == category
+    end
+  end
 end
