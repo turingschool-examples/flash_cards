@@ -16,7 +16,7 @@ class RoundTest < Minitest::Test
     @deck = Deck.new(@cards)
     @round = Round.new(@deck)
   end
-  #
+
   def test_it_exists
     assert_instance_of Round, @round
   end
@@ -72,5 +72,13 @@ class RoundTest < Minitest::Test
     round.take_turn("North north west")
     assert_equal round.number_correct_by_category(:STEM), 2
     assert_equal round.number_correct_by_category("Pop Culture"), 0
+  end
+
+  def test_percent_correct
+    round = Round.new(@deck)
+    round.take_turn("Juneau")
+    assert_equal 100.00, round.percent_correct
+    round.take_turn("Venus")
+    assert_equal 50.0, round.percent_correct
   end
 end

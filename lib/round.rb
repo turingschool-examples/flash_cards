@@ -1,11 +1,10 @@
 class Round
-  attr_reader :deck, :turns, :number_correct, :current_card
+  attr_reader :deck, :turns, :current_card
 
   def initialize(deck)
     @deck = deck
     @turns = []
     @current_card = @deck.cards[0]
-    @number_correct = 0
   end
 
   def take_turn(guess)
@@ -21,10 +20,13 @@ class Round
     end
   end
 
-
   def number_correct_by_category(category)
     turns.count do |turn|
       turn.correct? && turn.card.category == category
     end
+  end
+
+  def percent_correct
+    number_correct / @turns.count.to_f * 100
   end
 end
