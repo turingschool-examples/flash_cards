@@ -31,7 +31,7 @@ class CardGenerator
     def cards
       @cards_in_array = []
       self.card_hash.each do |card|
-        @cards_in_array << Card.new(card[:question], [:answer], [:category])
+        @cards_in_array << Card.new(card[:question], card[:answer], card[:category])
       end
       @cards_in_array
     end
