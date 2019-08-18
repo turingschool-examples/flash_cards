@@ -21,6 +21,8 @@ class Deck
     # Define method to count number of cards in a certain category
     def cards_in_category(category)
         # Accumulate cards that match the input category using
-        @cards.find_all { |card| card.category == category }
+        @cards.find_all do |card|
+            card.category == category
+        end
     end
 end

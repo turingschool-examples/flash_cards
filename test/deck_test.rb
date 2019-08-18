@@ -16,22 +16,31 @@ class DeckTest < Minitest::Test
         @deck = Deck.new(@cards)
     end
 
-    def test_deck_exists
+    def test_it_exists
         assert_instance_of Deck, @deck
     end
 
-    def test_cards_method
+    def test_it_has_cards
         assert_equal @cards, @deck.cards
     end
 
-    def test_count_method
+    def test_count_method_returns_number_of_cards
         assert_equal 3, @deck.count
     end
 
-    def test_cards_in_category_method
+    def test_it_returns_array_of_cards_in_given_category
         assert_equal [@card_2, @card_3], @deck.cards_in_category(:STEM)
         assert_equal [@card_1], @deck.cards_in_category(:Geography)
         assert_equal [], @deck.cards_in_category("Pop Culture")
     end
 
+    def test_it_can_handle_a_single_card
+        one_card_deck = Deck.new(@card_2)
+
+        assert_instance_of Deck, one_card_deck
+        assert_equal [@card_2], one_card_deck.cards
+        assert_equal 1, one_card_deck.count
+        assert_equal [@card_2], one_card_deck.cards_in_category(:STEM)
+        assert_equal [], one_card_deck.cards_in_category(:Geography)
+    end
 end
