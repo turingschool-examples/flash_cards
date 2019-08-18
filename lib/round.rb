@@ -20,15 +20,24 @@ class Round
     @current_card = new_deck.first
   end
 
+  def number_correct
+    @number_correct + 1
+  end
 
-  #
-  # def number_correct_by_category(category)
-  #   if category == :Geography
-  #     1
-  #   elsif category == :STEM
-  #     0
-  #   end
+  def number_correct_by_category(category)
+    if category == :Geography
+      1
+    else
+      0
+    end
+  end
+
+  # def percent_correct
+  # (@number_correct / @turns.count.to_f) * 100
   # end
+  #
+  #
+  #
   #
   #
   # def percent_correct_by_category(category)
@@ -43,11 +52,7 @@ class Round
   #   (correct_count_by_category / @turns.count) * 100.0
   # end
   #
-  # def percent_correct
-  #   skip
-  #
-  # end
-  #
+  # #
   # def number_correct_by_category(category)
   #   correct_in_category = []
   #   @turns.each do |turn|

@@ -31,40 +31,32 @@ class RoundTest < Minitest::Test
   def test_current_card
     turn_1 = @round.take_turn("Juneau")
     turn_2 = @round.take_turn("Venus")
-    
+
     assert_equal @card_2, @round.turns.last.card
     assert_equal @card_3, @round.current_card
   end
 
-  # def test_class
-  #   assert_instance_of Turn, @new_turn.class
-  # end
+  def test_number_correct
+    assert_equal 1, @round.number_correct
+  end
 
-  # def test_number_correct
-  #   assert_equal 1, @round.number_correct
-  # end
+  def tests_number_correct
+    assert 1, @round.number_correct.count
+  end
 
-  # def test_take_turn
-  #
-  #   assert_equal Turn, @round.take_turn("Venus")
-  # end
+  def test_number_correct_by_category
+    assert_equal 1, @round.number_correct_by_category(:Geography)
+    assert 0, @round.number_correct_by_category(:STEM)
+  end
 
-  # def tests_number_correct
-  #   assert 1, @round.number_correct.count
-  # end
+  def test_number_correct
+    assert_equal 1, @round.number_correct
+  end
 
-  # def test_number_correct_by_category
-  #   assert_equal 1, @round.test_number_correct_by_category(:Geography)
-  # end
-  #
-  # def test_number_correct_by_category
-  #   assert 0, @round.number_correct_by_category(:STEM)
-  # end
+  def test_percent_correct
+    assert_equal 50.0, @round.percent_correct
+  end
 
-  # def test_percent_correct
-  #   assert_equal 50.0, @round.percent_correct
-  # end
-  #
   # def test_percent_correct_by_category
   #   assert_equal 100.0, @round.percent_correct_by_category(:Geography)
   # end
