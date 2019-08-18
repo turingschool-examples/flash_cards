@@ -31,4 +31,8 @@ class DeckTest < Minitest::Test
   def test_if_it_does_category
     assert_equal [@card1, @card4], @deck1.cards_in_category(:Geography)
   end
+
+  def test_if_it_has_recalled_cards
+    assert_equal @cards, @deck1.recall_cards
+  end
 end
