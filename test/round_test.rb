@@ -23,4 +23,7 @@ class RoundTest < Minitest::Test
   #   assert_equal @deck, @round.deck
   # end
 
+  def test_number_correct
+    assert_equal 1, @round.number_correct
+  end
 end
