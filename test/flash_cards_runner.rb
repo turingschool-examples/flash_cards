@@ -9,9 +9,18 @@ require './lib/card_generator'
 @generator.make_card
 @cards = @generator.cards
 @random_cards = []
+def randomize_cards
+  sampled_card = @cards.sample
+  found_card = @random_cards.find{|card| card == sampled_card}
+  if sampled_card == found_card
+    @cards.delete(sampled_card)
+  else
+    @random_cards << sampled_card
+  end
+end
 puts "How many cards would you like?"
 userchoice = gets.chomp.to_i
-userchoice.times {@random_cards << @cards.sample}
+(userchoice * 2).times {randomize_cards}
 @deck = Deck.new(@random_cards, @recall_cards)
 @round = Round.new(@deck)
 
