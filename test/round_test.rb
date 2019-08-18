@@ -5,9 +5,6 @@ require './lib/turn'
 require './lib/deck'
 require './lib/round'
 
-# FIX ALL ASSERTS FLIPPED EXPECTED & ACTUAL
-## Can't make new_turn an instance variable bc it breaks other tests, have to keep local variable
-
 class RoundTest < Minitest::Test
 
   def setup
@@ -48,19 +45,19 @@ class RoundTest < Minitest::Test
   end
 
   def test_current_card_1
-    assert_equal @round.current_card, @card_1
+    assert_equal @card_1, @round.current_card
   end
 
   def test_take_turn_1
     new_turn = @round.take_turn("Juneau")
 
     assert @round.turns.count == 1
-    assert_equal @round.current_card, @card_2
+    assert_equal @card_2, @round.current_card
   end
 
   def test_turn_class
     new_turn = @round.take_turn("Juneau")
-    # require 'pry'; binding.pry
+
     assert_instance_of Turn, new_turn
   end
 
@@ -84,14 +81,14 @@ class RoundTest < Minitest::Test
 
   def test_current_card_2
     new_turn = @round.take_turn("Juneau")
-    # require 'pry'; binding.pry
-    assert_equal @round.current_card, @card_2
+
+    assert_equal @card_2, @round.current_card
   end
 
   def test_take_turn_2
     new_turn_1 = @round.take_turn("Juneau")
     new_turn_2 = @round.take_turn("Venus")
-    # require 'pry'; binding.pry
+
     assert @round.turns.count == 2
     assert_equal @card_3, @round.current_card
   end
@@ -106,7 +103,7 @@ class RoundTest < Minitest::Test
   def test_turn_last_feedback
     new_turn_1 = @round.take_turn("Juneau")
     new_turn_2 = @round.take_turn("Venus")
-    # require 'pry'; binding.pry
+
     assert @round.turns.last.feedback == "Incorrect."
   end
 
@@ -120,7 +117,7 @@ class RoundTest < Minitest::Test
   def test_number_correct_by_category_1
     new_turn = @round.take_turn("Juneau")
     new_turn_2 = @round.take_turn("Venus")
-    #require 'pry'; binding.pry
+
     assert @round.number_correct_by_category(:Geography) == @round.correct_by_category.count
   end
 
@@ -134,7 +131,7 @@ class RoundTest < Minitest::Test
   def test_percent_correct
     new_turn = @round.take_turn("Juneau")
     new_turn_2 = @round.take_turn("Venus")
-    #require 'pry'; binding.pry
+
     assert @round.percent_correct == 50.0
   end
 
@@ -149,7 +146,7 @@ class RoundTest < Minitest::Test
     new_turn = @round.take_turn("Juneau")
     new_turn_2 = @round.take_turn("Venus")
 
-    assert_equal @round.current_card, @card_3
+    assert_equal @card_3, @round.current_card
   end
 
 end

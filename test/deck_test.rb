@@ -35,17 +35,17 @@ class DeckTest < Minitest::Test
   end
 
   def test_cards
-    assert_equal @deck.cards, @cards
+    assert_equal @cards, @deck.cards
   end
 
   def test_count
-    assert_equal @deck.count, @cards.count
+    assert_equal @cards.count, @deck.count
   end
 
   def test_cards_in_category
-    assert_equal @deck.cards_in_category(:STEM), [@card_2, @card_3]
-    assert_equal @deck.cards_in_category(:Geography), [@card_1]
-    assert_equal @deck.cards_in_category("Pop Culture"), []
+    assert_equal [@card_2, @card_3], @deck.cards_in_category(:STEM)
+    assert_equal [@card_1], @deck.cards_in_category(:Geography)
+    assert_equal [], @deck.cards_in_category("Pop Culture")
   end
 
 end
