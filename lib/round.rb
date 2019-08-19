@@ -4,13 +4,19 @@ require './lib/deck'
 require 'pry'
 
 class Round
-  attr_reader :deck, :turns, :current_card, :number_correct, :total_category
+  attr_reader :deck,
+              :turns,
+              :current_card,
+              :number_correct,
+              :total_category,
+              :category_correct
+
   def initialize(deck)
     @deck = deck
     @turns = []
     @current_card = @deck.cards[0]
     @number_correct = 0
-    @category_correct = {}
+    @category_correct = Hash.new(0)
     @total_category = Hash.new(0)
   end
 
@@ -19,7 +25,7 @@ class Round
     @turns << new_turn
     calculate_turns_correct(new_turn)
     calculate_total_cards_by_category(@current_card.category)
-    # register_category_correct(@current_card.category)
+    calculate_category_correct(new_turn, @current_card.category)
     set_next_card
     new_turn
   end
@@ -35,14 +41,22 @@ class Round
     end
   end
 
-  # def register_category_correct(my_category)
-  #   @category_correct[my_category]
-  # end
+  def calculate_category_correct(turn, my_category)
+    if turn.correct? == true
+      @category_correct[my_category] += 1
+    else
+      @category_correct[my_category] = 0
+    end
+  end
+
+  def number_correct_by_category(my_category)
+    @category_correct[my_category]
+  end
 
 
   def calculate_total_cards_by_category(my_category)
-    @total_category[my_category]+= 1
-    # binding.pry
+    @total_category[my_category] += 1
   end
+  # binding.pry
 
 end

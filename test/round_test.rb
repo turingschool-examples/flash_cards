@@ -116,6 +116,27 @@ class RoundTest < Minitest::Test
     assert_equal ({:Geography => 1, :STEM => 1}), @round.total_category
   end
 
+  def test_calculate_category_correct
+    assert_equal ({}), @round.category_correct
+
+    correct_turn = @round.take_turn("Juneau")
+    assert_equal ({:Geography => 1}), @round.category_correct
+
+    incorrect_turn = @round.take_turn("Venus")
+    assert_equal ({:Geography => 1, :STEM => 0}), @round.category_correct
+  end
+
+  def test_number_correct_by_category
+    # binding.pry
+    # assert_equal 0, @round.number_correct_by_category(:Geography)
+
+    turn_geography = @round.take_turn("Juneau")
+    assert_equal 1, @round.number_correct_by_category(:Geography)
+
+    turn_stem = @round.take_turn("Venus")
+    assert_equal 0, @round.number_correct_by_category(:STEM)
+  end
+
   # def test_percent_correct
   # end
   #
