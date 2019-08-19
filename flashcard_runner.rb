@@ -15,7 +15,7 @@ def start(round)
   puts "---------------------------------------------------------------"
   # loop through the deck of cards to ask questions and take guesses
   round.deck.cards.length.times do
-    puts "This is card number #{ round.turns.length + 1 } out of #{ round.turns.length + round.deck.cards.length } ."
+    puts "This is card number #{ round.turns.length + 1 } out of #{ round.turns.length + round.deck.cards.length }."
     puts "Question: #{ round.current_card.question }"
     puts round.take_turn(gets.chomp).feedback
   end
