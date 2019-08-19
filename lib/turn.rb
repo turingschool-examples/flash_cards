@@ -11,7 +11,8 @@ class Turn
     # Define method that indicates if guess is correct
     def correct?
         # Ignore differences in capitalization
-        guess.casecmp(@card.answer) == 0
+        @guess.downcase == @card.answer.downcase
+        # @guess.casecmp?(@card.answer) --> slightly slower
     end
 
     # Define method to give feedback on guess

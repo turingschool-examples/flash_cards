@@ -11,7 +11,7 @@ class Round
 
     # Define method to access the current card
     def current_card
-        return @deck.cards[@index]
+        @deck.cards[@index]
     end
 
     # Define method to take user's guess and evaluate correctness
@@ -69,7 +69,7 @@ class Round
     # Define method to start a command-line interaction with user
     def start
         # Start user experience and initialize a categories array
-        puts "Welcome! You're playing with #{@deck.cards.length} cards."
+        puts "Welcome! You're playing with #{@deck.count} cards."
         puts "-" * 50
         categories = []
 
@@ -90,7 +90,7 @@ class Round
 
         # Display general game statistics
         puts "****** Game over! ******"
-        puts "You had #{number_correct} correct guesses out of #{@deck.cards.length} for a total score of #{percent_correct.round}%."
+        puts "You had #{number_correct} correct guesses out of #{@deck.count} for a total score of #{percent_correct.round}%."
 
         # Display category-specific statistics for all unique categories
         categories.uniq.each do |cat|
