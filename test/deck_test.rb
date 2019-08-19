@@ -20,6 +20,11 @@ class DeckTest < Minitest::Test
     assert_equal @cards, @deck.cards
   end
 
+  def test_deck_count
+    expected = @deck.count
+    assert_equal 3, expected
+  end
+
   def test_cards_in_category
     expected = @deck.cards_in_category(:Geography)
     assert_equal [@card_1], expected
