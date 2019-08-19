@@ -58,8 +58,10 @@ puts "This is card number 3 out of 4.\n\n"
         if @guess == @card_4.answer.downcase
           puts "Correct!"
         else
-          puts "Incorrect!\n\n"
+          puts "Incorrect!"
         end
       end
 
-puts "************ Game Over! *************\n\n"
+puts "\n\n************ Game Over! *************"
+
+puts "Want to play another round?\n\n"
