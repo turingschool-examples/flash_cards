@@ -1,4 +1,6 @@
+require './lib/card'
 require './lib/turn'
+require './lib/deck'
 
 class Round
   attr_reader :deck, :turns, :current_card
@@ -20,15 +22,15 @@ class Round
     turn
   end
 
+  def count
+    turns.count
+  end
+
   def number_correct
     turns.find_all do |turn|
       turn.correct?
     end
     .count
-  end
-
-  def count
-    @round.turns.count
   end
 
   def number_correct_by_category(category)
@@ -39,7 +41,7 @@ class Round
   end
 
   def percent_correct
-    (number_correct / turns.count.to_f) * 100
+    (number_correct / count.to_f) * 100
   end
 
   def cards_in_category(category)
@@ -58,10 +60,10 @@ class Round
     total_cards = deck.count + turns.count + 1
     puts "Welcome! You're playing with #{total_cards} cards."
     puts "-------------------------------------------------"
-    start_turn
+    create_turn
   end
 
-  def start_turn
+  def create_turn
     card_number = turns.count + 1
     total_cards = deck.count + turns.count + 1
     puts "This is card number #{card_number} out of #{total_cards}."
@@ -71,10 +73,11 @@ class Round
     if card_number == total_cards
       game_over
     else
-      start_turn
+      create_turn
     end
   end
 
+# return new array of categories without duplicates
   def categories
     turns.map do |turn|
       turn.card.category
