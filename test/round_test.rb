@@ -118,7 +118,7 @@ class RoundTest < Minitest::Test
     new_turn = @round.take_turn("Juneau")
     new_turn_2 = @round.take_turn("Venus")
 
-    assert @round.number_correct_by_category(:Geography) == @round.correct_by_category.count
+    assert @round.number_correct_by_category(:Geography) == 1
   end
 
   def test_number_correct_by_category_2
