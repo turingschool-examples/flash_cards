@@ -36,7 +36,7 @@ class RoundTest < Minitest::Test
 
 # takes a string representing the guess
   def test_take_turn
-    @round.take_turn("Juneau")
+    new_turn = @round.take_turn("Juneau")
     # stores and returns new Turn from the take_turn method
     assert_equal [@round.take_turn("Juneau")], @round.turns
     # Round moves to the next card in the deck when take_turn method is called
