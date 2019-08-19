@@ -32,6 +32,7 @@ class Round
 
   def number_correct
     correct_cards = Array.new
+    # Iterate over turns taken and store correctly answered cards into an array
     @turns.each do |turn|
       if turn.correct?
         correct_cards << turn
@@ -41,18 +42,22 @@ class Round
       correct_cards.count
   end
 
+  # Method for counting correctly answered cards in a single category
   def number_correct_by_category(category)
     @turns.find_all { |turn| turn.correct? && turn.card.category == category}.count
   end
 
+  # Method to calculate percentage of all cards answered correctly
   def percent_correct
     (number_correct / @turns.count.to_f) * 100
   end
 
+  # Method to calculate percentage of all cards answered correctly in a single category
   def percent_correct_by_category(category)
     (number_correct_by_category(category) / @turns.find_all{ |turn| turn.card.category == category}.count.to_f) * 100
   end
 
+  # Method to return an array of all categories present in the deck
   def identify_all_categories
     @categories = @turns.map { |turn| turn.card.category}
   end
