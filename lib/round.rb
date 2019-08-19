@@ -11,17 +11,13 @@ class Round
 
   def take_turn(guess)
     turn = Turn.new(guess, current_card)
-    @turns << turn
+      @turns << turn
     if turn.correct?
-      @number_correct + 1
+      @number_correct += 1
     end
     turn
-    new_deck = @deck.card\rotate!
-    @current_card = new_deck.first
-  end
-
-  def number_correct
-    @number_correct + 1
+    new_deck = @deck.cards.rotate!
+      @current_card = new_deck.first
   end
 
   def number_correct_by_category(category)
@@ -32,35 +28,22 @@ class Round
     end
   end
 
-  # def percent_correct
-  # (@number_correct / @turns.count.to_f) * 100
-  # end
-  #
-  #
-  #
-  #
-  #
-  # def percent_correct_by_category(category)
-  #   #look into the filter enum
-  #   filtered =
-  #     @turns.map do |turn|
-  #       if turn.card.category == category && turn.guess == turn.card.answer
-  #         turn
-  #       end
-  #     end
-  #   correct_count_by_category = filtered.count
-  #   (correct_count_by_category / @turns.count) * 100.0
-  # end
-  #
-  # #
-  # def number_correct_by_category(category)
-  #   correct_in_category = []
-  #   @turns.each do |turn|
-  #     if turn.card.category == (category) && turn.correct?
-  #     correct_in_category << turn
-  #     end
-  #     correct_in_category.count
-  #   end
-  # end
+  def percent_correct
+    (@number_correct / @turns.count.to_f) * 100
+  end
 
+
+  def percent_correct_by_category(category)
+    correct_in_turn_category = 0
+    turns_in_category = 0
+      @turns.map do |turn|
+        if turn.card.category == category && turn.correct?
+          correct_in_turn_category += 1
+          turns_in_category += 1
+        end
+      end
+      if turns_in_category != 0
+        (correct_in_turn_category / turns_in_category.to_f ) * 100
+      end
+  end
 end
