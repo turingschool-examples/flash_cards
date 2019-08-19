@@ -6,6 +6,8 @@ require './lib/turn'
 require './lib/deck'
 require './lib/round'
 
+# processes responses
+# records guesses
 class RoundTest < Minitest::Test
 
   def setup
@@ -28,13 +30,13 @@ class RoundTest < Minitest::Test
   end
 
   def test_current_card
-    # current card is first card in deck's array of cards
+    # current card starts round, is first card in deck's array of cards
     assert_equal @card_1, @round.current_card
-    assert_equal @card_2, @round.current_card
-    assert_equal @card_3, @round.current_card
   end
 
+# takes a string representing the guess
   def test_take_turn
+    @round.take_turn("Juneau")
     # stores and returns new Turn from the take_turn method
     assert_equal [@round.take_turn("Juneau")], @round.turns
     # Round moves to the next card in the deck when take_turn method is called
@@ -49,7 +51,7 @@ class RoundTest < Minitest::Test
     assert Turn, new_turn.class
   end
 
-  def test_correct
+  def test_correct_answer
     new_turn = @round.take_turn("Juneau")
 
     assert new_turn.correct?
@@ -59,51 +61,51 @@ class RoundTest < Minitest::Test
     assert_equal [], @round.turns
   end
 
-  def test_number_correct
-    new_turn_1 = @round.take_turn("Juneau")
-    new_turn_2 = @round.take_turn("Venus")
+  def test_number_correct_answers
+    @round.take_turn("Juneau")
+    @round.take_turn("Venus")
 
     assert 1, @round.number_correct
   end
 
   def test_turns_count
-    new_turn_1 = @round.take_turn("Juneau")
-    new_turn_2 = @round.take_turn("Venus")
+    @round.take_turn("Juneau")
+    @round.take_turn("Venus")
 
     assert_equal 2, @round.turns.count
   end
 
   def test_returns_feedback
-    new_turn_1 = @round.take_turn("Juneau")
-    new_turn_2 = @round.take_turn("Venus")
+    @round.take_turn("Juneau")
+    @round.take_turn("Venus")
 
     assert_equal "Incorrect.", @round.turns.last.feedback
   end
 
   def test_number_correct_by_category
-    new_turn_1 = @round.take_turn("Juneau")
-    new_turn_2 = @round.take_turn("Venus")
+    @round.take_turn("Juneau")
+    @round.take_turn("Venus")
 
     assert_equal 1, @round.number_correct_by_category(:Geography)
   end
 
-  def test_number_correct_by_category_2
-    new_turn_1 = @round.take_turn("Juneau")
-    new_turn_2 = @round.take_turn("Venus")
+  def test_number_if_correct_by_category_2
+    @round.take_turn("Juneau")
+    @round.take_turn("Venus")
 
     assert_equal 0, @round.number_correct_by_category(:STEM)
   end
 
   def test_percent_correct
-    new_turn_1 = @round.take_turn("Juneau")
-    new_turn_2 = @round.take_turn("Venus")
+    @round.take_turn("Juneau")
+    @round.take_turn("Venus")
 
     assert_equal 50.0, @round.percent_correct
   end
 
   def test_percent_correct_by_cateogory
-    new_turn_1 = @round.take_turn("Juneau")
-    new_turn_2 = @round.take_turn("Venus")
+    @round.take_turn("Juneau")
+    @round.take_turn("Venus")
 
     assert_equal 100.0, @round.percent_correct_by_category(:Geography)
   end
