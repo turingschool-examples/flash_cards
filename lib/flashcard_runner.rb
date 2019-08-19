@@ -18,10 +18,21 @@ def start(round)
   total_cards = round.deck.cards.count
   p "Welcome! You're playing with #{total_cards} cards."
   round.deck.cards.each_with_index do |card, index|
-    # binding.pry
     card_position = index + 1
     p "This is card number #{card_position} out of #{total_cards}."
+
+    p "Question: #{card.question} "
+    guess = gets.chomp
+    round.take_turn(guess)
+    if index == 1
+      binding.pry
+    end
+    p round.turns[index].feedback
+    # binding.pry
+
   end
+
+
   # print out the first question
   # use get.chomp to take in a user response
   # use the user response if it was right or wrong
