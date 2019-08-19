@@ -10,7 +10,7 @@ class Round
     @categories = Array.new
   end
 
-  def advance_turn # Needs good name
+  def advance_turn
     # Discards the top card in the deck
     @deck.cards.shift
     # Sets the current card to the new top card in the deck

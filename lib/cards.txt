@@ -1,0 +1,4 @@
+What is the capital of Alaska?,Juneau,Geography
+What animal is the national emblem of Canada?,Beaver,Geography
+In what year was the last NBA expansion?,2004,Sports
+What sport did an astronaut famously play on the moon in 1971?,Golf,Sports
