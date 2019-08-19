@@ -27,13 +27,13 @@ def start_game
   end
 
   puts "    *** Game Over ***"
-  puts "You had #{@round.number_correct} correct guesses on #{@round.turns.count} cards for a total score of #{@round.percent_correct}."
+  puts "You had #{@round.number_correct} correct guesse(s) on #{@round.turns.count} cards for a total score of #{@round.percent_correct}%."
 
   # Take array of card categories and place all unique elements into a new array so they only show up once
   @categories = @round.identify_all_categories.uniq
   # Display percentage correct in each category
   while @categories.count > 0
-    puts "#{@categories[0]}: #{@round.percent_correct_by_category(@categories[0])}"
+    puts "#{@categories[0]}: #{@round.percent_correct_by_category(@categories[0])}%"
     @categories.shift
   end
 end
