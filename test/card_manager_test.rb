@@ -26,6 +26,9 @@ class CardManagerTest < Minitest::Test
   def test_load_from_file
     @card_manager.load_from_file(@file_name)
 
+    # Needed this makeshift test to check if cards were correct
+    # Minitest has difficulties comparing objects with the same values
+    # but different object IDs
     pass = true
     @card_manager.cards_by_file[@file_name].each.with_index do |card, i|
       if card.question != @cards[i].question || card.answer != @cards[i].answer || card.category != @cards[i].category
