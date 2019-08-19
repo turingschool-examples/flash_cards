@@ -27,8 +27,8 @@ class Round
     @turns << new_turn
     calculate_turns_correct(new_turn)
     calculate_total_turns(new_turn)
-    calculate_total_cards_by_category(@current_card.category)
     calculate_category_correct(new_turn, @current_card.category)
+    calculate_total_cards_by_category(@current_card.category)
     set_next_card
     new_turn
   end
@@ -61,6 +61,10 @@ class Round
     @total_category[my_category] += 1
   end
 
+  def number_total_by_category(my_category)
+    @total_category[my_category]
+  end
+
   def calculate_total_turns(turn)
     if turn
       @record_guess += 1
@@ -72,7 +76,7 @@ class Round
     @number_correct.to_f / @record_guess.to_f * 100
   end
 
-  def percent_correct_by_category_geography
-
+  def percent_correct_by_category(my_category)
+    @category_correct[my_category].to_f / @total_category[my_category].to_f * 100
   end
 end

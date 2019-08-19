@@ -129,11 +129,13 @@ class RoundTest < Minitest::Test
     first_turn = @round.take_turn("Juneau")
     next_turn = @round.take_turn("Saturn")
 
-    # binding.pry
     assert_equal 50.0, @round.percent_correct
   end
 
-  def test_percent_correct_by_category_geography
-    
+  def test_percent_correct_by_category
+    turn_geography = @round.take_turn("Juneau")
+
+    binding.pry
+    assert_equal 100.0, @round.percent_correct_by_category(:Geography)
   end
 end
