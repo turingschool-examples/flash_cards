@@ -2,6 +2,7 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/turn'
+require './lib/card'
 
 class TurnTest < Minitest::Test
   def setup
@@ -21,6 +22,5 @@ class TurnTest < Minitest::Test
   def test_guess_returns_the_guess
     assert_equal "Saturn", @turn.guess
   end
-
 
 end
