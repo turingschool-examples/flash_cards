@@ -21,7 +21,6 @@ require 'pry'
 
       def take_turn(guess)
         @new_turn = Turn.new(guess, @current_card)
-        binding.pry
         @turns.push(@new_turn)
         @current_card_index += 1
         # @deck.shuffle = @current_card
@@ -62,7 +61,7 @@ require 'pry'
       #
       # def percent_correct_category
       #   @turns.each do |turn|
-      #   if @turn.category == @category && @turn.correct == "Correct"
+      #   if @turn.category == @category && @turn.correct == true 
       #     "Correct"
       #   else
       #     "Incorrect"
@@ -71,4 +70,4 @@ require 'pry'
       #   @turns.category.percent
       # end
 
-    end 
+    end
