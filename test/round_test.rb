@@ -43,13 +43,20 @@ class Roundtest < Minitest::Test
   end
 
   def test_number_correct_by_category
-  @round.take_turn("Juneau")
-  assert_equal 1 , @round.number_correct_by_category(:Geography)
-  assert_equal 0 ,@round.number_correct_by_category(:STEM)
+    @round.take_turn("Juneau")
+    assert_equal 1 , @round.number_correct_by_category(:Geography)
+    @round.take_turn("cheese")
+    assert_equal 0 ,@round.number_correct_by_category(:STEM)
   end
 
-  # def test_percent_correct
-  #   assert_equal 50, @round.percent_correct
-  # end
+  def test_percent_correct
+    @round.take_turn("Juneau")
+    assert_equal 1 , @round.number_correct_by_category(:Geography)
+    @round.take_turn("cheese")
+    assert_equal 0 ,@round.number_correct_by_category(:STEM)
+    assert_equal 50, @round.percent_correct
+  end
+
+  
 
 end
