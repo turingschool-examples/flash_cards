@@ -11,17 +11,21 @@ class Round
   end
 
   def advance_turn # Needs good name
-    # Storing the current turn in the array for all turns
-    @turns << @turn
     # Discards the top card in the deck
     @deck.cards.shift
     # Sets the current card to the new top card in the deck
     @current_card = deck.cards[0]
   end
 
+  def store_turn
+    # Storing the current turn in the array for all turns
+    @turns << @turn
+  end
+
   def take_turn(guess)
     # Create a new Turn object with parameters for a guess and a card
     @turn = Turn.new(guess, current_card)
+    store_turn
     advance_turn
     @turn
   end
