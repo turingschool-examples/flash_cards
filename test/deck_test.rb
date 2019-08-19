@@ -22,7 +22,7 @@ class DeckTest < Minitest::Test
     assert_equal @cards, @deck.cards
   end
 
-  def test_deck_count
+  def test_deck_can_count
     assert_equal 3, @deck.count
   end
 
@@ -31,10 +31,5 @@ class DeckTest < Minitest::Test
     assert_equal [@card_1], @deck.cards_in_category(:Geography)
     assert_equal [], @deck.cards_in_category("Pop Culture")
   end
-
-  # def test_it_knows_the_top_card
-  #   assert_equal @card_1, @deck.top_card
-  # end
-
 
 end

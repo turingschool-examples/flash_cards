@@ -17,4 +17,3 @@ attr_reader :cards
     end
   end
 end
- 
