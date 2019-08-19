@@ -5,6 +5,7 @@ class Deck
     @cards = cards
   end
 
+# number of cards in deck
   def count
     cards.count
   end
