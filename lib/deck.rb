@@ -9,14 +9,10 @@ class Deck
     cards.count
   end
 
+# return cards based on given category
   def cards_in_category(category)
-    return_array = []
-    cards.each do |card|
-      if card.category == category
-        return_array.push(card)
-      end
+    cards.find_all do |card|
+      card.category == category
     end
-    return_array
   end
-
 end
