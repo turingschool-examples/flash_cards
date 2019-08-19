@@ -37,4 +37,8 @@ class RoundTest < Minitest::Test
   def test_first_card_in_deck
     assert_equal @card_1, @round.current_card
   end
+
+  def test_new_turn
+    assert_instance_of Turn, @round.take_turn("Denver")
+  end
 end
