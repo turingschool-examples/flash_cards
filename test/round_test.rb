@@ -83,7 +83,6 @@ class RoundTest < Minitest::Test
   end
 
   def test_number_correct_turns_by_category
-    # binding.pry
     first_turn = @round.take_turn("Juneau")
     second_turn = @round.take_turn("Venus")
   end
@@ -130,9 +129,11 @@ class RoundTest < Minitest::Test
     first_turn = @round.take_turn("Juneau")
     next_turn = @round.take_turn("Saturn")
 
+    # binding.pry
     assert_equal 50.0, @round.percent_correct
   end
 
-  # def test_percent_correct_by_category_geography
-  # end
+  def test_percent_correct_by_category_geography
+    
+  end
 end

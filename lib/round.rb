@@ -64,15 +64,15 @@ class Round
   def calculate_total_turns(turn)
     if turn
       @record_guess += 1
+      # binding.pry
     end
   end
 
   def percent_correct
-    @number_correct / @record_guess
+    @number_correct.to_f / @record_guess.to_f * 100
   end
 
-  # def percent_correct_by_category_geography
-  #
-  # end
-  # binding.pry
+  def percent_correct_by_category_geography
+
+  end
 end
