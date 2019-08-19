@@ -11,13 +11,13 @@ class Round
 
     # Define method to access the current card
     def current_card
-        return deck.cards[@index]
+        return @deck.cards[@index]
     end
 
     # Define method to take user's guess and evaluate correctness
     def take_turn(guess)
         # Create a new Turn instance
-        turn = Turn.new(guess, deck.cards[@index])
+        turn = Turn.new(guess, @deck.cards[@index])
 
         # Add this turn to the array of turns
         @turns.push(turn)
@@ -32,28 +32,34 @@ class Round
     # Define method to calculate number of correct turns
     def number_correct
         # Count the number of correct turns taken
-        @turns.count { |turn| turn.correct? }
+        @turns.count do |turn|
+            turn.correct?
+        end
     end
 
     # Define method to calculate number of correct turns by category
     def number_correct_by_category(category)
         # Count the number of correct turns where input == category
-        @turns.count { |turn| turn.card.category == category && turn.correct? }
+        @turns.count do |turn|
+            turn.card.category == category && turn.correct?
+        end
     end
 
     # Define method to calculate percent correct
     def percent_correct
-        number_correct.to_f / turns.length.to_f * 100
+        number_correct.to_f / turns.length * 100
     end
 
     # Define method to calculate percent correct by category
     def percent_correct_by_category(category)
         # Count the number of cards used within the given category
-        cards_in_cat = @turns.count { |turn| turn.card.category == category }
+        cards_in_cat = @turns.count do |turn|
+            turn.card.category == category
+        end
 
         # Return the number correct in given category divided by total cards
         if cards_in_cat != 0
-            return number_correct_by_category(category).to_f / cards_in_cat.to_f * 100
+            return number_correct_by_category(category).to_f / cards_in_cat * 100
         # Avoid dividing by 0
         else
             return 0.0

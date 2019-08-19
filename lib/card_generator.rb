@@ -1,3 +1,5 @@
+require 'csv'
+
 class CardGenerator
     # Initialize filename instance variable
     def initialize(filename)
@@ -7,16 +9,21 @@ class CardGenerator
     # Define method to create cards from .txt file
     def cards
         # Initialize an array in which to store cards
-        card_array = Array.new
+        card_array = []
 
-        # Open the given file and parse lines into an array
-        file = File.open(@filename)
-        lines = file.readlines
+        # Parse lines from csv into an array (if no commas used in the question)
+        lines = CSV.read(@filename)
 
         # For each line, split question, answer, and category by commas,
         # create new card, and add that card to the array
         lines.each do |line|
-            card = Card.new(line.split(",")[0], line.split(",")[1], line.split(",")[2].chomp)
+            if line[2].split.length == 1
+                # Convert category to symbol if only one word
+                card = Card.new(line[0], line[1], line[2].to_sym)
+            else
+                # If category is two words, leave as a string
+                card = Card.new(line[0], line[1], line[2])
+            end
             card_array.push(card)
         end
 
