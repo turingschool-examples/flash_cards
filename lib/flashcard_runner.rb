@@ -21,12 +21,12 @@ require 'pry'
    card6 = Card.new("If you expose a glass of water to space it will?", "Boil", :Chemistry)
 
    cards = [card1, card2, card3, card4, card5, card6]
-   x = cards.length
-    #cards = CardGenerator.new("./lib/cards.txt").cards
-    deck = Deck.new(cards)
 
-    round = Round.new(deck)
+    #cards = CardGenerator.new("./lib/cards.txt").cards
+    x = cards.length
+    deck = Deck.new(cards)
     i = 1
+    round = Round.new(deck)
 
     puts """
     Welcome! You're playing with #{round.deck.cards.length} cards
@@ -41,13 +41,13 @@ require 'pry'
       guess = gets.chomp
       i += 1
       turn = round.take_turn(guess)
-
       puts """
       ----------------------------------------------------------
       #{guess}
       #{turn.feedback}
       """
     end
+
 
     round.number_correct
     puts """

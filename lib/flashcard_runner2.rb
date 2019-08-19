@@ -9,9 +9,6 @@ require 'pry'
 
 
 
-
-
-
   def start
 #   card1 = Card.new("What is the smallest atomic element?", "Helium",:Chemistry)
 #   card2 = Card.new("What is banned in Japanese restaurants?", "Tipping", :Law)

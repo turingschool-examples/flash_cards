@@ -26,42 +26,38 @@ class RoundTest < Minitest::Test
 
   def test_it_exists
 
-
     assert_instance_of Round, @round
   end
 
   def test_it_has_a_deck
 
-
     assert_equal @deck, @round.deck
   end
 
   def test_it_has_a_current_card
-
-
     assert_equal @card1, @round.current_card
   end
 
   def test_it_tracks_turns
 
-
     assert_equal [@turn1,@turn2,@turn3], @round.turns
 
   end
 
-  def test_it_creates_categories
+
+  def test_creates_categories
     @round.create_categories
 
     assert_equal ({:Chemistry => 0, :Law => 0}), @round.cards_per_e_category
     assert_equal ({:Chemistry => 0, :Law => 0}), @round.correct_by_category
   end
 
-  def test_it_returns_number_correct
+  def test_number_correct
 
     assert_equal 2, @round.number_correct
   end
 
-  def test_it_returns_number_correct_by_category
+  def test_number_correct_by_category
 
     assert @turn1.correct?
     refute @turn2.correct?
@@ -71,16 +67,18 @@ class RoundTest < Minitest::Test
     assert_equal 1, @round.number_correct_by_category(:Law)
   end
 
-  def test_it_returns_percent_correct
+  def test_record_guess
+    assert_equal ["Helium", "Standing", "Water Pistols"], @round.record_guess
+  end
 
+
+  def test_percent_correct
 
     @round.number_correct
     assert_equal 66.7, @round.percent_correct
   end
 
-  def test_it_returns_percent_correct_by_category
-
-
+  def test_percent_correct_by_category
 
     assert_equal 100.0, @round.percent_correct_by_category(:Chemistry)
     assert_equal 50.0, @round.percent_correct_by_category(:Law)

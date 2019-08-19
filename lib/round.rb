@@ -12,13 +12,19 @@ attr_reader :deck,
     @number_correct_turns = 0
     @cards_per_e_category = {}
     @correct_by_category = {}
+    @guesses = []
   end
 
   def take_turn(guess)
     new_turn = Turn.new(guess,@deck.cards.first)
     @deck.cards.push(@deck.cards.shift)
     @turns << new_turn
+    @guesses << new_turn.guess
     new_turn
+  end
+
+  def record_guess
+    @guesses 
   end
 
   def current_card
