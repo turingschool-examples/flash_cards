@@ -16,15 +16,36 @@ class Runner
     @deck = Deck.new(@cards)
     @round = Round.new(@deck)
   end
+#
+#   def what_is_card_question?
+#     @deck.each.question do |cards|
+#     end
+#   end
+# end
 
-  def what_is_card_question?
-    @deck.each.question do |card|
-    end
-  end
-end
 
 
-  puts "Welcome! You're playing with 4 cards."
-  puts "-------------------------------------"
+puts "Welcome! You're playing with 4 cards."
+puts "-------------------------------------"
 
-  puts "This is card number 1 out of 4."
+puts "This is card number 1 out of 4."
+@card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+  puts "#{@card_1.question}"
+    @guess = gets.chomp
+      if @guess == @card_1.answer.capitalize
+        puts "Correct!"
+      else
+        puts "Incorrect!"
+      end
+
+      puts "This is card number 2 out of 4."
+      @card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+        puts "#{@card_2.question}"
+          @guess = gets.chomp
+            if @guess == @card_2.answer.capitalize
+              puts "Correct!"
+            else
+              puts "Incorrect!"
+            end
+          end
+        
