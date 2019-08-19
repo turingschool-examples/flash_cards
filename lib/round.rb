@@ -7,6 +7,7 @@ class Round
     @deck = deck
     @current_card = deck.cards[0]
     @turns = Array.new
+    @categories = Array.new
   end
 
   def advance_turn # Needs good name
@@ -46,5 +47,9 @@ class Round
 
   def percent_correct_by_category(category)
     (number_correct_by_category(category) / @turns.find_all{ |turn| turn.card.category == category}.count.to_f) * 100
+  end
+
+  def identify_all_categories
+    @categories = @turns.map { |turn| turn.card.category}
   end
 end

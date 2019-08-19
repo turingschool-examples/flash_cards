@@ -15,6 +15,8 @@ require 'pry'
 
 @round = Round.new(@deck)
 
+binding.pry
+
 def start_game
   puts "----------------------------------------------------"
   puts "Welcome! You're playing with #{@deck.count} card(s)!"
@@ -31,9 +33,12 @@ def start_game
 
   puts "    *** Game Over ***"
   puts "You had #{@round.number_correct} correct guesses on #{@round.turns.count} cards for a total score of #{@round.percent_correct}."
-  puts "Percentages by category: "
-  puts "Geography - #{@round.percent_correct_by_category(:Geography)}"
-  puts "Sports - #{@round.percent_correct_by_category(:Sports)}"
+
+  @categories = @round.identify_all_categories.uniq
+  while @categories.count > 0
+    puts "#{@categories[0]}: #{@round.percent_correct_by_category(@categories[0])}"
+    @categories.shift
+  end
 end
 
 start_game()
