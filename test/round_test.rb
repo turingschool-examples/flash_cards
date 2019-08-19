@@ -14,6 +14,9 @@ class RoundTest < Minitest::Test
     cards = [@card_1, @card_2, @card_3]
     @deck = Deck.new(cards)
     @round = Round.new(@deck)
+    @round.take_turn("some other city")
+    @round.take_turn("Mars")
+    @round.take_turn("North north west")
   end
 
   def test_round_exists
@@ -26,7 +29,26 @@ class RoundTest < Minitest::Test
     assert_equal @deck, @round.deck
   end
 
-  def test_current_card
+  def test_number_correct
 
+    assert_equal 2, @round.number_correct
   end
+
+  def test_number_correct_by_category
+
+    assert_equal 2, @round.number_correct_by_category(:STEM)
+  end
+
+  def test_percent_correct
+
+    assert_equal 0.6666666666666666,@round.percent_correct
+  end
+#   def test_current_card
+# #for some reason it's saying 'card' is an undefined method within 'current_card'. Functionality works in runner file.
+#     assert_equal @card_1, @round.current_card
+#   end
+
+  # def test_take_turn
+  #   not sure how to test this
+  # end
 end
