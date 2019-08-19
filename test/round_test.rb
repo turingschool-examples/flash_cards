@@ -17,12 +17,6 @@ class RoundTest < Minitest::Test
     @round = Round.new(@deck)
   end
 
-# The take_turn method is the crux of this problem.
-# The take_turn method takes a string representing the guess.
-# It should create a new Turn object with the appropriate guess and Card.
-# It should store this new Turn, as well as return it from the take_turn method.
-# Also, when the take_turn method is called, the Round should move on to the next card in the deck.
-
   def test_round_exists
     assert_instance_of Round, @round
   end
@@ -92,18 +86,6 @@ class RoundTest < Minitest::Test
     # binding.pry
     first_turn = @round.take_turn("Juneau")
     second_turn = @round.take_turn("Venus")
-
-
-    #round.turns.first.card.category
-    #first we need the cards from the turn
-    #then we need the category from the card
-    #next we need to check if the card's answer matches the guess
-    #if the card's answer matches the guess count the category
-    # count how many cards are correct in the category
-    # count how many cards in the category
-
-    #number_of_correct_category = {:Geography => {count_correct => 0, count_incorrect => 0}, :STEM => 0, "Pop Culture" => 0}
-    #total_number_of_cards_category = {:Geography => 0, :STEM => 0, "Pop Culture" => 0}
   end
 
   def test_total_cards_per_category
@@ -127,9 +109,6 @@ class RoundTest < Minitest::Test
   end
 
   def test_number_correct_by_category
-    # binding.pry
-    # assert_equal 0, @round.number_correct_by_category(:Geography)
-
     turn_geography = @round.take_turn("Juneau")
     assert_equal 1, @round.number_correct_by_category(:Geography)
 
@@ -137,12 +116,23 @@ class RoundTest < Minitest::Test
     assert_equal 0, @round.number_correct_by_category(:STEM)
   end
 
-  # def test_percent_correct
-  # end
-  #
+  def test_record_guess_all_turns
+    assert_equal 0, @round.record_guess
+
+    first_turn = @round.take_turn("Juneau")
+    assert_equal 1, @round.record_guess
+
+    next_turn = @round.take_turn("Saturn")
+    assert_equal 2, @round.record_guess
+  end
+
+  def test_percent_correct
+    first_turn = @round.take_turn("Juneau")
+    next_turn = @round.take_turn("Saturn")
+
+    assert_equal 50.0, @round.percent_correct
+  end
+
   # def test_percent_correct_by_category_geography
-  # end
-  #
-  # def test_current_card_3
   # end
 end
