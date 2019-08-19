@@ -3,7 +3,7 @@ class Turn
   attr_reader :guess, :card
 
   def initialize(string, card)
-    @guess = string
+    @guess = string.capitalize
     @card = card
   end
 
