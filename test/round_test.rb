@@ -4,7 +4,6 @@ require './lib/card'
 require './lib/turn'
 require './lib/deck'
 require './lib/round'
-require 'pry'
 
 class RoundTest < Minitest::Test
   def setup
@@ -135,7 +134,6 @@ class RoundTest < Minitest::Test
   def test_percent_correct_by_category
     turn_geography = @round.take_turn("Juneau")
 
-    binding.pry
     assert_equal 100.0, @round.percent_correct_by_category(:Geography)
   end
 end

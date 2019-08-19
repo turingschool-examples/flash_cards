@@ -1,7 +1,6 @@
 require './lib/card'
 require './lib/turn'
 require './lib/deck'
-require 'pry'
 
 class Round
   attr_reader :deck,
@@ -68,7 +67,6 @@ class Round
   def calculate_total_turns(turn)
     if turn
       @record_guess += 1
-      # binding.pry
     end
   end
 
