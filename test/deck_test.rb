@@ -18,6 +18,7 @@ class DeckTest < Minitest::Test
     assert_instance_of Deck, @deck
   end
 
+  # initialzied with an array of Card objects
   def test_deck_has_cards
     assert_equal [@card_1, @card_2, @card_3], @deck.cards
   end
