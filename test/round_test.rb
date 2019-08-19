@@ -46,6 +46,14 @@ class RoundTest < MiniTest::Test
   def test_if_new_turn_into_turns
       new_turn = @round.take_turn("Juneau")
     assert_equal 1, @round.turns.count
-  end  
+    # assert_equal true, new_turn.correct?
+  end
+
+
+  def test_if_turn_correct
+
+    assert_equal true, @turns.correct?
+    assert_equal 1, @turn.number_correct
+  end
 
 end
