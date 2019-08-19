@@ -43,7 +43,6 @@ class RoundTest < Minitest::Test
   def test_take_turn_returns_class_turn
     result = @round.take_turn("Juneau")
 
-    # binding.pry
     assert_equal Turn, result.class
   end
 
@@ -90,12 +89,31 @@ class RoundTest < Minitest::Test
   end
 
   def test_number_correct_turns_by_category
+    # binding.pry
+    first_turn = @round.take_turn("Juneau")
+    second_turn = @round.take_turn("Venus")
+
+
+    #round.turns.first.card.category
     #first we need the cards from the turn
     #then we need the category from the card
     #next we need to check if the card's answer matches the guess
     #if the card's answer matches the guess count the category
-    #
+    # count how many cards are correct in the category
+    # count how many cards in the category
 
+    #number_of_correct_category = {:Geography => {count_correct => 0, count_incorrect => 0}, :STEM => 0, "Pop Culture" => 0}
+    #total_number_of_cards_category = {:Geography => 0, :STEM => 0, "Pop Culture" => 0}
+  end
+
+  def test_total_cards_per_category
+    assert_equal ({}), @round.total_category
+
+    correct_turn = @round.take_turn("Juneau")
+    assert_equal ({:Geography => 1}), @round.total_category
+
+    incorrect_turn = @round.take_turn("Saturn")
+    assert_equal ({:Geography => 1, :STEM => 1}), @round.total_category
   end
 
   # def test_percent_correct
