@@ -35,4 +35,7 @@ class TurnTest < Minitest::Test
     assert_equal "Correct!", @turn_1.feedback
     assert_equal "Incorrect.", @turn_2.feedback
   end
+
+  def test_record_guess
+  end
 end
