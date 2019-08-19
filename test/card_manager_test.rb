@@ -23,13 +23,6 @@ class CardManagerTest < Minitest::Test
     assert_instance_of CardManager, @card_manager
   end
 
-  def test_validate_card_data 
-  end
-
-  def test_create_card
-    assert_instance_of Card, true
-  end
-
   def test_load_from_file
     @card_manager.load_from_file(@file_name)
 
@@ -42,8 +35,4 @@ class CardManagerTest < Minitest::Test
 
     assert pass
   end
-
-  def test_save_cards_to_file
-  end
-
 end

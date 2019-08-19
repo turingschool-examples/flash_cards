@@ -1,4 +1,3 @@
-#require 
 class CardManager
   attr_reader :cards_by_file
 
@@ -24,12 +23,4 @@ class CardManager
       end
     end
   end
-
-  # def valid?(line)
-  #   data = line.split(',')
-  #   return data if data.length == 3
-  #     puts "Invalid line format."
-  # end
-
-
 end
