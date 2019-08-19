@@ -7,8 +7,9 @@ require 'pry'
 card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
 card_3 = Card.new("Describe in words the exact direction that is 697.5 clockwise from due north?", "North north west", :STEM)
+card_4 = Card.new("What is Laura's favorite color?", "Coral", :Random)
 
-cards = [card_1, card_2, card_3]
+cards = [card_1, card_2, card_3, card_4]
 
 deck = Deck.new(cards)
 
@@ -17,6 +18,7 @@ round = Round.new(deck)
 def start(round)
   total_cards = round.deck.cards.count
   p "Welcome! You're playing with #{total_cards} cards."
+  p "--------------------------------------------------"
   round.deck.cards.each_with_index do |card, index|
     card_position = index + 1
     p "This is card number #{card_position} out of #{total_cards}."
@@ -25,7 +27,7 @@ def start(round)
     guess = gets.chomp
     round.take_turn(guess)
     if index == 1
-      binding.pry
+      # binding.pry
     end
     p round.turns[index].feedback
     # binding.pry
@@ -41,9 +43,6 @@ def start(round)
   # if deck.cards go to the next card
 
   # if current card is nil then game is done
-end
-
-def go_to_next_card
 end
 
 start(round)
