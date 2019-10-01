@@ -1,27 +1,22 @@
-data  = [
+dataSet  = [
   {
-    question: "What shooter is an Xbox exclusive",
+    question: "What shooter is an Xbox exclusive?",
     answer: "Halo",
-    category: :gaming,
+    category: :gaming
   },
   {
-    question: "",
-    answer: "",
-    category: :anime,
+    question: "Who is the main character of Dragonball Z?",
+    answer: "Goku",
+    category: :anime
   },
   {
-    question: "",
-    answer: "",
-    category: :gaming,
+    question: "What country makes the PS4?",
+    answer: "Japan",
+    category: :gaming
   },
   {
-    question: "",
-    answer: "",
-    category: :anime,
-  },
-  {
-    question: "",
-    answer: "",
-    category: :anime,
+    question: "What was the first Japanese animation to be played in American theaters?",
+    answer: "Akira",
+    category: :anime
   }
 ]
