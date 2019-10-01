@@ -1,5 +1,3 @@
-require './card.rb'
-
 class Turn 
   def initialize(guess, card)
     @guess = guess
