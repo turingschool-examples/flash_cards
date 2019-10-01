@@ -34,13 +34,14 @@ class Deck
     @count = cards.length
   end
   def cards_in_category(category)
-    amount = 0
+    result = cards
+    
     cards.each do |card|
-      if card.category == category
-        amount += 1
+      if card.category != category
+        result.delete(card)
       end
     end
-    amount
+    result
   end
 end
 
@@ -48,4 +49,4 @@ deck = Deck.new(cardArray)
 
 p "count: #{deck.count}"
 p deck.cards[2]
-p deck.cards_in_category(:anime)
+p deck.cards_in_category(:gaming)
