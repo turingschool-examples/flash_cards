@@ -14,8 +14,19 @@ card9 = Card.new("What is the capital of Japan?", "Tokyo", :national_capitals)
 card10 = Card.new("What is the capital of Egypt?", "Cairo", :national_capitals)
 card11 = Card.new("What is the capital of Morocco?", "Rabat", :national_capitals)
 card12 = Card.new("What is the capital of Guatamala?", "Guatamala City", :national_capitals)
+card13 = Card.new("What is the medical term for low blood sugar?", "Hypoglycemia", :human_body)
+card14 = Card.new("What’s the common term for a cerebrovascular accident?", "Stroke", :human_body)
+card15 = Card.new("What does “CPR” stand for in medical emergencies?", "Cardiopulmonary resuscitation", :human_body)
+card16 = Card.new("What, along with heart disease and cancer, accounts for 64 percent of U.S. deaths?", "Stroke", :human_body)
+card17 = Card.new("What virus did the World Health Organization say would infect 40 million people by the year 2000?", "HIV", :human_body)
+card18 = Card.new("What disease is the focus of oncology?", "Cancer", :human_body)
+card19 = Card.new("What sticky sweetener was traditionally used as an antiseptic ointment for cuts and burns?", "Honey", :human_body)
+card20 = Card.new("What’s the most frequently diagnosed cancer in men?", "Prostate Cancer", :human_body)
 
-deck1 = Deck.new([card1, card2, card3, card4, card5, card6, card7, card8, card9, card10, card11, card12])
+
+
+
+deck1 = Deck.new([card1, card2, card3, card4, card5, card6, card7, card8, card9, card10, card11, card12, card13, card14, card15, card16, card17, card18, card19, card20])
 
 random_card = deck1.draw
 puts random_card.question
@@ -23,9 +34,17 @@ puts random_card.question
 
 puts "Welcome to Flashcards!"
 puts "--------------------------"
-puts "Select from the following categories: National Capitals"
+puts "Select from the following categories: National Capitals, Human Body"
 cat = gets.chomp
 
-game_deck = deck1.cards_in_category(cat.to_sym)
+game_deck = Deck.new(deck1.cards_in_category(cat.downcase.tr!(" ","_").to_sym))
 
-puts game_deck
+puts "Great choice! Let's begin."
+
+n = 0
+loop do
+  puts game_deck.draw.question
+  answer = gets.chomp
+  n += 1
+  break if n == 5
+end
