@@ -8,4 +8,4 @@ class Card
   end
 end
 
-card_1 = Card.new("What is the sum of 5 + 5?", 10, Math)
+card_1 = Card.new("What is the sum of 5 + 5?", 10, :Math)
