@@ -1,25 +1,28 @@
 class Turn
-  attr_accessor :string, :card
+  attr_accessor :guess, :card
 
-  def initialize(string, card)
-    @string = string
+  def initialize(guess, card)
+    @guess = guess
     @card = card
   end
 
-  def guess(current_guess)
-    #returns a guess
+  def guess
+    return guess
   end
 
-  def card(current_card)
-    #returns a card
+  def card
+    return card
   end
 
-  def correct
-    #returns a bool
+  def correct?
+    @guess.to_s.downcase == @guess.to_s.downcase
   end
 
   def feedback
-    #returns "correct" or "incorrect"
+    if correct?
+      "That's correct!"
+    else
+      "That's incorrect."
   end
 end
 
