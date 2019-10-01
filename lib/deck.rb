@@ -9,7 +9,8 @@ class Deck
     @count = @cards.count
   end
 
-  def cards_in_category
+  def cards_in_category(category)
+    @self.group_by { |category| @category == category }
   end
 
 end
