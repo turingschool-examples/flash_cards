@@ -23,6 +23,7 @@ class Turn
       "That's correct!"
     else
       "That's incorrect."
+    end
   end
 end
 
