@@ -1,4 +1,6 @@
 
+require_relative 'card'
+
 class Deck
   attr_accessor :cards
 
@@ -12,7 +14,7 @@ class Deck
 
   def draw
     return cards.sample
-  end   
+  end
 
 
   def cards_in_category(cat)
@@ -23,3 +25,4 @@ class Deck
   end
 
 end
+
