@@ -18,8 +18,10 @@ class Turn
   def feedback
     if @correct == true
       puts "Correct!"
+      true
     else
       puts "Incorrect!"
+      false
     end
   end
 
