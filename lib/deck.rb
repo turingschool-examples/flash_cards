@@ -3,19 +3,23 @@ class Deck
   attr_accessor :cards
 
   def initialize(cards)
-    @cards = []
+    @cards = cards
   end
 
-  def add_card(new_card)
-    cards << new_card
+  def count
+    return cards.length
   end
 
-  def display_cards
-    puts cards
+  def draw
+    return cards.sample
+  end   
+
+
+  def cards_in_category(cat)
+    list = cards.select do |card|
+      card.category == cat
+    end
+    return list
   end
 
-  def choose_card
-    return cards[rand(0..(cards.length - 1))]
-  end
-
-end         
+end
