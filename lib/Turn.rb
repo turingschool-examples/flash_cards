@@ -7,15 +7,15 @@ class Turn
   end
 
   def guess
-    return guess
+    return @guess
   end
 
   def card
-    return card
+    return @card
   end
 
   def correct?
-    @guess.to_s.downcase == @guess.to_s.downcase
+    @guess.to_s.downcase == card.answer.to_s.downcase
   end
 
   def feedback
