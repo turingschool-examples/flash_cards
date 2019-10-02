@@ -31,11 +31,3 @@ class Turn < Card
   end
 
 end
-
-card_1 = Card.new("What is the sum of 5 + 5?", 10, :Math)
-turn_1 =  Turn.new(11, card_1)
-
-puts turn_1.card
-puts turn_1.guess
-puts turn_1.correct?
-puts turn_1.feedback

@@ -7,5 +7,3 @@ class Card
     @category = category
   end
 end
-
-card_1 = Card.new("What is the sum of 5 + 5?", 10, :Math)
