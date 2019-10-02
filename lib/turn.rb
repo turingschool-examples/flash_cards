@@ -5,13 +5,27 @@ class Turn
     @feedback = ''
   end
 
-  def correct? 
-    if guess.upcase == card.answer.upcase
-      @feedback = "Correct!"
-      true
-    else
-      @feedback = "Incorrect!"
-      false
+  def guess
+    @guess
   end
 
+  def card
+    @card
+  end
+
+  def correct? 
+    if @guess.upcase == @card.answer.upcase
+      feedback(true)
+    else
+      feedback(false)
+    end
+  end
+
+  def feedback bool
+    if bool
+      p "*****Correct!*****"
+    else
+      p "*****Incorrect!*****"
+    end
+  end
 end
