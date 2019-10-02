@@ -1,11 +1,12 @@
 #round.rb
 
 class Round
-  attr_reader :deck
+  attr_accessor :deck
+
   def initialize(deck)
     @deck = deck
     @turns = []
-    @x = 0 #place holder
+    #@x = 0 #place holder
   end
 
   def turns
@@ -13,13 +14,15 @@ class Round
   end
 
   def current_card
-    @deck.cards[@x]
+    @deck.cards[0]
   end
 
   def take_turn(guess)
-    @x += 1
-    @turns << Turn.new(guess,@deck.cards[@x-1])
-    Turn.new(guess,@deck.cards[@x-1])
+    #@x += 1
+    @turns << Turn.new(guess,@deck.cards[0])
+    @deck.cards.slice!(0)
+    #Turn.new(guess,@deck.cards[@x-1])
+    @turns.last
   end
 
   def number_correct
@@ -56,6 +59,10 @@ class Round
       end
     end
     number_correct_by_category(subject) / count.to_f * 100
+  end
+
+  def start
+    p "Welcome! You're playing with 4 cards."
   end
 end
 
