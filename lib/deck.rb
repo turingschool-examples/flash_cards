@@ -6,12 +6,12 @@ class Deck
   end
 
   def count
-    cards.size
+    cards.count
   end
 
   def cards_in_category(category)
     cards.select do |card|
-      card.category == category
+      cards.category == category
     end
   end
 end
