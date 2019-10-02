@@ -4,9 +4,6 @@ class Turn
 
   def initialize(guess, card)
     @card = card
-    # @question = card.question
-    # @answer = card.answer
-    # @category = card.category
     @guess = guess
   end
 
