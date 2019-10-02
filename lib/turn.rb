@@ -12,6 +12,7 @@ def guess
 end
 
 def card
+  @card
 end
 
 def correct?
