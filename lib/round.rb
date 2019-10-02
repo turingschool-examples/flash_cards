@@ -1,55 +1,51 @@
-require "./card.rb"
 require "./turn.rb"
-require "./deck.rb"
 
 class Round
   attr_reader :deck
   def initialize(deck)
-    @rounddeck = deck.cards
+    @deck = deck.cards
     @turns = []
-    @current_card = deck.cards[@turns.length]
+    @current_card = @deck[@turns.count]
     @number_correct = 0
-
   end
 
   def take_turn
-    print "#{@current_card.question}  "
+    p "This is card #{@turns.count+1} out of #{@deck.count}"
+    print "Question: #{@current_card.question}  "
     guess = gets.chomp
     turn = Turn.new(guess, @current_card)
-    p turn.correct?
-    # p "Next question"
+    check = turn.correct?
+    @turns << turn
+    if check == 'Correct!'
+      @number_correct+=1
+    end
+    @current_card = @deck[@turns.count]
+    if @deck.count == @turns.count
+      puts "*****Thank you for playing!*****"
+      puts "You got #{percent_correct}% of the questions correct!"
+      puts "Anime: #{percent_correct_by_category(:anime)}% of the questions correct."
+      puts "Gaming: #{percent_correct_by_category(:gaming)}% of the questions correct."
+    else
+      take_turn
+    end
+  end
+
+  def percent_correct
+    @number_correct * 100 / @turns.count 
+  end
+
+  def percent_correct_by_category category
+    num_in_cat = 0
+    num_correct = 0
+    
+    @turns.each do |theturn|
+      if theturn.card.category == category && theturn.turn_feedback == "Correct!"
+        num_correct+=1
+        num_in_cat+=1
+      elsif theturn.card.category == category && theturn.turn_feedback == "Incorrect!"
+        num_in_cat+=1
+      end
+    end
+    num_correct * 100 / num_in_cat
   end
 end
-
-data  = [
-  {
-    "question" => "What was the first shooter that was exclusive Xbox?",
-    "answer" => "Halo",
-    "category" => :gaming
-  },
-  {
-    "question" => "Who is the main character of Dragonball Z?",
-    "answer" => "Goku",
-    "category" => :anime
-  },
-  {
-    "question" => "What country makes the PS4?",
-    "answer" => "Japan",
-    "category" => :gaming
-  },
-  {
-    "question" => "What was the first Japanese animation to be played in American theaters?",
-    "answer" => "Akira",
-    "category" => :anime
-  }
-]
-card1 = Card.new(data[0]["question"], data[0]["answer"], data[0]["category"])
-card2 = Card.new(data[1]["question"], data[1]["answer"], data[1]["category"])
-card3 = Card.new(data[2]["question"], data[2]["answer"], data[2]["category"])
-card4 = Card.new(data[3]["question"], data[3]["answer"], data[3]["category"])
-cardArray = [card1, card2, card3, card4]
-deck = Deck.new(cardArray)
-round = Round.new(deck)
-
-round.take_turn
-
