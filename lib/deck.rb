@@ -2,7 +2,7 @@
 require_relative 'card'
 
 class Deck
-  attr_accessor :cards
+  attr_reader :cards
 
   def initialize(cards)
     @cards = cards
@@ -16,6 +16,9 @@ class Deck
     cards.sample
   end
 
+  def remove_from_deck(card)
+    cards.delete(card)
+  end
 
   def cards_in_category(cat)
     list = cards.select do |card|
