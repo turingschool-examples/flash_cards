@@ -18,6 +18,8 @@ class TurnTest < Minitest::Test
   def test_initialize
     assert_instance_of Card, @turn.card
     assert_instance_of Turn, @turn
+    #Card or card/Turn or turn?
+  end
 
   def test_for_guess
     assert_equal "Juneau", @turn.guess
