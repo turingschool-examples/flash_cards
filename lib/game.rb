@@ -30,21 +30,21 @@ card26 = Card.new("The shape of DNA is known as?", "Helix", :human_body)
 card27 = Card.new("True or false? Your ears are important when it comes to staying balanced.", "True",:human_body)
 card28 = Card.new("The outside layer of skin on the human body is called the?", "Epidermus",:human_body)
 card29 = Card.new("The muscles found in the front of your thighs are known as what?", "Quadriceps",:human_body)
-card30 = Card.new("Malcolm Little was a civil rights activist better known by what name?", "Malcolm X", :history)
-card31 = Card.new("What was the name of the U.S. mail service, started in 1860, that used horses and riders?", "Pony Express", :history)
-card32 = Card.new("Which Kentucky-born U.S. president is honored in the Wrestling Hall of Fame?", "Abraham Lincoln", :history)
-card33 = Card.new("What is the roman name for the goddess Hecate?", "Trivia", :history)
-card34 = Card.new("Name the second president of the United States of America.", "John Adams", :history)
-card35 = Card.new("Which sought-after snack took eight months to return to shelves after its parent company, Hostess, declared bankruptcy?", "Twinkies", :history)
-card36 = Card.new("When Pope Gregory IX rose to power, what domestic animal did he order to exterminate across Europe in the belief that they were used in devil’s worship and witch craft?", "Cats", :history)
-card37 = Card.new("People in Victorian England said this word before having their picture taken instead of the word “cheese”. What fruit did they say?", "Prunes", :history)
-card38 = Card.new("What natural human bodily fluid did Romans use as mouth wash because of the presence of ammonia in it?", "Urine", :history)
-card39 = Card.new("On what year did the Ford Model T enter production?", "1908", :history)
-card40 = Card.new("In USSR, What does the letter “R” sand for?", "Republics", :history)
-card41 = Card.new("James Cook led and commanded what ship when he discovered Australia?", "HMS Endeavor", :history)
-card42 = Card.new("Who is the Greek God of the Underworld?", "Hades", :history)
-card43 = Card.new("Rubber was discovered by?", "Charles Mackintosh", :history)
-card44 = Card.new("Who was the first black senator in the United States of America?", "Carol Moseley Brown", :history)
+card30 = Card.new("Malcolm Little was a civil rights activist better known by what name?", "Malcolm X", :historical_facts)
+card31 = Card.new("What was the name of the U.S. mail service, started in 1860, that used horses and riders?", "Pony Express", :historical_facts)
+card32 = Card.new("Which Kentucky-born U.S. president is honored in the Wrestling Hall of Fame?", "Abraham Lincoln", :historical_facts)
+card33 = Card.new("What is the roman name for the goddess Hecate?", "Trivia", :historical_facts)
+card34 = Card.new("Name the second president of the United States of America.", "John Adams", :historical_facts)
+card35 = Card.new("Which sought-after snack took eight months to return to shelves after its parent company, Hostess, declared bankruptcy?", "Twinkies", :historical_facts)
+card36 = Card.new("When Pope Gregory IX rose to power, what domestic animal did he order to exterminate across Europe in the belief that they were used in devil’s worship and witch craft?", "Cats", :historical_facts)
+card37 = Card.new("People in Victorian England said this word before having their picture taken instead of the word “cheese”. What fruit did they say?", "Prunes", :historical_facts)
+card38 = Card.new("What natural human bodily fluid did Romans use as mouth wash because of the presence of ammonia in it?", "Urine", :historical_facts)
+card39 = Card.new("On what year did the Ford Model T enter production?", "1908", :historical_facts)
+card40 = Card.new("In USSR, What does the letter “R” sand for?", "Republics", :historical_facts)
+card41 = Card.new("James Cook led and commanded what ship when he discovered Australia?", "HMS Endeavor", :historical_facts)
+card42 = Card.new("Who is the Greek God of the Underworld?", "Hades", :historical_facts)
+card43 = Card.new("Rubber was discovered by?", "Charles Mackintosh", :historical_facts)
+card44 = Card.new("Who was the first black senator in the United States of America?", "Carol Moseley Brown", :historical_facts)
 
 
 deck1 = Deck.new([card1, card2, card3, card4, card5, card6, card7, card8, card9, card10,
@@ -58,7 +58,7 @@ total = 0
 
 puts "Welcome to Flashcards!"
 puts "--------------------------"
-puts "Select from the following categories: National Capitals, Human Body, History"
+puts "Select from the following categories: National Capitals, Human Body, Historical Facts"
 cat = gets.chomp
 
 game_deck = Deck.new(deck1.cards_in_category(cat.downcase.tr!(" ","_").to_sym))
@@ -82,11 +82,11 @@ while current_card <= total_cards
   end
   game_deck.remove_from_deck(new_card)
 
-  puts "You have answered #{current_card} questions, out of #{total_cards}"
+  puts "You have answered #{current_card} questions, out of #{total_cards}."
   total += 1
   current_card += 1
 
 end
 
-puts "You got #{correct} correct answers out of #{total}."
+puts "You got #{correct} correct answers out of #{total}, resulting in a score of #{((correct.to_f)/(total_cards.to_f))*100}%"
 puts "Thanks for playing!"
