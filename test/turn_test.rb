@@ -9,7 +9,7 @@ class TurnTest < Minitest::Test
   def test_it_exists
 
     card = Card.new("What's the capital of Ohio?", "Columbus", :Geography)
-    turn = Turn.new("Juneau", card)
+    turn = Turn.new("Columbus", card)
 
     assert_instance_of Turn, turn
   end
@@ -18,7 +18,7 @@ class TurnTest < Minitest::Test
   def test_return_card
 
     card = Card.new("What's the capital of Ohio?", "Columbus", :Geography)
-    turn = Turn.new("Juneau", card)
+    turn = Turn.new("Columbus", card)
 
     assert_equal card, turn.card
   end
@@ -27,27 +27,27 @@ class TurnTest < Minitest::Test
   def test_guess
 
     card = Card.new("What's the capital of Ohio?", "Columbus", :Geography)
-    turn = Turn.new("Juneau", card)
+    turn = Turn.new("Columbus", card)
 
-    assert_equal "Juneau", turn.guess
+    assert_equal "Columbus", turn.guess
   end
 
 #can it return correct?
   def test_correct
 
     card = Card.new("What's the capital of Ohio?", "Columbus", :Geography)
-    turn = Turn.new("Juneau", card)
+    turn = Turn.new("Columbus", card)
 
-    assert_equal false, turn.correct?
+    assert_equal true, turn.correct?
   end
 
 #can it return feedback?
   def test_feedback
 
     card = Card.new("What's the capital of Ohio?", "Columbus", :Geography)
-    turn = Turn.new("Juneau", card)
+    turn = Turn.new("Columbus", card)
 
-    assert_equal "Incorrect.", turn.feedback
+    assert_equal "Correct!", turn.feedback
   end
 
 end
