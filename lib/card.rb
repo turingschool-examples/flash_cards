@@ -3,19 +3,12 @@
 #Attributes: Question (string), Answer (string), Catagory (array)
 
 class Card
-  attr_reader :question, :answer, :catagory
+  attr_holder :question, :answer, :catagory
 
-  def
+  def initialize (question, answer, catagory)
+    @question = question
+    @answer = answer
+    @catagory = catagory
+  end
 
-
-
-
-
-
-
-
-
-
-#work on this later..
-  def Card.new("string", "string", array)
-    @
+end
