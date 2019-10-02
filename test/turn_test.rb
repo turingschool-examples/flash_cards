@@ -15,21 +15,19 @@ class TurnTest < Minitest::Test
   def test_if_guess_is_correct
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
-
-    assert turn.correct?
+    assert_equal true, turn.correct?
   end
 
   def test_if_guess_is_incorrect
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Fairbanks", card)
 
-    refute turn.correct?
+    assert_equal false, turn.correct?
   end
 
   def test_feedback
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
-    turn.correct?
 
     # require "pry"; binding.pry
     assert_equal "Correct!", turn.feedback
