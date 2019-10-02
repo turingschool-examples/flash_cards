@@ -1,3 +1,7 @@
+require './lib/card'
+require './lib/deck'
+require './lib/round'
+
 class Turn
 
   attr_reader :guess, :card
@@ -7,18 +11,14 @@ class Turn
   end
 
   def correct?
-    if @guess == card.answer
-      true
-    else
-      false
-    end
+    @guess == card.answer
   end
 
     def feedback
-      if correct? == true
-        return "Correct!"
+      if correct?
+        "Correct!"
       else
-        return "Incorrect."
+        "Incorrect."
       end
     end
   end
