@@ -25,8 +25,9 @@ end
     assert_equal true, @turn.correct?
   end
 
-  def test_it_will_provide_feeback
-    skip
-  end
+  # def test_it_will_provide_feedback
+  #
+  #   assert_instance_of @turn.correct?
+  # end
 
 end
