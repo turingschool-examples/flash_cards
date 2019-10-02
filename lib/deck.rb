@@ -1,11 +1,6 @@
+require 'pry'
 require './card.rb'
 require './turn.rb'
-
-card1 = Card.new("What is my name?", "Dylan", :Names)
-card2 = Card.new("What is the capital of Colorado", "Denver", :Geography)
-card3 = Card.new("What is 2 + 2", "4", :Math)
-
-cards = [card1, card2, card2]
 
 class Deck
   attr_reader :cards
@@ -17,7 +12,25 @@ class Deck
     cards.count
   end
 
-end
+  def cards_in_category(cat)
+    cards_in_cat = []
 
-deck = Deck.new(cards)
-p deck.count
+    cards.each do |card|
+      if card.category == cat
+        cards_in_cat << card
+      end
+    end
+    cards_in_cat
+  end
+
+  def count_in_category(cat)
+    @count = 0
+
+    cards.each do |card|
+      if card.category == cat
+        @count += 1
+      end
+    end
+    @count
+  end
+end
