@@ -1,3 +1,5 @@
+
+
 class Deck
   attr_reader :cards
 
@@ -6,12 +8,17 @@ class Deck
   end
 
   def count
-    cards.count
+    @cards.count
   end
 
+
   def cards_in_category(category)
-    cards.select do |card|
-      cards.category == category
+    category_array = []
+      @cards.each do |card|
+      if card.category == category
+        category_array << card
+      end
     end
+    category_array
   end
 end
