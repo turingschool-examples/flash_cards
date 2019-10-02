@@ -9,11 +9,11 @@ class Deck
   end
 
   def count
-    return cards.length
+    cards.length
   end
 
   def draw
-    return cards.sample
+    cards.sample
   end
 
 
@@ -21,7 +21,7 @@ class Deck
     list = cards.select do |card|
       card.category == cat
     end
-    return list
+     list
   end
 
 end
