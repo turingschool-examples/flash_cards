@@ -1,20 +1,20 @@
 class Turn
   require 'pry'
   require './lib/card'
-  attr_accessor :string, :cards, :correct
-  def initialize(string, cards)
-    @string = string
+  attr_accessor :guesses, :cards, :correct
+  def initialize(guesses, cards)
+    @guesses = guesses
     @cards = cards
     @correct
   end
   def guess
-    string
+    guesses
   end
   def card
     cards
   end
   def correct?
-   if self.card.answer == self.string
+   if self.card.answer == self.guesses
     self.correct = true
    else
     self.correct = false

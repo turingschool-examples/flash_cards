@@ -9,11 +9,14 @@ class Deck
     @cards = cards
   end
   def count
-    self.cards.size
+    cards.size
   end
   def cards_in_category(category)
-      self.cards.each do |card|
-       return card if card.category == category
+      cards.each do |card|
+        if card.category == category
+            card
+        end
+    #still need it to return an empty array when the answer is wrong
       end
    end
 
