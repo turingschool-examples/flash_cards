@@ -11,7 +11,7 @@ class DeckTest < Minitest::Test
     card_3 = Card.new("Describe in words the exact direction that is 697.5 clockwise from due north?", "North north west", :STEM)
     cards = [card_1, card_2, card_3]
     @cards = cards
-    @deck = Deck.new(@cards)
+    @deck = Deck.new(@cards)#, @category)
   end
 
   def test_it_exists
@@ -21,6 +21,11 @@ class DeckTest < Minitest::Test
   def test_number_of_cards
     assert_equal 3, @cards.length
   end
+
+  # def test_card_category
+  #
+  # end
+
 
 
   end
