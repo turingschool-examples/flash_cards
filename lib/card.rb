@@ -1,12 +1,13 @@
 class Card
+require 'pry'
   attr_accessor :question, :answer, :geography, :people, :places, :category
 
   def initialize(question, answer, category)
-    @que stion = question
+    @question = question
     @answer = answer
-    @geography = category
-    @people = category
-    @places = category
-    @category = category
+    @geography = category[:geography]
+    @people = category[:people]
+    @places = category[:places]
+
   end
 end
