@@ -1,5 +1,7 @@
 
-require './lib/card'
+require_relative 'card'
+require_relative 'deck'
+
 
 class Turn
   attr_accessor :guess, :card
@@ -8,11 +10,13 @@ class Turn
     @card = card
   end
 
-  def guess
-    puts "Your guess was #{guess}"
-  end
-
   def correct?
-    guess == card.answer
+    if guess == card.answer
+      "Correct"
+    else
+      "Incorrect"
+    end
   end
 end
+
+
