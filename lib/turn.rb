@@ -26,7 +26,7 @@ class Turn
     @guess = gets.chomp
   end
 
-  def correct
+  def correct?
     if @guess == @card.answer
       true
     else
@@ -35,7 +35,7 @@ class Turn
   end
 
   def feedback
-    if correct == true
+    if correct?
       p "Correct!"
     else
       p "Incorrect, try again!"
