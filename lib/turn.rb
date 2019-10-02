@@ -8,7 +8,7 @@ class Turn
   end
 
   def correct?
-    if self.guess == card.answer
+    if @guess == card.answer
       true
     else
       false
