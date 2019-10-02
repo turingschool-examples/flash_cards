@@ -1,31 +1,22 @@
 require './lib/card'
 
 class Turn
-  attr_accessor :answer, :card, :correct
+  attr_accessor :guess, :card
 
-  def initialize(answer, card)
-    @answer = answer
+  def initialize(guess, card)
+    @guess = guess
     @card = card
-    @correct = false
-  end
-
-  def guess
-    guess = @answer
-  end
-
-  def card
-    @card.question
   end
 
   def correct?
-    @correct = guess == @card.answer
+    @guess == @card.answer
   end
 
   def feedback
-    if @correct == true
+    if correct?
       "Correct!"
     else
-      "Incorrect. Try Again."
+      "Incorrect."
     end
   end
 

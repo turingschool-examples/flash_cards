@@ -24,6 +24,7 @@ turn_2 = Turn.new(15, card_2)
 
 #Round...
 round_1 = Round.new(deck_1)
-puts round_1.deck
+round_1.deck
+round_1.current_card
 
 #binding.pry
