@@ -1,15 +1,9 @@
 require './lib/card'
-
 class Turn
-
-  def initialize(string, card)
-    @string = string
+attr_reader :guess
+  def initialize(guess, card)
+    @guess = guess
     @card = card
-  end
-
-  def guess
-    #this method returns the guess
-    @card.answer
   end
 
   def card
@@ -17,6 +11,13 @@ class Turn
   end
 
   def correct?
+    if @card.answer == self.guess
+      return true
+    elsif @card.answer != self.guess
+      return false
+    else
+      puts "strange condition reached"
+    end
   end
 
   def feedback
