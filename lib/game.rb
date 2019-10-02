@@ -30,7 +30,9 @@ deck1 = Deck.new([card1, card2, card3, card4, card5, card6, card7, card8, card9,
 
 random_card = deck1.draw
 puts random_card.question
-
+correct = 0
+total = 0
+cont = true
 
 puts "Welcome to Flashcards!"
 puts "--------------------------"
@@ -41,10 +43,23 @@ game_deck = Deck.new(deck1.cards_in_category(cat.downcase.tr!(" ","_").to_sym))
 
 puts "Great choice! Let's begin."
 
-n = 0
-loop do
-  puts game_deck.draw.question
+while cont
+  new_card = game_deck.draw
+  puts new_card.question
   answer = gets.chomp
-  n += 1
-  break if n == 5
+
+  new_turn = Turn.new(answer, new_card)
+
+  result = new_turn.correct?
+  puts result
+  score += 1 if result == "Correct"
+  total += 1
+
+  puts "Press 'y' if you would like another question."
+  continue = gets.chomp
+
+  break if continue.downcase != 'y'
+
 end
+
+
