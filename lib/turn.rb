@@ -1,3 +1,4 @@
+# require the card file?
 class Turn
   attr_reader :guess, :card, :answer
   def initialize(guess, card)
@@ -6,20 +7,12 @@ class Turn
     @answer = card.answer
   end
 
-  def guess
-    @guess
-  end
-
-  def card
-    @card
-  end
-
   def correct?
     @answer == @guess
   end
 
   def feedback
-    if @answer == @guess
+    if correct?
       "Correct!"
     else
       "Incorrect."
