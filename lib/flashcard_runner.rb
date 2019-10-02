@@ -23,6 +23,6 @@ cards = [card_1, card_2, card_3,
 deck = Deck.new(cards)
 round = Round.new(deck)
 
+round.start
 
-
-require 'pry'; binding.pry
+# require 'pry'; binding.pry
