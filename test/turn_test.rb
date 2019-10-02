@@ -21,10 +21,17 @@ class TurnTest < Minitest::Test
   end
 
   def test_feedback
-    card = Card.new("What is the largest desert on Earth", "Antarctica", :Dumb_trivia)
+    card = Card.new("What is the largest desert on Earth?", "Antarctica", :Dumb_trivia)
     turn = Turn.new("Sahara", card)
 
     assert_equal "Incorrect.", turn.feedback
+  end
+
+  def test_guess_exists
+    card = Card.new("What is the largest desert on Earth?", "Antarctica", :Dumb_trivia)
+    turn = Turn.new("Sahara", card)
+
+    assert_equal turn.guess, "Sahara"
   end
 
 end
