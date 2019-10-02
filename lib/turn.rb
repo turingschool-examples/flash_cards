@@ -1,8 +1,9 @@
 class Turn 
+  attr_reader :guess, :card, :turn_feedback
   def initialize(guess, card)
     @guess = guess
     @card = card
-    @feedback = ''
+    @turn_feedback = ''
   end
 
   def guess
@@ -14,7 +15,7 @@ class Turn
   end
 
   def correct? 
-    if @guess.upcase == @card.answer.upcase
+    if @guess.upcase.strip == @card.answer.upcase.strip
       feedback(true)
     else
       feedback(false)
@@ -23,9 +24,11 @@ class Turn
 
   def feedback bool
     if bool
-      p "*****Correct!*****"
+      puts "***** Correct! *****"
+      @turn_feedback = "Correct!"
     else
-      p "*****Incorrect!*****"
+      puts "***** Incorrect! The correct answer was #{@card.answer}. *****"
+      @turn_feedback = "Incorrect!"
     end
   end
 end
