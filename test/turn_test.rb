@@ -20,10 +20,9 @@ end
     assert_equal "Juneau", @turn.guess
   end
 
-  def test_if_the_guess_matches_the_card\
-    correct? = @turn.guess == @card = true
+  def test_if_the_guess_matches_the_card
 
-    assert_equal @turn.guess == @card
+    assert_equal true, @turn.correct?
   end
 
   def test_it_will_provide_feeback
