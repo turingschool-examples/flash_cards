@@ -4,6 +4,10 @@ require './lib/card'
 
 class CardTest < Minitest::Test
 
+  # def setup
+  #   @card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+  # end
+
   def test_it_exists
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
