@@ -2,7 +2,7 @@ require './lib/card'
 require './lib/turn'
 
 class Deck
-  attr_accessor :cards
+  attr_accessor :cards, :deck
 
   def initialize(cards)
     @cards = cards
@@ -19,7 +19,7 @@ class Deck
   def cards_in_category(category)
     count_array = []
     @cards.each { |card| count_array << card.category }
-    puts count_array.count(category)
+    count_array.count(category)
   end
 
 end

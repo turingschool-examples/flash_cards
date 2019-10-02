@@ -1,6 +1,6 @@
 require './lib/card'
 
-class Turn < Card
+class Turn
   attr_accessor :answer, :card, :correct
 
   def initialize(answer, card)
@@ -10,8 +10,7 @@ class Turn < Card
   end
 
   def guess
-    #puts "Answer: #{@answer}"
-    guess = @answer #gets.chomp
+    guess = @answer
   end
 
   def card
