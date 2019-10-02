@@ -24,7 +24,11 @@ class Deck
     list = cards.select do |card|
       card.category == cat
     end
-     list
+    if list == nil
+      "Invalid input"
+    else
+      list
+    end
   end
 
 end
