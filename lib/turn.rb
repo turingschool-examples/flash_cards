@@ -21,6 +21,11 @@ attr_reader :guess
   end
 
   def feedback
+    if self.correct? == true
+      return "Correct!"
+    elsif self.correct? == false
+      return "Incorrect"
+    end
   end
 
 end
