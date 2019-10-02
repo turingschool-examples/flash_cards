@@ -6,5 +6,3 @@ class Card
         @category = category
       end
 end
-
-card = Card.new("What is the capital of Alaska?", "Juneau", [:Geography])
