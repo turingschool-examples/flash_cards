@@ -52,7 +52,9 @@ while cont
 
   result = new_turn.correct?
   puts result
-  score += 1 if result == "Correct"
+  if result 
+    correct += 1
+  end
   total += 1
 
   puts "Press 'y' if you would like another question."
@@ -62,4 +64,4 @@ while cont
 
 end
 
-
+puts "You got #{correct} correct answers out of #{total}."
