@@ -19,12 +19,24 @@ deck_1.count
 deck_1.cards_in_category(:Math)
 
 #creating turns...
-turn_1 = Turn.new(11, card_1)
-turn_2 = Turn.new(15, card_2)
+#turn_1 = Turn.new(11, card_1)
+#turn_2 = Turn.new(15, card_2)
 
 #Round...
 round_1 = Round.new(deck_1)
 round_1.deck
 round_1.current_card
 
-#binding.pry
+#First turn
+new_turn = round_1.take_turn(10)
+new_turn.class
+new_turn.correct?
+
+round_1.turns
+round_1.number_correct
+round_1.current_card
+p round_1.take_turn(16)
+p round_1.turns.count
+p round_1.turns.last.feedback
+p round_1.number_correct
+p round_1.number_correct_by_category(:Math)
