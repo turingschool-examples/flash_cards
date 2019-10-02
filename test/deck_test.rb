@@ -13,9 +13,13 @@ class DeckTest < Minitest::Test
     @cards = [card_1, card_2, card_3]
   end
 
+  def test_it_exists
+    deck = Deck.new(@cards)
+    assert_instance_of Deck, deck
+  end
+
   def test_count_cards
     deck = Deck.new(@cards)
-    deck.count
     assert_equal 3, deck.count
   end
 end
