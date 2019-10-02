@@ -11,10 +11,10 @@ class Deck
 
   def cards_in_category(category)
     category_specific = []
-    @cards.each do |card|
+    @cards.count do |card|
       if card.category == category
         category_specific << card
-        break
+      else
       end
     end
     category_specific
