@@ -1,5 +1,6 @@
 # turn.rb
-# require './lib/card'
+require './lib/card'
+#require 'pry'
 
 class Turn
   attr_accessor :guess, :card
@@ -18,7 +19,7 @@ class Turn
   end
 
   def correct?
-    if @guess == @card
+    if @guess == card.answer
       true
     else
       false
@@ -33,3 +34,5 @@ class Turn
     end
   end
 end
+
+#binding.pry
