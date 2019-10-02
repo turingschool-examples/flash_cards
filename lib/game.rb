@@ -80,14 +80,7 @@ while new_round.turns < new_round.total
   answer = gets.chomp
 
   new_round.take_turn(answer, new_card)
-
-  # result = new_turn.correct?
-  # puts result
-  # if result == "Correct"
-  #   correct += 1
-  # end
-  #game_deck.remove_from_deck(new_card)
-
+  
   puts "You have answered #{(new_round.turns).to_s} questions, out of #{(new_round.total.to_s)}."
 
 end
