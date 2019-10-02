@@ -5,25 +5,28 @@ require './lib/card'
 
 class Turn
   attr_reader  :card
-  attr_accessor :correct, :guess
+  attr_accessor :guess
 
   def initialize(guess, card)
     @guess = guess
     @card = card
-    @correct = false
+
   end
 
 
   def correct?
-    @guess == @card.answer
-    @correct = true
+    if @guess == @card.answer
+      true
+    else
+      false
+    end
   end
 
   def feedback
-    if @correct == true
-      puts "Correct!"
+    if self.correct? == true
+      "Correct!"
     else
-      puts "Sorry, that is incorrect."
+      "Sorry, that is incorrect."
     end
   end
 
