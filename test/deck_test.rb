@@ -31,12 +31,12 @@ class DeckTest < MiniTest::Test
     assert_equal 3, deck.count
   end
 
-  def test_the_stem_category_has_cards
+  def test_the_stem_category_has_correct_number_of_cards
     deck = Deck.new(@cards)
     assert_equal 2, @stem_category.count
   end
 
-  def test_the_geography_category_has_cards
+  def test_the_geography_category_has_correct_number_of_cards
     deck = Deck.new(@cards)
     assert_equal 1, @geography_category.count
   end
