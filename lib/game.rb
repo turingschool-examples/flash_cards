@@ -1,6 +1,7 @@
 require_relative 'card'
 require_relative 'deck'
 require_relative 'turn'
+require_relative 'round'
 
 card1 = Card.new("What is the capital of Germany?", "Berlin", :national_capitals)
 card2 = Card.new("What is the capital of Sweden?", "Stockholm", :national_capitals)
@@ -58,35 +59,38 @@ total = 0
 
 puts "Welcome to Flashcards!"
 puts "--------------------------"
+
+
 puts "Select from the following categories: National Capitals, Human Body, Historical Facts"
 cat = gets.chomp
+game_deck = Deck.new(deck1.cards_in_category(cat.downcase.tr(" ","_").to_sym))
 
-game_deck = Deck.new(deck1.cards_in_category(cat.downcase.tr!(" ","_").to_sym))
+if game_deck.count == 0
+  puts "Deck not found"
+end
 
 puts "Great choice! Let's begin."
+puts "------------------------------"
 
-current_card = 1
-total_cards = game_deck.count
+new_round = Round.new(game_deck)
 
-while current_card <= total_cards
-  new_card = game_deck.draw
+while new_round.turns < new_round.total
+  new_card = new_round.select_card
   puts new_card.question
   answer = gets.chomp
 
-  new_turn = Turn.new(answer, new_card)
+  new_round.take_turn(answer, new_card)
 
-  result = new_turn.correct?
-  puts result
-  if result == "Correct"
-    correct += 1
-  end
-  game_deck.remove_from_deck(new_card)
+  # result = new_turn.correct?
+  # puts result
+  # if result == "Correct"
+  #   correct += 1
+  # end
+  #game_deck.remove_from_deck(new_card)
 
-  puts "You have answered #{current_card} questions, out of #{total_cards}."
-  total += 1
-  current_card += 1
+  puts "You have answered #{(new_round.turns).to_s} questions, out of #{(new_round.total.to_s)}."
 
 end
 
-puts "You got #{correct} correct answers out of #{total}, resulting in a score of #{((correct.to_f)/(total_cards.to_f))*100}%"
+puts "You got #{new_round.correct} correct answers out of #{new_round.total}, resulting in a score of #{new_round.get_score}"
 puts "Thanks for playing!"
