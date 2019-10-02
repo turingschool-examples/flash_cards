@@ -24,13 +24,13 @@ class Deck
   end
 
   def count_in_category(cat)
-    @count = 0
+    count_in_cat = 0
 
     cards.each do |card|
       if card.category == cat
-        @count += 1
+        count_in_cat += 1
       end
     end
-    @count
+    count_in_cat
   end
 end
