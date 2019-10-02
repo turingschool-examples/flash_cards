@@ -22,17 +22,23 @@ card17 = Card.new("What virus did the World Health Organization say would infect
 card18 = Card.new("What disease is the focus of oncology?", "Cancer", :human_body)
 card19 = Card.new("What sticky sweetener was traditionally used as an antiseptic ointment for cuts and burns?", "Honey", :human_body)
 card20 = Card.new("What’s the most frequently diagnosed cancer in men?", "Prostate Cancer", :human_body)
+card22 = Card.new("What is the name of the biggest part of the human brain?", "The cerebrum",:human_body)
+card23 = Card.new("What is the name of the substance that gives skin and hair its pigment?", "Melanin",:human_body)
+card24 = Card.new("What substance are nails made of?", "Keratin",:human_body)
+card25 = Card.new("The two holes in your nose are called?", "Nostrils",:human_body)
+card26 = Card.new("The shape of DNA is known as?", "Helix", :human_body)
+card27 = Card.new("True or false? Your ears are important when it comes to staying balanced.", "True",:human_body)
+card28 = Card.new("The outside layer of skin on the human body is called the?", "Epidermus",:human_body)
+card29 = Card.new("The muscles found in the front of your thighs are known as what?", "Quadriceps",:human_body)
 
 
 
+deck1 = Deck.new([card1, card2, card3, card4, card5, card6, card7, card8, card9, card10,
+                  card11, card12, card13, card14, card15, card16, card17, card18, card19,
+                  card20, card22, card23, card24, card25, card26, card27, card28, card29])
 
-deck1 = Deck.new([card1, card2, card3, card4, card5, card6, card7, card8, card9, card10, card11, card12, card13, card14, card15, card16, card17, card18, card19, card20])
-
-random_card = deck1.draw
-puts random_card.question
 correct = 0
 total = 0
-cont = true
 
 puts "Welcome to Flashcards!"
 puts "--------------------------"
@@ -43,7 +49,10 @@ game_deck = Deck.new(deck1.cards_in_category(cat.downcase.tr!(" ","_").to_sym))
 
 puts "Great choice! Let's begin."
 
-while cont
+current_card = 1
+total_cards = game_deck.count
+
+while current_card <= total_cards
   new_card = game_deck.draw
   puts new_card.question
   answer = gets.chomp
@@ -52,16 +61,16 @@ while cont
 
   result = new_turn.correct?
   puts result
-  if result 
+  if result == "Correct"
     correct += 1
   end
+  game_deck.remove_from_deck(new_card)
+
+  puts "You have answered #{current_card} questions, out of #{total_cards}"
   total += 1
-
-  puts "Press 'y' if you would like another question."
-  continue = gets.chomp
-
-  break if continue.downcase != 'y'
+  current_card += 1
 
 end
 
 puts "You got #{correct} correct answers out of #{total}."
+puts "Thanks for playing!"
