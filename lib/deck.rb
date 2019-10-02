@@ -3,11 +3,14 @@ class Deck
 
   def initialize(cards)
     @cards = cards
-
   end
 
-  count = count
-  cards_in_category = ["STEM", "Geography", "PopCulture"]
+  def count(cards)
+    cards.count
+  end
 
+  def cards_in_category #(STEM, Geography, PopCulture)
+    cards.count.catergory
+  end
 
 end
