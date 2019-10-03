@@ -1,4 +1,4 @@
-require './lib/card'
+#require './lib/card'
 
 class Turn
   attr_accessor :guess, :card
