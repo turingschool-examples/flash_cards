@@ -12,13 +12,13 @@ class Deck
   end
 
   def cards_in_category(category)
+    cards_witin_category = []
     @cards.each do |card|
       if card.category == category
-        print card
-      else
-        print "[]"
+        cards_witin_category << card
       end
     end
+    cards_witin_category
   end
 
 end
@@ -41,6 +41,6 @@ cards << card5
 deck = Deck.new(cards)
 deck.count
 p deck.count
-deck.cards_in_category(:Geography)
-deck.cards_in_category(:STEM)
-deck.cards_in_category("Pop Culture")
+p deck.cards_in_category(:Geography)
+p deck.cards_in_category(:STEM)
+p deck.cards_in_category("Pop Culture")
