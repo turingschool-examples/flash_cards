@@ -11,6 +11,11 @@ class Round
     @turns = 0
   end
 
+  def start
+    puts "Great choice! Let's begin."
+    puts "-" * 50
+  end
+
   def select_card
     @deck.cards.sample
   end
@@ -27,8 +32,8 @@ class Round
     puts turn.feedback
   end
 
-  def get_score
-    score = "#{(@correct / @total) * 100}%"
-    puts score
+  def get_score(correct, total)
+    (correct.to_f / total.to_f).round(2) * 100
   end
 end
+
