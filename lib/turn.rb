@@ -23,7 +23,4 @@ attr_reader :guess, :card
        "Incorrect."
     end
   end
-
-
-
 end
