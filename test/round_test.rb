@@ -24,7 +24,14 @@ class RoundTest < Minitest::Test
   end
 
   def test_it_has_a_round
-    skip
     assert_instance_of Round, @round
+  end
+
+  def test_it_has_turns
+     assert_equal [], @round.turns
+  end
+
+  def test_it_has_a_card
+    
   end
 end
