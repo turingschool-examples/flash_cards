@@ -30,6 +30,9 @@ class DeckTest < Minitest::Test
     assert_equal @cards[1..2], @deck.cards_in_cat(:STEM)
   end
 
-  def test
+  def test_non_category
+    assert_equal [], @deck.cards_in_cat(:Trivia)
+  end
 
 end
+binding.pry
