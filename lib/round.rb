@@ -1,7 +1,7 @@
 class Round
 
   attr_reader :deck, :turns, :turn_counter, :number_correct, :percent_correct,
-              :turns_by_category
+              :turns_by_category, :feedback, :percent_correct_by_category
 
   def initialize(deck)
     @deck = deck
@@ -12,6 +12,7 @@ class Round
     @percent_correct = 0
     @turns_by_category = Hash.new(0)
     @percent_correct_by_category = Hash.new(0)
+    @feedback = ""
   end
 
   def current_card
@@ -29,17 +30,20 @@ class Round
     else
       @number_correct_by_category[card_cat] += 0
     end
-    @percent_correct = @number_correct.to_f / @turns.count.to_f * 100
-    @percent_correct_by_category[card_cat] = @number_correct_by_category[card_cat].to_f / @turns_by_category[card_cat].to_f * 100
+    @feedback = new_turn.feedback
+    pct_correct  = @number_correct.to_f / @turns.count.to_f * 100
+    @percent_correct = "%0.0f%" % [pct_correct]
+    pct_correct_cat = @number_correct_by_category[card_cat].to_f / @turns_by_category[card_cat].to_f * 100
+    @percent_correct_by_category[card_cat] = "%0.0f%" % [pct_correct_cat]
     @turn_counter += 1
-    new_turn
+    return new_turn
   end
 
   def number_correct_by_category(category)
     @number_correct_by_category[category]
   end
 
-  def percent_correct_by_category(category)
+  def get_percent_correct_by_category(category)
     @percent_correct_by_category[category]
   end
 
