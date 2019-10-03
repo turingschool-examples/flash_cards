@@ -17,34 +17,30 @@ class DeckTest < Minitest::Test
 
 
   def test_it_exists
-
     assert_instance_of Deck, @deck
   end
 
   def test_the_deck_has_cards
-
     assert_equal [@card_1, @card_2, @card_3], @deck.cards
   end
 
   def test_count_the_cards
-
     assert_equal 3, @deck.count
   end
 
-  def test_cards_in_category
-
+  def test_cards_in_category_puts_cards_in_correct_category
     assert_equal [@card_1], @deck.cards_in_category(:Geography)
+    assert_equal [@card_2, @card_3], @deck.cards_in_category(:STEM)
+    assert_equal [], @deck.cards_in_category("pop culture")
 
     assert_equal true, @deck.cards_in_category(:Geography).include?(@card_1)
-    refute_equal true, @deck.cards_in_category(:Geography).include?(@card_2)
-    refute_equal true, @deck.cards_in_category(:Geography).include?(@card_3)
-
-    refute_equal true, @deck.cards_in_category(:STEM).include?(@card_1)
     assert_equal true, @deck.cards_in_category(:STEM).include?(@card_2)
     assert_equal true, @deck.cards_in_category(:STEM).include?(@card_3)
+  end
 
-    refute_equal true, @deck.cards_in_category("Pop Culture").include?(@card_1)
-    refute_equal true, @deck.cards_in_category("Pop Culture").include?(@card_2)
-    refute_equal true, @deck.cards_in_category("Pop Culture").include?(@card_3)
+  def test_cards_in_category_does_not_put_wrong_cards_in_category
+    refute_equal true, @deck.cards_in_category(:Geography).include?(@card_2 || @card_3)
+    refute_equal true, @deck.cards_in_category(:STEM).include?(@card_1)
+    refute_equal true, @deck.cards_in_category("pop culture").include?(@card_1 || @card_2 || @card_3)
   end
 end
