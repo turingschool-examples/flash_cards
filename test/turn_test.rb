@@ -6,7 +6,7 @@ require './lib/turn'
 class TurnTest < Minitest::Test
 
   def setup
-    @turn_2 = Turn.new("Juneau", @card_2)
+    @turn_2 = Turn.new("Saturn", @card_1)
     @turn_1 = Turn.new("Juneau", @card_1)
     @card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     @card_2 = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
@@ -28,17 +28,13 @@ class TurnTest < Minitest::Test
 
   def test_if_it_is_correct
     @turn_1 = Turn.new("Juneau", @card_1)
-
-    assert_equal true, @turn_1.correct?
     @turn_2 = Turn.new("Saturn", @card_1)
 
+    assert_equal true, @turn_1.correct?
     assert_equal false, @turn_2.correct?
   end
 
   def feedback
-    @turn_1.correct?
-    @turn_2.correct?
-
     assert_equal "Correct!", @turn_1.feedback
     assert_equal "Incorrect!", @turn_2.feedback
   end
