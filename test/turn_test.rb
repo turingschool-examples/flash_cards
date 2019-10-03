@@ -30,7 +30,7 @@ class TurnTest < Minitest::Test
     @turn_1 = Turn.new("Juneau", @card_1)
 
     assert_equal true, @turn_1.correct?
-    @turn_2 = Turn.new("Juneau", @card_2)
+    @turn_2 = Turn.new("Saturn", @card_1)
 
     assert_equal false, @turn_2.correct?
   end
@@ -38,7 +38,7 @@ class TurnTest < Minitest::Test
   def feedback
     @turn_1.correct?
     @turn_2.correct?
-    
+
     assert_equal "Correct!", @turn_1.feedback
     assert_equal "Incorrect!", @turn_2.feedback
   end
