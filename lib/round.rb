@@ -6,7 +6,8 @@ class Round
   end
 
   def take_turn(guess)
-    Turn.new(guess, current_card)
+    @turns << current_card
+    @deck.cards.delete_at(0)
   end
 
   def current_card
