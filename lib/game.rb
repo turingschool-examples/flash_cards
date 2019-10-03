@@ -54,36 +54,36 @@ deck1 = Deck.new([card1, card2, card3, card4, card5, card6, card7, card8, card9,
                   card30, card31, card32, card33, card34, card35, card36, card37, card38, card39,
                   card40, card41, card42, card43, card44])
 
-correct = 0
-total = 0
-
 puts "Welcome to Flashcards!"
 puts "--------------------------"
+loop do
+  puts "Select from the following categories: National Capitals, Human Body, Historical Facts"
+  cat = gets.chomp
+  game_deck = Deck.new(deck1.cards_in_category(cat.downcase.tr(" ","_").to_sym))
 
+  if game_deck.count == 0
+    puts "Deck not found"
+    next
+  end
 
-puts "Select from the following categories: National Capitals, Human Body, Historical Facts"
-cat = gets.chomp
-game_deck = Deck.new(deck1.cards_in_category(cat.downcase.tr(" ","_").to_sym))
+  puts "Great choice! Let's begin."
+  puts "------------------------------"
 
-if game_deck.count == 0
-  puts "Deck not found"
+  new_round = Round.new(game_deck)
+
+  while new_round.turns < new_round.total
+    new_card = new_round.select_card
+    puts new_card.question
+    answer = gets.chomp
+
+    new_round.take_turn(answer, new_card)
+
+    puts "You have answered #{(new_round.turns).to_s} questions, out of #{(new_round.total.to_s)}."
+    puts ""
+  end
+
+  puts "You got #{new_round.correct} correct answers out of #{new_round.total}, resulting in a score of #{new_round.get_score(new_round.correct, new_round.total)}%"
+  break
 end
-
-puts "Great choice! Let's begin."
-puts "------------------------------"
-
-new_round = Round.new(game_deck)
-
-while new_round.turns < new_round.total
-  new_card = new_round.select_card
-  puts new_card.question
-  answer = gets.chomp
-
-  new_round.take_turn(answer, new_card)
-  
-  puts "You have answered #{(new_round.turns).to_s} questions, out of #{(new_round.total.to_s)}."
-
-end
-
-puts "You got #{new_round.correct} correct answers out of #{new_round.total}, resulting in a score of #{new_round.get_score}"
+puts "---------------------"
 puts "Thanks for playing!"
