@@ -25,8 +25,8 @@ class DeckTest < Minitest::Test
   end
 
   def test_categories
-    assert_equal @deck.cards_in_category(:STEM), @stem_deck
-    assert_equal @deck.cards_in_category(:Geography), @geo_deck
-    assert_equal @deck.cards_in_category(:Pop_culture), []
+    assert_equal @stem_deck,  @deck.cards_in_category(:STEM)
+    assert_equal @geo_deck,   @deck.cards_in_category(:Geography)
+    assert_equal [],          @deck.cards_in_category(:Pop_culture)
   end
 end
