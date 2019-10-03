@@ -43,7 +43,7 @@ class Round
     number_of_correct_turns_in_category = 0
     number_of_turns_in_category(category).each do |turn|
       if turn.correct?
-        number_of_correct_turns_in_category =+ 1
+        number_of_correct_turns_in_category += 1
       end
     end
     number_of_correct_turns_in_category
