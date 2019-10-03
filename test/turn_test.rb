@@ -3,8 +3,6 @@ require 'minitest/pride'
 require './lib/card'
 require './lib/turn'
 
-
-
 class TurnTest < Minitest::Test
   def setup
     @card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
@@ -32,7 +30,8 @@ class TurnTest < Minitest::Test
   end
 
   def test_if_guess_is_incorrect
-    refute_equal false, @turn.correct?
+    incorrect_turn = Turn.new("ALALALAL", @card)
+    assert_equal false, incorrect_turn.correct?
   end
 
   def test_it_has_feedback_for_incorrect_answer
