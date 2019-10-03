@@ -9,7 +9,6 @@ class TurnTest < Minitest::Test
     @turn_2 = Turn.new("Saturn", @card_1)
     @turn_1 = Turn.new("Juneau", @card_1)
     @card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    @card_2 = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
   end
 
   def test_it_exists
