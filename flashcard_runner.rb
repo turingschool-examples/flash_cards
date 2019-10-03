@@ -22,6 +22,13 @@ puts "Welcome! You're playing with 4 cards."
 puts "-" * 50
 
 puts "This is card number 1 out of 4."
-puts "Question: #{card_1.question}"
-puts ">"
-gets.chomp = guess 
+puts "Question: #{round.current_card.question}"
+print ">"
+player_guess = gets.chomp
+puts round.take_turn(player_guess).feedback
+# There should be some sort of loop... keep going until no cards left .. number of turns = number of cards in Deck
+puts "This is card number 2 out of 4."
+puts "Question: #{round.current_card.question}"
+print ">"
+player_guess = gets.chomp
+puts round.take_turn(player_guess).feedback
