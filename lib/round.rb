@@ -10,6 +10,6 @@ class Round
   end
 
   def current_card
-    @deck.cards.shift
+    @deck.cards.first
   end
 end
