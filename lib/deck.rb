@@ -1,6 +1,6 @@
 require 'pry'
-require './card.rb'
-require './turn.rb'
+require './lib/card'
+require './lib/turn'
 
 class Deck
   attr_reader :cards

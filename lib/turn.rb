@@ -1,4 +1,4 @@
-require './card.rb'
+require './lib/card.rb'
 
 class Turn
   attr_reader :card, :guess
