@@ -66,10 +66,8 @@ loop do
     next
   end
 
-  puts "Great choice! Let's begin."
-  puts "------------------------------"
-
   new_round = Round.new(game_deck)
+  new_round.start
 
   while new_round.turns < new_round.total
     new_card = new_round.select_card
