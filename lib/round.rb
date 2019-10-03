@@ -50,7 +50,7 @@ class Round
         outcome_cat1 << turn.card.category
       end
     end
-    number_correct_by_category(flashcard_category).to_f / outcome_cat1.count
+    (number_correct_by_category(flashcard_category).to_f / outcome_cat1.count) * 100
   end
 
 end

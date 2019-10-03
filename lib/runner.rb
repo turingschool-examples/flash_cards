@@ -28,11 +28,11 @@ round_1.deck
 round_1.current_card
 
 #First turn
-new_turn = round_1.take_turn(10)
-new_turn.class
-new_turn.correct?
+#new_turn = round_1.take_turn(10)
+#new_turn.class
+#new_turn.correct?
 
-p round_1.turns
+round_1.turns
 round_1.number_correct
 round_1.current_card
 round_1.take_turn(16)
