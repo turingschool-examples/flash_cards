@@ -13,6 +13,8 @@ class RoundTest < Minitest::Test
     @cards = [card_1, card_2, card_3]
     @deck = Deck.new(@cards)
     @round = Round.new(@deck)
+    @turn = Turn.new("Juneau", @card_1)
+
   end
 
   def test_it_has_a_deck
@@ -35,4 +37,10 @@ class RoundTest < Minitest::Test
     #binding.pry
     assert_instance_of Card, @round.current_card
   end
+
+  def test_it_takes_a_turn
+    assert_instance_of Turn, @turn
+  end
+
+
 end

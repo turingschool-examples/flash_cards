@@ -9,8 +9,6 @@ class Round
     @deck = deck
     @turns = []
 
-
-
   end
 
   def current_card
@@ -18,4 +16,8 @@ class Round
 
   end
   @this_card
+
+  #def take_turn
+
+  #end
 end
