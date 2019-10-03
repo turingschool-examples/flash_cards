@@ -32,6 +32,7 @@ class RoundTest < Minitest::Test
   end
 
   def test_it_has_a_card
-    
+    #binding.pry
+    assert_instance_of Card, @round.current_card
   end
 end
