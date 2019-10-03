@@ -6,7 +6,7 @@ class Round
   end
 
   def take_turn(guess)
-
+    Turn.new(guess, current_card)
   end
 
   def current_card
