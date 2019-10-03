@@ -30,4 +30,14 @@ class TurnTest < Minitest::Test
   def test_it_has_feedback
     assert_equal "Correct!", @turn.feedback
   end
+
+  def test_if_guess_is_incorrect
+    refute_equal false, @turn.correct?
+  end
+
+  def test_it_has_feedback_for_incorrect_answer
+    incorrect_turn = Turn.new("ALALALAL", @card)
+
+    assert_equal "Incorrect.", incorrect_turn.feedback
+  end
 end
