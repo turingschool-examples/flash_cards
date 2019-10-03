@@ -13,8 +13,6 @@ class RoundTest < Minitest::Test
     @card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
     @deck = Deck.new([@card_1, @card_2, @card_3])
     @round = Round.new(@deck)
-    @turn = Turn.new("Snow", @card_1)
-    @new_turn = Turn.new("Juneau", @card_1)
   end
 
   def test_it_exists
@@ -34,22 +32,31 @@ class RoundTest < Minitest::Test
   end
 
   def test_it_can_take_turn
-    assert_equal @new_turn, @round.take_turn("Juneau")
+    new_turn = @round.take_turn("Juneau")
+
+    assert_equal "Juneau", @round.turns.last.card.answer
   end
 
   def test_the_number_of_correct_answers
+     new_turn = @round.take_turn("Juneau")
+
     assert_equal 1, @round.number_correct
   end
 
   def test_the_number_of_correct_answers_by_category
+    new_turn = @round.take_turn("Juneau")
+
     assert_equal 1, @round.number_correct_by_category(:Geography)
   end
 
   def test_the_percent_of_correct_numbers
+    new_turn = @round.take_turn("Juneau")
+
     assert_equal 5.0, round.percent_correct
   end
 
   def test_the_percent_of_correct_numbers_by_category
+    skip
     assert_equal 100.0, round.percent_correct_by_category(:Geography)
   end
 end
