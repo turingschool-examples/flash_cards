@@ -40,17 +40,18 @@ class Round
   end
 
   def percent_correct
-    number_correct.to_f / @turns.count * 100
+    (number_correct.to_f / @turns.count) * 100
   end
 
   def percent_correct_by_category(flashcard_category)
-    outcome_cat1 = []
-    @turns.each do |turn|
-      if turn.card.category == flashcard_category
-        outcome_cat1 << turn.card.category
-      end
-    end
-    (number_correct_by_category(flashcard_category).to_f / outcome_cat1.count) * 100
+    # outcome_cat1 = []
+    # @turns.each do |turn|
+    #   if turn.card.category == flashcard_category
+    #     outcome_cat1 << turn.card.category
+    #   end
+    # end
+    #(number_correct_by_category(flashcard_category).to_f / outcome_cat1.count) * 100
+    (number_correct_by_category(flashcard_category).to_f / @deck.cards_in_category(flashcard_category)) * 100
   end
 
 end
