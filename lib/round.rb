@@ -25,24 +25,32 @@ class Round
 
   def number_correct
     outcome = []
-    @turns.each { |x| outcome << x.correct? }
+    @turns.each { |turn| outcome << turn.correct? }
     outcome.count(true)
   end
 
   def number_correct_by_category(flashcard_category)
     outcome_cat = []
-    @turns.each do |x|
-      if x.card.category == flashcard_category && x.correct?
-        outcome_cat << x.card.category
+    @turns.each do |turn|
+      if turn.card.category == flashcard_category && turn.correct?
+        outcome_cat << turn.card.category
       end
     end
     outcome_cat.count
   end
 
   def percent_correct
+    number_correct.to_f / @turns.count * 100
   end
 
-  def percent_correct_by_category
+  def percent_correct_by_category(flashcard_category)
+    outcome_cat1 = []
+    @turns.each do |turn|
+      if turn.card.category == flashcard_category
+        outcome_cat1 << turn.card.category
+      end
+    end
+    number_correct_by_category(flashcard_category).to_f / outcome_cat1.count
   end
 
 end
