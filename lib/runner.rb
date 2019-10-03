@@ -32,7 +32,7 @@ new_turn = round_1.take_turn(10)
 new_turn.class
 new_turn.correct?
 
-round_1.turns
+p round_1.turns
 round_1.number_correct
 round_1.current_card
 round_1.take_turn(16)
@@ -41,5 +41,5 @@ round_1.turns.count
 round_1.turns.last.feedback
 round_1.number_correct
 round_1.number_correct_by_category(:Math)
-p round_1.percent_correct
-p round_1.percent_correct_by_category(:Math)
+round_1.percent_correct
+round_1.percent_correct_by_category(:Math)
