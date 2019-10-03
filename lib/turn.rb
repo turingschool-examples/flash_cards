@@ -13,19 +13,21 @@ class Turn
   def card
     cards
   end
+
   def correct?
-   if self.card.answer == self.guesses
-    self.correct = true
-   else
-    self.correct = false
-   end
+    if card.answer == @guesses
+      @correct = true
+    else
+      @correct = false
   end
+  end
+
   def feedback
-    self.correct?
-    if self.correct == true
-       "Correct!"
-    elsif self.correct == false
-       "Incorrect!"
+    correct?
+    if @correct == true 
+      "Correct!"
+    else
+      "Incorrect!"
     end
   end
 end

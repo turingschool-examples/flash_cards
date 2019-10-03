@@ -3,10 +3,11 @@ class Deck
   require './lib/turn'
   require './lib/card'
 
-  attr_accessor :cards
+  attr_accessor :cards, :category_array
 
   def initialize(cards)
     @cards = cards
+    @category_array = []
   end
   def count
     cards.size
@@ -14,10 +15,10 @@ class Deck
   def cards_in_category(category)
       cards.each do |card|
         if card.category == category
-            card
+            category_array << card
         end
-    #still need it to return an empty array when the answer is wrong
       end
+      category_array
    end
 
 end
