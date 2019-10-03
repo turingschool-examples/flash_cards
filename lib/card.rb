@@ -1,10 +1,5 @@
 class Card
-  attr_reader :question, :category
-  attr_accessor :answer
-
-def introduction
-  p "Welcome to the game!"
-end
+  attr_reader :question, :answer, :category
 
 def initialize(question, answer, category)
   @question = question
@@ -13,5 +8,3 @@ def initialize(question, answer, category)
   end
 
 end
-
-p 
