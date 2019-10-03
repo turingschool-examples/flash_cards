@@ -55,7 +55,7 @@ deck1 = Deck.new([card1, card2, card3, card4, card5, card6, card7, card8, card9,
                   card40, card41, card42, card43, card44])
 
 puts "Welcome to Flashcards!"
-puts "--------------------------"
+puts "-" * 50
 loop do
   puts "Select from the following categories: National Capitals, Human Body, Historical Facts"
   cat = gets.chomp
@@ -83,5 +83,5 @@ loop do
   puts "You got #{new_round.correct} correct answers out of #{new_round.total}, resulting in a score of #{new_round.get_score(new_round.correct, new_round.total)}%"
   break
 end
-puts "---------------------"
+puts "-" * 50
 puts "Thanks for playing!"
