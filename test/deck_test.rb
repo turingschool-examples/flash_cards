@@ -30,4 +30,6 @@ class DeckTest < Minitest::Test
     assert_equal @cards[1..2], @deck.cards_in_cat(:STEM)
   end
 
+  def test
+
 end
