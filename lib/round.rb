@@ -1,6 +1,7 @@
 require './lib/turn.rb'
 
 class Round
+
   attr_accessor :deck, :turns
 
   def initialize(deck)
@@ -51,11 +52,13 @@ class Round
   end
 
   def percent_correct
-    number_correct.to_f / @turns.count.to_f * 100.0
+    p_correct = number_correct.to_f / @turns.count.to_f * 100.0
+    p_correct.to_i
   end
 
   def percent_correct_by_category(category)
-    number_correct_by_category(category).to_f / number_of_turns_in_category(category).count * 100
+    p_correct_category = number_correct_by_category(category).to_f / number_of_turns_in_category(category).count * 100
+    p_correct_category.to_i
   end
 
 end
