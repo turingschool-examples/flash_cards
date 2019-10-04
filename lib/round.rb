@@ -1,4 +1,6 @@
 #round.rb
+require './lib/turn'
+
 
 class Round
   attr_accessor :deck
@@ -18,10 +20,8 @@ class Round
   end
 
   def take_turn(guess)
-    #@x += 1
     @turns << Turn.new(guess,@deck.cards[0])
     @deck.cards.slice!(0)
-    #Turn.new(guess,@deck.cards[@x-1])
     @turns.last
   end
 
@@ -59,10 +59,6 @@ class Round
       end
     end
     number_correct_by_category(subject) / count.to_f * 100
-  end
-
-  def start
-    p "Welcome! You're playing with 4 cards."
   end
 end
 
