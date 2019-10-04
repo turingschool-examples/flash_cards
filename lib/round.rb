@@ -10,7 +10,7 @@ class Round
     @deck.cards.first
   end
 
-  def take_turn(guess)
+  def take_turn(guess, current_card)
     turn = Turn.new(guess, current_card)
      @turns << turn
      turn
@@ -19,9 +19,8 @@ class Round
   def number_correct
     tally = 0
     @turns.count do |turn|
-      if turn.correct?
+      if turn.correct? 
         tally += 1
-        break
       end
     end
     tally

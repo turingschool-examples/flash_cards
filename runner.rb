@@ -4,11 +4,15 @@ require './lib/deck'
 require './lib/round'
 
 def start
-  @card_1 = Card.new("What is 5 + 5", "10", :Math)
+  @card_1 = Card.new("What is 5 + 5?", 10, :Math)
   @card_2 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
   @card_3 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
   @card_4 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
   @cards = [@card_1, @card_2, @card_3, @card_4]
+  # @turn_1 = Turn.new( @card_1)
+  # @turn_2 = Turn.new( @card_2)
+  # @turn_3 = Turn.new( @card_3)
+  # @turn_4 = Turn.new( @card_4)
   @turns = [@turn_1, @turn_2, @turn_3, @turn_4]
   @deck = Deck.new(@cards)
   @round = Round.new(@deck)
@@ -17,22 +21,22 @@ def start
   puts "-" * 60
   puts "this is card number 1 out of 4."
   puts "Question: #{@round.deck.cards[0].question}"
-  @turn_1 = Turn.new(gets.chomp, @card_1)
-   "#{@turn_1.guess}"
-   "#{@turn_1.feedback}"
+  @round.take_turn(gets.chomp.to_i, @round.deck.cards[0])
+   "#{@round.turns.last.guess.to_i}"
+   "#{@round.turns.last.feedback}"
   puts "this is card number 2 out of 4."
   puts "Question: #{@round.deck.cards[1].question}"
-  @turn_2 = Turn.new(gets.chomp, @card_2)
-   "#{@turn_2.guess}"
-   "#{@turn_2.feedback}"
+  @round.take_turn(gets.chomp, @round.deck.cards[1])
+   "#{@round.turns.last.guess}"
+   "#{@round.turns.last.feedback}"
   puts "Question: #{@round.deck.cards[2].question}"
-  @turn_3 = Turn.new(gets.chomp, @card_3)
-   "#{@turn_3.guess}"
-   "#{@turn_3.feedback}"
+  @round.take_turn(gets.chomp, @round.deck.cards[2])
+   "#{@round.turns.last.guess}"
+   "#{@round.turns.last.feedback}"
   puts "Question: #{@round.deck.cards[3].question}"
-  @turn_4 = Turn.new(gets.chomp, @card_4)
-   "#{@turn_4.guess}"
-   "#{@turn_4.feedback}"
+  @round.take_turn(gets.chomp, @round.deck.cards[3])
+   "#{@round.turns.last.guess}"
+   "#{@round.turns.last.feedback}"
   puts "* * * * * * Game over! * * * * * *"
   puts "You had #{@round.number_correct} out of #{@turns.length} for a total score of #{@round.percent_correct}."
   puts "STEM - #{@round.percent_correct_by_category(:STEM)}% correct"
