@@ -19,26 +19,27 @@ class RoundTest < Minitest::Test
 
   def test_turns
     # returns empty array
-    # returns array of used/discarded cards deposited from take_turn method
+    # returns array of used/discarded cards deposited from take_turn method (takes in already-used cards)
   end
 
   def test_current_card
     # returns current card we are using in take_turn (?)
   end
 
-  def test_turns
-  end
-
-  def test_take_a_turn
+  def test_take_turn()
+    # takes a string representing guess
+    # creates new Turn object with appropriate guess and Card
+    # stores new Turn object
+    # returns this new Turn object
+    # should tell Round to move on to next Card object
   end
 
   def test_number_correct
+    # tells number of turns that are correct (.length? on turns? part of turns that is correct, two arrays?)
   end
 
-  def test_number_correct
-  end
-
-  def test_number_correct_by_category
+  def test_number_correct_by_category()
+    # 
   end
 
   def test_total_percent_correct
