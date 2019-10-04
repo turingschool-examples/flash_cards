@@ -2,16 +2,10 @@ require './lib/card'
 require './lib/deck'
 require './lib/turn'
 require './lib/round'
+require_relative 'card_generator'
 
-@card1 = Card.new("What is the capital of South Dakota?", "Pierre", :Capitals)
-@card2 = Card.new("What is 5 + 4 * 3", "17", :Math)
-@card3 = Card.new("What is the capital of Poland?", "Warsaw", :Capitals)
-@card4 = Card.new("In the equation 'x - 10 + 2 = 4', what is x equal to?", "12", :Math)
-@card5 = Card.new("How many seasons of the office are there?", "9", :The_office)
-@card6 = Card.new("What or who does Michael Scott hate more than anything?", "Toby", :The_office)
+card_data = CardGenerator.new("cards.txt").get_text
 
-@cards = [@card1, @card2, @card3, @card4, @card5, @card6]
-@card_total = [@card1, @card2, @card3, @card4, @card5, @card6].count
 
 @deck = Deck.new(@cards)
 

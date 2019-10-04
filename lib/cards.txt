@@ -1,0 +1,6 @@
+What is the capital of South Dakota?,Pierre,Capitals
+What is 5 + 4 * 3,17,Math
+What is the capital of Poland?,Warsaw,Capitals
+In the equation 'x - 10 + 2 = 4', what is x equal to?,12,Math
+How many seasons of the office are there?,9,The_office
+What or who does Michael Scott hate more than anything?,Toby,The_office
