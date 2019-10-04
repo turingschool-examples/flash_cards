@@ -13,6 +13,9 @@ class RoundTest < Minitest::Test
     @cards = [@card_1, @card_2, @card_3]
 
     @turn_1 = Turn.new("Juneau", @card_1)
+    @turn_2 = Turn.new("Venus", @card_2)
+    @turn_3 = Turn.new("North north west", @card_3)
+
     @deck = Deck.new(@cards)
     @round = Round.new(@deck)
   end
@@ -38,23 +41,30 @@ class RoundTest < Minitest::Test
   end
 
   def test_new_turn_correct
-    skip
     assert_equal true, @turn_1.correct?
   end
 
   def test_turns_exists
-    skip
     assert_instance_of Array, @round.turns
   end
 
-  def test_turns_gets_card_each_turn
-    @round.take_turn("")
-    assert_equal [@card_1], @round.turns
+  def test_take_turn
+    # test card gets shoveled into @turn array
+    # test original deck no longer has first card
+    # test something else?
+  end
 
-    @round.take_turn("")
-    assert_equal [@card_1, @card_2], @round.turns
+  def test_number_correct
+    @round.take_turn("Juneau")
+    @round.take_turn("Mars")
+    @round.take_turn("North north west")
+    assert_equal 3, @round.number_correct
+  end
 
-    @round.take_turn("")
-    assert_equal [@card_1, @card_2, @card_3], @round.turns
+  def test_correct_by_category
+    @round.take_turn("Juneau")
+    @round.take_turn("Mars")
+    @round.take_turn("North north west")
+    assert_equal 1, @round.number_correct_by_category(:Geography)
   end
 end
