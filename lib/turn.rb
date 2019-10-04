@@ -1,6 +1,6 @@
 # turn.rb
-require './lib/card'
-#require 'pry'
+# require './lib/card'
+# require 'pry'
 
 class Turn
   attr_reader :guess, :card
@@ -11,7 +11,7 @@ class Turn
   end
 
   def correct?
-    @guess == card.answer
+    @guess == @card.answer
   end
 
   def feedback
