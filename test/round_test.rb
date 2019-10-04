@@ -8,9 +8,12 @@ require './lib/card'
 class RoundTest < Minitest::Test
 
   def setup
-    # set up Cards
-    # set up Deck made up of Cards
-    @round = Round.new(deck)
+    @card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    @card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+    @card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+    @cards = [@card_1, @card_2, @card_3]
+    @deck = Deck.new(@cards)
+    @round = Round.new(@deck)
   end
 
   def test_initialize
@@ -18,15 +21,16 @@ class RoundTest < Minitest::Test
   end
 
   def test_turns
-    # returns empty array
-    # returns array of used/discarded cards deposited from take_turn method (takes in already-used cards)
+    assert_equal [], @round.turns
   end
 
   def test_current_card
-    # returns current card we are using in take_turn (?)
+    assert_equal "What is the capital of Alaska?", "Juneau", :Geography, @card_1
   end
 
-  def test_take_turn()
+  def test_take_turn
+    assert_equal guess, gets.chomp
+
     # takes a string representing guess
     # creates new Turn object with appropriate guess and Card
     # stores new Turn object
@@ -39,13 +43,18 @@ class RoundTest < Minitest::Test
   end
 
   def test_number_correct_by_category()
-    # 
+    # tells number of Turns correct, by category
+    # look at arrays built elsewhere, and Deck class's cards_in_category method
   end
 
   def test_total_percent_correct
+    # number correct divided by total, multiply by 100
+    # format returned message
   end
 
   def test_percent_correct_by_category
+    # number correct by categoy, multiply by 100
+    # format returned message
   end
 
 
