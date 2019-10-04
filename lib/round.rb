@@ -26,23 +26,8 @@ require './lib/turn'
    @turns.last
   end
 
-  def correct?
-      @count_array.last
-  end
-
   def number_correct
-    @count_array.each do |count|
-      if count == true
-        @correct_count += 1
-      else
-        @false_count += 1
-      end
-    end
-     "Correct Guesses: #{correct_count}"
-  end
 
-  def feedback
-     turn.card.feedback
   end
 
   def number_correct_by_category(category)
