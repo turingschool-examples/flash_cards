@@ -10,13 +10,13 @@ class RoundTest < Minitest::Test
     @card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     @card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     @card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-    @cards = [@card_1, @card_2, @card_3]
+    @cards_test = [@card_1, @card_2, @card_3]
 
     @turn_1 = Turn.new("Juneau", @card_1)
     @turn_2 = Turn.new("Venus", @card_2)
     @turn_3 = Turn.new("North north west", @card_3)
 
-    @deck = Deck.new(@cards)
+    @deck = Deck.new(@cards_test)
     @round = Round.new(@deck)
   end
 
@@ -49,9 +49,19 @@ class RoundTest < Minitest::Test
   end
 
   def test_take_turn
-    # test card gets shoveled into @turn array
-    # test original deck no longer has first card
-    # test something else?
+    @round.take_turn("Juneau")
+    # test card gets shoveled into @turns array
+    assert_equal "Juneau", @round.turns[0].guess
+    # test original deck no longer has that turn's card
+    assert_equal [@card_2, @card_3], @round.deck.cards
+
+    @round.take_turn("Venus")
+    assert_equal "Venus", @round.turns[1].guess
+    assert_equal [@card_3], @round.deck.cards
+
+    @round.take_turn("North north west")
+    assert_equal "North north west", @round.turns[2].guess
+    assert_equal [], @round.deck.cards
   end
 
   def test_number_correct
