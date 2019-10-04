@@ -43,8 +43,8 @@ class RoundTest < Minitest::Test
   end
 
   def test_it_takes_a_turn
-    #turn = Turn.new("Juneau", @card_1)
-    assert_equal "Juneau", @round.take_turn("Juneau").guess
+    turn = Turn.new("Juneau", @card_1)
+    assert_equal "Juneau", @round.take_turn(turn.guess)
   end
 
   def test_it_takes_more_turns
@@ -71,7 +71,8 @@ class RoundTest < Minitest::Test
 
   def test_it_took_out_card
     @round.take_turn("Juneau")
-    assert_equal @card_2, @round.current_card
+    #binding.pry
+    assert_equal @card_1, @round.current_card
   end
 
   def test_it_counts_many_turns
@@ -81,8 +82,13 @@ class RoundTest < Minitest::Test
   end
 
   def test_feedback_for_incorrect
+    #binding.pry
     @round.take_turn("Juneau")
-    assert_equal "Sorry, that is incorrect.", @round.take_turn("Venus").feedback
+    assert_equal "Sorry, that is incorrect.", @round.take_turn("Venus")
   end
 
+  def test_it_has_number_correct
+    @round.take_turn("Juneau")
+    assert_equal 1, @round.correct_guess_counter
+  end
 end
