@@ -17,34 +17,27 @@ def start
   puts "-" * 60
   puts "this is card number 1 out of 4."
   puts "Question: #{@round.deck.cards[0].question}"
-  @turn_1 = Turn.new(gets, @card_1)
-  puts "#{@turn_1.guess}"
-  puts "#{@turn_1.feedback}"
+  @turn_1 = Turn.new(gets.chomp, @card_1)
+   "#{@turn_1.guess}"
+   "#{@turn_1.feedback}"
   puts "this is card number 2 out of 4."
   puts "Question: #{@round.deck.cards[1].question}"
-  @turn_2 = Turn.new(gets, @card_2)
-  puts "#{@turn_2.guess}"
-  puts "#{@turn_2.feedback}"
+  @turn_2 = Turn.new(gets.chomp, @card_2)
+   "#{@turn_2.guess}"
+   "#{@turn_2.feedback}"
   puts "Question: #{@round.deck.cards[2].question}"
-  @turn_3 = Turn.new(gets, @card_3)
-  puts "#{@turn_3.guess}"
-  puts "#{@turn_3.feedback}"
+  @turn_3 = Turn.new(gets.chomp, @card_3)
+   "#{@turn_3.guess}"
+   "#{@turn_3.feedback}"
   puts "Question: #{@round.deck.cards[3].question}"
-  @turn_4 = Turn.new(gets, @card_4)
-  puts "#{@turn_4.guess}"
-  puts "#{@turn_4.feedback}"
+  @turn_4 = Turn.new(gets.chomp, @card_4)
+   "#{@turn_4.guess}"
+   "#{@turn_4.feedback}"
   puts "* * * * * * Game over! * * * * * *"
   puts "You had #{@round.number_correct} out of #{@turns.length} for a total score of #{@round.percent_correct}."
   puts "STEM - #{@round.percent_correct_by_category(:STEM)}% correct"
   puts "Geography - #{@round.percent_correct_by_category(:Geography)}% correct"
   puts "Math - #{@round.percent_correct_by_category(:Math)}% correct"
-
-
-
-
-
-
-
 end
 
 puts start
