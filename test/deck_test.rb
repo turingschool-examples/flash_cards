@@ -35,4 +35,15 @@ class Deck_test < Minitest::Test
 
     assert_equal(cards.sample, deck.draw)
   end
+
+  def test_list_categories
+    card1 = Card.new("test", "test", :test)
+    card2 = Card.new("test", "test", :test1)
+    card3 = Card.new("test", "test", :test1)
+    cards = [card1, card2]
+    deck = Deck.new(cards)
+
+    assert_equal ["test", "test1"], deck.list_categories
+  end
+
 end
