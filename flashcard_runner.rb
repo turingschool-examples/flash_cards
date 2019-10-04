@@ -2,7 +2,6 @@ require './lib/card'
 require './lib/deck'
 require './lib/turn'
 require './lib/round'
-require 'pry'
 
 def start
   deck = []
@@ -16,7 +15,6 @@ def start
 
   original_deck = deck.count
   deck = Deck.new(deck)
-
   round = Round.new(deck)
   card_number = 0
 
@@ -42,11 +40,13 @@ def start
 end
 start
 
-puts "Do you want to try again? Enter Y or N."
-print ">"
-user_answer = gets.chomp.upcase
-if user_answer == "Y"
-  start
-elsif user_answer == "N"
-  puts "Okay. Thanks for playing!"
-end
+#puts "****** Do you want to try again? Enter Y or N. ******"
+#print ">"
+# user_answer = gets.chomp.upcase
+# until user_answer == "N"
+#   if user_answer == "Y"
+#     start
+#   elsif user_answer == "N"
+#     puts "Thanks for playing!"
+#   end
+# end
