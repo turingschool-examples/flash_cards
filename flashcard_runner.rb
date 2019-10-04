@@ -4,47 +4,37 @@ require './lib/turn'
 require './lib/round'
 require 'pry'
 
-
+def start
 deck = []
+
 deck << card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 deck << card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
 deck << card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
 deck << card_4 = Card.new("What TV show is Jennifer Aniston most famous for?", "Friends", "pop culture")
+deck << card_5 = Card.new("In what state was the Fresh Prince born and raised?", "Pennsylvania", "pop culture")
 
-
+original_deck = deck.count
 deck = Deck.new(deck)
 
-p deck.count
-
-
-
-def start
 round = Round.new(deck)
+card_number = 0
 
-# Er, what am I doing here?
-# Try turning some of the round stuff into hashes?
-
-
-puts "Welcome! You're playing with #{deck.count} cards."
+puts "Welcome! You're playing with #{original_deck} cards."
 puts "-" * 50
-  card_number = 0
-until deck.count = 0
 
+until deck.count == 0
+  card_number += 1
 
-puts "This is card number #{card_number =+ 1} out of #{deck.count}."
+puts "This is card number #{card_number} out of #{original_deck}."
 
 puts "Question: #{round.current_card.question}"
 print ">"
-player_guess = gets.chomp
+player_guess = gets.chomp.capitalize
 puts round.take_turn(player_guess).feedback
-# There should be some sort of loop... keep going until no cards left .. number of turns = number of cards in Deck
 end
-#
-# puts "This is card number 2 out of 4."
-# puts "Question: #{round.current_card.question}"
-# print ">"
-# player_guess = gets.chomp
-# puts round.take_turn(player_guess).feedback
+
+puts "****** Game over! ******"
+
 
 end
 start
