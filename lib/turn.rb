@@ -6,18 +6,11 @@ class Turn
   end
 
   def correct?
-    if @guess == @card.answer
-      true
-    else
-      false
-    end
+    @guess == @card.answer
   end
 
   def feedback
-    if self.correct? == true
-      "Correct!"
-    else
-      "Incorrect!"
-    end
+    return "Correct!" if correct?
+    "Incorrect!"
   end
 end
