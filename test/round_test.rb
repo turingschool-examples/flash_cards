@@ -8,6 +8,8 @@ require './lib/card'
 class RoundTest < Minitest::Test
 
   def setup
+    # set up Cards
+    # set up Deck made up of Cards
     @round = Round.new(deck)
   end
 
@@ -16,21 +18,21 @@ class RoundTest < Minitest::Test
   end
 
   def test_turns
+    # returns empty array
+    # returns array of used/discarded cards deposited from take_turn method
   end
 
   def test_current_card
-  end
-
-  def test_new_turn
+    # returns current card we are using in take_turn (?)
   end
 
   def test_turns
   end
 
-  def test_number_correct
+  def test_take_a_turn
   end
 
-  def test_take_a_turn
+  def test_number_correct
   end
 
   def test_number_correct
