@@ -7,17 +7,17 @@ class Deck
   end
 
   def count
-    cards.length
+    @cards.length
   end
 
   def cards_in_category(category)
     cards_cat = []
-    cards.each do |card|
+    @cards.each do |card|
       if card.category == category
         cards_cat << card
       end
     end
-    return cards_cat
+    cards_cat
   end
 
 end

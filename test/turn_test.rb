@@ -28,4 +28,6 @@ class TurnTest < Minitest::Test
     assert_equal "Correct!", @turn.feedback
   end
 
+  # add test to handle incorrect guess
+
 end

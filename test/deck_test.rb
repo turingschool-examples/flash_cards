@@ -26,4 +26,8 @@ class DeckTest < Minitest::Test
     assert_equal [@card_2, @card_3], @deck.cards_in_category(:STEM)
   end
 
+  # assert is it true?
+
+  # refute is it false?
+
 end
