@@ -15,4 +15,22 @@ class Round
   def current_card
     @deck.cards.first
   end
+
+  def number_correct
+    sum = 0
+    @turns.each do |turn|
+      sum += 1 if turn.correct?
+    end
+    sum
+  end
+
+  def number_correct_by_category(category)
+    sum = 0
+    @turns.each do |turn|
+      if turn.card.category == category
+        sum += 1 if turn.correct?
+      end
+    end
+    sum
+  end
 end
