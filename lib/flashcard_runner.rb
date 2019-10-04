@@ -15,10 +15,10 @@ require './lib/round'
 
 @deck = Deck.new(@cards)
 
-
 @round = Round.new(@deck)
 
 def start
+  
   puts "Welcome! You're playing with #{@deck.count} cards."
   puts "~" * 40
 
@@ -26,6 +26,7 @@ def start
     puts "This is question #{@round.turns.count + 1}. (Category = #{@deck.cards.first.category})"
     puts "Question: #{@deck.cards.first.question}"
     print "Answer: "
+
     @round.take_turn(gets.chomp.capitalize)
 
     if @round.turns.last.correct? == true
