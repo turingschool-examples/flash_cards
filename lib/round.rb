@@ -4,35 +4,39 @@ require './lib/round'
 require './lib/turn'
 
 class Round
-attr_reader :deck,
-            :turns
+  attr_reader :deck,
+              :turns,
+              :current_card_index,
+              :number_of_correct_guesses
 
   def initialize(deck)
     @deck = deck
     @turns = []
+    @current_card_index = 0
+    @number_of_correct_guesses = 0
   end
 
   def current_card
-    @deck.cards[0]
+    @deck.cards[@current_card_index]
   end
 
   def take_turn(guess)
-   player_turn = Turn.new(guess,current_card)
-   @turns << player_turn
-   player_turn
+    player_turn = Turn.new(guess,current_card)
+    @turns << player_turn
+    @current_card_index += 1
+     if player_turn.correct?
+       @number_of_correct_guesses += 1
+    end
+    player_turn
   end
-  #
-  # def correct?
-  #   @guess == @card.answer
-  # end
 
   def number_correct
-    number_of_correct_guesses = 0
-    @turns.each do |turn|
-      if @correct?
-        number_of_correct_guesses += 1
-      end
-    end
-      number_of_correct_guesses
+    @number_of_correct_guesses
   end
+
+
+  def percent_correct
+    number_correct / @turns.count * 100
+  end
+
 end
