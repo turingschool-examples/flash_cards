@@ -4,7 +4,7 @@ require './lib/round'
 
 class Round
   attr_reader :deck
-  attr_accessor :turns, :this_card
+  attr_accessor :turns, :turn
   def initialize(deck)
     @deck = deck
     @turns = []
@@ -12,12 +12,18 @@ class Round
   end
 
   def current_card
-    this_card = @deck.cards.first
-
+    @deck.cards.shift
   end
-  @this_card
 
-  #def take_turn
 
-  #end
+  def take_turn(guess)
+    @turn = Turn.new(guess, current_card)
+    @turns << @turn
+    @turns.last
+  end
+
+  def round_count
+    @turns.count + 1
+  end
+
 end
