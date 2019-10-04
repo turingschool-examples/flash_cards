@@ -1,18 +1,38 @@
+require './lib/card'
+require './lib/deck'
+require './lib/round'
+require './lib/turn'
+
 class Round
-attr_reader :deck
+attr_reader :deck,
+            :turns
 
   def initialize(deck)
     @deck = deck
+    @turns = []
   end
 
-#  def deck
-#
-#  end
+  def current_card
+    @deck.cards[0]
+  end
 
   def take_turn(guess)
-    #initialize turn object with the appropriate guess and Card.
-    #The idea is that when we start a Round,
-    # the current card is the first in the deck (the first in the Deck’s array of Cards)
-    #When we make a guess, the guess is recorded, and the next card in the deck becomes the current card.
+   player_turn = Turn.new(guess,current_card)
+   @turns << player_turn
+   player_turn
+  end
+  #
+  # def correct?
+  #   @guess == @card.answer
+  # end
+
+  def number_correct
+    number_of_correct_guesses = 0
+    @turns.each do |turn|
+      if @correct?
+        number_of_correct_guesses += 1
+      end
+    end
+      number_of_correct_guesses
   end
 end
