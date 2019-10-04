@@ -20,6 +20,14 @@ class Deck
     cards.delete(card)
   end
 
+  def random_cards(num)
+    cards.sample(num)
+  end
+
+  def list_categories
+    cards.uniq {|card| card.category}.map {|card| card.category.to_s}
+  end
+
   def cards_in_category(cat)
     list = cards.select do |card|
       card.category == cat
