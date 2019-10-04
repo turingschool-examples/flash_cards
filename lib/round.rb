@@ -24,6 +24,10 @@ class Round
     sum
   end
 
+  def percent_correct
+    ((number_correct.to_f / @turns.count.to_f) * 100 ).to_i
+  end
+
   def number_correct_by_category(category)
     sum = 0
     @turns.each do |turn|
@@ -34,14 +38,35 @@ class Round
     sum
   end
 
-  def percent_correct
-    ((number_correct.to_f / @turns.count.to_f) * 100 ).to_i
+  def number_of_cards_by_category(category)
+    sum = 0
+    @turns.each do |turn|
+      if category == turn.card.category
+        sum += 1
+      end
+    end
+    sum
+  end
+
+  def cards_in_discard
+    discard = []
+    @turns.each do |turn|
+      discard << turn.card
+    end
+  discard
+  end
+
+  def discard_pile_by_category(category)
+    sum = 0
+    cards_in_discard.each do |card|
+      sum += 1 if card.category == category
+    end
+    sum
   end
 
   def percent_correct_by_category(category)
     x = number_correct_by_category(category).to_f
-    y = Deck.new(@cards).cards_in_category(category).count.to_f
+    y = discard_pile_by_category(category).to_f
     ((x / y) * 100).to_i
-    # ((number_correct_by_category(category).to_f / completed_deck.cards_in_category(category).count.to_f) * 100).to_i
   end
 end
