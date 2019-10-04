@@ -1,10 +1,10 @@
 class Turn
   require 'pry'
   require './lib/card'
-  attr_accessor :guesses, :cards, :correct
-  def initialize(guesses, cards)
+  attr_accessor :guesses, :card
+  def initialize(guesses, card)
     @guesses = guesses
-    @cards = cards
+    @card = card
     @correct
   end
   def guess
@@ -16,15 +16,14 @@ class Turn
 
   def correct?
     if @guesses == @card.answer
-      @correct = true
+      return true
     else
-      @correct = false
+    return false
   end
   end
 
   def feedback
-    correct?
-    if @correct == true
+    if correct? == true
       "Correct!"
     else
       "Incorrect!"

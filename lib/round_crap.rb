@@ -1,12 +1,11 @@
 class Round
-require './lib/turn'
+
 
   attr_accessor :deck, :turns, :count_array, :false_count, :correct_count,
-  :category_count, :percent, :new_turn
+  :category_count, :percent
   def initialize(deck)
     @deck = deck
     @turns = []
-    @new_turn
     @count_array = []
     @false_count = 0
     @correct_count = 0
@@ -19,13 +18,11 @@ require './lib/turn'
   end
 
   def take_turn(guesses)
-   @new_turn = Turn.new(guesses, current_card)
-   @turns << @new_turn
+   @turns << Turn.new(guesses, current_card)
    deck.cards.shift
-   @count_array << @new_turn
+   @count_array << @turns.last.correct?
    @turns.last
   end
-
   def correct?
       @count_array.last
   end

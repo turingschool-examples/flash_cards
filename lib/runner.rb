@@ -12,5 +12,4 @@ card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwi
 deck = Deck.new([card_1, card_2, card_3])
 round = Round.new(deck)
 round.take_turn("Juneau")
-p round.percent_correct
-#binding.pry
+binding.pry

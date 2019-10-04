@@ -1,5 +1,4 @@
 class Deck
-  require 'pry'
   require './lib/turn'
   require './lib/card'
 
