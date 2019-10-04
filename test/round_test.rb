@@ -75,10 +75,24 @@ class RoundTest < Minitest::Test
     assert_equal 66, @round.percent_correct
   end
 
+  def test_number_of_cards_by_category
+    @round.take_turn("Juneau")
+    @round.take_turn("Venus")
+    @round.take_turn("North north west")
+    assert_equal 2, @round.number_of_cards_by_category(:STEM)
+  end
+
   def test_percent_correct_by_category
     @round.take_turn("Juneau")
     @round.take_turn("Venus")
     @round.take_turn("North north west")
     assert_equal 50, @round.percent_correct_by_category(:STEM)
+  end
+
+  def test_cards_in_discard
+    @round.take_turn("Juneau")
+    @round.take_turn("Venus")
+    @round.take_turn("North north west")
+    assert_equal [@card_1, @card_2, @card_3], @round.cards_in_discard
   end
 end
