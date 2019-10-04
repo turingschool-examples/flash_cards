@@ -53,7 +53,7 @@ class RoundTest < Minitest::Test
   end
 
   def test_take_turn
-    
+
     assert_instance_of Turn, @round.take_turn(10)
   end
 
@@ -83,6 +83,13 @@ class RoundTest < Minitest::Test
   end
 
   def test_percent_correct_by_category
+    @round.take_turn(10)
+    @round.take_turn(13)
+    @round.take_turn("denver")
+    @round.take_turn("albany")
+
+    assert_equal 50.0, @round.percent_correct_by_category(:Math)
+    assert_equal 100.0, @round.percent_correct_by_category(:Geography)
   end
 
 end
