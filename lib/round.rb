@@ -28,7 +28,6 @@ class Round
 
   def number_correct_by_category(flashcard_category)
     outcome_cat = []
-    x = 0
     @turns.each do |turn|
       if turn.card.category == flashcard_category && turn.correct?
         outcome_cat << turn.card.category

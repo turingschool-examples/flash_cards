@@ -1,4 +1,4 @@
-  require './lib/card'
+require './lib/card'
 require './lib/turn'
 require './lib/deck'
 require './lib/round'
@@ -26,7 +26,7 @@ puts "This card is number #{round_1.turns.count + 1} out of #{deck_1.count}:"
 puts "Question: #{round_1.current_card.question}"
 puts "Type answer:\n"
 guess_1 = gets.chomp.to_i
-turn_1 = round_1.take_turn(guess_1)
+pp turn_1 = round_1.take_turn(guess_1)
 puts turn_1.feedback
 20.times { print "-" }
 puts ""

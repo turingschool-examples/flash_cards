@@ -39,23 +39,22 @@ class RoundTest < Minitest::Test
 
   def test_for_third_card
     @round.take_turn(15)
-    @round.take_turn("Denver")
+    @round.take_turn("denver")
 
     assert_equal @cards[2], @round.current_card
   end
 
   def test_for_forth_card
     @round.take_turn(15)
-    @round.take_turn("Denver")
-    @round.take_turn("Albany")
+    @round.take_turn("denver")
+    @round.take_turn("albany")
 
     assert_equal @cards[3], @round.current_card
   end
 
   def test_take_turn
-    turn_test = Turn.new(15, @round.current_card)
-
-    assert_equal turn_test, @round.take_turn(15)
+    
+    assert_instance_of Turn, @round.take_turn(10)
   end
 
   def test_number_correct
@@ -66,9 +65,21 @@ class RoundTest < Minitest::Test
   end
 
   def test_number_correct_by_category
+    @round.take_turn(10)
+    @round.take_turn(13)
+    @round.take_turn("denver")
+    @round.take_turn("albany")
+
+    assert_equal 2, @round.number_correct_by_category(:Geography)
   end
 
   def test_percent_correct
+    @round.take_turn(10)
+    @round.take_turn(13)
+    @round.take_turn("denver")
+    @round.take_turn("albany")
+
+    assert_equal 75.0, @round.percent_correct
   end
 
   def test_percent_correct_by_category
