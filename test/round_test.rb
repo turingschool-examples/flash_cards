@@ -35,19 +35,24 @@ class RoundTest < Minitest::Test
 
   end
 
-  def test_if_guess_is_correct
-    assert_equal, true, @round.turn.correct?
+  def test_if_it_takes_a_turn
+   skip
+   new_turn = Turn.new("Juneau", @card_1)
+   assert_equal new_turn, @round.take_turn("Juneau")
   end
+  # def test_if_it_is_correct
+  #   new_turn = Turn.new("Juneau", @card_1)
+  #   assert_equal true, new_turn.correct?
+  # end isn't really testing anything
 
   def test_total_number_of_correct_guesses
-    @round.correct?
-    assert_equal "Correct Guesses: 1", @round.number_correct
+    @round.take_turn("Juneau")
+    assert_equal 1, @round.number_correct
   end
 
   def test_it_gives_feedback
-    @round.take_turn("Juneau")
-    @round.correct?
-    assert_equal "Correct", @round.turn.feedback
+  skip
+  
   end
 
 end
