@@ -34,7 +34,6 @@ class RoundTest < Minitest::Test
   end
 
   def test_it_has_a_card
-    #binding.pry
     assert_instance_of Card, @round.current_card
   end
 
@@ -43,13 +42,20 @@ class RoundTest < Minitest::Test
   end
 
   def test_it_takes_a_turn
-    turn = Turn.new("Juneau", @card_1)
-    assert_equal "Juneau", @round.take_turn(turn.guess)
+    turn = @round.take_turn("Juneau")
+    assert_instance_of Turn, turn
   end
 
   def test_it_takes_more_turns
-    assert_equal "Juneau", @round.take_turn("Juneau").guess
-    assert_equal "Mars", @round.take_turn("Mars").guess
+    turn = @round.take_turn("Juneau")
+    assert_instance_of Turn, turn
+    assert_equal @card_1, turn.card
+    assert_equal "Juneau", turn.guess
+
+    turn_2 = @round.take_turn("Saturn")
+    assert_instance_of Turn, turn_2
+    assert_equal @card_2, turn_2.card
+    assert_equal "Saturn", turn_2.guess
   end
 
   def test_it_is_a_turn
@@ -62,33 +68,33 @@ class RoundTest < Minitest::Test
 
   def test_turns_is_an_array
     assert_equal @cards.class, @round.turns.class
-
   end
 
-  def test_it_has_round_number_correct
-    assert_equal 1, @round.round_count
-  end
-
-  def test_it_took_out_card
+  def test_it_has_number_correct_and_turn_count_and_feedback
     @round.take_turn("Juneau")
-    #binding.pry
-    assert_equal @card_1, @round.current_card
+    assert_equal 1, @round.turns.count
+    assert_equal "Correct!", @round.turns.last.feedback
+    assert_equal 1, @round.number_correct
   end
 
-  def test_it_counts_many_turns
+  def test_number_coorect_by_category
     @round.take_turn("Juneau")
-    @round.take_turn("Venus")
-    assert_equal 3, @round.round_count
+    @round.take_turn("Saturn")
+    @round.take_turn("North north west")
+    assert_equal 1, @round.number_correct_by_category(:Geography)
+    assert_equal 1, @round.number_correct_by_category(:STEM)
   end
 
-  def test_feedback_for_incorrect
-    #binding.pry
+  def test_percent_correct
     @round.take_turn("Juneau")
-    assert_equal "Sorry, that is incorrect.", @round.take_turn("Venus")
+    @round.take_turn("Saturn")
+    assert_equal 50.0, @round.percent_correct
   end
 
-  def test_it_has_number_correct
+  def test_percent_correct_by_category
     @round.take_turn("Juneau")
-    assert_equal 1, @round.correct_guess_counter
+    @round.take_turn("Saturn")
+    @round.take_turn("North north west")
+    assert_equal 50.0, @round.percent_correct_by_category(:STEM)
   end
 end

@@ -8,9 +8,6 @@ class Round
   def initialize(deck)
     @deck = deck
     @turns = []
-    @correct_guess_counter = 0
-
-
   end
 
   def current_card
@@ -19,23 +16,44 @@ class Round
 
 
   def take_turn(guess)
-    @turn = Turn.new(guess, current_card)
+    turn = Turn.new(guess, current_card)
+    @turns << turn
+    turn
+  end
 
-    if guess == current_card.answer
-        @correct_guess_counter += 1
+  def number_correct
+    count = 0
+    @turns.each do |turn|
+      if turn.correct?
+        count += 1
+      end
     end
-    @turns << @turn
-    #@turns.last
-    @correct_guess_counter
-    @turns.last.feedback
+    count
   end
 
-   def round_count
-     @turn_number = @turns.count + 1
-   end
-
-  def correct_guess_count
-    @correct_guess_counter
+  def number_correct_by_category(category)
+    correct_count = 0
+    @turns.each do |turn|
+      if turn.card.category == category && turn.correct?
+        correct_count += 1
+      end
+    end
+    correct_count
   end
 
+  def percent_correct
+    (number_correct / @turns.length.to_f) * 100
+  end
+
+  def percent_correct_by_category(category)
+    category_total = 0
+    @turns.each do |turn|
+      if turn.card.category == category
+        category_total += 1
+      end
+    end
+    # binding.pry
+
+    (number_correct_by_category(category) / category_total.to_f) * 100
+  end
 end
