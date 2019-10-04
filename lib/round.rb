@@ -35,7 +35,13 @@ class Round
   end
 
   def percent_correct
-    ((number_correct.to_f / @turns.count.to_f)*100).to_i
+    ((number_correct.to_f / @turns.count.to_f) * 100 ).to_i
   end
 
+  def percent_correct_by_category(category)
+    x = number_correct_by_category(category).to_f
+    y = Deck.new(@cards).cards_in_category(category).count.to_f
+    ((x / y) * 100).to_i
+    # ((number_correct_by_category(category).to_f / completed_deck.cards_in_category(category).count.to_f) * 100).to_i
+  end
 end
