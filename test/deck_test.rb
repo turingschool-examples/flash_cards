@@ -37,10 +37,13 @@ class DeckTest < Minitest::Test
   end
 
   def test_the_method_cards_in_category_to_return_an_array_of_the_cards_that_match_the_category
+      @cards = [@card_1, @card_2, @card_3]
 
-  assert_equal
+
+  assert_equal [@card_1], @deck.cards_in_category(:Geography)
+  assert_equal [@card_2, @card_3], @deck.cards_in_category(:STEM)
+  assert_equal [], @deck.cards_in_category("Pop Culture")
   end
-
 
 end
 
