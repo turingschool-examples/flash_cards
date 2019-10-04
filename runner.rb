@@ -9,10 +9,6 @@ def start
   @card_3 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
   @card_4 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
   @cards = [@card_1, @card_2, @card_3, @card_4]
-  # @turn_1 = Turn.new( @card_1)
-  # @turn_2 = Turn.new( @card_2)
-  # @turn_3 = Turn.new( @card_3)
-  # @turn_4 = Turn.new( @card_4)
   @turns = [@turn_1, @turn_2, @turn_3, @turn_4]
   @deck = Deck.new(@cards)
   @round = Round.new(@deck)
