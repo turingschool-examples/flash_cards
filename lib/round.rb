@@ -22,16 +22,16 @@ require './lib/turn'
    @new_turn = Turn.new(guesses, current_card)
    @turns << @new_turn
    deck.cards.shift
-   @count_array << @new_turn
+   @count_array << @new_turn.correct?
    @turns.last
   end
 
   def number_correct
-
+    @count_array.size
   end
 
   def number_correct_by_category(category)
-    turns.each do |turn|
+    @turns.each do |turn|
         if turn.card.category == category
             @category_count += 1
         end
