@@ -33,4 +33,9 @@ class Round
     end
     sum
   end
+
+  def percent_correct
+    ((number_correct.to_f / @turns.count.to_f)*100).to_i
+  end
+
 end
