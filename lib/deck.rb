@@ -2,7 +2,7 @@ class Deck
   attr_reader :cards
 
   def initialize(cards)
-    @cards    = cards
+    @cards = cards
   end
 
   def count
@@ -10,12 +10,8 @@ class Deck
   end
 
   def cards_in_category(category)
-    cat_sort = []
-    @cards.each do |card|
-      if category == card.category
-        cat_sort << card
-      end
+    @cards.find_all do |card|
+      category == card.category
     end
-    cat_sort
   end
 end
