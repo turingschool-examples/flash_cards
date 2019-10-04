@@ -49,8 +49,8 @@ require './lib/turn'
   def percent_correct_by_category(category)
       deck.cards_in_category(category)
       number_correct_by_category(category)
-      category_size = @deck.category_array.size
-      percent = ((100.00 / deck.cards_in_category(category)) * @category_count)
+
+      percent = (100.00 / category_size) * @category_count
       format("%.2f", percent)
   end
   def start
@@ -72,7 +72,8 @@ require './lib/turn'
         puts @deck.cards.size
     end
      puts "****** Game Over! ******"
-     puts "You had #{number_correct} correct guesses out of #{@deck.cards.size} for a total score of #{percent_correct}."
-     puts "#{stem}"
+     puts "You had #{number_correct} correct guesses out of #{@deck.cards.size} for a total score of #{percent_correct}%."
+     puts "STEM - #{@category_percent}% correct."
+     puts "Geography - #{@category_percent}% correct."
   end
 end
