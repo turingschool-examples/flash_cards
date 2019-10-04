@@ -8,8 +8,7 @@ class Turn
   end
 
   def correct?
-    if @guess == @card.answer
-      #.upcase, to make sure if someone enters it it works
+    if @guess == @card.answer.upcase
       true
     else
       false
