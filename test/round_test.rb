@@ -53,9 +53,16 @@ class RoundTest < Minitest::Test
   end
 
   def test_take_turn
+    turn_test = Turn.new(15, @round.current_card)
+
+    assert_equal turn_test, @round.take_turn(15)
   end
 
   def test_number_correct
+    @round.take_turn(10)
+    @round.take_turn(15)
+
+    assert_equal 2, @round.number_correct
   end
 
   def test_number_correct_by_category
