@@ -1,17 +1,17 @@
 class Round
 require './lib/turn'
 
-  attr_accessor :deck, :turns, :count_array, :false_count, :correct_count,
-  :category_count, :percent, :new_turn
+  attr_accessor :deck, :turns, :count_array,
+  :category_count, :percent, :new_turn, :guesses
+
   def initialize(deck)
     @deck = deck
     @turns = []
     @new_turn
     @count_array = []
-    @false_count = 0
-    @correct_count = 0
     @category_count = 0
     @percent
+    @guesses
   end
 
   def current_card
@@ -21,8 +21,10 @@ require './lib/turn'
   def take_turn(guesses)
    @new_turn = Turn.new(guesses, current_card)
    @turns << @new_turn
-   deck.cards.shift
-   @count_array << @new_turn.correct?
+   deck.cards.rotate!
+   if @new_turn.correct?
+     @count_array << @new_turn
+   end
    @turns.last
   end
 
@@ -40,13 +42,37 @@ require './lib/turn'
   end
 
   def percent_correct
-  number_correct
-   percent = ((100.00 / turns.count.to_f) * correct_count.to_f)
+   percent = ((100.00 / @turns.size) * @count_array.size)
    format("%.2f", percent)
   end
 
   def percent_correct_by_category(category)
-
+      deck.cards_in_category(category)
+      number_correct_by_category(category)
+      category_size = @deck.category_array.size
+      percent = ((100.00 / deck.cards_in_category(category)) * @category_count)
+      format("%.2f", percent)
   end
+  def start
+   @count = 0
 
+      puts "Welcome! You're playing with #{@deck.cards.size} cards."
+      puts "______________________________________"
+
+      while @count < @deck.cards.size
+        puts "This is card number #{@turns.size + 1} out of #{@deck.cards.size}."
+        puts "Question #{deck.cards.first.question}?"
+
+        print "Guess:"
+        guesses = gets.chomp.to_s
+        take_turn(guesses)
+        puts
+        puts @new_turn.correct?
+        puts @count += 1
+        puts @deck.cards.size
+    end
+     puts "****** Game Over! ******"
+     puts "You had #{number_correct} correct guesses out of #{@deck.cards.size} for a total score of #{percent_correct}."
+     puts "#{stem}"
+  end
 end

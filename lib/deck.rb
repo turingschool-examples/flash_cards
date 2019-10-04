@@ -1,6 +1,4 @@
 class Deck
-  require './lib/turn'
-  require './lib/card'
 
   attr_accessor :cards, :category_array
 
@@ -16,8 +14,9 @@ class Deck
         if card.category == category
             @category_array << card
         end
+
       end
-      category_array
+        @category_array.size 
    end
 
 end
