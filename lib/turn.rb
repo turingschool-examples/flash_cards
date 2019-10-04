@@ -9,6 +9,7 @@ class Turn
 
   def correct?
     if @guess == @card.answer
+      #.upcase, to make sure if someone enters it it works
       true
     else
       false
