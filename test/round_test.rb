@@ -33,33 +33,33 @@ class RoundTest < Minitest::Test
   end
 
   def test_it_can_take_turn
-    new_turn = @round.take_turn("Juneau")
+    new_turn = @round.take_turn("Juneau", @card_2)
 
     assert_equal "Juneau", @round.turns.last.card.answer
   end
 
   def test_the_number_of_correct_answers
-     new_turn = @round.take_turn("Juneau")
+     new_turn = @round.take_turn("Juneau", @card_2)
 
     assert_equal 1, @round.number_correct
   end
 
   def test_the_number_of_correct_answers_by_category
-    new_turn = @round.take_turn("Juneau")
-    nex_turn = @round.take_turn("North north west")
+    new_turn = @round.take_turn("Juneau", @card_2)
+    nex_turn = @round.take_turn("North north west", @card_3)
 
     assert_equal 1, @round.number_correct_by_category(:Geography)
   end
 
   def test_the_percent_of_correct_numbers
-    new_turn = @round.take_turn("Juneau")
-    nex_turn = @round.take_turn("Snow")
+    new_turn = @round.take_turn("Juneau", @card_2)
+    nex_turn = @round.take_turn("Snow", @card_2)
 
     assert_equal 5.0, @round.percent_correct
   end
 
   def test_the_percent_of_correct_numbers_by_category
-    new_turn = @round.take_turn("Juneau")
+    new_turn = @round.take_turn("Juneau", @card_2)
 
     assert_equal 100.0, @round.percent_correct_by_category(:Geography)
   end

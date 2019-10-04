@@ -19,7 +19,7 @@ class Round
   def number_correct
     tally = 0
     @turns.count do |turn|
-      if turn.correct? 
+      if turn.correct?
         tally += 1
       end
     end
@@ -31,7 +31,6 @@ class Round
     @turns.count do |turn|
       if turn.card.category == category
         tally += 1
-        break
       end
     end
     tally
