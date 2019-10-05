@@ -44,21 +44,37 @@ class RoundTest < Minitest::Test
     assert_equal true, new_turn.correct?
   end
 
-  def test_turn_has_been_recorded
-    new_turn = @round.take_turn("Juneau")
+  def test_turn_can_be_recorded
+    new_turn_1 = @round.take_turn("Juneau")
+    assert_equal [new_turn_1], @round.turns
 
-    assert_equal [new_turn, @round.take_turn("Juneau")], @round.turns
+    new_turn_2 = @round.take_turn("Mount Everest")
+    assert_equal [new_turn_1, new_turn_2], @round.turn
   end
 
   def test_number_correct_guesses
-    new_turn = @round.take_turn("Juneau")
+    new_turn_1 = @round.take_turn("Juneau")
 
     assert_equal 1, @round.number_correct
   end
 
   def test_cards_in_deck_can_be_shifted
-    new_turn = @round.take_turn("Mount Everest")
+    new_turn_2 = @round.take_turn("Mount Everest")
 
     assert_equal @card_2, @round.current_card
+  end
+
+  def test_number_of_turns_taken
+    new_turn_1 = @round.take_turn("Juneau")
+    new_turn_2 = @round.take_turn("Mount Everest")
+
+    assert_equal 2, @round.turns.count
+  end
+
+  def test_feedback_of_last_card_in_deck
+    new_turn_1 = @round.take_turn("Juneau")
+    new_turn_2 = @round.take_turn("Mount Everest")
+
+    assert_equal "Incorrect.", @round.turns.last.feedback
   end
 end
