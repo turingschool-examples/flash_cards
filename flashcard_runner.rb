@@ -1,9 +1,9 @@
 #runner.rb
 
-require_relative './lib/card'
-require_relative './lib/turn'
-require_relative './lib/deck'
-require_relative './lib/round'
+require_relative 'lib/card'
+require_relative 'lib/turn'
+require_relative 'lib/deck'
+require_relative 'lib/round'
 
 def start
   card_1 = Card.new("What is 2 + 3?", "5", :Math)
