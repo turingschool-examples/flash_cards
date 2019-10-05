@@ -18,13 +18,20 @@ class RoundTest < Minitest::Test
 
   end
 
+  def test_round_exists
+    assert_instance_of Round, @round
+  end
+
   def test_current_card
     assert_equal @card_1, @round.current_card
   end
 
   def test_new_turn_exists
-    binding.pry
     assert_instance_of Turn, @round.take_turn("Juneau")
+  end
+
+  def test_guess_is_correct
+    
   end
 
 end

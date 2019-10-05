@@ -1,10 +1,10 @@
 require 'pry'
 class Round
-  attr_reader :deck
-  # need a turns array attr to dump my used cards into
+  attr_reader :deck, :turns
 
   def initialize(deck_parameter)
     @deck = deck_parameter
+    @turns = []
   end
 
   def current_card
@@ -12,7 +12,10 @@ class Round
   end
 
   def take_turn(guess)
-    @new_turn = Turn.new(guess, current_card)
+    new_turn = Turn.new(guess, current_card)
+    @turns << @new_turn
+    @deck.cards.shift
+    new_turn
   end
 
 end
