@@ -1,16 +1,18 @@
-require './card'
+class Deck
+  attr_reader :cards
 
-card1 = Card.new("What is the capital of Alaska?", "Juneau", "Geography")
-# card2 = Card.new("What is the capital of Colorado?", "Denver", "Geography")
-# card3 = Card.new("What is the capital of Virgina?", "Richmond", "Geography")
-# card4 = Card.new("What is the capital of Kansas?", "Topeka", "Geography")
-#
-# deck1 = [card1, card2, card3, card4]
+  def initialize(cards)
+    @cards = cards
+  end
 
-# geography_deck = []
-#
-# deck1.each do |deck1|
-# geography_deck << deck1
-# end
-#
-# print geography_deck
+  def count
+    cards.count
+  end
+
+  def cards_in_category(category)
+      cards.find_all do |card|
+      card.category == category
+    end
+  end
+
+end
