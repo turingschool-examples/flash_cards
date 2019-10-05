@@ -1,6 +1,4 @@
-#Class: Card
-#Object: card
-#Attributes: Question (string), Answer (string), Catagory (array)
+require'pry'
 
 class Card
   attr_reader :question, :answer, :category
@@ -11,4 +9,5 @@ class Card
     @category = category
   end
 
+binding.pry
 end
