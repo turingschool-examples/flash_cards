@@ -29,12 +29,6 @@ class Deck
     @cards.each do |card|
       if card.category == category
         cat_array << card
-      # elsif
-      #   card.category == :Geography
-      #   cat_array << card
-      # else
-      #   # card.category == "Pop Culture"
-      #   cat_array << card
       end
     end
     cat_array
