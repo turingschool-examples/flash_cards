@@ -46,7 +46,6 @@ def start
     new_turn = round.take_turn(guess) #completes turn 1 w. a guess
     p new_turn.feedback #correct/incorrect
     current_round += 1 #keeps track of current round
-
   end
 
   p "***** GAME OVER *****"
