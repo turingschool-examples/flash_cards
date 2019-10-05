@@ -2,10 +2,9 @@
 require 'minitest'
 require 'minitest/autorun'
 require 'minitest/pride'
-require './lib/card'
-#require './lib/turn'
-require './lib/deck'
-require './lib/round'
+require_relative '../lib/card'
+require_relative '../lib/deck'
+require_relative '../lib/round'
 
 class RoundTest < Minitest::Test
   def setup

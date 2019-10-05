@@ -11,7 +11,6 @@ class Deck
   def cards_in_category(category)
     @cards.select {|card| category == card.category}
   end
-
 end
 
 #require 'pry'; binding.pry
