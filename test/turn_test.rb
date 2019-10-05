@@ -19,4 +19,9 @@ class TurnTest < Minitest::Test
     assert_equal "Juneau", @turn_1.guess
     assert_equal @card_1, @turn_1.card
   end
+
+  def test_if_guess_correct
+    assert_equal true, @turn_1.correct?
+    assert_equal false, @turn_2.correct?
+  end
 end
