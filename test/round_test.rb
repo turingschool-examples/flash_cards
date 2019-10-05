@@ -32,16 +32,23 @@ class RoundTest < Minitest::Test
   end
 
   def test_take_turn
-    
+    new_turn = @round.take_turn("Juneau")
+
+
+    # new_turn.class
+    assert_instance_of Turn, new_turn
+
+    # new_turn.correct?
+    assert_equal true, new_turn.correct?
   end
 
-  def test_take_turn
-    assert_equal [], @round.turns
-    new_turn = @round.take_turn("Juneau")
-    assert_instance_of Turn, new_turn.class
-    assert_equal true, new_turn.correct?
-    assert_equal [new_turn], @round.turns
-  end
+  # def test_take_turn
+  #   assert_equal [], @round.turns
+  #   new_turn = @round.take_turn("Juneau")
+  #   assert_instance_of Turn, new_turn.class
+  #   assert_equal true, new_turn.correct?
+  #   assert_equal [new_turn], @round.turns
+  # end
 
   def test_number_correct
     # tells number of turns that are correct (.length? on turns? part of turns that is correct, two arrays?)
