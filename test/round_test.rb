@@ -32,7 +32,7 @@ class RoundTest < Minitest::Test
 
 
   def test_if_round_has_an_array_of_turns
-
+skip
     assert_equal
   end
 
