@@ -1,12 +1,10 @@
 # card_generator.rb
 require 'pry'
-require_relative 'card'
-
+  
 class CardGenerator
   attr_reader :cards
   def initialize(filename)
-    @filename = filename
-    filename = File.readlines('lib/cards.txt')
+    filename = File.readlines("lib/#{filename}")
     #incoming_text = filename.read
     #filename.close
     @cards = []

@@ -6,11 +6,14 @@ require_relative 'lib/round'
 require_relative 'lib/card_generator'
 
 def start
-  cards = CardGenerator.new('lib/cards.txt').cards
+  filename = 'cards.txt'
+  cards = CardGenerator.new(filename).cards
   cards.shuffle! #randomize card order
 
-  category_options = [] # checks deck for different categories
-  cards.each do |x|     # and stores in category_options
+ # checks deck for different categories
+ # and stores in category_options
+  category_options = []
+  cards.each do |x|    
     if category_options.include?(x.category)
     else
       category_options << x.category
