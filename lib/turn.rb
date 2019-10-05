@@ -1,6 +1,4 @@
 # turn.rb
-# require './lib/card'
-# require 'pry'
 
 class Turn
   attr_reader :guess, :card
@@ -16,9 +14,9 @@ class Turn
 
   def feedback
     if correct?
-      "Correct!"
+      "Correct!" #true
     else
-      "Incorrect."
+      "Incorrect." #false
     end
   end
 end

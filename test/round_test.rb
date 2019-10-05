@@ -49,4 +49,37 @@ class RoundTest < Minitest::Test
     new_turn = @round.take_turn("North north west")
     assert_equal 2, @round.number_correct
   end
+
+  def test_it_counts_number_correct_by_category
+    # test that correct count starts at 0
+    assert_equal 0, @round.number_correct_by_category(:STEM)
+    # test that if a guess is correct in another category
+    # does not count in another category
+    new_turn = @round.take_turn("Juneau")
+    assert_equal 0, @round.number_correct_by_category(:STEM)
+    # test it counts when there is a correct guess in the category
+    new_turn = @round.take_turn("Mars")
+    assert_equal 1, @round.number_correct_by_category(:STEM)
+    # test that random category returns 0 number correct
+    assert_equal 0, @round.number_correct_by_category(:CHEMISTRY)
+  end
+
+  def test_it_has_a_percent_correct
+    new_turn = @round.take_turn("Juneau")
+    new_turn = @round.take_turn("Mars")
+    new_turn = @round.take_turn("Mars")
+    assert_equal (2/3.0 * 100), @round.percent_correct
+    # 2 of 3 questions correct should return 2/3 percent
+  end
+
+  def test_it_has_percent_correct_by_category
+    # asked one question in category, guessed correctly
+    new_turn = @round.take_turn("Juneau") #:G eography
+    new_turn = @round.take_turn("Mars") #:STEM
+    assert_equal 100, @round.percent_correct_by_category(:STEM)
+    # if the user gets a wrong guess and a correct guess
+    new_turn = @round.take_turn("Mars") #:STEM
+    assert_equal 50, @round.percent_correct_by_category(:STEM)
+
+  end
 end

@@ -1,7 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require './lib/turn'
-require './lib/card'
+require_relative '../lib/turn'
+require_relative '../lib/card'
 
 class TurnTest < Minitest::Test
   def setup

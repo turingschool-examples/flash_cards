@@ -1,8 +1,8 @@
 # deck_test.rb
 require 'minitest/autorun'
 require 'minitest/pride'
-require './lib/deck'
-require './lib/card'
+require_relative '../lib/deck'
+require_relative '../lib/card'
 
 class DeckTest < Minitest::Test
   def setup

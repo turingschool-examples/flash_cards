@@ -1,5 +1,5 @@
 #round.rb
-require './lib/turn'
+require_relative '../lib/turn'
 
 
 class Round
