@@ -46,16 +46,12 @@ class Round
 def percent_correct_by_category(pcat)
     default_percent_guess = 0.0
     @turns.each do |turn|
-      if turn.card.correct?
+      if turn.card.category == pcat
         default_percent_guess += 1.0
       end
     end
     default_percent_guess
-        (number_cat_correct / @turns.count * 100).round(1)
+        (number_correct_by_category(pcat) / default_percent_guess * 100).round(1)
   end
-
-
-
-
 
 end
