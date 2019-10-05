@@ -20,4 +20,16 @@ class RoundTest < Minitest::Test
   def test_it_exists
     assert_instance_of Round, @round
   end
+
+  def test_it_has_a_current_card
+    assert_equal @card_1, @round.current_card
+  end
+
+  def test_it_takes_a_turn
+    assert_instance_of Turn, @round.take_turn("Juneau")
+  end
+
+  def test_it_is_correct
+    assert_equal true, .correct?
+  end
 end
