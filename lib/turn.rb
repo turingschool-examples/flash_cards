@@ -1,9 +1,4 @@
-require './lib/card'
-
-#Class: Turn
-#Object: turn
-#Methods: initialize(string, card), guess (returns the guess), card(returns the card),
-# correct? (boolean), feedback (return correct or incorrect)
+# require'./lib/card'
 
 class Turn
   attr_reader :guess, :card
