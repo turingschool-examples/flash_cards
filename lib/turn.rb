@@ -1,32 +1,20 @@
-require './lib/card'
-
 class Turn
-attr_reader :guess
+attr_reader :guess, :card
 
   def initialize(guess, card)
     @guess = guess
     @card = card
   end
 
-  def card
-    @card
-  end
-
   def correct?
-    if @card.answer == self.guess
-      return true
-    elsif @card.answer != self.guess
-      return false
-    else
-      puts "strange condition reached"
-    end
+    @card.answer == @guess
   end
 
   def feedback
-    if self.correct? == true
-      return "Correct"
-    elsif self.correct? == false
-      return "Incorrect"
+    if correct?
+      "Correct"
+    else
+      "Incorrect"
     end
   end
 

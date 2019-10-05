@@ -1,4 +1,4 @@
-require 'minitest/autorun'
+require 'minitest/autorn'
 require 'minitest/pride'
 require './lib/card'
 
@@ -23,5 +23,5 @@ class CardTest < Minitest::Test
   def test_it_has_a_category
     assert_equal :Geography, @card.category
   end
-  
+
 end

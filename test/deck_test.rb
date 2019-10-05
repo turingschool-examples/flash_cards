@@ -27,9 +27,9 @@ class DeckTest < Minitest::Test
   def test_has_cards_array
     assert_equal @cards, @deck.cards
   end
-  
+
   def test_does_sort_category
-    sorted_deck = [@card_3, @card_2]
+    sorted_deck = [@card_2, @card_3]
     assert_equal sorted_deck, @deck.cards_in_category(:STEM)
   end
 end
