@@ -12,7 +12,7 @@ class RoundTest < Minitest::Test
     @card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     @card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
     @cards = [@card_1, @card_2, @card_3]
-    @turn = Turn.new("", @card_1)
+    # @turn = Turn.new("", @card_1)
     @deck = Deck.new(@cards)
     @round = Round.new(@deck)
   end
@@ -26,37 +26,20 @@ class RoundTest < Minitest::Test
   end
 
   def test_current_card
-    assert_equal @cards.first, @card_1
+    assert_equal @card_1, @deck.cards.first
   end
 
-  def test_take_turn
+  def test_take_turn_returns_true_if_correct
     new_turn = @round.take_turn("Juneau")
-
-    # new_turn.class
     assert_instance_of Turn, new_turn
-
-    # new_turn.correct?
     assert_equal true, new_turn.correct?
-
-
-
-    new_turn = round.take_turn("Juneau")
-
-    new_turn.class
-#=> Turn
-
-    new_turn.correct?
-#=> true
-
   end
 
-  # def test_take_turn
-  #   assert_equal [], @round.turns
-  #   new_turn = @round.take_turn("Juneau")
-  #   assert_instance_of Turn, new_turn.class
-  #   assert_equal true, new_turn.correct?
-  #   assert_equal [new_turn], @round.turns
-  # end
+  def test_take_turn_returns_false_if_incorrect
+    new_turn = @round.take_turn("Anchorage")
+    assert_instance_of Turn, new_turn
+    assert_equal false, new_turn.correct?
+  end
 
   def test_number_correct
     skip

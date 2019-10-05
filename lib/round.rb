@@ -1,12 +1,20 @@
 class Round
-  attr_reader :deck
+  attr_reader :deck, :turns
 
   def initialize(deck)
     @deck = deck
+    @turns = []
   end
 
-  def turns
-    []
+  def current_card
+    @deck.cards.first
+  end
+
+  def take_turn(guess)
+    current_turn = Turn.new(guess, current_card)
+    @turns << current_turn
+    @deck.cards.shift
+    current_turn
   end
 end
 
@@ -24,3 +32,5 @@ end
 # turns is an instance variable in the Class, it is not a method
 
 # .correct? is coming from Turn class
+
+# make sure percentages work for fractions!!! .to_f or 0.0
