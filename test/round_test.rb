@@ -28,9 +28,10 @@ class RoundTest < Minitest::Test
     # assert_equal @round, Round.new(@deck)
   end
 
-  # def test_round_deck
-  #   assert_equal Round.new(@deck), @round
-  # end
+  def test_round_has_deck
+    round = Round.new(@deck)
+    assert_equal 3, round.deck.count 
+  end
 
   # def test_round_turns
   # end
