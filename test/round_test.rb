@@ -1,4 +1,4 @@
-require 'minitest'
+require 'minitest/pride'
 require 'minitest/autorun'
 require './lib/card'
 require './lib/turn'
@@ -26,12 +26,25 @@ class RoundTest < Minitest::Test
     assert_equal @card_1, @round.current_card
   end
 
-  def test_new_turn_exists
-    assert_instance_of Turn, @round.take_turn("Juneau")
+  def test_take_turn
+    player_turn = @round.take_turn("Juneau")
+    assert_instance_of Turn, player_turn
+    assert_equal true, player_turn.guess == player_turn.card.answer
   end
 
-  def test_guess_is_correct
-    
+  def test_take_turn_wrong_guess
+    player_turn = @round.take_turn("Anchorage")
+    assert_equal false, player_turn.guess == player_turn.card.answer
   end
 
+  def test_number_correct
+    @round.take_turn("Juneau")
+    @round.take_turn("Proton")
+    @round.take_turn(12)
+    assert_equal 3, @round.number_correct
+  end
+
+  def test_number_correct_by_category
+    assert_equal 
+  end
 end
