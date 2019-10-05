@@ -38,4 +38,20 @@ class RoundTest < Minitest::Test
     assert_equal [], round.turns
   end
 
+  def test_current_card
+    round = Round.new(@deck)
+    assert_equal @cards.first, round.current_card
   end
+
+  def test_you_took_turn
+    round = Round.new(@deck)
+    assert_instance_of Turn, round.take_turn("guess")
+  end
+
+  def test_new_turn_is_a_turn_class
+    round = Round.new(@deck)
+    assert_equal Turn, round.take_turn("guess").class
+    # does the same as above test
+  end
+
+end
