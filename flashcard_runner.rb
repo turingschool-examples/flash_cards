@@ -1,10 +1,9 @@
 #runner.rb
 
-require './lib/card'
-require './lib/turn'
-require './lib/deck'
-require './lib/round'
-
+require_relative './lib/card'
+require_relative './lib/turn'
+require_relative './lib/deck'
+require_relative './lib/round'
 
 def start
   card_1 = Card.new("What is 2 + 3?", "5", :Math)
@@ -15,7 +14,7 @@ def start
   card_6 = Card.new("What is the capital of Texas?","Austin",:Geography)
   card_7 = Card.new("What is the capital of Colorado?","Denver",:Geography)
   card_8 = Card.new("What is the capital of Michigan?","Lansing",:Geography)
-  card_9 = Card.new("What is the price of a MacBook Pro?","1200",:PIR) # price is right
+  card_9 = Card.new("What is the price of a MacBook Pro?","1200",:PIR)
   card_10 = Card.new("What is the price of a iPhone?","1000",:PIR)
 
   cards = [card_1, card_2, card_3,
@@ -30,7 +29,6 @@ def start
       category_options << x.category
     end
   end
-
 
   deck = Deck.new(cards)
   round = Round.new(deck)
@@ -48,14 +46,11 @@ def start
     new_turn = round.take_turn(guess) #completes turn 1 w. a guess
     p new_turn.feedback #correct/incorrect
     current_round += 1 #keeps track of current round
-    p "" # blank line between rounds
-
 
   end
 
-
   p "***** GAME OVER *****"
-  p "You had #{round.number_correct} correct guesses out of #{deck_count} for a total score of #{round.percent_correct}"
+  p "You had #{round.number_correct} correct guesses out of #{deck_count} or a total score of #{round.percent_correct})"
 
   category_options.each do |x|
     p "#{x[0..-1]} - #{round.percent_correct_by_category(x)}% correct"
