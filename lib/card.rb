@@ -9,5 +9,5 @@ class Card
     @category = category
   end
 
-binding.pry
+# binding.pry
 end
