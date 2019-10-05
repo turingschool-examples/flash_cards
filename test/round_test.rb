@@ -15,7 +15,7 @@ class RoundTest < Minitest::Test
 
     @cards = [card_1, card_2, card_3]
     @deck = Deck.new(@cards)
-    deck = Deck.new([card_1, card_2, card_3])
+    # deck = Deck.new([card_1, card_2, card_3])
     @round =Round.new(@deck)
     # round = Round.new(deck)
     # round.deck
@@ -30,10 +30,12 @@ class RoundTest < Minitest::Test
 
   def test_round_has_deck
     round = Round.new(@deck)
-    assert_equal 3, round.deck.count 
+    assert_instance_of Deck, round.deck
   end
 
-  # def test_round_turns
-  # end
+  def test_round_turns
+    round = Round.new(@deck)
+    assert_equal [], round.turns
+  end
 
   end
