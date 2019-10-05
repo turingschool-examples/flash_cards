@@ -3,9 +3,8 @@ class Round
   attr_reader :deck, :turns, :turn_counter, :number_correct, :percent_correct,
               :turns_by_category, :feedback, :percent_correct_by_category
 
-  def initialize(deck, shuffle)
+  def initialize(deck)
     @deck = deck
-    @shuffle = shuffle
     @turns = []
     @turn_counter = 0
     @number_correct = 0
@@ -17,16 +16,7 @@ class Round
   end
 
   def current_card
-    if @shuffle
-      loop do
-        random_card = @deck.cards.sample
-        if !@turns.include?(random_card)
-          return random_card          
-        end
-      end
-    else
-      @deck.cards[turn_counter]
-    end
+    @deck[turn_counter]
   end
 
   def take_turn(guess)

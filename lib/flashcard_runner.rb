@@ -4,17 +4,13 @@ require './lib/round'
 require './lib/card_generator'
 require 'pry'
 
-def start
-
-  new_csv = CardGenerator.new('./csv/csv_us_states_capitals.csv')
-  new_csv.extract_csv
-
-  deck = Deck.new(new_csv.cards)
+def start(filename)
 
   # ask user how many cards they would like to practice
   puts ""
   print "Please enter the number of cards you would like to practice: "
   nr_cards = gets.chomp.to_i
+  nr_cards_str = nr_cards.to_s
 
   # ask user if they would like the round to be shuffled
   puts ""
@@ -26,11 +22,12 @@ def start
     shuffle = false
   end
 
-  round = Round.new(deck, shuffle)
+  new_csv = CardGenerator.new(filename)
+  new_csv.extract_csv
+  deck = Deck.new(new_csv.cards, shuffle, nr_cards)
+  deck.finalize_deck
 
-  nr_cards_str = nr_cards.to_s
-
-
+  round = Round.new(deck.deck_final)
 
   puts ""
   puts "Welcome! You're playing with " + nr_cards_str + " cards."
@@ -58,7 +55,24 @@ def start
 
 end
 
-start
+loop do
+  file_countries_capitals = './csv/csv_countries_capitals.csv'
+  file_states_capitals = './csv/csv_us_states_capitals.csv'
+  puts ""
+  puts "Flashcards for countries and capitals of the world - 1"
+  puts "Flashcards for states and capitals of the US - 2"
+  puts "Quit - 3"
+  puts ""
+  print "Please enter a number: "
+  user_option = gets.chomp.to_i
+  if user_option == 1
+    start(file_countries_capitals)
+  elsif user_option == 2
+    start(file_states_capitals)
+  elsif user_option == 3
+    break
+  end
+end
 
 
 
