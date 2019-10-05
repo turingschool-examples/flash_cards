@@ -10,13 +10,12 @@ class Deck
     @cards.size
   end
   def cards_in_category(category)
-      @cards.each do |card|
-        if card.category == category
-            @category_array << card
-        end
 
-      end
-        @category_array.size 
-   end
-
+    @cards.each do |card|
+         if card.category == category
+             @category_array << card
+         end
+       end
+       category_array
+    end
 end

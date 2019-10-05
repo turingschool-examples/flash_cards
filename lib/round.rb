@@ -2,7 +2,7 @@ class Round
 require './lib/turn'
 
   attr_accessor :deck, :turns, :count_array,
-  :category_count, :percent, :new_turn, :guesses
+  :category_count, :new_turn, :guesses, :stem, :geography
 
   def initialize(deck)
     @deck = deck
@@ -10,8 +10,9 @@ require './lib/turn'
     @new_turn
     @count_array = []
     @category_count = 0
-    @percent
     @guesses
+    @stem
+    @geography
   end
 
   def current_card
@@ -47,14 +48,23 @@ require './lib/turn'
   end
 
   def percent_correct_by_category(category)
-      deck.cards_in_category(category)
+
+      category_size = deck.category_array.size
       number_correct_by_category(category)
+      deck.cards_in_category(category)
 
       percent = (100.00 / category_size) * @category_count
       format("%.2f", percent)
+      if category == :STEM
+        percent = @stem
+      else
+        percent = @geography 
+      end
   end
   def start
    @count = 0
+   percent_correct_by_category(":Stem")
+   percent_correct_by_category(":Geography")
 
       puts "Welcome! You're playing with #{@deck.cards.size} cards."
       puts "______________________________________"
@@ -71,9 +81,10 @@ require './lib/turn'
         puts @count += 1
         puts @deck.cards.size
     end
+
      puts "****** Game Over! ******"
      puts "You had #{number_correct} correct guesses out of #{@deck.cards.size} for a total score of #{percent_correct}%."
-     puts "STEM - #{@category_percent}% correct."
-     puts "Geography - #{@category_percent}% correct."
+     puts "STEM - #{@stem}% correct."
+     puts "Geography - #{@geography}% correct."
   end
 end
