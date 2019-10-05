@@ -49,7 +49,7 @@ class RoundTest < Minitest::Test
     assert_equal [new_turn_1], @round.turns
 
     new_turn_2 = @round.take_turn("Mount Everest")
-    assert_equal [new_turn_1, new_turn_2], @round.turn
+    assert_equal [new_turn_1, new_turn_2], @round.turns
   end
 
   def test_number_correct_guesses
