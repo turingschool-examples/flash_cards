@@ -1,7 +1,8 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require './lib/turn'
+require './lib/turn' #I'm getting an error here, but I can't see what's different here compared to other requires 
 require './lib/card'
+require 'pry'
 
 class TurnTest < Minitest::Test
 
