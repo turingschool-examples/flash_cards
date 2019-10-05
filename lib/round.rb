@@ -33,4 +33,9 @@ class Round
     end
     cat_correct.count
   end
+
+  def percent_correct
+    # to get total percent correct you want to take number of correct answers by total number of cards in turn.
+    number_correct.to_f / @turns.count * 100
+  end
 end
