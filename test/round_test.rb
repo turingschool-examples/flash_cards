@@ -74,6 +74,27 @@ class RoundTest < Minitest::Test
     assert_equal 1, @round.number_correct_by_category(:Geography)
   end
 
+  def test_if_all_test_pass_then_stem_should_bump_by_two
+    @round.take_turn("Denver")
+    @round.take_turn("because")
+    @round.take_turn("lose weight")
+    assert_equal 2, @round.number_correct_by_category(:STEM)
+  end
+
+  def test_if_user_wins_one_out_of_two_turns_percentage_test
+    @round.take_turn("Denver")
+    @round.take_turn("Wrong Answer")
+    @round.take_turn("lose weight")
+    assert_equal 50.0, @round.percent_correct_by_category(:STEM)
+  end
+
+  def test_percentage_correct
+    @round.take_turn("Denver")
+    @round.take_turn("Wrong Answer")
+    @round.take_turn("lose weight")
+    assert_equal 67, @round.percent_correct
+  end
+
 
 
 

@@ -38,26 +38,36 @@ class Round
       @winning_category_array << @current_category
 
     end
+  end
 
   def number_correct_by_category(choose_category)
     # @chose_category = choose_category
 
     filtered_array =[]
-    binding.pry
     @winning_category_array.each do |element|
       if element == choose_category
         filtered_array << element
-        # binding.pry
-
       end
     end
     p filtered_array.length
     filtered_array.length
   end
 
+  def percent_correct
+    (@number_correct.to_f / @deck.cards.length.to_f).round(2) * 100
+    # binding.pry
   end
+
+  def percent_correct_by_category(choose_category)
+    #why did this error and make me add at new_num variable
+    new_num = 0
+    new_num =  number_correct_by_category(choose_category).to_f / @deck.cards_in_category(choose_category).length.to_f
+
+    new_num * 100
+  end
+
+end
 
   # def start
   #   p "Welcome! You're playing with #{deck.cards} cards."
   # end
-end
