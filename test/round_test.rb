@@ -52,8 +52,9 @@ class RoundTest < Minitest::Test
     assert_equal [new_turn_1, new_turn_2], @round.turns
   end
 
-  def test_number_correct_guesses
+  def test_number_of_guesses_correct
     new_turn_1 = @round.take_turn("Juneau")
+    new_turn_2 = @round.take_turn("Mount Everest")
 
     assert_equal 1, @round.number_correct
   end
@@ -76,5 +77,13 @@ class RoundTest < Minitest::Test
     new_turn_2 = @round.take_turn("Mount Everest")
 
     assert_equal "Incorrect.", @round.turns.last.feedback
+  end
+
+  def test_number_of_guesses_correct_by_category
+    new_turn_1 = @round.take_turn("Juneau")
+    new_turn_2 = @round.take_turn("Mount Everest")
+
+    assert_equal 1, @round.number_correct_by_category(:Geography)
+    assert_equal 0, @round.number_correct_by_category(:Art)
   end
 end

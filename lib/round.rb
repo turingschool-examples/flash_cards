@@ -26,4 +26,11 @@ class Round
     end
     correct
   end
+
+  def number_correct_by_category(category)
+    cat_correct = @turns.find_all do |turn|
+      turn.card.category == category && turn.correct?
+    end
+    cat_correct.count
+  end
 end
