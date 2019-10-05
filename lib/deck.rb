@@ -1,5 +1,6 @@
-require './lib/card'
-require './lib/turn'
+# require './lib/card'
+# require './lib/turn'
+require'pry'
 
 class Deck
   attr_accessor :cards
@@ -11,5 +12,5 @@ class Deck
   def count
     @cards.length
   end
-
+# binding.pry
 end
