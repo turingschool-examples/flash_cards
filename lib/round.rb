@@ -28,8 +28,12 @@ class Round
   end
 
   def correct_by_category(category)
-    
-
+    correct_by_cat = 0
+    @turns.each do |turn|
+      if category == turn.card.category
+        correct_by_cat += 1
+      end
+    end
   end
 
 end

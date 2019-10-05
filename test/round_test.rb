@@ -50,8 +50,9 @@ class RoundTest < Minitest::Test
     @round.take_turn("Juneau")
     @round.take_turn("Mars")
     @round.take_turn("North north west")
-    assert_equal 1, @round.correct_by_category(:STEM)
+    assert_equal 2, @round.correct_by_category(:STEM)
   end
+
 
   def test_total_percent_correct
     skip
