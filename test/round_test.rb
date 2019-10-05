@@ -33,7 +33,7 @@ class RoundTest < Minitest::Test
     assert_instance_of Deck, round.deck
   end
 
-  def test_round_turns
+  def test_initial_turns
     round = Round.new(@deck)
     assert_equal [], round.turns
   end
@@ -53,6 +53,15 @@ class RoundTest < Minitest::Test
     assert_equal Turn, round.take_turn("guess").class
     # does the same as above test
   end
+
+  def test_after_first_turn
+    round = Round.new(@deck)
+    round.take_turn("guess")
+    assert_instance_of Array, round.turns
+    assert_instance_of Turn, round.turns.first
+  end
+
+  #come back and walk through above several more times
 
 
 end
