@@ -8,12 +8,9 @@ class Turn
   end
 
   def correct?
-   if @guess.upcase == @card.answer.upcase
-    return true
-  else
-    return false
-   end
+    guess == card.answer
   end
+
 
   def feedback
     if @guess == @card.answer
