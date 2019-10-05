@@ -1,7 +1,7 @@
 class Turn
-  attr_reader :guess, :card
-  def initialize(guess, card)
-    @guess = guess
+   attr_reader :guess, :card
+  def initialize(guess_param, card)
+    @guess = guess_param
     @card = card
   end
 
@@ -19,6 +19,6 @@ class Turn
     else
       "Incorrect."
     end
- end
+  end
 
 end
