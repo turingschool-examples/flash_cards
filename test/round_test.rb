@@ -8,8 +8,8 @@ require './lib/round'
 class RoundTest < Minitest::Test
   def setup
     @card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    @card_2 = Card.new("What is the tallest mountain in Russia?", "Mount Elbrus", :Geography)
-    @card_3 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+    @card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+    @card_3 = Card.new("What is the tallest mountain in Russia?", "Mount Elbrus", :Geography)
     @card_4 = Card.new("Where is the world's largest living aspen grove?", "Utah", :STEM)
     @card_5 = Card.new("How many paintings did Vincent Van Gogh sell during his lifetime?", "1", :Art)
     @card_6 = Card.new("What Spanish painter is often referred to as both the last of the Old Masters and the first of the moderns?", "Francisco de Goya", :Art)
@@ -48,40 +48,40 @@ class RoundTest < Minitest::Test
     new_turn_1 = @round.take_turn("Juneau")
     assert_equal [new_turn_1], @round.turns
 
-    new_turn_2 = @round.take_turn("Mount Everest")
+    new_turn_2 = @round.take_turn("Saturn")
     assert_equal [new_turn_1, new_turn_2], @round.turns
   end
 
   def test_number_of_guesses_correct
     new_turn_1 = @round.take_turn("Juneau")
-    new_turn_2 = @round.take_turn("Mount Everest")
+    new_turn_2 = @round.take_turn("Saturn")
 
     assert_equal 1, @round.number_correct
   end
 
-  def test_cards_in_deck_can_be_shifted
-    new_turn_2 = @round.take_turn("Mount Everest")
+  def test_current_card_after_1_round
+    new_turn_2 = @round.take_turn("Saturn")
 
     assert_equal @card_2, @round.current_card
   end
 
   def test_number_of_turns_taken
     new_turn_1 = @round.take_turn("Juneau")
-    new_turn_2 = @round.take_turn("Mount Everest")
+    new_turn_2 = @round.take_turn("Saturn")
 
     assert_equal 2, @round.turns.count
   end
 
   def test_feedback_of_last_card_in_deck
     new_turn_1 = @round.take_turn("Juneau")
-    new_turn_2 = @round.take_turn("Mount Everest")
+    new_turn_2 = @round.take_turn("Saturn")
 
     assert_equal "Incorrect.", @round.turns.last.feedback
   end
 
   def test_number_of_guesses_correct_by_category
     new_turn_1 = @round.take_turn("Juneau")
-    new_turn_2 = @round.take_turn("Mount Everest")
+    new_turn_2 = @round.take_turn("Saturn")
 
     assert_equal 1, @round.number_correct_by_category(:Geography)
     assert_equal 0, @round.number_correct_by_category(:Art)
@@ -89,8 +89,22 @@ class RoundTest < Minitest::Test
 
   def test_percent_correct
     new_turn_1 = @round.take_turn("Juneau")
-    new_turn_2 = @round.take_turn("Mount Everest")
-    
+    new_turn_2 = @round.take_turn("Saturn")
+
     assert_equal 50.0, @round.percent_correct
+  end
+
+  def test_percent_correct_by_category
+    new_turn_1 = @round.take_turn("Juneau")
+    new_turn_2 = @round.take_turn("Saturn")
+
+    assert_equal 100.00, @round.percent_correct_by_category(:Geography)
+  end
+
+  def test_current_card_after_2_rounds
+    new_turn_1 = @round.take_turn("Juneau")
+    new_turn_2 = @round.take_turn("Saturn")
+
+    assert_equal @card_3, @round.current_card
   end
 end

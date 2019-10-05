@@ -38,4 +38,12 @@ class Round
     # to get total percent correct you want to take number of correct answers by total number of cards in turn.
     number_correct.to_f / @turns.count * 100
   end
+
+  def percent_correct_by_category(category)
+    # to get percent correct by category, you want to isolate correct guesses in a category and divide that number by the number of cards that match that category in the turn
+    turn_cat = @turns.find_all do |turn|
+      turn.card.category == category
+    end
+    number_correct_by_category(category).to_f / turn_cat.count * 100
+  end
 end
