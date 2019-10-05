@@ -12,5 +12,12 @@ class Deck
   def count
     @cards.length
   end
+
+  def cards_in_category
+    #WRITE CODE
+    #WRITE CODE
+    #WRITE CODE
+  end
+
 # binding.pry
 end
