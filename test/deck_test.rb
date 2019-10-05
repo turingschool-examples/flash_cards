@@ -32,6 +32,9 @@ class DeckTest < Minitest::Test
     assert_equal [@card_3, @card_4], @deck.cards_in_category(:STEM)
     assert_equal [@card_1, @card_2], @deck.cards_in_category(:Geography)
     assert_equal [@card_5, @card_6], @deck.cards_in_category(:Art)
+  end
+
+  def test_no_cards_if_category_does_not_exist
     assert_equal [], @deck.cards_in_category(:Pop_culture)
     assert_equal [], @deck.cards_in_category("Pop_culture")
   end
