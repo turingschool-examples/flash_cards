@@ -1,3 +1,13 @@
+class Round
+  attr_reader :deck
+
+  def initialize(deck)
+    @deck = deck
+  end
+end
+
+#current_card method: do the turns_array, shovel  the first card into it (turns << Deck.shift), but will also return current card! So it will show the "current card," the one we are currently running through the rest of the program, but has also just shifted the first card/element into the empty array.
+
 # Object, processes responses and records guesses
 # Initialized with a deck
 # Start of Round: "current card" is first in the deck (first in Deck's array of cards)

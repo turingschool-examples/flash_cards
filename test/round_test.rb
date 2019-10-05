@@ -12,7 +12,7 @@ class RoundTest < Minitest::Test
     @card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     @card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
     @cards = [@card_1, @card_2, @card_3]
-    # @turn = Turn.new(guess, @card_1)
+    @turn = Turn.new("", @card_1)
     @deck = Deck.new(@cards)
     @round = Round.new(@deck)
   end
@@ -22,23 +22,25 @@ class RoundTest < Minitest::Test
   end
 
   def test_turns
+    skip
     assert_equal [], @round.turns
   end
 
   def test_current_card
+    skip
     assert_equal "What is the capital of Alaska?", "Juneau", :Geography, @card_1
   end
 
   def test_take_turn
-    turn = Turn.new(@guess, @card)
-    # assert_equal "Juneau", @turn.guess
-    # assert_equal
+    
+  end
 
-    # takes a string representing guess
-    # creates new Turn object with appropriate guess and Card
-    # stores new Turn object
-    # returns this new Turn object
-    # should tell Round to move on to next Card object
+  def test_take_turn
+    assert_equal [], @round.turns
+    new_turn = @round.take_turn("Juneau")
+    assert_instance_of Turn, new_turn.class
+    assert_equal true, new_turn.correct?
+    assert_equal [new_turn], @round.turns
   end
 
   def test_number_correct
