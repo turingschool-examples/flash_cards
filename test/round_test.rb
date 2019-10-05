@@ -26,7 +26,7 @@ class RoundTest < Minitest::Test
   end
 
   def test_current_card
-    assert_equal @card_1, @deck.cards.first
+    assert_equal @card_1, @round.take_turn("Juneau").card
   end
 
   def test_take_turn_returns_true_if_correct
@@ -42,14 +42,15 @@ class RoundTest < Minitest::Test
   end
 
   def test_number_correct
-    skip
-    # tells number of turns that are correct (.length? on turns? part of turns that is correct, two arrays?)
+    @round.take_turn("Juneau")
+    assert_equal 1, @round.turns.length
   end
 
-  def test_number_correct_by_category()
-    skip
-    # tells number of Turns correct, by category
-    # look at arrays built elsewhere, and Deck class's cards_in_category method
+  def test_number_correct_by_category
+    @round.take_turn("Juneau")
+    @round.take_turn("Mars")
+    @round.take_turn("North north west")
+    assert_equal 1, @round.correct_by_category(:STEM)
   end
 
   def test_total_percent_correct

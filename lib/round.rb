@@ -16,6 +16,22 @@ class Round
     @deck.cards.shift
     current_turn
   end
+
+  def number_correct
+    correct_turns = []
+    @turns.each do |turn|
+      if turn.correct? == true
+        correct_turns << turn
+      end
+      correct_turns.length
+    end
+  end
+
+  def correct_by_category(category)
+    
+
+  end
+
 end
 
 #current_card method: do the turns_array, shovel  the first card into it (turns << Deck.shift), but will also return current card! So it will show the "current card," the one we are currently running through the rest of the program, but has also just shifted the first card/element into the empty array.
