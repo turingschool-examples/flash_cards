@@ -6,5 +6,4 @@ def initialize(question, answer, category)
   @answer = answer
   @category = category
   end
-
 end
