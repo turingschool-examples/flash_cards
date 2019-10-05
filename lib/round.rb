@@ -1,6 +1,6 @@
-# require './turn'
-# require './deck'
-# require './card'
+require_relative './turn'
+require_relative './deck'
+require_relative './card'
 
 class Round
   attr_reader :deck, :correct_answers
@@ -47,13 +47,12 @@ class Round
   end
 
   def percent_correct
-    (percent = number_correct.to_f / @turns.count.to_f * 100).round(1)
+    (number_correct.to_f / @turns.count.to_f * 100).round(1)
   end
 
   def percent_correct_by_category(category)
     cat_correct = @turns.select {|turn_c| turn_c.card.category == category}
     (number_correct_by_category(category).to_f / cat_correct.count.to_f  * 100).round(1)
-
   end
 
 end
