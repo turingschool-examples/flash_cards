@@ -1,8 +1,8 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require './lib/card'
+require './lib/card' # This is what connects your test to the card Class
 
-class CardTest < Minitest::Test
+class CardTest < Minitest::Test # This is saying that the test class inherits from Minitest::Test
 
   def test_it_exists
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
