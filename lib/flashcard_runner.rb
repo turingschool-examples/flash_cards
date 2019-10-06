@@ -13,12 +13,13 @@ card_4 = Card.new("Capital of New York?", "albany", :Geography)
 #store cards in array
 cards_1 = [card_1, card_2, card_3, card_4]
 
-#created deck
+#create deck
 deck_1 = Deck.new(cards_1)
 
-#Round
+#round
 round_1 = Round.new(deck_1)
 
+#start of game:
 puts "Welcome! You're playing with #{deck_1.count} cards."
 40.times { print "-" }
 puts ""
