@@ -65,8 +65,8 @@ loop do
   if deck_choice.downcase == "yes"
     puts "Enter the name of your file: "
     file_name = gets.chomp
-    new_cards = CardGenerator.new
-    game_deck = Deck.new(new_cards.generate(file_name))
+    new_cards = CardGenerator.new.generate(file_name)
+    game_deck = Deck.new(new_cards)
   elsif deck_choice.downcase == "no"
     game_deck = Deck.new(deck1.random_cards(15))
   else
