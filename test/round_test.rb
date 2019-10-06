@@ -30,6 +30,7 @@ class RoundTest < Minitest::Test
   end
 
   def test_it_is_correct
-    assert_equal true, .correct?
+    player_turn = @round.take_turn("Juneau")
+    assert_equal player_turn.guess, player_turn.card.answer
   end
 end
