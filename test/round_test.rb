@@ -44,10 +44,17 @@ class RoundTest < Minitest::Test
     assert_equal 3, @round.number_correct
   end
 
-  def test_number_correct_by_category
+  def test_number_correct_in_STEM_cat
     @round.take_turn("Juneau")
     @round.take_turn("Proton")
     @round.take_turn(12)
     assert_equal 2, @round.number_correct_by_category(:STEM)
+  end
+
+  def test_number_correct_in_geo_cat
+    @round.take_turn("Juneau")
+    @round.take_turn("Proton")
+    @round.take_turn(12)
+    assert_equal 1, @round.number_correct_by_category(:Geography)
   end
 end

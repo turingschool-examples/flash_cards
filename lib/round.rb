@@ -30,7 +30,9 @@ class Round
   end
 
   def number_correct_by_category(category)
-    
+    number = 0
+    @turns.each do |turn|
+      
   end
 
 end
