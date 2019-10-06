@@ -61,7 +61,7 @@ class RoundTest < Minitest::Test
     assert_instance_of Turn, round.turns.first
   end
 
-  #come back and walk through above several more times
+
 
 
 end
