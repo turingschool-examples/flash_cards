@@ -59,8 +59,8 @@ class RoundTest < Minitest::Test
     assert_equal 1, @round.number_correct
   end
 
-  def test_current_card_after_1_round
-    new_turn_2 = @round.take_turn("Saturn")
+  def test_current_card_after_1_turn
+    new_turn_1 = @round.take_turn("Juneau")
 
     assert_equal @card_2, @round.current_card
   end
@@ -101,7 +101,7 @@ class RoundTest < Minitest::Test
     assert_equal 100.00, @round.percent_correct_by_category(:Geography)
   end
 
-  def test_current_card_after_2_rounds
+  def test_current_card_after_2_turns
     new_turn_1 = @round.take_turn("Juneau")
     new_turn_2 = @round.take_turn("Saturn")
 

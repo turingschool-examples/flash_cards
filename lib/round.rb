@@ -7,6 +7,7 @@ class Round
   end
 
   def current_card
+    # @deck.cards.first
     @deck.cards.shift
   end
 
@@ -14,6 +15,9 @@ class Round
   def take_turn(guess)
     new_turn = Turn.new(guess, current_card)
     @turns << new_turn
+    # @deck.cards.rotate.map do |card|
+    #   card
+    # end
     new_turn
   end
 
@@ -29,6 +33,7 @@ class Round
 
   def number_correct_by_category(category)
     cat_correct = @turns.find_all do |turn|
+      # require 'pry'; binding.pry
       turn.card.category == category && turn.correct?
     end
     cat_correct.count
@@ -36,14 +41,14 @@ class Round
 
   def percent_correct
     # to get total percent correct you want to take number of correct answers by total number of cards in turn.
-    number_correct.to_f / @turns.count * 100
+    (number_correct.to_f / @turns.count * 100).round(1)
   end
 
   def percent_correct_by_category(category)
-    # to get percent correct by category, you want to isolate correct guesses in a category and divide that number by the number of cards that match that category in the turn
+    # to get percent correct by category, you want to isolate correct guesses in a category and divide that number by the number of cards that match that category in the round
     turn_cat = @turns.find_all do |turn|
       turn.card.category == category
     end
-    number_correct_by_category(category).to_f / turn_cat.count * 100
+    (number_correct_by_category(category).to_f / turn_cat.count * 100).round(1)
   end
 end
