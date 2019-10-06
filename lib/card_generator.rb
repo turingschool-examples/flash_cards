@@ -10,5 +10,6 @@ class CardGenerator
       split_line = line.split(",")
       @uploaded_cards << Card.new(split_line[0], split_line[1], split_line[2])
     end
+    @uploaded_cards
   end
 end
