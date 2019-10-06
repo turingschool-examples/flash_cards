@@ -50,6 +50,14 @@ class TurnTest < Minitest::Test
     assert_equal "Correct!", turn.feedback
   end
 
+  def test_guess_is_correct_regardless_of_case
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("JuNeAu", card)
+
+    assert_equal "Correct!", turn.feedback
+  end 
+
+
   def test_incorrect_guess_is_false
     card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
     turn = Turn.new("Saturn", card)
