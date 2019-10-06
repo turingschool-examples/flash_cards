@@ -1,7 +1,9 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require './lib/card_generator'
-#require '../cards.txt'
+require_relative '../lib/card'
+require_relative '../lib/card_generator'
+
+#require_relative '../cards.txt'
 
 class CardGeneratorTest < Minitest::Test
   def test_it_exists
@@ -13,5 +15,7 @@ class CardGeneratorTest < Minitest::Test
   def test_it_has_cards
     filename = "cards.txt"
     cards = CardGenerator.new(filename)
+
+    assert_equal true, cards.cards.all? { |card| card.class == Card }
   end
 end
