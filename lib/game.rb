@@ -2,6 +2,7 @@ require_relative 'card'
 require_relative 'deck'
 require_relative 'turn'
 require_relative 'round'
+require_relative 'card_generator'
 
 card1 = Card.new("What is the capital of Germany?", "Berlin", :national_capitals)
 card2 = Card.new("What is the capital of Sweden?", "Stockholm", :national_capitals)
@@ -64,12 +65,8 @@ loop do
   if deck_choice.downcase == "yes"
     puts "Enter the name of your file: "
     file_name = gets.chomp
-    uploaded_cards = Array.new
-    File.open(file_name).each do |line|
-      split_line = line.split(",")
-      uploaded_cards << Card.new(split_line[0], split_line[1], split_line[2])
-    end
-    game_deck = Deck.new(uploaded_cards)
+    new_cards = CardGenerator.new
+    game_deck = Deck.new(new_cards.generate(file_name))
   elsif deck_choice.downcase == "no"
     game_deck = Deck.new(deck1.random_cards(15))
   else
