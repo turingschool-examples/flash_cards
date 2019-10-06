@@ -69,7 +69,7 @@ class RoundTest < Minitest::Test
     @round.take_turn("Juno")
     @round.take_turn("Proton")
     @round.take_turn(12)
-    assert_equal 0, @round.percent_correct
+    assert_equal 66.7, @round.percent_correct
   end
 
   def test_percent_correct_in_STEM_category
