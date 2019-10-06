@@ -22,18 +22,17 @@ def start
     puts "This is card number #{@round.turns.count + 1} of 5."
     puts "Question: #{@round.current_card.question}"
     player_guess = @round.take_turn(gets.chomp)
-
-  if player_guess.correct?
-    puts "#{@round.turns.last.feedback}"
-    else
-    puts "The correct answer is #{@round.turns.last.card.answer}"
-  end
-end
-end
+      if player_guess.correct?
+        puts "#{@round.turns.last.feedback}"
+      else
+        puts "The correct answer is #{@round.turns.last.card.answer}"
+      end
+    end
 
   puts "****** Game over! ******"
   puts "You had #{@round.number_correct} out of #{@card_total} correct for a total score of #{@round.percent_correct}%."
   puts "Star Wars - #{@round.percent_correct_by_category(:StarWars)}% correct."
   puts "STEM - #{@round.percent_correct_by_category(:STEM)}% correct."
+end
 
 start
