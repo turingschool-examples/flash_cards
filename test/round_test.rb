@@ -37,12 +37,12 @@ class RoundTest < Minitest::Test
 
   def test_if_it_takes_a_turn
    new_turn = @round.take_turn("Juneau")
-   assert_equal Turn, new_turn
+   assert_equal Turn, new_turn.class
   end
-  # def test_if_it_is_correct
-  #   new_turn = Turn.new("Juneau", @card_1)
-  #   assert_equal true, new_turn.correct?
-  # end isn't really testing anything
+  def test_if_it_is_correct
+    new_turn = Turn.new("Juneau", @card_1)
+    assert_equal true, new_turn.correct?
+  end
 
   def test_total_number_of_correct_guesses
     @round.take_turn("Juneau")
@@ -50,8 +50,25 @@ class RoundTest < Minitest::Test
   end
 
   def test_it_gives_feedback
-  skip
-
+    @round.take_turn("Juneau")
+    assert_equal "Correct!", @round.turns.last.feedback
   end
-
+  def test_number_correct_by_category
+      @round.take_turn("Juneau")
+      @round.take_turn("Mars")
+      @round.take_turn("North north west")
+      assert_equal 2, @round.number_correct_by_category(:STEM)
+  end
+  def test_percent_correct
+    @round.take_turn("Juneau")
+    @round.take_turn("Madfs")
+    @round.take_turn("North north west")
+    assert_equal "66.67", @round.percent_correct
+  end
+  def test_percent_correct_by_category
+    @round.take_turn("Juneau")
+    @round.take_turn("Madfs")
+    @round.take_turn("North north west")
+    assert_equal "50.00", @round.percent_correct_by_category(:STEM)
+  end
 end
