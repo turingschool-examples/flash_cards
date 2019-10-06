@@ -66,8 +66,8 @@ loop do
     file_name = gets.chomp
     uploaded_cards = Array.new
     File.open(file_name).each do |line|
-      line.split(",")
-      uploaded_cards << Card.new(line[0], line[1], line[2].to_sym)
+      split_line = line.split(",")
+      uploaded_cards << Card.new(split_line[0], split_line[1], split_line[2])
     end
     game_deck = Deck.new(uploaded_cards)
   elsif deck_choice.downcase == "no"
