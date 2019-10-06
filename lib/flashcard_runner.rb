@@ -37,5 +37,8 @@ end
 
 puts "****** Game over! ******"
 puts "You had #{round_1.number_correct} answers out of #{deck_1.count} for a total score of #{round_1.percent_correct}%."
-puts "Math - #{round_1.percent_correct_by_category(:Math)}%"
-puts "Geography - #{round_1.percent_correct_by_category(:Geography)}%"
+
+categories = deck_1.list_of_categories
+until categories.empty? == true
+puts "#{categories.first} - #{round_1.percent_correct_by_category(categories.shift)}%"
+end

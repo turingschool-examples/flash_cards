@@ -16,4 +16,10 @@ class Deck
     count_array.count(category)
   end
 
+  def list_of_categories
+    array = []
+    @cards.each { |card| array << card.category }
+    array.uniq!
+  end
+
 end

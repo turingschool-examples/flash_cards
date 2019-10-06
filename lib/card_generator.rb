@@ -4,7 +4,7 @@ require "./lib/card"
 class CardGenerator
 
   def initialize(path)
-    @path = path.to_s
+    @path = path
   end
 
   def cards
