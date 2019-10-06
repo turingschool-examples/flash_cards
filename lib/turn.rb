@@ -1,9 +1,10 @@
 class Turn
-  attr_reader :guess, :card
+  attr_reader :guess, :card, :new_turn
 
-  def initialize(guess, card)
+  def initialize(guess, card, new_turn)
     @guess = guess
     @card = card
+    @new_turn = new_turn
   end
 
   def correct?
