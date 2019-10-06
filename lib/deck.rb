@@ -1,7 +1,3 @@
-# require './lib/card'
-# require './lib/turn'
-require'pry'
-
 class Deck
   attr_accessor :cards
 
@@ -13,11 +9,13 @@ class Deck
     @cards.length
   end
 
-  def cards_in_category
-    #WRITE CODE
-    #WRITE CODE
-    #WRITE CODE
+#Test won't pass stating that there are 0 arguments, but expects 1 on line 13
+  def cards_in_category(category)
+    cards.each do |card|
+      if card.category == category
+        p card
+      end
+    end
   end
 
-# binding.pry
 end
