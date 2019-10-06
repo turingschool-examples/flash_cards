@@ -17,7 +17,43 @@ require 'pry'
   #Game starts here
   puts "Welcome! You are playing with #{@deck.cards.count} cards."
   puts "----------------------------------------------------"
-  puts "This is card number #{(@round.turns.count + 1)} of #{@cards.count}."
-  puts "Question: #{@card_1.question?}"
+  if @deck.cards.count > 0
+    puts "This is card number #{(@round.turns.count + 1)} of #{(@cards.count + @round.turns.count)}."
+    puts "Question: #{@deck.cards.first.question}"
+  else puts "****** Game Over! ******"
+  end
   guess = gets.chomp
   @round.take_turn(guess)
+  if @deck.cards.count > 0
+    puts "This is card number #{(@round.turns.count + 1)} of #{(@cards.count + @round.turns.count)}."
+    puts "Question: #{@deck.cards.first.question}"
+  else puts "****** Game Over! ******"
+  end
+  guess = gets.chomp
+  @round.take_turn(guess)
+  if @deck.cards.count > 0
+    puts "This is card number #{(@round.turns.count + 1)} of #{(@cards.count + @round.turns.count)}."
+    puts "Question: #{@deck.cards.first.question}"
+  else puts "****** Game Over! ******"
+  end
+  guess = gets.chomp
+  @round.take_turn(guess)
+  if @deck.cards.count > 0
+    puts "This is card number #{(@round.turns.count + 1)} of #{(@cards.count + @round.turns.count)}."
+    puts "Question: #{@deck.cards.first.question}"
+  else puts "****** Game Over! ******"
+  end
+  guess = gets.chomp
+  @round.take_turn(guess)
+  if @deck.cards.count > 0
+    puts "This is card number #{(@round.turns.count + 1)} of #{(@cards.count + @round.turns.count)}."
+    puts "Question: #{@deck.cards.first.question}"
+  else puts "****** Game Over! ******"
+  end
+  guess = gets.chomp
+  @round.take_turn(guess)
+  if @deck.cards.count > 0
+    puts "This is card number #{(@round.turns.count + 1)} of #{(@cards.count + @round.turns.count)}."
+    puts "Question: #{@deck.cards.first.question}"
+  else puts "****** Game Over! ******"
+  end
