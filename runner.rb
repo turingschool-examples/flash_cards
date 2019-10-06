@@ -21,7 +21,7 @@ card_9 = Card.new("In 2009, Heath Ledger posthumously won an Oscar for what role
 @original_cards = [card_0, card_1, card_2, card_3, card_4, card_5, card_6, card_7, card_8, card_9]
 @deck = Deck.new(@cards)
 @round = Round.new(@deck)
-@total_cards = @cards.count
+@total_cards = @original_cards.count
 
 puts "-" * 50
 puts "Welcome! You're playing with #{@total_cards} cards!"
