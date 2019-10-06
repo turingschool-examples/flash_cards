@@ -2,6 +2,8 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/card'
 
+# I didn't mean to a setup method on this class and change the original outine of the file...but realize it before it was too late.
+
 class CardTest < Minitest::Test
   def setup
     @card = card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
