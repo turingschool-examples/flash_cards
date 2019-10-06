@@ -11,12 +11,11 @@ class Round
   end
 
   def take_turn(guess)
-    new_turn = Turn.new(current_card, guess)
+    new_turn = Turn.new(guess, current_card)
     @turns << new_turn
+    @deck.cards.shift
     new_turn
   end
 
-  def correct?
-  end
 
 end
