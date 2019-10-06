@@ -40,7 +40,7 @@ class TurnTest < Minitest::Test
     assert_equal "Juneau", turn.answer
     assert_equal "Juneau", turn.guess
 
-    assert turn.correct?
+    assert_equal true, turn.correct?
   end
 
   def test_correct_guess_is_confirmed
@@ -57,7 +57,7 @@ class TurnTest < Minitest::Test
     assert_equal "Mercury", turn.answer
     assert_equal "Saturn", turn.guess
 
-    refute turn.correct?
+    refute_equal true, turn.correct?
   end
 
   def test_incorrect_guess_is_confirmed
