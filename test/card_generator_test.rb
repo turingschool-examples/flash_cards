@@ -3,8 +3,6 @@ require 'minitest/pride'
 require_relative '../lib/card'
 require_relative '../lib/card_generator'
 
-#require_relative '../cards.txt'
-
 class CardGeneratorTest < Minitest::Test
   def test_it_exists
     filename = "cards.txt"
