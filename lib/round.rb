@@ -14,7 +14,7 @@ class Round
   end
 
   def start
-    puts "Great choice! Let's begin."
+    puts "Let's begin!"
     puts "-" * 50
   end
 
