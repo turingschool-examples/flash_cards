@@ -11,7 +11,6 @@ class Turn
 
   def correct?
     @answer == @guess
-    # card.answer == @guess
   end
 
   def feedback
