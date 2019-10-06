@@ -1,6 +1,4 @@
 
-
-
 class Card
   attr_accessor :question, :answer, :category
   def initialize(question, answer, category)
