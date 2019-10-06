@@ -1,7 +1,3 @@
-require './lib/card'
-require './lib/turn'
-require './lib/round'
-
 class Deck
 
 attr_reader :cards
@@ -14,12 +10,8 @@ attr_reader :cards
   end
 
   def cards_in_category(category)
-    category_array = []
-    @cards.each do |card|
-      if card.category == category
-        category_array << card
-      end
+    @cards.find_all do |card|
+      card.category == category
     end
-    category_array
   end
 end
