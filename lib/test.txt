@@ -1,0 +1,3 @@
+What is the capital of Canada?,Ottawa,National Capitals
+What is the capital of Costa Rica?,San Jose,National Capitals
+How many mg of caffeine is in a cup of coffee?,100,Coffee Facts
