@@ -36,9 +36,8 @@ class RoundTest < Minitest::Test
   end
 
   def test_if_it_takes_a_turn
-   skip
-   new_turn = Turn.new("Juneau", @card_1)
-   assert_equal new_turn, @round.take_turn("Juneau")
+   new_turn = @round.take_turn("Juneau")
+   assert_equal Turn, new_turn
   end
   # def test_if_it_is_correct
   #   new_turn = Turn.new("Juneau", @card_1)
@@ -52,7 +51,7 @@ class RoundTest < Minitest::Test
 
   def test_it_gives_feedback
   skip
-  
+
   end
 
 end

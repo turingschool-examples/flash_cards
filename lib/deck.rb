@@ -4,18 +4,14 @@ class Deck
 
   def initialize(cards)
     @cards = cards
-    @category_array = []
   end
   def count
     @cards.size
   end
   def cards_in_category(category)
-
-    @cards.each do |card|
-         if card.category == category
-             @category_array << card
-         end
-       end
-       category_array
+  @category_array = []
+  @category_array =  @cards.find_all do |card|
+       card.category == category
     end
+  end
 end

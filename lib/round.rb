@@ -9,7 +9,6 @@ require './lib/turn'
     @turns = []
     @new_turn
     @count_array = []
-    @category_count = 0
     @guesses
     @stem
     @geography
@@ -34,12 +33,11 @@ require './lib/turn'
   end
 
   def number_correct_by_category(category)
-    @turns.each do |turn|
-        if turn.card.category == category
-            @category_count += 1
-        end
+    @category_count = []
+    @category_count =  @turns.find_all do |turn|
+         turn.correct? && turn.card.category == category
     end
-      @category_count
+    @category_count.size
   end
 
   def percent_correct
@@ -48,35 +46,10 @@ require './lib/turn'
   end
 
   def percent_correct_by_category(category)
-
-      category_size = deck.category_array.size
+      @deck.cards_in_category(category)
       number_correct_by_category(category)
-      deck.cards_in_category(category)
-
-      percent_by_category = (100.00 / category_size) * @category_count
+      percent_by_category = ((100.00 / @deck.category_array.size) * number_correct_by_category(category))
       format("%.2f", percent_by_category)
   end
-  def start
-   @count = 0
 
-      puts "Welcome! You're playing with #{@deck.cards.size} cards."
-      puts "______________________________________"
-
-      while @count < @deck.cards.size
-        puts "This is card number #{@turns.size + 1} out of #{@deck.cards.size}."
-        puts "Question #{deck.cards.first.question}?"
-
-        print "Guess:"
-        guesses = gets.chomp.to_s
-        take_turn(guesses)
-        puts
-        puts @new_turn.correct?
-        @count += 1
-    end
-
-     puts "****** Game Over! ******"
-     puts "You had #{number_correct} correct guesses out of #{@deck.cards.size} for a total score of #{percent_correct}%."
-     puts "STEM - #{percent_correct_by_category(:Stem)}% correct."
-     puts "Geography - #{percent_correct_by_category(:Geography)}% correct."
-  end
 end
