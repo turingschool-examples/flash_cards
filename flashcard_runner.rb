@@ -4,8 +4,6 @@ require './lib/turn'
 require './lib/round'
 require './lib/card_generator'
 
-# Testing on card_generator_version
-
 def start
 
   cards = CardGenerator.new("cards.txt").cards
@@ -17,7 +15,10 @@ def start
 
   card_number = 0
 
-  puts "Welcome! You're playing with #{original_deck} cards."
+  puts ""
+  puts "****** Welcome to Flashcards! ******"
+  puts ""
+  puts "You're playing with #{original_deck} cards."
   puts "-" * 50
 
   until deck.count == 0
@@ -27,17 +28,22 @@ def start
     puts "This is card number #{card_number} out of #{original_deck}."
     puts "Question: #{round.current_card.question}"
     print ">"
-    player_guess = gets.chomp.capitalize
+    player_guess = gets.chomp.downcase
     puts round.take_turn(player_guess).feedback
+    puts "-" * 50
 
   end
 
   puts "****** Game over! ******"
+  puts "-" * 50
+  puts "Here is your scorecard:"
+  puts ""
   puts "You had #{round.number_correct} correct guesses out of #{round.turns.count} for a total score of #{round.percent_correct}%."
   puts "STEM - #{round.percent_correct_by_category(:STEM)}% correct"
   puts "Geography - #{round.percent_correct_by_category(:Geography)}% correct"
   puts "Turing Staff - #{round.percent_correct_by_category("Turing Staff")}% correct"
   puts "Pop Culture - #{round.percent_correct_by_category("Pop Culture")}% correct"
+  puts "-" * 50
 
 end
 
