@@ -11,10 +11,9 @@ class Deck
     @cards.count
   end
 
-
   def cards_in_category(category)
     category_array = []
-      @cards.each do |card|
+    @cards.each do |card|
       if card.category == category
         category_array << card
       end
