@@ -13,7 +13,8 @@ require 'pry'
 
 #store cards in array
 # cards_1 = [card_1, card_2, card_3, card_4]
-cards = CardGenerator.new('./lib/cards.txt').cards
+filename = "cards.txt"
+cards = CardGenerator.new(filename).cards
 
 #create deck
 deck_1 = Deck.new(cards)
