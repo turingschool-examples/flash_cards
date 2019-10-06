@@ -64,4 +64,11 @@ class RoundTest < Minitest::Test
     @round.take_turn(12)
     assert_equal 0, @round.number_correct_by_category(:Trivia)
   end
+
+  def test_percent_correct
+    @round.take_turn("Juno")
+    @round.take_turn("Proton")
+    @round.take_turn(12)
+    assert_equal
+  end
 end
