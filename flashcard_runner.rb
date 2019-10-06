@@ -3,6 +3,8 @@ require './lib/deck'
 require './lib/turn'
 require './lib/round'
 
+# Testing on card_generator_version
+
 def start
 
   deck = []
