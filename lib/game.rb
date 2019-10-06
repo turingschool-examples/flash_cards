@@ -57,12 +57,23 @@ deck1 = Deck.new([card1, card2, card3, card4, card5, card6, card7, card8, card9,
 puts "Welcome to Flashcards!"
 puts "-" * 50
 loop do
-  puts "Select from the following categories: National Capitals, Human Body, Historical Facts"
-  cat = gets.chomp
-  game_deck = Deck.new(deck1.cards_in_category(cat.downcase.tr(" ","_").to_sym))
 
-  if game_deck.count == 0
-    puts "Deck not found"
+  puts "If you would like to upload your own deck, type 'yes'; otherwise, type 'no'."
+  deck_choice = gets.chomp
+
+  if deck_choice.downcase == "yes"
+    puts "Enter the name of your file: "
+    file_name = gets.chomp
+    uploaded_cards = Array.new
+    File.open(file_name).each do |line|
+      line.split(",")
+      uploaded_cards << Card.new(line[0], line[1], line[2].to_sym)
+    end
+    game_deck = Deck.new(uploaded_cards)
+  elsif deck_choice.downcase == "no"
+    game_deck = Deck.new(deck1.random_cards(15))
+  else
+    puts "Invalid input"
     next
   end
 
@@ -81,6 +92,8 @@ loop do
   end
 
   puts "You got #{new_round.correct} correct answers out of #{new_round.total}, resulting in a score of #{new_round.get_score(new_round.correct, new_round.total)}%"
+  puts "Your results by category are as follows:"
+  puts new_round.get_score_by_category
   break
 end
 puts "-" * 50
