@@ -1,5 +1,3 @@
-require'pry'
-
 class Card
   attr_reader :question, :answer, :category
 
@@ -9,5 +7,4 @@ class Card
     @category = category
   end
 
-# binding.pry
 end
