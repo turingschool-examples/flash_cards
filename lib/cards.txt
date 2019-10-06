@@ -1,0 +1,4 @@
+What is the sum of 5 + 5?,10,Math
+What is the sum of 5 + 10?,15,Math
+Capital of Colorado?,denver,Geography
+Capital of New York?,albany,Geography

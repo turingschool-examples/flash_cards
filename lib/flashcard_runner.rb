@@ -2,19 +2,21 @@ require './lib/card'
 require './lib/turn'
 require './lib/deck'
 require './lib/round'
+require './lib/card_generator'
 require 'pry'
 
 #create cards
-card_1 = Card.new("What is the sum of 5 + 5?", "10", :Math)
-card_2 = Card.new("What is the sum of 5 + 10?", "15", :Math)
-card_3 = Card.new("Capital of Colorado?", "denver", :Geography)
-card_4 = Card.new("Capital of New York?", "albany", :Geography)
+# card_1 = Card.new("What is the sum of 5 + 5?", "10", :Math)
+# card_2 = Card.new("What is the sum of 5 + 10?", "15", :Math)
+# card_3 = Card.new("Capital of Colorado?", "denver", :Geography)
+# card_4 = Card.new("Capital of New York?", "albany", :Geography)
 
 #store cards in array
-cards_1 = [card_1, card_2, card_3, card_4]
+# cards_1 = [card_1, card_2, card_3, card_4]
+cards = CardGenerator.new('./lib/cards.txt').cards
 
 #create deck
-deck_1 = Deck.new(cards_1)
+deck_1 = Deck.new(cards)
 
 #round
 round_1 = Round.new(deck_1)
