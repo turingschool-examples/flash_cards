@@ -35,7 +35,7 @@ class DeckTest < Minitest::Test
     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
-# binding.pry
+    # binding.pry
     assert_equal 3, deck.count
   end
 
@@ -46,8 +46,8 @@ class DeckTest < Minitest::Test
     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
-# binding.pry
-    assert_equal [card_1], deck.cards_in_category
+    # binding.pry
+    assert_equal [card_1], deck.cards_in_category(:Geography)
   end
 
   def test_it_can_list_cards_in_STEM_category
@@ -58,7 +58,7 @@ class DeckTest < Minitest::Test
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
 
-    assert_equal [card_2, card_3], deck.cards_in_category
+    assert_equal [card_2, card_3], deck.cards_in_category(:STEM)
   end
 
   def test_it_can_list_cards_in_pop_culture_category
@@ -68,8 +68,8 @@ class DeckTest < Minitest::Test
     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
-# binding.pry
-    assert_equal [], deck.cards_in_category
+    # binding.pry
+    assert_equal [], deck.cards_in_category(:'Pop Culture')
   end
 
 end
