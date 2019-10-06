@@ -1,6 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/turn'
+require './lib/card'
 
 class TurnTest < Minitest::Test
 
@@ -33,7 +34,6 @@ class TurnTest < Minitest::Test
     turn = Turn.new("Wrong_Answer", card)
     refute turn.correct?
   end
-
 
   def test_it_gives_correct_feedback_for_true
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
