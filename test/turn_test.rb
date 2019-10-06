@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require './lib/turn' #I'm getting an error here, but I can't see what's different here compared to other requires 
+require './lib/turn'
 require './lib/card'
 require 'pry'
 
@@ -20,7 +20,7 @@ class TurnTest < Minitest::Test
 
     card = Card.new("What's the capital of Ohio?", "Columbus", :Geography)
     turn = Turn.new("Columbus", card)
-
+    # binding.pry
     assert_equal card, turn.card
   end
 
@@ -50,5 +50,4 @@ class TurnTest < Minitest::Test
 
     assert_equal "Correct!", turn.feedback
   end
-
 end
