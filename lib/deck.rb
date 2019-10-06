@@ -11,17 +11,13 @@ class Deck
   end
 
   def cards_in_category(category)
-
     temp_array = []
-
     @cards.each do |card|
       if category == card.category
         temp_array << card
       end
     end
-
     temp_array
-
   end
 
 end

@@ -26,7 +26,7 @@ class RoundTest < Minitest::Test
   end
 
   def test_current_card
-    assert_equal @card_1, @round.take_turn("Juneau").card
+    assert_equal @card_1, @round.current_card
   end
 
   def test_take_turn_returns_true_if_correct
@@ -47,6 +47,7 @@ class RoundTest < Minitest::Test
   end
 
   def test_number_correct_by_category
+    skip
     @round.take_turn("Juneau")
     @round.take_turn("Mars")
     @round.take_turn("North north west")

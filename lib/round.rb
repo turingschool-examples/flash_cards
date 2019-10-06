@@ -11,7 +11,7 @@ class Round
   end
 
   def take_turn(guess)
-    current_turn = Turn.new(guess, current_card)
+    current_turn = Turn.new(guess, @deck.cards.first)
     @turns << current_turn
     @deck.cards.shift
     current_turn
@@ -28,13 +28,17 @@ class Round
   end
 
   def correct_by_category(category)
-    correct_by_cat = 0
-    @turns.each do |turn|
-      if category == turn.card.category
-        correct_by_cat += 1
-      end
-    end
+
   end
+
+  # def correct_by_category(category)
+  #   correct_by_cat = 0
+  #   @turns.each do |turn|
+  #     if category == turn.card.category
+  #       correct_by_cat += 1
+  #     end
+  #   end
+  # end
 
 end
 
