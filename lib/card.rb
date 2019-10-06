@@ -9,4 +9,8 @@ class Card
 
     end
 
+    def question?
+      @question
+    end
+
 end

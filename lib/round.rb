@@ -18,7 +18,7 @@ class Round
   def take_turn(guess)
     turn = Turn.new(guess, current_card)
     @turns << turn
-    turn
+    puts turn.feedback
   end
 
   def number_correct
@@ -52,8 +52,6 @@ class Round
         category_total += 1
       end
     end
-    # binding.pry
-
     (number_correct_by_category(category) / category_total.to_f) * 100
   end
 end
