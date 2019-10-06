@@ -29,7 +29,7 @@ class RoundTest < Minitest::Test
   def test_take_turn
     player_turn = @round.take_turn("Juneau")
     assert_instance_of Turn, player_turn
-    assert_equal true, player_turn.guess == player_turn.card.answer
+    assert_equal player_turn.guess, player_turn.card.answer
   end
 
   def test_take_turn_wrong_guess
@@ -69,6 +69,14 @@ class RoundTest < Minitest::Test
     @round.take_turn("Juno")
     @round.take_turn("Proton")
     @round.take_turn(12)
-    assert_equal
+    assert_equal 0, @round.percent_correct
+  end
+
+  def test_percent_correct_in_STEM_category
+    skip
+    @round.take_turn("Juneau")
+    @round.take_turn("Proton")
+    @round.take_turn(14)
+    assert_equal 50.0, @round.percent_correct_by_category(:STEM)
   end
 end

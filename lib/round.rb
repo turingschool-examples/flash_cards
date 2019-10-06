@@ -1,5 +1,4 @@
 require 'pry'
-require './lib/card'
 class Round
   attr_reader :deck, :turns
 
@@ -37,6 +36,19 @@ class Round
       end
     end
     number
+  end
+
+  def percent_correct
+    number = 0
+    @turns.each do |turn|
+      if turn.correct?
+        number +=1
+      end
+    end
+    number / @turns.count
+  end
+
+  def percent_correct_by_category(category)
   end
 
 end
