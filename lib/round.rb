@@ -29,4 +29,8 @@ class Round
     number
   end
 
+  def number_correct_by_category(category)
+    
+  end
+
 end

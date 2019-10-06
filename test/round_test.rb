@@ -45,6 +45,9 @@ class RoundTest < Minitest::Test
   end
 
   def test_number_correct_by_category
-    assert_equal 
+    @round.take_turn("Juneau")
+    @round.take_turn("Proton")
+    @round.take_turn(12)
+    assert_equal 2, @round.number_correct_by_category(:STEM)
   end
 end
