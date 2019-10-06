@@ -4,6 +4,7 @@ require './lib/card'
 require './lib/deck'
 require './lib/round'
 require './lib/turn'
+#require './flashcard_runner'
 
 class RoundTest< MiniTest::Test
 
@@ -43,6 +44,22 @@ class RoundTest< MiniTest::Test
     round = Round.new(@deck)
     player_turn2 = round.take_turn("Anchorage")
     refute player_turn2.correct?
+  end
+
+  def test_number_correct
+    round = Round.new(@deck)
+    round.take_turn("Juneau")
+    round.take_turn("Mars")
+    round.take_turn("North north west")
+    assert_equal 3, round.number_correct
+  end
+
+  def test_number_correct_if_guess_wrong
+    round = Round.new(@deck)
+    round.take_turn("Anchorage")
+    round.take_turn("Mars")
+    round.take_turn("North north west")
+    refute_equal 3, round.number_correct
   end
 
   def test_number_cat_correct
