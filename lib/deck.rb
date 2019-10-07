@@ -4,6 +4,8 @@ class Deck
   def initialize(cards)
     @cards = cards
   end
+
+
 end
 
 # pry(main)> require './lib/card'

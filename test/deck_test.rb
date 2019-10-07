@@ -23,4 +23,12 @@ class DeckTest < Minitest::Test
   def test_it_has_cards
     assert_equal @cards, @deck.cards
   end
+
+  def test_there_are_3_cards
+    # Count how many cards are in the deck, confirming 3 are in the deck
+    assert_equal 3, @cards.count
+    # You can confirm this by using a binding.pry, running the test
+    # file in ruby, then entering @cards.count to have a return of 3
+  end
+
 end
