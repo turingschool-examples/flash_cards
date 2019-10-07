@@ -1,3 +1,4 @@
-What is the capital of Canada?,Ottawa,National Capitals
-What is the capital of Costa Rica?,San Jose,National Capitals
-How many mg of caffeine is in a cup of coffee?,100,Coffee Facts
+What is the capital of Canada?,Ottawa,national_capitals
+What is the capital of Costa Rica?,San Jose,national_capitals
+How many mg of caffeine is in a cup of coffee?,100,coffee_facts
+How many lumens is a standard bicycle headlight?,300,bicycle_facts
