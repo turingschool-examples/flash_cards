@@ -6,7 +6,6 @@ class Deck
   end
 
   def cards_in_category(category)
-
   end
 
 end
