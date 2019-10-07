@@ -2,7 +2,7 @@ require_relative 'card'
 require_relative 'deck'
 require_relative 'turn'
 
-Class Round
+class Round
 
   attr_reader :deck,
               :guess,
@@ -71,4 +71,4 @@ cards = []
 cards << card_1
 cards << card_2
 cards << card_3
-deck = Deck.new (cards)
+deck = Deck.new(cards)
