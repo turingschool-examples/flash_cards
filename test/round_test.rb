@@ -16,11 +16,11 @@ class RoundTest < Minitest::Test
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
     round = Round.new(deck)
-
+    binding.pry
     assert_instance_of Round, round
   end
 
-  def test_doest_it_have_card_1
+  def test_doest_it_have_cards
     # skip
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
@@ -30,28 +30,8 @@ class RoundTest < Minitest::Test
     round = Round.new(deck)
 
     assert_equal card_1, card_1
-  end
-
-  def test_doest_it_have_card_2
-    # skip
-    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
-    card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-    cards = [card_1, card_2, card_3]
-    deck = Deck.new(cards)
-    round = Round.new(deck)
 
     assert_equal card_2, card_2
-  end
-
-  def test_doest_it_have_card_3
-    # skip
-    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
-    card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-    cards = [card_1, card_2, card_3]
-    deck = Deck.new(cards)
-    round = Round.new(deck)
 
     assert_equal card_3, card_3
   end
@@ -81,7 +61,7 @@ class RoundTest < Minitest::Test
   end
 
   def test_does_it_have_current_card
-    skip
+    # skip
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
@@ -113,8 +93,9 @@ class RoundTest < Minitest::Test
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
     round = Round.new(deck)
+    new_turn = Turn.new
 
-    assert_equal Turn, new_turn.class
+    assert_instance_of Turn, new_turn.class
   end
 
   def test_does_the_new_turn_exist
