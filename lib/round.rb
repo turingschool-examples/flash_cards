@@ -4,6 +4,7 @@ class Round
   def initialize(deck)
     @deck = deck
     @turns = []
+    @number_correct = 0
   end
 
   def current_card
@@ -15,6 +16,10 @@ class Round
     @turns << new_turn
     @deck.cards.shift
     new_turn
+  end
+
+  def number_correct
+    @number_correct += 1
   end
 
 
