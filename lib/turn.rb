@@ -22,8 +22,4 @@ class Turn
     end
   end
 
-  def new_turn
-
-  end
-
 end
