@@ -28,7 +28,14 @@ class TurnTest
     card = Card.new('test', 'test', :test)
     turn = Turn.new('test', card)
 
-    assert_equal 'Correct', turn.correct?
+    assert_equal true, turn.correct?
+  end
+
+  def test_feedback
+    card = Card.new('test', 'test', :test)
+    turn = Turn.new('test', card)
+
+    assert_equal 'Correct', turn.feedback
   end
 
 end
