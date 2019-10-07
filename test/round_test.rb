@@ -42,6 +42,7 @@ class RoundTest < Minitest::Test
   end
 
   def test_it_is_new_current_card
+    @round.shift_to_next_card
     assert_equal @card_2, @round.current_card
   end
 
