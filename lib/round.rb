@@ -27,13 +27,9 @@ class Round
   end
 
   def number_correct_by_category(category)
-    sum = 0
-    @turns.each do |turn|
-      if turn.card.category == category
-        sum += 1 if turn.correct?
-      end
+    @turns.count do |turn|
+      turn.card.category == category && turn.correct?
     end
-    sum
   end
 
   def number_of_cards_by_category(category)
@@ -57,6 +53,6 @@ class Round
   def percent_correct_by_category(category)
     correct_cat = number_correct_by_category(category).to_f
     discard_cat = discard_pile_by_category(category).to_f
-    ((correct_cat/ discard_cat) * 100).floor(1)
+    ((correct_cat / discard_cat) * 100).floor(1)
   end
 end
