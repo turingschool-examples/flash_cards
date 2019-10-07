@@ -6,10 +6,28 @@ require 'pry'
 
 def start(filename)
 
+  new_csv = CardGenerator.new(filename)
+  new_csv.extract_csv
+  cards_available = new_csv.cards.length
+
+  puts ""
+  puts "Cards available: #{cards_available}"
+
   # ask user how many cards they would like to practice
   puts ""
   print "Please enter the number of cards you would like to practice: "
-  nr_cards = gets.chomp.to_i
+
+  nr_cards = 0
+  loop do
+    nr_cards = gets.chomp.to_i
+    if nr_cards > cards_available || nr_cards < 1
+      puts ""
+      print "Error! Please enter a number between 0 and #{cards_available}: "
+    else
+      break
+    end
+  end
+
   nr_cards_str = nr_cards.to_s
 
   # ask user if they would like the round to be shuffled
@@ -22,8 +40,6 @@ def start(filename)
     shuffle = false
   end
 
-  new_csv = CardGenerator.new(filename)
-  new_csv.extract_csv
   deck = Deck.new(new_csv.cards, shuffle, nr_cards)
   deck.finalize_deck
 
