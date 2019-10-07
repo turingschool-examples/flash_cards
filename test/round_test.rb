@@ -68,6 +68,7 @@ class RoundTest < Minitest::Test
   def test_current_card_after_1_turn
     new_turn_1 = @round.take_turn("Juneau")
 
+# require 'pry'; binding.pry
     assert_equal @card_2, @round.current_card
   end
 

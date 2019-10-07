@@ -7,19 +7,14 @@ class Round
   end
 
   def current_card
-    @deck.cards.first
-    # @deck.cards.shift
+    @deck.cards.shift
   end
 
-  # revisit this method later and visualize!!!!
   def take_turn(guess)
     new_turn = Turn.new(guess, current_card)
-
     @turns << new_turn
-    # @deck.cards.rotate.map do |card|
-    #   card
-    # endcndls
     new_turn
+    # require 'pry'; binding.pry
   end
 
   def number_correct
@@ -34,7 +29,6 @@ class Round
 
   def number_correct_by_category(category)
     cat_correct = @turns.find_all do |turn|
-      # require 'pry'; binding.pry
       turn.card.category == category && turn.correct?
     end
     cat_correct.count
