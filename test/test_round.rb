@@ -1,0 +1,6 @@
+require 'minitest/autorun'
+require 'minitest/pride'
+require_relative 'card'
+require_relative 'turn'
+require_relative 'deck'
+require_relative 'round'
