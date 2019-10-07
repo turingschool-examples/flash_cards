@@ -27,18 +27,15 @@ class Round
     end
   end
 
-  def correct_by_category(category)
-
+  def correct_by_category(corr_cat)
+    total_correct_cat = 0
+    @turns.select do |turn|
+      if turn.correct? == true && turn.card.category == corr_cat
+        total_correct_cat += 1
+      end
+    end
+      total_correct_cat
   end
-
-  # def correct_by_category(category)
-  #   correct_by_cat = 0
-  #   @turns.each do |turn|
-  #     if category == turn.card.category
-  #       correct_by_cat += 1
-  #     end
-  #   end
-  # end
 
 end
 

@@ -47,7 +47,6 @@ class RoundTest < Minitest::Test
   end
 
   def test_number_correct_by_category
-    skip
     @round.take_turn("Juneau")
     @round.take_turn("Mars")
     @round.take_turn("North north west")
@@ -56,7 +55,6 @@ class RoundTest < Minitest::Test
 
 
   def test_total_percent_correct
-    skip
     # number correct divided by total, multiply by 100
     # format returned message
   end

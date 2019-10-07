@@ -19,5 +19,4 @@ class Deck
     end
     temp_array
   end
-
 end

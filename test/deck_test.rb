@@ -16,7 +16,6 @@ class DeckTest < Minitest::Test
   def test_initialize
     assert_instance_of Deck, @deck
   end
-  #Good practice to put assert_instance_of in setup, or in a test_initialize method?
 
   def test_cards_in_deck
     assert_equal [@card_1, @card_2, @card_3], @deck.cards
@@ -35,6 +34,4 @@ class DeckTest < Minitest::Test
     assert_equal geo_cat, @deck.cards_in_category(:Geography)
     assert_equal pop_cat, @deck.cards_in_category("Pop Culture")
   end
-
-
 end

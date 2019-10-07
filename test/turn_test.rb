@@ -10,23 +10,18 @@ class TurnTest < Minitest::Test
     @turn = Turn.new("Juneau", @card)
   end
 
-  # def test_initialize
-  #   assert_instance_of Card, @turn.card
-  #   assert_instance_of Turn, @turn
-  # end
-
   def test_initialize
     assert_instance_of Card, @turn.card
     assert_instance_of Turn, @turn
-    #Card or card/Turn or turn?
   end
 
-  def test_for_guess
+  def test_for_guess_if_true
     assert_equal "Juneau", @turn.guess
+    assert_equal true, @turn.correct?
   end
 
-  def test_for_card
-    assert_equal @card, @turn.card
+  def test_for_guess_if_false
+    new_turn = Turn.new("Anchorage", @card)
+    assert_equal false, new_turn.correct?
   end
-
 end
