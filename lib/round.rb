@@ -43,7 +43,7 @@ class Round
   end
 
   def percentage_correct
-  number_correct / 3
+  number_correct / 4
   end
 
   def percentage_correct_by_category(category)
@@ -54,7 +54,7 @@ class Round
   if category_selected.last.guess == turns.last.card.answer
   correct += 1
   end
-  correct / 3
+  correct / 4
 end
 end
 
