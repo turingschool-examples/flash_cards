@@ -1,5 +1,5 @@
 class Round
-  attr_reader :deck
+  attr_reader :deck, :turns, :number_correct
 
   def initialize(deck)
     @deck = deck
@@ -21,6 +21,14 @@ class Round
   def number_correct
     @number_correct += 1
   end
+
+ def shift_to_next_card
+   # @turns += 1
+   @deck.cards.shift
+   return @card_2
+ end
+
+
 
 
 end
