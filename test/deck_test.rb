@@ -40,7 +40,7 @@ class Deck_test < Minitest::Test
     card1 = Card.new("test", "test", :test)
     card2 = Card.new("test", "test", :test1)
     card3 = Card.new("test", "test", :test1)
-    cards = [card1, card2]
+    cards = [card1, card2, card3]
     deck = Deck.new(cards)
 
     assert_equal ["test", "test1"], deck.list_categories
