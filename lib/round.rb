@@ -1,4 +1,3 @@
-require 'pry'
 class Round
   attr_reader :deck, :turns
 
@@ -50,12 +49,16 @@ class Round
 
   def percent_correct_by_category(category)
     number = 0.0
+    category_count = 0.0
     @turns.each do |turn|
       if turn.card.category == category && turn.correct?
+        category_count += 1
         number += 1
+      elsif turn.card.category == category
+          category_count += 1
       end
     end
-    (number / )
+    ((number / category_count) * 100).round(1)
   end
 
 end
