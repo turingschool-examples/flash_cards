@@ -42,7 +42,7 @@ class RoundTest < Minitest::Test
 
   def test_number_correct
     @round.take_turn("Juneau")
-    assert_equal 1, @round.turns.length
+    assert_equal 1, @round.number_correct
   end
 
   def test_number_correct_by_category
@@ -54,7 +54,6 @@ class RoundTest < Minitest::Test
 
 
   def test_total_percent_correct
-    skip
     @round.take_turn("Anchorage")
     @round.take_turn("Mars")
     @round.take_turn("North north west")
@@ -62,9 +61,8 @@ class RoundTest < Minitest::Test
   end
 
   def test_percent_correct_by_category
-    skip
     @round.take_turn("Juneau")
-    @round.take_turn("Mars")
+    @round.take_turn("Venus")
     @round.take_turn("North north west")
     assert_equal 50, @round.percent_correct_by_category(:STEM)
   end
