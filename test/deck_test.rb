@@ -31,4 +31,8 @@ class DeckTest < Minitest::Test
     # file in ruby, then entering @cards.count to have a return of 3
   end
 
+  def test_card_in_category_returns
+    assert_equal @card_1, @deck.cards_in_category(:Geography)
+  end
+
 end
