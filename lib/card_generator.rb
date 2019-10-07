@@ -7,8 +7,8 @@ class CardGenerator
 
   def generate(filename)
     File.open(filename).each do |line|
-      split_line = line.split(",")
-      @uploaded_cards << Card.new(split_line[0], split_line[1], split_line[2])
+      card_attributes = line.split(",")
+      @uploaded_cards << Card.new(card_attributes[0], card_attributes[1], card_attributes[2])
     end
     @uploaded_cards
   end
