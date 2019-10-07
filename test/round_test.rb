@@ -23,11 +23,6 @@ class RoundTest < Minitest::Test
     assert_equal @card_1, @round.current_card
   end
 
-  def test_it_has_turns
-    skip
-    assert_instance_of [], @turns
-  end
-
   def test_it_takes_a_turn
     assert_instance_of Turn, @round.take_turn("Juneau")
   end
@@ -38,12 +33,18 @@ class RoundTest < Minitest::Test
   end
 
   def test_number_correct
+    @round.take_turn("Juneau")
+    @round.take_turn("Venus")
     assert_equal 1, @round.number_correct
   end
 
-  def test_it_is_new_current_card
-    @round.shift_to_next_card
-    assert_equal @card_2, @round.current_card
+  def test_number_correct_by_category
+    @round.take_turn("Juneau")
+    @round.take_turn("Mars")
+    @round.take_turn("North north west")
+    assert_equal 2, @round.number_correct_by_category(:STEM)
+    assert_equal 1, @round.number_correct_by_category(:Geography)
+    assert_equal 0, @round.number_correct_by_category(:Trivia)
   end
 
 end
