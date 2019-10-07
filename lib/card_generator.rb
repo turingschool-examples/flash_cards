@@ -1,6 +1,7 @@
 # card_generator.rb
 require 'pry'
-  
+require_relative 'card'
+
 class CardGenerator
   attr_reader :cards
   def initialize(filename)
