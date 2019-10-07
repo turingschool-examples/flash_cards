@@ -14,6 +14,7 @@ class Deck
 
   def cards_in_category(sorted_category)
     category_cards = []
+
     @cards.each do |card|
       if card.category == sorted_category
         category_cards << card
