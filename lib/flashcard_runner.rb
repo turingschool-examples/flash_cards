@@ -25,12 +25,20 @@ def start
 
     guess = @round.take_turn(gets.chomp.capitalize)
 
-    
-
-    puts "#{@round.turns.last.feedback}"
+    if guess.correct?
+      puts "#{@round.turns.last.feedback}"
+    else
+      puts "#{@round.turns.last.feedback}"
+      puts "The answer is #{@round.turns.last.card.answer}"
+    end
   end
+
 end
 start
+
+puts "****** Game over! ******"
+puts "You had #{@round.number_correct} correct guesses out of #{@total_cards}."
+puts ""
 
 
 
