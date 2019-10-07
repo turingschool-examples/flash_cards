@@ -40,7 +40,7 @@ def start
     results << card.category
   end
 #tried using unique to output single results without duplicates for each
-#category, but doesn't work if first answer in that category is wrong
+#category, but doesn't work if an answer in that category is wrong
   results.uniq.each do |category|
     puts "#{category} - #{@round.percent_correct_by_category(category)}% correct"
   end
