@@ -28,16 +28,3 @@ class Turn
     end
   end
 end
-
-card1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-card2 = Card.new("Who was the first woman to win a Noble Prize?", "Marie Curie", :Science)
-card3 = Card.new("What style of art is characterized by its distinct use of dots to form images?", "Pointillism", :Art)
-
-turn1 = Turn.new("Juneau", card1)
-turn1.feedback
-
-turn2 = Turn.new("Einstein", card2)
-turn2.feedback
-
-turn3 = Turn.new("Dadaism", card3)
-turn3.feedback
