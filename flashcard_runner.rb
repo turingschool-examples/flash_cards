@@ -23,17 +23,12 @@ def start(round)
   # when deck finished output results
   @round.deck.cards.each do |card|
     card_number = @round.turns.length
+      puts "This is card number #{card_number + 1} out of #{@cards.count + card_number} cards."
+      puts "Question: #{card.question}"
+      input = gets.chomp.to_s
+      puts new_turn = @round.take_turn(input).feedback
 
-    puts "This is card number #{card_number + 1} out of #{@cards.count} cards."
-    puts "Question: #{card.question}"
-    input = gets.chomp.to_s
-    @round.take_turn(input)
-    puts @round.turns[-1].feedback
   end
-  # @round.turns.each do |turn|
-  #   card_number = @round.turns.length
-  #   puts "This is card number #{card_number + 1} out of #{@cards.count + card_number} cards."
-  #   puts "Question: #{turn.question}"
 end
 
 
