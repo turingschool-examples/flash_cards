@@ -1,9 +1,10 @@
 class Deck
+  attr_reader :cards
+
   def initialize(cards)
+    @cards = cards
   end
-
 end
-
 
 # pry(main)> require './lib/card'
 # #=> true
@@ -39,3 +40,13 @@ end
 #
 # pry(main)> deck.cards_in_category("Pop Culture")
 # #=> []
+
+
+
+
+# class Deck
+#   attr_reader :deck, :cards, :card_1, :card_2, :card_3
+#   def initialize (cards)
+#     @cards = cards
+#   end
+# end
