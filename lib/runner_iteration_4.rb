@@ -2,12 +2,14 @@ require './lib/card'
 require './lib/deck'
 require './lib/turn'
 require './lib/round'
-require_relative 'card_generator'
-
-card_data = CardGenerator.new("cards.txt").get_text
+require './lib/card_generator'
 
 
-@deck = Deck.new(@cards)
+cards = CardGenerator.new("./lib/cards.txt").create_cards
+@card_total = cards.map {|recall_cards| recall_cards}.count
+@deck = Deck.new(cards)
+
+require 'pry'; binding.pry
 
 @round = Round.new(@deck)
 
