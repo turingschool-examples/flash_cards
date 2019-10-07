@@ -5,7 +5,8 @@ class Deck
     @cards = cards
   end
 
-  def cards_in_category
+  def cards_in_category(category)
+
   end
 
 end
@@ -44,13 +45,3 @@ end
 #
 # pry(main)> deck.cards_in_category("Pop Culture")
 # #=> []
-
-
-
-
-# class Deck
-#   attr_reader :deck, :cards, :card_1, :card_2, :card_3
-#   def initialize (cards)
-#     @cards = cards
-#   end
-# end
