@@ -44,14 +44,9 @@ class RoundTest < Minitest::Test
 
   end
 
-  # def test_number_correct
-  #
-  #   assert_equal 1, @round.number_correct
-  # end
+  def test_number_correct
 
-  # def test_turns_left
-  #
-  #   assert_equal 2, round.turns.count
-  # end
+    assert_equal 0, @round.number_correct
+  end
 
 end
