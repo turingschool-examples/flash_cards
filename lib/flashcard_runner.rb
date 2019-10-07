@@ -37,8 +37,10 @@ end
 start
 
 puts "****** Game over! ******"
-puts "You had #{@round.number_correct} correct guesses out of #{@total_cards}."
-puts ""
+puts "You had #{@round.number_correct} correct guesses out of #{@total_cards} for a total score of #{@round.percent_correct}%."
+puts "STEM - #{@round.percent_correct_by_category(:STEM)}%"
+puts "Geography - #{@round.percent_correct_by_category(:Geography)}%"
+puts "GoT Trivia - #{@round.percent_correct_by_category(:Got_Trivia)}%"
 
 
 
