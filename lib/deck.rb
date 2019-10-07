@@ -2,11 +2,15 @@ require './lib/card'
 require './lib/turn'
 
 class Deck
-  attr_reader :cards
+  attr_reader :cards, :categories
   def initialize(cards)
     @cards = cards
-
-
+    @categories = []
+    cards.each do |card|
+      if @categories.include?(card.category) == false
+        @categories << card.category
+      end
+    end
   end
 
   def card_category(category)

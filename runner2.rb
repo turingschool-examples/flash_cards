@@ -32,5 +32,11 @@ require 'pry'
 
   end
   puts "You had #{@round.number_correct} correct guesses out of #{@round.turns.count} for a total score of #{@round.percent_correct.to_i}%."
-  puts "Geography - #{(@round.percent_correct_by_category("Geography")).to_i}% correct"
-  puts "History - #{@round.percent_correct_by_category("History").to_i}% correct"
+  @deck.categories.each do |category|
+    puts "#{category} - #{(@round.percent_correct_by_category(category)).to_i}% correct"
+  end
+
+
+
+  # puts "Geography - #{(@round.percent_correct_by_category("Geography")).to_i}% correct"
+  # puts "History - #{@round.percent_correct_by_category("History").to_i}% correct"

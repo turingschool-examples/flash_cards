@@ -48,4 +48,8 @@ class TurnTest < Minitest::Test
     x = @deck.card_category(:Popculture)
     assert_equal 0, x.count
   end
+
+  def test_it_has_category_array
+    assert_equal [:Geography, :STEM], @deck.categories
+  end
 end
