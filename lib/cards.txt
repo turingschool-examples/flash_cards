@@ -1,8 +1,7 @@
-What is 3 + 3?,9,Math
+What is 3 + 3?,6,Math
 What is 14 - 8?,6,Math
 What is 88 - 0?,88,Math
 What color is on the top of the rainbow?,red,Colors
 Van Gogh we through a period named what color?,blue,Colors
 Envy is often represented with what color?,green,Colors
 Sadness is often associated with what color?,blue,Colors
- 
