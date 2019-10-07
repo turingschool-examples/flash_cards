@@ -7,8 +7,7 @@ require './lib/turn'
 class TurnTest < Minitest::Test
   attr_reader :card1, :card2, :card3, :turn1, :turn2, :turn3
 
-  # sets up instance variables/attributes to be called throughout code without placing
-  # them in each method individually
+  # sets up variable to use throughout code
   def setup
     @card1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     @card2 = Card.new("Who was the first woman to win a Noble Prize?", "Marie Curie", :Science)
