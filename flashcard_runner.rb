@@ -15,18 +15,26 @@ require './lib/round'
 @deck = Deck.new(@cards)
 @round = Round.new(@deck)
 
-def start
+def start(round)
   puts "Welcome! You're playing with #{@cards.count} cards."
   puts "-" * 50
   # Iterate through your cards deck/array/round to have a round of cards to ask questions and get answers
 
   # when deck finished output results
-  # @cards.each do |card|
-  #   card.index
-  # puts "This is card number  out of #{@cards.count} cards."
-  # puts "Question:
+  @round.deck.cards.each do |card|
+    card_number = @round.turns.length
 
+    puts "This is card number #{card_number + 1} out of #{@cards.count} cards."
+    puts "Question: #{card.question}"
+    input = gets.chomp.to_s
+    @round.take_turn(input)
+    puts @round.turns[-1].feedback
+  end
+  # @round.turns.each do |turn|
+  #   card_number = @round.turns.length
+  #   puts "This is card number #{card_number + 1} out of #{@cards.count + card_number} cards."
+  #   puts "Question: #{turn.question}"
 end
 
 
-puts start
+start(@round)
