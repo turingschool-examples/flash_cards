@@ -5,6 +5,8 @@ class Deck
     @cards = cards
   end
 
+  def cards_in_category
+  end
 
 end
 
