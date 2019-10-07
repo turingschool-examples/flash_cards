@@ -50,6 +50,12 @@ class RoundTest < Minitest::Test
 
     new_turn_2 = @round.take_turn("Saturn")
     assert_equal [new_turn_1, new_turn_2], @round.turns
+
+    new_turn_3 = @round.take_turn("Mount Everest")
+    new_turn_4 = @round.take_turn("Colorado")
+    new_turn_5 = @round.take_turn("1")
+    new_turn_6 = @round.take_turn("Monet")
+    assert_equal [new_turn_1, new_turn_2, new_turn_3, new_turn_4, new_turn_5, new_turn_6], @round.turns
   end
 
   def test_number_of_guesses_correct

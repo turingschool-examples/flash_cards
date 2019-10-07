@@ -7,13 +7,14 @@ class Round
   end
 
   def current_card
-    # @deck.cards.first
-    @deck.cards.shift
+    @deck.cards.first
+    # @deck.cards.shift
   end
 
   # revisit this method later and visualize!!!!
   def take_turn(guess)
     new_turn = Turn.new(guess, current_card)
+    @deck.cards.shift
     @turns << new_turn
     # @deck.cards.rotate.map do |card|
     #   card
