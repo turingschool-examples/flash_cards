@@ -72,8 +72,8 @@ def start(filename)
 end
 
 loop do
-  file_countries_capitals = './csv/csv_countries_capitals.csv'
-  file_states_capitals = './csv/csv_us_states_capitals.csv'
+  file_countries_capitals = './lib/csv_countries_capitals.csv'
+  file_states_capitals = './lib/csv_us_states_capitals.csv'
   puts ""
   puts "Flashcards for countries and capitals of the world - 1"
   puts "Flashcards for states and capitals of the US - 2"
