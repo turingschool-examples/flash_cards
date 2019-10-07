@@ -49,4 +49,3 @@ puts "GoT Trivia - #{@round.percent_correct_by_category(:Got_Trivia)}%"
 
 
 
-
