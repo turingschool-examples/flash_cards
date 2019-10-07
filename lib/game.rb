@@ -82,7 +82,7 @@ loop do
     puts new_card.question
     answer = gets.chomp
 
-    new_round.take_turn(answer, new_card)
+    puts new_round.take_turn(answer, new_card)
 
     puts "You have answered #{(new_round.turns).to_s} questions, out of #{(new_round.total.to_s)}."
     puts ""

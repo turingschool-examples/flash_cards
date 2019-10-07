@@ -32,7 +32,7 @@ class Round
 
     @turns += 1
     @deck.remove_from_deck(card)
-    puts turn.feedback
+    turn.feedback
   end
 
   def get_score_by_category
