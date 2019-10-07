@@ -6,6 +6,7 @@ class Round
 
     def turns
       turns = []
+      turns << @turn.new_turn
     end
 
 
@@ -15,7 +16,7 @@ class Round
 
 
     def take_turn
-      turn.new_turn
+      @turn.new_turn
     end
 
 
