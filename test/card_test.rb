@@ -1,4 +1,4 @@
-require 'minitest/autorun'
+atrequire 'minitest/autorun'
 require 'minitest/pride'
 require './lib/card'
 

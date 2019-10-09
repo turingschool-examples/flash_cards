@@ -30,10 +30,7 @@ class RoundTest < Minitest::Test
 
   def test_current_card_deck
     assert_equal @card_1, @round.current_card
-  end
-  def test_it_can_take_a_turn
-
-  end
+  #should have taken another turn to check that it does cycle through the deck end
 
   def test_if_it_takes_a_turn
    new_turn = @round.take_turn("Juneau")
