@@ -18,7 +18,7 @@ def start
     puts "Welcome! You're playing with #{@deck.cards.size} cards."
     puts "______________________________________"
 
-    while @count < @deck.cards.size
+    while @count < @deck.cards.size #could have done an iteration with by_index instead of while 
       puts "This is card number #{@round.turns.size + 1} out of #{@deck.cards.size}."
       puts "Question #{@deck.cards.first.question}?"
 
