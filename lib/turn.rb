@@ -7,4 +7,8 @@ class Turn
     @card = card
   end
 
+  def correct?
+    true if @guess = card.answer
+  end
+
 end
