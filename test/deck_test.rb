@@ -13,7 +13,7 @@ class DeckTest < Minitest::Test
     @card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
     ])
   end
-  
+
   def test_it_exists
     assert_instance_of Deck, @deck
   end
@@ -21,5 +21,7 @@ class DeckTest < Minitest::Test
   def test_it_can_have_cards
     assert_equal [@card_1, @card_2, @card_3], @deck.cards
   end
+
+  
 
 end
