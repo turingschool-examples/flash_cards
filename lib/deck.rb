@@ -7,7 +7,7 @@ class Deck
   end
 
   def cards
-
+    @cards << Card.new()
   end
 
   def count
