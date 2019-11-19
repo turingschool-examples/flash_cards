@@ -18,9 +18,9 @@ class Turn
 
   def correct?
     if @string == @card.answer
-      puts "true"
+      return true
     else
-      puts "false"
+      return false
     end
   end
 
