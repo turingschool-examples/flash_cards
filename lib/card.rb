@@ -1,14 +1,14 @@
 class Card
-  attr_reader :query, :answer, :topic
+  attr_reader :question, :answer, :category
 
-  def initialize(query, answer, topic)
-    @query = query
+  def initialize(question, answer, category)
+    @question = question
     @answer = answer
-    @topic = topic
+    @category = category
   end
 
   def question
-    p "#{@query}"
+    p "#{@question}"
   end
 
   def answer
@@ -16,7 +16,7 @@ class Card
   end
 
   def category
-    p @topic
+    p @category
   end
 
 end
