@@ -10,20 +10,16 @@ class Turn
     p "#{@string}"
   end
 
-  def card
-    p "#{card}"
-  end
-
   def correct?
-    if @string.downcase == card.downcase
-      p true
+    if @string == card.answer
+      true
     else
-      p false
+      false
     end
   end
 
   def feedback
-    if @string.downcase == card.downcase
+    if @string == card.answer
       p "Correct!"
     else
       p "Incorrect."
