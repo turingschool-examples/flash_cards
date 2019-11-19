@@ -16,4 +16,10 @@ class Round
     @deck.cards.shift
     result
   end
+
+  def number_correct
+    @turns.count do |turn|
+      turn.guess == turn.card.answer
+    end
+  end
 end

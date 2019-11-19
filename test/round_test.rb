@@ -40,5 +40,10 @@ class RoundTest < Minitest::Test
   def test_number_correct
     @round.take_turn("Juneau")
     assert_equal 1, @round.number_correct
+    @round.take_turn("Mars")
+    assert_equal 2, @round.number_correct
+    #Test for wrong answer.
+    @round.take_turn("West")
+    assert_equal 2, @round.number_correct
   end
 end
