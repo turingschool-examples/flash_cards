@@ -1,6 +1,6 @@
 class Deck
 
-  attr_accessor :cards
+  attr_reader :cards
 
   def initialize(cards)
     @cards = cards
@@ -12,9 +12,10 @@ class Deck
 
   def cards_in_category(category_name)
     @cards.each do |card|
-      if category_name == card.category
+      if card.category == category_name
         "#{card}"
       end
     end
   end
+
 end
