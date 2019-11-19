@@ -9,5 +9,8 @@ class Turn
   def correct?
     if @guess == @card.answer
       true
+    else
+      false
+    end
   end
 end
