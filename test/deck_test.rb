@@ -27,4 +27,9 @@ class DeckTest < Minitest::Test
     assert_equal 3, @deck.count
   end
 
+  def test_it_can_return_cards_based_on_category
+
+    assert_equal [@card_2, @card_3], @deck.cards_in_category(:STEM)
+  end
+
 end
