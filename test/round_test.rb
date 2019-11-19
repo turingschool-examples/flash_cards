@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require_realitive '../lib/card'
+require './lib/card'
 require './lib/turn'
 require './lib/deck'
 require './lib/round'
