@@ -4,6 +4,10 @@
   #1.2 need to assign a variable for attribute 'answer' (Juneau)
   #1.3 need to assign a variable for attribute 'category' (Geography)
 class Card
+#attr_accessor creates getter and setter methods for you
+#https://www.rubyguides.com/2018/11/attr_accessor/
+  attr_accessor(:question, :answer, :category)
+
   def initialize(question, answer, category)
     @question = question
     @answer = answer
@@ -11,6 +15,8 @@ class Card
   end
 
 #Without this portion, it gave me an error message that said 'undefined method'
+#This is because only methods can access instance variables. These are getter methods
+#to 'go get' the information needed.
   def question
     @question
   end
