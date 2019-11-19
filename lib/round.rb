@@ -22,4 +22,14 @@ class Round
       turn.guess == turn.card.answer
     end
   end
+
+  def number_correct_by_category(category)
+    cat_correct = 0.0
+    @turns.each do |turn|
+      if (turn.card.category == category) && turn.correct?
+      cat_correct += 1.0
+      end
+    end
+  cat_correct
+  end
 end
