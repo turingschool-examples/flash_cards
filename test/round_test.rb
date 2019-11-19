@@ -37,5 +37,8 @@ class RoundTest < Minitest::Test
     assert_equal @card_2, @round.current_card
   end
 
-
+  def test_number_correct
+    @round.take_turn("Juneau")
+    assert_equal 1, @round.number_correct
+  end
 end
