@@ -32,4 +32,8 @@ class Round
     end
   cat_correct
   end
+
+  def percent_correct
+    (number_correct.to_f / turns.count.to_f * 100.00).round(2)
+  end
 end
