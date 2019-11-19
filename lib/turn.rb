@@ -1,19 +1,11 @@
 class Turn
 
-  attr_accessor :string
+  attr_accessor :guess
   attr_reader :card
 
   def initialize(guess, card)
     @guess = guess
     @card = card
-  end
-
-  def guess
-    p @guess
-  end
-
-  def card
-    p @card
   end
 
   def correct?
