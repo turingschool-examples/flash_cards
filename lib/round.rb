@@ -37,8 +37,15 @@ class Round
     (number_correct.to_f / turns.count.to_f * 100.00).round(2)
   end
 
-  def percent_correct_by_category(category)
+  def total_cards_per_category(category)
+    total_cards = @turns.find_all do |turn|
+      turn.card.category == category
+    end
+    total_cards.count
+  end
 
+  def percent_correct_by_category(category)
+    (number_correct_by_category(category) / (total_cards_per_category(category)) * 100).to_f.round(2)
   end
 
 end
