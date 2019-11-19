@@ -10,5 +10,10 @@ class Round
     @deck.cards.first
   end
 
-  
+  def take_turn(guess)
+    new_turn = Turn.new(guess, current_card)
+    result = @turns << new_turn
+    @deck.cards.shift
+    result
+  end
 end
