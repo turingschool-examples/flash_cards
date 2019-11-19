@@ -11,7 +11,7 @@ class Turn
   end
 
   def correct?
-    if @string == card.answer
+    if @string.downcase == card.answer.downcase
       true
     else
       false
@@ -19,7 +19,7 @@ class Turn
   end
 
   def feedback
-    if @string == card.answer
+    if @string.downcase == card.answer.downcase
       p "Correct!"
     else
       p "Incorrect."
