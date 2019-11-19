@@ -32,8 +32,8 @@ class TurnTest < Minitest::Test
 
   def test_guess_is_correct
 
-    assert_equal @turn_1.guess == @card_1.answer, @turn_1.correct?
-    assert_equal @turn_2.guess == @card_2.answer, @turn_2.correct?
+    assert_equal true, @turn_1.correct?
+    assert_equal false, @turn_2.correct?
   end
 
   def test_it_gives_feedback
