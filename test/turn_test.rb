@@ -23,4 +23,8 @@ class TurnTest < Minitest::Test
     assert @turn.correct?
   end
 
+  def test_feedback
+    assert_equal "Correct!", @turn.feedback
+  end
+
 end
