@@ -23,7 +23,6 @@ class CardTest < Minitest::Test
   end
 
   def test_it_has_a_category
-    skip
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
     assert_equal :Geography, card.category
