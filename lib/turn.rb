@@ -13,4 +13,12 @@ class Turn
       false
     end
   end
+
+  def feedback
+    if correct? == true
+      "Correct!"
+    else
+      "Try again!"
+    end
+  end
 end
