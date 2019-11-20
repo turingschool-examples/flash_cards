@@ -1,7 +1,7 @@
 #class file for Round class
 
 class Round
-  attr_accessor :deck, :turns, :current_card_number, :number_correct, :number_correct_per_category, :number_asked_per_category
+  attr_reader :deck, :turns, :current_card_number, :number_correct, :number_correct_per_category, :number_asked_per_category
 
   def initialize(deck)
     @deck = deck
