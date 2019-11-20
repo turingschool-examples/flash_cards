@@ -19,4 +19,9 @@ class RoundTest < Minitest::Test
     assert_instance_of Round, @round
   end
 
+  def test_it_initializes_with_deck_instance
+
+    assert_instance_of Deck, @round.deck
+  end
+
 end
