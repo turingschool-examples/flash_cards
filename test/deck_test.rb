@@ -4,6 +4,7 @@ require './lib/deck'
 require './lib/card'
 
 class DeckTest < Minitest::Test
+
   def setup
     @card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     @card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
@@ -30,6 +31,11 @@ class DeckTest < Minitest::Test
   def test_it_can_return_cards_based_on_category
 
     assert_equal [@card_2, @card_3], @deck.cards_in_category(:STEM)
+  end
+
+  def test_it_returns_no_card_if_category_is_missing
+
+    assert_equal [], @deck.cards_in_category("Pop culture")
   end
 
 end
