@@ -12,6 +12,8 @@ class Round
     @turns = []
     @total_correct = 0
     @current_card_number = 0
+    @num_correct_by_cat = Hash.new(0)
+    @num_asked_per_cat = Hash.new(0)
   end
 
   def current_card
@@ -22,6 +24,8 @@ class Round
     new_turn = Turn.new(guess, current_card)
     turns << new_turn
 
+    @current_card_number += 1
+    if 
 
 
     new_turn
