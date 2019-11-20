@@ -8,6 +8,7 @@ require './lib/round'
 class RoundTest < Minitest::Test
 
   def setup
+    #refactor opp
     @round = Round.new(
     @deck = Deck.new([
     @card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography),
@@ -29,13 +30,17 @@ class RoundTest < Minitest::Test
     assert_equal [], @round.turns
   end
 
-  def test_current_card
+  def test_current_card_can_change
     assert_equal @card_1, @round.current_card
+    @round.take_turn("Juneau")
+    assert_equal @card_2, @round.current_card
   end
 
   def test_take_turn
-    assert_equal @round.turns, @round.take_turn("Juneau")
-    assert_equal @card_2, @round.current_card
+    turn = @round.take_turn("Juneau")
+    assert_instance_of Turn, turn
+    assert_equal "Juneau", turn.guess
+    assert_equal 1, @round.turns.count
   end
 
   def test_number_correct
