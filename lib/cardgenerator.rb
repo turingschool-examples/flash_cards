@@ -8,6 +8,6 @@ class CardGenerator
 
 
 end
-FILE class for ruby
+#there is a FILE class for ruby
 
-file i/o is another option
+# file i/o is another option

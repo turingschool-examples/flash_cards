@@ -21,15 +21,18 @@ def start
   puts "Welcome! You're playing with #{@round.deck.count} cards."
   until @round.turns.count == 4
     puts "-" *50
-    #need to try a different method for cunt here
     puts "This is card number #{@round.turns.count + 1} out of 4."
     puts "Question: #{@round.current_card.question}"
     puts "-" *50
-    puts "Type your answer below:"
+    puts "Type your answer below the line:"
     puts "-" *50
     answer = gets.chomp.capitalize
     @round.take_turn(answer)
-    puts "#{@round.turns.last.feedback}"
+    if @round.turns.last.feedback == "Incorrect!"
+      puts "#{@round.turns.last.feedback} The correct answer is: #{@round.turns.last.card.answer}"
+    elsif @round.turns.last.feedback == "Correct!"
+      puts "#{@round.turns.last.feedback}"
+    end
   end
 
   def results
