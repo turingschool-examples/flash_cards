@@ -25,6 +25,7 @@ class RoundTest < MiniTest::Test
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
     round = Round.new(deck)
+    require "pry"; binding.pry
 
     assert_equal Deck , round.deck
   end
