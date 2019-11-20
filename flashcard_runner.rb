@@ -26,8 +26,9 @@ def start(round)
   end
 
   puts "****** Game over! ******"
+  puts "You had #{round.number_correct} correct answers out of #{round.deck.count} for a total score of #{round.percent_correct.to_i}%"
   round.number_asked_per_category.each_key do |key|
-    puts "#{key.to_s} - #{round.percent_correct_by_category(key)}% correct"
+    puts "#{key.to_s} - #{round.percent_correct_by_category(key).to_i}% correct"
   end
 
 end
