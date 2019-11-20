@@ -29,6 +29,3 @@ class Card
     @category
   end
 end
-
-
-#2 need to create a class called turn
