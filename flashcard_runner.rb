@@ -16,20 +16,23 @@ require './lib/round'
 
 
 def start
+  puts "-" *50
   puts "Welcome! You're playing with #{@round.deck.count} cards."
   until @round.turns.count == 4
-    puts "-------------------------------------------------"
+    puts "-" *50
     #need to try a different method for cunt here
     puts "This is card number #{@round.turns.count + 1} out of 4."
     puts "Question: #{@round.current_card.question}"
+    puts "-" *50
     puts "Type your answer below:"
+    puts "-" *50
     answer = gets.chomp.capitalize
     @round.take_turn(answer)
     puts "#{@round.turns.last.feedback}"
   end
 
   def results
-    puts "****** Game over! ******" 
+    puts "****** Game Over! ******"
     puts "You had #{@round.number_correct} correct guesses out of #{@round.turns.count} for a total score of #{@round.percent_correct}%."
     puts "Geography - #{@round.percent_correct_by_category(:Geography)}% correct"
     puts "STEM - #{@round.percent_correct_by_category(:STEM)}% correct"
