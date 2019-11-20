@@ -29,4 +29,9 @@ class RoundTest < Minitest::Test
     assert_equal [], @round.turns
   end
 
+  def test_current_card_returns_initial_card_in_deck
+
+    assert_equal @card_1, @round.current_card
+  end
+
 end
