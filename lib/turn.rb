@@ -14,15 +14,17 @@ class Turn
     @answer = card.answer #call up the answer???
   end
 
-  def guess #not working: porque?
-    puts @string
+  def guess #not working: porque?. Fixed it. It was because of 'puts' which returns nil
+    #if your want to print it, use print or as it is it will return
+    @string #last line of your code will automatically be returned
   end
 
-  def card # not working: porque?
-    puts @card
+  def card # not working: porque? Fixed it.
+    @card
   end
   def correct?
-    if @guess == @card.answer
+    if @guess == @card.answer #returned false. the guess prints "Juneau" and so does the answer,
+      #but when I run turn.correct? it prints false
       p true
     elsif @guess != @card.answer
       p false
