@@ -2,6 +2,7 @@ require 'minitest'
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/turn'
+require './lib/card'
 
 class TurnTest < Minitest::Test
 
@@ -13,76 +14,76 @@ class TurnTest < Minitest::Test
   end
 
   def test_it_turns
-    turn = Turn.new("Juneau", card)
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Juneau", card)
 
     assert_instance_of Turn, turn
   end
 
   def test_it_has_a_card
-    turn = Turn.new("Juneau", card)
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Juneau", card)
 
-    assert_instance_of  card, turn.card
+    assert_instance_of  Card, turn.card
   end
 
   def test_it_has_a_guess
-    turn = Turn.new("Juneau", card)
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Juneau", card)
 
     assert_equal "Juneau", turn.guess
   end
 
   def test_is_it_correct?
-    turn = Turn.new("Juneau", card)
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Juneau", card)
 
     assert true, turn.correct?
   end
 
   def test_feedback_provided
-    turn = Turn.new("Juneau", card)
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Juneau", card)
 
     assert_equal "Correct!", turn.feedback
   end
 
-  def test_it_exists
+  def test_it_exists_neg
     card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
     turn = Turn.new("Saturn", card)
 
     assert_instance_of Card, card
   end
 
-  def test_it_turns
+  def test_it_turns_neg
     card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
     turn = Turn.new("Saturn", card)
 
     assert_instance_of Turn, turn
   end
 
-  def test_it_has_a_card
+  def test_it_has_a_card_neg
     card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
     turn = Turn.new("Saturn", card)
 
     assert_instance_of Card, turn.card
   end
 
-  def test_it_has_a_guess
+  def test_it_has_a_guess_neg
     card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
     turn = Turn.new("Saturn", card)
 
     assert_equal "Saturn", turn.guess
   end
 
-  def test_is_it_correct?
+  def test_is_it_negcorrect?
     card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
     turn = Turn.new("Saturn", card)
 
     assert_equal false, turn.correct?
   end
 
-  def test_feedback_provided
+  def test_feedback_provided_neg
     card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
     turn = Turn.new("Saturn", card)
 

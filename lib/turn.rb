@@ -4,9 +4,10 @@
 #   1.3 method that returns the card
 #   1.4 method that returns a boolean (true or false)
 #   1.5 feedback method returns "Correct!" or "Incorrect."
+require './lib/card'
 
 class Turn
-  attr_accessor(:string, :card, :answer)
+  attr_reader(:string, :card, :answer)
 
   def initialize (string, card)
     @string = string
@@ -23,10 +24,10 @@ class Turn
     @card
   end
   def correct?
-    if @guess == @card.answer #returned false. the guess prints "Juneau" and so does the answer,
-      #but when I run turn.correct? it prints false
+
+    if @string == @card.answer #returned false. Fixed it.
       p true
-    elsif @guess != @card.answer
+    elsif @string != @card.answer
       p false
     end
   end

@@ -6,7 +6,7 @@
 class Card
 #attr_accessor creates getter and setter methods for you
 #https://www.rubyguides.com/2018/11/attr_accessor/
-  attr_accessor(:question, :answer, :category)
+  attr_reader(:question, :answer, :category)
 
   def initialize(question, answer, category)
     @question = question
