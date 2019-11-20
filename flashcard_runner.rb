@@ -26,6 +26,9 @@ def start(round)
   end
 
   puts "****** Game over! ******"
+  round.number_asked_per_category.each_key do |key|
+    puts "#{key.to_s} - #{round.percent_correct_by_category(key)}% correct"
+  end
 
 end
 
