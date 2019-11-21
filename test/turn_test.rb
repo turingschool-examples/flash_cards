@@ -5,9 +5,11 @@ require './lib/turn'
 require 'pry'
 
 class TurnTest < Minitest::Test
-  def test_it_exists
+  def test_turn_exists
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
     turn = Turn.new("Juneau", card)
+    turn = Turn.new("Saturn", card)
 
   assert_instance_of Turn, turn
 
