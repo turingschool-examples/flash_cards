@@ -39,4 +39,8 @@ class Round
     (@total_correct.to_f / @turns.count.to_f) * 100
   end
 
+  def percent_correct_by_cat(category)
+    (@num_correct_by_cat[category].to_f / @num_asked_per_cat[category].to_f) * 100
+  end
+
 end
