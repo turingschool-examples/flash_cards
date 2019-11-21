@@ -10,7 +10,7 @@ class DeckTest < Minitest::Test
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
     cards = [card_1, card_2, card_3]
-
+#require "pry"; binding.pry
     assert_instance_of Card, card_1
   end
 
@@ -19,7 +19,7 @@ class DeckTest < Minitest::Test
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
     cards = [card_1, card_2, card_3]
-
+#require "pry"; binding.pry
     assert_equal [card_1, card_2, card_3], cards
   end
 
@@ -40,7 +40,7 @@ class DeckTest < Minitest::Test
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
     deck.cards
-
+#require "pry"; binding.pry
     assert_equal [card_1, card_2, card_3], deck.cards
   end
 
@@ -51,7 +51,7 @@ class DeckTest < Minitest::Test
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
     deck.count
-
+#require "pry"; binding.pry
     assert_equal 3, deck.count
   end
 
@@ -62,33 +62,7 @@ class DeckTest < Minitest::Test
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
     deck.cards_in_category(:STEM)
-
+require "pry"; binding.pry
     assert_equal [card_2, card_3], deck.cards_in_category(:STEM)
   end
-
-
-
-
 end
-
-
-
-#   def number_of_cards_in_deck
-#     skip
-#     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-#     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
-#     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-#     # turn = Turn.new("Juneau", card)
-#     cards = [card_1, card_2, card_3]
-#     deck = Deck.new(cards)
-#     deck.count
-#
-#     assert_equal 3, deck.count
-#   end
-#
-#   def cards_in_category
-#
-#
-#
-#
-# end
