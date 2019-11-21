@@ -15,7 +15,20 @@ class DeckTest < MiniTest::Test
     @round = Round.new(@deck)
   end
 
+  def test_deck_exists
+    assert_instance_of Deck, @deck
+  end
+
+  def test_deck_correct
+    # require "pry"; binding.pry
+    assert_equal @deck, @round.deck
+  end
+
   def test_round_exists
     assert_instance_of Round, @round
+  end
+
+  def test_turns_correct
+    
   end
 end
