@@ -29,6 +29,6 @@ class DeckTest < MiniTest::Test
   end
 
   def test_turns_correct
-    
+    assert_equal [], @round.turns
   end
 end
