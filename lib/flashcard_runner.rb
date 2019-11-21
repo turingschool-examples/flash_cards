@@ -1,0 +1,8 @@
+card1 = Card.new("")
+card2 = Card.new("")
+card3 = Card.new("")
+card4 = Card.new("")
+card5 = Card.new("")
+card6 = Card.new("")
+card7 = Card.new("")
+card8 = Card.new("")
