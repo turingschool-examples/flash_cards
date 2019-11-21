@@ -2,6 +2,7 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/card'
 require './lib/deck'
+require './lib/card_generator'
 
 class DeckTest < MiniTest::Test
   def test_it_exists
@@ -44,4 +45,12 @@ class DeckTest < MiniTest::Test
 
     assert_equal [card_2, card_3], deck.cards_in_category(:STEM)
   end
+
+  def test_card_generator_creates_and_passes_into_deck
+    generator = CardGenerator.new
+    deck = Deck.new(generator.generate_cards)
+
+    assert_instance_of Card, deck.cards[0]
+  end
+
 end
