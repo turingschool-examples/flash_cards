@@ -84,3 +84,4 @@ class DeckTest < Minitest::Test
 
     assert_equal [], deck.cards_in_category("Pop Culture")
   end
+end
