@@ -47,4 +47,23 @@ class Round
     (@number_correct_per_category[cat].to_f / @number_asked_per_category[cat].to_f) * 100
   end
 
+  def start
+    puts "Welcome! You're playing with #{@deck.count} cards."
+    puts "----------------------------"
+    until current_card == nil
+      puts "This is card number #{@current_card_number + 1} out of #{@deck.count} cards."
+      puts @deck.cards[@current_card_number].question
+      user_guess = gets.chomp
+      take_turn(user_guess)
+      puts @turns.last.feedback
+    end
+
+    puts "****** Game over! ******"
+    puts "You had #{@number_correct} correct answers out of #{@deck.count} for a total score of #{percent_correct.to_i}%"
+    number_asked_per_category.each_key do |key|
+      puts "#{key.to_s} - #{percent_correct_by_category(key).to_i}% correct"
+    end
+
+  end
+
 end
