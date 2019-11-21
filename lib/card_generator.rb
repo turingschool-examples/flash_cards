@@ -20,6 +20,7 @@ class CardGenerator
       # p card_array
       # require "pry"; binding.pry
     end
+    @card_array
   end
 
 end
