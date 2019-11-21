@@ -16,7 +16,7 @@ class Turn
   end
 
   def correct?
-    @user_guess.downcase == @card.answer.downcase
+    @user_guess.strip.downcase == @card.answer.downcase
   end
 
   def feedback
