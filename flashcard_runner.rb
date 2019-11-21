@@ -4,11 +4,12 @@ require './lib/card'
 require './lib/turn'
 require './lib/deck'
 require './lib/round'
+require './lib/cardgenerator'
 
 
   @round = Round.new(
   @deck = Deck.new([
-  # @cards = CardGenerator.newCardGenerator.new('.data/cards.txt').cards
+  # @cards = CardGenerator.newCardGenerator.new('./data/cards.txt').cards
   @card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography),
   @card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM),
   @card_3 = Card.new("What planet is furthest from the sun?", "Uranus", :STEM),
