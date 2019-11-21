@@ -1,13 +1,17 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/card'
+require 'pry'
 
 class CardTest < Minitest::Test
 
   def test_card_exists
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card2 = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
 
-    assert_instance_of Card, card
+    assert_instance_of Card, card1
+    assert_instance_of Card, card2
+    binding.pry
   end
 
   def test_it_has_a_question
