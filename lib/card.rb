@@ -13,7 +13,7 @@ end
 #  @question
 # end
 
-card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+#card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
 # require "pry"; binding.pry
-p card.question
+#p card.question
