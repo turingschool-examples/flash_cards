@@ -50,6 +50,8 @@ class Round
   def start
     puts "Welcome! You're playing with #{@deck.count} cards."
     puts "----------------------------"
+
+    #Ask each question in deck until no cards remain
     until current_card == nil
       puts "This is card number #{@current_card_number + 1} out of #{@deck.count} cards."
       puts @deck.cards[@current_card_number].question
@@ -58,8 +60,10 @@ class Round
       puts @turns.last.feedback
     end
 
+    #Display results
     puts "****** Game over! ******"
     puts "You had #{@number_correct} correct answers out of #{@deck.count} for a total score of #{percent_correct.to_i}%"
+    #Cycle through each card category and display percentage
     number_asked_per_category.each_key do |key|
       puts "#{key.to_s} - #{percent_correct_by_category(key).to_i}% correct"
     end
