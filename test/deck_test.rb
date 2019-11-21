@@ -5,7 +5,7 @@ require './lib/turn'
 require './lib/deck'
 
 class DeckTest < Minitest::Test
-
+#
   def setup
     @deck = Deck.new([
     @card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography),
