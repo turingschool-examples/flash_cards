@@ -14,3 +14,8 @@ class DeckTest < MiniTest::Test
     @deck = Deck.new(@cards)
     @round = Round.new(@deck)
   end
+
+  def test_round_exists
+    assert_instance_of Round, @round
+  end
+end
