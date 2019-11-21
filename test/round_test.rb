@@ -31,4 +31,8 @@ class DeckTest < MiniTest::Test
   def test_turns_correct
     assert_equal [], @round.turns
   end
+
+  def test_current_card_works
+    assert_equal @card1, @round.current_card 
+  end
 end
