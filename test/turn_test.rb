@@ -7,9 +7,7 @@ require 'pry'
 class TurnTest < Minitest::Test
   def test_turn_exists
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
     turn = Turn.new("Juneau", card)
-    turn = Turn.new("Saturn", card)
 
   assert_instance_of Turn, turn
 
@@ -36,10 +34,25 @@ class TurnTest < Minitest::Test
     assert_equal true, turn.correct?
   end
 
-  def test_feeback
+  def test_is_guess_correct_incorrect_guess
+    card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+    turn = Turn.new("Saturn", card)
+
+    assert_equal false, turn.correct?
+  end
+
+  def test_correct_feedback
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
 
     assert_equal "Correct!", turn.feedback
+  end
+
+   def test_incorrect_feedback
+    card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+    turn = Turn.new("Saturn", card)
+
+    assert_equal "Incorrect.", turn.feedback
+
   end
 end
