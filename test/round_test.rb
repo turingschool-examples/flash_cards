@@ -13,6 +13,7 @@ class DeckTest < MiniTest::Test
     @cards = [@card1, @card2, @card3]
     @deck = Deck.new(@cards)
     @round = Round.new(@deck)
+    @turn1 = Turn.new("Juneau", @card1)
   end
 
   def test_deck_exists
@@ -33,6 +34,15 @@ class DeckTest < MiniTest::Test
   end
 
   def test_current_card_works
-    assert_equal @card1, @round.current_card 
+    assert_equal @card1, @round.current_card
   end
+
+  def test_take_turn
+    assert_equal [], @round.turns
+
+    @round.take_turn
+    require "pry"; binding.pry
+    assert_equal [@card1], @round.turns
+  end
+
 end
