@@ -10,6 +10,7 @@ class CardTest < Minitest::Test
     assert_instance_of Card, card
   end
 
+
   def test_it_has_a_question
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
