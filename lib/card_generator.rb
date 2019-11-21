@@ -2,25 +2,20 @@
 require './lib/card'
 
 class CardGenerator
-  attr_reader :card_array
+  attr_reader :cards
 
-  def initialize
-    @card_array = []
+  def initialize(txt_file)
+    @cards = generate_cards(txt_file)
   end
 
-  def generate_cards
-    File.open('cards.txt').each do |line|
-      line_array = line.split(',')
-      line_array.each do |section|
-        section.strip!
-      end
-      # p line_array
+  def generate_cards(txt_file)
+    card_array = []
+    File.open(txt_file).each do |line|
+      line_array = line.strip.split(',')
       card = Card.new(line_array[0], line_array[1], line_array[2])
-      @card_array.push(card)
-      # p card_array
-      # require "pry"; binding.pry
+      card_array.push(card)
     end
-    @card_array
+    card_array
   end
 
 end

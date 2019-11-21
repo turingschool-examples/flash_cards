@@ -7,23 +7,22 @@ require './lib/card_generator'
 class CardGeneratorTest < Minitest::Test
 
   def test_it_exists
-    generator = CardGenerator.new
+    generator = CardGenerator.new("cards.txt")
 
     assert_instance_of CardGenerator, generator
   end
 
   def test_starts_with_empty_array
-    generator = CardGenerator.new
+    generator = CardGenerator.new('cards.txt')
 
-    assert_equal [], generator.card_array
+    refute nil, generator.cards
   end
 
   def test_can_generate_cards
-    generator = CardGenerator.new
+    generator = CardGenerator.new("cards.txt")
 
-    generator.generate_cards
 
-    assert_instance_of Card, generator.card_array[0]
+    assert_instance_of Card, generator.cards[0]
   end
 
 end
