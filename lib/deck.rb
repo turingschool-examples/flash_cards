@@ -7,6 +7,8 @@ class Deck
 
   end
 
-  number_of_cards = cards.count()
+  def count
+  number_of_deck = deck.count()
+end
 
 end

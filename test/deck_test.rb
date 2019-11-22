@@ -22,7 +22,7 @@ class DeckTest < MiniTest::Test
   binding.pry
 
   assert_instance_of Deck, deck
-end 
+end
 
   def count_number_of_cards_in_deck
 
@@ -33,6 +33,9 @@ end
                        clockwise from due north?", "North north west", :STEM)
 
   cards = [card_1, card_2, card_3]
+
+  deck = cards
+  binding.pry
 
   assert_equal 3, deck.count
   end
