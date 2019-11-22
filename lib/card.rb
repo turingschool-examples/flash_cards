@@ -7,6 +7,3 @@ class Card
     @category = category
   end
 end
-
-
-p Card
