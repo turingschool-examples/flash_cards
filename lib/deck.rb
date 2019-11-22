@@ -17,13 +17,4 @@ class Deck
     new_array
   end
 
-
 end
-
-
-
-# def cards_in_category(category)
-#   @cards.find_all do |cards|
-#     cards.category == category
-#   end
-# end
