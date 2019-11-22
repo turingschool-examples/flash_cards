@@ -12,31 +12,34 @@ class DeckTest < Minitest::Test
     @cards = [@card_1, @card_2, @card_3]
   end
 
-  def test_it_exists #pass
+  def test_it_exists #passed
     assert_instance_of Card, @card_1
     assert_instance_of Card, @card_2
     assert_instance_of Card, @card_3
   end
 
-  def test_it_has_a_deck #pass
+  def test_it_has_a_deck #passed
     deck = Deck.new(@cards)
 
     assert_instance_of Deck, deck
   end
 
-  def test_cards_in_the_deck #pass
+  def test_cards_in_the_deck #passed
     deck = Deck.new(@cards)
 
     assert_equal @cards, deck.cards
   end
 
-  # def test_number_of_cards_in_deck
-  #   deck = Deck.new(@cards)
-  #
-  #   assert_equal 3, deck.count
-  # end
+  def test_count_of_cards_in_deck #passed
+    deck = Deck.new(@cards)
 
-  # def test_cards_in_category
-  # end
+    assert_equal 3, deck.count
+  end
+
+  def test_cards_in_each_category
+    deck = Deck.new(@cards)
+
+    assert_equal [@card_2, @card3], deck.cards_in_category(:STEM)
+  end
 
 end
