@@ -58,6 +58,6 @@ class DeckTest < MiniTest::Test
   end
 
   def test_correct?
-    
+    assert_equal @turn1.guess, @card1.answer 
   end
 end

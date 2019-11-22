@@ -26,8 +26,10 @@ class Round
     @my_turn
   end
 
-  def class
-    
+  def correct?
+    if @my_turn.guess == new_card.answer
+      true
+    end
   end
 
 end
