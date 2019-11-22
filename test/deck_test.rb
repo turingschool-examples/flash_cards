@@ -12,16 +12,31 @@ class DeckTest < Minitest::Test
     @cards = [@card_1, @card_2, @card_3]
   end
 
-  def test_it_exists
+  def test_it_exists #pass
     assert_instance_of Card, @card_1
     assert_instance_of Card, @card_2
     assert_instance_of Card, @card_3
   end
 
-  def test_it_has_a_deck
+  def test_it_has_a_deck #pass
     deck = Deck.new(@cards)
 
     assert_instance_of Deck, deck
   end
+
+  def test_cards_in_the_deck #pass
+    deck = Deck.new(@cards)
+
+    assert_equal @cards, deck.cards
+  end
+
+  # def test_number_of_cards_in_deck
+  #   deck = Deck.new(@cards)
+  #
+  #   assert_equal 3, deck.count
+  # end
+
+  # def test_cards_in_category
+  # end
 
 end
