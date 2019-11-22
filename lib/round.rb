@@ -11,12 +11,23 @@ class Round
   end
 
   def take_turn(guess)
-
-
-    @turns << current_card
+    new_card = current_card
 
 
 
+    # @turns.shift
+
+    @my_turn = Turn.new(guess, new_card)
+
+    @turns << @my_turn
+    # require "pry"; binding.pry
+    @deck.cards.shift
+
+    @my_turn
+  end
+
+  def class
+    
   end
 
 end

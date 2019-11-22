@@ -44,13 +44,20 @@ class DeckTest < MiniTest::Test
 
     @turn1 = @round.take_turn("Juneau")
 
-    require "pry"; binding.pry
+    # require "pry"; binding.pry
 
-    assert_equal @turn1, @round.turns
+    assert_equal [@turn1], @round.turns
 
-    require "pry"; binding.pry
+    # require "pry"; binding.pry
 
     assert_equal @card2, @round.current_card
   end
 
+  def test_class
+    assert_equal @turn1.class, Turn
+  end
+
+  def test_correct?
+    
+  end
 end
