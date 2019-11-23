@@ -27,5 +27,5 @@ class DeckTest < MiniTest::Test
 
   def test_cards_in_category
     assert_equal [@card2, @card3], @deck.cards_in_category(:STEM)
-  require "pry"; binding.pry
+  # require "pry"; binding.pry
 end

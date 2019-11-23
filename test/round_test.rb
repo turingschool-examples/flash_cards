@@ -58,6 +58,36 @@ class DeckTest < MiniTest::Test
   end
 
   def test_correct?
-    assert_equal @turn1.guess, @card1.answer 
+    assert_equal @turn1.guess, @card1.answer
+  end
+
+  def test_number_correct
+    @turn1 = @round.take_turn("Juneau")
+    # require "pry"; binding.pry
+    assert_equal 1, @round.si
+  end
+
+  def test_number_correct_by_category
+    @turn1 = @round.take_turn("Juneau")
+
+    assert_equal 1, @round.number_correct_by_category(:Geography)
+
+    @turn2 = @round.take_turn("Venus")
+# require "pry"; binding.pry
+    assert_equal 0, @round.number_correct_by_category(:STEM)
+  end
+
+  def test_percent_correct
+    @turn1 = @round.take_turn("Juneau")
+    @turn2 = @round.take_turn("Venus")
+# require "pry"; binding.pry
+    assert_equal 50.0, @round.percent_correct
+  end
+
+  def test_percent_correct_by_category
+    @turn1 = @round.take_turn("Juneau")
+    @turn2 = @round.take_turn("Venus")
+
+    assert_equal 100.0, @round.percent_correct_by_category(:Geography)
   end
 end

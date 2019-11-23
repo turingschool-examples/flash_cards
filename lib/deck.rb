@@ -16,7 +16,7 @@ class Deck
     @cards.find_all do |card|
       #require "pry"; binding.pry
       category == card.category
-
+# require "pry"; binding.pry
     end
   end
 
