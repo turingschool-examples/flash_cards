@@ -39,7 +39,6 @@ class DeckTest < Minitest::Test
   def test_cards_in_each_category
     deck = Deck.new(@cards)
 
-    assert_equal [@card_2, @card3], deck.cards_in_category(:STEM)
+    assert_equal [@card_2, @card_3], deck.cards_in_category(:STEM)
   end
-
 end
