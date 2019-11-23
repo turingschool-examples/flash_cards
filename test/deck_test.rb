@@ -10,9 +10,9 @@ class DeckTest < Minitest::Test
     turn = Turn.new("Juneau", card)
     deck = Deck.new(cards)
 
-
     assert_instance_of Deck, deck
   end
 
+  def 
 
-  
+end

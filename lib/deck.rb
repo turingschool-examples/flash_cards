@@ -1,7 +1,9 @@
-require './lib/card'
+require_relative '../lib/card'
 
 class Deck
   attr_reader :cards
+
+  cards_in_category(:STEM) = []
 
   def initialize(cards)
     @cards = cards
@@ -15,15 +17,13 @@ class Deck
     @cards.count
   end
 
-  def cards_in_category(:STEM)
-    @category = :STEM?
+  def cards_in_category
+     cards.find_all do |stem_cat|
+       stem_cat == @category.include?(":STEM")
+       cards_in_category(:STEM) << stem_cat
+     end
   end
+ p cards_in_category(:STEM)
 
-  def cards_in_category(@category)
-    cards.include? ":Geography"
-  end
 
-  def cards_in_category()
-    cards.include? "Pop Culture"
-  end
 end
