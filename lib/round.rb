@@ -13,12 +13,16 @@ class Round
 
   def take_turn(guess)
     turn = Turn.new(guess, current_card)
-    old_card = @deck.cards.shift
+    # instantiate a new turn
     turns << turn
+    # push turn into turns array
+    old_card = @deck.cards.shift
+    # move old card (first element) and destroys it
     @deck.cards.push(old_card)
+    # move the old card to end of deck array
     turn
   end
-    
+
   def number_correct
     correct = 0
     @turns.each do |turn|
@@ -29,5 +33,17 @@ class Round
     return correct
   end
 
+  def number_correct_by_category(category)
+    correct_by_category = 0
+    @turns.each do |turn|
+      if turn.correct? == true && turn.card.category == category
+        correct += 1
+      end
+    end
+    return correct_by_category
+  end
 
+  def percent_correct_by_category
+    correct_by_category =
+  end
 end
