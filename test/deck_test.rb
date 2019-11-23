@@ -21,6 +21,7 @@ class DeckTest < MiniTest::Test
 
   # deck = cards
 
+
   assert_instance_of Deck, deck
 
 end

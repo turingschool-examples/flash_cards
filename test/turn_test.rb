@@ -8,7 +8,7 @@ class TurnTest < Minitest::Test
   def test_turn_exists
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
-binding.pry
+
   assert_instance_of Turn, turn
 
   end
