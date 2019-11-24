@@ -1,4 +1,5 @@
 require './lib/deck'
+require './lib/turn'
 
 class Round
   attr_reader :deck, :turns
@@ -24,12 +25,24 @@ class Round
     #supposed to return a turn object, and in that turn object, should have current card
     new_turn = Turn.new(user_guess, current_card)
     @turns << new_turn
+    @deck.cards.rotate
     new_turn
 
   end
 
   def number_correct
+    turn_correct = 0
 
+     @turns.each do |turn|
+       if turn.correct?
+         turn_correct += 1
+         require "pry"; binding.pry
+       end
+     end
+    cards_correct = 0 + turn_correct
+    require "pry"; binding.pry
+    cards_correct
+    require "pry"; binding.pry
   end
 
 end
