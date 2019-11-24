@@ -21,6 +21,7 @@ class Round
     @deck.cards.push(old_card)
     # move the old card to end of deck array
     turn
+    # returns turn
   end
 
   def number_correct
@@ -46,7 +47,7 @@ class Round
   def percent_correct
 
     percent = number_correct.to_f/@turns.count.to_f * 100
-    
+
   end
 
   def percent_correct_by_category(category)
@@ -54,6 +55,5 @@ class Round
     percent = number_correct_by_category(category).to_f/@turns.count.to_f * 100
 
   end
-
 
 end
