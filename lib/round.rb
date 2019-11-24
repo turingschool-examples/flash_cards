@@ -50,4 +50,12 @@ class Round
     correct_category
   end
 
+  def percent_correct # number correct divided by total number * 100
+    turn_number = 0
+    @turns.each do |turn|
+      turn_number += 1
+    end
+    (number_correct / turn_number.to_f) * 100
+  end
+
 end
