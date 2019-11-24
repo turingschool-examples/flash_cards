@@ -12,7 +12,6 @@ card_4 = Card.new("What is JLO short for?", "Jennifer Lopez", :Pop_culture)
 cards = [card_1, card_2, card_3, card_4]
 
 @deck = Deck.new(cards)
-
 @round = Round.new(@deck)
 
 def start
@@ -21,26 +20,20 @@ def start
   p "-------------------------------------------------"
 
   i = 0
+
   while i < @deck.cards.count
 
-
-
   p "This is card number #{i + 1} out of #{@deck.cards.count}."
-
   p "Question: #{@round.current_card.question}?"
 
   answer = gets.chomp()
-
   turn = @round.take_turn(answer)
-
   turn.feedback
-
   #p "#{@turn.cards.feedback}"
-
-
   i += 1
+
   end
-  
+
   p "****** Game over! ******"
   p "You had #{@round.number_correct} correct guesses out of 4 for a total score of #{@round.percent_correct}."
 
@@ -51,11 +44,6 @@ def start
   p "#{category} - #{@round.percent_correct_by_category(category)} correct"
 
   end
-
-
-
-
-
 
 end
 
