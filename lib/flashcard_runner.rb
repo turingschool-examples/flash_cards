@@ -40,14 +40,21 @@ def start
 
   i += 1
   end
-
   
-
   p "****** Game over! ******"
   p "You had #{@round.number_correct} correct guesses out of 4 for a total score of #{@round.percent_correct}."
-  p "#{category} - #{@round.percent_correct_by_category(@category)} correct"
-  p "#{category} - #{@round.percent_correct_by_category(@category)} correct"
-  p "#{category} - #{@round.percent_correct_by_category(@category)} correct"
+
+  categories = [:Geography, :STEM, :Pop_culture]
+
+  categories.each do |category|
+
+  p "#{category} - #{@round.percent_correct_by_category(category)} correct"
+
+  end
+
+
+
+
 
 
 end
