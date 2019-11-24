@@ -1,11 +1,17 @@
-require_relative '../lib/card'
-
-
 class Round
-  attr_reader :deck :turns
+  attr_reader :deck, :turns
 
+  def initialize(deck, turns)
+    @deck = deck
+    @turns = turns
+  end
 
-def initialize(deck, turns)
-  @deck = deck
-  @turns = turns
+  def deck
+    @deck
+  end
+
+  def turns
+    @turns
+  end
+
 end
