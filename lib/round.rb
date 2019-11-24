@@ -28,4 +28,8 @@ class Round
 
   end
 
+  def number_correct
+
+  end
+
 end
