@@ -16,7 +16,8 @@ def start
   puts "---" * 22
   puts "This is card number #{@round.turns.count + 1} out of #{@deck.count}."
   puts "Question: #{@deck.cards.first.question}"
-  gets.chomp
+# get user input and check against current card
+  @round.take_turn(gets)
 
 
 end
