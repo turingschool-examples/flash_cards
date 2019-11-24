@@ -21,4 +21,11 @@ class RoundTest < Minitest::Test
    assert_instance_of Round, round
  end
 
+ def test_it_has_no_turns
+   deck = Deck.new(@cards)
+   round = Round.new(deck)
+
+   assert_equal [], round.turns
+ end
+
 end
