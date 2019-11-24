@@ -35,13 +35,13 @@ def start#(round, remove all @ in @round if passing round as argument into start
   end
 
     p "****** Game over! ******"
-    p "You had #{@round.number_correct} correct guesses out of 4 for a total score of #{@round.percent_correct}."
+    p "You had #{@round.number_correct} correct guesses out of #{@deck.cards.count} for a total score of #{@round.percent_correct}%."
 
     categories = [:Geography, :STEM, :Pop_culture]
 
     categories.each do |category|
 
-    p "#{category} - #{@round.percent_correct_by_category(category)} correct"
+    p "#{category} - #{@round.percent_correct_by_category(category)}% correct"
 
   end
 
