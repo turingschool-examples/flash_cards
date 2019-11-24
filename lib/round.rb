@@ -51,11 +51,9 @@ class Round
   end
 
   def percent_correct # number correct divided by total number * 100
-    turn_number = 0
-    @turns.each do |turn|
-      turn_number += 1
-    end
-    (number_correct / turn_number.to_f) * 100
+    #in pry round.turns.count was 2, and round.number_correct was 1
+    (@number_correct.to_f / @turns.count.to_f) * 100 # says undefined method '/' for nilClass
+    #worked in pry but won't work here
   end
 
 end
