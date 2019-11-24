@@ -11,40 +11,40 @@ card_4 = Card.new("What is JLO short for?", "Jennifer Lopez", :Pop_culture)
 
 cards = [card_1, card_2, card_3, card_4]
 
-@deck = Deck.new(cards)
-@round = Round.new(@deck)
+  @deck = Deck.new(cards)
+  @round = Round.new(@deck)
 
-def start
+def start#(round, remove all @ in @round if passing round as argument into start)
 
-  p "Welcome! You're playing with #{@deck.cards.count} cards."
-  p "-------------------------------------------------"
+    p "Welcome! You're playing with #{@deck.cards.count} cards."
+    p "-------------------------------------------------"
 
   i = 0
 
   while i < @deck.cards.count
 
-  p "This is card number #{i + 1} out of #{@deck.cards.count}."
-  p "Question: #{@round.current_card.question}?"
+    p "This is card number #{i + 1} out of #{@deck.cards.count}."
+    p "Question: #{@round.current_card.question}?"
 
-  answer = gets.chomp()
-  turn = @round.take_turn(answer)
-  turn.feedback
-  #p "#{@turn.cards.feedback}"
-  i += 1
+    answer = gets.chomp()
+    turn = @round.take_turn(answer)
+    turn.feedback
+    #p "#{@turn.cards.feedback}"
+    i += 1
 
   end
 
-  p "****** Game over! ******"
-  p "You had #{@round.number_correct} correct guesses out of 4 for a total score of #{@round.percent_correct}."
+    p "****** Game over! ******"
+    p "You had #{@round.number_correct} correct guesses out of 4 for a total score of #{@round.percent_correct}."
 
-  categories = [:Geography, :STEM, :Pop_culture]
+    categories = [:Geography, :STEM, :Pop_culture]
 
-  categories.each do |category|
+    categories.each do |category|
 
-  p "#{category} - #{@round.percent_correct_by_category(category)} correct"
+    p "#{category} - #{@round.percent_correct_by_category(category)} correct"
 
   end
 
 end
 
-start
+start#(round)
