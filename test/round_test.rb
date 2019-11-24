@@ -102,7 +102,7 @@ class RoundTest < Minitest::Test
     deck = Deck.new(cards)
     round = Round.new(deck)
     round.take_turn("Juneau")
-
+require "pry"; binding.pry
     assert_equal 100, round.percent_correct_by_category(:Geography)
   end
 
