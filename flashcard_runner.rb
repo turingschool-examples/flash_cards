@@ -12,14 +12,23 @@ require './lib/round'
 @round = Round.new(@deck)
 
 def start
+
   puts "Welcome! You're playing with #{@deck.count} cards."
   puts "---" * 22
-  puts "This is card number #{@round.turns.count + 1} out of #{@deck.count}."
-  puts "Question: #{@deck.cards.first.question}"
+
+  until @deck.count == @round.turns.count + 1
+
+    puts "This is card number #{@round.turns.count + 1} out of #{@deck.count}."
+    puts "Question: #{@deck.cards.first.question}"
 # get user input and check against current card
-  @round.take_turn(gets)
+    @round.take_turn(gets.chomp.to_s)
+    puts " #{@round.deck.last.feedback}"
+
+
+  end
 
 
 end
+
 
 start
