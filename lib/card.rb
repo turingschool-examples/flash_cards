@@ -17,7 +17,7 @@ class Card
 #Without this portion, it gave me an error message that said 'undefined method'
 #This is because only methods can access instance variables. These are getter methods
 #to 'go get' the information needed.
-  def question
+  def question #potentially delete
     @question
   end
 
