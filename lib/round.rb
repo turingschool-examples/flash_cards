@@ -34,6 +34,21 @@ attr_reader :deck, :turns
   end
 
   def percent_correct
-
+    (number_correct / @turns.length.to_f * 100).round(1)
   end
+
+  def number_of_cards_by_category(category)
+    card_number = 0
+    @turns.each do |turn|
+      if turn.card.category == category
+        card_number += 1
+      end
+    end
+    card_number
+  end
+
+  def percent_correct_by_category(category)
+    number_correct_by_category(category).to_f / number_of_cards_by_category(category) * 100
+  end
+
 end
