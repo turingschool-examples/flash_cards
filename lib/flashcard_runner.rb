@@ -6,7 +6,9 @@ require 'pry'
 
 i = 0
 
-p "Welcome! You're playing with #{n} cards."
-"-------------------------------------------------"
-p "This is card number #{i} out of 4."
-p "Question: #{@card}?"
+p "Welcome! You're playing with #{@cards.count} cards."
+p "-------------------------------------------------"
+p "This is card number #{@deck.card.first} out of #{@cards.count}."
+p "Question: #{@card.question}?"
+
+i += 1
