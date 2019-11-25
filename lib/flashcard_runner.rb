@@ -43,8 +43,8 @@ end
 #show whether it is correct (feedback)
 #repeat
 
-puts "****** Game over! ******"
+puts "******** Game over! ********"
 
-puts "You had #{@round.number_correct} guesses out of 4 for a total score of #{@round.percent_correct}"
+puts "You had #{@round.number_correct} guesses out of 4 for a total score of #{@round.percent_correct}%"
 
 # then do all the breakdowns by category and such
