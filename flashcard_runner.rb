@@ -28,9 +28,12 @@ def start
 
   puts "****** Game over! ******"
   puts "You had #{@round.number_correct} correct guesses out of #{@cards_count} for a total score of #{@round.percent_correct}%."
-  puts "History - #{@round.percent_correct_by_category(:History)}"
-  puts "Sports - #{@round.percent_correct_by_category(:Sports)}"
-  puts "Geography - #{@round.percent_correct_by_category(:Geography)}"
+
+  puts "History - #{@round.percent_correct_by_category(:History)}% correct"
+  puts "Sports - #{@round.percent_correct_by_category(:Sports)}% correct"
+  puts "Geography - #{@round.percent_correct_by_category(:Geography)}% correct"
+
 end
+
 
 start
