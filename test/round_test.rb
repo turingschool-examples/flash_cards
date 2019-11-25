@@ -1,5 +1,4 @@
-require 'minitest/autorun'
-require 'minitest/pride'
+require './test/test_helper'
 require './lib/card'
 require './lib/turn'
 require './lib/deck'
@@ -103,7 +102,7 @@ class RoundTest < MiniTest::Test
 
     round = Round.new(deck)
 
-    new_turn = round.take_turn("Juneau")
+    round.take_turn("Juneau")
 
     assert_equal 1, round.turns.count
   end
@@ -131,7 +130,7 @@ class RoundTest < MiniTest::Test
 
     round = Round.new(deck)
 
-    new_turn = round.take_turn("Juneau")
+    round.take_turn("Juneau")
 
     assert_equal 1, round.number_correct_per_category[:Geography]
   end
@@ -145,7 +144,7 @@ class RoundTest < MiniTest::Test
 
     round = Round.new(deck)
 
-    new_turn = round.take_turn("Juneau")
+    round.take_turn("Juneau")
 
     assert_equal 100.0, round.percent_correct
   end
@@ -159,7 +158,7 @@ class RoundTest < MiniTest::Test
 
     round = Round.new(deck)
 
-    new_turn = round.take_turn("Juneau")
+    round.take_turn("Juneau")
 
     assert_equal 1, round.number_asked_per_category[:Geography]
   end
@@ -173,7 +172,7 @@ class RoundTest < MiniTest::Test
 
     round = Round.new(deck)
 
-    new_turn = round.take_turn("Juneau")
+    round.take_turn("Juneau")
 
     assert_equal 100, round.percent_correct_by_category(:Geography)
   end

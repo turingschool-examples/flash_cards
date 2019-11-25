@@ -1,5 +1,4 @@
-require 'minitest/autorun'
-require 'minitest/pride'
+require './test/test_helper'
 require './lib/card'
 require './lib/deck'
 require './lib/card_generator'
@@ -47,8 +46,8 @@ class DeckTest < MiniTest::Test
   end
 
   def test_card_generator_creates_and_passes_into_deck
-    generator = CardGenerator.new
-    deck = Deck.new(generator.generate_cards)
+    generator = CardGenerator.new('cards.txt')
+    deck = Deck.new(generator.cards)
 
     assert_instance_of Card, deck.cards[0]
   end

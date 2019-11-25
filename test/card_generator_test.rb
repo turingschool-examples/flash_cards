@@ -1,6 +1,5 @@
 #Test file for CardGenerator class
-require 'minitest/autorun'
-require 'minitest/pride'
+require './test/test_helper'
 require './lib/card'
 require './lib/card_generator'
 
