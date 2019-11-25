@@ -7,7 +7,7 @@ class Round
     @deck = deck
     @turns = []
     @current_card = []
-    @guesses = []
+    @new_turn = []
   end
 
   def guess
@@ -23,7 +23,11 @@ class Round
   end
 
   def take_turn(guess)
-    guess = Turn.new
+    Turn.new.guess(current_card, guess)
+  end
+
+  def new_turn
+    @new_turn = Turn.new.guess(current_card, guess)
   end
 
 end
