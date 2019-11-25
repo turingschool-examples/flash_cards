@@ -1,4 +1,5 @@
 require './lib/card'
+require './lib/round'
 
 class Turn
   attr_reader :card, :guess

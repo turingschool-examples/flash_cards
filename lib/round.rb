@@ -1,5 +1,4 @@
 require './lib/turn'
-require './lib/runner'
 
 class Round
   attr_reader :deck, :turns
@@ -23,11 +22,10 @@ class Round
   end
 
   def take_turn(guess)
-    Turn.new.guess(@guess, @current_card)
-  end
-
-  def new_turn
-    new_turn = Round.take_turn(guess)
+    new_turn = Turn.new.guess(guess, @current_card)
+    turns << new_turn
+    @deck.cards.shift
+    new_turn
   end
 
 end
