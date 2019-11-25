@@ -50,5 +50,4 @@ attr_reader :deck, :turns
   def percent_correct_by_category(category)
     number_correct_by_category(category).to_f / number_of_cards_by_category(category) * 100
   end
-
 end
