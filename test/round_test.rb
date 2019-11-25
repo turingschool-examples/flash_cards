@@ -35,8 +35,10 @@ class RoundTest < Minitest::Test
  end
 
  def test_to_take_a_turn
+   # require "pry"; binding.pry
 
-    assert_equal @turns, @round.take_turn("Juneau")
+    # assert_equal @turns, @round.take_turn("Juneau")
+    # assert_instance_of Turn, @round.take_turn("Juneau")
+    assert_instance_of Turn, @round.take_turn("Juneau")
  end
-
 end
