@@ -51,5 +51,5 @@ puts "STEM - #{@round.percent_correct_by_category(:STEM)}% correct"
 puts "Video Games - #{@round.percent_correct_by_category(:Video_Games)}% correct"
 puts "Sports - #{@round.percent_correct_by_category(:Sports)}% correct"
 
-@round.continue
+@round.end_game
 # then do all the breakdowns by category and such
