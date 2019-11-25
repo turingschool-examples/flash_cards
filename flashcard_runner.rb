@@ -17,20 +17,20 @@ def start
   puts "Welcome! You're playing with #{@cards_count} cards."
   puts "---" * 22
 
-  until @round.turns.count + 1 == @cards_count
+  until @round.turns.count == @cards_count
 
     puts "This is card number #{@round.turns.count + 1} out of #{@cards_count}."
     puts "Question: #{@deck.cards.first.question}"
 # get user input and check against current cards
     @round.take_turn(gets.chomp)
-    puts " #{@round.turns.last.feedback}"
+    @round.turns.last.feedback
   end
 
   puts "****** Game over! ******"
-  puts "You had #{} correct guesses out of #{@cards_count} for a total score of #{@round.percent_correct}%."
-
-
-
+  puts "You had #{@round.number_correct} correct guesses out of #{@cards_count} for a total score of #{@round.percent_correct}%."
+  puts "History - #{@round.percent_correct_by_category(:History)}"
+  puts "Sports - #{@round.percent_correct_by_category(:Sports)}"
+  puts "Geography - #{@round.percent_correct_by_category(:Geography)}"
 end
 
 start
