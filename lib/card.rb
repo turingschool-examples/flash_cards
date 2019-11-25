@@ -8,15 +8,15 @@ class Card
   end
 
   def question
-    p "#{@question}"
+    @question
   end
 
   def answer
-    p "#{@answer}"
+    @answer
   end
 
   def category
-    p @category
+    @category
   end
 
 end

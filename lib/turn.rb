@@ -7,7 +7,7 @@ class Turn
   end
 
   def guess
-    p "#{@string}"
+    @string
   end
 
   def correct?
@@ -20,9 +20,9 @@ class Turn
 
   def feedback
     if @string.downcase == card.answer.downcase
-      p "Correct!"
+      puts "Correct!"
     else
-      p "Incorrect."
+      puts "Incorrect."
     end
   end
 
