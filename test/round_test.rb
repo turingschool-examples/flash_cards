@@ -36,9 +36,14 @@ class RoundTest < Minitest::Test
 
  def test_to_take_a_turn
    # require "pry"; binding.pry
+   # assert_equal @turns, @round.take_turn("Juneau")
+   # this test gets flagged when @turns << is running
+   assert_instance_of Turn, @round.take_turn("Juneau")
+   # take advantage of Turn class
+   assert_equal Turn.new("Juneau", @card_1), @round.take_turn("Juneau")
+ end
 
-    # assert_equal @turns, @round.take_turn("Juneau")
-    # assert_instance_of Turn, @round.take_turn("Juneau")
-    assert_instance_of Turn, @round.take_turn("Juneau")
+ def test_number_of_correct
+   assert_equal 1, @round.number_correct
  end
 end
