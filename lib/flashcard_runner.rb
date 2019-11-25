@@ -47,4 +47,8 @@ puts "******** Game over! ********"
 
 puts "You had #{@round.number_correct} guesses out of 4 for a total score of #{@round.percent_correct}%"
 
+puts "STEM - #{@round.percent_correct_by_category(:STEM)}% correct"
+puts "Video Games - #{@round.percent_correct_by_category(:Video_Games)}% correct"
+puts "Sports - #{@round.percent_correct_by_category(:Sports)}% correct"
+
 # then do all the breakdowns by category and such
