@@ -33,8 +33,7 @@ class Round
 
   def number_correct_by_category(category)
     correct_category = []
-    correct_category = @turns.find_all do |turn| #says undefined
-      # method 'find_all': do I have to define this enumerable?
+    correct_category = @turns.find_all do |turn|
       category == turn.card.category
     end
     turn_correct_by_category = []
@@ -49,6 +48,7 @@ class Round
   end
 
   def percent_correct_by_category(category)
+    x = number_correct_by_category(category)
     category_count = 0
     @turns.each do |turn|
       if category = turn.card.category
@@ -56,9 +56,10 @@ class Round
       end
     end
     p category_count
-    p number_correct_by_category(category)
-    ((number_correct_by_category(category).to_f / (category_count.to_f))  * 100)
-    #can't be by overall turn, has to be by category
+    y = [category_count].length
+    p x
+    p y
+    ((x.to_f) / (y.to_f) * 100)
   end
 
 end
