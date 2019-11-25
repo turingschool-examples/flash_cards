@@ -14,15 +14,21 @@ attr_reader :card_1, :card_2, :card_3, :cards, :deck, :round
     @card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
     @cards = [@card_1, @card_2, @card_3]
     @deck = Deck.new(@cards)
-    @round = Round.new(deck)
+    @round = Round.new(@deck)
   end
 
-  def test_can_create_round
-    assert_instance_of Deck, @round.deck
+  def test_it_exists
+    assert_instance_of Round, @round
   end
 
   def test_current_card
     assert_equal @card_1, @round.current_card
   end
+
+  def test_take_turn
+    assert_equal @round.new_turn, @round.take_turn
+  end
+
+
 
 end
