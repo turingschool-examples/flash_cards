@@ -48,10 +48,10 @@ def start
   round.turns.last.feedback
 
   puts "****** Game over! ******"
-  puts "You had #{round.number_correct} correct guesses out of 4 for a total score of #{round.percent_correct}."
-  puts "Movies - #{round.percent_correct_by_category(:Movies)}% correct."
-  puts "Music - #{round.percent_correct_by_category(:Music)}% correct."
-  puts "Dance - #{round.percent_correct_by_category(:Dance)} correct.."
+  puts "You had #{round.number_correct} correct guesses out of 4 for a total score of #{round.percent_correct.to_i}%."
+  puts "Movies - #{round.percent_correct_by_category(:Movies).to_i}% correct."
+  puts "Music - #{round.percent_correct_by_category(:Music).to_i}% correct."
+  puts "Dance - #{round.percent_correct_by_category(:Dance).to_i} correct.."
 
 
 end

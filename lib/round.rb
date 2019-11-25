@@ -55,10 +55,7 @@ class Round
         category_count += 1
       end
     end
-    p category_count
     y = [category_count].length
-    p x
-    p y
     ((x.to_f) / (y.to_f) * 100)
   end
 
