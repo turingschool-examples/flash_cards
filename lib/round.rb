@@ -45,6 +45,7 @@ class Round
     cat_percent_correct = @turns.find_all do |turn|
       turn.card.category == category
     end
-    (number_correct_by_category(category) / @turns.count.to_f) * 100
+    # mislabeled the math formula below using the wrong variable
+    return (number_correct_by_category(category) / cat_percent_correct.count.to_f) * 100
   end
 end
