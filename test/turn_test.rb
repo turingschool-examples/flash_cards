@@ -7,6 +7,12 @@ require "pry"
 
 class TurnTest < Minitest::Test
 
+  def test_if_it_exists
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Saturn", card)
+
+    assert_instance_of Turn, turn
+ end
 
   def test_if_has_guess
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
@@ -18,19 +24,37 @@ class TurnTest < Minitest::Test
 
   def test_if_card_is_returned
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new('Juneau', card)
 
-    assert_equal "Juneau", "What is the capital of Alaska?"
+    assert_equal "Juneau", turn.guess
   end
 
+  def test_correct_is_true
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Juneau", card)
 
+    assert_equal true, turn.correct?
+  end
 
+  def test_correct_is_false
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Saturn", card)
 
+    assert_equal false, turn.correct?
+  end
 
+  def test_feedback_when_correct
+    card = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
+    turn = Turn.new('Juneau', card)
 
-    # guess - This method returns the guess
-    # card - This method returns the Card
-    # correct? - This method returns a boolean indicating if the guess matched
-    # the answer on the Card.
-    # feedback - This method either returns "Correct!" or "Incorrect." based on
-    # whether the guess was correct or not.
+    assert_equal 'Correct!', turn.feedback
+  end
+
+  def test_feedback_when_incorrect
+    card = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
+    turn = Turn.new('Bluneau', card)
+
+    assert_equal 'Incorrect.', turn.feedback
+  end
+
 end
