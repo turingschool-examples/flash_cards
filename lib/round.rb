@@ -1,14 +1,27 @@
 class Round
 
-  attr_reader :deck, :round, :turns, :si
+  attr_reader :deck, :round, :turns, :si, :card_counter
   def initialize(deck)
     @deck = deck
     @turns = []
     @si = 0
+    @card_counter = 1
   end
 
   def current_card
     @deck.cards[0]
+  end
+
+  def continue
+    print "press any key to continue"
+    STDIN.getch
+    print "                   \r"
+  end
+
+  def end_game
+    print "press any key to end game."
+    STDIN.getch
+    print "                   \r"
   end
 
   def take_turn(guess)
@@ -25,6 +38,10 @@ class Round
     if @my_turn.correct?
       @si += 1
     end
+
+    @card_counter += 1
+
+    @my_turn.feedback
 
     @my_turn
   end

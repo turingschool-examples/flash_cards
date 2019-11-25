@@ -3,7 +3,7 @@ require './lib/turn'
 
 class Turn
 
-  attr_reader :guess, :card 
+  attr_reader :guess, :card
 
   def initialize(guess, card)
     @guess = guess
@@ -28,9 +28,9 @@ class Turn
 
   def feedback
     if @guess != card.answer
-      "You are dumb."
+      puts "You are dumb."
     else
-      "You are smart."
+      puts "You are smart."
     end
   end
 
