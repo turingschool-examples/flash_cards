@@ -13,6 +13,7 @@ class RoundTest < Minitest::Test
     @card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
     @cards = [@card_1, @card_2, @card_3]
     @deck = Deck.new(@cards)
+    @round = Round.new(@deck)
   end
 
  def test_it_exists
@@ -31,6 +32,11 @@ class RoundTest < Minitest::Test
    round = Round.new(@deck)
 
    assert_equal @card_1, round.current_card
+ end
+
+ def test_to_take_a_turn
+
+    assert_equal @turns, @round.take_turn("Juneau")
  end
 
 end
