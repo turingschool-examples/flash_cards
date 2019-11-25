@@ -25,12 +25,19 @@ puts "Welcome! You're playing with 4 cards."
 
 puts "-" * 50
 
+until @round.card_counter == 5
 # require "pry"; binding.pry
 puts "This is card number #{@round.card_counter} out of 4."
 
+
+puts "Question: #{@deck.cards[0].question}"
+print "> "
+guess = $stdin.gets.chomp
+@round.take_turn(guess)
+
 @round.continue
 
-puts "Question: #{@card1.question}"
+end
 # tie it to a turn
 #determine whether is is correct
 #show whether it is correct (feedback)
