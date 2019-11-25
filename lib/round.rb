@@ -48,8 +48,17 @@ class Round
     ((number_correct.to_f / (@turns.length).to_f) * 100)
   end
 
-  def percent_correct_by_category
-    
+  def percent_correct_by_category(category)
+    category_count = 0
+    @turns.each do |turn|
+      if category = turn.card.category
+        category_count += 1
+      end
+    end
+    p category_count
+    p number_correct_by_category(category)
+    ((number_correct_by_category(category).to_f / (category_count.to_f))  * 100)
+    #can't be by overall turn, has to be by category
   end
 
 end
