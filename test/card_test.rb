@@ -11,14 +11,14 @@ class CardTest < Minitest::Test
   end
 
   def test_it_has_a_question
-    
+
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
     assert_equal "What is the capital of Alaska?", card.question
   end
 
   def test_it_has_an_answer
-    skip
+    
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
     assert_equal "Juneau", card.answer
