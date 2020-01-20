@@ -12,4 +12,12 @@ class Turn
     @correct
   end
 
+  def feedback
+    if @correct == true
+      "Correct!"
+    elsif @correct == false
+      "Incorrect."
+    end
+  end 
+
 end
