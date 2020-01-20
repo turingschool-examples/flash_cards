@@ -18,4 +18,11 @@ class TurnTest < Minitest::Test
 
     assert_equal "Anchorage", turn.guess
   end
+
+  def test_it_has_a_card
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Anchorage", card_1)
+
+    assert_equal card_1, turn.card
+  end
 end
