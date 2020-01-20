@@ -1,6 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/turn.rb'
+require './lib/card.rb'
 
 
 class TurnTest < Minitest::Test
@@ -24,5 +25,12 @@ class TurnTest < Minitest::Test
     turn = Turn.new("Anchorage", card_1)
 
     assert_equal card_1, turn.card
+  end
+
+  def test_if_guess_matches_answer
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Anchorage", card_1)
+
+   refute turn.correct?
   end
 end

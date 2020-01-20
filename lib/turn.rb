@@ -10,4 +10,5 @@ class Turn
   def correct?
     @guess == @card.answer
   end
+  
 end
