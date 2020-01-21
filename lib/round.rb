@@ -1,6 +1,7 @@
 require_relative 'deck.rb'
 require_relative 'turn.rb'
 
+
 class Round
 
   attr_accessor :deck, :turns, :current_card
@@ -11,7 +12,7 @@ class Round
   end
 
   def take_turn(guess)
-    Turn.new(guess, @current_card)
+    @turns.push(Turn.new(guess, @current_card))[0]
 
   end
 
