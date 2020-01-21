@@ -4,16 +4,21 @@ require_relative 'turn.rb'
 
 class Round
 
-  attr_accessor :deck, :turns, :current_card
+  attr_accessor :deck, :turns, :current_card, :number_correct
   def initialize(deck)
     @deck = deck
     @turns = []
     @current_card = @deck.cards[0]
+    @number_correct = 0
   end
 
   def take_turn(guess)
-    @turns.push(Turn.new(guess, @current_card))[0]
-
+    turn = Turn.new(guess, @current_card)
+    @turns << turn
+    if turn.guess == @current_card.answer
+      @number_correct += 1
+    end
+    turn
   end
 
 end
