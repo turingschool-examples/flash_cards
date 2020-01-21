@@ -22,7 +22,7 @@ def play_game
   puts '------------------------------------------------'
 
   while cards.count >= 1
-    puts "This is card number #{((cards.length - 4) - 1).abs} out of #{total_cards}."
+    puts "This is card number #{((cards.length - total_cards) - 1).abs} out of #{total_cards}."
     puts "Question: #{cards[0].question}"
     guess = gets.chomp()
     round.take_turn(guess.downcase.gsub(/[^a-z0-9]/, '').capitalize)
