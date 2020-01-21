@@ -18,6 +18,8 @@ class Round
     if turn.guess == @current_card.answer
       @number_correct += 1
     end
+    @deck.cards.shift
+    @current_card = @deck.cards[0]
     turn
   end
 
