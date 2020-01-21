@@ -4,7 +4,7 @@ require_relative 'turn.rb'
 
 class Round
 
-  attr_accessor :deck, :turns, :current_card
+  attr_accessor :deck, :turns, :current_card, :turns_correct
   def initialize(deck)
     @deck = deck
     @turns = []
@@ -33,6 +33,17 @@ class Round
      return 0 if @turns_correct.none? {|turn| turn.card.category == category}
      cat = @turns_correct.select {|turn| turn.card.category == category}
      cat.size
+  end
+
+  def percent_correct
+    (@turns_correct.size / @turns.size.to_f) * 100
+  end
+
+  def percent_correct_by_category(category)
+    return 0 if @turns.none? {|turn| turn.card.category == category}
+    total = @turns.select {|turn| turn.card.category == category}
+    correct = total.select {|turn| turn.correct == true}
+    (correct.size.to_f / total.size) * 100
   end
 
 end
