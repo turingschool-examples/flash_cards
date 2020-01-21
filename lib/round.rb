@@ -1,16 +1,13 @@
 require_relative 'deck.rb'
 require_relative 'turn.rb'
 
-
 class Round
-
   attr_accessor :deck, :turns, :current_card, :turns_correct
   def initialize(deck)
     @deck = deck
     @turns = []
     @current_card = @deck.cards[0]
     @turns_correct = []
-
   end
 
   def take_turn(guess)
@@ -21,7 +18,6 @@ class Round
     end
     @deck.cards.shift
     @current_card = @deck.cards[0]
-
     turn
   end
 

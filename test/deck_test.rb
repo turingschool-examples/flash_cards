@@ -4,7 +4,6 @@ require './lib/turn.rb'
 require './lib/card.rb'
 require './lib/deck.rb'
 
-
 class DeckTest < Minitest::Test
 
   def test_it_exists
@@ -41,6 +40,6 @@ class DeckTest < Minitest::Test
       deck = Deck.new(cards)
 
       assert_equal [card_2, card_3], deck.cards_in_category(:STEM)
-    end 
+    end
 
 end

@@ -5,7 +5,6 @@ require './lib/card.rb'
 require './lib/deck.rb'
 require './lib/round.rb'
 
-
 class RoundTest < Minitest::Test
   def test_it_exists
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)

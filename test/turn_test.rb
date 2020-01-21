@@ -3,7 +3,6 @@ require 'minitest/pride'
 require './lib/turn.rb'
 require './lib/card.rb'
 
-
 class TurnTest < Minitest::Test
 
   def test_it_exists
@@ -40,4 +39,5 @@ class TurnTest < Minitest::Test
 
     assert_equal "Incorrect.", turn.feedback
   end
+  
 end
