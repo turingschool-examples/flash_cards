@@ -7,7 +7,6 @@ def play_game
   total_cards = (CardGenerator.new(filename).cards).size
   cards = CardGenerator.new(filename).cards
   categories = (cards.map {|arr| arr.category}).uniq
-
   deck = Deck.new(cards)
   round = Round.new(deck)
 
