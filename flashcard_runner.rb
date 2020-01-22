@@ -3,19 +3,11 @@ require_all 'lib'
 
 def play_game
 
-  card_1 = Card.new("What is the largest mammal in North America?", "Bison", :Nature)
-  card_2 = Card.new("What is the largest freshwater fish in North America?", "Sturgeon", :Nature)
-  card_3 = Card.new("Which muscle group is antagonistic to the quadriceps?", "Hamstrings", :Anatomy)
-  card_4 = Card.new("How many bones are in the human body?", "206", :Anatomy)
-
-  total_cards = 4
-
-  categories = [:Nature, :Anatomy]
-
-  cards = [card_1, card_2, card_3, card_4]
-
+  filename = './lib/cards.txt'
+  total_cards = (CardGenerator.new(filename).cards).size
+  cards = CardGenerator.new(filename).cards
+  categories = (cards.map {|arr| arr.category}).uniq
   deck = Deck.new(cards)
-
   round = Round.new(deck)
 
   puts "Welcome! You're playing with #{total_cards} cards."
@@ -25,7 +17,7 @@ def play_game
     puts "This is card number #{((cards.length - total_cards) - 1).abs} out of #{total_cards}."
     puts "Question: #{cards[0].question}"
     guess = gets.chomp()
-    round.take_turn(guess.downcase.gsub(/[^a-z0-9]/, '').capitalize)
+    round.take_turn(guess.downcase)
     num = (round.turns.count - 1)
     puts round.turns.fetch(num).feedback
   end
