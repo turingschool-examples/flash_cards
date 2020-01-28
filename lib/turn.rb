@@ -1,7 +1,7 @@
 class Turn
-  def initialize(playerGuess, inputCard)
-    @guess = playerGuess
-    @card = inputCard
+  def initialize(player_guess, input_card)
+    @guess = player_guess
+    @card = input_card
   end
 
   def guess
