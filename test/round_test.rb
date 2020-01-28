@@ -40,5 +40,7 @@ class RoundTest < Minitest::Test
     new_turn = round.take_turn("Juneau")
 
     assert_equal card_1, round.current_card
+
+    assert_equal [new_turn], round.turns
   end
 end
