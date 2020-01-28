@@ -7,20 +7,26 @@ class Deck
     @cards = card
   end
 
-  def cards
-    @cards
-  end
-
   def count
     @cards.size
   end
 
   def cards_in_category(category)
-    @cards.each do |key, value|
-      if(key.category == category)
-        key
-      end
-    end
+    # x = 0
+    # while(x <= @cards.size)
+    #   if(@cards[x].category == category)
+    #     @cards[x]
+    #   end
+    #   x += 1
+    # end
+
+    # @cards.each do |key, value|
+    #   if(key.category == category)
+    #     key
+    #   end
+    # end
+
+    @cards.select { |key| key.category == category }
   end
 
 end
