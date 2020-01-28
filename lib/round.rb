@@ -1,21 +1,41 @@
 class Round
-  attr_accessor :deck, :turns
+  attr_accessor :deck, :turns, :correct
 
   def initialize(deck)
     @deck = deck
     @turns = []
+    @correct = {"total_correct" => 0}
   end
 
   def current_card
     @deck.cards.first
   end
 
-  def take_turn(string)
+  def take_turn(guess)
+    turn = Turn.new(guess, current_card)
+    if(turn.correct?)
+      @correct["total_correct"] += 1
+      if(@correct.include?(current_card.category))
+        @correct[current_card.category] += 1
+      else
+        @correct[current_card.category] = 1
+      end
+    else
+      @correct[current_card.category] = 0
+    end
+    @deck.cards.shift
+    @turns << turn
+    turn
   end
 
-  def class
+  def number_correct
+    @correct.fetch("total_correct")
   end
 
-  def correct?
+  def number_correct_by_category(category)
+    @correct[category]
+  end
+
+  def percent_correct_by_category(category)
   end
 end
