@@ -36,6 +36,12 @@ class Round
     @correct[category]
   end
 
-  def percent_correct_by_category(category)
+  def percent_correct
+    (@correct["total_correct"] / @turns.size) * 100
   end
+
+  def percent_correct_by_category(category)
+    100 * (@correct[category] / @turns.size)
+  end
+
 end
