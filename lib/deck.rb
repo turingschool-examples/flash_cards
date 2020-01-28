@@ -1,8 +1,6 @@
 class Deck
-  attr_reader :card, :category
+  attr_reader :card,
 
-  def initialize (card, category)
-    @card = []
-    @category = category
+  def initialize
+    @card = card
   end
-end
