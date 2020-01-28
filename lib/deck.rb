@@ -1,5 +1,3 @@
-require './lib/card'
-
 class Deck
   attr_accessor :cards
 
