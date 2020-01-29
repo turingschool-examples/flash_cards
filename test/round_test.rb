@@ -49,6 +49,10 @@ class RoundTest < Minitest::Test
     new_turn = round.take_turn("Juneau")
 
     assert_equal [new_turn], round.turns
+
+    another_turn = round.take_turn("Mars")
+
+    assert_equal 2, round.turns.count
   end
 
   def test_counts_correct_answers
@@ -67,6 +71,7 @@ class RoundTest < Minitest::Test
 
   end
 
+  
   def test_knows_number_correct_by_category
     skip
     assert_equal 1, round.number_correct_by_category(:Geography)
