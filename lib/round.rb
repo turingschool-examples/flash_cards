@@ -23,7 +23,7 @@ class Round
     else
       @correct[current_card.category] = 0
     end
-    @deck.cards.shift
+    @deck.cards.rotate!
     @turns << turn
     turn
   end
@@ -41,7 +41,7 @@ class Round
   end
 
   def percent_correct_by_category(category)
-    #(@correct[category].to_f / @deck.cards.cards_in_category(cards_in_category)) * 100
+    (@correct[category].to_f / @deck.cards_in_category(category).size) * 100
   end
 
 end
