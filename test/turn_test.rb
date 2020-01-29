@@ -45,7 +45,6 @@ class TurnTest < Minitest::Test
 
   def test_it_has_feedback_incorrect
 
-
     assert_equal "Incorrect.", @turn2.feedback
   end
 
