@@ -6,4 +6,12 @@ def initialize(guess_parameter, card_parameter)
   @card = card_parameter
 end
 
+def correct?
+  if guess == card.answer
+    p true
+  else
+    p false
+end
+
+end 
 end
