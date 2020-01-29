@@ -11,10 +11,9 @@ class Round
   end
 
   def take_turn(guess)
-    @turn = Turn.new(guess, current_card)
-    @turns << @turn
+    @turns << Turn.new(guess, current_card)
     @deck.cards.rotate!
-    @turn
+    @turns.last
   end
 
   def number_correct
