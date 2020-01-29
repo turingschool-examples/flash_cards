@@ -17,6 +17,9 @@ class DeckTest < MiniTest::Test
     assert_instance_of Deck, @deck
   end
 
+  def test_it_has_cards
+    assert_equal [@card_1, @card_2, @card_3], @deck.cards
+  end
 end
 
 # pry(main)> deck.cards
