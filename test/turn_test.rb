@@ -11,8 +11,14 @@ class TurnTest < MiniTest::Test
     @turn_2 = Turn.new("Saturn", @card_2)
   end
 
+  def test_turns_exist
+    assert_instance_of Turn, @turn_1
+    assert_instance_of Turn, @turn_2
+  end
+
   def test_turn_has_card
     assert_equal @card_1, @turn_1.card
+    assert_equal @card_2, @turn_2.card
   end
 
   def test_turn_has_guess
