@@ -36,8 +36,33 @@ class RoundTest < Minitest::Test
     deck = Deck.new(cards)
     round = Round.new(deck)
 
-    assert_equal 0, round.turns.count 
+    assert_equal 0, round.turns.count
     assert_equal card_1, round.current_card
   end
+
+  def test_a_turn_exists_when_a_new_turn_is_taken_in_the_round
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+    card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+    cards = [card_1, card_2, card_3]
+    deck = Deck.new(cards)
+    round = Round.new(deck)
+
+    new_turn = round.take_turn("Jueanu")
+
+    assert_equal Turn, new_turn.class
+  end
+
+  # def test_turns_give_feedback
+  #   card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+  #   card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+  #   card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+  #   cards = [card_1, card_2, card_3]
+  #   deck = Deck.new(cards)
+  #   round = Round.new(deck)
+  #
+  #   new_turn = round.take_turn("Jueanu")
+  #
+  # end
 
 end
