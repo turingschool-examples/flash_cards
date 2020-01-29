@@ -31,17 +31,18 @@ class RoundTest < Minitest::Test
     assert_instance_of Card, round.current_card
   end
 
+  def test_can_take_turns
+    round = Round.new(create_deck)
+    
+    assert_instance_of Turn, round.take_turn("guess to question")
+  end
+
   def test_counts_correct_answers
     skip
     assert_equal 1, round.number_correct
     # Insert another correct guess here
     assert_equal 2, round.number_correct
 
-  end
-
-  def test_can_take_turns
-    skip
-    assert_instance_of Turn, round.take_turn("guess to question")
   end
 
   def test_knows_number_correct_by_category
