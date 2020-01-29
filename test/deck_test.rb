@@ -27,7 +27,7 @@ class DeckTest < Minitest::Test
     deck.add_card(card_2)
     deck.add_card(card_3)
 
-    cards_in_same_category = deck.show_cards_of_category(:STEM)
+    cards_in_same_category = deck.cards_in_category(:STEM)
   end
 
 end
