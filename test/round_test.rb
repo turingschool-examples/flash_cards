@@ -113,6 +113,19 @@ class RoundTest < Minitest::Test
 
   end
 
+  def test_knows_how_many_turns_left_in_round
+    round = Round.new(create_deck)
+    new_turn = round.take_turn("Juneau")
+    second_turn = round.take_turn("Norway")
+
+    assert_equal  1, round.turns_remaining
+
+  end
+
+
+
+  # ------------------------Setup Helper Functions------------------------------------
+
 
   def create_cards
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
