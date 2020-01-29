@@ -27,14 +27,10 @@ class DeckTest < MiniTest::Test
 
   def test_cards_have_categories
     assert_equal [@card_2, @card_3], @deck.cards_in_category(:STEM)
+    assert_equal [@card_1], @deck.cards_in_category(:Geography)
+    assert_equal [], @deck.cards_in_category("Pop Culture")
   end
 end
 
-# pry(main)> deck.cards_in_category(:STEM)
-# #=> [#<Card:0x00007fa160a62e90...>, #<Card:0x00007fa161a136f0...>]
-#
-# pry(main)> deck.cards_in_category(:Geography)
-# #=> [#<Card:0x00007fa16104e160...>]
-#
 # pry(main)> deck.cards_in_category("Pop Culture")
 # #=> []
