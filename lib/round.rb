@@ -1,7 +1,9 @@
+
+
 class Round
 
-  def initialize(argument)
-    @argument = argument
+  def initialize(deck)
+    @deck = deck
   end
 
 end
