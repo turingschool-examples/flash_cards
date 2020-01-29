@@ -25,4 +25,9 @@ class Round
   def number_correct_by_category(category)
     @turns.count {|turn| turn.correct? && turn.card.category == category}
   end
+
+  def percent_correct
+  100 * (self.number_correct / @turns.count.to_f)
+
+  end
 end
