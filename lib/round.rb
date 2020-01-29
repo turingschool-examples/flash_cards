@@ -1,3 +1,7 @@
+require './lib/card'
+require './lib/deck'
+require './lib/turn'
+
 class Round
   attr_accessor :deck, :turns, :correct
 
@@ -12,36 +16,25 @@ class Round
   end
 
   def take_turn(guess)
-    turn = Turn.new(guess, current_card)
-    if(turn.correct?)
-      @correct["total_correct"] += 1
-      if(@correct.include?(current_card.category))
-        @correct[current_card.category] += 1
-      else
-        @correct[current_card.category] = 1
-      end
-    else
-      @correct[current_card.category] = 0
-    end
+    @turns << Turn.new(guess, current_card)
     @deck.cards.rotate!
-    @turns << turn
-    turn
+    @turns.last
   end
 
   def number_correct
-    @correct.fetch("total_correct")
+    @turns.select.count { |turn| turn.correct? == true}
   end
 
   def number_correct_by_category(category)
-    @correct[category]
+    @turns.select.count { |turn| turn.correct? == true && turn.category == category}
   end
 
   def percent_correct
-    (@correct["total_correct"].to_f / @turns.size.to_f) * 100
+    (number_correct.to_f / @turns.size) * 100
   end
 
   def percent_correct_by_category(category)
-    (@correct[category].to_f / @deck.cards_in_category(category).size) * 100
+    (number_correct_by_category(category).to_f / @deck.cards_in_category(category).size) * 100
   end
 
 end
