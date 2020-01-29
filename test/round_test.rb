@@ -8,15 +8,8 @@ require "./lib/round"
 class RoundTest < Minitest::Test
 
   def test_round_exists
-    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    card_2 = Card.new("The Viking spacecraft was sent to which planet?", "Mars", :STEM)
-    card_3 = Card.new("What is the airspeed velocity of an unladen swallow?", "African or European?", :STEM)
-    cards = [card_1, card_2, card_3]
-    deck =  Deck.new(cards)
-
-
-    round = Round.new(deck)
-
+    round = Round.new(create_deck)
+    
     assert_instance_of Round, round
   end
 
@@ -54,4 +47,18 @@ class RoundTest < Minitest::Test
     assert_equal 1, round.number_correct_by_category(:Geography)
 
   end
+
+
+
+  def create_cards
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card_2 = Card.new("The Viking spacecraft was sent to which planet?", "Mars", :STEM)
+    card_3 = Card.new("What is the airspeed velocity of an unladen swallow?", "African or European?", :STEM)
+    cards = [card_1, card_2, card_3]
+  end
+
+  def create_deck
+    deck = Deck.new(create_cards)
+  end
+
 end
