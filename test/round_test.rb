@@ -68,10 +68,17 @@ class RoundTest < Minitest::Test
     first_turn = round.take_turn("Juneau")
 
     assert_equal second_turn_card, round.current_card
-
   end
 
-  
+  def test_incorrect_guesses_are_incorrect
+    round = Round.new(create_deck)
+    second_turn_card = round.deck.cards[1]
+    first_turn = round.take_turn("Juneau")
+    second_turn = round.take_turn("Norway")
+
+    assert_equal "Incorrect.", round.turns.last.feedback
+  end
+
   def test_knows_number_correct_by_category
     skip
     assert_equal 1, round.number_correct_by_category(:Geography)
