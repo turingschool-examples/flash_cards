@@ -45,18 +45,17 @@ class RoundTest < Minitest::Test
   end
 
   def test_played_turn_is_added_to_turns_array
-  round = Round.new(create_deck)
-  new_turn = round.take_turn("Juneau")
+    round = Round.new(create_deck)
+    new_turn = round.take_turn("Juneau")
 
-  assert_equal [new_turn], round.turns
+    assert_equal [new_turn], round.turns
   end
 
   def test_counts_correct_answers
-    skip
+    round = Round.new(create_deck)
+    new_turn = round.take_turn("Juneau")
+    
     assert_equal 1, round.number_correct
-    # Insert another correct guess here
-    assert_equal 2, round.number_correct
-
   end
 
   def test_knows_number_correct_by_category
