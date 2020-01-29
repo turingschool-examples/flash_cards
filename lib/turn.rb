@@ -1,5 +1,5 @@
 class Turn
-  attr_accessor :guess
+  attr_accessor :guess, :category
 
   def initialize(string, card)
     @question = card.question
