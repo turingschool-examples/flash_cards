@@ -5,17 +5,15 @@ require './lib/card'
 
 class TurnTest < Minitest::Test
 
-  def test_turn_class_exists
-    turn = Turn.new('Juneau', 'Card1')
-    assert_instance_of Turn, turn
+  def test_it_exists
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    assert_instance_of Card, card
   end
 
-end
-#pry(main)> require './lib/turn'
-#=> true
+require "pry"; binding.pry
 
-#pry(main)> require './lib/card'
-#=> true
+end
+
 
 #pry(main)> card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 #=> #<Card:0x00007f800e29f0c8 @question=""What is the capital of Alaska?", @answer="Juneau", @category=:Geography>
