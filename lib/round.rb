@@ -32,4 +32,12 @@ class Round
   100 * self.number_correct_by_category(category) / @turns.count {|turn| turn.card.category == category}
   end
 
+  def turns_remaining
+    deck.cards.length - turns.length
+  end
+
+  def total_cards
+    @deck.count
+  end
+
 end
