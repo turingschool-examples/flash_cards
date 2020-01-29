@@ -26,7 +26,7 @@ class DeckTest < MiniTest::Test
   end
 
   def test_cards_have_categories
-
+    assert_equal [@card_2, @card_3], @deck.cards_in_category(:STEM)
   end
 end
 
