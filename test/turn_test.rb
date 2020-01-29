@@ -15,7 +15,7 @@ class TurnTest < Minitest::Test
     assert_instance_of Turn, turn
   end
 
-require "pry"; binding.pry
+#require "pry"; binding.pry
 
 end
 
