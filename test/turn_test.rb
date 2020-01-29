@@ -3,7 +3,7 @@ require 'minitest/pride'
 require './lib/card'
 require './lib/turn'
 
-class CardTest < Minitest::Test
+class TurnTest < Minitest::Test
 
 
   def test_it_exists#
@@ -53,9 +53,3 @@ class CardTest < Minitest::Test
   end
 
 end
-
-
-
-# pry(main)> turn.feedback
-# => "Incorrect."
-#
