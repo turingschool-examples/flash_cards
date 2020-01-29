@@ -1,4 +1,6 @@
-class Deck
+require_relative 'round'
+
+class Deck < Round
   attr_reader :cards
 
   def initialize(cards)

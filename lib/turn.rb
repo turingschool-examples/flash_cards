@@ -1,4 +1,6 @@
-class Turn
+require_relative 'round'
+
+class Turn < Round
   attr_reader :guess, :card
 
   def initialize(guess, card)
@@ -11,6 +13,6 @@ class Turn
   end
 
   def feedback
-    self.correct? ? "Correct" : "Incorrect"
+    correct? ? "Correct" : "Incorrect"
   end
 end
