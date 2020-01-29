@@ -43,18 +43,14 @@ class DeckTest < Minitest::Test
     assert_equal 3, deck.count
   end
 
-  def test_count_number_of_cards_in_each_category
+  def test_return_cards_in_each_category
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft was sent to which planet?", "Mars", :STEM)
     card_3 = Card.new("What is the airspeed velocity of an unladen swallow?", "African or European?", :STEM)
     cards = [card_1, card_2, card_3]
     deck =  Deck.new(cards)
 
-    assert_equal 2, deck.cards_in_category(:STEM)
-    assert_equal 1, deck.cards_in_category(:Geography)
-
+    assert_equal [card_2, card_3], deck.cards_in_category(:STEM)
   end
-
-
 
 end
