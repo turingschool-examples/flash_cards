@@ -33,8 +33,22 @@ class RoundTest < Minitest::Test
 
   def test_can_take_turns
     round = Round.new(create_deck)
-    
+
     assert_instance_of Turn, round.take_turn("guess to question")
+  end
+
+  def test_turn_is_correct_if_correct
+    round = Round.new(create_deck)
+    new_turn = round.take_turn("Juneau")
+
+    assert_equal true, new_turn.correct?
+  end
+
+  def test_played_turn_is_added_to_turns_array
+  round = Round.new(create_deck)
+  new_turn = round.take_turn("Juneau")
+
+  assert_equal [new_turn], round.turns
   end
 
   def test_counts_correct_answers
