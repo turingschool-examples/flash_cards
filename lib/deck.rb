@@ -10,7 +10,6 @@ class Deck
   end
 
   def cards_in_category(category)
-    @cards.select { |card| card[2] == category }
-    # unfinished code?
+    @cards.select { |card| card.category == category }
   end
 end
