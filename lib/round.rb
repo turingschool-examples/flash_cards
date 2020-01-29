@@ -13,7 +13,8 @@ class Round
   end
 
   def take_turn(guess)
-    Turn.new(guess, @deck.cards[0])
+    @turns << Turn.new(guess, @deck.cards[0])
+    @turns.last
   end
 
 end
