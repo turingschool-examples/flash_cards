@@ -17,17 +17,19 @@ class DeckTest < MiniTest::Test
     assert_instance_of Deck, @deck
   end
 
-  def test_it_has_cards
+  def test_it_has_cards_in_the_deck
     assert_equal [@card_1, @card_2, @card_3], @deck.cards
+  end
+
+  def test_cards_in_deck_can_be_counted
+    assert_equal 3, @deck.count
+  end
+
+  def test_cards_have_categories
+
   end
 end
 
-# pry(main)> deck.cards
-# #=> [#<Card:0x00007fa16104e160...>, #<Card:0x00007fa160a62e90...>, #<Card:0x00007fa161a136f0...>]
-#
-# pry(main)> deck.count
-# #=> 3
-#
 # pry(main)> deck.cards_in_category(:STEM)
 # #=> [#<Card:0x00007fa160a62e90...>, #<Card:0x00007fa161a136f0...>]
 #
