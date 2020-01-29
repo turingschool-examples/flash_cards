@@ -1,5 +1,3 @@
-
-
 class Round
   attr_reader :deck, :turns
 
