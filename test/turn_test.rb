@@ -15,9 +15,8 @@ class TurnTest < Minitest::Test
   def test_return_card
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
-    turn.card
 
-    assert_instance_of Card, card
+    assert_instance_of Card, turn.card
   end
 
 end
