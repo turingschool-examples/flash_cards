@@ -79,6 +79,15 @@ class RoundTest < Minitest::Test
     assert_equal "Incorrect.", round.turns.last.feedback
   end
 
+  def test_incorrect_guesses_are_not_counted_as_correct
+    round = Round.new(create_deck)
+    new_turn = round.take_turn("Juneau")
+    second_turn = round.take_turn("Norway")
+
+    assert_equal 1, round.number_correct
+
+  end
+
   def test_knows_number_correct_by_category
     skip
     assert_equal 1, round.number_correct_by_category(:Geography)
