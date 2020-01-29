@@ -17,10 +17,10 @@ class Turn
   end
 
   def feedback
-    if guess == true
-      puts "Correct!"
+    if guess == card.answer
+      "Correct!"
     else
-      puts "Incorrect."
+      "Incorrect."
     end
   end
 
