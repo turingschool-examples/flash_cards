@@ -31,10 +31,10 @@ class TurnTest < Minitest::Test
 
   def test_it_gives_feedback
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    turn = Turn.new("Juneau", card) # i can use turn1 and turn2 if you prefer
-    assert_equal turn.feedback, "Correct!"
-    turn = Turn.new("Anchorage", card) # that to reassigning the variable
-    assert_equal turn.feedback, "Incorrect."
+    correct_turn = Turn.new("Juneau", card)
+    incorrect_turn = Turn.new("Anchorage", card)
+    assert_equal correct_turn.feedback, "Correct!"
+    assert_equal incorrect_turn.feedback, "Incorrect."
   end
 
 end
