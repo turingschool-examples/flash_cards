@@ -25,8 +25,9 @@ class RoundTest < Minitest::Test
     assert_equal = [], round.turns
   end
 
-  def test_current_card_is_a_card
-    skip
+  def test_current_card_is_first_card
+    round = Round.new(create_deck)
+
     assert_instance_of Card, round.current_card
   end
 
