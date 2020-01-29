@@ -9,12 +9,12 @@ class RoundTest < Minitest::Test
 
   def test_round_exists
     round = Round.new(create_deck)
-    
+
     assert_instance_of Round, round
   end
 
   def test_round_contains_deck
-
+    round = Round.new(create_deck)
 
     assert_instance_of Deck, round.deck
   end
