@@ -54,8 +54,17 @@ class RoundTest < Minitest::Test
   def test_counts_correct_answers
     round = Round.new(create_deck)
     new_turn = round.take_turn("Juneau")
-    
+
     assert_equal 1, round.number_correct
+  end
+
+  def test_current_card_changes_after_turn
+    round = Round.new(create_deck)
+    second_turn_card = round.deck.cards[1]
+    first_turn = round.take_turn("Juneau")
+
+    assert_equal second_turn_card, round.current_card
+
   end
 
   def test_knows_number_correct_by_category
