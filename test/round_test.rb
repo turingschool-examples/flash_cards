@@ -22,7 +22,7 @@ class RoundTest < Minitest::Test
   def test_round_starts_with_no_turns
     round = Round.new(create_deck)
 
-    assert_equal = [], round.turns
+    assert_equal [], round.turns
   end
 
   def test_current_card_is_first_card
