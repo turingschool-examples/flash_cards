@@ -101,9 +101,17 @@ class RoundTest < Minitest::Test
     new_turn = round.take_turn("Juneau")
     second_turn = round.take_turn("Norway")
 
-    assert_equal  50.0, round.percent_correct   
+    assert_equal  50.0, round.percent_correct
   end
 
+  def test_knows_percentage_correct_by_category
+    round = Round.new(create_deck)
+    new_turn = round.take_turn("Juneau")
+    second_turn = round.take_turn("Norway")
+
+    assert_equal  100.0, round.percent_correct_by_category(:Geography)
+
+  end
 
 
   def create_cards
