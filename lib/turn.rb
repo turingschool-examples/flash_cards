@@ -1,15 +1,11 @@
 class Turn
-  attr_accessor :question, :answer, :category, :guess
+  attr_accessor :guess
 
   def initialize(string, card)
     @question = card.question
     @answer = card.answer
     @category = card.category
     @guess = string
-  end
-
-  def guess
-    @guess
   end
 
   def card
@@ -21,6 +17,6 @@ class Turn
   end
 
   def feedback
-    correct? == true ? "Correct!" : "Incorrect"
+    correct? == true ? "Correct!" : "Incorrect."
   end
 end
