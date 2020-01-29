@@ -32,6 +32,7 @@ class TurnTest < Minitest::Test
 
 
   def test_it_has_feedback
+    card = Card.new()
 
     assert_equal "Incorrect.", @turn.feedback
   end
