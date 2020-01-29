@@ -8,7 +8,7 @@ class Deck
     @cards << card
   end
 
-  def show_cards_of_category(category)
+  def cards_in_category(category)
     cards.select do |card|
         card.category == category
     end
