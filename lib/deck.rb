@@ -1,7 +1,7 @@
 class Deck
-  attr_reader :cards
+  attr_accessor :cards
   def initialize(cards= [])
-    @cards = []
+    @cards = cards
   end
 
   def add_card(card)
