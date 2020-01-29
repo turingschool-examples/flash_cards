@@ -187,6 +187,4 @@ class RoundTest < Minitest::Test
 
     assert_equal card_3, round.current_card
   end
-  # pry(main)> round.current_card
-  # #=> #<Card:0x00007fa161a136f0 @answer="North north west", @question="Describe in words the exact direction that is 697.5° clockwise from due north?", @category=:STEM>
 end
