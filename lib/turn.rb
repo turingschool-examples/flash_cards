@@ -1,7 +1,6 @@
 class Turn
 
-  attr_accessor :card
-  attr_reader :string
+  attr_reader :string, :card
 
   def initialize(string, card)
     @string = string
