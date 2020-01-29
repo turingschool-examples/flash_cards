@@ -40,4 +40,11 @@ class RoundTest < Minitest::Test
     assert_equal round.current_card, card_1
 
   end
+
+  def test_round_has_turns
+    deck = Deck.new(@cards)
+    round = Round.new(deck)
+
+    require "Pry"; binding.pry
+  end
 end
