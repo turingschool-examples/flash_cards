@@ -5,12 +5,14 @@ require './lib/card'
 
 class TurnTest < Minitest::Test
 
-  def test_it_exists
+  def test_card_exists
+    skip
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     assert_instance_of Card, card
   end
 
-  def test_it_exists
+  def test_turn_exists
+    skip
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
     assert_instance_of Turn, turn
@@ -19,7 +21,7 @@ class TurnTest < Minitest::Test
   def test_card_method
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
-    assert_equal "@question="What is the capital of Alaska?", @answer="Juneau", @category=:Geography", turn.card
+    assert_equal card, turn.card
   end
 end
 
