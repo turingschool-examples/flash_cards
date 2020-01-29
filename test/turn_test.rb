@@ -1,12 +1,16 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require '.lib/turn'
-require '.lib/card'
+require './lib/turn'
+require './lib/card'
 
-class TurnTest < Minitest::Test 
+class TurnTest < Minitest::Test
 
+  def test_turn_class_exists
+    turn = Turn.new('Juneau', 'Card1')
+    assert_instance_of Turn, turn
+  end
 
-
+end
 #pry(main)> require './lib/turn'
 #=> true
 
@@ -29,4 +33,3 @@ class TurnTest < Minitest::Test
 #=> true
 
 #pry(main)> turn.feedback
-#=> "Correct!"
