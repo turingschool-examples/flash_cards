@@ -4,9 +4,42 @@ require './lib/turn'
 require './lib/card'
 
 class TurnTest < Minitest::Test
+  attr_accessor :card
   def test_it_exists
-    turn = Turn.new("rando", 1)
+    turn = Turn.new("Junaeu", card)
 
     assert_instance_of Turn, turn
   end
+
+  def test_it_can_return_guess
+    turn = Turn.new("Juneau", card)
+
+    assert_equal "Juneau", turn.guess
+  end
+
+  def test_it_can_check_answer
+    turn = Turn.new("Juneau", card)
+
+
+  end
+
 end
+
+
+# pry(main)> card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+# #=> #<Card:0x00007f800e29f0c8 @question=""What is the capital of Alaska?", @answer="Juneau", @category=:Geography>
+#
+# pry(main)> turn = Turn.new("Juneau", card)
+# #=> #<Turn:0x00007f99842f0998 @card=#<Card:0x00007f800e29f0c9 @question=""What is the capital of Alaska?", @answer="Juneau", @guess="Juneau">
+#
+# pry(main)> turn.card
+# #=> #<Card:0x00007f800e29f0c8 @question=""What is the capital of Alaska?", @answer="Juneau", @category=:Geography>
+#
+# pry(main)> turn.guess
+# #=> "Juneau"
+#
+# pry(main)> turn.correct?
+# #=> true
+#
+# pry(main)> turn.feedback
+# #=> "Correct!"
