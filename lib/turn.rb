@@ -1,12 +1,13 @@
 class Turn
-  attr_reader :card, :question, :answer, :category
 
-def initialize(string, card)
-  @string = string
-  @card = [question, answer, category]
-  @question = "What is the capital of Alaska?"
-  @answer = "Juneau"
-  @category = :Geography
+def initialize(guess, card_parameter)
+  @guess = guess
+  @card = card_parameter
+
+end
+
+def read_card(card_name)
+  @card << card_name
 end
 
 end
