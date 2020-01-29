@@ -15,9 +15,7 @@ class Turn
     if correct? == true
       "Correct!"
     else
-      "You are wrong"
+      "Incorrect."
     end
   end
-
-
 end
