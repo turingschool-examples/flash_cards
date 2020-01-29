@@ -37,7 +37,7 @@ class RoundTest < Minitest::Test
     assert_equal card_1, round.current_card
   end
 
-  def test_take_turn_method_creates_a_new_Turn_class_object
+  def test_take_turn_method_creates_a_new_turn_class_object
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
@@ -93,12 +93,21 @@ class RoundTest < Minitest::Test
 
     round = Round.new(deck)
     new_turn = round.take_turn("Juneau")
-
     assert_equal card_2, round.current_card
   end
-  # pry(main)> round.current_card
-  # #=> #<Card:0x00007fa160a62e90 @answer="Mars", @question="The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", @category=:STEM>
-  #
+
+  def test_turns_count_returns_2_after_2_turns
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+    card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+    deck = Deck.new([card_1, card_2, card_3])
+
+    round = Round.new(deck)
+    round.take_turn("Juneau")
+    round.take_turn("Venus")
+
+    assert_equal 2, round.turns.count
+  end
   # pry(main)> round.take_turn("Venus")
   # #=> #<Turn:0x00007f972a215b38...>
   #
