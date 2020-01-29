@@ -25,6 +25,6 @@ class Round
   end
 
   def percent_correct
-    100.0 * @turns.select {|turn| turn.correct?}.count / @turns.count
+    100.0 * number_correct / @turns.count
   end
 end
