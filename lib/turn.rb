@@ -1,6 +1,7 @@
 class Turn
 
   attr_accessor :card
+  attr_reader :string
 
   def initialize(string, card)
     @string = string
@@ -12,11 +13,11 @@ class Turn
   end
 
   def correct?
-    card.answer == @string ? true : false
+    card.answer == @string
   end
 
   def feedback
-    correct? == true ? "Correct!" : "Incorrect."
+    correct? ? "Correct!" : "Incorrect."
   end
 
 end

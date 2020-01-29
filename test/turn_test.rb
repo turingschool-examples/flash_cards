@@ -2,6 +2,7 @@ require "minitest/autorun"
 require "minitest/pride"
 require "./lib/turn"
 require "./lib/card"
+require "pry"
 
 class TurnTest < Minitest::Test
 
@@ -17,12 +18,14 @@ class TurnTest < Minitest::Test
     assert_equal "Juneau", turn.guess
   end
 
+  def test_it_has_a_correct?
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Juneau", card)
+    assert turn.correct?
+  end
 
 end
 
 =begin
-add string test
-add card
-correct? method?
 feedback method?
 =end
