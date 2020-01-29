@@ -19,18 +19,19 @@ class RoundTest < Minitest::Test
     assert_instance_of Deck, round.deck
   end
 
-  def test_round_turns_are_an_array
+  def test_round_starts_with_no_turns
+    round = Round.new(create_deck)
 
-    assert_instance_of Array, round.turns
+    assert_equal = [], round.turns
   end
 
   def test_current_card_is_a_card
-
+    skip
     assert_instance_of Card, round.current_card
   end
 
   def test_counts_correct_answers
-
+    skip
     assert_equal 1, round.number_correct
     # Insert another correct guess here
     assert_equal 2, round.number_correct
@@ -38,12 +39,12 @@ class RoundTest < Minitest::Test
   end
 
   def test_can_take_turns
-
+    skip
     assert_instance_of Turn, round.take_turn("guess to question")
   end
 
   def test_knows_number_correct_by_category
-
+    skip
     assert_equal 1, round.number_correct_by_category(:Geography)
 
   end
