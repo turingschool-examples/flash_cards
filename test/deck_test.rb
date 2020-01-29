@@ -2,6 +2,7 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/card'
 require './lib/turn'
+require "./lib/deck"
 
 
 class DeckTest < Minitest::Test
@@ -27,7 +28,7 @@ class DeckTest < Minitest::Test
     assert_instance_of Array, deck.cards
 
     deck.cards.each do |card_in_deck|
-      assert_instance_of Card, card_in_deck
+    assert_instance_of Card, card_in_deck
     end
 
   end
