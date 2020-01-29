@@ -5,11 +5,10 @@ require './lib/deck'
 
 class DeckTest < Minitest::Test
   def setup
-    @card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    @card_2 = Card.new("TheThe Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
-    @card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-    @cards = [@card_1, @card_2, @card_3]
-    @cards_in_category = []
+    @card1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    @card2 = Card.new("TheThe Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+    @card3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+    @cards = [@card1, @card2, @card3]
     @deck = Deck.new(@cards)
   end
 
@@ -27,39 +26,12 @@ class DeckTest < Minitest::Test
   end
 
   def test_deck_cards_in_category_gegraphy
-    @cards.each do |card|
-      if card.category == :Geography
-        @cards_in_category << card
-      end
-      return @cards_in_category
-      require 'pry'; binding.pry
-    end
-
-    assert_equal @cards_in_category, @deck.cards_in_category(:Geography)
+    @cards_in_category_geography = [@card1]
+    @cards_in_category_STEM = [@card2, @card3]
+    @cards_in_category_pop_culture = []
+    @deck.cards_in_category(:STEM)
+        assert_equal @cards_in_category_geography, @deck.cards_in_category(:Geography)
+        assert_equal @cards_in_category_STEM, @deck.cards_in_category(:STEM)
+        assert_equal @cards_in_category_pop_culture, @deck.cards_in_category("Pop Culture")
   end
 end
-
-
-
-
-
-
-# pry(main)> cards = [card_1, card_2, card_3]
-#
-# pry(main)> deck = Deck.new(cards)
-# #=> #<Deck:0x00007fa160a38ed8...>
-#
-# pry(main)> deck.cards
-# #=> [#<Card:0x00007fa16104e160...>, #<Card:0x00007fa160a62e90...>, #<Card:0x00007fa161a136f0...>]
-#
-# pry(main)> deck.count
-# #=> 3
-#
-# pry(main)> deck.cards_in_category(:STEM)
-# #=> [#<Card:0x00007fa160a62e90...>, #<Card:0x00007fa161a136f0...>]
-#
-# pry(main)> deck.cards_in_category(:Geography)
-# #=> [#<Card:0x00007fa16104e160...>]
-#
-# pry(main)> deck.cards_in_category("Pop Culture")
-# #=> []
