@@ -31,6 +31,3 @@ class DeckTest < MiniTest::Test
     assert_equal [], @deck.cards_in_category("Pop Culture")
   end
 end
-
-# pry(main)> deck.cards_in_category("Pop Culture")
-# #=> []
