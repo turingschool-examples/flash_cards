@@ -41,8 +41,8 @@ class DeckTest < Minitest::Test
     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
-
     stem_cards = [card_2, card_3]
+    
     assert_equal stem_cards, deck.cards_in_category(:STEM)
 
     geography_cards = [card_1]
