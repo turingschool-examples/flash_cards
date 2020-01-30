@@ -37,17 +37,24 @@ class RoundTest < MiniTest::Test
     @new_turn = @round.take_turn("Juneau")
     assert @new_turn.correct?
   end
+
+  def test_turns_are_added_to_turns_array
+    @new_turn = @round.take_turn("Juneau")
+    assert_equal [@new_turn], @round.turns
+  end
+
+  def test_number_correct_can_be_accessed
+    @new_turn = @round.take_turn("Juneau")
+    assert_equal 1, @round.number_correct
+    #passing either way
+  end
+  #
+  # def test_
+  #   @new_turn = @round.take_turn("Juneau")
+  #   @round.current_card
+  # end
 end
 
-# pry(main)> new_turn.correct?
-# #=> true
-#
-# pry(main)> round.turns
-# #=> [#<Turn:0x00007f99842f09e8 @card=#<Card:0x00007f800e29f0c9 @question=""What is the capital of Alaska?", @answer="Juneau", @category=:Geography>, @guess="Juneau">]
-#
-# pry(main)> round.number_correct
-# #=> 1
-#
 # pry(main)> round.current_card
 # #=> #<Card:0x00007fa160a62e90 @answer="Mars", @question="The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", @category=:STEM>
 #

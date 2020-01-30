@@ -16,4 +16,8 @@ class Round
     @deck.cards.push(old_card)
     turn
   end
+
+  def number_correct
+    @turns.length
+  end
 end
