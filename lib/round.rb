@@ -17,4 +17,17 @@ class Round
     @turns << new_turn
     new_turn
   end
+
+  def number_correct
+    @turns.count {|turn| turn.correct?}
+  end
+
+  def categories
+    @turns.map {|turn| turn.card.category }.uniq
+  end
+
+  def number_correct_by_category(category)
+    @turns.count {|turn| turn.card.category == category && turn.correct?}
+  end
+
 end
