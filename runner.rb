@@ -13,3 +13,19 @@ require './lib/round'
 @cards = [@card1, @card2, @card3]
 @deck = Deck.new(@cards)
 @round = Round.new(@deck)
+
+def start
+  puts "Welcome! You are playing with #{@cards.count} cards." + "\n\n"
+  puts "-------------GOOD LUCK----------------" + "\n\n"
+  puts "This is card number #{@cards.find_index(@round.current_card) + 1} out of #{@cards.count}"
+  puts @round.current_card.question
+
+  @round.take_turn(gets.chomp)
+
+
+end
+
+
+
+
+puts start
