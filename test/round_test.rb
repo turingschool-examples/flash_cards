@@ -5,7 +5,7 @@ require './lib/turn'
 require './lib/deck'
 require './lib/round'
 
-class RoundTest < MiniTest :: Test
+class RoundTest < MiniTest::Test
 
   def setup
     @card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
@@ -16,14 +16,20 @@ class RoundTest < MiniTest :: Test
     @round = Round.new(@deck)
   end
 
-end
+  def test_the_deck_has_rounds
+    assert_equal @deck, @round.deck
+  end
 
-# pry(main)> round.deck
-# #=> #<Deck:0x00007fa160a38ed8...>
-#
-# pry(main)> round.turns
-# #=> []
-#
+  def test_rounds_have_turns
+    assert_equal [], @round.turns
+  end
+
+  def test_rounds_current_card_can_be_shown
+    assert_equal @card_1, @round.current_card
+  end
+
+
+end
 # pry(main)> round.current_card
 # #=> #<Card:0x00007fa16104e160 @answer="Juneau", @question="What is the capital of Alaska?", @category=:Geography>
 #
