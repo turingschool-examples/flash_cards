@@ -28,12 +28,15 @@ end
 def test_correct_returns_value
   card = Card.new("What is the capital of NM?", "Santa Fe", :Geography)
   turn = Turn.new("Santa Fe", card)
+  turn2 = Turn.new("Denver", card)
 
-  assert_equal turn.correct?, true || false
+  assert_equal turn.correct?, true
+  assert_equal turn2.correct?, false
 end
 
 def test_if_feedback_responds
-  skip
+
+
 end
 
 end
