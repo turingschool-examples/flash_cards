@@ -21,4 +21,14 @@ class CardGeneratorTest < Minitest::Test
 
   end
 
+  def test_it_can_read_file_into_array_of_cards
+    filename = "cards.txt"
+    cards = CardGenerator.new(filename).cards
+
+    cards.each do |card|
+      assert_instance_of Card, card
+    end
+
+  end
+
 end
