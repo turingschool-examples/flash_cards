@@ -54,4 +54,11 @@ class RoundTest < Minitest::Test
     assert_equal "Incorrect!", @round.turns.last.feedback
   end
 
+  def test_round_number_correct_by_category
+    @round.take_turn("Juneau")
+    @round.take_turn("Venus")
+
+    assert_equal 1, @round.number_correct_by_category(:Geography)
+  end
+
 end
