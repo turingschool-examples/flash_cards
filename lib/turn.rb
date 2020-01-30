@@ -7,7 +7,7 @@ class Turn
   end
 
   def correct?
-    return @guess.downcase  == card.answer.downcase
+    return @guess.downcase == card.answer.downcase
   end
 
   def feedback
