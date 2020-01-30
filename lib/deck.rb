@@ -7,3 +7,5 @@ class Deck
   def add_new_card(card_name)
     @cards << card_name
   end
+
+end
