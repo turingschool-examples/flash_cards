@@ -43,16 +43,15 @@ class RoundTest < MiniTest::Test
     assert_equal [@new_turn], @round.turns
   end
 
-  def test_number_correct_can_be_accessed
+  def test_number_correct_are_recorded
     @new_turn = @round.take_turn("Juneau")
     assert_equal 1, @round.number_correct
-    #passing either way
   end
-  #
-  # def test_
-  #   @new_turn = @round.take_turn("Juneau")
-  #   @round.current_card
-  # end
+
+  def test_turn_changes_after_guess
+    @round.current_card
+    @round.take_turn("Venus")
+  end
 end
 
 # pry(main)> round.current_card
