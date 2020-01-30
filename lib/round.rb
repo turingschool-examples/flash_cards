@@ -33,7 +33,7 @@ class Round
   end
 
   def turns_remaining
-    deck.cards.length - turns.length
+    @deck.cards.length - @turns.length
   end
 
   def total_cards
