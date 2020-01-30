@@ -28,17 +28,16 @@ class RoundTest < MiniTest::Test
     assert_equal @card_1, @round.current_card
   end
 
+  def test_new_turns_are_part_of_turn_class
+    @new_turn = @round.take_turn("Juneau")
+    assert_equal Turn, @new_turn.class
+  end
 
+  def method_name
+
+  end
 end
-# pry(main)> round.current_card
-# #=> #<Card:0x00007fa16104e160 @answer="Juneau", @question="What is the capital of Alaska?", @category=:Geography>
-#
-# pry(main)> new_turn = round.take_turn("Juneau")
-# #=> #<Turn:0x00007f99842f09e8 @card=#<Card:0x00007f800e29f0c9 @question=""What is the capital of Alaska?", @answer="Juneau", @category=:Geography>, @guess="Juneau">
-#
-# pry(main)> new_turn.class
-# #=> Turn
-#
+
 # pry(main)> new_turn.correct?
 # #=> true
 #

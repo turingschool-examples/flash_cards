@@ -6,7 +6,14 @@ class Round
   end
 
   def current_card
-    @deck.cards[0]
+    @deck.cards.first
   end
 
+  def take_turn(guess)
+    turn = Turn.new(guess, current_card)
+    old_card = @deck.cards.shift
+    @turns << turn
+    @deck.cards.push(old_card)
+    turn
+  end
 end
