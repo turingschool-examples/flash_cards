@@ -18,7 +18,6 @@ class DeckTest < MiniTest::Test
   end
 
   def test_deck_has_cards
-    assert_instance_of Array, @deck.cards
     assert_equal [@card_1, @card_2, @card_3], @deck.cards
   end
 
@@ -27,7 +26,7 @@ class DeckTest < MiniTest::Test
     assert_equal 3, @deck.count
   end
 
-  def test_deck_cards_in_category_method
+  def test_deck_cards_in_category_method # missing assertions!!!!!
     @deck.cards_in_category(:STEM)
     @deck.cards_in_category(:Geography)
     @deck.cards_in_category("Pop Culture")

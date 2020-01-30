@@ -35,7 +35,7 @@ class RoundTest < MiniTest::Test
     assert_equal @card_1, @round.current_card
   end
 
-  def test_round_take_turn_method
+  def test_round_take_turn_method # single test for each method process
     new_turn = @round.take_turn("Juneau")
 
     assert_instance_of Turn, new_turn
@@ -43,7 +43,7 @@ class RoundTest < MiniTest::Test
     assert_equal [new_turn], @round.turns
   end
 
-  def test_round_logs_number_correct
+  def test_round_logs_number_correct # more assertions w/ multiple scenarios
     @round.take_turn("Juneau")
     assert_equal 1, @round.number_correct
   end
@@ -100,7 +100,7 @@ class RoundTest < MiniTest::Test
     assert_equal 100.0, @round.percent_correct_by_category(:Geography)
     
     @round.take_turn("Venus")
-    assert_equal 50.0, @round.percent_correct_by_category(:Geography)
+    assert_equal 100.0, @round.percent_correct_by_category(:Geography)
     assert_equal 0, @round.percent_correct_by_category(:STEM)
   end
 
