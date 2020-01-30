@@ -16,11 +16,13 @@ def test_if_turn_has_card
   turn = Turn.new("Santa Fe", card)
 
   assert_equal turn.card, card
-
 end
 
 def test_if_turn_has_guess
-  skip
+  card = Card.new("What is the capital of NM?", "Santa Fe", :Geography)
+  turn = Turn.new("Santa Fe", card)
+
+  assert_equal turn.guess, card.answer
 end
 
 def test_correct_returns_value
