@@ -36,4 +36,12 @@ class RoundTest < Minitest::Test
   def test_turn_is_created
     assert_instance_of Turn, @round.take_turn("Juneau")
   end
+
+  def test_it_is_second_round_after_first_turn
+    @round.take_turn("Juneau")
+    assert_equal 1, @round.turns.count
+
+    @round.take_turn("Venus")
+    assert_equal 2, @round.turns.count
+  end
 end
