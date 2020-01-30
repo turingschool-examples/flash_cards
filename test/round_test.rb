@@ -18,7 +18,7 @@ class RoundTest < Minitest::Test
     round = Round.new(deck)
     assert_instance_of Round, round
   end
-  
+
   def test_if_deck_holds_cards_array
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
@@ -29,6 +29,17 @@ class RoundTest < Minitest::Test
     assert_equal cards, deck.cards
   end
 
+  def test_if_round_has_deck
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+    card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+
+    cards  = [card_1, card_2, card_3]
+    deck = Deck.new(cards)
+    round = Round.new(deck)
+    assert_equal round.deck, deck
+  end
+
 end
 
 
@@ -37,26 +48,6 @@ end
 
 
 
-
-#
-# pry(main)> card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-# #=> #<Card:0x00007fa16104e160 @answer="Juneau", @question="What is the capital of Alaska?", @category=:Geography>
-#
-# pry(main)> card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
-# #=> #<Card:0x00007fa160a62e90 @answer="Mars", @question="The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", @category=:STEM>
-#
-# pry(main)> card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-# #=> #<Card:0x00007fa161a136f0 @answer="North north west", @question="Describe in words the exact direction that is 697.5° clockwise from due north?", @category=:STEM>
-#
-# pry(main)> deck = Deck.new([card_1, card_2, card_3])
-# #=> #<Deck:0x00007fa160a38ed8...>
-#
-# pry(main)> round = Round.new(deck)
-# #=> #<Round:0x00007f972a1c7960...>,
-#
-# pry(main)> round.deck
-# #=> #<Deck:0x00007fa160a38ed8...>
-#
 # pry(main)> round.turns
 # #=> []
 #
