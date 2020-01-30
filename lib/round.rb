@@ -19,4 +19,6 @@ class Round
     @current_card = @deck.cards.first
     return turn
   end
+
+
 end

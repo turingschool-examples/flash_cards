@@ -36,9 +36,11 @@ class RoundTest < Minitest::Test
 
    def test_round_take_turn_is_working
      new_turn = @round.take_turn("Juneau")
+     new_turn2 = @round.take_turn("Venus")
 
      assert_equal Turn, new_turn.class
      assert_equal true, new_turn.correct?
+     assert_equal 2, @round.turns.count
    end
 
    def test_is_turns_storing_turns
@@ -53,6 +55,12 @@ class RoundTest < Minitest::Test
      assert_equal 1, @round.number_correct
    end
 
+   def test_new_current_card
+     new_turn = @round.take_turn("Juneau")
+
+     assert_equal @card2, @round.current_card
+   end
+
 end
 
 
@@ -62,12 +70,7 @@ end
 
 
 
-# pry(main)> round.current_card
-# #=> #<Card:0x00007fa160a62e90 @answer="Mars", @question="The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", @category=:STEM>
-#
-# pry(main)> round.take_turn("Venus")
-# #=> #<Turn:0x00007f972a215b38...>
-#
+
 # pry(main)> round.turns.count
 # #=> 2
 #
