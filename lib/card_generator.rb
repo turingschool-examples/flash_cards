@@ -9,7 +9,7 @@ attr_reader :cards
   def read_in_file
     lines = []
     File.open(@filename).each do |line|
-      lines << line
+      lines << line.chomp
     end
     lines
   end
@@ -17,7 +17,7 @@ attr_reader :cards
   def convert_lines_to_cards(lines)
     lines.each do |line|
       card_parameters = line.split(",")
-      cards << Card.new(card_parameters[0], card_parameters[1], card_parameters[3])
+      cards << Card.new(card_parameters[0], card_parameters[1], card_parameters[2])
     end
    @cards
   end
