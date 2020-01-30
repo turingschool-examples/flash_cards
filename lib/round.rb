@@ -1,10 +1,10 @@
 class Round
-  attr_reader :deck, :turns, :card_number, :correct
+  attr_reader :deck, :turns, :card_number, :number_correct
   def initialize(deck)
     @deck = deck
     @turns = []
     @card_number = 0
-    @correct = 0
+    @number_correct = 0
   end
 
   def current_card
