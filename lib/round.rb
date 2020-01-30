@@ -12,5 +12,10 @@ class Round
 
   def take_turn(guess)
     new_turn = Turn.new(guess, current_card)
+    @turns << new_turn
+    @card_number += 1
+    new_turn
   end
+
+
 end
