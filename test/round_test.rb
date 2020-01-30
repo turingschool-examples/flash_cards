@@ -42,5 +42,7 @@ class RoundTest < Minitest::Test
     assert_equal card_1, round.current_card
 
     assert_equal [new_turn], round.turns
+
+    assert_equal 1, round.number_correct
   end
 end
