@@ -3,7 +3,7 @@ require 'minitest/pride'
 require './lib/card'
 require './lib/deck'
 
-class Turn_test < Minitest::Test
+class TurnTest < Minitest::Test
   def test_deck_exists
     card_denver = Card.new("What is the capital of Colorado","Denver",:Geography)
     card_president = Card.new("Who was the first president of the USA","George Washington",:History)

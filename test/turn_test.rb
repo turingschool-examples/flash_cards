@@ -3,7 +3,7 @@ require 'minitest/pride'
 require './lib/card'
 require './lib/turn'
 
-class Turn_test < Minitest::Test
+class TurnTest < Minitest::Test
   def test_turn_exists
     card = Card.new("What is the capital of Colorado","Denver",:Geography)
     turn = Turn.new("Denver", card)
