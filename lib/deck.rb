@@ -5,6 +5,8 @@ class Deck
     @card = cards
   end
 
+
+
   def count
     @cards.count
   end
