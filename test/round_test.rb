@@ -18,22 +18,29 @@ class RoundTest < Minitest::Test
    def test_it_exists
      assert_instance_of Round, @round
    end
+
    def test_round_has_a_deck
 
      assert_equal @deck, @round.deck
    end
-   
+
+   def test_round_has_empty_turns_array
+     turns = []
+     assert_equal turns, @round.turns
+   end
+
+   def test_round_has_current_card
+
+     assert_equal @card1, @round.current_card
+   end
 
 end
 
 
 
-# pry(main)> round.deck
-# #=> #<Deck:0x00007fa160a38ed8...>
-#
-# pry(main)> round.turns
-# #=> []
-#
+
+
+
 # pry(main)> round.current_card
 # #=> #<Card:0x00007fa16104e160 @answer="Juneau", @question="What is the capital of Alaska?", @category=:Geography>
 #
