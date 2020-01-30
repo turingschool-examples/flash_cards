@@ -27,18 +27,15 @@ class TurnTest < Minitest::Test
 #  end
 #end
 
+#Am I making this too hard? Do I just need an array (not a Deck) containing card_1, card_2, card_3?
 def test_add_cards_to_deck
-  card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-  card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
-  card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-
   deck_1 = Deck.new
 
-  deck_1.add_new_card(card_1)
-  deck_1.add_new_card(card_2)
-  deck_1.add_new_card(card_3)
+  deck_1.add_new_card("card_1")
+  deck_1.add_new_card("card_2")
+  deck_1.add_new_card("card_3")
 
-  assert_equal [card_1, card_2, card_3], deck_1
+  assert_equal ["card_1", "card_2", "card_3"], deck_1
 end
 
 end
