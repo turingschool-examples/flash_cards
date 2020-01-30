@@ -4,9 +4,9 @@ class Round
   def initialize(deck)
     @deck = deck
   end
-
+# assign method value to instance array so I can change it later
   def turns
-    []
+    turns = []
   end
 
   def current_card
