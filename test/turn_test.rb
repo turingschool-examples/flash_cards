@@ -34,4 +34,8 @@ class TurnTest < Minitest::Test
     assert "Incorrect!", @turn.feedback
     refute @turn.correct?
   end
+
+  def test_can_give_feedback
+    assert_equal "Correct!", @turn.feedback
+  end
 end
