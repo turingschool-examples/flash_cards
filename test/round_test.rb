@@ -48,27 +48,51 @@ class RoundTest < Minitest::Test
     cards  = [card_1, card_2, card_3]
     deck = Deck.new(cards)
     round = Round.new(deck)
-    assert_equal round.turns, []
+    assert_equal [], round.turns
+  end
 
+  def test_if_shows_current_card
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+    card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+
+    cards  = [card_1, card_2, card_3]
+    deck = Deck.new(cards)
+    round = Round.new(deck)
+    assert_equal card_1, round.current_card
+  end
+
+  def test_if_can_take_turn
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+    card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+
+    cards  = [card_1, card_2, card_3]
+    deck = Deck.new(cards)
+    round = Round.new(deck)
+    turn = round.take_turn("Juneau")
+
+    assert_instance_of Turn, turn
+    assert_equal "Juneau", turn.guess
   end
 
 end
 
-
-
-
-
-
-
-# pry(main)> round.turns
-# #=> []
-#
-# pry(main)> round.current_card
-# #=> #<Card:0x00007fa16104e160 @answer="Juneau", @question="What is the capital of Alaska?", @category=:Geography>
-#
 # pry(main)> new_turn = round.take_turn("Juneau")
 # #=> #<Turn:0x00007f99842f09e8 @card=#<Card:0x00007f800e29f0c9 @question=""What is the capital of Alaska?", @answer="Juneau", @category=:Geography>, @guess="Juneau">
-#
+
+
+
+
+
+
+
+
+
+
+
+
+
 # pry(main)> new_turn.class
 # #=> Turn
 #
