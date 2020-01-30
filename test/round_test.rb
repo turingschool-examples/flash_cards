@@ -61,4 +61,15 @@ class RoundTest < Minitest::Test
     assert_equal 1, @round.number_correct_by_category(:Geography)
   end
 
+  def test_correct_answers_by_rounds
+    @round.take_turn("Juneau")
+    assert_equal 1, @round.number_correct
+
+    @round.take_turn("Mars")
+    assert_equal 2, @round.number_correct
+
+    @round.take_turn("Earth")
+    assert_equal 2, @round.number_correct
+  end
+
 end
