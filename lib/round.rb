@@ -21,6 +21,14 @@ class Round
     new_turn
   end
 
-
+  def number_correct_by_category(category)
+    searched_correct_round = []
+    turns.each do |turn|
+      if turn.card.category == category
+        searched_correct_round << turn
+      end
+    end
+    searched_correct_round.count
+  end
 
 end
