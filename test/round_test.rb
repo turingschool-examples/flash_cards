@@ -72,4 +72,13 @@ class RoundTest < Minitest::Test
     assert_equal 2, @round.number_correct
   end
 
+  def test_percent_correct
+    @round.take_turn("Juneau")
+    @round.take_turn("Venus")
+
+    assert_equal 50.0, @round.percent_correct
+  end
+
+  
+
 end
