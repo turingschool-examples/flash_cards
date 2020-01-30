@@ -11,6 +11,25 @@ def test_if_turn_exists
   assert_instance_of Turn, turn
 end
 
+def test_if_turn_has_card
+  card = Card.new("What is the capital of NM?", "Santa Fe", :Geography)
+  turn = Turn.new("Santa Fe", card)
+
+  assert_equal turn.card, card
+
+end
+
+def test_if_turn_has_guess
+  skip
+end
+
+def test_correct_returns_value
+  skip
+end
+
+def test_if_feedback_responds
+  skip
+end
 
 end
 
