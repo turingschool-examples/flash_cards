@@ -44,4 +44,14 @@ class RoundTest < Minitest::Test
     @round.take_turn("Venus")
     assert_equal 2, @round.turns.count
   end
+
+  # integration test
+  def test_can_return_feedback_for_turn
+    @round.take_turn("Juneau")
+    assert_equal "Correct!", @round.turns.last.feedback
+
+    @round.take_turn("Ziggy")
+    assert_equal "Incorrect!", @round.turns.last.feedback
+  end
+
 end
