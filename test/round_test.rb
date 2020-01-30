@@ -26,4 +26,14 @@ class RoundTest < Minitest::Test
   def test_round_starts_with_zero_turns
     assert_equal [], @round.turns
   end
+
+  def test_current_card_is_correct
+    assert_equal @card_1, @round.current_card
+    @round.take_turn("Juneau")
+    assert_equal @card_2, @round.current_card
+  end
+
+  def test_turn_is_created
+    assert_instance_of Turn, @round.take_turn("Juneau")
+  end
 end
