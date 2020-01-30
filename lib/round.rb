@@ -4,6 +4,8 @@ class Round
   def initialize(deck)
     @deck = deck
     @turns = []
+    @current_turn
+    @correct_count = 0
   end
 
   def current_card
@@ -11,7 +13,14 @@ class Round
   end
 
   def take_turn(guess)
-    turn = Turn.new(guess, current_card)
-    return turn
+    @current_turn = Turn.new(guess, current_card)
+    @turns << @current_turn
+    @current_turn
+  end
+
+  def number_correct
+    if @current_turn.correct?
+      @correct_count += 1
+    end
   end
 end
