@@ -22,13 +22,15 @@ class Round
   end
 
   def number_correct_by_category(category)
-    searched_correct_round = []
+    correct_in_category = 0
     turns.each do |turn|
-      if turn.card.category == category
-        searched_correct_round << turn
+      if turn.card.category == category && turn.correct?
+        correct_in_category += 1
       end
     end
-    searched_correct_round.count
+    correct_in_category
   end
+
+  def percent_correct
 
 end
