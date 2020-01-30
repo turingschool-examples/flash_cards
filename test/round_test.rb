@@ -33,8 +33,9 @@ class RoundTest < MiniTest::Test
     assert_equal Turn, @new_turn.class
   end
 
-  def method_name
-
+  def test_new_turn_guess_is_correct
+    @new_turn = @round.take_turn("Juneau")
+    assert @new_turn.correct?
   end
 end
 
