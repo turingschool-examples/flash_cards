@@ -10,10 +10,14 @@ def card
 end
 
 def correct?
-  
+  if @guess == card.answer
+    correct_guess = true
+  else
+    correct_guess = false
 end
 
 def feedback
 end
 
+end
 end
