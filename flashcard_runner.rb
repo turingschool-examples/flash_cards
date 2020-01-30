@@ -1,3 +1,8 @@
+include './lib/card'
+include './lib/deck'
+include './lib/turn'
+include './lib/round'
+
 # Create some Cards
 
 # Put those cards into a deck
