@@ -17,7 +17,7 @@ class Round
   end
 
   def number_correct
-    @turns.count {|turn| turn.correct?}
+    @turns.count {|turn| turn.correct?} # select and count may be better
   end
 
   def number_correct_by_category(category)
@@ -25,7 +25,7 @@ class Round
   end
 
   def percent_correct
-    100.0 * number_correct / @turns.count
+    100.0 * number_correct / @turns.count #look into length or size
   end
 
   def percent_correct_by_category(category)

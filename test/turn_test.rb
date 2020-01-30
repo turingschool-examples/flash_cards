@@ -33,6 +33,7 @@ class TurnTest < Minitest::Test
     assert turn.correct?
   end
 
+#combine similar funcationalithy
   def test_feedback_method_returns_appropriate_feedback
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
