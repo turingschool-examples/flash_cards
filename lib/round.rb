@@ -16,7 +16,7 @@ class Round
     @turns << new_turn
     @card_number += 1
     if new_turn.correct?
-      @correct += 1
+      @number_correct += 1
     end
     new_turn
   end
