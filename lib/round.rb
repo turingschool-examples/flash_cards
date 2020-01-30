@@ -22,5 +22,6 @@ class Round
     if @current_turn.correct?
       @correct_count += 1
     end
+    @correct_count
   end
 end
