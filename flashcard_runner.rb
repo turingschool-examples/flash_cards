@@ -3,39 +3,33 @@ require './lib/deck'
 require './lib/turn'
 require './lib/round'
 
-card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
-card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-deck = Deck.new([card_1, card_2, card_3])
+card_1 = Card.new("What is 5 + 5?", "10", "STEM")
+card_2 = Card.new("What is Rachel's favorite animal?", "Dog", "Turing Staff")
+card_3 = Card.new("What is Mike's middle name?", "nobody knows", "Turing Staff")
+card_4 = Card.new("What cardboard cutout lives at Turing?", "Justin Bieber", "Pop Culture")
+deck = Deck.new([card_1, card_2, card_3, card_4])
 round = Round.new(deck)
 
 
-p "Welcome! You're playing with #{deck.cards.size} cards."
-p "-------------------------------------------------"
+puts "Welcome! You're playing with #{deck.cards.size} cards."
+puts "-------------------------------------------------"
 
 while (deck.count != round.turns.count)
-  p "This is card number #{round.turns.size + 1} out of #{deck.cards.size}."
-  p "Question: #{round.current_card.question}"
+  puts "This is card number #{round.turns.size + 1} out of #{deck.cards.size}."
+  puts "Question: #{round.current_card.question}"
   answer = gets.chomp
   turn = Turn.new(answer, round.current_card)
   round.take_turn(answer)
-  p turn.feedback
+  puts turn.feedback
 end
-p "****** Game over! ******"
-p "You had #{round.number_correct} correct guesses out of #{deck.cards.size} for a total score of #{round.percent_correct.round(0)}%."
-# STEM - 100% correct
-# Turing Staff - 50% correct
-# Pop Culture - 100% correct
+puts "****** Game over! ******"
+puts "You had #{round.number_correct} correct guesses out of #{deck.cards.size} for a total score of #{round.percent_correct.round(0)}%."
 
 category = Hash.new
 deck.cards.each do | value |
-  if category.include?(value.category)
     category[value.category] = round.percent_correct_by_category(value.category)
-  elsif
-    category[value.category] = round.percent_correct_by_category(value.category)
-  end
 end
 
 category.each do | key, value |
-  p "#{key.to_s.sub(":", "")} - #{value.round(0)}% correct"
+  puts "#{key.to_s} - #{value.round(0)}% correct"
 end
