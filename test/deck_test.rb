@@ -25,4 +25,8 @@ class DeckTest < Minitest::Test
     assert_equal @cards, @cards.count
   end
 
+  def test_cards_in_category
+    assert_equal 2, @deck.cards_in_category(:STEM).length
+    assert_equal Array, @deck.cards_in_category(:STEM).class
+  end
 end
