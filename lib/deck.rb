@@ -1,5 +1,6 @@
 class Deck
+  attr_reader :cards
   def initialize(deck)
-    @deck = [deck]
+    @cards = deck
   end
 end
