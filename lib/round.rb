@@ -7,4 +7,6 @@ class Round
     @turns = []
     @card_count = 0
   end
+
+
 end

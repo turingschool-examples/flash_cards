@@ -18,4 +18,12 @@ class RoundTest < Minitest::Test
   def test_it_exists
     assert_instance_of Round, @round
   end
+
+  def test_the_round_has_a_deck
+    assert_equal @deck, @round.deck
+  end
+
+  def test_round_starts_with_zero_turns
+    assert_equal [], @round.turns
+  end
 end
