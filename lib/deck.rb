@@ -14,9 +14,9 @@ class Deck
     @cards_in_category = []
     @cards.each do |card|
       if category.to_sym == card.category
-        @cards_in_category << card 
+        @cards_in_category << card
       end
     end
-    return @cards_in_category
+    @cards_in_category
   end
 end
