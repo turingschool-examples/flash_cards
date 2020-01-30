@@ -1,16 +1,16 @@
 class Turn
-def initialize(question, card)
-  @question = question
+  attr_reader :guess
+def initialize(guess, card)
   @card = card
-end
-
-def guess
+  @guess = guess
 end
 
 def card
+  @card
 end
 
-def correct_or_not
+def correct?
+  
 end
 
 def feedback
