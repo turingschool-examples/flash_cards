@@ -106,8 +106,11 @@ class RoundTest < Minitest::Test
     round = Round.new(deck)
     new_turn = round.take_turn("Juneau")
     round.take_turn("Venus")
-    
+
     assert_equal 1, round.number_correct_by_category(:Geography)
+    assert_equal 0, round.number_correct_by_category(:STEM)
   end
+
+
 
 end
