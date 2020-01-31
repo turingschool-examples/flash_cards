@@ -65,29 +65,41 @@ class RoundTest < Minitest::Test
     assert_instance_of Turn, result
     assert_equal true, result.correct?
     assert_equal [result], round.turns
-
-    # can add more turn tests assertions here
   end
 
+  def test_if_tracks_number_correct
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+    card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+
+    cards  = [card_1, card_2, card_3]
+    deck = Deck.new(cards)
+    round = Round.new(deck)
+    result = round.take_turn("Juneau")
+    
+
+    assert_equal 1, round.number_correct
+  end
 end
-
-
-
-# pry(main)> round.turns
-# #=> [#<Turn:0x00007f99842f09e8 @card=#<Card:0x00007f800e29f0c9 @question=""What is the capital of Alaska?", @answer="Juneau", @category=:Geography>, @guess="Juneau">]
-
-
-
-
-
-
-
-
 
 
 # pry(main)> round.number_correct
 # #=> 1
-#
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # pry(main)> round.current_card
 # #=> #<Card:0x00007fa160a62e90 @answer="Mars", @question="The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", @category=:STEM>
 #
