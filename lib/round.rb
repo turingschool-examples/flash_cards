@@ -8,9 +8,9 @@ class Round
     @deck.cards[0]
   end
   def take_turn(guess)
-    #revisit this
     @turns << Turn.new(guess, self.current_card)
-    @turns[0]
+    @deck.cards.shift
+    @turns[-1]
   end
   def number_correct
     incorrect_cards = []
