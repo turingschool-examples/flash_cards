@@ -29,13 +29,13 @@ class RoundTest < MiniTest::Test
   end
 
   def test_new_turns_are_part_of_turn_class
-    @new_turn = @round.take_turn("Juneau")
-    assert_equal Turn, @new_turn.class
+    new_turn = @round.take_turn("Juneau")
+    assert_instance_of Turn, new_turn
   end
 
   def test_new_turn_guess_is_correct
-    @new_turn = @round.take_turn("Juneau")
-    assert @new_turn.correct?
+    new_turn = @round.take_turn("Juneau")
+    assert new_turn.correct?
   end
 
   def test_turns_are_added_to_turns_array
@@ -44,13 +44,23 @@ class RoundTest < MiniTest::Test
   end
 
   def test_number_correct_are_recorded
-    @new_turn = @round.take_turn("Juneau")
+    new_turn = @round.take_turn("Juneau")
     assert_equal 1, @round.number_correct
   end
 
   def test_turn_changes_after_guess
-    @round.current_card
+    new_turn = @round.take_turn("Juneau")
+    assert_equal Turn, new_turn.class
+  end
+
+  def test_new_turn_can_be_correct
+    new_turn = @round.take_turn("Juneau")
+    assert_equal true, new_turn.correct?
+  end
+
+  def test_current_card_changes
     @round.take_turn("Venus")
+    assert_equal @card_2, @round.current_card
   end
 end
 
