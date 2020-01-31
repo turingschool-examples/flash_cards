@@ -60,40 +60,31 @@ class RoundTest < Minitest::Test
     cards  = [card_1, card_2, card_3]
     deck = Deck.new(cards)
     round = Round.new(deck)
-    turn = round.take_turn("Juneau")
+    result = round.take_turn("Juneau")
 
-    assert_instance_of Turn, turn
-    assert_equal "Juneau", turn.guess # not neccessary
+    assert_instance_of Turn, result
+    assert_equal true, result.correct?
+    assert_equal [result], round.turns
 
     # can add more turn tests assertions here
   end
 
 end
 
-# pry(main)> new_turn = round.take_turn("Juneau")
-# #=> #<Turn:0x00007f99842f09e8 @card=#<Card:0x00007f800e29f0c9 @question=""What is the capital of Alaska?", @answer="Juneau", @category=:Geography>, @guess="Juneau">
 
 
-
-
-
-
-
-
-
-
-
-
-
-# pry(main)> new_turn.class
-# #=> Turn
-#
-# pry(main)> new_turn.correct?
-# #=> true
-#
 # pry(main)> round.turns
 # #=> [#<Turn:0x00007f99842f09e8 @card=#<Card:0x00007f800e29f0c9 @question=""What is the capital of Alaska?", @answer="Juneau", @category=:Geography>, @guess="Juneau">]
-#
+
+
+
+
+
+
+
+
+
+
 # pry(main)> round.number_correct
 # #=> 1
 #

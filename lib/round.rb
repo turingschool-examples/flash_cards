@@ -1,12 +1,9 @@
 class Round
-  attr_reader :deck
+  attr_reader :deck, :turns
 
   def initialize(deck)
     @deck = deck
-  end
-# assign method value to instance array so I can change it later
-  def turns
-    turns = []
+    @turns = []
   end
 
   def current_card
@@ -14,7 +11,9 @@ class Round
   end
 
   def take_turn(guess)
-    Turn.new(guess, current_card)
+    turn = Turn.new(guess, current_card)
+    @turns << turn
+    turn
   end
 
 end
