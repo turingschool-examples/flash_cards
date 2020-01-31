@@ -16,46 +16,15 @@ class RoundTest < MiniTest::Test
     @round = Round.new(@deck)
   end
 
-  def test_round_exists
+  def test_round_exists_with_deck_and_starts_with_first_card
     assert_instance_of Round, @round
-  end
-
-  def test_round_has_a_deck
     assert_instance_of Deck, @round.deck
-    assert_equal @deck, @round.deck
     assert_equal 3, @round.deck.cards.length
-  end
-
-  def test_round_starts_with_empty_turns_array
-    assert_equal [], @round.turns
-  end
-
-  def test_deck_has_and_starts_with_first_card
-    assert_instance_of Card, @round.current_card
     assert_equal @card_1, @round.current_card
   end
 
-  def test_round_take_turn_method # single test for each method process
-    new_turn = @round.take_turn("Juneau")
 
-    assert_instance_of Turn, new_turn
-    assert new_turn.correct?
-    assert_equal [new_turn], @round.turns
-  end
-
-  def test_round_logs_number_correct # more assertions w/ multiple scenarios
-    @round.take_turn("Juneau")
-    assert_equal 1, @round.number_correct
-  end
-
-  def test_round_moves_to_next_card_after_turn
-    @round.take_turn("Juneau")
-
-    assert_equal @card_2, @round.current_card
-    assert @round.current_card
-  end
-
-  def test_round_takes_more_than_one_turn
+  def test_round_starts_with_empty_array_and_can_take_more_than_one_turn
     assert_equal [], @round.turns
     assert_equal 0, @round.turns.count
     assert_equal @card_1, @round.current_card
@@ -73,41 +42,82 @@ class RoundTest < MiniTest::Test
     assert_equal "Incorrect", @round.turns.last.feedback
   end
 
+  def test_round_take_turn_method
+    new_turn_1 = @round.take_turn("Juneau")
+    assert_instance_of Turn, new_turn_1
+    assert new_turn_1.correct?
+    assert_equal [new_turn_1], @round.turns
+    assert_equal 1, @round.flip
+
+    new_turn_2 = @round.take_turn("Venus")
+    assert_instance_of Turn, new_turn_2
+    refute new_turn_2.correct?
+    assert_equal [new_turn_1, new_turn_2], @round.turns
+    assert_equal 2, @round.flip
+  end
+
+  def test_round_can_get_number_correct
+    @round.take_turn("Juneau")
+    assert_equal 1, @round.number_correct
+
+    @round.take_turn("Venus")
+    assert_equal 1, @round.number_correct
+
+    @round.take_turn("North north west")
+    assert_equal 2, @round.number_correct
+  end
+
+  def test_round_moves_to_next_card_after_turn
+    @round.take_turn("Juneau")
+    assert_equal @card_2, @round.current_card
+
+    @round.take_turn("Venus")
+    assert_equal @card_3, @round.current_card
+
+    @round.take_turn("North north west")
+    assert_nil @round.current_card
+  end
+
   def test_round_number_correct_method
     @round.take_turn("Juneau")
     assert_equal 1, @round.number_correct
 
     @round.take_turn("Venus")
     assert_equal 1, @round.number_correct
+
+    @round.take_turn("North north west")
+    assert_equal 2, @round.number_correct
   end
 
-  def test_number_correct_by_category
+  def test_round_number_correct_by_category
     @round.take_turn("Juneau")
-    @round.take_turn("Venus")
-
     assert_equal 1, @round.number_correct_by_category(:Geography)
+
+    @round.take_turn("Venus")
     assert_equal 0, @round.number_correct_by_category(:STEM)
+
+    @round.take_turn("North north west")
+    assert_equal 1, @round.number_correct_by_category(:STEM)
   end
 
   def test_round_percent_correct_method
     @round.take_turn("Juneau")
     @round.take_turn("Venus")
     assert_equal 50.0, @round.percent_correct
+
+    @round.take_turn("North north west")
+    assert_equal 67, @round.percent_correct
   end
 
   def test_round_percent_correct_by_category
     @round.take_turn("Juneau")
-    assert_equal 100.0, @round.percent_correct_by_category(:Geography)
-    
-    @round.take_turn("Venus")
-    assert_equal 100.0, @round.percent_correct_by_category(:Geography)
-    assert_equal 0, @round.percent_correct_by_category(:STEM)
-  end
+    assert_equal 100, @round.percent_correct_by_category(:Geography)
 
-  def test_round_current_card_moves_to_last_card
-    @round.take_turn("Juneau")
     @round.take_turn("Venus")
-    
-    assert_equal @card_3, @round.current_card
+    assert_equal 100, @round.percent_correct_by_category(:Geography)
+    assert_equal 0, @round.percent_correct_by_category(:STEM)
+
+    @round.take_turn("North north west")
+    assert_equal 50, @round.percent_correct_by_category(:STEM)
   end
 end
