@@ -41,6 +41,7 @@ class RoundTest < Minitest::Test
      assert_equal Turn, new_turn.class
      assert_equal true, new_turn.correct?
      assert_equal 2, @round.turns.count
+     assert_equal "Incorrect.", @round.turns.last.feedback
    end
 
    def test_is_turns_storing_turns
@@ -51,7 +52,10 @@ class RoundTest < Minitest::Test
 
    def test_number_correct_works
      new_turn = @round.take_turn("Juneau")
+     new_turn2 = @round.take_turn("Venus")
 
+
+     assert_equal 1, @round.number_correct
      assert_equal 1, @round.number_correct
    end
 
@@ -65,18 +69,6 @@ end
 
 
 
-
-
-
-
-
-
-# pry(main)> round.turns.count
-# #=> 2
-#
-# pry(main)> round.turns.last.feedback
-# #=> "Incorrect."
-#
 # pry(main)> round.number_correct
 #=> 1
 
