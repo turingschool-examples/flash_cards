@@ -58,6 +58,18 @@ class RoundTest < Minitest::Test
     assert_equal card3, round.current_card
   end
 
+  def test_number_of_turns
+    card1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+    card3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+    deck = Deck.new([card1, card2, card3])
+    round = Round.new(deck)
+    round.take_turn("Juneau")
+    round.take_turn("Venus")
+
+    assert_equal 2, round.turns.count
+  end
+
   def test_show_number_of_correct_guesses
     card1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
@@ -73,18 +85,6 @@ class RoundTest < Minitest::Test
 
     round.take_turn("North north west")
     assert_equal 2, round.number_correct
-  end
-
-  def test_number_of_turns
-    card1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    card2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
-    card3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-    deck = Deck.new([card1, card2, card3])
-    round = Round.new(deck)
-    round.take_turn("Juneau")
-    round.take_turn("Venus")
-
-    assert_equal 2, round.turns.count
   end
 
   def test_number_correct_by_category
