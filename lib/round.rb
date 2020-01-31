@@ -25,10 +25,18 @@ class Round
   end
 
   def percent_correct
-    100.0 * number_correct / @turns.count #look into length or size
+    (100.0 * number_correct / @turns.length).round(2)
   end
 
   def percent_correct_by_category(category)
-    100.0 * number_correct_by_category(category) / @turns.count {|turn| turn.card.category == category}
+    (100.0 * number_correct_by_category(category) / @turns.count {|turn| turn.card.category == category}).round(2)
   end
+
+  # def start
+  #   p "Welcome! You're playing with #{4} cards."
+  #   p "-------------------------------------------------"
+  #   p "This is card number #{1} out of #{4}."
+  #   p "Question: #{What is 5 + 5?}"
+  # end
+
 end
