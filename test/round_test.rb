@@ -27,7 +27,7 @@ def test_deck_method_exists
   assert_equal deck, round.deck
 end
 
-def test_turns_method_exists
+def test_turns_method_exists_and_current_card
   card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
   card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
   card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
@@ -35,31 +35,12 @@ def test_turns_method_exists
   round = Round.new(deck)
 
   assert_equal [], round.turns
-end
-
-def test_for_current_card_in_deck
-  card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-  card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
-  card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-  deck = Deck.new([card_1, card_2, card_3])
-  round = Round.new(deck)
-
-  assert_equal card_1, round.current_card
-  #take another turn
-end
-
-#delete
-def test_if_can_take_a_turn_and_submit_a_guess
-  card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-  card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
-  card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-  deck = Deck.new([card_1, card_2, card_3])
-  round = Round.new(deck)
-  new_turn = round.take_turn("Juneau")
-
-
-  assert_equal new_turn, round.turns[0]
-  #assert_equal [new_turn], round.turns
+  turn_1 = round.take_turn("Juneau")
+  assert_equal [turn_1], round.turns
+  assert_equal card_2, round.current_card
+  turn_2 = round.take_turn("Venus")
+  assert_equal [turn_1, turn_2], round.turns
+  assert_equal card_3, round.current_card
 end
 
 def test_new_turn_is_instance_of_class_Turn
@@ -68,9 +49,11 @@ def test_new_turn_is_instance_of_class_Turn
   card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
   deck = Deck.new([card_1, card_2, card_3])
   round = Round.new(deck)
-  new_turn = round.take_turn("Juneau")
+  turn_1 = round.take_turn("Juneau")
+  turn_2 = round.take_turn("Mars")
 
-  assert_instance_of Turn, new_turn
+  assert_instance_of Turn, turn_1
+  assert_instance_of Turn, turn_2
 end
 
 def test_if_guess_is_correct
@@ -79,9 +62,11 @@ def test_if_guess_is_correct
   card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
   deck = Deck.new([card_1, card_2, card_3])
   round = Round.new(deck)
-  new_turn = round.take_turn("Juneau")
+  turn_1 = round.take_turn("Juneau")
+  turn_2 = round.take_turn("Mars")
 
-  assert_equal true, new_turn.correct?
+  assert_equal true, turn_1.correct?
+  assert_equal true, turn_2.correct?
 end
 
 def test_which_cards_have_already_taken_a_turn
@@ -90,9 +75,10 @@ def test_which_cards_have_already_taken_a_turn
   card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
   deck = Deck.new([card_1, card_2, card_3])
   round = Round.new(deck)
-  new_turn = round.take_turn("Juneau")
+  turn_1 = round.take_turn("Juneau")
+  turn_2 = round.take_turn("Mars")
 
-  assert_equal [new_turn], round.turns
+  assert_equal [turn_1, turn_2], round.turns
 end
 
 def test_number_of_correct_cards
@@ -101,17 +87,14 @@ def test_number_of_correct_cards
   card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
   deck = Deck.new([card_1, card_2, card_3])
   round = Round.new(deck)
-  new_turn = round.take_turn("Juneau")
+  turn_1 = round.take_turn("Juneau")
+  turn_2 = round.take_turn("Venus")
+  turn_3 = round.take_turn("North north west")
 
-  assert_equal 1, round.number_correct
+  assert_equal 2, round.number_correct
 end
 
-# pry(main)> round.current_card
-# #=> #<Card:0x00007fa160a62e90 @answer="Mars", @question="The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", @category=:STEM>
-#
-# pry(main)> round.take_turn("Venus")
-# #=> #<Turn:0x00007f972a215b38...>
-#
+
 # pry(main)> round.turns.count
 # #=> 2
 #
