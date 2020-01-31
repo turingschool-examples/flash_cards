@@ -7,7 +7,7 @@ class Turn
   end
 
   def correct?
-    if @guess == @card.answer
+    if @guess.upcase == @card.answer.upcase
       true
     else
       false

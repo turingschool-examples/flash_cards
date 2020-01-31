@@ -36,7 +36,7 @@ class Round
   end
 
   def percent_correct
-    (@number_correct.to_f / @turns.size.to_f) * 100
+    (@number_correct.to_f / @turns.size.to_f).round(2) * 100
   end
 
   def percent_correct_by_category(category)
@@ -55,7 +55,7 @@ class Round
       end
 
     end
-    (total_correct.to_f / total_categories.to_f) * 100
+    (total_correct.to_f / total_categories.to_f).round(2) * 100
   end
 
 
