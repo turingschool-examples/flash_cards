@@ -72,15 +72,16 @@ class RoundTest < MiniTest::Test
   def test_number_correct_by_category_is_recorded
     @round.take_turn("Juneau")
     assert_equal 1, @round.number_correct_by_category(:Geography)
+    assert_equal 0, @round.number_correct_by_category(:STEM)
+  end
+
+  def test_percent_of_cards_that_are_correct
+    @round.take_turn("Juneau")
+    @round.take_turn("Venus")
+    assert_equal 50.0, @round.percent_correct
   end
 end
 
-# pry(main)> round.number_correct_by_category(:Geography)
-# #=> 1
-#
-# pry(main)> round.number_correct_by_category(:STEM)
-# #=> 0
-#
 # pry(main)> round.percent_correct
 # #=> 50.0
 #
