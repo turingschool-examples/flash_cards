@@ -6,7 +6,7 @@ class Deck
   end
 
   def count
-    @cards.count #size or length wojuld be better
+    @cards.length
   end
 
   def cards_in_category(category)
