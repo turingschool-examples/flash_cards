@@ -75,34 +75,35 @@ class RoundTest < Minitest::Test
     cards  = [card_1, card_2, card_3]
     deck = Deck.new(cards)
     round = Round.new(deck)
-    result = round.take_turn("Juneau")
-    
+    round.take_turn("Juneau")
+    # binding.pry
 
     assert_equal 1, round.number_correct
   end
 end
 
-
-# pry(main)> round.number_correct
-# #=> 1
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # pry(main)> round.current_card
 # #=> #<Card:0x00007fa160a62e90 @answer="Mars", @question="The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", @category=:STEM>
-#
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # pry(main)> round.take_turn("Venus")
 # #=> #<Turn:0x00007f972a215b38...>
 #
