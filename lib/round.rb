@@ -29,7 +29,7 @@ class Round
   end
 
   def percent_correct_by_category(category)
-  100 * self.number_correct_by_category(category) / @turns.count {|turn| turn.card.category == category}
+  100 * self.number_correct_by_category(category).to_f / @turns.count {|turn| turn.card.category == category}
   end
 
   def turns_remaining
@@ -51,13 +51,13 @@ class Round
     end
 
     puts "****** Game over! ******"
-    puts "You had #{self.number_correct} correct guesses out of #{self.total_cards} for a total score of #{self.percent_correct}%."
+    puts "You had #{self.number_correct} correct guesses out of #{self.total_cards} for a total score of #{self.percent_correct.round}%."
     list_of_categories = []
     self.deck.cards.each do |card|
       list_of_categories << card.category
       end
       list_of_categories.uniq.each do |category|
-        puts "#{category} - #{self.percent_correct_by_category(category)}% correct"
+        puts "#{category} - #{self.percent_correct_by_category(category).round}% correct"
       end
   end
 
