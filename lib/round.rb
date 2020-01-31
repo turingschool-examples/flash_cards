@@ -1,4 +1,5 @@
 require './lib/turn'
+require './lib/card'
 
 class Round
   attr_reader :deck, :turns
@@ -6,7 +7,10 @@ class Round
   def initialize(deck)
     @deck = deck
     @turns = []
+
   end
+
+
 
 
 
