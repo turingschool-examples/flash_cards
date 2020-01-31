@@ -23,7 +23,7 @@ class Round
   def number_correct_by_category(category)
     number_correct_by_category = 0
     @turns. each do |turn|
-      if turn.card.category == category
+      if turn.card.category == category && turn.correct? == true
         number_correct_by_category += 1
       end
     end
