@@ -70,6 +70,7 @@ class RoundTest < MiniTest::Test
   end
 
   def test_number_correct_by_category_is_recorded
+    @round.take_turn("Juneau")
     assert_equal 1, @round.number_correct_by_category(:Geography)
   end
 end

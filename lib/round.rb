@@ -25,6 +25,9 @@ class Round
   end
 
   def number_correct_by_category(category)
-    require "pry"; binding.pry
+    category_correct = @turns_correct.find_all do |turn|
+      turn.card.category == category
+    end
+    category_correct.length
   end
 end
