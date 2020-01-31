@@ -24,13 +24,12 @@ class Round
   end
 
   def percent_correct
-    (self.number_correct.to_f/self.turns.length) * 100.0
+    (number_correct.to_f/turns.length) * 100.0
   end
 
   def percent_correct_by_category(category)
     category_array = []
     @turns.each { |turn| category_array << turn if turn.card.category == category }
-    (self.number_correct_by_category(category).to_f/category_array.length) * 100.0
+    (number_correct_by_category(category).to_f/category_array.length) * 100.0
   end
-
 end

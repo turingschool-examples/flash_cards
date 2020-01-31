@@ -41,7 +41,6 @@ def test_turns_method_exists_and_current_card
   turn_2 = round.take_turn("Venus")
   assert_equal [turn_1, turn_2], round.turns
   assert_equal card_3, round.current_card
-  require "pry"; binding.pry
   assert_equal 2, round.turns.count
 end
 
