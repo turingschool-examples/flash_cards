@@ -21,8 +21,8 @@ class DeckTest < Minitest::Test
   end
 
 
-  def test_deck_count_cards
-    assert_equal 3, @deck.count_cards
+  def test_deck_count
+    assert_equal 3, @deck.count
   end
 
   def test_deck_cards_in_category_gegraphy
