@@ -5,4 +5,8 @@ class Deck
     @cards = cards_parameter
   end
 
+  def count
+    cards.count
+  end
+
 end
