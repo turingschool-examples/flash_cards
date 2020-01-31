@@ -11,10 +11,4 @@ cards = [card1, card2, card3, card4]
 
 deck = Deck.new(cards)
 round = Round.new(deck)
-
 round.start
-
-p "Welcome! You're playing with #{4} cards."
-p "-------------------------------------------------"
-p "This is card number #{1} out of #{4}."
-p "Question: #{What is 5 + 5?}"
