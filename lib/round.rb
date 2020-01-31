@@ -21,26 +21,24 @@ class Round
   end
 
   def number_correct_by_category(category)
-    matches = 0
-
-    @turns.each do |turn|
-      if turn.card.category == category && turn.feedback == "Correct"
-        matches += 1
-      end
-    end
-    matches
+    @turns.count { |turn|
+      turn.card.category == category && turn.feedback == "Correct"
+    }
   end
 
   def percent_correct
     p 0 if @number_correct == 0
-    (@number_correct.to_f / @turns.length) * 100
+    ((@number_correct.to_f / @turns.length) * 100).round
   end
 
   def percent_correct_by_category(category)
     p 0 if @number_correct == 0
-    total_category_questions = 0
-    
-    turns.each {|turn| total_category_questions += 1 if turn.card.category == category}
-    (number_correct_by_category(category).to_f / total_category_questions) * 100
+
+    total_category = turns.count { |turn|
+      turn.card.category == category
+    }
+
+    correct = number_correct_by_category(category)
+    ((correct / total_category.to_f) * 100).round
   end
 end

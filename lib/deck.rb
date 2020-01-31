@@ -1,6 +1,4 @@
-require_relative 'round'
-
-class Deck < Round
+class Deck
   attr_reader :cards
 
   def initialize(cards)
@@ -12,11 +10,6 @@ class Deck < Round
   end
 
   def cards_in_category(category)
-    matches = []
-    @cards.each do |card|
-      if category == card.category
-        matches << card 
-      end
-    end
+    @cards.map {|card| card if card.category == category}.compact
   end
 end
