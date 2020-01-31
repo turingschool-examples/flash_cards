@@ -11,13 +11,13 @@ class Deck
     cards.count
   end
 
-def cards_in_category(category_parameter)
-  cards.each do |card|
-    card.include?(category_parameter) == true
-    puts card
+  def cards_in_category(category_parameter)
+    cards.each do |card|
+      if card.category == category_parameter
+        puts card
+      else
+        puts []
+      end
+    end
   end
-end
-
-
-
 end
