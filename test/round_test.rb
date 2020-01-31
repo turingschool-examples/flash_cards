@@ -65,12 +65,19 @@ class RoundTest < Minitest::Test
      assert_equal @card2, @round.current_card
    end
 
+   def test_number_correct_by_category
+     new_turn = @round.take_turn("Juneau")
+     new_turn2 = @round.take_turn("Venus")
+
+     assert_equal 1, @round.number_correct_by_category(:Geography)
+   end
+
+
 end
 
 
 
-# pry(main)> round.number_correct
-#=> 1
+
 
 # pry(main)> round.number_correct_by_category(:Geography)
 # #=> 1
