@@ -1,5 +1,23 @@
 class Deck
+attr_reader :cards
+
   def initialize(cards)
-    @cards = []
+    @cards = cards
   end
+  def count
+    @cards.length
+  end
+  def cards_in_category(category)
+    matching_category_arr = []
+    @cards.each do |card|
+      if card.category == category
+        matching_category_arr << card
+      end
+    end
+    matching_category_arr
+  end
+
+
+
+
 end

@@ -6,34 +6,34 @@ require './lib/turn'
 class TurnTest < Minitest::Test
 
 
-  def test_it_exists#
+  def test_it_exists
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
     assert_instance_of Turn, turn
-    assert_instance_of Card, card
+
   end
 
 
   def test_turn_has_a_card
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
-
-    assert_equal "What is the capital of Alaska?", turn.card.question
-    assert_equal "Juneau", turn.card.answer
-    assert_equal :Geography, turn.card.category
+    assert_equal card, turn.card
   end
 
 
-  def test_turn_has_an_answer
+  def test_turn_has_an_guess
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
     assert_equal "Juneau", turn.guess
   end
+
   def test_turn_is_correct
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
     assert_equal true, turn.correct?
   end
+
+
   def test_turn_feedback_returns_correct_when_correct
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
