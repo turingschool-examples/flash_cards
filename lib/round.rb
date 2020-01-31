@@ -16,34 +16,11 @@ class Round
   end
 
   def number_correct
-    incorrect_cards = []
-    correct_cards = []
-    @turns.each do |turn|
-      if turn.correct? == true
-        correct_cards << turn
-      else
-        incorrect_cards << turn
-      end
-    end
-    correct_cards.length
+    @turns.count { |turn| turn.correct? }
   end
 
   def number_correct_by_category(category)
-    @category_array = []
-    @turns.each do |turn|
-      if turn.card.category == category
-        @category_array << turn
-      end
-    end
-
-    number_correct = 0
-
-    @category_array.each do |turn|
-      if turn.correct?
-        number_correct += 1
-      end
-    end
-    number_correct
+    @turns.count { |turn| turn.correct? && turn.card.category == category }
   end
 
   def percent_correct
@@ -51,6 +28,9 @@ class Round
   end
 
   def percent_correct_by_category(category)
-    (self.number_correct_by_category(category).to_f/@category_array.length) * 100.0
+    category_array = []
+    @turns.each { |turn| category_array << turn if turn.card.category == category }
+    (self.number_correct_by_category(category).to_f/category_array.length) * 100.0
   end
+
 end
