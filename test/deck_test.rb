@@ -30,10 +30,8 @@ class DeckTest < Minitest::Test
 #end
 
   def test_card_exists
-    cards = [card_1, card_2, card_3]
     deck_1 = Deck.new(cards)
     assert_instance_of Deck, deck_1
-    require "pry"; binding.pry
   end
 end
 

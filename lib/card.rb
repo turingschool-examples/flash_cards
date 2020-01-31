@@ -1,7 +1,7 @@
 class Card
   attr_reader :question, :answer, :category
 
-  def initialize(question_parameter, answer_parameter, category_parameter)
+  def initialize(name, question_parameter, answer_parameter, category_parameter)
     @question = question_parameter
     @answer = answer_parameter
     @category = category_parameter
