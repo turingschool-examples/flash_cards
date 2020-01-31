@@ -1,6 +1,4 @@
-require_relative 'round'
-
-class Turn < Round
+class Turn
   attr_reader :guess, :card
 
   def initialize(guess, card)
