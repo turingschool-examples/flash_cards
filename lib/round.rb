@@ -10,7 +10,7 @@ class Round
     @deck.cards.first
   end
 
-  def take_turn(guess)    
+  def take_turn(guess)
     turn = Turn.new(guess, current_card)
     @turns << turn
     if turn.correct?
@@ -22,5 +22,9 @@ class Round
 
   def number_correct
     @turns_correct.length
+  end
+
+  def number_correct_by_category(category)
+    require "pry"; binding.pry
   end
 end

@@ -50,6 +50,8 @@ class RoundTest < MiniTest::Test
   def test_number_correct_are_recorded
     new_turn = @round.take_turn("Juneau")
     assert_equal 1, @round.number_correct
+    wrong_turn = @round.take_turn("Venus")
+    assert_equal 1, @round.number_correct
   end
 
   def test_turn_changes_after_guess
@@ -66,20 +68,12 @@ class RoundTest < MiniTest::Test
     @round.take_turn("Venus")
     assert_equal @card_2, @round.current_card
   end
+
+  def test_number_correct_by_category_is_recorded
+    assert_equal 1, @round.number_correct_by_category(:Geography)
+  end
 end
 
-# pry(main)> round.take_turn("Venus")
-# #=> #<Turn:0x00007f972a215b38...>
-#
-# pry(main)> round.turns.count
-# #=> 2
-#
-# pry(main)> round.turns.last.feedback
-# #=> "Incorrect."
-#
-# pry(main)> round.number_correct
-# #=> 1
-#
 # pry(main)> round.number_correct_by_category(:Geography)
 # #=> 1
 #
