@@ -8,7 +8,7 @@ class Deck
   end
 
   def deck
-    @deck = deck
+    @deck = deck(cards)
   end
 
   def count
