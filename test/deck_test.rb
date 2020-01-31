@@ -43,6 +43,7 @@ class DeckTest < Minitest::Test
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
 
+    assert_equal [card_1], deck.cards_in_category(:Geography)
     assert_equal [card_2, card_3], deck.cards_in_category(:STEM)
   end
 
