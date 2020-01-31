@@ -27,7 +27,8 @@ class DeckTest < Minitest::Test
     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
     cards  = [card_1, card_2, card_3]
     deck = Deck.new(cards)
-    assert_equal 3, deck.cards.count
+    # make this test pass with a count method
+    assert_equal 3, deck.count
   end
 
   def test_if_returns_cards_from_category
@@ -42,16 +43,3 @@ class DeckTest < Minitest::Test
     assert_equal [], deck.cards_in_category("Pop Culture")
   end
 end
-
-
-
-
-
-# pry(main)> deck.cards_in_category(:STEM)
-# #=> [#<Card:0x00007fa160a62e90...>, #<Card:0x00007fa161a136f0...>]
-#
-# pry(main)> deck.cards_in_category(:Geography)
-# #=> [#<Card:0x00007fa16104e160...>]
-#
-# pry(main)> deck.cards_in_category("Pop Culture")
-# #=> []
