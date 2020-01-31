@@ -1,8 +1,8 @@
 class Deck
   attr_reader :cards
 
-  def initialize(card)
-    @cards = card
+  def initialize(cards)
+    @cards = cards
   end
 
   def count
@@ -10,6 +10,6 @@ class Deck
   end
 
   def cards_in_category(category)
-    @cards.select { |key| key.category == category }
+    @cards.select { |card| card.category == category }
   end
 end

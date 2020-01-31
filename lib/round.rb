@@ -17,11 +17,11 @@ class Round
   end
 
   def number_correct
-    @turns.select.count { |turn| turn.correct? == true}
+    @turns.select { |turn| turn.correct? == true}.size
   end
 
   def number_correct_by_category(category)
-    @turns.select.count { |turn| turn.correct? == true && turn.category == category}
+    @turns.select { |turn|  turn.card.category == category && turn.correct? == true}.size
   end
 
   def percent_correct
