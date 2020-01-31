@@ -1,12 +1,8 @@
 class Deck
   attr_reader :cards
 
-  def initialize(deck_cards)
-    @deck_cards = deck_cards
+  def initialize(cards_parameter)
+    @cards = cards_parameter
   end
-
-  #def add_new_card(card_name)
-  #  @cards << card_name
-  #end
 
 end
