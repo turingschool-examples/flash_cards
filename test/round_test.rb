@@ -67,7 +67,7 @@ class RoundTest < Minitest::Test
     round.take_turn("Juneau")
     round.take_turn("Venus")
 
-    assert_equal 2, round.turns.count
+    assert_equal 2, round.turns.size
   end
 
   def test_show_number_of_correct_guesses
