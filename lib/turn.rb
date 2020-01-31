@@ -1,15 +1,9 @@
 class Turn
+
+  attr_reader :guess, :card
   def initialize(player_guess, input_card)
     @guess = player_guess
     @card = input_card
-  end
-
-  def guess
-    return @guess
-  end
-
-  def card
-    return @card
   end
 
   def correct?
