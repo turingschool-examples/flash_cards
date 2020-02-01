@@ -36,13 +36,12 @@ class Round
     p "Welcome! You're playing with #{deck.count} cards."
     p "-------------------------------------------------"
 
-    until turns.length == deck.count do
-      p "This is card number #{turns.length + 1} out of #{@deck.count}."
+    until @turns.length == @deck.count do
+      p "This is card number #{@turns.length + 1} out of #{@deck.count}."
       p "Question: #{current_card.question}"
 
-      guess = gets.chomp
-      turn = take_turn(guess)
-      p turn.feedback
+      guess = take_turn(gets.chomp)
+      p guess.feedback
     end
 
     p "****** Game over! ******"
@@ -54,5 +53,4 @@ class Round
       p "#{category.to_s} - #{percent_correct_by_category(category)}% correct"
     end
   end
-
 end
