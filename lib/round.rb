@@ -6,8 +6,13 @@ class Round
     @deck = deck
     @turns = []
     @number_correct = 0
+    @current_card = current_card
+  end
+
+  def start
     @current_card = @deck.cards.first
   end
+
 
   def current_card
     @current_card = deck.cards.first
@@ -46,4 +51,5 @@ class Round
     end
     (number_correct_by_category(category).to_f / total_number_category) * 100.0
   end
+
 end
