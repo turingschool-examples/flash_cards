@@ -41,10 +41,9 @@ def test_turns_method_exists_and_current_card
   turn_2 = round.take_turn("Venus")
   assert_equal [turn_1, turn_2], round.turns
   assert_equal card_3, round.current_card
-  assert_equal Turn, turn_1.class
 end
 
-def test_new_turn_is_instance_of_class_Turn
+def test_new_turns_are_instances_of_class_Turn
   card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
   card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
   card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
