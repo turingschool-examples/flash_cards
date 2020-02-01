@@ -8,7 +8,7 @@ require './lib/round'
 class RoundTest < Minitest::Test
 
   def test_round_exists
-
+    skip
     card1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     card3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
@@ -19,7 +19,7 @@ class RoundTest < Minitest::Test
   end
 
   def test_deck_method_works
-
+    skip
     card1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     card3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
@@ -30,7 +30,7 @@ class RoundTest < Minitest::Test
   end
 
   def test_turns_method_returns_empty_array
-
+    skip
     card1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     card3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
@@ -41,13 +41,27 @@ class RoundTest < Minitest::Test
   end
 
   def test_current_card_method
-
+    skip
     card1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     card3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
     cards = [card1, card2, card3]
     deck = Deck.new(cards)
     round = Round.new(deck)
+    new_turn = round.take_turn("Juneau")
     assert_equal card1, round.current_card
+  end
+
+  def test_take_turn_in_round
+    card1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+    card3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+    cards = [card1, card2, card3]
+    deck = Deck.new(cards)
+    round = Round.new(deck)
+    turn1 = Turn.new("Juneau", card1)
+    require "pry"; binding.pry
+    new_turn = round.take_turn("Juneau")
+    assert_equal turn1, round.take_turn(Juneau)
   end
 end
