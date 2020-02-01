@@ -41,7 +41,7 @@ def test_turns_method_exists_and_current_card
   turn_2 = round.take_turn("Venus")
   assert_equal [turn_1, turn_2], round.turns
   assert_equal card_3, round.current_card
-  assert_equal 2, round.turns.count
+  assert_equal Turn, turn_1.class
 end
 
 def test_new_turn_is_instance_of_class_Turn
