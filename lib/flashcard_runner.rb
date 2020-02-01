@@ -43,7 +43,7 @@ loop do
 end
 
 
-  puts  "****** Game over! *******"
-  puts "You had #{new_round.number_correct} out of 4 for a total score of #{new_round.percent_correct} %."
-  puts "Geography - #{new_round.percent_correct_by_category(:Geography)} % correct."
-  puts "Pop Culture - #{new_round.percent_correct_by_category(:Pop_Culture)} % correct."
+puts  "****** Game over! *******"
+puts "You had #{new_round.number_correct} out of 4 for a total score of #{new_round.percent_correct} %."
+puts "Geography - #{new_round.percent_correct_by_category(:Geography)} % correct."
+puts "Pop Culture - #{new_round.percent_correct_by_category(:Pop_Culture)} % correct."
