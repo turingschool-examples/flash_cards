@@ -77,7 +77,7 @@ class RoundTest < Minitest::Test
     assert_equal [result], round.turns
   end
 
-  def test_if_tracks_number_correct
+  def test_if_tracks_number_and_percent_correct
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
@@ -86,33 +86,14 @@ class RoundTest < Minitest::Test
     deck = Deck.new(cards)
     round = Round.new(deck)
     round.take_turn("Juneau")
+    round.take_turn("Venus")
 
     assert_equal 1, round.number_correct
     assert_equal 1, round.number_correct_by_category(:Geography)
     assert_equal 0, round.number_correct_by_category(:STEM)
-
+    assert_equal 50.0, round.percent_correct
+    assert_equal 100.0, round.percent_correct_by_category(:Geography)
+    assert_equal 0.0, round.percent_correct_by_category(:STEM)
   end
 
 end
-
-
-# pry(main)> round.percent_correct
-# #=> 50.0
-
-
-
-
-
-
-
-
-
-
-
-
-
-# pry(main)> round.percent_correct_by_category(:Geography)
-# #=> 100.0
-#
-# pry(main)> round.current_card
-# #=> #<Card:0x00007fa161a136f0 @answer="North north west", @question="Describe in words the exact direction that is 697.5° clockwise from due north?", @category=:STEM>
