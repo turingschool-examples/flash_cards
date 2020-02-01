@@ -19,6 +19,10 @@ def test_round_exists
 
   assert_instance_of Round, @round
 end
+def test_round_has_deck
+
+  assert_equal @deck, @round.deck
+end
 
 
 #   pry(main)> card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
