@@ -3,8 +3,8 @@ require './lib/card'
 require './lib/deck'
 
 class Round
-  attr_reader :deck,
-              :turns
+  attr_reader :deck
+  attr_accessor :turns
 
   def initialize(deck_parameter)
     @deck = deck_parameter
@@ -17,6 +17,12 @@ class Round
 
   def take_turn(guess_parameter)
     @guess = guess_parameter
-    Turn.new(@guess, current_card)
+    = Turn.new(@guess, current_card)
   end
+
+
+  def turns
+    deck.cards each do |card|
+      @deck << current_card
     end
+  end
