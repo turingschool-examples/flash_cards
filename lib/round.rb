@@ -20,6 +20,11 @@ class Round
     @turns.last
   end
 
+  def guess_correct
+    @turns.each do |turn|
+      turn.correct?
+  end
+end
 
 
 
