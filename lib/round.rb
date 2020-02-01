@@ -47,9 +47,9 @@ class Round
     p "****** Game over! ******"
     p "You had #{number_correct} correct guesses out of #{@deck.count} for a total score of #{percent_correct}%."
 
-    categories = @deck.cards.map { |card| card.category }
+    categories = @deck.cards.map { |card| card.category }.uniq
 
-    categories.uniq!.each do |category|
+    categories.each do |category|
       p "#{category.to_s} - #{percent_correct_by_category(category)}% correct"
     end
   end
