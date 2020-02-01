@@ -7,6 +7,7 @@ attr_reader :cards
   def count
     @cards.length
   end
+
   def cards_in_category(category)
     matching_category_arr = []
     @cards.each do |card|
@@ -16,8 +17,4 @@ attr_reader :cards
     end
     matching_category_arr
   end
-
-
-
-
 end

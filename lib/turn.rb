@@ -13,6 +13,7 @@ class Turn
       false
     end
   end
+
   def feedback
     if @guess == card.answer
       "Correct!"
