@@ -48,17 +48,16 @@ class Round
     p "****** Game over! ******"
     p "You had #{number_correct} correct guesses out of #{@deck.count} for a total score of #{percent_correct}%."
 
-    categories = []
-
-    @deck.cards.each_with_index do |item, index|
-      categories << @deck.cards[index].category
+    categories =  @deck.cards.map.with_index do |item, index|
+      @deck.cards[index].category.to_s
     end
 
-      categories.uniq!
+    categories.uniq!
 
-    p "#{} - #{percent_correct_by_category()}% correct"
-    # Turing Staff - 50% correct
-    # Pop Culture - 100% correct
+    categories.each do |category|
+      require "pry"; binding.pry
+      p "#{category} - #{percent_correct_by_category(category)}% correct"
+    end
   end
 
 end
