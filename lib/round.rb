@@ -14,4 +14,9 @@ class Round
   def current_card
     @deck.cards[0]
     end
+
+  def take_turn(guess_parameter)
+    @guess = guess_parameter
+    Turn.new(@guess, current_card)
   end
+    end
