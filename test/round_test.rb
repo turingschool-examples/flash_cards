@@ -97,6 +97,4 @@ class RoundTest < Minitest::Test
 
      assert_equal @card1, @round.start
    end
-
-
 end
