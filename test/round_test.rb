@@ -27,6 +27,7 @@ class RoundTest < Minitest::Test
     cards  = [card_1, card_2, card_3]
     deck = Deck.new(cards)
     round = Round.new(deck)
+
     assert_equal deck, round.deck
   end
 
@@ -38,6 +39,7 @@ class RoundTest < Minitest::Test
     cards  = [card_1, card_2, card_3]
     deck = Deck.new(cards)
     round = Round.new(deck)
+
     assert_equal [], round.turns
   end
 
@@ -49,7 +51,14 @@ class RoundTest < Minitest::Test
     cards  = [card_1, card_2, card_3]
     deck = Deck.new(cards)
     round = Round.new(deck)
+
     assert_equal card_1, round.current_card
+
+    round.take_turn("Juneau")
+    assert_equal card_2, round.current_card
+
+    round.take_turn("Mars")
+    assert_equal card_3, round.current_card  
   end
 
   def test_if_can_take_turn
@@ -76,10 +85,10 @@ class RoundTest < Minitest::Test
     deck = Deck.new(cards)
     round = Round.new(deck)
     round.take_turn("Juneau")
-    # binding.pry
 
     assert_equal 1, round.number_correct
   end
+
 end
 
 # pry(main)> round.current_card

@@ -8,7 +8,7 @@ class Round
   end
 
   def current_card
-    deck.cards[0]
+    @deck.cards.first
   end
 # add a function to remove a card (that has had a turn) from a deck
   def take_turn(guess)
@@ -18,8 +18,7 @@ class Round
     if turn.correct?
       @number_correct += 1
     end
-
-
+    @deck.cards.shift
     turn
   end
 
