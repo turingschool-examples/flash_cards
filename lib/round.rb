@@ -49,14 +49,13 @@ class Round
     p "You had #{number_correct} correct guesses out of #{@deck.count} for a total score of #{percent_correct}%."
 
     categories =  @deck.cards.map.with_index do |item, index|
-      @deck.cards[index].category.to_s
+      @deck.cards[index].category
     end
 
     categories.uniq!
 
     categories.each do |category|
-      require "pry"; binding.pry
-      p "#{category} - #{percent_correct_by_category(category)}% correct"
+      p "#{category.to_s} - #{percent_correct_by_category(category)}% correct"
     end
   end
 
