@@ -24,8 +24,12 @@ def test_round_has_deck
   assert_equal @deck, @round.deck
 end
 def test_round_has_turns
-  assert_equal [], @round.turns 
+  assert_equal [], @round.turns
 end
+def test_round_has_current_card
+  assert_equal @card_1, @round.current_card
+end
+
 
 
 #   pry(main)> card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
