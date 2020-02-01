@@ -19,13 +19,6 @@ class Round
     @deck.cards.rotate
     @turns.last
   end
-#
-#   def guess_correct
-#     @turns.each do |turn|
-#       turn.correct?
-#   end
-# end
-# ^^^ IDK IF I NEED THS OR NOT ^^^
 
  def number_correct
     correct = []
