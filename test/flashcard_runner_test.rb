@@ -23,4 +23,14 @@ class CardGeneratorTest < Minitest::Test
     assert_equal deck.cards, cards
   end
 
+  def test_it_generates_cards_from_a_non_file
+    trivia = "What is 5 + 5?,10,STEM
+            What is Rachel's favorite animal?,red panda,Turing Staff
+            What is Mike's middle name?,nobody knows,Turing Staff
+            What cardboard cutout lives at Turing?,Justin bieber,Pop Culture"
+    cards = CardGenerator.new(trivia)
+    deck = Deck.new(cards)
+
+    assert_equal deck.cards, cards
+  end
 end
