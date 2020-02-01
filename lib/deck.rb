@@ -13,7 +13,7 @@ class Deck
   def cards_in_category(category)
     @cards_in_category = []
     @cards.each do |card|
-      if category.to_sym == card.category
+      if category == card.category
         @cards_in_category << card
       end
     end
