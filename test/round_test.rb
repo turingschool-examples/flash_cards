@@ -58,7 +58,8 @@ class RoundTest < Minitest::Test
     assert_equal card_2, round.current_card
 
     round.take_turn("Mars")
-    assert_equal card_3, round.current_card  
+    assert_equal card_3, round.current_card
+
   end
 
   def test_if_can_take_turn
@@ -87,53 +88,29 @@ class RoundTest < Minitest::Test
     round.take_turn("Juneau")
 
     assert_equal 1, round.number_correct
+    assert_equal 1, round.number_correct_by_category(:Geography)
+    assert_equal 0, round.number_correct_by_category(:STEM)
+
   end
 
 end
 
-# pry(main)> round.current_card
-# #=> #<Card:0x00007fa160a62e90 @answer="Mars", @question="The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", @category=:STEM>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# pry(main)> round.take_turn("Venus")
-# #=> #<Turn:0x00007f972a215b38...>
-#
-# pry(main)> round.turns.count
-# #=> 2
-#
-# pry(main)> round.turns.last.feedback
-# #=> "Incorrect."
-#
-# pry(main)> round.number_correct
-# #=> 1
-#
-# pry(main)> round.number_correct_by_category(:Geography)
-# #=> 1
-#
-# pry(main)> round.number_correct_by_category(:STEM)
-# #=> 0
-#
 # pry(main)> round.percent_correct
 # #=> 50.0
-#
+
+
+
+
+
+
+
+
+
+
+
+
+
 # pry(main)> round.percent_correct_by_category(:Geography)
 # #=> 100.0
 #
