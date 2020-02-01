@@ -26,6 +26,18 @@ class Round
   end
 end
 
+def number_correct
+ correct = []
+ @turns.each do |turn|
+   if turn.correct?
+     correct << turn
+   end
+ end
+ correct.count
+end
+
+
+
 
 
 
