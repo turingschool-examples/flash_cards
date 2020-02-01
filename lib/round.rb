@@ -25,11 +25,11 @@ class Round
   end
 
   def percent_correct
-    (100.0 * number_correct / @turns.length).round(2)
+    (100.0 * number_correct / @turns.length).round
   end
 
   def percent_correct_by_category(category)
-    (100.0 * number_correct_by_category(category) / @turns.count {|turn| turn.card.category == category}).round(2)
+    (100.0 * number_correct_by_category(category) / @turns.count {|turn| turn.card.category == category}).round
   end
 
   def start
@@ -52,9 +52,7 @@ class Round
       @deck.cards[index].category
     end
 
-    categories.uniq!
-
-    categories.each do |category|
+    categories.uniq!.each do |category|
       p "#{category.to_s} - #{percent_correct_by_category(category)}% correct"
     end
   end
