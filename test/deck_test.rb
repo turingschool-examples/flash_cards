@@ -2,7 +2,6 @@ require "minitest/autorun"
 require "minitest/pride"
 require "./lib/card"
 require "./lib/deck"
-require "pry" # binding.pry
 
 class DeckTest < Minitest::Test
 
