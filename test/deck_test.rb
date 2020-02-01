@@ -39,12 +39,12 @@ class DeckTest < Minitest::Test
   end
 
   def test_shows_cards_in_category
-    card1 = Card.new("What is real?", "You are.", :Philosophy)
+    card1 = Card.new("What is real?", "You are.", :Turing)
     card2 = Card.new("What is 2+2?", "4", :Math)
     card3 = Card.new("How great is Turing so far?", "Wonderful!", :Turing)
     cards = [card1, card2, card3]
     deck = Deck.new(cards)
 
-    assert_equal card3, deck.cards_in_category(:Turing)
+    assert_equal [card1, card3], deck.cards_in_category(:Turing)
   end
 end
