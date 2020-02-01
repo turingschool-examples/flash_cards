@@ -5,11 +5,7 @@ class Deck
 
   def initialize(cards)
     @cards = cards
-  end
-
-  def deck
-    @deck = deck(cards)
-  end
+   end
 
   def count
     @cards.count

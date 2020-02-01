@@ -15,7 +15,7 @@ class DeckTest < Minitest::Test
       deck = Deck.new(cards)
 
       assert_instance_of Deck, deck
-    end
+  end
 
   def test_has_cards
       card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
@@ -27,7 +27,7 @@ class DeckTest < Minitest::Test
 
       assert_equal cards, deck.cards
 
-    end
+  end
 
   def test_it_can_count_cards
       card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
@@ -37,8 +37,8 @@ class DeckTest < Minitest::Test
       cards = [card_1, card_2, card_3]
       deck = Deck.new(cards)
 
-      assert_equal 3, cards.count
-    end
+      assert_equal 3, deck.count
+  end
 
   def test_sort_card_by_category
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
@@ -51,10 +51,5 @@ class DeckTest < Minitest::Test
     assert_equal [card_2, card_3], deck.cards_in_category(:STEM)
     assert_equal [card_1], deck.cards_in_category(:Geography)
     assert_equal [], deck.cards_in_category("Pop Culture")
-    end
+  end
 end
-
-
-
-
- # require "pry"; binding.pry
