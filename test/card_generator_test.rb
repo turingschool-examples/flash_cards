@@ -1,6 +1,8 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/card_generator'
+require './lib/deck'
+
 
 
 class CardGeneratorTest < Minitest::Test
@@ -10,7 +12,7 @@ class CardGeneratorTest < Minitest::Test
 
     cards = CardGenerator.new(filename).cards
 
-    assert_instance_of CardGenerator, cards
+    assert_instance_of Deck, cards
   end
 end
 
