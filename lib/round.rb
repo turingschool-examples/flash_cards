@@ -17,7 +17,7 @@ class Round
   end
 
   def number_correct
-    @turns.count {|turn| turn.correct?} # select and count may be better
+    @turns.count {|turn| turn.correct?}
   end
 
   def number_correct_by_category(category)
@@ -35,8 +35,30 @@ class Round
   def start
     p "Welcome! You're playing with #{deck.count} cards."
     p "-------------------------------------------------"
-    p "This is card number #{turns.length + 1} out of #{deck.count}."
-    p "Question: #{deck.cards[0].question}"
+
+    until turns.length == deck.count do
+      p "This is card number #{turns.length + 1} out of #{@deck.count}."
+      p "Question: #{current_card.question}"
+
+      guess = gets.chomp
+      turn = take_turn(guess)
+      p turn.feedback
+    end
+
+    p "****** Game over! ******"
+    p "You had #{number_correct} correct guesses out of #{@deck.count} for a total score of #{percent_correct}%."
+
+    categories = []
+
+    @deck.cards.each_with_index do |item, index|
+      categories << @deck.cards[index].category
+    end
+
+      categories.uniq!
+
+    p "#{} - #{percent_correct_by_category()}% correct"
+    # Turing Staff - 50% correct
+    # Pop Culture - 100% correct
   end
 
 end
