@@ -35,12 +35,17 @@ class Round
   end
 
   def start
+    turns_count = 1
+    puts "Welcome! You're playing with #{@deck.count} cards"
+    puts '-------------------------------------------------'
     until @deck.cards.length == 0
+      puts "This is card number #{turns_count} out of #{@deck.count + @turns.count}."
       puts @deck.cards[0].question
       take_turn(gets.chomp)
 
       @turns[-1].feedback
       @category_array << @turns[-1].card.category
+      turns_count += 1
     end
     puts '****** Game over! ******'
     puts "You had #{number_correct} correct guesses out of #{@turns.length} for a total score of #{self.percent_correct.to_i}%."
