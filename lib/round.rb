@@ -1,3 +1,7 @@
+require './lib/turn'
+require './lib/card'
+require './lib/deck'
+
 class Round
   attr_reader :deck,
               :turns
@@ -8,9 +12,6 @@ class Round
   end
 
   def current_card
-    all_cards = cards.find do |card|
-
+    @deck.cards[0]
+    end
   end
-
-#  end
-end
