@@ -34,13 +34,14 @@ end
 
 def test_take_turn_initiates_new_turn_w_current_card
   new_turn = @round.take_turn("Juneau")
-  assert_instance_of Turn, new_turn 
+  assert_instance_of Turn, new_turn
 end
 
 
-# def test_correct_method_returns_true_when_guess_correct
-#   assert_equal true, new_turn.correct?
-# end
+def test_correct_method_returns_true_when_guess_correct
+  new_turn = @round.take_turn("Juneau")
+  assert_equal true, new_turn.correct?
+end
 
 #   pry(main)> card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 #   #=> #<Card:0x00007fa16104e160 @answer="Juneau", @question="What is the capital of Alaska?", @category=:Geography>
