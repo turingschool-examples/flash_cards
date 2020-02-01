@@ -11,19 +11,11 @@ class Deck
     cards.count
   end
 
-  geography_cards = []
-  stem_cards = []
-  pop_culture_cards = []
-
   def cards_in_category(category_name)
-    cards.each do |card|
-      if card.category = ":STEM"
-        stem_cards << card
-      elsif card.category = ":Geography"
-        geography_cards << card
-      elsif card.category = "Pop Culture"
-        pop_culture_cards << card
-      end
+    @category_name = category_name
+    cards.find_all do |card|
+      card.category == @category_name
     end
   end
+
 end

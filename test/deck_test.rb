@@ -65,7 +65,10 @@ class DeckTest < Minitest::Test
     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
-    assert_equal deck.stem_cards, deck.cards_in_category(:STEM)
+    assert_equal [card_2, card_3], deck.cards_in_category(:STEM)
+    assert_equal [card_1], deck.cards_in_category(:Geography)
+    assert_equal [], deck.cards_in_category("Pop Culture")
+    require "pry"; binding.pry
   end
 
 end
