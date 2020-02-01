@@ -40,8 +40,7 @@ class Round
       p "This is card number #{@turns.length + 1} out of #{@deck.count}."
       p "Question: #{current_card.question}"
 
-      response = take_turn(gets.chomp)
-      p response.feedback
+      p take_turn(gets.chomp).feedback
     end
 
     p "****** Game over! ******"
