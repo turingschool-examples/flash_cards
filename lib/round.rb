@@ -14,4 +14,8 @@ class Round
     @turns[turns.count -1]
   end
 
+  def number_correct
+    @turns.count { |turn| turn.correct? }
+  end
+
 end
