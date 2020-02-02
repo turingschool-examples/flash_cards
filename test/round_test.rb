@@ -98,6 +98,9 @@ class RoundTest < Minitest::Test
 
     assert_equal 1, round.number_correct_by_category(:Geography)
     assert_equal 0, round.number_correct_by_category(:STEM)
+
+    round.take_turn("North north west")
+    assert_equal 1, round.number_correct_by_category(:STEM)
   end
 
   def test_percent_correct
