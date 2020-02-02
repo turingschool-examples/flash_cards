@@ -5,7 +5,6 @@ class Round
   def initialize(deck)
     @deck = deck
     @turns = []
-    @card_count = 0
   end
 
   def current_card
