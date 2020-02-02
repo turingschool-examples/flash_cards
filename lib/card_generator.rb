@@ -9,13 +9,13 @@ class CardGenerator
   def parse_information(filename)
     if(File.file?(filename))
       file = File.open(filename)
-      trivia_lines = file.readlines.map(&:chomp)
+      card_info = file.readlines.map(&:chomp)
     else
-      trivia_lines = filename.split("\n")
+      card_info = filename.split("\n")
     end
-    trivia_lines.each do | line |
-      card_info = line.split(',')
-      @cards << Card.new(card_info[0], card_info[1], card_info[2])
+    card_info.each do | line |
+      card = line.split(',')
+      @cards << Card.new(card[0], card[1], card[2])
     end
   end
 end
