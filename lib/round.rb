@@ -48,7 +48,11 @@ class Round
       turns_count += 1
     end
     puts '****** Game over! ******'
-    puts "You had #{number_correct} correct guesses out of #{@turns.length} for a total score of #{percent_correct.to_i}%."
+    if number_correct == 1
+      puts "You had #{number_correct} correct guess out of #{@turns.length} for a total score of #{percent_correct.to_i}%."
+    else
+      puts "You had #{number_correct} correct guesses out of #{@turns.length} for a total score of #{percent_correct.to_i}%."
+    end
     categories.uniq.each do |category|
       puts "#{category} - #{percent_correct_by_category(category).to_i}% correct"
     end
