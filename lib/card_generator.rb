@@ -2,15 +2,12 @@ class CardGenerator
   attr_reader :cards
 
   def initialize(filename_parameter)
-    text = File.new(filename_parameter, "r")
+    file = File.new(filename_parameter, "r")
 
-    card_values = text.read.split("\n")
+    card_values = file.read.split("\n")
     @cards = card_values.map do |card_value|
       line = card_value.split(",")
-      question = line[0]
-      answer = line[1]
-      category = line[2].to_sym
-      Card.new(question, answer, category)
+      Card.new(line[0], line[1], line[2].to_sym)
     end
   end
 end
