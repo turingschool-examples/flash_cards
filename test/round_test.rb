@@ -162,7 +162,7 @@ class RoundTest < Minitest::Test
     round.take_turn("Venus")
     round.take_turn("North north west")
 
-    assert_equal 66.67, round.percent_correct
+    assert_equal 67, round.percent_correct
   end
 
   def test_calculate_percent_correct_by_category
@@ -178,7 +178,7 @@ class RoundTest < Minitest::Test
     round.take_turn("South")
     round.take_turn("Ripley")
 
-    assert_equal 33.33, round.percent_correct_by_category(:STEM)
+    assert_equal 33, round.percent_correct_by_category(:STEM)
   end
 
   def test_third_card_is_first_after_second_turn
