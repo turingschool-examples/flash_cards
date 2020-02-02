@@ -167,5 +167,3 @@ def test_percent_correct_by_category
   assert_equal 100.0, round.percent_correct_by_category(:Geography)
   require "pry"; binding.pry
 end
-
-end

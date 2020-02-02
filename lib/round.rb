@@ -3,7 +3,7 @@ require './lib/card'
 require './lib/deck'
 
 class Round
-  attr_reader :deck, :turns, :answer, :question
+  attr_reader :deck, :turns, :answer, :question, :cards
   #attr_accessor :turn
 
   def initialize(deck_parameter)
@@ -60,5 +60,12 @@ def current_card
     end
 
     @number_correct / @category_count.to_f * 100
+    end
+
+    def start
+      p "Welcome! You're playing with " deck.cards.count "."
+      p "-------------------------------------"
+      p "This is card number 1 out of " deck.cards.count "."
+      p "Question:" card1.question 
     end
   end
