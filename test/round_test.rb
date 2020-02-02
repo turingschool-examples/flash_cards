@@ -64,4 +64,5 @@ class RoundTest < Minitest::Test
     round = Round.new(deck)
     new_turn = round.take_turn("Juneau")
     assert_equal round.number_correct, 1
+  end
 end
