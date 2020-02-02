@@ -54,7 +54,11 @@ def current_card
     @number_correct = @turns.inject(0) do |count, turn|
     turn.correct? && turn.card.category == @category ? count += 1 : count
     end
-    require "pry"; binding.pry
-    @number_correct / turns.cards.category.count.to_f * 100
+
+    @category_count = @turns.count do |turn|
+      turn.card.category == @category
+    end
+
+    @number_correct / @category_count.to_f * 100
     end
   end

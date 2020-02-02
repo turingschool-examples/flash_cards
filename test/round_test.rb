@@ -165,11 +165,7 @@ def test_percent_correct_by_category
   round.take_turn("Juneau")
   round.take_turn("Venus")
   assert_equal 100.0, round.percent_correct_by_category(:Geography)
+  require "pry"; binding.pry
 end
 
-end 
-
-
-
-#  pry(main)> round.current_card
-  #=> #<Card:0x00007fa161a136f0 @answer="North north west", @question="Describe in words the exact direction that is 697.5° clockwise from due north?", @category=:STEM>
+end
