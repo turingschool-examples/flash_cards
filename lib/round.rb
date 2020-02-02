@@ -20,31 +20,33 @@ class Round
     @turns.last
   end
 
- def number_correct
-    correct = []
-   @turns.each do |turn|
-      if turn.correct?
-        correct << turn
+   def number_correct
+      correct = []
+     @turns.each do |turn|
+        if turn.correct?
+          correct << turn
+        end
       end
-    end
-   correct.count
+     correct.count
   end
 
 
-def number_correct_by_category(category)
-   correct_by_category = []
-   @turns.each do |turn|
-     if turn.correct? && turn.card.category == category
-     correct_by_category << turn
+  def number_correct_by_category(category)
+     correct_by_category = []
+     @turns.each do |turn|
+       if turn.correct? && turn.card.category == category
+       correct_by_category << turn
+       end
      end
-   end
-   correct_by_category.length
- end
+     correct_by_category.length
+  end
 
-def percent_correct
-   (number_correct / @turns.length.to_f * 100).round(1)
- end
+  def percent_correct
+     (number_correct / @turns.length.to_f * 100).round(1)
+  end
 
-
-
+  def percent_correct_by_category(category)
+    percent_by_category =  number_correct_by_category(category).to_f
+    (percent_by_category/@deck.cards_in_category(category).size) * 100
+  end
 end
