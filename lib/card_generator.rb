@@ -12,6 +12,5 @@ class CardGenerator
       category = line[2].to_sym
       Card.new(question, answer, category)
     end
-    require "pry"; binding.pry
   end
 end
