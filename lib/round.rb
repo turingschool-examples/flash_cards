@@ -4,7 +4,7 @@ require './lib/deck'
 
 class Round
   attr_reader :deck, :turns, :answer, :question
-#  attr_accessor :turns
+  #attr_accessor :turn
 
   def initialize(deck_parameter)
     @deck = deck_parameter
@@ -34,14 +34,11 @@ def current_card
     end
   end
 
-  def number_correct_by_category(category_parameter)
-    count_correct = 0
-    cards_in_category = @deck.cards_in_category(category_parameter)
-    cards_in_category.each do |card|
-      if card != nil && card.answer == @guess
-        count_correct += 1
-      end
-    end
-    return count_correct
+  def number_correct_by_category(category)
+    @category = (category)
+    @turns.inject(0) do |count, turn|
+       turn.correct? && turn.card.category == @category ? count += 1 : count
+     end
   end
-  end
+
+end

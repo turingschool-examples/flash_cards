@@ -1,3 +1,7 @@
+require './lib/turn'
+require './lib/round'
+require './lib/deck'
+
 class Card
   attr_reader :question, :answer, :category
 
