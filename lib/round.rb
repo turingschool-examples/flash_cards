@@ -32,6 +32,12 @@ class Round
     ((number_correct_by_category(category).to_f / @deck.cards_in_category(category).size) * 100.00).round(2)
   end
 
+  def percent_correct_by_category_for_all
+    summary_percentage = {}
+    @deck.cards.each { | value | summary_percentage[value.category] = percent_correct_by_category(value.category)}
+    summary_percentage
+  end
+
   def start
     puts "Welcome! You're playing with #{@deck.count} cards."
     puts "-------------------------------------------------"
@@ -40,8 +46,7 @@ class Round
       puts "This is card number #{@turns.size + 1} out of #{@deck.count}."
       puts "Question: #{current_card.question}"
       answer = gets.chomp
-      take_turn(answer)
-      puts @turns.last.feedback
+      take_turn(answer).feedback
     end
     summary
   end
@@ -49,9 +54,8 @@ class Round
   def summary
     puts "****** Game over! ******"
     puts "You had #{number_correct} correct #{number_correct == 1 ? "guess" : "guesses" } out of #{deck.cards.size} for a total score of #{percent_correct.round(0)}%."
-    summary_percentage = {}
-    @deck.cards.each { | value | summary_percentage[value.category] = percent_correct_by_category(value.category)}
-    summary_percentage.each do | category, percent_correct_by_category |
+
+    percent_correct_by_category_for_all.each do | category, percent_correct_by_category |
       puts "#{category.to_s} - #{percent_correct_by_category.round(0)}% correct"
     end
   end
