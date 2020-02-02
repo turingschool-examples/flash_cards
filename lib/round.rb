@@ -11,9 +11,6 @@ class Round
   end
 #the "!" in .rotate! is basically the same as doing this
 #current = @deck.cards.rotate
-  def get_new_card
-  @deck.cards.first
-  end
 
   def take_turn(guess)
     turn = Turn.new(guess, current_card)
