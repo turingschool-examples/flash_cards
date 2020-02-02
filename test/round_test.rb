@@ -85,40 +85,35 @@ class RoundTest < Minitest::Test
     assert_equal 2, @round.turns.count
     assert_equal 1, @round.number_correct
     assert_equal "Incorrect.", @round.turns.last.feedback
-    assert_equal "Correct!", @round.turns.first.feedback 
+    assert_equal "Correct!", @round.turns.first.feedback
+  end
+
+  def test_number_of_correct_by_category_method
+    new_turn = @round.take_turn("Juneau")
+    new_turn2 = @round.take_turn("bob")
+    new_turn3 = @round.take_turn("North north west")
+    assert_equal 1, @round.number_correct_by_category(:Geography)
+    assert_equal 1, @round.number_correct_by_category(:STEM)
+  end
+
+
+  def test_return_percentage_correct
+    new_turn = @round.take_turn("Juneau")
+    new_turn2 = @round.take_turn("bob")
+
+    assert_equal 50.0, @round.percent_correct
+  end
+  def test_percent_correct_by_category
+    new_turn = @round.take_turn("Juneau")
+    #new_turn2 = @round.take_turn("bob")
+    assert_equal 100.0, @round.percent_correct_by_category(:Geography)
+  end
+
+  def test_deck_moves_through_cards_in_order
+    assert_equal @card_1, @round.current_card
+    new_turn = @round.take_turn("Juneau")
+    assert_equal @card_2, @round.current_card
+    new_turn2 = @round.take_turn("bob")
+    assert_equal @card_3, @round.current_card
   end
 end
-
-
-
-  #=> 1
-
-#   pry(main)> round.current_card
-#   #=> #<Card:0x00007fa160a62e90 @answer="Mars", @question="The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", @category=:STEM>
-#
-#   pry(main)> round.take_turn("Venus")
-#   #=> #<Turn:0x00007f972a215b38...>
-#
-#   pry(main)> round.turns.count
-#   #=> 2
-#
-#   pry(main)> round.turns.last.feedback
-#   #=> "Incorrect."
-#
-#   pry(main)> round.number_correct
-#   #=> 1
-#
-#   pry(main)> round.number_correct_by_category(:Geography)
-#   #=> 1
-#
-#   pry(main)> round.number_correct_by_category(:STEM)
-#   #=> 0
-#
-#   pry(main)> round.percent_correct
-#   #=> 50.0
-#
-#   pry(main)> round.percent_correct_by_category(:Geography)
-#   #=> 100.0
-#
-#   pry(main)> round.current_card
-   #=> #<Card:0x00007fa161a136f0 @answer="North north west", @question="Describe in words the exact direction that is 697.5° clockwise from due north?", @category=:STEM>
