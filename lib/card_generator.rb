@@ -1,7 +1,7 @@
 require './lib/card'
 
 class CardGenerator
-  attr_accessor :questions, :cards
+  attr_reader :questions, :cards
   def initialize(filename)
     @questions = []
     @cards = []

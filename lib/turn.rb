@@ -1,7 +1,7 @@
 require_relative 'card.rb'
 
 class Turn
-  attr_accessor :guess, :card, :correct 
+  attr_reader :guess, :card, :correct 
   def initialize(string, card)
     @guess = string
     @card = card

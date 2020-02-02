@@ -1,7 +1,7 @@
 require 'require_all'
 require_all 'lib'
 
-def play_game
+def start
 
   filename = './lib/cards.txt'
   total_cards = (CardGenerator.new(filename).cards).size
@@ -37,4 +37,4 @@ def play_game
 
 end
 
-play_game
+start

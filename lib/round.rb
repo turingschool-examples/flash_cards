@@ -2,7 +2,7 @@ require_relative 'deck.rb'
 require_relative 'turn.rb'
 
 class Round
-  attr_accessor :deck, :turns, :current_card, :turns_correct
+  attr_reader :deck, :turns, :current_card, :turns_correct
   def initialize(deck)
     @deck = deck
     @turns = []
