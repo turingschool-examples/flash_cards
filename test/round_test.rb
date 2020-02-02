@@ -75,6 +75,7 @@ class RoundTest < Minitest::Test
   end
 
   def test_round_moves_forward
+    skip
     card1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     card3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
@@ -85,18 +86,43 @@ class RoundTest < Minitest::Test
     assert_equal card2, round.current_card
     round.take_turn("Venus")
     assert_equal 2, round.turns.count
-    assert_equal "Incorrect!", round.turns.last.feedback
     assert_equal card3, round.current_card
+  end
 
+  def test_last_feedback
+    card1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+    card3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+    cards = [card1, card2, card3]
+    deck = Deck.new(cards)
+    round = Round.new(deck)
+    round.take_turn("Juneau")
+    assert_equal "Correct!", round.turns.last.feedback
+    assert_equal 1, round.number_correct
+    round.take_turn("Venus")
+   assert_equal "Incorrect!", round.turns.last.feedback
+    assert_equal 1, round.number_correct
+    round.take_turn("North north west")
+    assert_equal "Correct!", round.turns.last.feedback
+    assert_equal 2, round.number_correct
+  end
+
+  def test_number_correct
+    card1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+    card3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+    cards = [card1, card2, card3]
+    deck = Deck.new(cards)
+    round = Round.new(deck)
+    round.take_turn("Juneau")
+    assert_equal 1, round.number_correct
+    round.take_turn("Venus")
+    assert_equal 1, round.number_correct
+    round.take_turn("North north west")
+    assert_equal 2, round.number_correct
   end
 
   end
-
-#  pry(main)> round.turns.last.feedback
-  #=> "Incorrect."
-
-#  pry(main)> round.number_correct
-  #=> 1
 
 #  pry(main)> round.number_correct_by_category(:Geography)
   #=> 1
