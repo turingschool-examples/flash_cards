@@ -20,6 +20,9 @@ class Round
       if new_turn.correct?
         @number_correct += 1
       end
-      new_turn
+
+      return new_turn
   end
+
+
 end

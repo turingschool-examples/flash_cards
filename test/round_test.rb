@@ -5,6 +5,7 @@ require './lib/turn'
 require './lib/round'
 require './lib/deck'
 
+
 class RoundTest < Minitest::Test
 
   def setup
@@ -62,7 +63,15 @@ class RoundTest < Minitest::Test
   end
 
   def test_new_take_turn_brings_up_new_card
+    assert_equal @card_1, @round.current_card
+    new_turn = @round.take_turn("Juneau")
+    assert_equal @card_2, @round.current_card
+    new_turn = @round.take_turn("Mars")
+    assert_equal @card_3, @round.current_card
   end
+
+  #def test_turns_stores_instance_of_turn
+    #assert_equal @card_1, round.current_card 
 
 end
 
