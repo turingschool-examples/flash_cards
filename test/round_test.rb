@@ -125,7 +125,7 @@ class RoundTest < Minitest::Test
 
     assert_equal 2, round.number_correct_by_category(:Geography)
   end
-end
+
 
 def test_percent_correct
 
@@ -135,14 +135,14 @@ def test_percent_correct
 
   cards = [card_1, card_2, card_3]
   deck = Deck.new(cards)
-require "pry"; binding.pry
+
   round = Round.new(deck)
   round.take_turn("Juneau")
   round.take_turn("Venus")
 
 assert_equal 50.0, round.percent_correct
 end
-
+end
 
 # pry(main)> round.current_card
 # #=> #<Card:0x00007fa160a62e90 @answer="Mars", @question="The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", @category=:STEM>
