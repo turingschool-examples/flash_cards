@@ -48,4 +48,13 @@ def current_card
     @number_correct / turns.count.to_f * 100
   end
 
-end
+  def percent_correct_by_category(category)
+    @category = (category)
+
+    @number_correct = @turns.inject(0) do |count, turn|
+    turn.correct? && turn.card.category == @category ? count += 1 : count
+    end
+    require "pry"; binding.pry
+    @number_correct / turns.cards.category.count.to_f * 100
+    end
+  end
