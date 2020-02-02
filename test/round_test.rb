@@ -34,12 +34,12 @@ def test_turns_method_exists_and_current_card
   deck = Deck.new([card_1, card_2, card_3])
   round = Round.new(deck)
 
-  assert_equal [], round.turns_completed
+  assert_equal [], round.turns
   turn_1 = round.take_turn("Juneau")
-  assert_equal [turn_1], round.turns_completed
+  assert_equal [turn_1], round.turns
   assert_equal card_2, round.current_card
   turn_2 = round.take_turn("Venus")
-  assert_equal [turn_1, turn_2], round.turns_completed
+  assert_equal [turn_1, turn_2], round.turns
   assert_equal card_3, round.current_card
 end
 
@@ -78,7 +78,7 @@ def test_which_cards_have_already_taken_a_turn
   turn_1 = round.take_turn("Juneau")
   turn_2 = round.take_turn("Mars")
 
-  assert_equal [turn_1, turn_2], round.turns_completed
+  assert_equal [turn_1, turn_2], round.turns
 end
 
 def test_number_of_correct_cards
@@ -91,7 +91,7 @@ def test_number_of_correct_cards
   turn_2 = round.take_turn("Venus")
 
   assert_equal 1, round.number_correct
-  assert_equal "Incorrect.", round.turns_completed.last.feedback
+  assert_equal "Incorrect.", round.turns.last.feedback
 end
 
 def test_number_of_correct_cards_by_category
