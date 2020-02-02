@@ -3,7 +3,7 @@ require './lib/card'
 require './lib/deck'
 
 class Round
-  attr_reader :deck, :turns
+  attr_reader :deck, :turns, :answer, :question
 #  attr_accessor :turns
 
   def initialize(deck_parameter)
@@ -32,5 +32,16 @@ def current_card
       p "Correct!"
     else p "Incorrect!"
     end
+  end
+
+  def number_correct_by_category(category_parameter)
+    count_correct = 0
+    cards_in_category = @deck.cards_in_category(category_parameter)
+    cards_in_category.each do |card|
+      if card != nil && card.answer == @guess
+        count_correct += 1
+      end
+    end
+    return count_correct
   end
   end
