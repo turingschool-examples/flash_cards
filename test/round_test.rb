@@ -75,7 +75,7 @@ class RoundTest < Minitest::Test
     round = Round.new(deck)
     new_turn = round.take_turn("Juneau")
     require "pry"; binding.pry
-    assert_equal new_turn, round.turns
+    assert_equal 1, round.number_correct 
   end
 
 
