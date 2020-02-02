@@ -18,7 +18,6 @@ def current_card
   def take_turn(guess_parameter)
     @guess = guess_parameter
     new_turn = Turn.new(@guess, current_card)
-    @correct_answers = 0
     @turns << new_turn
   end
 
