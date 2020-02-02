@@ -11,21 +11,27 @@ class Round
     @turns = []
   end
 
-  def current_card
-    @deck.cards[0]
-    end
+def current_card
+    @deck.cards[@turns.count]
+  end
 
   def take_turn(guess_parameter)
     @guess = guess_parameter
     new_turn = Turn.new(@guess, current_card)
+    @correct_answers = 0
     @turns << new_turn
   end
 
   def number_correct
-    correct_answers = []
+     @turns.inject(0) do |count, turn|
+       turn.correct? ? count += 1 : count
+     end
+  end
+
+  def turns_last_feedback
     if @guess == current_card.answer
-    correct_answers << 1
-    correct_answers.sum
+      p "Correct!"
+    else p "Incorrect!"
     end
   end
   end

@@ -48,7 +48,6 @@ class RoundTest < Minitest::Test
     cards = [card1, card2, card3]
     deck = Deck.new(cards)
     round = Round.new(deck)
-    new_turn = round.take_turn("Juneau")
     assert_equal card1, round.current_card
   end
 
@@ -61,12 +60,10 @@ class RoundTest < Minitest::Test
     deck = Deck.new(cards)
     round = Round.new(deck)
     new_turn = round.take_turn("Juneau")
-    require "pry"; binding.pry
     assert_equal new_turn, round.turns
   end
 
   def test_round_number_correct
-    skip
     card1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     card3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
@@ -75,18 +72,8 @@ class RoundTest < Minitest::Test
     round = Round.new(deck)
     new_turn = round.take_turn("Juneau")
     assert_equal 1, round.number_correct
-    require "pry"; binding.pry
   end
 
-  def test_new_current_card_method
-    card1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    card2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
-    card3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-    cards = [card1, card2, card3]
-    deck = Deck.new(cards)
-    round = Round.new(deck)
-    new_turn = round.take_turn("Juneau")
-    assert_equal card2, round.current_card
   end
 
 #  pry(main)> round.current_card
@@ -118,4 +105,3 @@ class RoundTest < Minitest::Test
 
 #  pry(main)> round.current_card
   #=> #<Card:0x00007fa161a136f0 @answer="North north west", @question="Describe in words the exact direction that is 697.5° clockwise from due north?", @category=:STEM>
-end
