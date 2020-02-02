@@ -41,4 +41,11 @@ def current_card
      end
   end
 
+  def percent_correct
+    @number_correct = @turns.inject(0) do |count, turn|
+    turn.correct? ? count += 1 : count
+     end
+    @number_correct / turns.count.to_f * 100
+  end
+
 end
