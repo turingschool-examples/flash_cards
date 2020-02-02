@@ -66,6 +66,7 @@ class RoundTest < Minitest::Test
   end
 
   def test_round_number_correct
+    skip
     card1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     card3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
@@ -77,9 +78,16 @@ class RoundTest < Minitest::Test
     require "pry"; binding.pry
   end
 
-
-#  pry(main)> round.number_correct
-  #=> 1
+  def test_new_current_card_method
+    card1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+    card3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+    cards = [card1, card2, card3]
+    deck = Deck.new(cards)
+    round = Round.new(deck)
+    new_turn = round.take_turn("Juneau")
+    assert_equal card2, round.current_card
+  end
 
 #  pry(main)> round.current_card
   #=> #<Card:0x00007fa160a62e90 @answer="Mars", @question="The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", @category=:STEM>

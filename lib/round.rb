@@ -22,8 +22,10 @@ class Round
   end
 
   def number_correct
+    correct_answers = []
     if @guess == current_card.answer
-      p 1
+    correct_answers << 1
+    correct_answers.sum
     end
   end
   end
