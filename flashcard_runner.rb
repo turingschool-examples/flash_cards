@@ -6,9 +6,6 @@ require './lib/card_generator.rb'
 
 filename = 'cards.txt'
 
-cards = [card_1, card_2, card_3, card_4]
-
-deck = Deck.new(cards)
 card = CardGenerator.new(filename).cards
 
 deck = Deck.new(card)
