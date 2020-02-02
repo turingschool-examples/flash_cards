@@ -6,15 +6,12 @@ require './lib/card_generator.rb'
 
 filename = 'cards.txt'
 
-<<<<<<< HEAD
 cards = [card_1, card_2, card_3, card_4]
 
 deck = Deck.new(cards)
-=======
 card = CardGenerator.new(filename).cards
 
 deck = Deck.new(card)
->>>>>>> iteration4
 
 round = Round.new(deck)
 
