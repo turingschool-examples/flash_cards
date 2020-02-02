@@ -65,7 +65,18 @@ class RoundTest < Minitest::Test
     assert_equal new_turn, round.turns
   end
 
-
+  def test_round_number_correct
+    skip
+    card1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+    card3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+    cards = [card1, card2, card3]
+    deck = Deck.new(cards)
+    round = Round.new(deck)
+    new_turn = round.take_turn("Juneau")
+    require "pry"; binding.pry
+    assert_equal new_turn, round.turns
+  end
 
 
 #  pry(main)> round.number_correct
