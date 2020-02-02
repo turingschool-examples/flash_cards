@@ -37,21 +37,12 @@ class RoundTest < Minitest::Test
     assert_instance_of Turn, @round.take_turn("Juneau")
   end
 
-  def test_it_is_second_round_after_first_turn
+  def test_round_can_take_multiple_turns
     @round.take_turn("Juneau")
-    assert_equal 1, @round.turns.count
+    assert_equal @card_2, @round.current_card
 
     @round.take_turn("Venus")
-    assert_equal 2, @round.turns.count
-  end
-
-  # integration test
-  def test_can_return_feedback_for_turn
-    @round.take_turn("Juneau")
-    assert_equal "Correct!", @round.turns.last.feedback
-
-    @round.take_turn("Ziggy")
-    assert_equal "Incorrect!", @round.turns.last.feedback
+    assert_equal @card_3, @round.current_card
   end
 
   def test_round_number_correct_by_category
@@ -85,7 +76,4 @@ class RoundTest < Minitest::Test
 
     assert_equal 100.0, @round.percent_correct_by_category(:Geography)
   end
-
-
-
 end
