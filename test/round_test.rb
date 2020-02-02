@@ -58,7 +58,7 @@ class RoundTest < Minitest::Test
   def test_number_correct_function
     new_turn = @round.take_turn("Juneau")
     assert_equal 1, @round.number_correct
-    new_turn = @round.take_turn("Mars")
+    new_turn2 = @round.take_turn("Mars")
     assert_equal 2, @round.number_correct
   end
 
@@ -66,13 +66,27 @@ class RoundTest < Minitest::Test
     assert_equal @card_1, @round.current_card
     new_turn = @round.take_turn("Juneau")
     assert_equal @card_2, @round.current_card
-    new_turn = @round.take_turn("Mars")
+    new_turn2 = @round.take_turn("Mars")
     assert_equal @card_3, @round.current_card
   end
 
-  #def test_turns_stores_instance_of_turn
-    #assert_equal @card_1, round.current_card 
+  def test_turns_stores_instance_of_newturn
+    assert_equal @card_1, @round.current_card
+    new_turn = @round.take_turn("Juneau")
+    new_turn2 = @round.take_turn("Mars")
+    assert_equal 2, @round.turns.count
+    assert_equal 2, @round.number_correct
+  end
 
+  def test_turns_feedback_returns_incorrect_when_guess_is_false
+    assert_equal @card_1, @round.current_card
+    new_turn = @round.take_turn("Juneau")
+    new_turn2 = @round.take_turn("beansprout")
+    assert_equal 2, @round.turns.count
+    assert_equal 1, @round.number_correct
+    assert_equal "Incorrect.", @round.turns.last.feedback
+    assert_equal "Correct!", @round.turns.first.feedback 
+  end
 end
 
 
