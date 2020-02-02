@@ -26,9 +26,9 @@ class Round
 
     puts "****** Game over! ******"
     puts "You had #{number_correct} correct guesses out of #{deck_count} for a total score of #{percent_correct.to_i}%."
-    puts "STEM - #{percent_correct_by_category(:STEM).round}% correct"
-    puts "Turing Staff - #{percent_correct_by_category("Turing Staff").round}% correct"
-    puts "Pop Culture - #{percent_correct_by_category("Pop Culture").round}% correct"
+    puts "Fruit and Vegetable - #{percent_correct_by_category("Fruit and Vegetable").round}% correct"
+    puts "Snack Foods - #{percent_correct_by_category("Snack Foods").round}% correct"
+    puts "Cooking Methods - #{percent_correct_by_category("Cooking Methods").round}% correct"
   end
 
 
