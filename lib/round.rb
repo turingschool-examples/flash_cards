@@ -8,6 +8,30 @@ class Round
     @number_correct_by_category = 0
   end
 
+  def start
+    turn_count = 1
+    deck_count = deck.count
+
+    puts "Welcome! You're playing with #{deck_count} cards."
+    puts "-------------------------------------------------"
+
+    until deck.count == 0
+      puts "This is card number #{turn_count} out of #{deck_count}"
+      puts "Question: #{current_card.question}"
+      player_guess = gets.chomp.downcase
+      take_turn(player_guess)
+      puts @turns.last.feedback
+      turn_count += 1
+    end
+
+    puts "****** Game over! ******"
+    puts "You had #{number_correct} correct guesses out of #{deck_count} for a total score of #{percent_correct.to_i}%."
+    puts "STEM - #{percent_correct_by_category(:STEM).round}% correct"
+    puts "Turing Staff - #{percent_correct_by_category("Turing Staff").round}% correct"
+    puts "Pop Culture - #{percent_correct_by_category("Pop Culture").round}% correct"
+  end
+
+
   def current_card
     @deck.cards.first
   end
