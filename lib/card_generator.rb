@@ -3,6 +3,7 @@ require_relative './deck.rb'
 
 class CardGenerator
   attr_reader :generated_cards
+  
   def initialize(filename)
     @filename = filename
   end

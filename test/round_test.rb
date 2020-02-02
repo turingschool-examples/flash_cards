@@ -6,7 +6,6 @@ require './lib/deck'
 require './lib/round'
 
 class RoundTest < Minitest::Test
-
 def test_it_exists
   card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
   card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
@@ -131,5 +130,4 @@ def test_percent_correct_by_category
   assert_equal 100.0, round.percent_correct_by_category(:Geography)
   assert_equal 0.0, round.percent_correct_by_category(:STEM)
 end
-
 end
