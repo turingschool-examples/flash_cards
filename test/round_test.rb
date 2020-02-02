@@ -23,7 +23,6 @@ class RoundTest < MiniTest::Test
     assert_equal @card_1, @round.current_card
   end
 
-
   def test_round_starts_with_empty_array_and_can_take_more_than_one_turn
     assert_equal [], @round.turns
     assert_equal 0, @round.turns.count
@@ -34,7 +33,6 @@ class RoundTest < MiniTest::Test
     assert_equal 1, @round.turns.count
     assert_equal "Correct", @round.turns.last.feedback
     assert_equal @card_2, @round.current_card
-
 
     new_turn_2 = @round.take_turn("Venus")
     assert_equal [new_turn_1, new_turn_2], @round.turns
@@ -111,13 +109,21 @@ class RoundTest < MiniTest::Test
 
   def test_round_percent_correct_by_category
     @round.take_turn("Juneau")
-    assert_equal 100, @round.percent_correct_by_category(:Geography)
+    assert @round.percent_correct_by_category.include?(:Geography)
+    assert_equal 100,  @round.percent_correct_by_category[:Geography]
+    refute @round.percent_correct_by_category.include?(:STEM)
+    assert_nil  @round.percent_correct_by_category[:STEM]
 
-    @round.take_turn("Venus")
-    assert_equal 100, @round.percent_correct_by_category(:Geography)
-    assert_equal 0, @round.percent_correct_by_category(:STEM)
+    @round.take_turn("Mars")
+    assert @round.percent_correct_by_category.include?(:Geography)
+    assert_equal 100,  @round.percent_correct_by_category[:Geography]
+    assert @round.percent_correct_by_category.include?(:STEM)
+    assert_equal 100,  @round.percent_correct_by_category[:STEM]
 
-    @round.take_turn("North north west")
-    assert_equal 50, @round.percent_correct_by_category(:STEM)
+    @round.take_turn("North northest")
+    assert @round.percent_correct_by_category.include?(:Geography)
+    assert_equal 100,  @round.percent_correct_by_category[:Geography]
+    assert @round.percent_correct_by_category.include?(:STEM)
+    assert_equal 50,  @round.percent_correct_by_category[:STEM]
   end
 end

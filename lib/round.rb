@@ -31,14 +31,17 @@ class Round
     ((@number_correct.to_f / @turns.length) * 100).round
   end
 
-  def percent_correct_by_category(category)
-    p 0 if @number_correct == 0
+  def percent_correct_by_category
+    results = Hash.new()
 
-    total_category = turns.count { |turn|
-      turn.card.category == category
-    }
-
-    correct = number_correct_by_category(category)
-    ((correct / total_category.to_f) * 100).round
+    @turns.each do |turn|
+      if !results.include?(turn.card.category)
+        results[turn.card.category] = [0.0, 1.0]
+      else
+        results[turn.card.category][1] += 1
+      end
+      results[turn.card.category][0] += 1 if turn.correct?
+    end
+    results.transform_values {|result| ((result[0] / result[1]) * 100).round}
   end
 end

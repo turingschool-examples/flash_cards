@@ -1,0 +1,4 @@
+What is the capital of Alaska?,Juneau,:Geography
+What country does 45 take orders from?,Russia,:Geography
+The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?,Mars,:STEM
+What is the largest planet in the solar system?,Jupiter,:STEM
