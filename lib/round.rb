@@ -21,11 +21,9 @@ class Round
     @turns << new_turn
   end
 
-#def turns
-
-#  require "pry"; binding.pry
-#      round.take_turn
-#      @deck << current_card
-#    end
-#end
+  def number_correct
+    if @guess == current_card.answer
+      p 1
+    end
+  end
   end
