@@ -28,7 +28,7 @@ def current_card
   end
 
   def turns_last_feedback
-    if @guess == current_card.answer
+    if @guess == turns.last.answer
       p "Correct!"
     else p "Incorrect!"
     end
