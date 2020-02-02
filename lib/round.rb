@@ -40,4 +40,11 @@ def number_correct_by_category(category)
    end
    correct_by_category.length
  end
+
+def percent_correct
+   (number_correct / @turns.length.to_f * 100).round(1)
+ end
+
+
+
 end
