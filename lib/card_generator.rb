@@ -3,38 +3,19 @@ class CardGenerator
 
   def initialize(filename)
     @cards = []
-    check_file(filename)
+    parse_information(filename)
   end
 
-  def check_file(filename)
+  def parse_information(filename)
     if(File.file?(filename))
-      parse_file(filename)
+      file = File.open(filename)
+      card_info = file.readlines.map(&:chomp)
     else
-      parse_string(filename)
+      card_info = filename.split("\n")
     end
-  end
-
-  def parse_file(filename)
-    file = File.open(filename)
-    file_data = file.readlines.map(&:chomp)
-    file_data.each do | line |
-      card_info = line.split(',')
-      question = card_info[0]
-      answer = card_info[1]
-      category = card_info[2]
-      @cards << Card.new(question, answer, category)
+    card_info.each do | line |
+      card = line.split(',')
+      @cards << Card.new(card[0], card[1], card[2])
     end
-  end
-
-  def parse_string(string)
-    file_data = string.      card_info = line.split(',')
-
-    file_data.each do | line |
-      question = card_info[0]
-      answer = card_info[1]
-      category = card_info[2]
-      @cards << Card.new(question, answer, category)
-    end
-
   end
 end
