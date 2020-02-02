@@ -10,8 +10,8 @@ class Round
 
   def take_turn(guess)
     @turns << Turn.new(guess, current_card)
-    current_card = deck.cards[turns.count]
-    turns[turns.count -1]
+    @current_card = deck.cards[turns.count]
+    @turns[turns.count -1]
   end
 
 end

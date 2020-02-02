@@ -51,6 +51,7 @@ class RoundTest < Minitest::Test
     deck = Deck.new([card_1, card_2, card_3])
     round = Round.new(deck)
     new_turn = round.take_turn("Juneau")
+    binding.pry
     assert_equal round.take_turn("Juneau"), round.turns[0]
     assert_equal new_turn.class, Turn
     assert new_turn.correct?
