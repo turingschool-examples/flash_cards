@@ -17,30 +17,18 @@ require_relative './lib/turn.rb'
     puts  @round.current_card.question
 
     @round.take_turn(gets.chomp)
+
+    puts   "This is card number #{@cards.find_index(@round.current_card) + 2}."
+    puts  @round.current_card.question
+
+    @round.take_turn(gets.chomp)
+
+    puts   "This is card number #{@cards.find_index(@round.current_card) + 3}."
+    puts  @round.current_card.question
+
+    @round.take_turn(gets.chomp)
+
+    puts "You got #{@round.percent_correct.to_i}% of the questions correct"
   end
-
-# user_answer_1 = gets.chomp
-#
-#   if user_answer_1 == 10
-#     puts "Correct!
-#     This is card number 2 out of 4.
-#     Question: What is Rachel's favorite animal?"
-#   else
-#     puts "Incorrect.
-#     This is card number 2 out of 4.
-#     Question: What is Rachel's favorite animal?"
-#   end
-
-# user_answer_2 = gets.chomp
-#
-#   if user_answer_2 == 10
-#     puts "Correct!
-#     This is card number 2 out of 4.
-#     Question: What is Rachel's favorite animal?"
-#   else
-#     puts "Incorrect.
-#     This is card number 2 out of 4.
-#     Question: What is Rachel's favorite animal?"
-#   end
 
 start
