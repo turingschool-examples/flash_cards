@@ -43,8 +43,8 @@ class RoundTest < Minitest::Test
 
     assert_equal [new_turn], round.turns
 
-    assert_equal 1, round.number_correct
+    # assert_equal 1, round.number_correct
 
-    assert_equal 1, round.number_correct_by_category(:Geography)
+    # assert_equal 1, round.number_correct_by_category(:Geography)
   end
 end
