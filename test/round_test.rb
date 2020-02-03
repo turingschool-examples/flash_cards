@@ -8,7 +8,7 @@ require './lib/round'
 class RoundTest < Minitest::Test
 
   def test_round_exists
-    skip
+
     card1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     card3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
@@ -155,7 +155,7 @@ class RoundTest < Minitest::Test
   end
 
 def test_percent_correct_by_category
-
+  skip
   card1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
   card2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
   card3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
@@ -165,5 +165,6 @@ def test_percent_correct_by_category
   round.take_turn("Juneau")
   round.take_turn("Venus")
   assert_equal 100.0, round.percent_correct_by_category(:Geography)
-  require "pry"; binding.pry
+end
+
 end

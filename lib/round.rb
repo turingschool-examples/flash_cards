@@ -22,8 +22,8 @@ def current_card
   end
 
   def number_correct
-     @turns.inject(0) do |count, turn|
-       turn.correct? ? count += 1 : count
+    @number_correct = @turns.inject(0) do |count, turn|
+    turn.correct? ? count += 1 : count
      end
   end
 
@@ -63,9 +63,15 @@ def current_card
     end
 
     def start
-      p "Welcome! You're playing with " deck.cards.count "."
-      p "-------------------------------------"
-      p "This is card number 1 out of " deck.cards.count "."
-      p "Question:" card1.question 
+      print "Welcome! You're playing with "
+      print deck.cards.count
+      print " cards.\n"
+      puts "-------------------------------------"
+      print "This is card number 1 out of "
+      print deck.cards.count
+      print ".\n"
+      puts "Question:"
+      print deck.cards[0].question
+      print ".\n"
     end
   end
