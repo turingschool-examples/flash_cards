@@ -21,9 +21,16 @@ puts "-" * 40
 puts "This is card number #{@card_number += 1} out of #{@deck.count}."
 puts @round.current_card.question
 
-guess = gets.chomp
+guess = gets.chomp.capitalize
 
 turn = @round.take_turn(guess)
 
 puts turn.feedback
 end
+
+puts "****** Game over! ******"
+
+puts "You had #{@round.number_correct} correct guesses out of #{@deck.count} for a total score of #{@round.percent_correct.to_i}%."
+
+puts "STEM - #{@round.percent_correct_by_category(:STEM)}% correct."
+puts "Geography - #{@round.percent_correct_by_category(:Geography)}% correct."
