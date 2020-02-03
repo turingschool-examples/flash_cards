@@ -16,7 +16,7 @@ class Round
 
   def take_turn(guess)
     @turns << Turn.new(guess, current_card)
-    @deck.cards.rotate
+    @deck.cards.rotate!
     @turns.last
   end
 
