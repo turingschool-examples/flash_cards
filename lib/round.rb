@@ -26,6 +26,13 @@ class Round
     num_correct
   end
 
+  def total_cards_per_category(category)
+    total_cards = turns.find_all do |turn|
+      turn.card.category == category
+    end
+    total_cards
+  end
+
   def number_correct_by_category(category)
     num_correct = 0.0
     @turns.each do |turn|
@@ -45,13 +52,6 @@ class Round
     end
     perc_correct = (num_correct / @turns.length) * 100
     perc_correct.round(2)
-  end
-
-  def total_cards_per_category(category)
-    total_cards = turns.find_all do |turn|
-      turn.card.category == category
-    end
-    total_cards
   end
 
   def percent_correct_by_category(category)
