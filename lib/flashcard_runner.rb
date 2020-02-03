@@ -4,6 +4,7 @@ require './lib/turn'
 require './lib/round'
 
 class Game
+  attr_reader :card_number, :round1, :deck1
   def initialize
     @card_number = 1
 
@@ -42,8 +43,19 @@ class Game
     puts new_turn.feedback
     end
   end
+
+  def game_results
+    puts "*-*-*-* GAME OVER *-*-*-*"
+    puts "You had #{@round1.number_correct} correct guesses out of #{@cards.length}
+     for a total score of #{round1.percent_correct}"
+
+    puts "Math - #{@round1.percent_correct_by_category(:Math)}%"
+    puts "Geography - #{@round1.percent_correct_by_category(:Geography)}%"
+    puts "Culture - #{@round1.percent_correct_by_category(:Culture)}%"
+  end
 end
 
 game1 = Game.new
 game1.welcome
 game1.start
+game1.game_results
