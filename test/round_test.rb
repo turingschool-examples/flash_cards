@@ -126,7 +126,6 @@ class RoundTest < Minitest::Test
     assert_equal 2, round.number_correct_by_category(:Geography)
   end
 
-
   def test_percent_correct
 
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
@@ -142,7 +141,6 @@ class RoundTest < Minitest::Test
 
   assert_equal 50.0, round.percent_correct
   end
-
 
   def test_percent_correct_by_category
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
