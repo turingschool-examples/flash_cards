@@ -27,4 +27,5 @@ class CardTest < Minitest::Test
 
     assert_equal :Geography, card.category
   end
+
 end

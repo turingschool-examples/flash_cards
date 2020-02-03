@@ -4,7 +4,6 @@ require './lib/card'
 require './lib/turn'
 require './lib/deck'
 require './lib/round'
-require 'pry'
 
 class RoundTest < Minitest::Test
 
@@ -16,6 +15,7 @@ class RoundTest < Minitest::Test
     cards  = [card_1, card_2, card_3]
     deck = Deck.new(cards)
     round = Round.new(deck)
+
     assert_instance_of Round, round
   end
 
@@ -55,9 +55,11 @@ class RoundTest < Minitest::Test
     assert_equal card_1, round.current_card
 
     round.take_turn("Juneau")
+
     assert_equal card_2, round.current_card
 
     round.take_turn("Mars")
+
     assert_equal card_3, round.current_card
 
   end
