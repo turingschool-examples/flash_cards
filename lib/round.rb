@@ -1,5 +1,6 @@
 require './lib/deck'
 require './lib/turn'
+require './lib/card'
 
 class Round
   attr_reader :deck,
@@ -7,12 +8,13 @@ class Round
               :number_correct,
               :correct_cards,
               :used_deck
+              :current_turn
   def initialize(deck)
     @deck = deck
-    @used_cards = []
+    @used_deck = []
     @turns = []
     @number_correct = 0
-    @correct_cards = []
+    # @correct_cards = []
 
   end
 
@@ -21,18 +23,27 @@ class Round
   end
 
   def take_turn(guess)
-    current_turn = Turn.new(guess, current_card)
-    if guess == current_card.answer
+    @current_turn = Turn.new(guess, current_card)
+    if @current_turn.correct?
       @number_correct += 1
-      @correct_cards << current_card
+      @correct_guess = true
     end
-    @turns << current_turn
-    @used_cards << @deck.cards.shift
-    current_turn
+    @turns << @current_turn
+    @deck.cards.rotate!
+    @current_turn
+  end
+
+  def total_by_category(category)
+    category_total = @turns.find_all do |turn|
+      turn.card.category == category
+    end
+    category_total.length
   end
 
   def number_correct_by_category(category)
-    correct_by_category = @correct_cards.find_all{|card|card.category == category}
+    correct_by_category = @turns.find_all do |turn|
+      turn.guess == turn.card.answer && turn.card.category == category
+    end
     correct_by_category.length
   end
 
@@ -41,8 +52,9 @@ class Round
   end
 
   def percent_correct_by_category(category)
-
-    total = @used_cards.find_all{|used_card| used_card.category ==  category}
-    (number_correct_by_category(category) / total.length.to_f) * 100
+    correct = number_correct_by_category(category)
+    total = total_by_category(category)
+    percentage = ( correct.to_f / total.to_f ) *100
+    percentage.round(1)
   end
 end
