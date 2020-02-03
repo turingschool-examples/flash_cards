@@ -5,13 +5,13 @@ require './lib/round'
 
 ## Cards! ##
 
-card1 = Card.new("H20 is an abbreviation for what common liquid?", "Water", :STEM)
+card1 = Card.new("H20 is an abbreviation for what common liquid?", "water", :STEM)
 
-card2 = Card.new("What is the capital of Mississippi?", "Jackson", :Geography)
+card2 = Card.new("What is the capital of Mississippi?", "jackson", :Geography)
 
-card3 = Card.new("Who killed Alexander Hamilton", "Aaron Burr", :History)
+card3 = Card.new("Who killed Alexander Hamilton", "aaron burr", :History)
 
-card4 = Card.new("Which ocean is the island of Hawaii located in?", "Pacific", :Geography)
+card4 = Card.new("Which ocean is the island of Hawaii located in?", "pacific", :Geography)
 
 cards = [card1, card2, card3, card4]
 
@@ -21,7 +21,7 @@ round = Round.new(deck)
 
 round.start
 
-guess1 = gets.chomp
+guess1 = gets.chomp.downcase
 
 round.take_turn(guess1)
 
@@ -39,7 +39,7 @@ print deck.cards[1].question
 
 print ".\n"
 
-guess2 = gets.chomp
+guess2 = gets.chomp.downcase
 
 round.take_turn(guess2)
 
@@ -57,7 +57,7 @@ print deck.cards[2].question
 
 print ".\n"
 
-guess3 = gets.chomp
+guess3 = gets.chomp.downcase
 
 round.take_turn(guess3)
 
@@ -75,7 +75,7 @@ print deck.cards[3].question
 
 print ".\n"
 
-guess4 = gets.chomp
+guess4 = gets.chomp.downcase
 
 round.take_turn(guess4)
 
