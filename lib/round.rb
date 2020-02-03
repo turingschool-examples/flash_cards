@@ -11,11 +11,8 @@ class Round
               :current_turn
   def initialize(deck)
     @deck = deck
-    @used_deck = []
     @turns = []
     @number_correct = 0
-    # @correct_cards = []
-
   end
 
   def current_card
