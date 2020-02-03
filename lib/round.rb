@@ -1,11 +1,12 @@
 class Round
-  attr_reader :deck, :turns, :number_correct, :number_correct_by_category
+  attr_reader :deck,
+              :turns,
+              :number_correct
 
   def initialize(deck)
     @deck = deck
     @turns = []
     @number_correct = 0
-    @number_correct_by_category = 0
   end
 
   def start
@@ -25,12 +26,11 @@ class Round
     end
 
     puts "****** Game over! ******"
-    puts "You had #{number_correct} correct guesses out of #{deck_count} for a total score of #{percent_correct.to_i}%."
+    puts "You had #{number_correct} correct guesses out of #{deck_count} for a total score of #{percent_correct.round}%."
     puts "Fruit and Vegetable - #{percent_correct_by_category("Fruit and Vegetable").round}% correct"
     puts "Snack Foods - #{percent_correct_by_category("Snack Foods").round}% correct"
     puts "Cooking Methods - #{percent_correct_by_category("Cooking Methods").round}% correct"
   end
-
 
   def current_card
     @deck.cards.first
@@ -63,14 +63,8 @@ class Round
 
   def percent_correct_by_category(category)
 
-    number_correct = 0
+    number_correct = number_correct_by_category(category)
     turns_in_category = 0
-
-    turns.each do |turn|
-      if category == turn.card.category && turn.correct?
-        number_correct += 1
-      end
-    end
 
     turns.each do |turn|
       if category == turn.card.category
@@ -79,6 +73,5 @@ class Round
     end
     (number_correct.to_f / turns_in_category) * 100
   end
-
 
 end

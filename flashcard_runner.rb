@@ -6,7 +6,7 @@ require './lib/round'
 card_1 = Card.new("What substance taken in when growing gives onions their distinct smell?", "sulphur","Fruit and Vegetable")
 card_2 = Card.new("What is the first name of the man on the Pringles can?", "julius","Snack Foods")
 card_3 = Card.new("Immersing food in vinegar to prolong its lifespan is known as what?", "pickling","Cooking Methods")
-card_4 = Card.new("Cooking foods under high heat in the oven is refered to as what?", "broiling","Cooking Methods")
+card_4 = Card.new("Cooking foods directly under high heat in the oven is refered to as what?", "broiling","Cooking Methods")
 card_5 = Card.new("In what country did the orange originate?", "china","Fruit and Vegetable")
 card_6 = Card.new("What is the best selling cookie in the United States?", "oreo","Snack Foods")
 card_7 = Card.new("At sea level what is the boiling point of water in fahrenheit?", "212","Cooking Methods")

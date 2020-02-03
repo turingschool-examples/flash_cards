@@ -17,7 +17,7 @@ class Deck
         cards_in_same_category << card
       end
     end
-      cards_in_same_category
+    cards_in_same_category
   end
 
 end
