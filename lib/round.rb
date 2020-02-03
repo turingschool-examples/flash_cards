@@ -6,6 +6,7 @@ class Round
     @deck = deck
     @turns = []
     @correct_answer = 0
+    @category_correct = 0
   end
 
   def current_card
@@ -37,5 +38,17 @@ class Round
       end
     end
     @correct_answer
+  end
+
+  def number_correct_by_category(category)
+
+    @turns.map do |turn|
+      if turn.guess || turn.card.category == @deck.cards.each do |card|
+                          card.answer || card.category
+                        end
+        @category_correct += 1
+      end
+    end 
+      @category_correct
   end
 end
