@@ -110,4 +110,5 @@ class RoundTest < Minitest::Test
     assert_equal round.percent_correct_by_category(:Geography), 100.0
     assert_equal round.percent_correct_by_category(:STEM), 0.0
   end
+  
 end
