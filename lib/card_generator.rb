@@ -1,5 +1,3 @@
-require './lib/card'
-
 class CardGenerator
   attr_reader :filename, :new_cards
   def initialize(filename)
