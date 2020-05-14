@@ -27,7 +27,7 @@ class DeckTest < Minitest::Test
 
   def test_it_can_sort_cards_by_category
     assert_equal [@card_2, @card_3], @deck.cards_in_category(:STEM)
-    assert_equal [@card1], @deck.cards_in_category(:Geography)
+    assert_equal [@card_1], @deck.cards_in_category(:Geography)
     assert_equal [], @deck.cards_in_category("Pop Culture")
   end
 end
