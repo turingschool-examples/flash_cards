@@ -1,5 +1,5 @@
 require "minitest/autorun"
-require "minitest/price"
+require "minitest/pride"
 require "./lib/turn"
 require "./lib/card"
 
@@ -7,7 +7,7 @@ class TurnTest < Minitest::Test
 
   def setup
     @card1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    @turn2 = Turn.new("Juneau", @card1)
+    @turn1 = Turn.new("Juneau", @card1)
     @card2 = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
     @turn2 = Turn.new("Saturn", @card2)
   end
