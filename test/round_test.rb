@@ -17,7 +17,7 @@ class RoundTest < Minitest::Test
   end
 
   def test_it_exists
-    assert_instance_of Test, @test
+    assert_instance_of Round, @round
   end
 
   def test_it_is_created_with_a_deck
@@ -100,6 +100,6 @@ class RoundTest < Minitest::Test
   end
 
   def test_current_card_changes_to_last_card
-    assert_equal @card_3, @round.test_current_card
+    assert_equal @card_3, @round.current_card
   end
 end
