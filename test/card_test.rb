@@ -3,7 +3,6 @@ require 'minitest/pride'
 require './lib/card'
 
 class CardTest < Minitest::Test
-
   def test_it_has_attributes
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     assert_instance_of Card, card
