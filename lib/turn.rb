@@ -6,3 +6,12 @@ class Turn
     @card = card
     @correct = correct?
   end
+
+  def correct?
+    if guess == card.answer
+      true
+    else
+      false
+    end
+  end
+end 
