@@ -1,6 +1,5 @@
 class Turn
   attr_reader :guess, :card
-  feedback_hash = {true => "Correct!",false => "Incorrect."}
   def initialize(guess,card)
     @guess = guess
     @card = card
@@ -11,6 +10,10 @@ class Turn
   end
 
   def feedback
-    feedback_hash[correct?]
+    if correct?
+      return "Correct!"
+    else
+      return "Incorrect."
+    end
   end
 end
