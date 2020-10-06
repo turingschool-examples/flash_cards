@@ -14,4 +14,7 @@ class Turn
     end
   end
 
+  def feedback
+    "Correct!"
+  end
 end
