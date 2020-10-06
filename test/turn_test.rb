@@ -31,9 +31,19 @@ class TurnTest < Minitest::Test
     assert turn.correct?
   end
 
-  def test_feedback_returns_correct_string
+  def test_feedback_returns_correct_when_correct_is_true
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
     assert_equal "Correct!", turn.feedback
+  end
+
+  def test_feedback_returns_incorrect_when_correct_is_false
+    card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+    turn = Turn.new("Saturn", card)
+    binding.pry
+    assert_equal card, turn.card
+    assert_equal "Saturn", turn.guess
+    refute turn.correct?
+    assert_equal "Incorrect.", turn.feedback
   end
 end
