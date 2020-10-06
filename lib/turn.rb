@@ -1,20 +1,20 @@
-require '../lib/card'  # => true
+require './lib/card'
 
 class Turn
-  attr_reader :string, :card  # => nil
+  attr_reader :string, :card
 
   def initialize(string, card)
     @string = string
     @card = card
-  end                           # => :initialize
+  end
 
   def guess
     @string
-  end        # => :guess
+  end
 
   def card
     @card
-  end       # => :card
+  end
 
   def correct?
     if @string == card.answer
@@ -22,7 +22,7 @@ class Turn
     else
       false
     end
-  end                          # => :correct?
+  end
 
   def feedback
     if correct? == true
@@ -30,6 +30,6 @@ class Turn
     else
       "Incorrect."
     end
-  end                    # => :feedback
-  
-end  # => :feedback
+  end
+
+end
