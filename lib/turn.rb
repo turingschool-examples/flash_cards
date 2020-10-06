@@ -8,4 +8,8 @@ class Turn
   def guess
     @string
   end
+
+  def correct?
+    guess.downcase == card.answer.downcase
+  end
 end
