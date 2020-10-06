@@ -7,7 +7,7 @@ class Turn
   end
 
   def guess
-    @string = "Variable"
+    @string
   end
 
 
