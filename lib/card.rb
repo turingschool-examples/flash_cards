@@ -6,5 +6,12 @@ class Card
         @answer = answer
     end
 
-    
+    def is_a_card
+        if card.is_a?(Card) == true
+            puts true
+        else
+            puts false
+        end
+
 end
+
