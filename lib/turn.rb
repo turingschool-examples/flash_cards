@@ -1,5 +1,3 @@
-require './card'
-
 class Turn
 
 attr_reader :string, :flash_card
@@ -19,14 +17,14 @@ end
 
 def correct?
   if @guess == @answer
-    then guess.correct? == true
+    true #removed unnecessary text
   end
 end
 
 def feedback
   if guess.correct? == true
     puts "Correct!"
-  elsif guess.correct? == false
+  else guess.correct? == false #elsif not necessary
     puts "Incorrect."
   end
 end
