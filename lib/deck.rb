@@ -13,6 +13,5 @@ class Deck
     matching_cards = @cards.select do |card|
                        card.category == category
                      end
-    matching_cards
   end
 end
