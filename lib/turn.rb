@@ -1,6 +1,6 @@
 
 class Turn
-attr_reader :guess, :card
+attr_reader :guess, :card, :category, :question
 
 
   def initialize(guess, card)
