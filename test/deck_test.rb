@@ -30,8 +30,6 @@ class DeckTest < MiniTest::Test
     assert_equal [card_1, card_2, card_3], deck.cards
     deck.cards.shift
     assert_equal [card_2, card_3], deck.cards
-    #deck.cards = [0, 2, 5]
-    #assert_equal [0, 2, 5], deck.cards
   end
 
   def test_deck_count
