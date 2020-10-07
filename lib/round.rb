@@ -40,10 +40,11 @@ class Round
   end
 
   def percent_correct
+    #puts "How many turns u done got right ---> #{number_correct}"
     if @turns.count == 0
       0
     else
-      number_correct / @turns.count * 100
+      (number_correct.to_f / @turns.count.to_f) * 100
     end
   end
 
@@ -60,10 +61,9 @@ class Round
 
     end
     if num_in_cat == 0
-      p "attempted divide by #{num_in_cat}"
       0
     else
-      num_right / num_in_cat * 100
+      num_right.to_f / num_in_cat.to_f * 100
   end
   end
 
