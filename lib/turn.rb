@@ -9,4 +9,12 @@ class Turn #redoing everything with what I learned today
   def guess
     @guess = string
   end
+
+  def correct?
+    if @guess == @answer
+      true
+    else
+      false
+    end
+  end
 end
