@@ -1,7 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require './lib/turn.rb'
-require './lib/card.rb'
+require './lib/turn'
+require './lib/card'
 
 class TurnTest < Minitest::Test
 
@@ -39,7 +39,6 @@ class TurnTest < Minitest::Test
   def test_feedback_returns_incorrect_when_correct_is_false
     card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
     turn = Turn.new("Saturn", card)
-    binding.pry
     assert_equal card, turn.card
     assert_equal "Saturn", turn.guess
     refute turn.correct?
