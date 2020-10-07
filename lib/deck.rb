@@ -10,5 +10,16 @@ class Deck
     cards.length
   end
 
+  def cards_in_category(filter_category)
+    cat_cards = []
+    cards.each do |card|
+      if card.category == filter_category
+        cat_cards << card
+      end
+    end
+
+    cat_cards
+  end
+
 
 end
