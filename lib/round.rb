@@ -1,6 +1,6 @@
-require './card.rb'
-require './turn.rb'
-require './deck.rb'
+require './lib/card.rb'
+require './lib/turn.rb'
+require './lib/deck.rb'
 
 class Round
   attr_reader :deck
@@ -9,7 +9,7 @@ class Round
   end
 
   def take_turn
-    
+
   end
 
 end
