@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require '../lib/card' # I continued to get the same error until I added the extra period, which doesnt make sense.
+require './lib/card'
 
 class CardTest < Minitest::Test
 
