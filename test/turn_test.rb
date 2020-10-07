@@ -1,6 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/turn'
+require './lib/card'
 
 class TurnTest < Minitest::Test
   def test_it_has_turn
