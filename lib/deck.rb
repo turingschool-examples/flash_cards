@@ -1,9 +1,8 @@
 class Deck
-  attr_reader :cards, :keep
+  attr_reader :cards
 
   def initialize(cards)
     @cards = cards
-    @keep = []
   end
 
 
@@ -16,17 +15,17 @@ class Deck
      @cards << card
    end
 
-  def category
-    @category
-  end
+   def cards_in_category(name)
+    cards.select {|x| x.category == name}
+   end
 
 
-  def cards_in_category(name)
-  cards.each do |x|
-    if @category == name
-      @keep << name
-    end
-  end
-  end
+  # def cards_in_category(name)
+  #   cards.each do |x|
+  #     if @cards.category == name
+  #       keep << name
+  #     end
+  #   end
+  # end
 
 end

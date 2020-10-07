@@ -44,12 +44,20 @@ class DeskTest < MiniTest::Test
 
      deck_1 = Deck.new(cards)
 
+     keep = []
 
 
-    require 'pry'; binding.pry
+       cards.each do |x|
+         if @category == :Vocabulary
+           keep << x
+         end
+       end
 
-    assert_equal 3, cards.count
-    assert_equal 3, deck_1.count
+
+     puts keep
+
+    assert_equal 4, cards.count
+
 
   end
   #
