@@ -12,4 +12,10 @@ class Turn
   def feedback
     correct? ? "Correct!" : "Incorrect."
   end
+
+  def ==(other)
+    other.class == self.class &&
+    other.guess == self.guess &&
+    other.card == self.card
+  end
 end
