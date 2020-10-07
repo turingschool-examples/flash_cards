@@ -40,4 +40,10 @@ class CardTest < Minitest::Test
     card, turn = create_card_and_turn(@correct)
     assert_equal @correct ? "Correct!" : "Incorrect.", turn.feedback
   end
+
+  def test_double_equal
+    card, turn = create_card_and_turn(@correct)
+    card2, turn2 = create_card_and_turn(@correct)
+    assert_equal turn, turn2
+  end
 end
