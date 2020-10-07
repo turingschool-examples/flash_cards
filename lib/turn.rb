@@ -6,4 +6,7 @@ attr_reader :guess, :card
     @card = card
   end
 
+  def correct?
+    guess == card.answer
+  end
 end
