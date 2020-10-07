@@ -47,6 +47,8 @@ class DeckTest < Minitest::Test
     # require 'pry'; binding.pry
 
     assert_equal [card_2, card_3], deck.cards_in_category(:STEM)
+    assert_equal [card_1], deck.cards_in_category(:Geography)
+    assert_equal [], deck.cards_in_category("Pop Culture")
 
   end
 
