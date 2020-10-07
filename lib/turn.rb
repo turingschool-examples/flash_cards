@@ -3,8 +3,8 @@ require './card.rb'
 class Turn
   attr_reader :card
   def initialize (string, card)
-    @string = string
-    @card = card
+    @string = string.capitalize!
+    @card = card.downcase
   end
 
   def guess
