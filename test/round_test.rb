@@ -20,16 +20,19 @@ end
 
 class RoundTest < Minitest::Test
   def test_it_exists
-    round = create_round
-    assert_instance_of Round, round
+    assert_instance_of Round, create_round
   end
 
   def test_it_has_cards
-    round = create_round
-    deck = round.deck
-    cards = create_cards
-    assert_equal cards, deck.cards
+    assert_equal create_cards, create_round.deck.cards
   end
 
+  def test_it_creates_turn
+    assert_equal Turn.new("Juneau",create_cards[0]), create_round.take_turn("Juneau")
+  end
+
+  def test_it_tracks_current_card
+    assert_equal create_cards[0], create_round.current_card
+  end
 
 end
