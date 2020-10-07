@@ -55,4 +55,12 @@ class TurnTest < Minitest::Test
 
     assert_equal card, turn.card
   end
+
+  def test_new_turn_guess
+    card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+    turn = Turn.new("Saturn", card)
+
+    assert_equal "Saturn", turn.guess
+  end
+
 end
