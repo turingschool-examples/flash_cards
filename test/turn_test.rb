@@ -36,7 +36,7 @@ class TurnTest < Minitest::Test
   end
 
   def test_it_gives_feedback
-    skip
+    # skip
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
 
@@ -44,7 +44,7 @@ class TurnTest < Minitest::Test
   end
 
   def test_wrong_answer
-    skip
+    # skip
     card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
     turn = Turn.new("Saturn", card)
 
