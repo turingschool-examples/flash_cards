@@ -40,4 +40,12 @@ class TurnTest < Minitest::Test
 
     assert_equal "Correct!", turn.feedback
   end
+
+  def test_it_has_new_card
+    card = Card.new ("Which planet is closest to the sun?", "Mercury", :STEM)
+    turn = Turn.new ("Saturn", card)
+
+    assert_instance_of Card, card
+    assert_instance_of Turn, turn
+  end
 end
