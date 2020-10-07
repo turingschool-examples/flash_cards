@@ -39,4 +39,32 @@ class Round
     turn
   end
 
+  def percent_correct
+    if @turns.count == 0
+      0
+    else
+      number_correct / @turns.count * 100
+    end
+  end
+
+  def percent_correct_by_category(category)
+    num_in_cat = 0
+    num_right = 0
+    @turns.each do |turn|
+      if turn.card.category == category
+        num_in_cat += 1
+        if turn.correct?
+          num_right += 1
+        end
+      end
+
+    end
+    if num_in_cat == 0
+      p "attempted divide by #{num_in_cat}"
+      0
+    else
+      num_right / num_in_cat * 100
+  end
+  end
+
 end
