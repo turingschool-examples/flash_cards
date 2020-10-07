@@ -1,22 +1,32 @@
 class Deck
-  attr_accessor :cards
+  attr_reader :cards, :keep
 
   def initialize(cards)
     @cards = cards
+    @keep = []
   end
 
- cards = []
-
- def count
-   cards.count
- end
 
 
+   def count
+     cards.count
+   end
 
-def cards_in_category(category)
-  cards.each do |question, answer, cat|
+   def add_cards(card)
+     @cards << card
+   end
+
+  def category
     @category
   end
-end
+
+
+  def cards_in_category(name)
+  cards.each do |x|
+    if @category == name
+      @keep << name
+    end
+  end
+  end
 
 end

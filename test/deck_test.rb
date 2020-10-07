@@ -1,11 +1,11 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require './lib/card'
-require './lib/deck'
+require './lib/card.rb'
+require './lib/deck.rb'
 
 
 
-class TurnTest < MiniTest::Test
+class DeskTest < MiniTest::Test
 
 
   def test_card_1
@@ -32,7 +32,6 @@ class TurnTest < MiniTest::Test
   end
 
   def test_deck_count
-      cards = []
 
 
 
@@ -41,19 +40,16 @@ class TurnTest < MiniTest::Test
      card_3 = Card.new("What is an ordered, integer-indexed collection of any object?", "Array", :Vocabulary)
      card_4 = Card.new("What is my sons Favorite Movie?", "Iron Giant", :Trivia)
 
-     cards << card_1
-     cards << card_2
-     cards << card_3
-     cards << card_4
+     cards = [card_1, card_2, card_3, card_4]
 
+     deck_1 = Deck.new(cards)
 
-    study = Deck.new(cards)
 
 
     require 'pry'; binding.pry
 
     assert_equal 3, cards.count
-    assert_equal 3, study.count
+    assert_equal 3, deck_1.count
 
   end
   #

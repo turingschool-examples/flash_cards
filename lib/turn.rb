@@ -1,13 +1,17 @@
 class Turn
-  attr_accessor :string, :card
+  attr_accessor :guess, :card
 
-  def initialize(string, card)
-    @string = string.capitalize
+  def initialize(guess, card)
+    @guess = guess.capitalize
     @card = card
   end
 
   def guess
-    @string
+    @guess
+  end
+
+  def category
+    @category
   end
 
 
