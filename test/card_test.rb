@@ -27,4 +27,10 @@ class CardTest < Minitest::Test
 
     assert_equal :Geography, card.category
   end
+
+  def test_double_equal
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card2 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    assert_equal card, card2
+  end
 end
