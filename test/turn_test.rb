@@ -26,7 +26,7 @@ class TurnTest < MiniTest::Test
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
 
-    assert_equal true, turn.correct?
+    assert turn.correct?
   end
 
   def test_turn_feedback_method
@@ -42,7 +42,7 @@ class TurnTest < MiniTest::Test
     card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
     turn = Turn.new("Saturn", card)
 
-    assert_equal false, turn.correct?
+    refute turn.correct?
   end
 
   def test_incorrect_feedback
