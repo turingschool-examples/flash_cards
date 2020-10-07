@@ -35,4 +35,17 @@ class RoundTest < Minitest::Test
     assert_equal create_cards[0], create_round.current_card
   end
 
+  def test_it_tracks_number_correct
+    round = create_round
+    round.take_turn("Juneau")
+    assert_equal 1, round.number_correct
+  end
+
+  def test_it_tracks_number_correct_by_category
+    round = create_round
+    round.take_turn("Juneau")
+    assert_equal 1, round.number_correct_by_category(:Geography)
+    assert_equal 0, round.number_correct_by_category(:STEM)
+  end
+
 end
