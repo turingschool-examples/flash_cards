@@ -1,35 +1,20 @@
 class Turn
-  attr_accessor :guess, :card
+  attr_reader :guess, :card
 
   def initialize(guess, card)
     @guess = guess.capitalize
     @card = card
   end
 
-  def guess
-    @guess
-  end
-
-  def category
-    @category
-  end
-
-
   def correct?
-    if guess == "Variable"
-      true
-    else
-      false
-    end
+    @card.answer == @guess
   end
 
   def feedback
-    if correct? == true
-      "Correct!"
+    if correct?
+      return "Correct!"
     else
-      "Incorrect!"
+      return "Incorrect!"
     end
   end
-
-
 end

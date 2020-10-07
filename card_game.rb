@@ -25,4 +25,13 @@ puts "Alright, time to create your #{deck_name} deck!"
 
 puts "processing..."
 
+if File.exists?("#{deck_name}"
+  deck = Deck.new(cards)
+  #round start?
+else
+  puts "File not found, try again."
+end
+
+
+
 puts pause
