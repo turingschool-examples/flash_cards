@@ -17,4 +17,12 @@ class Turn #redoing everything with what I learned today
       false
     end
   end
+
+  def feedback
+    if @guess == @answer
+      "Correct!"
+    else
+      "Incorrect."
+    end
+  end
 end

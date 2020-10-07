@@ -39,4 +39,5 @@ class TurnTest < Minitest::Test
     turn = Turn.new("Junea", card)
 
     assert_equal "Correct!", turn.feedback
+  end
 end
