@@ -10,10 +10,6 @@ class Turn
   end
 
   def feedback
-    if correct?
-      return "Correct!"
-    else
-      return "Incorrect."
-    end
+    correct? ? "Correct!" : "Incorrect."
   end
 end
