@@ -12,11 +12,11 @@ class Turn
   end
 
   def correct?
-    @string == @answer
+    @string == @card.answer
   end
 
   def feedback
-    if @string == @answer
+    if @string == @card.answer
       p "Correct!"
     else
       p "Incorrect!"
