@@ -3,7 +3,6 @@ require 'minitest/pride'
 require './lib/turn'
 require './lib/card'
 require './lib/deck'
-require 'pry'
 
 class DeckTest < Minitest::Test
 
@@ -26,6 +25,6 @@ class DeckTest < Minitest::Test
     deck = Deck.new(cards)
     assert_equal [card_2, card_3], deck.cards_in_category(:STEM)
     assert_equal [card_1], deck.cards_in_category(:Geography)
-    assert_empty, deck.cards_in_category("Pop Culture")
+    assert_empty deck.cards_in_category("Pop Culture")
   end
 end

@@ -43,13 +43,13 @@ class Round
 
   def number_correct_by_category(category)
     correct_by_category = turns_by_category(category).count do |turn|
-                          turn.guess.downcase == turn.card.answer.downcase
+                            turn.guess.downcase == turn.card.answer.downcase
                           end
   end
 
   def turns_by_category(category)
     turns_by_category = @turns.select do |turn|
-                        turn.card.category.downcase == category.downcase
+                          turn.card.category.downcase == category.downcase
                         end
   end
 
@@ -62,7 +62,7 @@ class Round
   end
 
   def group_turns_by_category
-    category_hash = @turns.group_by do |turn|
+    @turns.group_by do |turn|
       turn.card.category
     end
   end
@@ -79,12 +79,13 @@ class Round
       puts "Correct!"
     else puts "Incorrect."
     end
-    continue
+    next_card
   end
 
-  def continue
+  def next_card
     until @turns.length == @deck.cards.length
-      puts "This is card number #{@turns.length + 1} out of #{@deck.cards.length}."
+      puts "This is card number #{@turns.length + 1}"
+      print " out of #{@deck.cards.length}."
       puts "Question: #{current_card.question}"
       print "> "
       guess = gets.chomp
@@ -99,11 +100,13 @@ class Round
 
   def print_results
     correct_ratio = percent_correct.round
-    stem_percent = percent_correct_by_category(:STEM).round
-    geog_percent = percent_correct_by_category(:Geography).round
     puts "****** Game over! ******"
-    puts "You had #{@number_correct} correct guesses out of #{@deck.cards.length} for a total score of #{correct_ratio}%"
-    puts "STEM - #{stem_percent}% correct"
-    puts "Geography - #{geog_percent}% correct"
+    puts "You had #{@number_correct} correct guesses out of #{@deck.cards.length}"
+    print " for a total score of #{correct_ratio}%"
+    category_hash = group_turns_by_category
+    category_hash.each do |category, turn|
+      result = percent_correct_by_category(category)
+      puts "#{category} - #{result.round} correct"
+    end
   end
 end
