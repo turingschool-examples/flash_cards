@@ -1,4 +1,5 @@
 require './lib/card'
+require 'pry'
 
 class CardGenerator
     attr_reader :filename
@@ -8,8 +9,10 @@ class CardGenerator
     end
 
     def cards
-        File.open("./lib/#@filename").each do |line|
-            card_1 = Card.new(line)
+        File.open("./lib/#@filename").map do |line|
+            line = line.chomp
+            card_parts = line.split","
+            Card.new(card_parts[0], card_parts[1], card_parts[2].to_sym)
         end
     end
 end
