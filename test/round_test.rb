@@ -61,4 +61,9 @@ class RoundTest < Minitest::Test
     assert_equal 0, round.percent_correct_by_category(:STEM)
   end
 
+  def test_it_can_return_categories
+    deck = Deck.new(create_cards)
+    round = Round.new(deck)
+    assert_equal [:Geography,:STEM], round.categories_in_deck
+  end
 end
