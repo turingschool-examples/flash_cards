@@ -12,13 +12,16 @@ deck = Deck.new([card_1, card_2, card_3, card_4])
 round = Round.new(deck)
 
 
-round.start
 
-# puts "Do you want to play again?"
-# p "YES"
-# p "NO"
-# response = gets.chomp.upcase
-#
-# if response == "YES"
-#   round.start
-# end
+loop do
+  puts "START NEW GAME?"
+  p "YES"
+  p "NO"
+  response = gets.chomp.upcase
+
+  if response == "YES"
+    round.start
+  elsif response == "NO"
+    break
+  end
+end

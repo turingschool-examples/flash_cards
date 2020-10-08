@@ -5,7 +5,7 @@ require './lib/card'
 require './lib/deck'
 require './lib/round'
 class RoundTest < MiniTest::Test
-def test_it_exists
+  def test_it_exists
     card_1 = Card.new("What is a name that associates with a particular object?", "Variable", :Vocabulary)
     card_2 = Card.new("Behavior an object can do is a?", "Method", :Vocabulary)
     card_3 = Card.new("What is an ordered, integer-indexed collection of any object?", "Array", :Vocabulary)
@@ -27,9 +27,7 @@ def test_it_exists
 
 
     require "pry"; binding.pry
-
-
-end
+  end
 
 
 end

@@ -42,9 +42,9 @@ class DeskTest < MiniTest::Test
 
      cards = [card_1, card_2, card_3, card_4]
 
-     deck_1 = Deck.new(cards)
+     deck = Deck.new(cards)
 
-     # require "pry"; binding.pry
+     require "pry"; binding.pry
 
     assert_equal 4, cards.count
     assert_equal card_3.category, deck_1.cards_in_category(card_1.category).first.category
