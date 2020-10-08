@@ -25,17 +25,41 @@ class Round
     new_turn
   end
 
-  def number_correct
-    count_correct = []
+  def correct_answers
+   correct_answers = []
     @turns.each do |turn|
       if turn.correct?
-        count_correct << turn
+       correct_answers << turn
       end
     end
-    count_correct.count
+   correct_answers
+  end
+
+  def number_correct
+    # correct_answers = []
+    # @turns.each do |turn|
+    #   if turn.correct?
+    #     correct_answers << turn
+    #   end
+    # end
+   correct_answers.count
   end
 
   def number_correct_by_category(category)
-    
+    correct_by_category = []
+    correct_answers.each do |answer|
+      if answer.card.category == category
+        correct_by_category << answer
+      end
+    end
+    correct_by_category.count
+  end
+
+  def percent_correct
+    ((number_correct / @turns.count.to_f) * 100)
+  end
+
+  def percent_correct_by_category(category)
+    ((number_correct_by_category(category) / number_correct.to_f) * 100)
   end
 end
