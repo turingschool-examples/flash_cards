@@ -19,6 +19,16 @@ else
   puts "Round not initialized. Please reboot game."
 end
 
+deck.cards.each do |card|
+  puts "This is card number #{round_1.card_tracker + 1} out of #{deck.cards.length}."
+  puts "Question: #{deck.cards[round_1.card_tracker].question}"
+  guess = gets.chomp
+
+  round_1.take_turn(guess)
+
+  puts round_1.turns.last.feedback
+
+end
 
 
 
