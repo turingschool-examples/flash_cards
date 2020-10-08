@@ -27,7 +27,4 @@ class Decktest < Minitest::Test
         assert_equal expected, @deck.cards_in_category(:Geography)
         assert_equal [], @deck.cards_in_category("Pop Culture")
     end
-    
-    
-    
 end
