@@ -23,6 +23,7 @@ attr_reader :deck, :turns, :card_tracker, :number_correct
    turn
   end
 
+  
 
 
   
