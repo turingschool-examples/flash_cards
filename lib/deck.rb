@@ -3,7 +3,6 @@ attr_reader :cards, :count
 
   def initialize(cards = [])
     @cards = cards
-    @round = card
   end
 
   def count
@@ -18,5 +17,5 @@ attr_reader :cards, :count
         expected << card
       end
     end
-end 
+  end
 end
