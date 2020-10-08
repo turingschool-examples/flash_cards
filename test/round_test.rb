@@ -150,7 +150,7 @@ class RoundTest < Minitest::Test
     assert_equal card_3, round.current_card
   end
 
-  def test_result_by_category_produces_hash
+  def test_group_by_category_produces_hash
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
@@ -158,6 +158,7 @@ class RoundTest < Minitest::Test
     round = Round.new(deck)
     first_turn = round.take_turn("Juneau")
     second_turn = round.take_turn("Venus")
-    assert_instance_of Hash, round.group_results_by_category
+    assert_instance_of Hash, round.group_turns_by_category
+    assert_equal [:Geography, :STEM], round.group_turns_by_category.keys
   end
 end
