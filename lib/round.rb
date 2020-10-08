@@ -64,7 +64,15 @@ class Round
       0
     else
       num_right.to_f / num_in_cat.to_f * 100
+    end
   end
+
+  def categories_in_deck
+    categories = []
+    @turns.each do |turn|
+      categories << turn.card.category
+    end
+    categories.uniq
   end
 
 end
