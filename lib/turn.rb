@@ -1,28 +1,32 @@
+require './lib/card'
+
 class Turn #redoing everything with what I learned today
 
-  attr_reader :string, :card
-  def initialize(string, card)
-    @string = string
+  attr_reader :guess, :card
+  def initialize(guess, card)
+    @guess = guess
     @card = card
   end
 
   def guess
-    @guess = string
+    @guess
   end
 
   def correct?
-    if @guess == @answer
-      true
-    else
-      false
+    is_correct = false
+    if @guess == card.answer
+    is_correct = true
+    return is_correct
+    else false
     end
+
   end
 
   def feedback
-    if @guess == @answer
-      "Correct!"
+    if @guess == card.answer
+    return  "Correct!"
     else
-      "Incorrect."
+    return  "Incorrect."
     end
   end
 end
