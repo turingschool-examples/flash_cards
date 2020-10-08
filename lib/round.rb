@@ -24,4 +24,18 @@ class Round
     @deck.cards.rotate!
     new_turn
   end
+
+  def number_correct
+    count_correct = []
+    @turns.each do |turn|
+      if turn.correct?
+        count_correct << turn
+      end
+    end
+    count_correct.count
+  end
+
+  def number_correct_by_category(category)
+    
+  end
 end
