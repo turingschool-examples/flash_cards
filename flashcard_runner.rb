@@ -9,14 +9,4 @@ card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwi
 deck = Deck.new([card_1, card_2, card_3])
 round = Round.new(deck)
 
-# def start
-#   puts "Welcome! You're playing with #{round.deck.cards.length} cards."
-#   puts "-------------------------------------------------"
-#   puts "This is card number #{round.turns.length + 1} out of #{@deck.cards.length}".
-#   puts "Question: #{round.current_card.question}"
-#   puts "> "
-#   guess = gets.chomp
-#   take_turn(guess)
-# end
-# require "pry"; binding.pry
 round.start

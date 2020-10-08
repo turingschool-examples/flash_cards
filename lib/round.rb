@@ -43,13 +43,13 @@ class Round
 
   def number_correct_by_category(category)
     correct_by_category = turns_by_category(category).count do |turn|
-                          turn.guess == turn.card.answer
+                          turn.guess.downcase == turn.card.answer.downcase
                           end
   end
 
   def turns_by_category(category)
     turns_by_category = @turns.select do |turn|
-                        turn.card.category == category
+                        turn.card.category.downcase == category.downcase
                         end
   end
 
@@ -69,16 +69,30 @@ class Round
     print "> "
     guess = gets.chomp
     take_turn(guess)
+    if @turn.correct?
+      puts "Correct!"
+    else puts "Incorrect."
+    end
     until @turns.length == @deck.cards.length
       puts "This is card number #{@turns.length + 1} out of #{@deck.cards.length}."
       puts "Question: #{current_card.question}"
       print "> "
       guess = gets.chomp
       take_turn(guess)
+      if @turn.correct?
+        puts "Correct!"
+      else puts "Incorrect."
+      end
     end
+    # require "pry"; binding.pry
+    correct_ratio = percent_correct.round
+    stem_percent = percent_correct_by_category(:STEM).round
+    geog_percent = percent_correct_by_category(:Geography).round
+    # require "pry"; binding.pry
+
     puts "****** Game over! ******"
-    puts "You had #{@number_correct} correct guesses out of #{@deck.cards.length} for a total score of #{percent_correct}%"
-    puts "STEM - #{percent_correct_by_category(:STEM)}% correct"
-    puts "Geography - #{percent_correct_by_category(:Geography)}% correct"
+    puts "You had #{@number_correct} correct guesses out of #{@deck.cards.length} for a total score of #{correct_ratio}%"
+    puts "STEM - #{stem_percent}% correct"
+    puts "Geography - #{geog_percent}% correct"
   end
 end
