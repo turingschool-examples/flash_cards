@@ -35,13 +35,28 @@ attr_reader :deck, :turns, :card_tracker, :number_correct
   def percent_correct
     correct_count = 0
     total_count = turns.count.to_f
-    
+
     turns.each do |turn|
       correct_count += 1 if turn.correct? 
     end
     
     
     percent = (correct_count / total_count) * 100
+  end
+
+  def percent_correct_by_category(category)
+    # reuse method above to count correct answers by category
+    correct_count = number_correct_by_category(category).to_f
+    total_category_count = 0
+
+    # count turns by category parameter
+    turns.each do |turn|
+      total_category_count += 1 if turn.card.category == category
+    end
+
+    # calculate percentage
+    percent = (correct_count / total_category_count) * 100
+
   end
   
 end
