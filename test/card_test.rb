@@ -6,7 +6,6 @@ class CardTest < Minitest::Test
 
   def test_it_exists
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    require "pry"; binding.pry
     assert_instance_of Card, card
   end
 
