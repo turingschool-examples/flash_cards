@@ -1,34 +1,16 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require '../lib/card'
-require '../lib/turn'
 
 class CardTest < Minitest::Test
 
-  def test_it_exists
+  def test_it_exists_and_has_attributes
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-
     assert_instance_of Card, card
-  end
-
-  def test_it_has_a_question
-    # skip
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-
     assert_equal "What is the capital of Alaska?", card.question
-  end
-
-  def test_it_has_an_answer
-    # skip
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-
     assert_equal "Juneau", card.answer
-  end
-
-  def test_it_has_a_category
-    # skip
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-
     assert_equal :Geography, card.category
   end
+
+
 end
