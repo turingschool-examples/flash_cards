@@ -28,6 +28,16 @@ def test_it_exists
     deck = Deck.new([card_1, card_2, card_3, card_4])
     round = Round.new(deck)
 
+    new_turn = round.take_turn("VARIABLE")
+    round.next_card
+    new_turn = round.take_turn("WrongMethod")
+    round.next_card
+    new_turn = round.take_turn("ARRAY")
+    round.next_card
+    new_turn = round.take_turn("IRON GIANT")
+    round.next_card
+
+
     require "pry"; binding.pry
 
 

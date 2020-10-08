@@ -3,6 +3,7 @@
 require './lib/card.rb'
 require './lib/deck.rb'
 require './lib/turn.rb'
+require './lib/round.rb'
 
 puts "Welcome to the Flash Card Generator.\n\n"
 puts "Following a few simple instructions,
