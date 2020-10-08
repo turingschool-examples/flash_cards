@@ -73,6 +73,10 @@ class Round
       puts "Correct!"
     else puts "Incorrect."
     end
+    continue
+  end
+
+  def continue
     until @turns.length == @deck.cards.length
       puts "This is card number #{@turns.length + 1} out of #{@deck.cards.length}."
       puts "Question: #{current_card.question}"
@@ -84,12 +88,13 @@ class Round
       else puts "Incorrect."
       end
     end
-    # require "pry"; binding.pry
+    print_results
+  end
+
+  def print_results
     correct_ratio = percent_correct.round
     stem_percent = percent_correct_by_category(:STEM).round
     geog_percent = percent_correct_by_category(:Geography).round
-    # require "pry"; binding.pry
-
     puts "****** Game over! ******"
     puts "You had #{@number_correct} correct guesses out of #{@deck.cards.length} for a total score of #{correct_ratio}%"
     puts "STEM - #{stem_percent}% correct"
