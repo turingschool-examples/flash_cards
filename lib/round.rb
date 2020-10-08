@@ -48,13 +48,13 @@ class Round
     if category == :Vocabulary
       (@correct_vocabulary.count.to_f / @total_vocabulary.to_f) * 100
     elsif category == :Trivia
-      (@correct_vocabulary.count.t_f / @total_vocabulary.to_f) * 100
+      (@correct_trivia.count.to_f / @total_trivia.to_f) * 100
     end
   end
   def take_turn(guess)
     @new_guess = Turn.new(guess, current_card)
     @guesses << @new_guess
-    @new_guess
+    new_guess
   end
   def next_card
     if @new_guess.correct?
@@ -84,7 +84,7 @@ class Round
     end
     p "************ GAME OVER ************"
     p "You had #{@number_correct} correct guesses out of 4 for a total score of #{percent_correct}%"
-    p "In Vocabulary, you had #{number_correct_by_category(:Vocabulary)} out of 3, for a score of #{percent_correct_by_category(:Vocabulary)}"
-    p "In Trivia, you had #{number_correct_by_category(:Trivia)} out of 1, for a score of #{percent_correct_by_category(:Trivia)}"
+    p "In Vocabulary, you had #{number_correct_by_category(:Vocabulary)} out of 3, for a score of #{percent_correct_by_category(:Vocabulary)}%"
+    p "In Trivia, you had #{number_correct_by_category(:Trivia)} out of 1, for a score of #{percent_correct_by_category(:Trivia)}%"
   end
 end
