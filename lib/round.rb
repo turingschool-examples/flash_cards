@@ -1,12 +1,13 @@
 require './lib/turn'
 
 class Round
-attr_reader :deck, :turns, :card_tracker
+attr_reader :deck, :turns, :card_tracker, :number_correct
 
   def initialize(deck)
     @deck = deck
     @turns = []
     @card_tracker = 0
+    @number_correct = 0
   end
 
   def current_card
@@ -17,7 +18,12 @@ attr_reader :deck, :turns, :card_tracker
     turn = Turn.new(guess, deck.cards[card_tracker])
    @turns << turn
    @card_tracker += 1
-   
+   @number_correct += 1 if turn.correct? == true
+
    turn
   end
+
+
+
+  
 end
