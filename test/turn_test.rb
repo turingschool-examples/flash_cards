@@ -16,7 +16,6 @@ class Test < Minitest::Test
     card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
     turn = Turn.new("Saturn", card)
     assert_equal false, turn.correct?
-    require "pry"; binding.pry
   end
 
 end
