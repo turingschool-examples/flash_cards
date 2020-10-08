@@ -31,5 +31,17 @@ attr_reader :deck, :turns, :card_tracker, :number_correct
     end
     count
   end
+
+  def percent_correct
+    correct_count = 0
+    total_count = turns.count.to_f
+    
+    turns.each do |turn|
+      correct_count += 1 if turn.correct? 
+    end
+    
+    
+    percent = (correct_count / total_count) * 100
+  end
   
 end
