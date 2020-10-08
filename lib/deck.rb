@@ -11,11 +11,17 @@ class Deck
   end
 
   def cards_in_category(filter_category)
-    cat_cards = []
-    cards.each do |card|
-      if card.category == filter_category
-        cat_cards << card
-      end
+    # cat_cards = []
+    # cards.each do |card|
+    #   if card.category == filter_category
+    #     cat_cards << card
+    #   end
+    # end
+
+    # cat_cards
+
+    cat_cards = cards.map do |card|
+      card.category == filter_category  
     end
 
     cat_cards
