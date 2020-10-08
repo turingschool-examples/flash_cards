@@ -61,7 +61,7 @@ class Round
     (number_correct_by_category(category).to_f / turns_by_category(category).length.to_f) * 100
   end
 
-  def group_results_by_category
+  def group_turns_by_category
     category_hash = @turns.group_by do |turn|
       turn.card.category
     end
