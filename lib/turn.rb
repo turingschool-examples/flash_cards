@@ -8,10 +8,6 @@ class Turn #redoing everything with what I learned today
     @card = card
   end
 
-  def guess
-    @guess
-  end
-
   def correct?
     is_correct = false
     if @guess == card.answer
@@ -19,7 +15,6 @@ class Turn #redoing everything with what I learned today
     return is_correct
     else false
     end
-
   end
 
   def feedback
