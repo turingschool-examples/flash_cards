@@ -88,10 +88,18 @@ class RoundTest < MiniTest::Test
 
   # Incorrects
 
+  def test_incorrect_current_card
+    round = Round.new(@deck)
 
+    refute_equal @card_2, round.current_card
+  end
 
+  def test_turn_returns_incorrect
+    round = Round.new(@deck)
+    new_turn = round.take_turn("Juneaoo")
 
-
-
+    refute new_turn.correct?
+    assert_equal "Incorrect", new_turn.feedback
+  end
 
 end
