@@ -30,6 +30,10 @@ deck.cards.each do |card|
 
 end
 
+puts "****** Game over! ******"
+puts "You had #{round_1.number_correct} correct guesses out of #{round_1.turns.length} for a total score of #{round_1.percent_correct.round}%."
+
+
 
 
 
