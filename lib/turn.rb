@@ -12,7 +12,14 @@ class Turn
   end
 
   def feedback
-    binding.pry
+    if @guess == @card.answer
+      true
+    else
+      false
+    end
+  end
+
+  def feedback
     if @correct == true
       "Correct!"
     else
