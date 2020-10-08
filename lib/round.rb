@@ -23,8 +23,13 @@ attr_reader :deck, :turns, :card_tracker, :number_correct
    turn
   end
 
-  
-
-
+  def number_correct_by_category(user_cat)
+    count = 0
+    
+    turns.each do |turn|
+      count += 1 if turn.card.category == user_cat && turn.correct? 
+    end
+    count
+  end
   
 end
