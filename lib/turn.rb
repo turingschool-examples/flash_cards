@@ -1,7 +1,6 @@
 class Turn
   attr_reader :guess, :card, :feedback
 
-
   def initialize(guess, card)
     @guess = guess
     @card = card
@@ -17,5 +16,4 @@ class Turn
       false
     end
   end
-
 end

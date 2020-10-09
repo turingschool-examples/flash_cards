@@ -7,9 +7,7 @@ require './lib/card_generator'
 card_gen = CardGenerator.new("./lib/cards.txt").cards
 deck = Deck.new(card_gen)
 
-# Create welcome message when creating new round
 round_1 = Round.new(deck)
-
 if round_1.class == Round
   puts "Welcome! You're playing with #{deck.cards.length} cards."
   puts "-------------------------------------------------"
@@ -25,7 +23,6 @@ deck.cards.each do |card|
   round_1.take_turn(guess)
 
   puts round_1.turns.last.feedback
-
 end
 
 puts "****** Game over! ******"
