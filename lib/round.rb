@@ -31,4 +31,12 @@ class Round
     end
     correct_by_category
   end
+# helper method for percent correct
+  def total_guesses
+    @turns.count
+  end
+
+  def percent_correct
+    (number_correct.to_f/total_guesses * 100)
+  end
 end
