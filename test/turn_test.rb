@@ -3,11 +3,6 @@ require 'minitest/pride'
 require './lib/card.rb'
 require './lib/turn.rb'
 
-def create_card_and_turn(correct)
-  card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-  turn = Turn.new(correct ? "Juneau" : "Not Jeaneau",card)
-  return card, turn
-end
 
 class CardTest < Minitest::Test
 
@@ -45,5 +40,13 @@ class CardTest < Minitest::Test
     card, turn = create_card_and_turn(@correct)
     card2, turn2 = create_card_and_turn(@correct)
     assert_equal turn, turn2
+  end
+
+  private
+
+  def create_card_and_turn(correct)
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new(correct ? "Juneau" : "Not Jeaneau",card)
+    return card, turn
   end
 end
