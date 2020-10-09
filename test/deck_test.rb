@@ -5,12 +5,7 @@ require './lib/deck.rb'
 require './lib/round.rb'
 require './lib/turn.rb'
 require 'pry'
-
-
-
 class DeskTest < MiniTest::Test
-
-
   def test_card_1
     # skip
     card_1 = Card.new("What is a name that associates with a particular object?", "Variable", :Vocabulary)

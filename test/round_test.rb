@@ -23,6 +23,4 @@ class RoundTest < MiniTest::Test
     round.next_card
     binding.pry
   end
-
-
 end
