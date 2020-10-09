@@ -15,4 +15,10 @@ class Round
     @turns << new_turn
     @turns.last
   end
+
+  def number_correct
+    @turns.count do |turn|
+      turn.correct == true
+    end
+  end
 end
