@@ -8,16 +8,13 @@ class Deck
     end
 
     def count
-        return @cards.length
+        @cards.length
     end
     
     def cards_in_category(indexed_category)
-        indexed_cards = []
-        cards.find_all do |card|
-            if card.category == indexed_category
-                indexed_cards << card
-            end
-        end
+       
+        @cards.find_all { |card| card.category == indexed_category}
+            
     end
 
 
