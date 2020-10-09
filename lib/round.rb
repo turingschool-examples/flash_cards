@@ -42,15 +42,15 @@ class Round
   end
 
   def number_correct_by_category(category)
-    correct_by_category = turns_by_category(category).count do |turn|
-                            turn.guess.downcase == turn.card.answer.downcase
-                          end
+    turns_by_category(category).count do |turn|
+      turn.guess.downcase == turn.card.answer.downcase
+    end
   end
 
   def turns_by_category(category)
-    turns_by_category = @turns.select do |turn|
-                          turn.card.category.downcase == category.downcase
-                        end
+    @turns.select do |turn|
+      turn.card.category.downcase == category.downcase
+    end
   end
 
   def percent_correct
