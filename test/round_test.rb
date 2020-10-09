@@ -1,6 +1,9 @@
 require "minitest/autorun"
 require "minitest/pride"
-require "./lib/"
+require "./lib/round"
+require "./lib/card"
+require "./lib/turn"
+require "./lib/deck"
 
 class RoundTest < Minitest::Test
   def setup
@@ -13,5 +16,9 @@ class RoundTest < Minitest::Test
 
   def test_it_exists_and_has_attributes
     assert_equal @deck, @round.deck
+  end
+
+  def test_it_has_turns
+    assert_equal [], @round.turns
   end
 end
