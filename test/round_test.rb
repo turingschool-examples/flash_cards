@@ -65,6 +65,12 @@ class RoundTest < Minitest::Test
     assert_equal [new_turn], round.turns
     assert_equal 1, round.number_correct
     assert_equal card_2, round.current_card
+    round.take_turn("Venus")
+    assert_equal 2, round.turns.count
+    assert_equal "Incorrect.", round.turns.last.feedback
+    assert_equal 1, round.number_correct
+    assert_equal 1, round.number_correct_by_category(:Geography)
+    assert_equal 0 ,round.number_correct_by_category(:STEM)
   end
 
 end

@@ -31,4 +31,14 @@ class Round
     end
     ticker
   end
+
+  def number_correct_by_category(category)
+    ticker = 0
+    @turns.map do |turn|
+      if turn.correct_guess && turn.card.category == category
+        ticker += 1
+      end 
+    end
+    ticker
+  end
 end

@@ -9,7 +9,7 @@ class Turn
   end
 
   def correct?
-    @correct_guess = (guess == @card.answer)
+    @correct_guess = (@guess == @card.answer)
   end
 
   def feedback
