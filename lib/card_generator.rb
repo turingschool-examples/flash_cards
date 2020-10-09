@@ -7,7 +7,7 @@ class CardGenerator
 
    def cards
      card_file = File.readlines(filename).collect do |line|
-       card = line.split(',')
+       card = line.chomp.split(',')
        question = card[0]
        answer = card[1]
        category = card[2]
