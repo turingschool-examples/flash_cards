@@ -22,7 +22,7 @@ loop do
   response = gets.chomp.upcase
   if response == "YES"
     round.initialize_setup
-    round.start
+    round.start_round
     binding.pry
   elsif response == "NO"
     break

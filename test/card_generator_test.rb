@@ -8,8 +8,7 @@ require './lib/card_generator.rb'
 require 'pry'
 class GeneratorTest < MiniTest::Test
   def test_it_exists
-    file = File.readlines("././cards.txt")
-    cards = CardGenerator.new(file).cards
-    binding.pry
-    end
+    filename = File.readlines("././cards.txt")
+    cards = CardGenerator.new(filename).cards
+  end
 end
