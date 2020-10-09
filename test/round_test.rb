@@ -65,4 +65,18 @@ class RoundTest < Minitest::Test
     @round.take_turn("Venus")
     assert_equal 50.0, @round.percent_correct
   end
+
+  def test_it_can_find_total_in_category
+    @round.take_turn("Juneau")
+    @round.take_turn("Venus")
+    @round.take_turn("North North West")
+    assert_equal 2, @round.total_in_category(:STEM)
+  end
+
+  def test_it_can_find_percent_correct_by_category
+    @round.take_turn("Juneau")
+    assert_equal 100.0, @round.percent_correct_by_category(:Geography)
+    @round.take_turn("Venus")
+    assert_equal @card_3, @round.current_card
+  end
 end
