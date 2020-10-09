@@ -4,7 +4,8 @@ require './lib/card_generator'
 
 class CardGeneratorTest < Minitest::Test
   def test_it_exists
-    cards = CardGenerator.new(filename).cards
+    filename = "cards.txt"
+    cards = CardGenerator.new(filename)
     assert_instance_of CardGenerator, cards
   end
 end
