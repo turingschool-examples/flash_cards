@@ -18,8 +18,9 @@ class RoundTest < Minitest::Test
     assert_instance_of Round, @round
   end
 
-  def test_turns_initialized_as_empty_array
+  def test_attributes
     assert_equal [], @round.turns
+    assert_equal @deck, @round.deck
   end
 
   def test_current_card_returns_card_1
@@ -34,14 +35,29 @@ class RoundTest < Minitest::Test
     assert @round.turns.include?(new_turn)
   end
 
-  def test_take_turn_advances_card
+  def test_advance_card
     new_turn = @round.take_turn("Juneau")
 
     assert_equal @card_2, @round.current_card
   end
 
-  # test_take_turn_feedback
-  # test_turn_counters
-  # test_turn_counters_by_category
+  def test_number_correct
+    new_turn = @round.take_turn("Juneau")
+
+    assert_equal 1, @round.number_correct    
+  end
+
+# after inputting new_turn:
+  # assert_equal @card_2, @round.current_card
+# after inputting second turn:
+  # assert_equal 2, round.turns.count
+  # assert_equal "Incorrect.", rounds.turns.last.feedback
+  # assert_equal 1, round.number_correct
+  # assert_equal 1, round.number_correct_by_category(:Geography)
+  # assert_equal 0, round.number_correct_by_category(:STEM)
+  # asssert_equal 50.0, round.percent_correct
+  # assert_equal 100.0, round.percent_correct_by_category(:Geography)
+  # assert_equal @card_3, round.current_card
+
 
 end
