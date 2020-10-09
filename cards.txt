@@ -1,0 +1,4 @@
+What is a name that associates with a particular object?,Variable,:Vocabulary
+Behavior an object can do is a?,Method,:Vocabulary
+What is an ordered, integer-indexed collection of any object?,Array,:Vocabulary
+What is my sons Favorite Movie?,Iron Giant,:Trivia
