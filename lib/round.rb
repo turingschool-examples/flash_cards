@@ -2,17 +2,28 @@ class Round
 
   attr_reader :deck, :turns
 
-  def initialize (deck)
+  def initialize (deck, turns = [])
     @deck = deck
-    @turns = []
+    @turns = turns
   end
 
   def current_card
-    deck.cards[0]
+    deck.cards[@turns.length]
   end
 
   def take_turn(guess)
-    turn.new(round.current_card, guess)
-    round.turns << 1
+    new_turn = Turn.new(guess, current_card)
+    @turns << new_turn
+    new_turn
+  end
+
+  def number_correct
+    count = 0
+    turns.each do |turn|
+      if turn.correct?
+      count += 1
+    end
+  end
+    count
   end
 end
