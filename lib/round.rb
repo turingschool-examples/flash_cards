@@ -10,7 +10,7 @@ class Round
   def current_card
     @deck.cards[0]
   end
-  
+   
   # def advance_card
   #   require 'pry'; binding.pry
   #   @deck.cards.rotate!
@@ -48,22 +48,19 @@ class Round
   def number_correct_by_category(category)
     correct_by_category = []
     all_category_questions(category).each do |answer|
-      # require 'pry'; binding.pry
-      if answer.correct? && answer.card.answer == answer.card.guess
+      if answer.correct? && answer.card.answer == answer.guess
         correct_by_category << answer
       end
     end
     correct_by_category.count
   end
-
+  
   def all_category_questions(category)
-    category_group = []
-    @turns.each do |turn|
-      turn.card.category == category
-      category_group << turn
-      
+    @turns.find_all do |turn|
+      if turn.card.category == category
+      turn
+      end
     end
-    category_group
   end
 
   # def number_correct_by_category(category)
@@ -78,6 +75,6 @@ class Round
   end
 
   def percent_correct_by_category(category)
-    ((number_correct_by_category(category) / number_correct.to_f) * 100)
+    ((number_correct_by_category(category) / all_category_questions(category).count.to_f) * 100)
   end
 end

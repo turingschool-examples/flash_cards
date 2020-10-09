@@ -34,8 +34,3 @@ puts "You had #{round.number_correct} correct guesses out of #{deck.count} for a
 puts "STEM - #{round.percent_correct_by_category(:STEM).round(0)}% correct"
 puts "Turing Staff - #{round.percent_correct_by_category(:Turing_Staff).round(0)}% correct"
 puts "Pop Culture - #{round.percent_correct_by_category(:PopCulture).round(0)}% correct"
-
-
-require 'pry'; binding.pry
-
-
