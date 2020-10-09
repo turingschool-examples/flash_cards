@@ -47,13 +47,31 @@ class Round
 
   def number_correct_by_category(category)
     correct_by_category = []
-    correct_answers.each do |answer|
-      if answer.card.category == category
+    all_category_questions(category).each do |answer|
+      # require 'pry'; binding.pry
+      if answer.correct? && answer.card.answer == answer.card.guess
         correct_by_category << answer
       end
     end
     correct_by_category.count
   end
+
+  def all_category_questions(category)
+    category_group = []
+    @turns.each do |turn|
+      turn.card.category == category
+      category_group << turn
+      
+    end
+    category_group
+  end
+
+  # def number_correct_by_category(category)
+  #   correct_answers.map do |answer|
+  #     require 'pry'; binding.pry
+  #     answer.card.category == category
+  #   end.count
+  # end
 
   def percent_correct
     ((number_correct / @turns.count.to_f) * 100)
