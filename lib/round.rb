@@ -37,8 +37,26 @@ class Round
     @turns.map do |turn|
       if turn.correct_guess && turn.card.category == category
         ticker += 1
-      end 
+      end
     end
     ticker
+  end
+
+  def percent_correct
+    (100 * (number_correct.to_f / @turns.count.to_f))
+  end
+
+  def number_category(category)
+    ticker = 0
+    @turns.each do |turn|
+      if turn.card.category == category
+        ticker += 1
+      end
+    end
+    ticker
+  end
+
+  def percent_correct_by_category(category)
+    (100 * (number_correct_by_category(category).to_f / number_category(category).to_f))
   end
 end
