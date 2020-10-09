@@ -85,7 +85,7 @@ class Round
     end
     p "************ GAME OVER ************"
     p "You had #{@number_correct} correct guesses out of 4 for a total score of #{percent_correct}%"
-    p "In Vocabulary, you had #{number_correct_by_category(:Vocabulary).count} out of #{total_by_category(:Vocabulary).count}, for a score of #{percent_correct_by_category(:Vocabulary)}%"
-    p "In Trivia, you had #{number_correct_by_category(:Trivia).count} out of #{total_by_category(:Trivia).count}, for a score of #{percent_correct_by_category(:Trivia)}%"
+    p "In Vocabulary, you had #{number_correct_by_category(":Vocabulary").count} out of #{total_by_category(":Vocabulary").count}, for a score of #{percent_correct_by_category(":Vocabulary")}%"
+    p "In Trivia, you had #{number_correct_by_category(":Trivia").count} out of #{total_by_category(":Trivia").count}, for a score of #{percent_correct_by_category(":Trivia")}%"
   end
 end

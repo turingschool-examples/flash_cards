@@ -6,7 +6,7 @@ class CardGenerator
   end
   def cards
        @file.map do |line|
-       card = line.split(',')
+       card = line.chomp.split(',')
        card = Card.new(card[0], card[1], card[2])
     end
   end
