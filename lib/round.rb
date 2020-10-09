@@ -7,6 +7,11 @@ class Round
   end
 
   def current_card
-    deck.cards[1]
+    deck.cards[0]
+  end
+
+  def take_turn(guess)
+    # a turn is initialized with a guess and a card
+    Turn.new(guess, current_card)
   end
 end
