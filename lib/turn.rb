@@ -7,7 +7,7 @@ class Turn
   end
 
   def correct?
-    @guess == "Juneau"
+    @guess == card.answer
   end
 
   def feedback
