@@ -1,25 +1,20 @@
-require './card.rb'
-
 class Turn
-  attr_reader :card
-  def initialize (string, card)
-    @string = string.capitalize!
-    @card = card.downcase
+  attr_reader :card, :guess
+  def initialize (guess, card)
+    @guess = guess.capitalize
+    @card = card
   end
 
-  def guess
-    @string
-  end
 
   def correct?
-    @string == @card.answer
+    @guess == @card.answer
   end
 
   def feedback
-    if @string == @card.answer
-      p "Correct!"
+    if @guess == @card.answer
+       "Correct!"
     else
-      p "Incorrect!"
+      "Incorrect!"
     end
   end
 
