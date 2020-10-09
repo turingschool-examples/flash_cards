@@ -37,4 +37,13 @@ class RoundTest < Minitest::Test
     new_turn = @round.take_turn("Juneau")
     assert_equal 1, @round.number_correct
   end
+
+  def test_it_has_another_turn
+    new_turn = @round.take_turn("Juneau")
+    assert_equal @card_2, @round.current_card
+    @round.take_turn("Venus")
+    assert_equal 2, @round.turns.count
+    assert_equal "Incorrect.", @round.turns.last.feedback
+    assert_equal 1, @round.number_correct
+  end
 end
