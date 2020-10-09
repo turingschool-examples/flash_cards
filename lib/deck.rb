@@ -14,13 +14,9 @@ class Deck
   end
 
   def cards_in_category(category)
-    cards_to_return = []
-    @cards.each do |card|
-      if card.category == category
-        cards_to_return << card
-      end
+    @cards.find_all do |card|
+      card.category == category
     end
-    cards_to_return
   end
 
 end
