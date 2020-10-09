@@ -76,9 +76,9 @@ class Round
     guess = gets.chomp
     take_turn(guess)
     if @turn.correct?
-      puts "\n\n****** Correct! ******\n\n"
+      puts "\n****** Correct! ******\n\n"
     else
-      puts "\n\n****** Incorrect. ******\n\n"
+      puts "\n****** Incorrect. ******\n\n"
     end
     next_card
   end
@@ -92,9 +92,9 @@ class Round
       guess = gets.chomp
       take_turn(guess)
       if @turn.correct?
-        puts "\n\n****** Correct! ******\n\n"
+        puts "\n****** Correct! ******\n\n"
       else
-        puts "\n\n****** Incorrect. ******\n\n"
+        puts "\n****** Incorrect. ******\n\n"
       end
     end
     print_results
