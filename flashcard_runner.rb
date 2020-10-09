@@ -12,6 +12,8 @@ require './lib/card_generator'
 
         puts "Welcome! You're playing with #{cards.count} cards."
         puts "--------------------------------------------------"
+        puts "Press enter to begin"
+        gets.chomp
         #implement deck.count.times do following
         deck.count.times do 
         puts "This is card number #{round.turns.count + 1} out of #{cards.count}."
@@ -19,6 +21,8 @@ require './lib/card_generator'
         guess = gets.chomp.to_s
         new_turn = round.take_turn(guess)
         puts new_turn.feedback
+        puts "Press enter to continue"
+        gets.chomp
         end
 
         # puts "This is card number #{round.turns.count + 1} out of #{cards.count}."
