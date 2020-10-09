@@ -4,49 +4,41 @@ require './lib/card.rb'
 require './lib/turn.rb'
 
 
-class CardTest < Minitest::Test
+class TurnTest < Minitest::Test
 
   def setup
-    #@correct = [true, false].sample #random boolean
-    @correct = false
+    @card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    #Correct turn
+    @turn_C = Turn.new("Juneau",@card)
+
+    #Incorrect turn
+    @turn_I = Turn.new("Not Juneau",@card)
   end
 
   def test_it_exists
-    card, turn = create_card_and_turn(@correct)
-      assert_instance_of Turn, turn
+      assert_instance_of Turn, @turn_C
+
+      assert_instance_of Turn, @turn_I
   end
 
-  def test_it_has_guess
-    card, turn = create_card_and_turn(@correct)
-      assert_equal @correct ? "Juneau" : "Not Jeaneau", turn.guess
-  end
+  def test_it_has_attributes
+      assert_equal "Juneau", @turn_C.guess
+      assert_equal  @card, @turn_C.card
+      assert_equal true, @turn_C.correct?
 
-  def test_it_has_a_card
-    card, turn = create_card_and_turn(@correct)
-    assert_equal  card, turn.card
-  end
-
-  def test_correct
-    card, turn = create_card_and_turn(@correct)
-    assert_equal @correct, turn.correct?
+      assert_equal "Not Juneau", @turn_I.guess
+      assert_equal  @card, @turn_I.card
+      assert_equal false, @turn_I.correct?
   end
 
   def test_feedback
-    card, turn = create_card_and_turn(@correct)
-    assert_equal @correct ? "Correct!" : "Incorrect.", turn.feedback
+    assert_equal "Correct!", @turn_C.feedback
+
+    assert_equal "Incorrect.", @turn_I.feedback
   end
 
   def test_double_equal
-    card, turn = create_card_and_turn(@correct)
-    card2, turn2 = create_card_and_turn(@correct)
-    assert_equal turn, turn2
-  end
-
-  private
-
-  def create_card_and_turn(correct)
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    turn = Turn.new(correct ? "Juneau" : "Not Jeaneau",card)
-    return card, turn
+    turn_2 = Turn.new("Juneau",@card)
+    assert_equal @turn_C, turn_2
   end
 end
