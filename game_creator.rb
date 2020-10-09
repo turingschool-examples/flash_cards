@@ -1,9 +1,8 @@
-#This is where I build the flash card program.
-#It will take user input, and generate a deck of flash cards.
 require './lib/card.rb'
 require './lib/deck.rb'
 require './lib/turn.rb'
 require './lib/round.rb'
+require 'pry'
 
 puts "Welcome to the Flash Card Generator.\n\n"
 puts "Following a few simple instructions,

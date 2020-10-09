@@ -2,6 +2,7 @@ require './lib/card.rb'
 require './lib/deck.rb'
 require './lib/turn.rb'
 require './lib/round.rb'
+require 'pry'
 
 card_1 = Card.new("What is a name that associates with a particular object?", "Variable", :Vocabulary)
 card_2 = Card.new("Behavior an object can do is a?", "Method", :Vocabulary)
@@ -21,6 +22,7 @@ loop do
   response = gets.chomp.upcase
 
   if response == "YES"
+    round.initialize_setup
     round.start
   elsif response == "NO"
     break

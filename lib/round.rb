@@ -1,5 +1,4 @@
 require "pry"
-
 class Round
   attr_reader :deck,
               :number_correct,
@@ -13,6 +12,12 @@ class Round
               :correct_trivia
   def initialize(deck)
     @deck = deck
+    initialize_setup
+  end
+  def reset_initialize
+    initialize_setup
+  end
+  def initialize_setup
     @current_card = 0
     @total_cards = 4
     @correct_vocabulary = []
@@ -25,31 +30,11 @@ class Round
     @new_guess = new_guess
     @category_correct = []
   end
-  def total_cards
-    @total_cards
-  end
   def count
     deck.cards.count
   end
   def current_card
     deck.cards[@current_card]
-  end
-  def percent_correct
-    (number_correct.to_f / total_cards.to_f) * 100
-  end
-  def number_correct_by_category(category)
-    if category == :Vocabulary
-      @correct_vocabulary.count
-    elsif category == :Trivia
-      @correct_trivia.count
-    end
-  end
-  def percent_correct_by_category(category)
-    if category == :Vocabulary
-      (@correct_vocabulary.count.to_f / @total_vocabulary.to_f) * 100
-    elsif category == :Trivia
-      (@correct_trivia.count.to_f / @total_trivia.to_f) * 100
-    end
   end
   def take_turn(guess)
     @new_guess = Turn.new(guess, current_card)
@@ -68,6 +53,22 @@ class Round
     end
     @current_card += 1
   end
+  def number_correct_by_category(find_card)
+    turns.select do |turn|
+      turn.card.category == find_card
+    end
+  end
+  def total_by_category(find_cards)
+    guesses.select do |guess|
+      guess.card.category == find_cards
+    end
+  end
+  def percent_correct
+    (number_correct.to_f.round(1) / total_cards.to_f.round(1)) * 100
+  end
+  def percent_correct_by_category(category)
+    ((number_correct_by_category(category).count.to_f / total_by_category(category).count.to_f) * 100).round(1)
+  end
   def start
     p "Welcome! You're playing with 4 cards"
     p "---------------------------------------------"
@@ -84,7 +85,7 @@ class Round
     end
     p "************ GAME OVER ************"
     p "You had #{@number_correct} correct guesses out of 4 for a total score of #{percent_correct}%"
-    p "In Vocabulary, you had #{number_correct_by_category(:Vocabulary)} out of 3, for a score of #{percent_correct_by_category(:Vocabulary)}%"
-    p "In Trivia, you had #{number_correct_by_category(:Trivia)} out of 1, for a score of #{percent_correct_by_category(:Trivia)}%"
+    p "In Vocabulary, you had #{number_correct_by_category(:Vocabulary).count} out of #{total_by_category(:Vocabulary).count}, for a score of #{percent_correct_by_category(:Vocabulary)}%"
+    p "In Trivia, you had #{number_correct_by_category(:Trivia).count} out of #{total_by_category(:Trivia).count}, for a score of #{percent_correct_by_category(:Trivia)}%"
   end
 end
