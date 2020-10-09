@@ -21,7 +21,7 @@ class Round
 
   def number_correct
     correct = turns.select do |turn|
-      @answer == @guess
+      turn.correct?
     end
     correct.count
   end

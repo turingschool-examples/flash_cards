@@ -44,20 +44,24 @@ class RoundTest < Minitest::Test
   def test_number_correct
     new_turn = @round.take_turn("Juneau")
 
-    assert_equal 1, @round.number_correct    
+    assert_equal 1, @round.number_correct
   end
 
-# after inputting new_turn:
-  # assert_equal @card_2, @round.current_card
+  def test_additional_turn
+    new_turn = @round.take_turn("Juneau")
+
+    @round.take_turn("Venus")
+
+    assert_equal 2, @round.turns.count
+    assert_equal "Incorrect.", @round.turns.last.feedback
+    assert_equal 1, @round.number_correct
+    assert_equal @card_3, @round.current_card
+  end
 # after inputting second turn:
-  # assert_equal 2, round.turns.count
-  # assert_equal "Incorrect.", rounds.turns.last.feedback
-  # assert_equal 1, round.number_correct
   # assert_equal 1, round.number_correct_by_category(:Geography)
   # assert_equal 0, round.number_correct_by_category(:STEM)
   # asssert_equal 50.0, round.percent_correct
   # assert_equal 100.0, round.percent_correct_by_category(:Geography)
-  # assert_equal @card_3, round.current_card
 
 
 end
