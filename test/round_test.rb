@@ -21,4 +21,8 @@ class RoundTest < Minitest::Test
   def test_it_has_turns
     assert_equal [], @round.turns
   end
+
+  def test_it_can_find_current_card
+    assert_equal @card_1, @round.current_card
+  end
 end
