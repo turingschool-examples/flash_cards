@@ -1,13 +1,16 @@
+require './lib/card'
+
 class CardGenerator
-  attr_reader :filename
+  attr_reader :filename, :cards, :raw_data
 
   def initialize(filename)
     @filename = filename
+    @cards = []
+    @raw_data = []
   end
 
   def open_file
-    card_file = File.open(filename)
-    card_file.split("\n")
+    file = File.open(filename)
+    @raw_data = file.read.split("\n")
   end
-
 end

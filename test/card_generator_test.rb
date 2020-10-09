@@ -15,6 +15,11 @@ class CardGeneratorTest < Minitest::Test
     filename = "./lib/cards.txt"
     card_generator = CardGenerator.new(filename)
     card_generator.open_file
-    require 'pry'; binding.pry
+
+    assert_equal ["What is 5 + 5?,10,STEM",
+      "What is Rachel's favorite animal?,red panda,Turing Staff",
+      "What is Mike's middle name?,nobody knows,Turing Staff",
+      "What cardboard cutout lives at Turing?,Justin bieber,PopCulture"],
+       card_generator.raw_data
   end
 end
