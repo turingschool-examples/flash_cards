@@ -3,7 +3,7 @@ require './lib/turn.rb'
 require './lib/deck.rb'
 
 class Round
-  attr_reader :deck, :turn
+  attr_reader :deck, :turns
   def initialize(deck)
     @deck = deck
     @turns = []
@@ -40,7 +40,6 @@ class Round
   end
 
   def percent_correct
-    #puts "How many turns u done got right ---> #{number_correct}"
     if @turns.count == 0
       0
     else
@@ -71,8 +70,7 @@ class Round
     categories = []
     @turns.each do |turn|
       categories << turn.card.category
-    end
-    categories.uniq
+    end.uniq
   end
 
 end
