@@ -29,7 +29,7 @@ class RoundTest < MiniTest::Test
   def test_instance_variables_of_round
     round = Round.new(@deck)
 
-    assert_equal [@card_1, @card_2, @card_2], round.deck
+    assert_equal [@card_1, @card_2, @card_3], round.deck.cards
     assert_equal [], round.turns
   end
 
@@ -99,7 +99,7 @@ class RoundTest < MiniTest::Test
     new_turn = round.take_turn("Juneaoo")
 
     refute new_turn.correct?
-    assert_equal "Incorrect", new_turn.feedback
+    assert_equal "Incorrect.", new_turn.feedback
   end
 
 end
