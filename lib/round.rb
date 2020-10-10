@@ -27,6 +27,4 @@ class Round
     end
     @correct_guesses.count
  end
- 
-
 end
