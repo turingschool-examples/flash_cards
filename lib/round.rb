@@ -19,10 +19,10 @@ class Round
 
   def take_turn(guess)
     @turn = Turn.new(guess, current_card)
-    @turns << turn
-    process_guess(turn)
+    @turns << @turn
+    process_guess(@turn)
     @deck.cards.rotate!
-    return turn
+    return @turn
   end
 
   def process_guess(turn)
