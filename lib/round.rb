@@ -6,26 +6,39 @@ class Round
     @turns = []
   end
 
-  #method 1 - access 1 element of
-  #array cards, access the guess, compare, store result
-  #move next card to become current card
+  def take_turn(guess)
+    new_turn = Turn.new(guess, current_card)
+    @turns << new_turn
+    turns[-1]
+  end
+
   def current_card
-    require "pry"; binding.pry
+    deck.cards.shift
   end
 
-  def notsurewhatname
-    if card.answer == turn.guess
-      true
-    else
-      false
+  def number_correct
+    # require "pry"; binding.pry
+    correct_guess = 0
+    @turns.each do |turn|
+      if turn.correct?
+        correct_guess +=1
+      end
+      end
+      correct_guess
     end
-  end
 
-  def take_turn
-  end
+    def number_correct_by_category(category)
 
+      counter = 0
+      @turns.each do |turn|
+        if turn.guess == turn.card.answer && turn.card.category == category
+          counter += 1
+        end
+      end
+      counter
+    end
 
-  #method 2 - take_turn method - move round to next card, access the guess - create a new
-  # Turn object (new_turn) that holds the card and the guess - I want
-  # this method to return the new_turn value.
+    #def percent_correct_by_category(category)
+    #number_correct_by_category(category)
+    # end
 end
