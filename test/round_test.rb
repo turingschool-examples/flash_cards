@@ -4,6 +4,7 @@ require './lib/turn'
 require './lib/card'
 require './lib/deck'
 require './lib/round'
+require './lib/card_generator'
 
 class RoundTest < Minitest::Test
 
@@ -159,5 +160,14 @@ class RoundTest < Minitest::Test
     second_turn = round.take_turn("Venus")
     assert_instance_of Hash, round.group_turns_by_category
     assert_equal [:Geography, :STEM], round.group_turns_by_category.keys
+  end
+
+  def test_round_can_initiate_with_deck_created_by_card_gen_object
+    filename = "cards.txt"
+    cards = CardGenerator.new(filename).cards
+    round = Round.new(cards)
+    assert_instance_of Deck, round.deck
+    assert_equal 4, round.deck.cards.length
+    assert_equal "What is 5 + 5?", round.deck.cards.first.question
   end
 end
