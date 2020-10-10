@@ -1,12 +1,11 @@
 class CardGenerator
 
   def initialize(filename)
-    @filename = File.open("cards.txt", "r")
-    @incoming_text = @filename.read
+    @filename = filename
   end
 
   def cards
-    hold = File.foreach("cards.txt").map do |line|
+    hold = File.foreach(@filename).map do |line|
       line.split(", ")
     end.flatten
     
@@ -25,7 +24,6 @@ class CardGenerator
       hold_3 << Card.new(question, answer, category)
     end
     hold_3
-    # require 'pry'; binding.pry
   end
 
 end
