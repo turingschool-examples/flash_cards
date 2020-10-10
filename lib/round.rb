@@ -54,11 +54,11 @@ class Round
   end
 
   def percent_correct
-    (@number_correct.to_f / @turns.length.to_f) * 100
+    (@number_correct.to_f / @turns.size.to_f) * 100
   end
 
   def percent_correct_by_category(category)
-    (number_correct_by_category(category).to_f / turns_by_category(category).length.to_f) * 100
+    (number_correct_by_category(category).to_f / turns_by_category(category).size.to_f) * 100
   end
 
   def group_turns_by_category
@@ -68,9 +68,9 @@ class Round
   end
 
   def start
-    puts "Welcome! You're playing with #{@deck.cards.length} cards."
+    puts "Welcome! You're playing with #{@deck.count} cards."
     puts "-------------------------------------------------"
-    puts "This is card number #{@turns.length + 1} out of #{@deck.cards.length}."
+    puts "This is card number #{@turns.size + 1} out of #{@deck.count}."
     puts "\nQuestion:  #{current_card.question}"
     print ">> "
     guess = gets.chomp
@@ -84,9 +84,9 @@ class Round
   end
 
   def next_card
-    until @turns.length == @deck.cards.length
-      print "This is card number #{@turns.length + 1}"
-      puts " out of #{@deck.cards.length}.\n\n"
+    until @turns.size == @deck.count
+      print "This is card number #{@turns.size + 1}"
+      puts " out of #{@deck.count}.\n\n"
       puts "Question:  #{current_card.question}"
       print ">> "
       guess = gets.chomp
@@ -103,8 +103,12 @@ class Round
   def print_results
     correct_ratio = percent_correct.round
     puts "****** Game over! ******"
-    print "You had #{@number_correct} correct guesses out"
-    puts " of #{@deck.cards.length} for a total score of #{correct_ratio}%."
+    if @number_correct == 1
+      print "You had 1 correct guess out"
+    else
+      print "You had #{@number_correct} correct guesses out"
+    end
+    puts " of #{@deck.count} for a total score of #{correct_ratio}%."
     category_hash = group_turns_by_category
     category_hash.each do |category, turn|
       result = percent_correct_by_category(category)
