@@ -3,28 +3,27 @@ class Round
   def initialize(deck)
     @deck = deck
     @turns = []
-    @correct_guesses = []
-
   end
 
   def current_card
-    @deck.cards[@turns.length]
-
+    @deck.cards[turns.count]
   end
 
   def take_turn(guess)
   new_turn = Turn.new(guess, current_card)
   @turns << new_turn
-  @turns.last
+  new_turn
   end
 
   def number_correct
+    correct_guesses = []
 
     @turns.find_all do |turn|
     if turn.correct?
-      @correct_guesses << turn
-     end
+      correct_guesses << turn
     end
-    @correct_guesses.count
+   end
+  correct_guesses.count
  end
+
 end
