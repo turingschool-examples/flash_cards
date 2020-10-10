@@ -22,3 +22,7 @@ until cards_left == 0
   puts flip_card(total_cards, cards_left, round).feedback
   cards_left += -1
 end
+
+game_over()
+
+display_percentages(round)

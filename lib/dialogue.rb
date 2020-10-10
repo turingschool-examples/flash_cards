@@ -22,3 +22,21 @@ def flip_card(total_cards, cards_left, round)
   guess = gets.chomp
   round.take_turn(guess)
 end
+
+def game_over
+  puts "****** Game over! ******"
+end
+
+def display_score(category, round)
+  puts "#{category} - #{round.percent_correct_by_category(category)}% correct"
+end
+
+def display_percentages(round)
+  categories = []
+  round.turns.each do |turn|
+    categories << turn.card.category
+  end
+  categories.uniq.each do |category|
+    display_score(category, round)
+  end
+end
