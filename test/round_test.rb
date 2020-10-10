@@ -4,7 +4,7 @@ require './lib/turn'
 require './lib/card'
 require './lib/deck'
 require './lib/round'
-
+require 'pry'
 
 class TurnTest < Minitest::Test
 
@@ -18,6 +18,68 @@ class TurnTest < Minitest::Test
     @round = Round.new(@deck)
   end
 
+  def test_class_runs
 
+    assert_equal @deck, @round.deck
+    assert_equal [], @round.turns
+  end
+
+  def test_reads_current_card
+
+    assert_equal @card_1, @round.current_card
+  end
+
+  def test_can_take_turn
+    new_turn = @round.take_turn("Juneau")
+
+    assert_equal Turn, new_turn.class
+  end
+
+  def test_can_make_guess
+    new_turn = @round.take_turn("Juneau")
+
+    assert_equal "Juneau", new_turn.guess
+    assert_equal true, new_turn.correct?
+    assert_equal 1, @round.number_correct
+  end
+
+  def test_changes_card
+
+    new_turn = @round.take_turn("Juneau")
+    assert_equal @card_2, @round.current_card
+  end
+
+  def test_can_take_mulitple_turns
+
+    new_turn = @round.take_turn("Juneau")
+    @round.take_turn("Venus")
+
+    assert_equal 2, @round.turns.count
+  end
+
+  def test_is_incorrect
+    @round.take_turn("Venus")
+
+    assert_equal "Incorrect.", @round.turns.last.feedback
+  end
+
+  def test_number_correct_by_category
+    @round.take_turn("Juneau")
+
+    assert_equal 1, @round.number_correct_by_category(:Geography)
+  end
+
+  def test_percent_correct
+    @round.take_turn("Juneau")
+    @round.take_turn("Venus")
+
+    assert_equal 50.0, @round.percent_correct
+  end
+
+  def test_percent_correct_by_category
+    @round.take_turn("Juneau")
+
+    assert_equal 100.0, @round.percent_correct_by_category(:Geography)
+  end
 
 end

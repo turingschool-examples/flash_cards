@@ -18,21 +18,17 @@ class TurnTest < Minitest::Test
   end
 
   def test_cards_in_deck
-    # skip
 
     assert_equal @cards, @deck.cards
   end
 
   def test_card_count
-    # skip
 
     assert_equal 3, @deck.count
 
   end
 
   def test_cards_in_category
-    # skip
-
 
     assert_equal [@card_2,@card_3], @deck.cards_in_category(:STEM)
     assert_equal [@card_1], @deck.cards_in_category(:Geography)
