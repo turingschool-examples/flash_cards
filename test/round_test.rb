@@ -167,7 +167,7 @@ class RoundTest < Minitest::Test
     cards = CardGenerator.new(filename).cards
     round = Round.new(cards)
     assert_instance_of Deck, round.deck
-    assert_equal 4, round.deck.cards.length
-    assert_equal "What is 5 + 5?", round.deck.cards.first.question
+    assert_equal 10, round.deck.cards.length
+    assert_equal "What is the capital of Alaska?", round.deck.cards.first.question
   end
 end
