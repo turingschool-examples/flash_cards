@@ -1,3 +1,4 @@
+require 'pry'
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/card'
@@ -27,5 +28,6 @@ class CardTest < Minitest::Test
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
     assert_equal :Geography, card.category
+    binding.pry
   end
 end
