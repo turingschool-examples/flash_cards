@@ -1,3 +1,6 @@
+require './lib/deck'
+require './lib/card'
+
 class CardGenerator
   attr_reader :deck
 

@@ -23,7 +23,7 @@ class CardGeneratorTest < Minitest::Test
                  ], cards.process_cards_file
   end
 
-  def test_card_gen_cards_method_can_create_a_deck_from_text_file
+  def test_card_gen_cards_method_can_create_a_deck_of_cards_from_text_file
     filename = "cards.txt"
     cards = CardGenerator.new(filename)
     cards.cards
