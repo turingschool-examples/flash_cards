@@ -11,4 +11,7 @@ require './lib/round'
 @deck = Deck.new(@cards)
 @round = Round.new(@deck)
 
-puts "Welcome! You're playing with #{@deck.count} cards."
+
+
+
+  @round.start
