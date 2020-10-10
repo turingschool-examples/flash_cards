@@ -9,7 +9,11 @@ class Turn
   end
 
   def correct?
-    @correct_guess = (@guess == @card.answer)
+    @correct_guess = (
+
+      @guess.upcase.strip.include?(@card.answer.strip.upcase)
+
+    )
   end
 
   def feedback
