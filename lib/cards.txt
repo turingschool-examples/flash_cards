@@ -1,0 +1,4 @@
+What is 5 + 5?,10,Math
+When did World War II officially end?,1945,History
+What is the most popular framework for Ruby to quickly create a backend system for a webapp?,Ruby on Rails,Ruby
+In majority of programming languages they're called Functions. In Ruby they're called ______,Method,Ruby
