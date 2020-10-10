@@ -12,5 +12,6 @@ class CardGeneratorTest < Minitest::Test
     cards = CardGenerator.new(filename).cards
 
     assert_instance_of Array, cards
+    assert_equal 5, cards.count
   end
 end
