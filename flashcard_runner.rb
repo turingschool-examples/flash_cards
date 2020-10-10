@@ -14,15 +14,16 @@ cards = [card_1, card_2, card_3, card_4]
 deck = Deck.new(cards)
 
 round = Round.new(deck)
+
 counter = 1
 
 puts "Welcome! You're playing with #{deck.count} cards"
 puts "-------------------------------------------------"
 
+
 until counter > deck.count
   puts "This is card #{counter} out of #{deck.count}"
   puts round.current_card.question
-
   input = gets.chomp
   turn_1 = round.take_turn(input)
   puts turn_1.feedback

@@ -247,7 +247,9 @@ class RoundTest < Minitest::Test
 
     new_turn = round.take_turn("Juneau")
     new_turn_2 = round.take_turn("Venus")
+    new_turn_3 = round.take_turn("North north west")
 
-    # require 'pry'; binding.pry
+    assert_equal [new_turn], round.all_category_questions(:Geography)
+    assert_equal [new_turn_2, new_turn_3], round.all_category_questions(:STEM)
   end
 end
