@@ -15,9 +15,6 @@ attr_reader :card, :cards, :deck, :category
     cards.find_all do |card|
       card.category == category_type
     end
-
   end
-
-
 
 end
