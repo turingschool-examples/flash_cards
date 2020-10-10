@@ -1,3 +1,4 @@
+
 class Round
   attr_reader :deck, :turns
   def initialize(deck)
@@ -12,18 +13,20 @@ class Round
   def take_turn(guess)
   new_turn = Turn.new(guess, current_card)
   @turns << new_turn
-  @turns.last 
+  @turns.last
   end
 
   def number_correct
-    correct_guesses = []
-
-    @turns.find_all do |turn|
-    if turn.correct?
-      correct_guesses << turn
-    end
+    @turns.count do |turn|
+      turn.correct?
    end
-  correct_guesses.count
- end
+  end
 
+  def number_correct_by_category(in_category)
+    @turns.count do |turn|
+    turn.correct? and (turn.card.category == in_category)
+
+    end
+    # require "pry"; binding.pry
+  end
 end
