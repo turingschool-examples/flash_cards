@@ -29,8 +29,19 @@ def play
     puts @round.turns.last.feedback
     current_turn += 1
   end
+  finish_game
+end
+
+def finish_game
   puts "***** Game over! *****"
   puts "You had #{@round.number_correct} correct guesses out of #{@round.turns.count} for a total score of #{@round.percent_correct}%"
+  categories = @round.turns.map do |turn|
+    turn.card.category
+  end
+  categories = categories.uniq
+  categories.each do |category|
+    puts "#{category} - #{@round.percent_correct_by_category(category)}% correct"
+  end
 end
 
 start
