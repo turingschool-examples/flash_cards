@@ -34,7 +34,25 @@ class RoundTest < Minitest::Test
   end
 
   def test_correct?
-    skip
-    assert_equal
+    new_turn = @round.take_turn("Juneau")
+    assert new_turn.correct?
   end
+
+  def test_it_updates_turns
+    new_turn = @round.take_turn("Juneau")
+    assert_equal [new_turn], @round.turns
+  end
+
+
+  def test_number_correct
+    new_turn = @round.take_turn("Juneau")
+    assert_equal 1, @round.number_correct
+  end
+
+  def test_number_correct_by_category
+    new_turn = @round.take_turn("Juneau")
+    assert_equal 0, @round.number_correct_by_category(:STEM)
+    assert_equal 1, @round.number_correct_by_category(:Geography)
+  end
+
 end
