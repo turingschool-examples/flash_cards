@@ -21,6 +21,7 @@ class CardGenerator
       split_card_text = card_text.split(',')
       Card.new(*split_card_text)
     end
+    
     @cards = @cards.flatten
   end
 end

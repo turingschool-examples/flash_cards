@@ -16,39 +16,55 @@ attr_reader :deck, :turns, :card_tracker, :number_correct
 
   def take_turn(guess)
     turn = Turn.new(guess, deck.cards[card_tracker])
-   @turns << turn
-   @card_tracker += 1
-   @number_correct += 1 if turn.correct? == true
-   turn
+    @turns << turn
+    @card_tracker += 1
+    @number_correct += 1 if turn.correct? == true
+    turn
   end
 
-  def number_correct_by_category(user_cat)
-    count = 0
-    turns.each do |turn|
-      count += 1 if turn.card.category == user_cat && turn.correct? 
-    end
-    count
+  def number_correct_by_category(ctgry)
+    correct = turns.select {|turn| turn.card.category == ctgry && turn.correct?}
+    correct.count
   end
 
   def percent_correct
-    correct_count = 0
-    total_count = turns.count.to_f
-
-    turns.each do |turn|
-      correct_count += 1 if turn.correct? 
-    end
-    
-    percent = (correct_count / total_count) * 100
+    total = turns.count.to_f
+    correct = turns.select { |turn| turn.correct?}
+    percent = (correct.count / total) * 100
   end
 
   def percent_correct_by_category(category)
     correct_count = number_correct_by_category(category).to_f
-    total_category_count = 0
+    cards_in_category = turns.select {|turn| turn.card.category == category}
+    percent = (correct_count / cards_in_category.count) * 100
+  end
 
-    turns.each do |turn|
-      total_category_count += 1 if turn.card.category == category
+  def start
+    puts "Welcome! You're playing with #{deck.cards.length} cards."
+    puts "-------------------------------------------------"
+    
+    deck.cards.each do |card|
+      puts "This is card number #{@card_tracker + 1} out of #{deck.cards.length}."
+      puts "Question: #{deck.cards[card_tracker].question}"
+
+      guess = gets.chomp
+      take_turn(guess)
+      puts turns.last.feedback
     end
+    
+    puts "****** Game over! ******"
+    puts "You had #{number_correct} correct guesses out of #{turns.length} for a total score of #{percent_correct.round}%."
+    print_category_stats()
+  end
 
-    percent = (correct_count / total_category_count) * 100
+  def print_category_stats
+    categories = deck.cards.map do |card|
+      card.category
+    end
+    
+    categories = categories.uniq
+    categories.each do |category|
+      puts "#{category} - #{percent_correct_by_category(category)}% correct."
+    end
   end
 end
