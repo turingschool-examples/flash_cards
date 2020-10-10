@@ -39,6 +39,7 @@ attr_reader :deck, :turns, :card_tracker, :number_correct
     percent = (correct_count / cards_in_category.count) * 100
   end
 
+  # ====Added for runner file support====
   def start
     puts "Welcome! You're playing with #{deck.cards.length} cards."
     puts "-------------------------------------------------"
@@ -57,6 +58,7 @@ attr_reader :deck, :turns, :card_tracker, :number_correct
     print_category_stats()
   end
 
+  # ====Added for runner file support====
   def print_category_stats
     categories = deck.cards.map do |card|
       card.category
