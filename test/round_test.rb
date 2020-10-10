@@ -13,7 +13,7 @@ class RoundTest < Minitest::Test
         @cards = [@card_1, @card_2, @card_3]
         @deck = Deck.new(@cards)
         @round = Round.new(@deck)
-    end
+  end
 
   def test_it_exists
 
@@ -27,12 +27,17 @@ class RoundTest < Minitest::Test
     assert_equal @card_1, @round.current_card
   end
 
-   def can_it_take_new_turn
+  def test_can_it_take_new_turn
      new_turn = @round.take_turn("Juneau")
 
-     assert_equal Turn, @round.take_turn("Juneau")
      assert_equal Turn, new_turn.class
-     assert_equal true, new_turn.turn
+     assert_equal true, new_turn.correct?
+     assert_equal [new_turn], @round.turns
    end
 
+   def test_how_many_correct
+     new_turn = @round.take_turn("Juneau")
+
+     assert_equal 1, @round.number_correct
+   end
 end
