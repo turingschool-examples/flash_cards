@@ -18,12 +18,23 @@ class Round
   end
 
   def number_correct
+    # is there a simpler way to do this without each? figure it out!
     count = 0
     turns.each do |turn|
       if turn.correct?
       count += 1
+      end
     end
-  end
     count
+  end
+
+  def number_correct_by_category(cat)
+    cat_correct = []
+    turns.find_all do |turn|
+      if card.category == cat
+        cat_correct << turn
+      end
+    end
+    cat_correct.count
   end
 end

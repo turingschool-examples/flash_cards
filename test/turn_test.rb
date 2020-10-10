@@ -2,12 +2,14 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/card'
 require './lib/turn'
+require 'pry'
 
 class TurnTest < Minitest::Test
 
   def test_it_exists
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
+    binding.pry
 
     assert_instance_of Card, card
     assert_instance_of Turn, turn
@@ -39,7 +41,7 @@ class TurnTest < Minitest::Test
     turn = Turn.new("Juneau", card)
 
     assert_equal "Correct!", turn.feedback
-    
+
   end
 
   def test_it_has_a_card

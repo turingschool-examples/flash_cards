@@ -44,12 +44,14 @@ class RoundTest < Minitest::Test
     assert_equal @deck.cards[0], @round.current_card
   end
 
-  def test_it_can_create_a_turn
+  def test_it_can_initiate_turn_with_guess
     # skip
     new_turn = @round.take_turn("Juneau")
     # binding.pry
 
     assert_equal Turn, new_turn.class
+    # check that card in turn is right
+    # check that guess in turn is right
   end
 
   def test_it_can_create_the_correct_turn
@@ -60,7 +62,7 @@ class RoundTest < Minitest::Test
     assert new_turn.correct?
   end
 
-  def test_it_can_record_and_provide_turns
+  def test_it_can_record_and_return_turns
     # skip
     new_turn = @round.take_turn("Juneau")
     # binding.pry
@@ -68,7 +70,7 @@ class RoundTest < Minitest::Test
     assert_equal [new_turn], @round.turns
   end
 
-  def test_it_can_tell_what_round_we_are_in_after_a_turn
+  def test_it_can_tell_how_many_guesses_have_been_correct
     # skip
     new_turn = @round.take_turn("Juneau")
     # binding.pry
@@ -77,64 +79,37 @@ class RoundTest < Minitest::Test
   end
 
   def test_it_can_tell_what_current_card_is_after_a_turn
-    skip
-    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
-    card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-    deck = Deck.new([card_1, card_2, card_3])
-    round = Round.new(deck)
-    new_turn = round.take_turn("Juneau")
+    # skip
+    new_turn = @round.take_turn("Juneau")
     # binding.pry
 
-    assert_equal #???, round.current_card
-  end
-
-  def test_it_can_initiate_turn_with_guess
-    skip
-    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
-    card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-    deck = Deck.new([card_1, card_2, card_3])
-    round = Round.new(deck)
-    new_turn = round.take_turn("Juneau")
-    binding.pry
-
-    assert_equal #???, round.take_turn("Venus")
+    assert_equal @deck.cards[1], @round.current_card
   end
 
   def test_it_can_count_total_turns
-    skip
-    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
-    card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-    deck = Deck.new([card_1, card_2, card_3])
-    round = Round.new(deck)
+    # skip
+    new_turn = @round.take_turn("Juneau")
+    @round.take_turn("Venus")
     # binding.pry
-    assert_equal #???, round.turns.count
+    assert_equal 2, @round.turns.count
   end
 
-  def test_
-    skip
-    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
-    card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-    deck = Deck.new([card_1, card_2, card_3])
-    round = Round.new(deck)
+  def test_it_can_feedback_is_accurate
+    # skip
+    new_turn = @round.take_turn("Juneau")
+    @round.take_turn("Venus")
     # binding.pry
-    assert_equal #???, round.turns.last.feedback
+    assert_equal "Incorrect.", @round.turns.last.feedback
   end
 
-  def test_
-    skip
-    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
-    card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-    deck = Deck.new([card_1, card_2, card_3])
-    round = Round.new(deck)
+  def test_it_can_provide_number_correct_guesses_total_and_by_category
+    # skip
+    new_turn = @round.take_turn("Juneau")
+    @round.take_turn("Venus")
     # binding.pry
-    assert_equal #???, round.number_correct
-    assert_equal #???, round.number_correct_by_category(:Geography)
-    assert_equal #???, round.number_correct_by_category(:STEM)
+    assert_equal 1, @round.number_correct
+    # assert_equal #???, round.number_correct_by_category(:Geography)
+    # assert_equal #???, round.number_correct_by_category(:STEM)
   end
 
   def test_
