@@ -42,7 +42,7 @@ class StudySession
 
   def final_results
     puts "****** Game Over! ******"
-    puts "You had #{@round.number_correct} correct guesses of #{@deck.cards.count} for a total score of #{(@round.percent_correct).round(2)}"
+    puts "You had #{@round.number_correct} correct guesses of #{@deck.cards.count} for a total score of #{(@round.percent_correct).round(2)}%"
     results_by_category
   end
 # helper for results by catgory

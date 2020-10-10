@@ -6,6 +6,6 @@ require "./lib/study_session"
 require './lib/card_generator'
 
 
-filename = './lib/cards.txt'
+filename = './data/cards.txt'
 study_session = StudySession.new(filename)
 study_session.start
