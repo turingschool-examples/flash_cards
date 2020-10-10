@@ -37,4 +37,4 @@ def start(round, deck)
   end
 end
 
-start(round, deck)
+# start(round, deck)
