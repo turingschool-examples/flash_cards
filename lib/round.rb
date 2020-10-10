@@ -27,8 +27,6 @@ class Round
     @turns.count do |turn|
       turn.correct? && turn.card.category == category
     end
-    # @deck.cards_in_category.count do
-    # turns in category
   end
 
   def percent_correct
