@@ -1,15 +1,16 @@
 require './lib/card'
+require './lib/card_generator'
 require './lib/deck'
 require './lib/turn'
 require './lib/round'
 
 # Create game resources
-
-card = Card.new("What is 5 + 5?", "10", :Math)
-card2 = Card.new("When did World War II officially end?", "1945", :History)
-card3 = Card.new("What is the most popular framework for Ruby to quickly create a backend system for a webapp?", "Ruby on Rails", :Ruby)
-card4 = Card.new("In majority of programming languages, they're called Functions. In Ruby, they're called _____", "Methods", :Ruby)
-cards = [card, card2, card3, card4]
+cards = CardGenerator.new("./lib/cards.txt").cards
+#card = Card.new("What is 5 + 5?", "10", :Math)
+#card2 = Card.new("When did World War II officially end?", "1945", :History)
+#card3 = Card.new("What is the most popular framework for Ruby to quickly create a backend system for a webapp?", "Ruby on Rails", :Ruby)
+#card4 = Card.new("In majority of programming languages, they're called Functions. In Ruby, they're called _____", "Methods", :Ruby)
+#cards = [card, card2, card3, card4]
 deck = Deck.new(cards)
 round = Round.new(deck)
 
