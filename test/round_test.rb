@@ -51,8 +51,21 @@ class RoundTest < Minitest::Test
 
    def it_counts_turns
      new_turn = @round.take_turn("Juneau")
-      @round.take_turn("Venus")
+     @round.take_turn("Venus")
 
      assert_equal 2, @round.turns.count
    end
+
+   def test_does_it_give_feedback
+     new_turn = @round.take_turn("Juneau")
+     @round.take_turn("Venus")
+
+   assert_equal "Incorrect", @round.turns.last.feedback
+  end
+
+  def test_how_many_correct_now
+    
+  end
+
+
 end
