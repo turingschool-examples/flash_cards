@@ -38,6 +38,9 @@ class Round
       counter
     end
 
+    def percent_correct_by_category
+      
+    end
     #def percent_correct_by_category(category)
     #number_correct_by_category(category)
     # end
