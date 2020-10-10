@@ -40,4 +40,11 @@ class RoundTest < Minitest::Test
 
      assert_equal 1, @round.number_correct
    end
+
+   def test_it_can_take_second_turn
+     new_turn = @round.take_turn("Venus")
+
+     assert_equal @card_2, @round.current_card
+     assert_equal Turn, new_turn.class
+   end
 end
