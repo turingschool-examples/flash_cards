@@ -70,7 +70,14 @@ class RoundTest < Minitest::Test
     assert_equal 1, @round.number_correct
   end
 
-  
+  def test_how_many_correct_by_catogory
+    @round.take_turn("Juneau")
+    @round.take_turn("Venus")
+
+    assert_equal 1, @round.number_correct_by_category(:Geography)
+    assert_equal 0, @round.number_correct_by_category(:STEM)
+  end
+
 
 
 end
