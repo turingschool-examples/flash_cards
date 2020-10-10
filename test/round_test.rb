@@ -5,6 +5,8 @@ require './lib/deck'
 require './lib/turn'
 require './lib/round'
 
+
+
 class RoundTest < Minitest::Test
 
 
@@ -44,15 +46,27 @@ class RoundTest < Minitest::Test
   end
 
 
+  def  test_it_calls_current_card_again
+    new_turn = @round.take_turn("Juneau")
+    assert_equal @card_2, @round.current_card
+  end
+
+  def  test_it_counts_turns
+    @round.take_turn("Juneau")
+    @round.take_turn("Venus")
+    assert_equal 2, @round.turns.count
+  end
+
   def test_number_correct
     new_turn = @round.take_turn("Juneau")
     assert_equal 1, @round.number_correct
   end
 
   def test_number_correct_by_category
-    new_turn = @round.take_turn("Juneau")
-    assert_equal 0, @round.number_correct_by_category(:STEM)
+    @round.take_turn("Juneau")
+    @round.take_turn("Venus")
     assert_equal 1, @round.number_correct_by_category(:Geography)
+    assert_equal 0, @round.number_correct_by_category(:STEM)
   end
 
 end
