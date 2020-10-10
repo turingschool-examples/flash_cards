@@ -3,23 +3,14 @@ class StudySession
   require './lib/turn'
   require './lib/deck'
   require './lib/round'
+  require './lib/card_generator'
 
-  attr_reader :card_1,
-              :card_2,
-              :card_3,
-              :card_4,
-              :card_5,
-              :cards,
+  attr_reader :cards,
               :deck,
               :round
 
-  def initialize
-    @card_1 = Card.new('How do you say "fish" in German?', 'fisch', :German)
-    @card_2 = Card.new('How do you say "market" in German?', 'markt', :German)
-    @card_3 = Card.new('How do you say "space" in Spanish?', 'espacio', :Spanish)
-    @card_4 = Card.new('How do you say "village" in Spanish?', 'aldeano', :Spanish)
-    @card_5 = Card.new('How do you say "pudding" in Portuguese?', 'pudim', :Portuguese)
-    @cards = [@card_1, @card_2, @card_3, @card_4, @card_5]
+  def initialize(filename)
+    @cards = CardGenerator.new(filename).cards
     @deck = Deck.new(cards)
     @round = Round.new(deck)
   end
@@ -51,7 +42,7 @@ class StudySession
 
   def final_results
     puts "****** Game Over! ******"
-    puts "You had #{@round.number_correct} correct guesses of #{@deck.cards.count} for a total score of #{@round.percent_correct}"
+    puts "You had #{@round.number_correct} correct guesses of #{@deck.cards.count} for a total score of #{(@round.percent_correct).round(2)}%"
     results_by_category
   end
 # helper for results by catgory
