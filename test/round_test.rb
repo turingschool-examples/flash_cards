@@ -64,8 +64,13 @@ class RoundTest < Minitest::Test
   end
 
   def test_how_many_correct_now
-    
+    new_turn = @round.take_turn("Juneau")
+    @round.take_turn("Venus")
+
+    assert_equal 1, @round.number_correct
   end
+
+  
 
 
 end
