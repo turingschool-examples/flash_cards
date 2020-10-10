@@ -12,7 +12,7 @@ class Round
   def take_turn(guess)
   new_turn = Turn.new(guess, current_card)
   @turns << new_turn
-  new_turn
+  @turns.last 
   end
 
   def number_correct
