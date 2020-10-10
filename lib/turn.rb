@@ -1,4 +1,3 @@
-
 class Turn
 attr_reader :guess, :card, :category, :question
 
@@ -16,12 +15,11 @@ attr_reader :guess, :card, :category, :question
     end
   end
 
-def feedback
+  def feedback
   if card.answer == @guess
     "Correct!"
   else
     "Incorrect."
+    end
   end
-end
-
 end
