@@ -3,6 +3,7 @@ require 'minitest/pride'
 require './lib/card'
 require './lib/deck'
 
+
 class Test < Minitest::Test
 
   def test_it_exists_and_has_attributes
@@ -30,7 +31,6 @@ class Test < Minitest::Test
     assert_equal [card_2, card_3], deck.cards_in_category(:STEM)
     assert_equal [card_1], deck.cards_in_category(:Geography)
     assert_equal [], deck.cards_in_category("Pop Culture")
-
 
   end
 
