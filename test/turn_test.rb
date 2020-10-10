@@ -78,8 +78,8 @@ class TurnTest < Minitest::Test
     def test_it_percent_correct_by_category
         @round.take_turn("Juneau")
         @round.take_turn("Mars")
-        @round.take_turn("North north west")
-        binding.pry
+       
+        
 
         assert_equal 100.0, @round.percent_correct_by_category(:Geography)
         assert_equal 100.0, @round.percent_correct_by_category(:STEM)

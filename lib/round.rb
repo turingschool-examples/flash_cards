@@ -41,9 +41,11 @@ class Round
     end
 
     def percent_correct_by_category(category)
-        (number_correct_by_category(category) / @turns.count.to_f  ) * 100
+        
+        
+        (number_correct_by_category(category).to_f / @turns.find_all {|turn| turn.card.category == category}.count.to_f  ) * 100
 
-
+       
     end
 
     

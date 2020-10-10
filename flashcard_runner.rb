@@ -31,12 +31,16 @@ puts "Welcome! You're playing with #{@deck.count} cards.\n
         @round.take_turn(user_guess)
         puts  @round.turns.last.feedback
         
+
         
     end
 
     puts "****** Game Over! ******"
     puts "You had #{@round.number_correct} guesses out of #{@deck.count} for a total of #{@round.percent_correct.round(0)}%"
-  
+    puts "Category Statistics:\n"
+    puts "STEM - #{@round.percent_correct_by_category}"
+   
+    
 end
 
 start
