@@ -19,15 +19,12 @@ class RoundTest < Minitest::Test
   end
 
   def test_attributes
-    assert_equal [], @round.turns
     assert_equal @deck, @round.deck
-  end
-
-  def test_current_card_returns_card_1
+    assert_equal [], @round.turns
     assert_equal @card_1, @round.current_card
   end
 
-  def test_new_turn_creates_a_turn
+  def test_take_turn
     new_turn = @round.take_turn("Juneau")
 
     assert_instance_of Turn, new_turn

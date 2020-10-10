@@ -13,11 +13,8 @@ class TurnTest < Minitest::Test
     assert_instance_of Turn, @turn
   end
 
-  def test_it_has_a_guess
+  def test_attributes
     assert_equal "Juneau", @turn.guess
-  end
-
-  def test_it_has_a_card_method
     assert_equal @card, @turn.card
   end
 
