@@ -79,5 +79,4 @@ class RoundTest < Minitest::Test
 
     assert_equal 100.0, @round.percent_correct_by_category(:Geography)
   end
-
 end
