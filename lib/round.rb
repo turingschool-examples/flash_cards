@@ -27,6 +27,10 @@ class Round
       correct_guess
     end
 
+    def percent_correct
+      (number_correct/@turns.count) * 100
+    end
+
     def number_correct_by_category(category)
 
       counter = 0
@@ -38,10 +42,9 @@ class Round
       counter
     end
 
-    def percent_correct_by_category
-      
+    def percent_correct_by_category(category)
+      (number_correct_by_category(category)/@turns.count)*100
+      # require "pry"; binding.pry
     end
-    #def percent_correct_by_category(category)
-    #number_correct_by_category(category)
-    # end
+
 end
