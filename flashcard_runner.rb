@@ -12,5 +12,13 @@ cards = [card_1, card_2, card_3, card_4]
 deck = Deck.new(cards)
 round = Round.new(deck)
 
+total_cards = deck.count
+cards_left = total_cards
+
 # again from intro, this takes the number of cards and prints a welcome message
-welcome(round.deck.count)
+welcome(total_cards)
+
+until cards_left == 0
+  puts flip_card(total_cards, cards_left, round).feedback
+  cards_left += -1
+end
