@@ -10,13 +10,16 @@ class Round
               :correct_vocabulary,
               :total_trivia,
               :correct_trivia
+
   def initialize(deck)
     @deck = deck
     initialize_setup
   end
+
   def reset_initialize
     initialize_setup
   end
+
   def initialize_setup
     @current_card = 0
     @total_cards = count
@@ -26,17 +29,21 @@ class Round
     @correct_guesses = []
     @new_guess = new_guess
   end
+
   def count
     deck.cards.count
   end
+
   def current_card
     deck.cards[@current_card]
   end
+
   def take_turn(guess)
     @new_guess = Turn.new(guess, current_card)
     @guesses << @new_guess
     new_guess
   end
+
   def next_card
     if @new_guess.correct?
       @number_correct += 1
@@ -47,30 +54,37 @@ class Round
     end
     @current_card += 1
   end
+
   def number_correct_by_category(find_card)
     @correct_guesses.select do |turn|
       turn.card.category == find_card
     end
   end
+
   def total_by_category(find_cards)
     guesses.select do |guess|
       guess.card.category == find_cards
     end
   end
+
   def percent_correct
     ((number_correct.to_f.round(1) / total_cards.to_f.round(1)) * 100).round(1)
   end
+
   def percent_correct_by_category(category)
     ((number_correct_by_category(category).count.to_f / total_by_category(category).count.to_f) * 100).round(1)
   end
+
   def unique_categories
     deck.cards.map do |select_category|
       select_category.category
     end
   end
+
   def category
     unique_categories.uniq
   end
+
   def start_round
     p "Welcome! You're playing with #{count} cards"
     p "---------------------------------------------"

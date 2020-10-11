@@ -1,6 +1,6 @@
 Hi and welcome!
 
-In order to create a custom deck of cards you need to follow few
+In order to create a custom deck of cards you need to follow a few
 rules.  First, the file should be saved in the root directory, or the
 same folder that cards.txt is saved in.  Below is an example of how it
 should look.  You need to type in order: Question,Answer,Category
@@ -16,4 +16,4 @@ What is my daughters Favorite Animal?,Unicorn!,:Trivia
 
 
 
-You can include as many cards as you want!  Enjoy!
+You can include as many cards and categories as you want!  Enjoy!
