@@ -9,7 +9,7 @@ def welcome(num)
 end
 
 def card_dialogue(total_cards, cards_left)
-  puts "This is card number #{(total_cards - cards_left) + 1} out of #{total_cards}"
+  puts "This is card number #{(total_cards - cards_left) + 1} out of #{total_cards}."
 end
 
 def question(round)
