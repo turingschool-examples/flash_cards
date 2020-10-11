@@ -29,3 +29,15 @@ until @round.turns.count == @cards.count
   new_turn.feedback
 end
 # binding.pry
+
+puts "****** Game over! ******
+  You had #{@round.number_correct} correct guesses out of #{@cards.count} for a total score of #{@round.percent_correct.to_i}%."
+
+categories = []
+@cards.each do |card|
+  categories << card.category
+end
+
+categories.uniq.each do |category|
+  puts "#{category} - #{@round.percent_correct_by_category(category).to_i}% correct"
+end
