@@ -1,4 +1,5 @@
 require './lib/card'
+require './lib/round'
 class Deck
 
   attr_reader :cards

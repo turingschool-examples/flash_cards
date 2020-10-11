@@ -1,4 +1,5 @@
 require './lib/card'
+require './lib/deck'
 
 class Turn #redoing everything with what I learned today
 

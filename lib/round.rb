@@ -29,4 +29,14 @@ class Round
     @correct
   end
 
+  def number_correct_by_category(category)
+    if new_turn.correct? == true
+      
+  end
+
+  def percent_correct
+    @correct.to_f / @turns.count * 100
+  end
+
+
 end
