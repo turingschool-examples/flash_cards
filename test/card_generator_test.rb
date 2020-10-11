@@ -19,8 +19,8 @@ class Card_GeneratorTest < Minitest::Test
   end
 
 
-  def test_if_it_can_make_cards
+  def test_if_it_makes_cards
     cards = Card_Generator.new(@filename)
-    assert_equal @new_cards, Card_Generator.new(@file_name).cards
+    assert_equal @new_cards, Card_Generator.new.cards
   end
 end
