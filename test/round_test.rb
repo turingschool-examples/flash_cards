@@ -62,7 +62,7 @@ class RoundTest < Minitest::Test
   end
 
   def test_it_can_record_and_return_turns
-    skip
+    # skip
     new_turn = @round.take_turn("Juneau")
     # binding.pry
 
