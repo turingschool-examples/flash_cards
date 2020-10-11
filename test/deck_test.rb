@@ -61,8 +61,4 @@ class DeckTest < Minitest::Test
     assert_equal [card_1], deck.cards_in_category(:Geography)
     assert_equal [], deck.cards_in_category("Pop Culture")
   end
-
-
-
-
 end
