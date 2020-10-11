@@ -9,10 +9,8 @@ class CardGeneratorTest < Minitest::Test
     filename = "cards.txt"
     
     cards = CardGenerator.new(filename)
-    
-    # require 'pry'; binding.pry
 
     cards = CardGenerator.new(filename).cards
-    require 'pry'; binding.pry
+    
   end
 end

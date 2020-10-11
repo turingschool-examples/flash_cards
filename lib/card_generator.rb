@@ -5,25 +5,25 @@ class CardGenerator
   end
 
   def cards
-    hold = File.foreach(@filename).map do |line|
+    list_of_cards = File.foreach(@filename).map do |line|
       line.split(", ")
     end.flatten
     
-    hold_2 = hold.map do |card|
+    split_cards = list_of_cards.map do |card|
       card.split(",")
     end
     
-    hold_2.pop
+    split_cards.pop
 
-    hold_3 = []
+    made_cards = []
 
-    hold_2.each do |card|
+    split_cards.each do |card|
       question = card[0]
       answer = card[1]
       category = card[2].chomp.gsub(" ", "_").to_sym
-      hold_3 << Card.new(question, answer, category)
+      made_cards << Card.new(question, answer, category)
     end
-    hold_3
+    made_cards
   end
 
 end
