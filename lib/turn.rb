@@ -16,6 +16,5 @@ attr_reader :guess, :card
     else
       "Incorrect."
     end
-  end
-
+  end 
 end
