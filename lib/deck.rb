@@ -10,10 +10,9 @@ class Deck
   end
 
   def cards_in_category(category)
-    expected = []
-    cards.find_all do |card|
+    expected = cards.find_all do |card|
       if card.category == category
-        expected << card
+        card
       end
     end
   end
