@@ -20,15 +20,11 @@ class Round
   def initialize_setup
     @current_card = 0
     @total_cards = count
-    @correct_vocabulary = []
-    @total_vocabulary = 3
-    @correct_trivia = []
-    @total_trivia = 1
+    @correct_category = []
     @guesses = []
     @number_correct = 0
-    @turns = []
+    @correct_guesses = []
     @new_guess = new_guess
-    @category_correct = []
   end
   def count
     deck.cards.count
@@ -44,17 +40,15 @@ class Round
   def next_card
     if @new_guess.correct?
       @number_correct += 1
-      if new_guess.card.category == :Vocabulary
-        @correct_vocabulary << @new_guess
-      elsif new_guess.card.category == :Trivia
-        @correct_trivia << @new_guess
+      if new_guess.card.category == current_card.category
+        @correct_category << @new_guess
       end
-      @turns << @new_guess
+      @correct_guesses << @new_guess
     end
     @current_card += 1
   end
   def number_correct_by_category(find_card)
-    turns.select do |turn|
+    @correct_guesses.select do |turn|
       turn.card.category == find_card
     end
   end
@@ -64,10 +58,18 @@ class Round
     end
   end
   def percent_correct
-    (number_correct.to_f.round(1) / total_cards.to_f.round(1)) * 100
+    ((number_correct.to_f.round(1) / total_cards.to_f.round(1)) * 100).round(1)
   end
   def percent_correct_by_category(category)
     ((number_correct_by_category(category).count.to_f / total_by_category(category).count.to_f) * 100).round(1)
+  end
+  def unique_categories
+    deck.cards.map do |select_category|
+      select_category.category
+    end
+  end
+  def category
+    unique_categories.uniq
   end
   def start_round
     p "Welcome! You're playing with #{count} cards"
@@ -85,7 +87,8 @@ class Round
     end
     p "************ GAME OVER ************"
     p "You had #{@number_correct} correct guesses out of #{count} for a total score of #{percent_correct}%"
-    p "In Vocabulary, you had #{number_correct_by_category(":Vocabulary").count} out of #{total_by_category(":Vocabulary").count}, for a score of #{percent_correct_by_category(":Vocabulary")}%"
-    p "In Trivia, you had #{number_correct_by_category(":Trivia").count} out of #{total_by_category(":Trivia").count}, for a score of #{percent_correct_by_category(":Trivia")}%"
+    category.each do |results|
+    p "In #{results}, you had #{number_correct_by_category(results).count} out of #{total_by_category(results).count}, for a score of #{percent_correct_by_category(results)}%"
+    end
   end
 end

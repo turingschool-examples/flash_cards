@@ -4,26 +4,31 @@ require './lib/turn.rb'
 require './lib/round.rb'
 require './lib/card_generator.rb'
 require 'pry'
-# card_1 = Card.new("What is a name that associates with a particular object?", "Variable", :Vocabulary)
-# card_2 = Card.new("Behavior an object can do is a?", "Method", :Vocabulary)
-# card_3 = Card.new("What is an ordered, integer-indexed collection of any object?", "Array", :Vocabulary)
-# card_4 = Card.new("What is my sons Favorite Movie?", "Iron Giant", :Trivia)
-# deck = Deck.new([card_1, card_2, card_3, card_4])
-# round = Round.new(deck)
-filename = File.readlines("././cards.txt")
-cards = CardGenerator.new(filename).cards
-deck = Deck.new(cards)
-round = Round.new(deck)
-
+p "Welcome to the Flash Card Generator."
+p "Following a few simple instructions,"
+p "you can create a deck of flash cards to study."
+p "or a fun game of Trivia.  You decide."
+p "First, you need a .txt document with the"
+p "flash card info.  Follow the instructions"
+p "in the readme.txt file to setup the .txt file."
 loop do
   puts "START NEW GAME?"
   p "YES"
   p "NO"
   response = gets.chomp.upcase
   if response == "YES"
+    p "If you created a deck, enter the filename.txt here,
+    other wise press enter to play with default Deck."
+    file = gets.chomp
+    if file.empty?
+      file = "./cards.txt"
+    end
+    filename = File.readlines(file)
+    cards = CardGenerator.new(filename).cards
+    deck = Deck.new(cards)
+    round = Round.new(deck)
     round.initialize_setup
     round.start_round
-    binding.pry
   elsif response == "NO"
     break
   end

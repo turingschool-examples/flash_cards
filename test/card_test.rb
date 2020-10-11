@@ -13,7 +13,7 @@ class CardTest < Minitest::Test
   end
   def test_it_has_an_answer
     card = Card.new("What is a name that associates with a particular object?", "Variable", :Vocabulary)
-    assert_equal "Variable", card.answer
+    assert_equal "VARIABLE", card.answer
   end
   def test_it_has_a_category
     card = Card.new("What is a name that associates with a particular object?", "Variable", :Vocabulary)

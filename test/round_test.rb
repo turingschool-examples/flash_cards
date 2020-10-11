@@ -21,6 +21,6 @@ class RoundTest < MiniTest::Test
     round.next_card
     new_turn = round.take_turn("IRON")
     round.next_card
-    binding.pry
+    assert_instance_of Round, round
   end
 end

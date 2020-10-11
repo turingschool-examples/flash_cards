@@ -1,7 +1,0 @@
-After getting the card_test and card files to pass the test.  Planned
-and wrote mini tests for the turn_test based on the methods that are
-required to pass / fail.
-
-Wrote the turn.rb to pass the tests.
-
-refactored the turn.rb file to pass the pry tests.
