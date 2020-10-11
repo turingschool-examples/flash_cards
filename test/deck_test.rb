@@ -14,17 +14,17 @@ class DeckTest < MiniTest::Test
   end
 
   def test_it_exists
-    deck = Deck.new(cards)
+    @deck = Deck.new(cards)
 
     assert_instance_of Deck, deck
   end
 
   def test_it_has_cards
-    assert_equal [@card_1, @card_2, @card_3], deck.cards
+    assert_equal [@card_1, @card_2, @card_3], @deck.cards
   end
 
   def test_amount_of_cards
-    assert_equal 3, deck.count
+    assert_equal 3, @deck.count
   end
 
   def test_card_category

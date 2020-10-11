@@ -1,10 +1,10 @@
-require './lib/card.rb'
+require './lib/card'
 
 class Deck
   attr_reader :cards
 
   def initialize(cards)
-    @cards = []
+    @cards = cards
   end
 
   def count
@@ -13,5 +13,5 @@ class Deck
 
   def cards_in_category(category)
     cards.find_all { |card| card.category == category }
-  end 
+  end
 end
