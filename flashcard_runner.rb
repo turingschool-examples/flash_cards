@@ -3,7 +3,6 @@ require './lib/deck.rb'
 require './lib/turn.rb'
 require './lib/round.rb'
 require './lib/card_generator.rb'
-require 'pry'
 
 p "Welcome to the Flash Card Generator!"
 loop do
@@ -18,6 +17,7 @@ loop do
     if file.empty?
       file = "./cards.txt"
     end
+
     until File.exist?(file)
       p "It looks like that file does not exist."
       p "Try typing the name again."
@@ -29,8 +29,7 @@ loop do
     cards = CardGenerator.new(filename).cards
     deck = Deck.new(cards)
     round = Round.new(deck)
-    round.initialize_setup
-    round.start_round
+    round.start
   elsif response == "NO"
     break
   end

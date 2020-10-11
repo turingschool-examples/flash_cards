@@ -1,108 +1,69 @@
-require "pry"
 class Round
   attr_reader :deck,
-              :number_correct,
               :guesses,
-              :new_guess,
-              :turns,
-              :total_cards,
-              :total_vocabulary,
-              :correct_vocabulary,
-              :total_trivia,
-              :correct_trivia
+              :correct_guesses
 
   def initialize(deck)
     @deck = deck
-    initialize_setup
-  end
-
-  def reset_initialize
-    initialize_setup
-  end
-
-  def initialize_setup
-    @current_card = 0
-    @total_cards = count
-    @correct_category = []
     @guesses = []
-    @number_correct = 0
     @correct_guesses = []
-    @new_guess = new_guess
   end
 
-  def count
-    deck.cards.count
+  def reset_guesses
+    @guesses = []
+    @correct_guesses = []
   end
 
-  def current_card
-    deck.cards[@current_card]
-  end
-
-  def take_turn(guess)
-    @new_guess = Turn.new(guess, current_card)
-    @guesses << @new_guess
-    new_guess
-  end
-
-  def next_card
-    if @new_guess.correct?
-      @number_correct += 1
-      if new_guess.card.category == current_card.category
-        @correct_category << @new_guess
-      end
-      @correct_guesses << @new_guess
+  def take_turn(guess, current_card)
+    new_guess = Turn.new(guess, current_card)
+    @guesses << new_guess
+    if new_guess.correct?
+      @correct_guesses << new_guess
     end
-    @current_card += 1
+  end
+
+  def correct_guess_count
+    correct_guesses.count
   end
 
   def number_correct_by_category(find_card)
-    @correct_guesses.select do |turn|
+    @correct_guesses.count do |turn|
       turn.card.category == find_card
     end
   end
 
   def total_by_category(find_cards)
-    guesses.select do |guess|
+    guesses.count do |guess|
       guess.card.category == find_cards
     end
   end
 
   def percent_correct
-    ((number_correct.to_f.round(1) / total_cards.to_f.round(1)) * 100).round(1)
+    ((correct_guess_count / deck.count) * 100).round(1)
   end
 
   def percent_correct_by_category(category)
-    ((number_correct_by_category(category).count.to_f / total_by_category(category).count.to_f) * 100).round(1)
+    ((number_correct_by_category(category) / total_by_category(category)) * 100).round(1)
   end
 
-  def unique_categories
-    deck.cards.map do |select_category|
-      select_category.category
-    end
-  end
-
-  def category
-    unique_categories.uniq
-  end
-
-  def start_round
-    p "Welcome! You're playing with #{count} cards"
+  def start
+    reset_guesses
+    p "Welcome! You're playing with #{deck.count} cards"
     p "---------------------------------------------"
-    deck.cards.each do |card|
-    p "This is card number #{@current_card + 1} out of #{count}."
-    p card.question
-    answer = gets.chomp
-    take_turn(answer)
-    next_card
-    sleep(0)
-    p "Checking Answer"
-    sleep(1)
-    p @guesses.last.feedback
+    deck.cards.each_with_index do |card, index|
+      p "This is card number #{index + 1} out of #{deck.count}."
+      p card.question
+      answer = gets.chomp
+      take_turn(answer, card)
+      p "Checking Answer"
+      sleep(1)
+      p guesses.last.feedback
     end
     p "************ GAME OVER ************"
-    p "You had #{@number_correct} correct guesses out of #{count} for a total score of #{percent_correct}%"
-    category.each do |results|
-    p "In #{results}, you had #{number_correct_by_category(results).count} out of #{total_by_category(results).count}, for a score of #{percent_correct_by_category(results)}%"
+    p "You had #{correct_guess_count} correct guesses out of #{deck.count} for a total score of #{percent_correct}%"
+    deck.categories.each do |results|
+      p "In #{results}, you had #{number_correct_by_category(results)} out of "\
+        "#{total_by_category(results)}, for a score of #{percent_correct_by_category(results)}%"
     end
   end
 end

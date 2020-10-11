@@ -1,4 +1,3 @@
-require 'pry'
 class Turn
   attr_reader :guess, :card
 
@@ -10,7 +9,7 @@ class Turn
   def correct?
     @card.answer == @guess
   end
-  
+
   def feedback
     if correct?
       return "Correct!"
