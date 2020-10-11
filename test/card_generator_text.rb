@@ -8,12 +8,6 @@ require './lib/card_generator'
 
 class Test < Minitest::Test
 
-  def test_it_can_read_files
-    file = File.open("cards.txt")
+  def test_it_can_manage_files
   end
-
-  def test_it_can_create_cards
-    
-  end
-
 end
