@@ -1,26 +1,28 @@
 class Round
-  attr_reader :deck, :turns
+  attr_reader :deck, :turns, :correct_guess, :card_out
 
   def initialize(deck)
     @deck = deck
     @turns = []
+    @correct_guess = 0
+    @card_out = 0
   end
 
   def current_card
-    deck.cards.shift
+    deck.cards[card_out]
   end
 
   def take_turn(guess)
     new_turn = Turn.new(guess, current_card)
     turns.push(new_turn)
+    @card_out += 1
     new_turn
   end
 
   def number_correct
-    correct_guess = 0
     turns.each do |turn|
        if turn.feedback == "Correct!"
-        correct_guess += 1
+        @correct_guess += 1
        end
     end
     correct_guess
