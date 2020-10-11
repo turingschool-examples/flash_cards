@@ -11,11 +11,9 @@ class Round
   end
 
   def take_turn(guess)
-    rotate_to_next_turn
-    Turn.new(guess, current_card)
+    new_turn = Turn.new(guess, current_card)
+    @turns << new_turn
+    @turns.last
   end
 
-  def rotate_to_next_turn
-    @deck.cards.rotate
-  end
 end
