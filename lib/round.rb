@@ -26,9 +26,19 @@ class Round
     @turns.count do |turn|
     turn.correct? and (turn.card.category == in_category)
   end
-end
+ end
 
   def percent_correct
     100 * (number_correct.to_f / turns.count.to_f)
+  end
+
+  def percent_correct_by_category(cat)
+    x = @turns.count do |turn|
+      (turn.card.category == cat)
+    end
+    y = @turns.count do |turn|
+      turn.correct? and (turn.card.category == cat)
+    end
+    100.0 * (y / x)
   end
 end
