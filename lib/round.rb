@@ -16,6 +16,8 @@ class Round
     deck.cards[@current_card]
   end
 
+
+  def take_turn(guess)
     @new_turn = Turn.new(guess, current_card)
     @turns << @new_turn
     if @new_turn.correct?
