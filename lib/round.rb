@@ -1,9 +1,9 @@
 class Round
-  attr_reader :deck, :turns, :number_correct
+  attr_reader :deck, :turns, :amount_correct
   def initialize(deck)
     @deck = deck
     @turns = []
-    @number_correct = 0
+    @amount_correct = 0
   end
 
   def current_card
@@ -19,7 +19,8 @@ class Round
   def number_correct
     @turns.map do |turn|
       if turn.correct?
-        @number_correct += 1
+        @amount_correct += 1 
+        # && deck.cards.shift(0)
       end
     end
   end
