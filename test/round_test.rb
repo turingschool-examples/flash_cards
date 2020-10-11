@@ -86,7 +86,7 @@ class RoundTest < Minitest::Test
   end
 
   def test_it_can_count_total_turns
-    skip
+    # skip
     new_turn = @round.take_turn("Juneau")
     @round.take_turn("Venus")
     # binding.pry
