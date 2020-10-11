@@ -95,7 +95,7 @@ class RoundTest < Minitest::Test
   def test_new_current_card
     @round.take_turn("Juneau")
     @round.take_turn("Venus")
-    
+
     assert_equal @card_3, @round.current_card
   end
 end
