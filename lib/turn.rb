@@ -1,8 +1,10 @@
+require './lib/card.rb'
+
 class Turn
   attr_reader :guess,
               :card
 
-  def initiazlie(guess, card)
+  def initialize(guess, card)
     @guess = guess
     @card = card
   end
