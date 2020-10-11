@@ -31,7 +31,7 @@ class RoundTest < Minitest::Test
   end
 
   def test_turns_array_exists_and_is_nil
-    skip
+    # skip
     # binding.pry
 
     assert_equal [], @round.turns
