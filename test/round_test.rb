@@ -4,6 +4,7 @@ require './lib/card'
 require './lib/turn'
 require './lib/deck'
 require './lib/round'
+require 'pry'
 
 class RoundTest < Minitest::Test
 
@@ -117,6 +118,7 @@ class RoundTest < Minitest::Test
     end
 
     def test_correct_by_category
+
       card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
       card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
@@ -130,5 +132,5 @@ class RoundTest < Minitest::Test
       assert_equal 50.0, round.percent_correct
       assert_equal 100.0, round.percent_correct_by_category(:Geography)
       assert_equal card_3, round.current_card
-      end
+    end
 end

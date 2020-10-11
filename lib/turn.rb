@@ -11,7 +11,7 @@ class Turn #redoing everything with what I learned today
 
   def correct?
     is_correct = false
-    if @guess == card.answer
+    if @guess == @card.answer
     is_correct = true
     return is_correct
     else false
@@ -19,7 +19,7 @@ class Turn #redoing everything with what I learned today
   end
 
   def feedback
-    if @guess == card.answer
+    if @guess == @card.answer
     return  "Correct!"
     else
     return  "Incorrect."

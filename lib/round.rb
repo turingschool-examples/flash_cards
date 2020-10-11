@@ -9,20 +9,22 @@ class Round
     @deck = deck
     @turns = []
     @correct = 0
+    @current_card = 0
   end
 
   def current_card
-    @deck.cards.first #initially works with deck, but I'm thinking @deck will prevent problems in the future for different variables.
+    deck.cards[@current_card]
   end
 
 #take_turn needs to create a new turn, meaning we need to give it the information needed to create a turn a "guess" and a card.
   def take_turn(guess)
-    new_turn = Turn.new(guess, @deck.cards.shift)
-    @turns << new_turn
-    if new_turn.correct? == true
+    @new_turn = Turn.new(guess, current_card)
+    @turns << @new_turn
+    if @new_turn.correct?
       @correct += 1
     end
-    new_turn
+    @current_card += 1
+        @new_turn
   end
 
   def number_correct
@@ -41,8 +43,29 @@ class Round
     @correct.to_f / @turns.count * 100
   end
 
-  def percent_correct_by_category(category)
-    number_correct_by_category(category).to_f / @correct * 100
+  def unique_categories
+    deck.cards.map do |select_category|
+      select_category.category
+    end
   end
 
+  def new_sorting_method
+    new_deck = deck.sort_by { |card| [card.category]}
+  end
+
+
+  def unique_category_singular
+    unique_categories.uniq
+  end
+
+#redo, this isnt working in the runner for some reason
+  def percent_correct_by_category(category)
+    total_correct_in_category = 0
+    @turns.count do |card|
+      if category == card.card.category
+        total_correct_in_category += 1
+      end
+    end
+    number_correct_by_category(category).to_f / total_correct_in_category * 100
+  end
 end
