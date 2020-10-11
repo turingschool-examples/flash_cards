@@ -38,7 +38,7 @@ class RoundTest < Minitest::Test
   end
 
   def test_current_card_is_correct
-    skip
+    # skip
     # binding.pry
     assert_equal @deck.cards[0], @round.current_card
   end
