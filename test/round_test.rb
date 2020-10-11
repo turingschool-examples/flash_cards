@@ -94,7 +94,7 @@ class RoundTest < Minitest::Test
   end
 
   def test_it_can_feedback_is_accurate
-    skip
+    # skip
     new_turn = @round.take_turn("Juneau")
     @round.take_turn("Venus")
     # binding.pry
