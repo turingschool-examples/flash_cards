@@ -120,7 +120,7 @@ class RoundTest < Minitest::Test
   end
 
   def test_it_can_tell_current_card_again
-    skip
+    # skip
     new_turn = @round.take_turn("Juneau")
     @round.take_turn("Venus")
 # binding.pry
