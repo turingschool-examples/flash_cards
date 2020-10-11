@@ -16,4 +16,8 @@ What is my daughters Favorite Animal?,Unicorn!,:Trivia
 
 
 
+When you start the program, make sure to include .txt at the end of
+your file name.  Otherwise the program will not recognize the file
+and will run the default deck.
+
 You can include as many cards and categories as you want!  Enjoy!
