@@ -16,6 +16,6 @@ attr_reader :cards, :count
       if card.category == category
         expected << card
       end
-    end
   end
+end
 end
