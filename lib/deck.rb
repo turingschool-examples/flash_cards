@@ -10,10 +10,8 @@ class Deck
   end
 
   def cards_in_category(filter_category)
-    cat_cards = cards.find_all do |card|
-      card.category == filter_category  
+    cards.find_all do |card|
+      card.category == filter_category
     end
-    
-    cat_cards
   end
 end

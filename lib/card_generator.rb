@@ -1,4 +1,4 @@
-require './lib/card'
+require "./lib/card"
 
 class CardGenerator
   attr_reader :filename, :cards, :raw_data
@@ -18,10 +18,10 @@ class CardGenerator
 
   def create_cards(text_arr)
     @cards << text_arr.map do |card_text|
-      split_card_text = card_text.split(',')
+      split_card_text = card_text.split(",")
       Card.new(*split_card_text)
     end
-    
+
     @cards = @cards.flatten
   end
 end

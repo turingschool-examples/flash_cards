@@ -1,10 +1,10 @@
-require 'Minitest/autorun'
-require 'Minitest/pride'
-require './lib/deck'
-require './lib/card'
+require "Minitest/autorun"
+require "Minitest/pride"
+require "./lib/deck"
+require "./lib/card"
 
 class DeckTest < Minitest::Test
-  def test_it_exists 
+  def test_it_exists
     cards = []
     deck = Deck.new(cards)
     assert_instance_of Deck, deck
@@ -41,15 +41,8 @@ class DeckTest < Minitest::Test
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
 
-    stem_cards = [card_2]
-
-    # stem_cards = deck.cards_in_category(:STEM)
-    # require 'pry'; binding.pry
-
     assert_equal [card_2, card_3], deck.cards_in_category(:STEM)
     assert_equal [card_1], deck.cards_in_category(:Geography)
     assert_equal [], deck.cards_in_category("Pop Culture")
-
   end
-
 end

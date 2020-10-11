@@ -1,7 +1,7 @@
-require './lib/turn'
+require "./lib/turn"
 
 class Round
-attr_reader :deck, :turns, :card_tracker, :number_correct
+  attr_reader :deck, :turns, :card_tracker, :number_correct
 
   def initialize(deck)
     @deck = deck
@@ -23,20 +23,20 @@ attr_reader :deck, :turns, :card_tracker, :number_correct
   end
 
   def number_correct_by_category(ctgry)
-    correct = turns.select {|turn| turn.card.category == ctgry && turn.correct?}
+    correct = turns.select { |turn| turn.card.category == ctgry && turn.correct? }
     correct.count
   end
 
   def percent_correct
     total = turns.count.to_f
     correct = turns.select { |turn| turn.correct?}
-    percent = (correct.count / total) * 100
+    (correct.count / total) * 100
   end
 
   def percent_correct_by_category(category)
     correct_count = number_correct_by_category(category).to_f
-    cards_in_category = turns.select {|turn| turn.card.category == category}
-    percent = (correct_count / cards_in_category.count) * 100
+    cards_in_category = turns.select { |turn| turn.card.category == category }
+    (correct_count / cards_in_category.count) * 100
   end
 
   # ====Added for runner file support====
@@ -55,7 +55,7 @@ attr_reader :deck, :turns, :card_tracker, :number_correct
     
     puts "****** Game over! ******"
     puts "You had #{number_correct} correct guesses out of #{turns.length} for a total score of #{percent_correct.round}%."
-    print_category_stats()
+    print_category_stats
   end
 
   # ====Added for runner file support====
@@ -63,7 +63,7 @@ attr_reader :deck, :turns, :card_tracker, :number_correct
     categories = deck.cards.map do |card|
       card.category
     end
-    
+
     categories = categories.uniq
     categories.each do |category|
       puts "#{category} - #{percent_correct_by_category(category)}% correct."

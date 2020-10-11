@@ -12,12 +12,12 @@ class RoundTest < Minitest::Test
     @deck = Deck.new([@card_1, @card_2, @card_3])
     @round = Round.new(@deck)
   end
-  
+
   def test_it_exists
     assert_instance_of Round, @round
   end
 
-  def test_deck_is_passed_to_new_round     
+  def test_deck_is_passed_to_new_round
     assert_equal @deck, @round.deck
   end
 
@@ -33,7 +33,6 @@ class RoundTest < Minitest::Test
     new_turn = @round.take_turn("Juneau")
 
     assert_instance_of Turn, new_turn
-
   end
 
   def test_new_turn_is_correct
@@ -49,62 +48,62 @@ class RoundTest < Minitest::Test
   end
 
   def test_number_correct_is_incremented
-    new_turn = @round.take_turn("Juneau")
+    @round.take_turn("Juneau")
 
     assert_equal 1, @round.number_correct
   end
 
   def test_current_card_is_incremented
-    new_turn = @round.take_turn("Juneau")
+    @round.take_turn("Juneau")
 
     assert_equal @card_2, @round.current_card
   end
 
   def test_second_turn_is_counted
-    new_turn = @round.take_turn("Juneau")
-    second_turn = @round.take_turn("Venus")
+    @round.take_turn("Juneau")
+    @round.take_turn("Venus")
 
     assert_equal 2, @round.turns.count
   end
 
   def test_negative_feedback_is_returned
-    new_turn = @round.take_turn("Juneau")
-    second_turn = @round.take_turn("Venus")
+    @round.take_turn("Juneau")
+    @round.take_turn("Venus")
 
     assert_equal "Incorrect.", @round.turns.last.feedback
   end
 
   def test_number_correct_is_not_changed_by_wrong_answer
-    new_turn = @round.take_turn("Juneau")
-    second_turn = @round.take_turn("Venus")
+    @round.take_turn("Juneau")
+    @round.take_turn("Venus")
 
     assert_equal 1, @round.number_correct
   end
 
   def test_number_correct_by_category
-    new_turn = @round.take_turn("Juneau")
-    second_turn = @round.take_turn("Venus")
+    @round.take_turn("Juneau")
+    @round.take_turn("Venus")
 
     assert_equal 1, @round.number_correct_by_category(:Geography)
   end
 
   def test_percent_correct
-    new_turn = @round.take_turn("Juneau")
-    second_turn = @round.take_turn("Venus")
+    @round.take_turn("Juneau")
+    @round.take_turn("Venus")
 
     assert_equal 50.0, @round.percent_correct
   end
 
   def test_percent_correct_by_category
-    new_turn = @round.take_turn("Juneau")
-    second_turn = @round.take_turn("Venus")
+    @round.take_turn("Juneau")
+    @round.take_turn("Venus")
 
     assert_equal 100.0, @round.percent_correct_by_category(:Geography)
   end
 
   def test_current_card_after_two_rounds
-    new_turn = @round.take_turn("Juneau")
-    second_turn = @round.take_turn("Venus")
+    @round.take_turn("Juneau")
+    @round.take_turn("Venus")
 
     assert_equal @card_3, @round.current_card
   end
