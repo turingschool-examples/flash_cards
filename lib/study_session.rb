@@ -55,7 +55,7 @@ class StudySession
 
   def results_by_category
     find_categories.each do |category|
-      puts "#{category.to_s} - #{@round.percent_correct_by_category(category)}% correct"
+      puts "#{category.to_s} - #{@round.percent_correct_by_category(category).round(2)}% correct"
     end
   end
 end
