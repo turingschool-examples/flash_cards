@@ -17,7 +17,14 @@ loop do
     file = gets.chomp
     if file.empty?
       file = "./cards.txt"
+    elsif File.exist?(file)
+      file
+    elsif !File.exist?(file)
+      p "It looks like that file does not exist."
+      p "Try typing the name again."
+      file = gets.chomp
     end
+
     filename = File.readlines(file)
     cards = CardGenerator.new(filename).cards
     deck = Deck.new(cards)
