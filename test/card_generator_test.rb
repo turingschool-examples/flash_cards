@@ -14,4 +14,11 @@ class CardGeneratorTest < Minitest::Test
     assert_instance_of Array, cards
     assert_equal 5, cards.count
   end
+
+  def test_cards_in_order
+    filename = "cards.txt"
+    cards = CardGenerator.new(filename).cards
+
+    assert_equal "What is 5 + 5?", cards[0].question
+  end
 end
