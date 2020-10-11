@@ -25,4 +25,8 @@ class Round
       end
     end
   end
+
+  # def number_correct_by_category
+  #   @turns
+  # end
 end
