@@ -8,18 +8,19 @@ class CardGenerator
     arr_of_lines = nil
     arr_of_cards_attr = []
     arr_of_cards = []
+    # Store all lines into array
     File.open(@filename, 'r') do |file|
       arr_of_lines = file.readlines()
-      # read by line instead of storing all lines into array
     end
+    # Remove /n
     arr_of_lines = arr_of_lines.map do |line|
       line[0..-2]
-      # can split here, use each
     end
+    # Split by ','
     arr_of_lines.each do |line|
       arr_of_cards_attr << line.split(',')
-      # create cards here after split
     end
+    # Create array of cards and return array
     arr_of_cards_attr.each do |element|
       arr_of_cards << Card.new(element[0], element[1], element[2].to_sym)
     end
