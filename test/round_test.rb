@@ -54,7 +54,7 @@ class RoundTest < Minitest::Test
   end
 
   def test_it_can_create_the_correct_turn
-    skip
+    # skip
     new_turn = @round.take_turn("Juneau")
     # binding.pry
 
