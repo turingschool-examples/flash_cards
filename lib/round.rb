@@ -30,13 +30,19 @@ class Round
   end
 
   def number_correct_by_category(category)
-    if new_turn.correct? == true
-      
+    turns.count do |turn| #use count instead of each, each returns the whole card
+      if turn.card.category == category && turn.correct? == true
+        turn.card.category
+      end
+    end
   end
 
   def percent_correct
     @correct.to_f / @turns.count * 100
   end
 
+  def percent_correct_by_category(category)
+    number_correct_by_category(category).to_f / @correct * 100
+  end
 
 end
