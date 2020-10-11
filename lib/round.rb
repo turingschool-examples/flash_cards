@@ -43,4 +43,10 @@ class Round
       turn.card.category == category
     end.count
    end
+
+   def start
+     puts "Welcome! You're playing with #{@deck.cards.count} cards."
+     puts "-------------------------------------------------"
+     puts "This is card number #{@turns.count + 1} out of #{@deck.cards.count}."
+   end
 end

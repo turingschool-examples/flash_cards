@@ -16,8 +16,4 @@ require './lib/round'
 
   round = Round.new(deck)
 
-
-
-  puts "Welcome! You're playing with #{cards.length} cards."
-  puts "-------------------------------------------------"
-  puts "This is card number ____  out of #{cards.length}."
+  round.start
