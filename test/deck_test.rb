@@ -10,14 +10,17 @@ class DeskTest < MiniTest::Test
     card_1 = Card.new("What is a name that associates with a particular object?", "Variable", :Vocabulary)
     assert_instance_of Card, card_1
   end
+
   def test_card_2
     card_2 = Card.new("Behavior an object can do is a?", "Method", :Vocabulary)
     assert_instance_of Card, card_2
   end
+
   def test_card_3
     card_3 = Card.new("What is an ordered, integer-indexed collection of any object?", "Array", :Vocabulary)
     assert_instance_of Card, card_3
   end
+  
   def test_deck_count
     card_1 = Card.new("What is a name that associates with a particular object?", "Variable", :Vocabulary)
     card_2 = Card.new("Behavior an object can do is a?", "Method", :Vocabulary)
