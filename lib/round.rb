@@ -11,22 +11,24 @@ class Round
   end
 
   def take_turn(guess)
-  new_turn = Turn.new(guess, current_card)
-  @turns << new_turn
-  @turns.last
+   new_turn = Turn.new(guess, current_card)
+   @turns << new_turn
+   @turns.last
   end
 
   def number_correct
     @turns.count do |turn|
       turn.correct?
-   end
+    end
   end
 
   def number_correct_by_category(in_category)
     @turns.count do |turn|
     turn.correct? and (turn.card.category == in_category)
+  end
+end
 
-    end
-    # require "pry"; binding.pry
+  def percent_correct
+    100 * (number_correct.to_f / turns.count.to_f)
   end
 end
