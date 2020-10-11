@@ -4,6 +4,7 @@ require 'minitest/pride'
 require_relative '../lib/card'
 require_relative '../lib/deck'
 require_relative '../lib/round'
+require_relative '../lib/turn'
 
 class RoundTest < Minitest::Test
 
@@ -43,7 +44,7 @@ class RoundTest < Minitest::Test
        card_3 = Card.new("Describe in words the exact direction that is 697.5°
           clockwise from due north?", "North north west", :STEM)
        cards = []
-       binding.pry 
+       binding.pry
        cards << card_1
        cards << card_2
        cards << card_3
