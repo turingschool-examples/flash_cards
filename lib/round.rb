@@ -1,3 +1,4 @@
+require "pry"
 class Round
 
   attr_reader :deck, :turns
@@ -19,22 +20,32 @@ class Round
 
   def number_correct
     # is there a simpler way to do this without each? figure it out!
-    count = 0
-    turns.each do |turn|
-      if turn.correct?
-      count += 1
-      end
+    @turns.count do |turn|
+      turn.correct?
     end
-    count
   end
 
   def number_correct_by_category(cat)
-    cat_correct = []
-    turns.find_all do |turn|
-      if card.category == cat
-        cat_correct << turn
+    @turns.count do |turn|
+      turn.correct? and (turn.card.category == cat)
       end
-    end
-    cat_correct.count
   end
+
+  def percent_correct
+    # binding.pry
+    100 * (number_correct.to_f / turns.count)
+  end
+
+  def percent_correct_by_category(cat)
+#number_correct_by_category(cat) / @turns.map.count do |turn|
+#(turn.card.category == cat) * 100.0
+    x = @turns.count do |turn|
+      (turn.card.category == cat)
+    end
+    y = @turns.count do |turn|
+      turn.correct? and (turn.card.category == cat)
+    end
+    100.0 * (y / x)
+  end
+  # binding.pry
 end
