@@ -28,7 +28,7 @@ class Test < Minitest::Test
   def test_feedback_incorrect
     card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
     turn = Turn.new("Saturn", card)
-    assert_equal "Incorrect", turn.feedback
+    assert_equal "Incorrect.", turn.feedback
   end
 
   def test_feedback_correct
