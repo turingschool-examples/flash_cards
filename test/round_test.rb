@@ -112,7 +112,7 @@ class RoundTest < Minitest::Test
   end
 
   def test_it_can_provide_percent_correct
-    skip
+    # skip
     new_turn = @round.take_turn("Juneau")
     @round.take_turn("Venus")
     assert_equal 50.0, @round.percent_correct
