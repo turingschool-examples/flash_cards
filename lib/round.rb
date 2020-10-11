@@ -16,8 +16,6 @@ class Round
     deck.cards[@current_card]
   end
 
-#take_turn needs to create a new turn, meaning we need to give it the information needed to create a turn a "guess" and a card.
-  def take_turn(guess)
     @new_turn = Turn.new(guess, current_card)
     @turns << @new_turn
     if @new_turn.correct?
@@ -49,16 +47,10 @@ class Round
     end
   end
 
-  def new_sorting_method
-    new_deck = deck.sort_by { |card| [card.category]}
-  end
-
-
   def unique_category_singular
     unique_categories.uniq
   end
 
-#redo, this isnt working in the runner for some reason
   def percent_correct_by_category(category)
     total_correct_in_category = 0
     @turns.count do |card|
