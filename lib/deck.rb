@@ -6,7 +6,7 @@ attr_reader :cards, :count
   end
 
   def count
-    @cards.length
+    @cards.count
   end
 
   def cards_in_category(category)
@@ -16,6 +16,6 @@ attr_reader :cards, :count
       if card.category == category
         expected << card
       end
-    end
   end
+end
 end
