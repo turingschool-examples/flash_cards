@@ -102,7 +102,7 @@ class RoundTest < Minitest::Test
   end
 
   def test_it_can_provide_number_correct_guesses_total_and_by_category
-    skip
+    # skip
     new_turn = @round.take_turn("Juneau")
     @round.take_turn("Venus")
     # binding.pry
