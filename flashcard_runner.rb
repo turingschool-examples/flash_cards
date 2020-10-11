@@ -13,15 +13,15 @@ loop do
   response = gets.chomp.upcase
   if response == "YES"
     p "If you created a deck, enter the filename.txt here,"
-    p "other wise press enter to play with default Deck."
+    p "otherwise press enter to play with default Deck."
     file = gets.chomp
     if file.empty?
       file = "./cards.txt"
-    elsif File.exist?(file)
-      file
-    elsif !File.exist?(file)
+    end
+    until File.exist?(file)
       p "It looks like that file does not exist."
       p "Try typing the name again."
+      p "Be sure to include .txt on the end"
       file = gets.chomp
     end
 
