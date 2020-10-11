@@ -31,20 +31,20 @@ class RoundTest < Minitest::Test
   end
 
   def test_turns_array_exists_and_is_nil
-    # skip
+    skip
     # binding.pry
 
     assert_equal [], @round.turns
   end
 
   def test_current_card_is_correct
-    # skip
+    skip
     # binding.pry
     assert_equal @deck.cards[0], @round.current_card
   end
 
   def test_it_can_initiate_turn_with_guess
-    # skip
+    skip
     new_turn = @round.take_turn("Juneau")
     # binding.pry
 
@@ -54,7 +54,7 @@ class RoundTest < Minitest::Test
   end
 
   def test_it_can_create_the_correct_turn
-    # skip
+    skip
     new_turn = @round.take_turn("Juneau")
     # binding.pry
 
@@ -62,7 +62,7 @@ class RoundTest < Minitest::Test
   end
 
   def test_it_can_record_and_return_turns
-    # skip
+    skip
     new_turn = @round.take_turn("Juneau")
     # binding.pry
 
@@ -70,7 +70,7 @@ class RoundTest < Minitest::Test
   end
 
   def test_it_can_tell_how_many_guesses_have_been_correct
-    # skip
+    skip
     new_turn = @round.take_turn("Juneau")
     # binding.pry
 
@@ -78,7 +78,7 @@ class RoundTest < Minitest::Test
   end
 
   def test_it_can_tell_what_current_card_is_after_a_turn
-    # skip
+    skip
     new_turn = @round.take_turn("Juneau")
     # binding.pry
 
@@ -86,7 +86,7 @@ class RoundTest < Minitest::Test
   end
 
   def test_it_can_count_total_turns
-    # skip
+    skip
     new_turn = @round.take_turn("Juneau")
     @round.take_turn("Venus")
     # binding.pry
@@ -94,7 +94,7 @@ class RoundTest < Minitest::Test
   end
 
   def test_it_can_feedback_is_accurate
-    # skip
+    skip
     new_turn = @round.take_turn("Juneau")
     @round.take_turn("Venus")
     # binding.pry
@@ -102,7 +102,7 @@ class RoundTest < Minitest::Test
   end
 
   def test_it_can_provide_number_correct_guesses_total_and_by_category
-    # skip
+    skip
     new_turn = @round.take_turn("Juneau")
     @round.take_turn("Venus")
     # binding.pry
@@ -112,7 +112,7 @@ class RoundTest < Minitest::Test
   end
 
   def test_it_can_provide_percent_correct
-    # skip
+    skip
     new_turn = @round.take_turn("Juneau")
     @round.take_turn("Venus")
     assert_equal 50.0, @round.percent_correct
@@ -120,7 +120,7 @@ class RoundTest < Minitest::Test
   end
 
   def test_it_can_tell_current_card_again
-    # skip
+    skip
     new_turn = @round.take_turn("Juneau")
     @round.take_turn("Venus")
 # binding.pry
