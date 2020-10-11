@@ -70,7 +70,7 @@ class RoundTest < Minitest::Test
   end
 
   def test_it_can_tell_how_many_guesses_have_been_correct
-    skip
+    # skip
     new_turn = @round.take_turn("Juneau")
     # binding.pry
 
