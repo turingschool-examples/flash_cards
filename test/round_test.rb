@@ -78,7 +78,7 @@ class RoundTest < Minitest::Test
   end
 
   def test_it_can_tell_what_current_card_is_after_a_turn
-    skip
+    # skip
     new_turn = @round.take_turn("Juneau")
     # binding.pry
 
