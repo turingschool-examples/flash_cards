@@ -13,3 +13,19 @@ def start
   @deck = Deck.new(@cards)
   @round = Round.new(@deck)
 end
+
+puts start
+
+puts "Welcome! You're playing with #{@cards.count} cards.
+-------------------------------------------------"
+
+until @round.turns.count == @cards.count
+  puts "This is card number #{@round.turns.length + 1} out of #{@cards.count}."
+  puts "Question: #{@round.current_card.question}"
+
+  print "Guess > "
+  new_turn = @round.take_turn($stdin.gets.chomp)
+
+  new_turn.feedback
+end
+# binding.pry
