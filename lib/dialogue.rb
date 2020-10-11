@@ -32,7 +32,8 @@ def display_score(category, round)
   puts "#{category} - #{round.percent_correct_by_category(category)}% correct"
 end
 
-def display_percentages(round)
+def display_percentages(round, total_cards)
+  puts "You had #{round.number_correct} correct guesses out of #{total_cards} for a total score of #{round.percent_correct.to_i}%."
   categories = []
   round.turns.each do |turn|
     categories << turn.card.category

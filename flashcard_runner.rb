@@ -28,4 +28,4 @@ end
 game_over()
 
 # this displays the score percentage for each category the player answered from during the round.
-display_percentages(round)
+display_percentages(round, total_cards)
