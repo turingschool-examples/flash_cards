@@ -45,7 +45,7 @@ class Round
     y = @turns.count do |turn|
       turn.correct? and (turn.card.category == cat)
     end
-    100.0 * (y / x)
+    100.0 * (y.to_f / x.to_f)
   end
   # binding.pry
 end
