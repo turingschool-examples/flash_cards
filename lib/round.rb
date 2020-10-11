@@ -1,7 +1,4 @@
 
-require 'pry'
-
-
 class Round
     attr_reader :deck , :turns , :number_correct 
     def initialize(deck, turns = [])

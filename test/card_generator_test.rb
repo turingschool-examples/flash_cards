@@ -1,6 +1,6 @@
 require './lib/card_generator'
 require 'minitest/autorun'
-require 'pry'
+
 class CardGeneratorTest < Minitest::Test
     
     def test_it_exists
