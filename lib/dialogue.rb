@@ -16,6 +16,7 @@ def question(round)
   puts "Question: #{round.current_card.question}"
 end
 
+# This is the logic of the game. It returns an instance of Turn, which stores the guess, whether the guess is correct, and the card itself.
 def flip_card(total_cards, cards_left, round)
   card_dialogue(total_cards, cards_left)
   question(round)

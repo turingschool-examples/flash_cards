@@ -13,11 +13,12 @@ total_cards = deck.count
 cards_left = total_cards
 
 # In lieu of a start method, I have abstracted all the actual methods to play the game into ./lib/dialogue.rb
+# I have chosen to do it this way, so if you wanted to add additional rounds, all of the code below with the removal of the game over piece, could be placed into it's own class.
 
 # from dialogue, this takes the number of cards and prints a welcome message
 welcome(total_cards)
 
-# again from dialogue, this runs the game by doing one card at a time until there are no cards left to flip over
+# again from dialogue, flip_card runs the game by doing one card at a time until there are no cards left to flip over
 until cards_left == 0
   puts flip_card(total_cards, cards_left, round).feedback
   cards_left += -1
