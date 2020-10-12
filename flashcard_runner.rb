@@ -12,30 +12,29 @@ def start
   card_4 = Card.new("Question: What cardboard cutout lives at Turing?", "Justin Bieber", :cutouts)
   deck = Deck.new([card_1, card_2, card_3, card_4])
   round = Round.new(deck)
+  # new_turn = round.take_turn("10")
   # puts "What is your name?"
   # name = gets.chomp
   # puts "#{name}, how many cards would you like to play with?"
   # cards = gets.chomp
   # puts "Welcome! You're playing with #{cards} cards."
   # require "pry"; binding.pry
+  # def turn_number
+  #   turn_number_count = 0
+  #   # round.take_turn == turn_number_count
+  #   deck.each do |turn_num|
+  #     turn_num.count
+  #   end
+  # end
 
+require "pry"; binding.pry
   puts "Welcome! You're playing with #{round.deck.count} cards."
   puts "-------------------------------------------------"
 
-  puts "This is card number #{deck.cards.count} out of #{round.deck.count}."
+  puts "This is card number #{round.turn_number} out of #{deck.new.count}."
   puts "Question: What is 5 + 5?"
-  #
-  # gets.chomp
+  gets.chomp
 
-
-  #create cards
-  #put those cards in a deck
-  #make new Round using the created deck
-
-
-  # puts "This is card number #{cards[0]} out of #{cards.count}"
-  # puts "Question: What is #{5} + #{5}?"
-  #
 end
 
 start
