@@ -12,6 +12,10 @@ class Deck
   end
 
   def cards_in_category(category)
-    cards.map { |card| card.category == category }
+    cards.select do |card|
+      if card.category == category
+        card
+      end
+    end
   end
 end
