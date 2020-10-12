@@ -1,3 +1,4 @@
+require 'pry'
 class Round
   attr_reader :deck,
               :guesses,
@@ -14,8 +15,8 @@ class Round
     @correct_guesses = []
   end
 
-  def take_turn(guess, current_card)
-    new_guess = Turn.new(guess, current_card)
+  def take_turn(answer, current_card)
+    new_guess = Turn.new(answer, current_card)
     @guesses << new_guess
     if new_guess.correct?
       @correct_guesses << new_guess
@@ -39,11 +40,11 @@ class Round
   end
 
   def percent_correct
-    ((correct_guess_count / deck.count) * 100).round(1)
+    ((correct_guess_count.to_f / deck.count.to_f) * 100).round(1)
   end
 
   def percent_correct_by_category(category)
-    ((number_correct_by_category(category) / total_by_category(category)) * 100).round(1)
+    ((number_correct_by_category(category).to_f / total_by_category(category).to_f) * 100).round(1)
   end
 
   def start
@@ -59,6 +60,7 @@ class Round
       sleep(1)
       p guesses.last.feedback
     end
+    binding.pry
     p "************ GAME OVER ************"
     p "You had #{correct_guess_count} correct guesses out of #{deck.count} for a total score of #{percent_correct}%"
     deck.categories.each do |results|
