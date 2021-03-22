@@ -1,4 +1,3 @@
-require './card'
 class Turn
     attr_accessor :guess, :card
 
