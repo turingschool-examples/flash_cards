@@ -1,6 +1,7 @@
 require './lib/card'
 require './lib/turn'
 require './lib/deck'
+require './lib/round'
 
 
 RSpec.describe Deck do
@@ -53,7 +54,7 @@ RSpec.describe Deck do
      deck = Deck.new(cards)
 
      expect(deck.cards_in_category("Pop Music")).to eq(0)
-   end 
+   end
 
 
 
