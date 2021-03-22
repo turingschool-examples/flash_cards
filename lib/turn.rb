@@ -8,6 +8,7 @@ class Turn
 
   def correct?
     return true if @guess == @card.answer
+    false
   end
 
   def feedback
