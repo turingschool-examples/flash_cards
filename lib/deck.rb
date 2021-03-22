@@ -5,6 +5,10 @@ class Deck
     @cards = cards
   end
 
+  def count
+    self.cards.length
+  end 
+
 
 
 end
