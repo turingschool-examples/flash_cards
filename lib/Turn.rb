@@ -1,0 +1,20 @@
+class Turn
+  def initialize(guess, card)
+    @guess = guess
+    @card = card
+  end
+
+  def guess
+    @guess
+  end
+
+  def correct?
+    @guess.casecmp?(@card.answer)
+  end
+
+  def feedback
+    return "Correct!" if correct?
+    return "Incorrect."
+  end
+
+end
