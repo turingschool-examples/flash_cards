@@ -17,6 +17,13 @@ RSpec.describe Turn do
     expect(turn.guess).to eq(answer)
   end
 
+  it 'has a card' do
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Juneau", card)
+
+    expect(turn.card).to be_instance_of(Card)
+  end
+
   it 'tests if guess is correct' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
@@ -24,14 +31,14 @@ RSpec.describe Turn do
     expect(turn.correct?).to eq(true)
   end
 
-  it 'tests if feedback is Correct' do
+  it 'tests if feedback returns \'Correct!\'' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
 
     expect(turn.feedback).to eq("Correct!")
   end
 
-  it 'tests if feedback is Incorrect.' do
+  it 'tests if feedback returns \'Incorrect.\'' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Denver", card)
 
