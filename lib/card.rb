@@ -6,4 +6,5 @@ class Card
     @answer = answer
     @catergory = catergory
   end
+
 end
