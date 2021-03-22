@@ -7,7 +7,22 @@ class Deck
 
   def count
     self.cards.length
-  end 
+  end
+
+  def categorize(subject)
+    new_category = @cards.select do |card|
+      card.category == subject
+    end
+    return new_category
+  end
+
+  def cards_in_category(subject)
+    new_category = self.categorize(subject)
+    return new_category.length
+  end
+
+
+
 
 
 
