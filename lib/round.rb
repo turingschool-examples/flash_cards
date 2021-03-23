@@ -1,4 +1,4 @@
-require 'turn'
+require './lib/turn'
 
 class Round
   attr_reader :deck, :current_card, :number_correct, :turns
