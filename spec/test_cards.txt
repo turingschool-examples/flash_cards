@@ -1,0 +1,4 @@
+Question 1,Answer 1,Category_A
+Question 2,Answer 2,Category_A
+Question 3,Answer 3,Category_B
+Question 4,Answer 4,Category_B
