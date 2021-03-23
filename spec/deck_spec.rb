@@ -12,20 +12,20 @@ RSpec.describe Deck do
     ]
   end
 
+  before(:each) do
+    @test_deck = Deck.new(@test_cards)
+  end
+
   it 'exists' do
-    test_deck = Deck.new(@test_cards)
-    expect(test_deck).to be_instance_of(Deck)
+    expect(@test_deck).to be_instance_of(Deck)
   end
 
   it 'returns the number of cards via count' do
-    test_deck = Deck.new(@test_cards)
-    expect(test_deck.count).to eq(4)
+    expect(@test_deck.count).to eq(4)
   end
 
   it 'returns the cards for a given category' do
-    test_deck = Deck.new(@test_cards)
-
-    cards = test_deck.cards_in_category(:Math)
+    cards = @test_deck.cards_in_category(:Math)
 
     expect(cards.length).to eq(2)
 
