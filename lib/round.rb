@@ -10,13 +10,11 @@ class Round
 
   def current_card
     @deck.cards[0]
-    # require 'pry'; binding.pry
   end
 
   def take_turn(guess)
     @turns << Turn.new(guess, current_card)
     @deck.cards.shift
-    # require 'pry'; binding.pry
     @turns.last
   end
 
@@ -27,5 +25,53 @@ class Round
       end
     end
     @number_correct_count
+  end
+
+  def percent_correct
+    result = (number_correct / @turns.count.to_f) * 100
+  end
+
+  def correct_card
+    correct = []
+    @turns.each do |turn|
+      if turn.correct? == true
+        correct << turn
+      end
+    end
+    correct
+  end
+
+  def correct_cards
+    array = []
+    @turns.each do |turn|
+      if turn.correct?
+        array << turn.card
+      end
+    end
+    array
+  end
+
+  def number_correct_by_category(category)
+    array = []
+    correct_cards.each do |card|
+      if card.category == (category)
+        array << card
+      end
+    end
+    array.count
+  end
+
+  def turns_by_category(category)
+    array = []
+    @turns.each do |turn|
+      if turn.card.category == category
+        array << turn
+      end
+    end
+    array.count
+  end
+
+  def percent_correct_by_category(category)
+    result = (number_correct_by_category(category) / turns_by_category(category)) * 100.0
   end
 end
