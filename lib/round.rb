@@ -9,7 +9,7 @@ class Round
     @current_card_index = 0
     @turns = []
     @number_correct = 0
-    @number_correct_in_category = {}
+    @number_correct_categories = {}
   end
 
   def take_turn(guess)
@@ -24,12 +24,12 @@ class Round
     @number_correct = @number_correct + 1 if guess_is_correct
     category = @current_card.category
 
-    if @number_correct_in_category[category] != nil
-      new_num = @number_correct_in_category[category] + 1
-      @number_correct_in_category[category] = new_num if guess_is_correct
+    if @number_correct_categories[category] != nil
+      new_num = @number_correct_categories[category] + 1
+      @number_correct_categories[category] = new_num if guess_is_correct
     else
-      @number_correct_in_category[category] = 1 if guess_is_correct
-      @number_correct_in_category[category] = 0 if not guess_is_correct
+      @number_correct_categories[category] = 1 if guess_is_correct
+      @number_correct_categories[category] = 0 if not guess_is_correct
     end
 
     @current_card_index = @current_card_index + 1
@@ -39,7 +39,7 @@ class Round
   end
 
   def number_correct_by_category(category)
-    @number_correct_in_category[category]
+    @number_correct_categories[category]
   end
 
   def percent_correct
@@ -47,9 +47,9 @@ class Round
   end
 
   def percent_correct_by_category(category)
-    correct_num = @number_correct_in_category[category]
+    correct_num = @number_correct_categories[category]
     total_cards = @deck.cards_in_category(category).length.to_f
-    
+
     (correct_num / total_cards) * 100.0
   end
 
