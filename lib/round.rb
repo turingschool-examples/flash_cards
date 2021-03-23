@@ -7,6 +7,11 @@ class Round
         @turns = []
     end
 
+    def start
+        pp @card.question
+        take_turn(gets.chomp)
+    end
+
     def take_turn(guess)
         @turn = Turn.new(guess, current_card)
         @turns << @turn
