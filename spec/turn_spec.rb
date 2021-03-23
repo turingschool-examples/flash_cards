@@ -3,7 +3,7 @@ require './lib/card'
 
 RSpec.describe Turn do
 
-  before(:each) do
+  before(:all) do
     @card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     @turn = Turn.new("Juneau", @card)
   end
