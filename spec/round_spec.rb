@@ -52,7 +52,7 @@ RSpec.describe Round do
     @test_round.take_turn("Denver")
     @test_round.take_turn("Sep 2, 1945")
     @test_round.take_turn("5")
-    @test_round.take_turn("144")
+    @test_round.take_turn("12")
     expect(@test_round.percent_correct).to eq(75.0)
   end
 
@@ -60,7 +60,7 @@ RSpec.describe Round do
     @test_round.take_turn("Denver")
     @test_round.take_turn("Sep 2, 1945")
     @test_round.take_turn("5")
-    @test_round.take_turn("144")
+    @test_round.take_turn("12")
     expect(@test_round.number_correct_by_category(:Math)).to eq(2)
     expect(@test_round.number_correct_by_category(:Geography)).to eq(0)
     expect(@test_round.number_correct_by_category(:History)).to eq(1)
@@ -70,7 +70,7 @@ RSpec.describe Round do
     @test_round.take_turn("Denver")
     @test_round.take_turn("Sep 2, 1945")
     @test_round.take_turn("5")
-    @test_round.take_turn("122")
+    @test_round.take_turn("13")
     expect(@test_round.percent_correct_by_category(:Math)).to eq(50.0)
     expect(@test_round.percent_correct_by_category(:Geography)).to eq(0)
     expect(@test_round.percent_correct_by_category(:History)).to eq(100)
