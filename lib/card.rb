@@ -1,21 +1,8 @@
 class Card
-
+  attr_accessor :question, :answer, :category
   def initialize(question, answer, category)
-    @question = "What is the capital of Alaska?"
-    @answer = "Juneau"
-    @category = :Geography
-
-  end
-
-  def question
-    "What is the capital of Alaska?"
-  end
-
-  def answer
-    "Juneau"
-  end
-
-  def category
-    @category
+    @question = question
+    @answer = answer
+    @category = category
   end
 end

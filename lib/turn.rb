@@ -1,29 +1,21 @@
 class Turn
 
-  def initialize(string, card)
-    @card = Card
-    @question = "What is the capital of Alaska"
-    @answer = "Juneau"
-    @category = :Geography
+  attr_accessor :guess, :card
+  def initialize(guess, card)
     @guess = guess
-    @feedback = feedback
-  end
-
-  def card
-    @card
-  end
-
-  def guess
-    "Juneau"
+    @card = card
   end
 
   def correct?
-    return true if @guess = "Juneau"
+    return true if @guess == card.answer
     false
   end
 
   def feedback
-    "Correct!"
+    if @guess == card.answer
+      "Correct!"
+    else
+      "Incorrect."
+    end
   end
-
 end
