@@ -13,31 +13,63 @@ RSpec.describe Round do
   end
 
   it 'exists' do
+    expect(@test_round).to be_instance_of(Round)
   end
 
   it 'has a current card to start' do
+    expect(@test_round.current_card).to be_truthy
   end
 
   it 'has a deck' do
+    expect(@test_round.deck).to be_instance_of(Deck)
   end
 
   it 'starts with no turns' do
+    expect(@test_round.turns).to match_array([])
   end
 
   it 'taking a turn returns an instance of a Turn and records it to turns' do
+    test_turn = @test_round.take_turn("Juneau")
+    expect(test_turn).to be_instance_of(Turn)
+
+    expect(@test_round.turns.length).to eq(1)
+    expect(@test_round.turns.first.guess).to eq(@test_turn.guess)
   end
 
   it 'tracks number of correct guesses' do
-  end
-  it 'calculates percent correct' do
+    @test_round.take_turn("Juneau")
+    expect(@test_round.number_correct).to eq(1)
 
+    @test_round.take_turn("Sep 2, 1946")
+    expect(@test_round.number_correct).to eq(1)
+  end
+
+  it 'calculates percent correct' do
+    @test_round.take_turn("Denver")
+    @test_round.take_turn("Sep 2, 1945")
+    @test_round.take_turn("5")
+    @test_round.take_turn("144")
+    expect(@test_round.percent_correct).to eq(75.0)
   end
 
   it 'returns number of correct guesses by category' do
-
+    @test_round.take_turn("Denver")
+    @test_round.take_turn("Sep 2, 1945")
+    @test_round.take_turn("5")
+    @test_round.take_turn("144")
+    expect(@test_round.number_correct_by_category(:Math)).to eq(2)
+    expect(@test_round.number_correct_by_category(:Geography)).to eq(0)
+    expect(@test_round.number_correct_by_category(:History)).to eq(1)
   end
 
   it 'returns percent correct by category' do
+    @test_round.take_turn("Denver")
+    @test_round.take_turn("Sep 2, 1945")
+    @test_round.take_turn("5")
+    @test_round.take_turn("122")
+    expect(@test_round.percent_correct_by_category(:Math)).to eq(50.0)
+    expect(@test_round.percent_correct_by_category(:Geography)).to eq(0)
+    expect(@test_round.percent_correct_by_category(:History)).to eq(100)
   end
 
 end
