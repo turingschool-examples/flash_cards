@@ -1,4 +1,7 @@
-Dir['./lib/*.rb'].each {|file| require file }
+require './lib/deck'
+require './lib/card'
+require './lib/turn'
+require './lib/round'
 
 RSpec.describe Round do
   before(:each) do
