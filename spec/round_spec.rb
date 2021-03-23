@@ -26,8 +26,12 @@ RSpec.describe Round do
     expect(@round.deck).to be_instance_of(Deck)
   end
 
-  it 'initializes an array' do
+  it 'initializes an empty array' do
     expect(@round.turns).to be_instance_of(Array)
   end
+
+  it 'can select single card from a deck' do
+    expect(@round.current_card).to be_instance_of(Card)
+  end 
 
 end

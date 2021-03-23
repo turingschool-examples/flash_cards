@@ -1,12 +1,20 @@
 require_relative 'card'
 require_relative 'deck'
+require_relative 'turn'
 
 class Round
-  attr_reader :deck, :turns
+  attr_reader :deck, :turns, :current_card
 
   def initialize(deck_in_play)
     @turns = []
     @deck = deck_in_play
+    @current_card = @deck.cards[0] # current card begins at the first card in the deck array
+
+  end
+
+  def take_turn(user_guess)
+    # Will have to work with the Turn class here
+    # specifically the guess method.
   end
 
 end
