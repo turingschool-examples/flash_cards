@@ -22,7 +22,7 @@ class Turn
 
     # Explicitly returning variables for testing purposes only--
     # --not needed to run program at all.
-    if self.correct? == true
+    if self.correct? # the == true comparison is superfluous 
       puts correct_response
       return correct_response
     else
