@@ -6,7 +6,13 @@ require './lib/card_generator'
 
 cards = CardGenerator.new('./cards.txt').cards
 
-categories = [:STEM, :Geology]
+categories = []
+
+cards.each do |card|
+  categories << card.category
+end
+
+categories = categories.uniq
 
 deck = Deck.new(cards)
 round = Round.new(deck)
