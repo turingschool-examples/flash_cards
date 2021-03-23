@@ -4,21 +4,15 @@ require './lib/card'
 require './lib/turn'
 require './lib/card_generator'
 
-puts "Welcome! You're playing with 4 cards."
-puts "-------------------------------------------------"
-
-cards = [
-  Card.new("What data structure does a Linked List implement?", "Graph", :STEM),
-  Card.new("Where are values stored?", "Variables", :STEM),
-  Card.new("What is an orogeny?", "Mountain Building Event", :Geology),
-  Card.new("What is molten rock called before it erupts to the surface?", "Magma", :Geology),
-  Card.new("What is the most common mineral on earth's surface?", "Quartz", :Geology)
-]
+cards = CardGenerator.new('./cards.txt').cards
 
 categories = [:STEM, :Geology]
 
 deck = Deck.new(cards)
 round = Round.new(deck)
+
+puts "Welcome! You're playing with #{deck.count} cards."
+puts "-------------------------------------------------"
 
 card_number = 1
 
