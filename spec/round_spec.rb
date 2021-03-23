@@ -28,6 +28,8 @@ RSpec.describe Round do
   end
 
   it 'tracks number of correct guesses' do
+  end
+  it 'calculates percent correct' do
 
   end
 
