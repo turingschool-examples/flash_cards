@@ -17,10 +17,10 @@ RSpec.describe Round do
   end
 
   it 'has a current card to start' do
-    expect(@test_round.current_card).to be_truthy
+    expect(@test_round.current_card).to be_instance_of(Card)
   end
 
-  it 'has a deck' do
+  it 'has a deck of cards' do
     expect(@test_round.deck).to be_instance_of(Deck)
   end
 
@@ -28,18 +28,19 @@ RSpec.describe Round do
     expect(@test_round.turns).to match_array([])
   end
 
-  it 'taking a turn returns an instance of a Turn and records it to turns' do
+  it 'returns an instance of a Turn after taking a turn' do
     test_turn = @test_round.take_turn("Juneau")
     expect(test_turn).to be_instance_of(Turn)
+  end
+
+  it 'taking a turn returns an instance of a Turn and records it to turns' do
+    test_turn = @test_round.take_turn("Juneau")
 
     expect(@test_round.turns.length).to eq(1)
-    expect(@test_round.turns.first.guess).to eq(@test_turn.guess)
   end
 
   it 'tracks number of correct guesses' do
     @test_round.take_turn("Juneau")
-    expect(@test_round.number_correct).to eq(1)
-
     @test_round.take_turn("Sep 2, 1946")
     expect(@test_round.number_correct).to eq(1)
   end
