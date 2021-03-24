@@ -4,8 +4,7 @@ require "./lib/deck"
 
 class Round
   attr_reader :turns,
-              :deck,
-              :current_card
+              :deck
 
   def initialize(deck)
     @deck = deck
@@ -25,31 +24,57 @@ class Round
     else
       "Error!!!"
     end
+    @current_card =+ 1
   end
 
   def current_card
     @deck[@current_card]
   end
 
-  def number_correct
+  def self.number_correct
     @turns.count do |turn|
       turn.correct?
     end
   end
 
-  def self.number_corret_by_category(category_correct)
-    @category_correct = category_correct
-    @turn_category_catch = @turns.select do |turn|
-      @turns[turn].category == @category_correct
-    end
-    @turn_category_catch.count do |turn| do
-      @turns[turn].correct?
+  def number_correct
+    self.number_correct
+  end
+
+  def self.number_corret_by_category(category_to_count_correct)
+    @category_to_count_correct = category_to_count_correct
+    @cards_turned_deck = Deck.new(@turns)
+    @category_cards_seen = @cards_turned_deck.cards_in_category(@category_to_count_correct)
+    @category_cards_seen.count do |turn|
+      turn.correct?
     end
   end
 
   def number_corret_by_category
+    self.number_corret_by_category(self)
+  end
+
+  def self.percent_correct
+    @deck_cards_seen = Deck.new(@turns)
+    (self.number_correct / @deck_cards_seen.count) * 100
+  end
 
   def percent_correct
+    self.percent_correct
+  end
 
+  def self.percent_correct_by_category(catagory_percent_check)
+    @catagory_percent_check = catagory_percent_check
+    @category_turn_deck = Deck.new(@turns)
+    @category_percent_correct = @category_turn_deck.cards_in_category(@catagory_percent_check)
+    @category_correct = @category_percent_correct.count do |turn|
+      turn.correct?
+    end
+    @category_total = @category_turn_deck.count
+    @category_percent_correct = (@category_correct / @category_total) * 100
+  end
 
+  def percent_correct_by_category
+    self.percent_correct_by_category
+  end
 end
