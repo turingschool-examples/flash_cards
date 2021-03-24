@@ -32,6 +32,38 @@ RSpec.describe Round do
 
   it 'can select single card from a deck' do
     expect(@round.current_card).to be_instance_of(Card)
-  end 
+  end
+
+  # This section was really confusing delving into the Turn class
+  describe 'turn functionality' do
+
+    it 'can take a turn' do
+      card1 = Card.new('Given x = 13 and y = 2, what is the result of x to the power of y?',
+      169, :Math)
+      user_guess = "Michael Franti"
+
+      turn_in_round = @round.take_turn(user_guess)
+      expect(turn_in_round).to be_instance_of(Turn)
+    end
+
+    it 'can detect incorrect guess' do
+      card1 = Card.new('Given x = 13 and y = 2, what is the result of x to the power of y?',
+      169, :Math)
+      incorrect_user_guess = "Michael Franti"
+
+      turn_in_round = @round.take_turn(incorrect_user_guess)
+      expect(turn_in_round.correct?).to eq(false)
+    end
+
+    it 'can detect correct guess' do
+      card1 = Card.new('Given x = 13 and y = 2, what is the result of x to the power of y?',
+      169, :Math)
+      correct_user_guess = 169
+
+      turn_in_round = @round.take_turn(correct_user_guess)
+      expect(turn_in_round.correct?).to eq(true)
+    end
+
+  end
 
 end
