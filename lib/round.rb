@@ -53,7 +53,7 @@ class Round
         puts "_-_-_-_-_-|Game Over|-_-_-_-_-_"
         puts "You had #{number_correct} correct guesses out of #{@turns.length} for a total score of #{percent_correct.round(2)}%".green
         @deck.categories.each do |cat|
-            puts "#{cat} - #{percent_correct_by_category(cat).}%"
+            puts "#{cat} - #{percent_correct_by_category(cat)}%"
         end
         
     end

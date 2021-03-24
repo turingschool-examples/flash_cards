@@ -14,8 +14,10 @@ class Turn
     def feedback()
         if correct?
             puts "Correct!".blue
+            "Correct!"
         else
             puts "Incorrect.".red
+            "Incorrect."
         end
     end
 end
