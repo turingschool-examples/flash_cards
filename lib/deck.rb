@@ -7,11 +7,11 @@ class Deck
     @cards = cards
   end
 
-  def cards_in_catagory(catagory)
-    @catagory_catch = []
-    @cards.select do |card| card.catagory == catagory
-      @catagory_catch.push(card)
+  def cards_in_category(category)
+    @category_catch = []
+    @cards.select do |card|
+      card.category == category
     end
-    @catagory_catch
+    # require "pry"; binding.pry
   end
 end
