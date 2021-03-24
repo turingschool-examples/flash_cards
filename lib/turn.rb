@@ -1,6 +1,6 @@
 class Turn
   attr_reader :guess,
-                  :card
+                   :card
 
   def initialize(guess, card)
     @guess = guess
