@@ -14,8 +14,6 @@ class Deck
     cards.each do |card|
       if card.category == category
         num_cards += 1
-      else
-       num_cards
      end
     end
     return num_cards
