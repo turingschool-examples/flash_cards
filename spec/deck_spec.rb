@@ -23,4 +23,6 @@ RSpec.describe Deck do
         deck = Deck.new(cards)
         expect(deck.cards_in_category(category).length).to eq(2)
     end
+
+    it 'have uniq array of categories'
 end

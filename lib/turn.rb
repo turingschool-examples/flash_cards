@@ -1,3 +1,4 @@
+# require 'colorize'
 class Turn
     attr_accessor :guess, :card
 
@@ -12,9 +13,9 @@ class Turn
 
     def feedback()
         if correct?
-            "Correct!"
+            puts "Correct!".blue
         else
-            "Incorrect."
+            puts "Incorrect.".red
         end
     end
 end

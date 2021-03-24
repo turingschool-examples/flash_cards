@@ -1,3 +1,5 @@
+# require 'colorize'
+
 class Round
     attr_reader :deck, :turn, :turns
 
@@ -8,17 +10,21 @@ class Round
     end
 
     def start
-        pp @card.question
-        take_turn(gets.chomp)
+        puts "Welcome! You are playing with #{@deck.cards.length+1} cards."
+        puts ">-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<".red
+        @deck.cards.length.times do |i|
+            puts "This is card #{i+1} out of #{@deck.cards.length}"
+            puts "Question: #{@card.question}".yellow
+            take_turn(gets.chomp)
+        end
+        game_over
     end
 
     def take_turn(guess)
         @turn = Turn.new(guess, current_card)
         @turns << @turn
-        if @card = @deck.cards[@deck.cards.index(@card)+1]
-        else 
-            puts "No more cards"
-        end
+        @turn.feedback
+        @card = @deck.cards[@deck.cards.index(@card)+1]
     end
 
     def current_card
@@ -41,5 +47,14 @@ class Round
     def percent_correct_by_category(category)
         l = @turns.select{|turn| turn.card.category == category}.length
         (number_correct_by_category(category).to_f / l.to_f) * 100
+    end
+
+    def game_over
+        puts "_-_-_-_-_-|Game Over|-_-_-_-_-_"
+        puts "You had #{number_correct} correct guesses out of #{@turns.length} for a total score of #{percent_correct.round(2)}%".green
+        @deck.categories.each do |cat|
+            puts "#{cat} - #{percent_correct_by_category(cat).}%"
+        end
+        
     end
 end

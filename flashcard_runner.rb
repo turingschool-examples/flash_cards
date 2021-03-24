@@ -1,3 +1,4 @@
+require 'colorize'
 require "./lib/card"
 require "./lib/deck"
 require "./lib/turn"
