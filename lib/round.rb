@@ -1,6 +1,6 @@
 require './lib/card'
-require "./lib/turn"
-require "./lib/deck"
+require './lib/turn'
+require './lib/deck'
 
 class Round
   attr_reader :turns,
@@ -19,8 +19,7 @@ class Round
       @turns.push(@new_turn)
       @new_turn
     elsif @current_card >= @deck.cards.count
-      puts "****** Game Over!******"
-      # puts "You had #{self.Round.number_correct} correct guesses out of #{@deck.cards.count} for a total core of #{}"
+      "****** Game Over!******"
     else
       "Error!!!"
     end
@@ -29,6 +28,12 @@ class Round
 
   def current_card
     @deck.cards[@current_card]
+  end
+
+  def cards_in_category(catagory_to_check)
+    @turns.count do |turn|
+      turn.card.category == catagory_to_check
+    end
   end
 
   def number_correct
@@ -48,8 +53,9 @@ class Round
   end
 
   def percent_correct
-    # @deck_cards_seen = Deck.new(@turns)
-    # (self.number_correct / @deck_cards_seen.count) * 100
+    @turns_guess_correct = @turns.count { |turn| turn.correct?}
+    @turns_taken = @turns.count
+    (@turns_guess_correct / @turns_taken) * 100
   end
 
   def percent_correct_by_category(catagory_percent_check)

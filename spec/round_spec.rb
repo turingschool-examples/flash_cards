@@ -2,7 +2,6 @@ require './lib/card'
 require './lib/deck'
 require './lib/turn'
 require './lib/round'
-require './lib/modules'
 
 
 RSpec.describe Round do
@@ -41,7 +40,7 @@ RSpec.describe Round do
     expect(round.turns).to eq([])
   end
 
-  it 'starts at with first card' do
+  it 'starts at the first card of the deck' do
     card1 = Card.new('What is the capital of CO?', 'Denver', :Geography)
     card2 = Card.new('What is the captial of Mexico?', 'Mexico City', :Geography)
     card3 = Card.new('What is the boiling point (degrees celcius) of water?', '100', :Science)
@@ -65,7 +64,7 @@ RSpec.describe Round do
     round = Round.new(deck)
 
     round.take_turn("Denver")
-require "pry"; binding.pry
+# require "pry"; binding.pry
     expect(round.current_card).to eq(cards[1])
     expect(round.turns[0].guess).to eq("Denver")
     expect(round.turns[0].correct?).to eq(true)
