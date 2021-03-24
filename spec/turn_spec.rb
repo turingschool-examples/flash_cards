@@ -1,33 +1,49 @@
 require './lib/card'
 require './lib/turn'
 
-Rspec.describe Turn do
+RSpec.describe Turn do
   it 'exists' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
     expect(turn).to be_instance_of(Turn)
     expect(card).to be_instance_of(Card)
-
   end
 
   it 'guesses' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-
-    expect(card.guess).to eq("Juneau")
+    turn = Turn.new("Juneau", card)
+    expect(turn.card).to eq(card)
+    expect(turn.guess).to eq("Juneau")
   end
 
-  it 'has an answer' do
+  it 'is true?' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-
-    expect(card.answer).to eq("Juneau")
+    turn = Turn.new("Juneau", card)
+    expect(turn.correct?).to eq(true)
   end
 
-  it ''
+  it 'is correct?' do
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Juneau", card)
+    expect(turn.feedback).to eq("Correct!")
+  end
 
+  it "has another guess" do
+    card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+    turn = Turn.new("Saturn", card)
+    expect(turn.card).to eq(card)
+    expect(turn.guess).to eq("Saturn")
+  end
 
+  it 'is correct?' do
+    card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+    turn = Turn.new("Saturn", card)
+    expect(turn.correct?).to eq(false)
+  end
 
-
-  # it 'provides feedback' do
-  #   expect(@turn_correct.feedback).to eq("Correct!")
-  #   expect(@turn_incorrect.feedback).to eq("Incorrect.")
-  # end
+  it 'has feedback' do
+    card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+    turn = Turn.new("Saturn", card)
+    expect(turn.feedback).to eq("Incorrect.")
+  end
+end
