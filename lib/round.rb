@@ -10,7 +10,7 @@ class Round
   end
 
   def current_card
-    turns_taken = self.turns.length
+    turns_taken = @turns.length
     @deck.cards[turns_taken]
   end
 
@@ -20,7 +20,42 @@ class Round
     if new_turn.correct? == true
       @number_correct += 1
     end
+    puts new_turn.feedback
     return new_turn
+  end
+
+  def start
+    puts "Welcome! You're playing with #{@deck.count} cards."
+    # 49.times do
+    #   print "-"
+    # end
+    puts "-------------------------------------------------"
+    rounds = deck.count
+    while rounds > 0 do
+      puts "This is card number #{turns.length + 1} out of #{deck.count}."
+      puts "Question: #{self.current_card.question}"
+      self.take_turn(gets.chomp)
+      rounds -= 1
+    end
+    self.game_summary
+  end
+
+  def game_summary
+    puts "****** Game over! ******"
+    puts "You had #{@number_correct} correct guesses out of #{deck.count} for a total score of #{self.percent_correct.round}%"
+    self.list_categories.each do |category|
+      puts "#{category} - #{percent_correct_by_category(category).round}% correct"
+    end
+  end
+
+  def list_categories
+    category_list = []
+    deck.cards.each do |card|
+      if category_list.include?(card.category) == false
+        category_list << card.category
+      end
+    end
+    return category_list
   end
 
   def number_correct_by_category(category)

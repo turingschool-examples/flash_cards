@@ -42,7 +42,7 @@ RSpec.describe Round do
     deck = Deck.new([card_1, card_2, card_3])
     round = Round.new(deck)
 
-    expect(round.take_turn("Juneau")).to be_instance_of Turn
+    expect(round.take_turn("Juneau")).to be_a Turn
   end
 
   it "increments the current card up after a turn" do
