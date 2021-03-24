@@ -6,6 +6,13 @@ RSpec.describe Card do
     @card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
   end
 
+  it 'tests if attributes exist' do
+    expect(@card).to have_attributes(
+      :question => "What is the capital of Alaska?",
+      :answer => "Juneau",
+      :category => :Geography)
+  end
+
   it 'exists' do
     expect(@card).to be_instance_of(Card)
   end
