@@ -10,9 +10,7 @@ RSpec.describe Deck do
       Card.new("What is the square root of 25?", "5", :Math),
       Card.new("What is the square root of 144?", "12", :Math)
     ]
-  end
 
-  before(:each) do
     @test_deck = Deck.new(@test_cards)
   end
 
