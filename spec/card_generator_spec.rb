@@ -43,6 +43,10 @@ RSpec.describe CardGenerator do
 
   it 'returns cards' do
     cards = @card_generator.cards
+    
+    @EXPECTED_CARDS.each_with_index do |expected_card, index|
+      expect(cards[index].question).to eq(expected_card.question)
+    end
   end
 
 end
