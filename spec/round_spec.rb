@@ -18,5 +18,19 @@ RSpec.describe Round do
   end
 
   it "has a turns array" do
-  end  
+    expect(@round.turns).to eq []
+  end
+
+  it "knows what the current card is before starting" do
+    expect(@round.current_card).to eq @card_1
+  end
+
+  it "creates a new Turn object" do
+    expect(@round.take_turn("Juneau")).to be_instance_of Turn
+  end
+
+  it "increments the current card up" do
+    @round.take_turn("Juneau")
+    
+  end
 end
