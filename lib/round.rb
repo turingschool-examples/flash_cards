@@ -14,13 +14,13 @@ class Round
 
   def take_turn(guess)
     @guess = guess
-    if @current_card < @deck.count
-      @new_turn = Turn.new(@guess, @deck[@current_card])
+    if @current_card < @deck.cards.count
+      @new_turn = Turn.new(@guess, @deck.cards[@current_card])
       @turns.push(@new_turn)
       @new_turn
-    elsif @current_card >= @deck.count
+    elsif @current_card >= @deck.cards.count
       puts "****** Game Over!******"
-      # puts "You had #{self.Round.number_correct} correct guesses out of #{@deck.count} for a total core of #{}"
+      # puts "You had #{self.Round.number_correct} correct guesses out of #{@deck.cards.count} for a total core of #{}"
     else
       "Error!!!"
     end
@@ -28,7 +28,7 @@ class Round
   end
 
   def current_card
-    @deck[@current_card]
+    @deck.cards[@current_card]
   end
 
   def self.number_correct
@@ -38,7 +38,7 @@ class Round
   end
 
   def number_correct
-    self.number_correct
+      self.class.number_correct
   end
 
   def self.number_corret_by_category(category_to_count_correct)
