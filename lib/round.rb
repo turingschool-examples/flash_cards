@@ -21,4 +21,10 @@ class Round
     self.next_card
   end
 
+  def start
+    puts "Welcome! You're playing with #{self.deck.cards.length} cards."
+    puts "----------------------------"
+  end 
+
+
 end
