@@ -20,7 +20,8 @@ class Round
       @turns.push(@new_turn)
       @new_turn
     elsif @current_card >= @deck.count
-      "Out of Cards"
+      puts "****** Game Over!******"
+      # puts "You had #{self.Round.number_correct} correct guesses out of #{@deck.count} for a total core of #{}"
     else
       "Error!!!"
     end
@@ -36,13 +37,19 @@ class Round
     end
   end
 
-  def number_corret_by_category(category_correct)
+  def self.number_corret_by_category(category_correct)
     @category_correct = category_correct
-    @turn_catch = @turns.select do |turn|
+    @turn_category_catch = @turns.select do |turn|
       @turns[turn].category == @category_correct
     end
-    @turn_catch.count do |turn| do
+    @turn_category_catch.count do |turn| do
       @turns[turn].correct?
     end
   end
+
+  def number_corret_by_category
+
+  def percent_correct
+
+
 end
