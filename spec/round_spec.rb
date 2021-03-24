@@ -2,6 +2,8 @@ require './lib/card'
 require './lib/deck'
 require './lib/turn'
 require './lib/round'
+require './lib/modules'
+
 
 RSpec.describe Round do
   it 'exits' do
@@ -64,7 +66,7 @@ RSpec.describe Round do
 
     round.take_turn("Denver")
 require "pry"; binding.pry
-    expect(round.current_card).to eq(deck[1])
+    expect(round.current_card).to eq(deck.cards[1])
     expect(round.turns[0].guess).to eq("Denver")
     expect(round.turns[0].correct?).to eq(true)
     expect(round.turns[0].card).to eq(cards[0])

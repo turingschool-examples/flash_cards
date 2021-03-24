@@ -1,6 +1,7 @@
 require './lib/card'
 require "./lib/turn"
 require "./lib/deck"
+require './lib/modules'
 
 class Round
   attr_reader :turns,
@@ -31,39 +32,40 @@ class Round
     @deck.cards[@current_card]
   end
 
-  def self.number_correct
-    @turns.count do |turn|
-      turn.correct?
-    end
-  end
+  include NumberCorrect
+  # def number_correct
+  #   extend self
+  #   def number_correct
+  #     @turns.count do |turn|
+  #       turn.correct?
+  #     end
+  #   end
+  # end
 
-  def number_correct
-      self.class.number_correct
-  end
+  include NumberCorrectByCategory
+  # def number_corret_by_category(category_to_count_correct)
+  #   @category_to_count_correct = category_to_count_correct
+  #   @cards_turned_deck = Deck.new(@turns)
+  #   @category_cards_seen = @cards_turned_deck.cards_in_category(@category_to_count_correct)
+  #   @category_cards_seen.count do |turn|
+  #     turn.correct?
+  #   end
+  # end
 
-  def self.number_corret_by_category(category_to_count_correct)
-    @category_to_count_correct = category_to_count_correct
-    @cards_turned_deck = Deck.new(@turns)
-    @category_cards_seen = @cards_turned_deck.cards_in_category(@category_to_count_correct)
-    @category_cards_seen.count do |turn|
-      turn.correct?
-    end
-  end
+  # def number_corret_by_category
+  #   self.number_corret_by_category(self)
+  # end
 
-  def number_corret_by_category
-    self.number_corret_by_category(self)
-  end
-
-  def self.percent_correct
+  def percent_correct
     @deck_cards_seen = Deck.new(@turns)
     (self.number_correct / @deck_cards_seen.count) * 100
   end
 
-  def percent_correct
-    self.percent_correct
-  end
+  # def percent_correct
+  #   self.percent_correct
+  # end
 
-  def self.percent_correct_by_category(catagory_percent_check)
+  def percent_correct_by_category(catagory_percent_check)
     @catagory_percent_check = catagory_percent_check
     @category_turn_deck = Deck.new(@turns)
     @category_percent_correct = @category_turn_deck.cards_in_category(@catagory_percent_check)
@@ -74,7 +76,7 @@ class Round
     @category_percent_correct = (@category_correct / @category_total) * 100
   end
 
-  def percent_correct_by_category
-    self.percent_correct_by_category
-  end
+  # def percent_correct_by_category
+  #   self.percent_correct_by_category
+  # end
 end
