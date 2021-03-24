@@ -66,7 +66,7 @@ RSpec.describe Round do
 
     round.take_turn("Denver")
 require "pry"; binding.pry
-    expect(round.current_card).to eq(deck.cards[1])
+    expect(round.current_card).to eq(cards[1])
     expect(round.turns[0].guess).to eq("Denver")
     expect(round.turns[0].correct?).to eq(true)
     expect(round.turns[0].card).to eq(cards[0])
