@@ -1,7 +1,8 @@
+require 'rspec'
 require './lib/card.rb'
 require './lib/turn.rb'
 
-RSpec.describe Turn do
+describe Turn do
 
   it 'exists' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
@@ -42,13 +43,13 @@ RSpec.describe Turn do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
 
-    expect(turn.feedback).to eq("That's right!")
+    expect(turn.feedback).to eq("Correct.")
   end
 
   it 'gives negative feedback' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Denver", card)
 
-    expect(turn.feedback).to eq("Nope! Try again...")
+    expect(turn.feedback).to eq("Incorrect.")
   end
 end
