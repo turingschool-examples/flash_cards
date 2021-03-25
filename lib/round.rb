@@ -23,7 +23,7 @@ class Round
   end
 
   def percent_correct
-    number_correct.to_f / @turns.length.to_f * 100
+    (number_correct.to_f / @turns.length.to_f * 100).truncate(1)
   end
 
   def number_correct_by_category(category)
@@ -39,6 +39,11 @@ class Round
   end
 
   def percent_correct_by_category(category)
-    number_correct_by_category(category).to_f / number_by_category(category).to_f * 100
+    (number_correct_by_category(category).to_f / number_by_category(category).to_f * 100).truncate(1)
+  end
+
+  def start
+    puts "Welcome! You're playing with #{@deck.count} cards."
+    puts "----------------------------------------------------"
   end
 end
