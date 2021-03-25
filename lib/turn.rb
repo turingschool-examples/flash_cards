@@ -11,7 +11,7 @@ class Turn
   end
 
   def feedback
-    if self.correct?
+    if self.correct? #.self here is not necessary, but helps with readability
       return "Correct!"
     else
       return "Incorrect."

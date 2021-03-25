@@ -16,7 +16,12 @@ deck = Deck.new(cards)
 round = Round.new(deck)
 
 # Start the game
-round.start
+def start(round)
+  puts "Welcome! You're playing with #{round.deck.count} cards."
+  puts "----------------------------------------------------"
+end
+
+start(round)
 
 # Loop through each card in the deck, accepting a guess and processing the turn
 while round.turns.length < round.deck.count
@@ -41,9 +46,3 @@ categories = categories.uniq
 categories.each do |category|
   puts "#{category} - #{round.percent_correct_by_category(category)}% correct"
 end
-
-# QUESTIONS:
-# Is the Round class the correct place for start method to live?
-# When does it make sense to call a method on round vs. deck, e.g.?
-# Should we define new methods in a separate file or is it ok to live in runner?
-# How to write a test for something like round.start which just prints (no return)
