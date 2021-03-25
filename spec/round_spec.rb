@@ -90,7 +90,7 @@ RSpec.describe Round do
       turn = round.take_turn("Medellin")
       turn = round.take_turn("Mercury")
 
-      expect(round.percent_correct.truncate(1)).to eq(66.6)
+      expect(round.percent_correct).to eq(66.6)
     end
   end
 
@@ -123,8 +123,20 @@ RSpec.describe Round do
       turn = round.take_turn("Bogota")
       turn = round.take_turn("Venus")
 
-      expect(round.percent_correct_by_category(:Geography).truncate(1)).to eq(100.0)
-      expect(round.percent_correct_by_category(:STEM).truncate(1)).to eq(0.0)
+      expect(round.percent_correct_by_category(:Geography)).to eq(100.0)
+      expect(round.percent_correct_by_category(:STEM)).to eq(0.0)
     end
   end
+
+  describe '#start' do
+    it 'starts the game' do
+      cards = [Card.new("What is the capital of Alaska?", "Juneau", :Geography)]
+      deck = Deck.new(cards)
+      round = Round.new(deck)
+      welcome = round.start
+
+      expect(welcome).to eq(nil)
+    end
+  end
+
 end

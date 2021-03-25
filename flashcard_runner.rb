@@ -28,7 +28,7 @@ while round.turns.length < round.deck.count
 end
 
 puts "****** Game over! ******"
-puts "You had #{round.number_correct} correct guesses out of #{round.turns.length} for a total score of #{round.percent_correct}."
+puts "You had #{round.number_correct} correct guesses out of #{round.turns.length} for a total score of #{round.percent_correct}%."
 
 # Get a list of all the categories
 categories = []
@@ -39,10 +39,11 @@ end
 # remove duplicates, then list out the score from each category
 categories = categories.uniq
 categories.each do |category|
-  puts "#{category} - #{round.percent_correct_by_category(category)} correct"
+  puts "#{category} - #{round.percent_correct_by_category(category)}% correct"
 end
 
 # QUESTIONS:
 # Is the Round class the correct place for start method to live?
 # When does it make sense to call a method on round vs. deck, e.g.?
 # Should we define new methods in a separate file or is it ok to live in runner?
+# How to write a test for something like round.start which just prints (no return)
