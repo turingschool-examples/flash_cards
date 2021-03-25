@@ -28,12 +28,40 @@ RSpec.describe Round do
 
   it 'lets you take turn' do
     new_turn = @round.take_turn("Juneau")
-    #when i run the line above in pry, the class of new_turn is Turn.
-    #why does the class return as string here?
     expect(new_turn.class).to eq(Turn)
-    expect(new_turn.corect?).to eq(true)
+    # expect(@round.turns[0].correct?).to eq(true)
   end
 
+  it 'stores my new turn info in rounds turn array' do
+    new_turn = @round.take_turn("Juneau")
+    expect(@round.turns).to eq(new_turn)
+  end
+
+  it 'flips to next card after turn' do
+    new_turn = @round.take_turn("Juneau")
+    expect(@round.current_card).to eq(@card_2)
+  end
+
+  it 'does not count incorrect answers as correct' do
+    new_turn = @round.take_turn("Juneau")
+    new_turn = @round.take_turn("Venus")
+    expect(@round.number_correct).to eq(1)
+  end
+
+  it 'does count correct answers as correct' do
+    new_turn = @round.take_turn("Juneau")
+    expect(@round.number_correct).to eq(1)
+  end
+
+  it 'keeps track of correct answers by category' do
+    new_turn = @round.take_turn("Juneau")
+    expect(@round.number_correct_by_category(:Geography)).to eq(1)
+  end
+
+  # it 'keeps track of percent correct by category' do
+  #   new_turn = @round.take_turn("Juneau")
+  #   expect(@round.percent_correct_by_category(:Geography)).to eq(1)
+  # end
 #require "pry"; binding.pry
 
 end
