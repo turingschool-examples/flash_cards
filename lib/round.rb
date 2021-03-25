@@ -31,15 +31,15 @@ class Round
     result = (number_correct / @turns.count.to_f) * 100
   end
 
-  def correct_card
-    correct = []
-    @turns.each do |turn|
-      if turn.correct? == true
-        correct << turn
-      end
-    end
-    correct
-  end
+  # def correct_card
+  #   correct = []
+  #   @turns.each do |turn|
+  #     if turn.correct? == true
+  #       correct << turn
+  #     end
+  #   end
+  #   correct
+  # end
 
   def correct_cards
     array = []
