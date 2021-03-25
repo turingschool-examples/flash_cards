@@ -5,6 +5,7 @@ require './lib/round'
 
 RSpec.describe Round do
 
+#set up my test suite with the creation of a basic deck
   before do
     @card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     @card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
@@ -14,54 +15,67 @@ RSpec.describe Round do
     @round = Round.new(@deck)
   end
 
-  it 'has a deck' do
-    expect(@round.deck).to eq(@deck)
+  describe "#initialize" do
+  #vet that the round initialize method works correctly
+    it 'creates a deck' do
+      expect(@round.deck).to eq(@deck)
+    end
+    it 'starts with an empty turns array' do
+      expect(@round.turns).to eq([])
+    end
+    it 'sets current_card to first card in the deck' do
+      expect(@round.current_card).to eq(@card_1)
+    end
   end
 
-  it 'defaults turns to blank' do
-    expect(@round.turns).to eq([])
+  describe "#take_turn" do
+  #vet that the take_turn method works correctly
+    it 'creates a new Turn object' do
+      new_turn = @round.take_turn("Juneau")
+      expect(new_turn.class).to eq(Turn)
+    end
+    it 'stores new Turn object in round.turns array' do
+      new_turn = @round.take_turn("Juneau")
+      expect(@round.turns.first).to eq(new_turn)
+      new_turn_2 =  @round.take_turn("Venus")
+      expect(@round.turns.last).to eq(new_turn_2)
+    end
+    it 'advances to the next card after a turn' do
+      new_turn = @round.take_turn("Juneau")
+      new_turn_2 = @round.take_turn("Venus")
+      new_turn_3 = @round.take_turn("Cheetos")
+      expect(@round.current_card).to eq(@card_3)
+    end
+    # MAYBE REMOVE describe "#evaluate_correctness" do
+    #vet that upon running take_turn method,
+    #evaluate_correctness method runs and works correctly
+      it 'counts the number of correct responses' do
+        new_turn = @round.take_turn("Juneau")
+        new_turn_2 = @round.take_turn("Mars")
+        new_turn_3 = @round.take_turn("Cheetos")
+        expect(@round.number_correct).to eq(2)
+      # MAYBE REMOVE end
+    end
   end
-
-  it 'starts the round with first card in deck' do
-    expect(@round.current_card).to eq(@card_1)
+  describe "#number_correct_by_category" do
+    it 'counts the number of correct responses by category' do
+      new_turn = @round.take_turn("Juneau")
+      new_turn_2 = @round.take_turn("Mars")
+      new_turn_3 = @round.take_turn("Cheetos")
+      expect(@round.number_correct_by_category(:Geography)).to eq (1)
+      expect(@round.number_correct_by_category(:STEM)).to eq (1)
+    end
   end
-
-  it 'lets you take turn' do
-    new_turn = @round.take_turn("Juneau")
-    expect(new_turn.class).to eq(Turn)
-    # expect(@round.turns[0].correct?).to eq(true)
-  end
-
-  it 'stores my new turn info in rounds turn array' do
-    new_turn = @round.take_turn("Juneau")
-    expect(@round.turns).to eq(new_turn)
-  end
-
-  it 'flips to next card after turn' do
-    new_turn = @round.take_turn("Juneau")
-    expect(@round.current_card).to eq(@card_2)
-  end
-
-  it 'does not count incorrect answers as correct' do
-    new_turn = @round.take_turn("Juneau")
-    new_turn = @round.take_turn("Venus")
-    expect(@round.number_correct).to eq(1)
-  end
-
-  it 'does count correct answers as correct' do
-    new_turn = @round.take_turn("Juneau")
-    expect(@round.number_correct).to eq(1)
-  end
-
-  it 'keeps track of correct answers by category' do
-    new_turn = @round.take_turn("Juneau")
-    expect(@round.number_correct_by_category(:Geography)).to eq(1)
-  end
-
-  # it 'keeps track of percent correct by category' do
-  #   new_turn = @round.take_turn("Juneau")
-  #   expect(@round.percent_correct_by_category(:Geography)).to eq(1)
-  # end
-#require "pry"; binding.pry
-
 end
+
+
+
+#QUESTIONS
+
+# what is better, to have less code in a method and
+# reference other methods that contains more code,
+# or to have all the code you need in one method
+# commented out?
+#
+# review examples of multiple expectations in a
+# single test. Ex: 'stores new Turn object in round.turns array'
