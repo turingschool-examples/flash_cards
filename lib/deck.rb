@@ -9,15 +9,14 @@ class Deck
   end
 
   def cards_in_category(category)
-
-    count = 0
+    # I think this is a stupid way to do this so try to come back to this
+    cat_array = []
     @cards.each do |card|
       require './lib/card'
-      if card.category == category
-        count =+ 1
-      end
+      cat_array << card.category
     end
-    count
+    cat_array.delete_if{|cat| cat != category}
+    cat_array.length
   end
 
 
