@@ -7,91 +7,70 @@ class Round
 
   def initialize(deck_in_play)
     @turns = []
-    @deck = deck_in_play
-    @card_index = 0 # used as index to access cards in deck
-    @current_card = @deck.cards[@card_index] # current card begins at the first card in the deck array
     @correct_card_array = []
-
-
+    @card_index = 0 # used as index to access cards in deck
+    @deck = deck_in_play
+    @current_card = @deck.cards[@card_index] # current card begins at the first card in the deck array
   end
 
-  # This method does a lot of leg-work, specifically:
-  # - instantiates new turn
-  # - adds turn to turns array
-  # - increments number_correct
-  # - increments current card by one
+
+  # This method does a lot of leg-work, specifically it:
+  # - instantiates a new turn and adds a turn to turns array
+  # - checks if a turn is correct
+  # - increments card index and current card
   def take_turn(user_guess)
-    new_turn = Turn.new(user_guess, @current_card) # instantiates new turn
+    new_turn = Turn.new(user_guess, @current_card)
     @turns << new_turn # adds turn to turns array
 
-    # The reason why I used an array to hold correct cards is because
-    # then I can initialize a new Deck with it and access the
-    # cards_in_category method.
-    if new_turn.correct?
-      @correct_card_array << @current_card
-    end
+    # helper method to deal with correct cards and store them
+    check_if_correct(new_turn)
 
-    @card_index += 1 # increments current card by one
-    @current_card = @deck.cards[@card_index] # !!! this line is important --
-    # it reassigns current_card as a last step.
+    @card_index += 1 # increments card index by one
+    @current_card = @deck.cards[@card_index] # applies incremented card index
 
     return new_turn
   end
 
+
+  # Method checks whether a turn is correct and then adds card to array
+  # Uses an array to hold correct cards to reference later
+  def check_if_correct(turn)
+    if turn.correct?
+      @correct_card_array << @current_card
+    end
+  end
+
+
+  # Utilize the correct card array to count score
   def number_correct
     @correct_card_array.count
   end
 
-  # This method is a little insteresting.
-  # I used the correct_card_array to initialize a new subset deck
-  # This was done so I could utilize the cards_in_category method
-  # that lives in the Deck class.
+
+  # Method utilizes find all method with count to return refined score
   def number_correct_by_category(category_name)
-    deck_subset = Deck.new(@correct_card_array)
-    deck_subset.cards_in_category(category_name).count
+    @correct_card_array.find_all do |card|
+      card.category == category_name
+    end.count
   end
 
+
+  # Calculating overall score with all cards in deck
   def percent_correct
-    percentage = (self.number_correct.to_f / @deck.cards.count) * 100 # to_f method used to force accurate divison
+    percentage = (self.number_correct.to_f / @deck.cards.count) * 100.0 # to_f method used to force accurate divison
     percentage.truncate(1) # truncates to 1 decimal place
   end
 
-  # Another example of how correct_card_array was used to initialize
-  # a subset of Deck
+
+  # Calculating percentage on a category basis
   def percent_correct_by_category(category_name)
-    deck_subset = Deck.new(@correct_card_array)
-    num_of_correct_cards = deck_subset.cards_in_category(category_name).count
-    total_cards_in_category = @deck.cards_in_category(category_name).count # need to reference all cards in the deck that have one category
-
-    percentage = (num_of_correct_cards.to_f / total_cards_in_category) * 100
+    # Better way to format this find_all block?
+    categorized_cards =
+      @deck.cards.find_all do |card|
+        card.category == category_name
+      end
+    percentage = (number_correct_by_category(category_name).to_f / categorized_cards.count) * 100.0
     percentage.truncate(1) # truncates to 1 decimal place
   end
-
-  # Didn't realize the prompt was referring to the last method from the Array class
-  # def last
-  #   last_card_index = @turns.count - 2 # subtracting 2 from array length instead of 1,
-  #   # because the index starts at 0 and not 1.
-  #   @turns[last_card_index]
-  # end
-
 
 end
-
-# The code below was used for testing purposes only
-# card1 = Card.new('Given x = 13 and y = 2, what is the result of x to the power of y?',
-# 169, :Math)
-# card2 = Card.new('What is the capital of US state of Indiana?', 'Indianapolis', :Geography)
-# card3 = Card.new('Fill in the blank: In the US, the ___ of Rights is a section of the Constitution that guarantees the rights and liberties for an individual.',
-# "Bill", :Civics)
-#
-# cards = [card1, card2, card3]
-# deck = Deck.new(cards)
-# round = Round.new(deck)
-
-# round.take_turn('why even?')
-# require 'pry'; binding.pry
-# round.take_turn('42')
-# require 'pry'; binding.pry
-# round.take_turn('G-Eazy')
-#
-# require 'pry'; binding.pry
