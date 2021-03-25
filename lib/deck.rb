@@ -11,21 +11,20 @@ class Deck
    cards.length
   end
 
-  # I'll be back for this. 
-  # def cards_in_category
-  #   stem = []
-  #   geography = []
-  #
-  #   cards.each do |card|
-  #     if card.category == :STEM
-  #       stem << card
-  #     elsif card.category == :Geography
-  #       geography << card
-  #     else
-  #       []
-  #     end
-  #   end
-  # end
+
+
+  def cards_in_category(category)
+
+    matching_cards = []
+
+    cards.each do |card|
+      if card.category == category
+        matching_cards << card
+
+      end
+    end
+    matching_cards
+  end
 end
 
 
