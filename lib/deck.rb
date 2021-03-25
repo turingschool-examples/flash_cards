@@ -19,5 +19,4 @@ class Deck
     cat_array.length
   end
 
-
 end
