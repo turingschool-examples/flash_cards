@@ -52,6 +52,7 @@ class Round
   end
 
   def percent_correct
+    # May not need 'self.'
     ((self.number_correct * 100.0) / @turns.count).round(1)
   end
 
