@@ -17,24 +17,19 @@ class Round
   def take_turn(guess)
     new_turn = Turn.new(guess, current_card)
     turns << new_turn
-    if new_turn.correct? == true
-      @number_correct += 1
-    end
-    puts new_turn.feedback
+    @number_correct += 1 if new_turn.correct?
     return new_turn
   end
 
   def start
     puts "Welcome! You're playing with #{@deck.count} cards."
-    # 49.times do
-    #   print "-"
-    # end
     puts "-------------------------------------------------"
     rounds = deck.count
     while rounds > 0 do
       puts "This is card number #{turns.length + 1} out of #{deck.count}."
       puts "Question: #{current_card.question}"
-      take_turn(gets.chomp)
+      turn = take_turn(gets.chomp)
+      puts turn.feedback
       rounds -= 1
     end
     game_summary
@@ -42,19 +37,20 @@ class Round
 
   def game_summary
     puts "****** Game over! ******"
-    puts "You had #{@number_correct} correct guesses out of #{deck.count} for a total score of #{percent_correct.round}%"
+    if @number_correct == 1
+      puts "You had #{@number_correct} correct guess out of #{deck.count} for a total score of #{percent_correct.round}%."
+    else
+      puts "You had #{@number_correct} correct guesses out of #{deck.count} for a total score of #{percent_correct.round}%."
+    end
     list_categories.each do |category|
       puts "#{category} - #{percent_correct_by_category(category).round}% correct"
     end
   end
 
   def list_categories
-    category_list = []
-    deck.cards.each do |card|
-      if category_list.include?(card.category) == false
-        category_list << card.category
-      end
-    end
+    category_list = deck.cards.map do |card|
+      card.category
+    end.uniq
     return category_list
   end
 
@@ -85,7 +81,7 @@ class Round
       end
     end
     correct_in_category = number_correct_by_category(category)
-    if turns_in_category > 0.0
+    if turns_in_category > 0
       (correct_in_category / turns_in_category.to_f ) * 100.0
     else
       "No turns in this category have yet been taken."
