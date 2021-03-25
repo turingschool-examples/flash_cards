@@ -37,19 +37,18 @@ class Round
 
   def number_correct_by_category(category_to_count_correct)
     @category_to_count_correct = category_to_count_correct
-    @category_cards_seen = turns.select do |turn|
+    @category_cards_seen = @turns.select do |turn|
       turn.card.category == @category_to_count_correct
     end
     @category_correct = @category_cards_seen.count do |turn|
       turn.correct?
     end
-    require "pry"; binding.pry
     @category_correct
   end
 
   def percent_correct
     @turns_guess_correct = @turns.count { |turn| turn.correct?}
-    @turns_taken = @turns.count
+    @turns_taken = @turns.count.to_f
     (@turns_guess_correct / @turns_taken) * 100
   end
 

@@ -164,6 +164,9 @@ RSpec.describe Round do
       deck = Deck.new(cards)
       round = Round.new(deck)
 
+      round.take_turn('Denver')
+      round.take_turn('Mexico City')
+
       actual = round.number_correct_by_category(:Geography)
 
       expect(actual).to eq(2)
@@ -182,6 +185,43 @@ RSpec.describe Round do
       actual = round.number_correct_by_category(:People)
 
       expect(actual).to eq(0)
+    end
+  end
+
+  describe '#percent_correct' do
+    it 'tells you what percentage of your guesses are correct' do
+      card1 = Card.new('What is the capital of CO?', 'Denver', :Geography)
+      card2 = Card.new('What is the captial of Mexico?', 'Mexico City', :Geography)
+      card3 = Card.new('What is the boiling point (degrees celcius) of water?', '100', :Science)
+      card4 = Card.new('What position did Satchel Paige play?', 'pitcher', :Sports)
+      card5 = Card.new('What element is abbreviated as Cl?', 'chlorine', :Science)
+      cards = [card1, card2, card3, card4, card5]
+      deck = Deck.new(cards)
+      round = Round.new(deck)
+
+      round.take_turn('Denver')
+      round.take_turn('Mexico City')
+      actual = round.percent_correct
+
+      expect(actual).to eq(100)
+    end
+
+    it 'tells you when you get some of them wrong' do
+      card1 = Card.new('What is the capital of CO?', 'Denver', :Geography)
+      card2 = Card.new('What is the captial of Mexico?', 'Mexico City', :Geography)
+      card3 = Card.new('What is the boiling point (degrees celcius) of water?', '100', :Science)
+      card4 = Card.new('What position did Satchel Paige play?', 'pitcher', :Sports)
+      card5 = Card.new('What element is abbreviated as Cl?', 'chlorine', :Science)
+      cards = [card1, card2, card3, card4, card5]
+      deck = Deck.new(cards)
+      round = Round.new(deck)
+
+      round.take_turn('Denver')
+      round.take_turn('Tulum')
+      actual = round.percent_correct
+      # require "pry"; binding.pry
+
+      expect(actual).to eq(50)
     end
   end
 end
