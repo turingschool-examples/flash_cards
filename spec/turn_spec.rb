@@ -32,24 +32,24 @@ RSpec.describe Turn do
 
   it "is incorrect" do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    turn = Turn.new("Juneau", card)
+    turn = Turn.new("new york", card)
 
-    expect(turn.guess).to be false
+    expect(turn.correct?).to be false
   end
 
 
-  xit 'tells us if the guess was correct or incorrect' do
-    turn = Turn.new("Juneau", card)
+  it 'tells us if the guess was correct or incorrect' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Juneau", card)
     turn.guess
     expect(turn.correct?).to be true
   end
 
-  xit 'tells us if answer is correct or incorrect' do
-    turn = Turn.new("Juneau", card)
+  it 'tells us if answer is correct or incorrect' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    turn.feedback
-    expect(turn.correct?).to eq true
+    turn = Turn.new("new york", card)
+    turn.guess
+    expect(turn.correct?).to be false
   end
 
 end
