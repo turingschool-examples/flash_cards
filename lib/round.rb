@@ -10,4 +10,18 @@ class Round
   def current_card
     @deck.cards[0]
   end
+
+  def take_turn(guess)
+    new_turn = Turn.new(guess, current_card)
+    @turns << new_turn
+    @deck.cards.rotate
+    new_turn
+  end
+
+  def number_correct
+    correct_answers = 0
+    if current_card.answer == correct?
+      correct_answers += 1
+    end
+  end
 end
