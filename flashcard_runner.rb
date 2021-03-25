@@ -8,14 +8,14 @@ card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 card_2 = Card.new("What is the capital of Colombia?", "Bogota", :Geography)
 card_3 = Card.new("What planet is closest to the sun?", "Mercury", :STEM)
 card_4 = Card.new("In what year did the movie Titanic come out?", "1997", :Pop_Culture)
-card_5 = Card.new("What machine is Alan Turing known for developing?", "The Enigma machine", :STEM)
+card_5 = Card.new("Who is best known for known for developing the Enigma machine?", "Alan Turing", :STEM)
 card_6 = Card.new("What movie won the Academy Award for Best Picture in 2019?", "Parasite", :Pop_Culture)
 
 cards = [card_1, card_2, card_3, card_4, card_5, card_6]
 deck = Deck.new(cards)
 round = Round.new(deck)
 
-# Start the game - does this method belong in round?
+# Start the game
 round.start
 
 # Loop through each card in the deck, accepting a guess and processing the turn
