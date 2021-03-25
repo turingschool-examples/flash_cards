@@ -1,3 +1,5 @@
+require './lib/card'
+
 class CardGenerator
   attr_reader :file
 
@@ -19,3 +21,12 @@ class CardGenerator
   end
 
 end
+
+
+# test passes, but in pry I'm getting error:
+# [3] pry(main)> cards = CardGenerator.new(filename).cards
+# NameError: uninitialized constant CardGenerator::Card
+# from /Users/aliyamerali/Turing/1Mod/projects/flash_cards/lib/card_generator.rb:15:in `block in cards'
+
+# Resolved this by adding require './lib/card' to the file, but why didn't I need
+# this in other class defs that call other classes?
