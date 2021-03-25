@@ -15,7 +15,7 @@ class Round
   end
 
   def take_turn(guess)
-    new_turn = Turn.new(guess, self.current_card)
+    new_turn = Turn.new(guess, current_card)
     turns << new_turn
     if new_turn.correct? == true
       @number_correct += 1
@@ -33,17 +33,17 @@ class Round
     rounds = deck.count
     while rounds > 0 do
       puts "This is card number #{turns.length + 1} out of #{deck.count}."
-      puts "Question: #{self.current_card.question}"
-      self.take_turn(gets.chomp)
+      puts "Question: #{current_card.question}"
+      take_turn(gets.chomp)
       rounds -= 1
     end
-    self.game_summary
+    game_summary
   end
 
   def game_summary
     puts "****** Game over! ******"
-    puts "You had #{@number_correct} correct guesses out of #{deck.count} for a total score of #{self.percent_correct.round}%"
-    self.list_categories.each do |category|
+    puts "You had #{@number_correct} correct guesses out of #{deck.count} for a total score of #{percent_correct.round}%"
+    list_categories.each do |category|
       puts "#{category} - #{percent_correct_by_category(category).round}% correct"
     end
   end
@@ -84,7 +84,7 @@ class Round
         turns_in_category += 1
       end
     end
-    correct_in_category = self.number_correct_by_category(category)
+    correct_in_category = number_correct_by_category(category)
     if turns_in_category > 0.0
       (correct_in_category / turns_in_category.to_f ) * 100.0
     else
