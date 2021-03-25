@@ -50,14 +50,14 @@ require "pry"
 
   def end_turn
     puts "****** Game Over! ****** "
-    # puts "You had #{} correct guesses out of #{self.deck.cards.length} for a total score of #{}."
+    puts "You had #{@num_correct} correct guesses out of #{self.deck.cards.length + self.turns.length} for a total score of #{self.percent_correct}%."
   end
 
 
 
   def percent_correct
     percent = @num_correct.to_f / @turns.length.to_f
-    return percent * 100 
+    return (percent * 100).truncate(2)
   end
 
   def categorize
