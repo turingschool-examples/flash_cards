@@ -21,15 +21,17 @@ class Round
   end
 
   def number_correct
-    if turns.last.card.answer == turns.last.guess
-      @amount_correct += 1
+    @turns.map do |turn|
+      if turn.card.answer == turn.guess
+        @amount_correct += 1
+      end
     end
     amount_correct
   end
 
-  def number_correct_by_category(category)
-    # find correct turns
-    # match to category to category
-    # return an integer
-  end
+  # def number_correct_by_category(category)
+  #   # find correct turns
+  #   # match to category to category
+  #   # return an integer
+  # end
 end
