@@ -3,13 +3,9 @@ class Card
               :answer,
               :category
   def initialize(question, answer, category)
-    @quesiton       = question
+    @question       = question
     @answer         = answer
     @category       = category
   end
 
-
-  def question
-    @question
-  end 
 end
