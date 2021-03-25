@@ -1,10 +1,11 @@
 class Round
-
-  attr_reader :deck, :turns, :turn_number
+require "pry"
+  attr_reader :deck, :turns, :turn_number, :num_correct
   def initialize(deck)
     @deck = deck
     @turns = []
     @turn_number = 1
+    @num_correct = 0
   end
 
   def current_card
@@ -13,19 +14,22 @@ class Round
 
   def next_card
     self.deck.cards.shift
+    @turn_number += 1
   end
 
   def take_turn(guess)
     card = self.current_card
     turn = Turn.new(guess, card)
     puts turn.feedback
+    if turn.correct? == true
+      @num_correct += 1
+    end
     @turns << turn
-    @turn_number += 1
-    self.next_card
+    next_card
   end
 
   def start
-    puts "Welcome! You're playing with #{self.deck.cards.length} cards."
+    puts "Welcome! You're playing with #{self.cards_length} cards."
     puts "----------------------------"
   end
 
@@ -33,14 +37,34 @@ class Round
     @turn_number
   end
 
-  def display_turn
-    puts "This is card number #{self.counter} out of #{self.deck.cards.length}."
-    puts "Question: #{self.current_card.question}"
-    guess = gets.chomp
-    self.take_turn(guess)
+  def cards_length
+     self.deck.cards.length
   end
 
-  
+  def display_turn
+    puts "This is card number #{self.counter} out of #{self.cards_length + self.turns.length}."
+    puts "Question: #{self.current_card.question}"
+    guess = gets.chomp
+    take_turn(guess)
+  end
+
+  def end_turn
+    puts "****** Game Over! ****** "
+    # puts "You had #{} correct guesses out of #{self.deck.cards.length} for a total score of #{}."
+  end
+
+
+
+  def percent_correct
+    percent = @num_correct.to_f / @turns.length.to_f
+    return percent * 100 
+  end
+
+  def categorize
+
+  end
+
+
 
 
 end

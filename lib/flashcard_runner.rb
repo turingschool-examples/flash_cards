@@ -17,4 +17,5 @@ deck = Deck.new(cards)
 round = Round.new(deck)
 
 round.start
-(cards.length).times do round.display_turn end 
+(cards.length).times do round.display_turn end
+round.end_turn
