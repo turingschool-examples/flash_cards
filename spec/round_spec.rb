@@ -123,15 +123,4 @@ RSpec.describe Round do
     end
   end
 
-  # describe '#start' do
-  #   it 'starts the game' do
-  #     cards = [Card.new("What is the capital of Alaska?", "Juneau", :Geography)]
-  #     deck = Deck.new(cards)
-  #     round = Round.new(deck)
-  #     welcome = round.start
-  #
-  #     expect(welcome).to eq(nil)
-  #   end
-  # end
-
 end

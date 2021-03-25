@@ -6,7 +6,7 @@ class Play
 
   def start
     puts "Welcome! You're playing with #{@round.deck.count} cards."
-    puts "----------------------------------------------------"
+    puts "-------------------------------------------------"
   end
 
   def end_game
