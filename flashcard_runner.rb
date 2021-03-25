@@ -14,8 +14,8 @@ def cards
   cards << card_3 = Card.new("What cardboard cutout lives at Turing?", "Justin Bieber", :PopCulture)
 end
 
-deck = Deck.new(cards)
 
+# require 'pry'; binding.pry
+deck = Deck.new(cards)
 user = PlayGame.new(@guess, deck)
 user.start
-# require 'pry'; binding.pry

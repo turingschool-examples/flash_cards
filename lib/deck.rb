@@ -10,15 +10,9 @@ class Deck
   end
 
   def cards_in_category(category)
-  cards_in_category_array = []
-    @cards.each do |card|
-      # require 'pry'; binding.pry
-      if card.category == (category)
-        cards_in_category_array << card
-      end
+    found = @cards.find_all do |card|
+      card.category == category
     end
-    cards_in_category_array
   end
-
 
 end

@@ -9,6 +9,7 @@ class Round
 
   def current_card
     @deck.cards[0]
+    # require'pry';binding.pry
   end
 
   def take_turn(guess)
@@ -18,13 +19,9 @@ class Round
   end
 
   def number_correct
-    correct_array = []
-    @turns.each do |turn|
-      if turn.correct? == true
-        correct_array << turn
-      end
+    @turns.count do |turn|
+      turn.correct? == true
     end
-    correct_array.count
   end
 
   def percent_correct
@@ -50,6 +47,15 @@ class Round
     end
     array
   end
+
+  # def correct_cards
+  #   found = @turns.find_all do |turn|
+  #     if turn.correct? == true
+  #       turn.card
+  #     end
+  #   end
+  # # require 'pry'; binding.pry
+  # end
 
   def number_correct_by_category(category)
     array = []

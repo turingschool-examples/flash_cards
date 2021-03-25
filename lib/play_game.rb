@@ -6,23 +6,24 @@ require './lib/turn'
 class PlayGame
   attr_writer :guess
 
-  attr_reader :cards
+  attr_reader :deck
 
-  def initialize(guess, cards)
+  def initialize(guess, deck)
     @guess = guess
-    @cards = cards
+    @deck = deck
   end
 
   def start
     p "Welcome! You're playing with 4 cards."
     p "-------------------------------------------------"
 
-    deck = Deck.new(@cards)
-    round = Round.new(@cards)
-    game = Turn.new(@guess, @cards)
+    # deck = Deck.new(@cards)
+    round = Round.new(@deck)
+    game = Turn.new(@guess, @deck)
     counter = 1
 
-    until deck.cards.cards.empty? == true
+    until deck.cards.empty? == true
+      # require 'pry'; binding.pry
       p "This is card number #{counter} out of 4."
       p "Question #{counter} is: #{round.current_card.question}"
       @guess = gets.chomp.downcase
@@ -37,6 +38,5 @@ class PlayGame
     p "STEM - #{round.percent_correct_by_category(:STEM)}% correct"
     p "Turing Staff - #{round.percent_correct_by_category(:TuringStaff)}% correct"
     p "Pop Culture - #{round.percent_correct_by_category(:PopCulture)}% correct"
-    # require 'pry'; binding.pry
   end
 end
