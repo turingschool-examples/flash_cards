@@ -28,7 +28,7 @@ class Round
   end
 
   def percent_correct
-    result = (number_correct / @turns.count) * 100
+    result = (number_correct / @turns.count.to_f) * 100
   end
 
   def correct_card
@@ -72,6 +72,6 @@ class Round
   end
 
   def percent_correct_by_category(category)
-    result = (number_correct_by_category(category) / turns_by_category(category)) * 100
+    result = (number_correct_by_category(category) / turns_by_category(category).to_f) * 100
   end
 end
