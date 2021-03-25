@@ -1,12 +1,12 @@
 class Round
   attr_reader  :deck,
                     :turns,
-                    :answers_correct
+                    :amount_correct
 
   def initialize(deck)
     @deck = deck
     @turns = []
-    @answers_correct = 0
+    @amount_correct = 0
   end
 
   def current_card
@@ -22,8 +22,14 @@ class Round
 
   def number_correct
     if turns.last.card.answer == turns.last.guess
-      @answers_correct += 1
+      @amount_correct += 1
     end
-    answers_correct
+    amount_correct
+  end
+
+  def number_correct_by_category(category)
+    # find correct turns
+    # match to category to category
+    # return an integer
   end
 end
