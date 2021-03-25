@@ -46,7 +46,7 @@ RSpec.describe Round do
       new_turn_3 = @round.take_turn("Cheetos")
       expect(@round.current_card).to eq(@card_3)
     end
-    #vet that upon running take_turn method,
+    #vet that upon running take_turn method
     describe "#evaluate_correctness" do
       it 'counts the number of correct responses' do
         new_turn = @round.take_turn("Juneau")

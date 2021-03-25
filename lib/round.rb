@@ -1,3 +1,4 @@
+require './lib/game'
 require 'pry'
 
 class Round
@@ -17,7 +18,7 @@ class Round
     @correct_answer_hash = {}
   end
 
-  def take_turn(guess)
+  def take_turn(guess, game)
     #updates current card as needed
     @current_card = deck.cards[current_card_num]
     #creates new turn object
@@ -28,10 +29,13 @@ class Round
     @turns << new_turn
     #notes that the next turn should start with the next card
     @current_card_num += 1
+    #kicks off the turn_message method
+    game.message
     #retuns the new Turn object for testing purposes
     return new_turn
   end
 
+      #sub-procedure of take_turn
       def evaluate_correctness(new_turn)
         if new_turn.correct? == true
           @number_correct += 1
@@ -62,20 +66,3 @@ class Round
   end
 
 end
-
-# Struck from take_turn
-# #adds correct answers to correct_answer_hash & total number_correct count
-#   if guess == @current_card.answer
-#   @number_correct += 1
-# # require "pry"; binding.pry
-#   if @correct_answer_hash.include? (@current_card.category)
-#     @correct_answer_hash[@current_card.category] = @correct_answer_hash.value += 1
-#   else
-#     @correct_answer_hash[@current_card.category] = 1
-#   end
-# #flips current card to next card
-#   @current_card_num += 1
-#   @current_card = deck.cards[@current_card_num]
-#   #creates a new Turn instance
-
-#  require "pry"; binding.pry
