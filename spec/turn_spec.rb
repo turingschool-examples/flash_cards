@@ -5,7 +5,7 @@ require 'pry'
 
 describe Turn do
     it 'exists' do
-      carabiner = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+      card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       turn = Turn.new("iPhone", carabiner)
 
       expect(turn).to be_instance_of(Turn)
@@ -38,7 +38,6 @@ describe Turn do
     it 'gives feedback if incorrect' do
       card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       turn = Turn.new("Wrong answer",card)
-      binding.pry
-      expect(turn.feedback).to eq("Incorrect!")
+      expect(turn.feedback).to eq("Incorrect.")
     end
   end
