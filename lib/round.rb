@@ -52,7 +52,18 @@ class Round
   end
 
   def percent_correct
-    percentage = (self.number_correct.to_f / @deck.cards.count) * 100
+    percentage = (self.number_correct.to_f / @deck.cards.count) * 100 # to_f method used to force accurate divison
+    percentage.truncate(1) # truncates to 1 decimal place
+  end
+
+  # Another example of how correct_card_array was used to initialize
+  # a subset of Deck
+  def percent_correct_by_category(category_name)
+    deck_subset = Deck.new(@correct_card_array)
+    num_of_correct_cards = deck_subset.cards_in_category(category_name).count
+    total_cards_in_category = @deck.cards_in_category(category_name).count # need to reference all cards in the deck that have one category
+
+    percentage = (num_of_correct_cards.to_f / total_cards_in_category) * 100
     percentage.truncate(1) # truncates to 1 decimal place
   end
 
@@ -67,15 +78,15 @@ class Round
 end
 
 # The code below was used for testing purposes only
-card1 = Card.new('Given x = 13 and y = 2, what is the result of x to the power of y?',
-169, :Math)
-card2 = Card.new('What is the capital of US state of Indiana?', 'Indianapolis', :Geography)
-card3 = Card.new('Fill in the blank: In the US, the ___ of Rights is a section of the Constitution that guarantees the rights and liberties for an individual.',
-"Bill", :Civics)
-
-cards = [card1, card2, card3]
-deck = Deck.new(cards)
-round = Round.new(deck)
+# card1 = Card.new('Given x = 13 and y = 2, what is the result of x to the power of y?',
+# 169, :Math)
+# card2 = Card.new('What is the capital of US state of Indiana?', 'Indianapolis', :Geography)
+# card3 = Card.new('Fill in the blank: In the US, the ___ of Rights is a section of the Constitution that guarantees the rights and liberties for an individual.',
+# "Bill", :Civics)
+#
+# cards = [card1, card2, card3]
+# deck = Deck.new(cards)
+# round = Round.new(deck)
 
 # round.take_turn('why even?')
 # require 'pry'; binding.pry

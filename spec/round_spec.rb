@@ -92,6 +92,14 @@ RSpec.describe Round do
       expect(@round.percent_correct).to eq(33.3)
     end
 
+    # Keep in mind there are 3 cards total in the instance above
+    it 'can calculate percentage by category' do
+      @round.take_turn('169')
+      @round.take_turn('idk yo')
+      @round.take_turn('so sorryy')
+      expect(@round.percent_correct_by_category(:Math)).to eq(100.0)
+    end
+
   end
 
 end
