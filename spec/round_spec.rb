@@ -36,9 +36,9 @@ RSpec.describe Round do
     end
     it 'stores new Turn object in round.turns array' do
       new_turn = @round.take_turn("Juneau")
-      expect(@round.turns.first).to eq(new_turn)
+      expect(@round.turns).to include(new_turn)
       new_turn_2 =  @round.take_turn("Venus")
-      expect(@round.turns.last).to eq(new_turn_2)
+      expect(@round.turns).to include(new_turn_2)
     end
     it 'advances to the next card after a turn' do
       new_turn = @round.take_turn("Juneau")
@@ -46,15 +46,14 @@ RSpec.describe Round do
       new_turn_3 = @round.take_turn("Cheetos")
       expect(@round.current_card).to eq(@card_3)
     end
-    # MAYBE REMOVE describe "#evaluate_correctness" do
     #vet that upon running take_turn method,
-    #evaluate_correctness method runs and works correctly
+    describe "#evaluate_correctness" do
       it 'counts the number of correct responses' do
         new_turn = @round.take_turn("Juneau")
         new_turn_2 = @round.take_turn("Mars")
         new_turn_3 = @round.take_turn("Cheetos")
         expect(@round.number_correct).to eq(2)
-      # MAYBE REMOVE end
+      end
     end
   end
   describe "#number_correct_by_category" do
@@ -64,6 +63,20 @@ RSpec.describe Round do
       new_turn_3 = @round.take_turn("Cheetos")
       expect(@round.number_correct_by_category(:Geography)).to eq (1)
       expect(@round.number_correct_by_category(:STEM)).to eq (1)
+    end
+  end
+  describe "#percent_correct" do
+    it 'reports the percentage of correct responses' do
+      new_turn = @round.take_turn("Juneau")
+      new_turn_2 = @round.take_turn("Venus")
+      expect(@round.percent_correct).to eq (50.0)
+    end
+  end
+  describe "#percent_correct_by_category" do
+    it 'reports the percentage of correct responses by category' do
+      new_turn = @round.take_turn("Juneau")
+      new_turn_2 = @round.take_turn("Venus")
+      expect(@round.percent_correct_by_category(:Geography)).to eq (100.0)
     end
   end
 end

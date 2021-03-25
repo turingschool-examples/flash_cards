@@ -23,10 +23,7 @@ class Round
     #creates new turn object
     new_turn = Turn.new(guess, @current_card)
     # tracks if the response was correct or not
-      #evaluate_correctness(new_turn)
-    if new_turn.correct? == true
-      @number_correct += 1
-    end
+      evaluate_correctness(new_turn)
     #pushes new turn object into turns array
     @turns << new_turn
     #notes that the next turn should start with the next card
@@ -35,26 +32,33 @@ class Round
     return new_turn
   end
 
-    #Methods called by take_turn method
-
-      # def evaluate_correctness(new_turn)
-      #   if new_turn.correct? == true
-      #     @number_correct += 1
-      #   end
-      # end
+      def evaluate_correctness(new_turn)
+        if new_turn.correct? == true
+          @number_correct += 1
+        end
+      end
 
   def number_correct_by_category(category)
-    turns_in_category = turns.find_all do |turn|
+    num_correct_in_category = turns.find_all do |turn|
       if turn.card.category == category
         turn.correct? == true
       end
     end
+    num_correct_in_category.count
+  end
 
-    turns_in_category.count
+  def percent_correct
+    (@number_correct.to_f / turns.count) * 100
   end
 
   def percent_correct_by_category(category)
-    (@number_correct / @turns.count).to_f
+    num_in_category = turns.find_all do |turn|
+      if turn.card.category == category
+        turn.correct? == true
+      end
+    end
+    (number_correct_by_category(category).to_f / num_in_category.count) * 100
+
   end
 
 end
