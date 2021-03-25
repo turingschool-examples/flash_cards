@@ -32,26 +32,20 @@ RSpec.describe Deck do
   end
 
   describe '#cards_in_category ' do
-    it 'returns cards in a given category' do
-      card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-      card_2 = Card.new("What is the capital of Colombia?", "Bogota", :Geography)
-      card_3 = Card.new("What planet is closest to the sun?", "Mercury", :STEM)
-      card_4 = Card.new("What year did the Titanic movie come out?", "1997", :Media)
-      cards = [card_1, card_2, card_3, card_4]
-      deck = Deck.new(cards)
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card_2 = Card.new("What is the capital of Colombia?", "Bogota", :Geography)
+    card_3 = Card.new("What planet is closest to the sun?", "Mercury", :STEM)
+    card_4 = Card.new("What year did the Titanic movie come out?", "1997", :Media)
+    cards = [card_1, card_2, card_3, card_4]
+    deck = Deck.new(cards)
 
+    it 'returns cards in a given category' do
       expect(deck.cards_in_category(:Geography)).to eq([card_1, card_2])
       expect(deck.cards_in_category(:STEM)).to eq([card_3])
       expect(deck.cards_in_category(:Media)).to eq([card_4])
     end
 
     it 'returns empty array when no cards in a given category' do
-      card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-      card_2 = Card.new("What is the capital of Colombia?", "Bogota", :Geography)
-      card_3 = Card.new("What planet is closest to the sun?", "Mercury", :STEM)
-      card_4 = Card.new("What year did the Titanic movie come out?", "1997", :Media)
-      cards = [card_1, card_2, card_3, card_4]
-      deck = Deck.new(cards)
 
       expect(deck.cards_in_category(:Pop_Culture)).to eq([])
     end

@@ -23,24 +23,19 @@ RSpec.describe Round do
   end
 
   describe '#current_card ' do
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card_2 = Card.new("What is the capital of Colombia?", "Bogota", :Geography)
+    card_3 = Card.new("What planet is closest to the sun?", "Mercury", :STEM)
+    cards = [card_1, card_2, card_3]
+    deck = Deck.new(cards)
+    round = Round.new(deck)
+
     it 'starts with the first card in the deck' do
-      card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-      card_2 = Card.new("What is the capital of Colombia?", "Bogota", :Geography)
-      card_3 = Card.new("What planet is closest to the sun?", "Mercury", :STEM)
-      cards = [card_1, card_2, card_3]
-      deck = Deck.new(cards)
-      round = Round.new(deck)
 
       expect(round.current_card).to eq(card_1)
     end
 
     it 'progresses to the next card after a turn is taken' do
-      card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-      card_2 = Card.new("What is the capital of Colombia?", "Bogota", :Geography)
-      card_3 = Card.new("What planet is closest to the sun?", "Mercury", :STEM)
-      cards = [card_1, card_2, card_3]
-      deck = Deck.new(cards)
-      round = Round.new(deck)
       turn = round.take_turn("Juneau")
 
       expect(round.current_card).to eq(card_2)
@@ -125,17 +120,6 @@ RSpec.describe Round do
 
       expect(round.percent_correct_by_category(:Geography)).to eq(100.0)
       expect(round.percent_correct_by_category(:STEM)).to eq(0.0)
-    end
-  end
-
-  describe '#start' do
-    it 'starts the game' do
-      cards = [Card.new("What is the capital of Alaska?", "Juneau", :Geography)]
-      deck = Deck.new(cards)
-      round = Round.new(deck)
-      welcome = round.start
-
-      expect(welcome).to eq(nil)
     end
   end
 
