@@ -19,3 +19,10 @@ round = Round.new(deck)
 round.start
 (cards.length).times do round.display_turn end
 round.end_turn
+
+category_1 = card_1.category
+category_2 = card_3.category
+category_3 = card_5.category
+round.categorize(category_1)
+round.categorize(category_2)
+round.categorize(category_3)

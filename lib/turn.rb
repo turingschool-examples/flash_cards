@@ -7,14 +7,14 @@ class Turn
   end
 
   def correct?
-    return true if self.guess == card.answer
-    return false if self.guess != card.answer
+    return true if guess == card.answer
+    return false if guess != card.answer
   end
 
   def feedback
-    return "Correct!" if self.correct? == true
-    return "Incorrect." if self.correct? == false
-  end 
+    return "Correct!" if correct? == true
+    return "Incorrect." if correct? == false
+  end
 
 
 end

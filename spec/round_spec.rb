@@ -3,6 +3,8 @@ require './lib/turn'
 require './lib/deck'
 require './lib/round'
 require 'rspec'
+require "pry"
+
 
 RSpec.describe Round do
 
@@ -61,7 +63,7 @@ RSpec.describe Round do
     round = Round.new(deck)
 
     round.take_turn("Fairbanks")
-# require "pry"; binding.pry
+
     expect(round.turns[0]).to be_instance_of(Turn)
   end
 
@@ -87,7 +89,7 @@ RSpec.describe Round do
 
       round.take_turn("Fairbanks")
 
-# require "pry"; binding.pry
+
       expect(round.turns.first.correct?).to eq(false)
     end
 
@@ -175,6 +177,12 @@ RSpec.describe Round do
         cards = [card_1, card_2, card_3]
         deck = Deck.new(cards)
         round = Round.new(deck)
+
+        round.take_turn("Juneau")
+        round.take_turn("Mars")
+        round.take_turn("west")
+
+        expect(round.categorize(:STEM)).to eq("STEM => 50.0% correct")
 
       end
     end

@@ -6,7 +6,7 @@ class Deck
   end
 
   def count
-    self.cards.length
+    @cards.length
   end
 
   def categorize(subject)
@@ -17,7 +17,7 @@ class Deck
   end
 
   def cards_in_category(subject)
-    new_category = self.categorize(subject)
+    new_category = categorize(subject)
     return new_category.length
   end
 
