@@ -53,21 +53,135 @@ RSpec.describe Round do
     expect(round.current_card).to eq(cards[0])
   end
 
-  it 'can take and store a turn' do
-    card1 = Card.new('What is the capital of CO?', 'Denver', :Geography)
-    card2 = Card.new('What is the captial of Mexico?', 'Mexico City', :Geography)
-    card3 = Card.new('What is the boiling point (degrees celcius) of water?', '100', :Science)
-    card4 = Card.new('What position did Satchel Paige play?', 'pitcher', :Sports)
-    card5 = Card.new('What element is abbreviated as Cl?', 'chlorine', :Science)
-    cards = [card1, card2, card3, card4, card5]
-    deck = Deck.new(cards)
-    round = Round.new(deck)
+  describe '#take_turn' do
+    it 'can take and store a turn' do
+      card1 = Card.new('What is the capital of CO?', 'Denver', :Geography)
+      card2 = Card.new('What is the captial of Mexico?', 'Mexico City', :Geography)
+      card3 = Card.new('What is the boiling point (degrees celcius) of water?', '100', :Science)
+      card4 = Card.new('What position did Satchel Paige play?', 'pitcher', :Sports)
+      card5 = Card.new('What element is abbreviated as Cl?', 'chlorine', :Science)
+      cards = [card1, card2, card3, card4, card5]
+      deck = Deck.new(cards)
+      round = Round.new(deck)
 
-    round.take_turn("Denver")
-# require "pry"; binding.pry
-    expect(round.current_card).to eq(cards[1])
-    expect(round.turns[0].guess).to eq("Denver")
-    expect(round.turns[0].correct?).to eq(true)
-    expect(round.turns[0].card).to eq(cards[0])
+      new_turn = round.take_turn("Denver")
+  # require "pry"; binding.pry
+      expect(new_turn.class).to eq(Turn)
+      expect(new_turn.correct?).to eq(true)
+      expect(round.turns[0].card).to eq(cards[0])
+    end
+
+    it 'does not take more turns than cards' do
+      card1 = Card.new('What is the capital of CO?', 'Denver', :Geography)
+      card2 = Card.new('What is the captial of Mexico?', 'Mexico City', :Geography)
+      cards = [card1, card2,]
+      deck = Deck.new(cards)
+      round = Round.new(deck)
+        # require "pry"; binding.pry
+      round.take_turn('Denver')
+      round.take_turn('Mexico City')
+      actual = round.take_turn('What?')
+
+      expect(actual).to eq('****** Game Over!******')
+    end
+
+    it 'fills the turns array as turns are taken' do
+      card1 = Card.new('What is the capital of CO?', 'Denver', :Geography)
+      card2 = Card.new('What is the captial of Mexico?', 'Mexico City', :Geography)
+      card3 = Card.new('What is the boiling point (degrees celcius) of water?', '100', :Science)
+      card4 = Card.new('What position did Satchel Paige play?', 'pitcher', :Sports)
+      card5 = Card.new('What element is abbreviated as Cl?', 'chlorine', :Science)
+      cards = [card1, card2, card3, card4, card5]
+      deck = Deck.new(cards)
+      round = Round.new(deck)
+
+      round.take_turn('Denver')
+      round.take_turn('Mexico City')
+      actual = round.turns.count
+
+      expect(actual).to eq(2)
+    end
+  end
+
+  describe '#number_correct' do
+    it 'can calculate how many turns were correct' do
+      card1 = Card.new('What is the capital of CO?', 'Denver', :Geography)
+      card2 = Card.new('What is the captial of Mexico?', 'Mexico City', :Geography)
+      card3 = Card.new('What is the boiling point (degrees celcius) of water?', '100', :Science)
+      card4 = Card.new('What position did Satchel Paige play?', 'pitcher', :Sports)
+      card5 = Card.new('What element is abbreviated as Cl?', 'chlorine', :Science)
+      cards = [card1, card2, card3, card4, card5]
+      deck = Deck.new(cards)
+      round = Round.new(deck)
+
+      round.take_turn('Denver')
+
+      expect(round.number_correct).to eq(1)
+    end
+  end
+
+  describe '#current_card' do
+    it 'knows the information of the current card' do
+      card1 = Card.new('What is the capital of CO?', 'Denver', :Geography)
+      card2 = Card.new('What is the captial of Mexico?', 'Mexico City', :Geography)
+      card3 = Card.new('What is the boiling point (degrees celcius) of water?', '100', :Science)
+      card4 = Card.new('What position did Satchel Paige play?', 'pitcher', :Sports)
+      card5 = Card.new('What element is abbreviated as Cl?', 'chlorine', :Science)
+      cards = [card1, card2, card3, card4, card5]
+      deck = Deck.new(cards)
+      round = Round.new(deck)
+
+      actual = round.current_card
+
+      expect(actual).to eq(card1)
+    end
+
+    it 'still knows current card after taking a turn' do
+      card1 = Card.new('What is the capital of CO?', 'Denver', :Geography)
+      card2 = Card.new('What is the captial of Mexico?', 'Mexico City', :Geography)
+      card3 = Card.new('What is the boiling point (degrees celcius) of water?', '100', :Science)
+      card4 = Card.new('What position did Satchel Paige play?', 'pitcher', :Sports)
+      card5 = Card.new('What element is abbreviated as Cl?', 'chlorine', :Science)
+      cards = [card1, card2, card3, card4, card5]
+      deck = Deck.new(cards)
+      round = Round.new(deck)
+
+      round.take_turn('Denver')
+      actual = round.current_card
+
+      expect(actual).to eq(card2)
+    end
+  end
+
+  describe '#number_correct_by_category' do
+    it 'knows how many cards of a category it has' do
+      card1 = Card.new('What is the capital of CO?', 'Denver', :Geography)
+      card2 = Card.new('What is the captial of Mexico?', 'Mexico City', :Geography)
+      card3 = Card.new('What is the boiling point (degrees celcius) of water?', '100', :Science)
+      card4 = Card.new('What position did Satchel Paige play?', 'pitcher', :Sports)
+      card5 = Card.new('What element is abbreviated as Cl?', 'chlorine', :Science)
+      cards = [card1, card2, card3, card4, card5]
+      deck = Deck.new(cards)
+      round = Round.new(deck)
+
+      actual = round.number_correct_by_category(:Geography)
+
+      expect(actual).to eq(2)
+    end
+
+    it 'does not count categories that it contain' do
+      card1 = Card.new('What is the capital of CO?', 'Denver', :Geography)
+      card2 = Card.new('What is the captial of Mexico?', 'Mexico City', :Geography)
+      card3 = Card.new('What is the boiling point (degrees celcius) of water?', '100', :Science)
+      card4 = Card.new('What position did Satchel Paige play?', 'pitcher', :Sports)
+      card5 = Card.new('What element is abbreviated as Cl?', 'chlorine', :Science)
+      cards = [card1, card2, card3, card4, card5]
+      deck = Deck.new(cards)
+      round = Round.new(deck)
+
+      actual = round.number_correct_by_category(:People)
+
+      expect(actual).to eq(0)
+    end
   end
 end

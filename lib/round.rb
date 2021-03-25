@@ -1,10 +1,9 @@
-require './lib/card'
-require './lib/turn'
-require './lib/deck'
-
 class Round
   attr_reader :turns,
-              :deck
+              :deck,
+              :category_to_count_correct,
+              :category_cards_seen,
+              :category_correct
 
   def initialize(deck)
     @deck = deck
@@ -16,24 +15,18 @@ class Round
     @guess = guess
     if @current_card < @deck.cards.count
       @new_turn = Turn.new(@guess, @deck.cards[@current_card])
+      @current_card += 1
       @turns.push(@new_turn)
       @new_turn
     elsif @current_card >= @deck.cards.count
-      "****** Game Over!******"
+      @new_turn = "****** Game Over!******"
     else
-      "Error!!!"
+      @new_turn = "Error!!!"
     end
-    @current_card =+ 1
   end
 
   def current_card
     @deck.cards[@current_card]
-  end
-
-  def cards_in_category(catagory_to_check)
-    @turns.count do |turn|
-      turn.card.category == catagory_to_check
-    end
   end
 
   def number_correct
@@ -47,9 +40,11 @@ class Round
     @category_cards_seen = turns.select do |turn|
       turn.card.category == @category_to_count_correct
     end
-    @category_cards_seen.count do |turn|
+    @category_correct = @category_cards_seen.count do |turn|
       turn.correct?
     end
+    require "pry"; binding.pry
+    @category_correct
   end
 
   def percent_correct
