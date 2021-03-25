@@ -73,4 +73,10 @@ class Round
     percentage.truncate(1) # truncates to 1 decimal place
   end
 
+  def start
+    puts "Welcome! You're playing with #{@deck.cards.count} cards."
+    37.times do print("-")
+    end
+  end
+
 end
