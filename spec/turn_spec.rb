@@ -18,4 +18,11 @@ RSpec.describe Turn do
   it 'has a guess' do
     expect(@turn.guess).to eq('Juneau')
   end
+
+  it 'returns true or false if guess is correct' do
+    expect(@turn.correct?).to eq(true)
+
+    incorrect_turn = Turn.new('Fairbanks', @card)
+    expect(incorrect_turn.correct?).to eq(false)
+  end
 end
