@@ -10,12 +10,9 @@ class Deck
   end
 
   def cards_in_category(category)
-    num_cards = 0
-    cards.each do |card|
-      if card.category == category
-        num_cards += 1
-     end
-    end
-    return num_cards
+
+    cards.select do |card|
+      card.category == category
+    end.length
   end
 end
