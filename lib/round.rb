@@ -21,32 +21,6 @@ class Round
     return new_turn
   end
 
-  def start
-    puts "Welcome! You're playing with #{@deck.count} cards."
-    puts "-------------------------------------------------"
-    rounds = deck.count
-    while rounds > 0 do
-      puts "This is card number #{turns.length + 1} out of #{deck.count}."
-      puts "Question: #{current_card.question}"
-      turn = take_turn(gets.chomp)
-      puts turn.feedback
-      rounds -= 1
-    end
-    game_summary
-  end
-
-  def game_summary
-    puts "****** Game over! ******"
-    if @number_correct == 1
-      puts "You had #{@number_correct} correct guess out of #{deck.count} for a total score of #{percent_correct.round}%."
-    else
-      puts "You had #{@number_correct} correct guesses out of #{deck.count} for a total score of #{percent_correct.round}%."
-    end
-    list_categories.each do |category|
-      puts "#{category} - #{percent_correct_by_category(category).round}% correct"
-    end
-  end
-
   def list_categories
     category_list = deck.cards.map do |card|
       card.category
