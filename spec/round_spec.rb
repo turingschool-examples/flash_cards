@@ -46,32 +46,50 @@ RSpec.describe Round do
 
     it 'can detect incorrect guess' do
       incorrect_user_guess = "Michael Franti"
-      correct_user_guess = '169'
-
       incorrect_round = @round.take_turn(incorrect_user_guess)
-      correct_round = @round.take_turn(correct_user_guess)
+
       expect(incorrect_round.correct?).to eq(false)
-      expect(correct_round.correct?).to eq(true)
     end
 
 
     it 'adds a turn to empty array' do
-
       @round.take_turn('lols')
       expect(@round.turns).to_not be_empty
     end
 
     it 'increments card index' do
-
       @round.take_turn('why even?')
       @round.take_turn('42')
       @round.take_turn('G-Eazy')
       expect(@round.card_index).to eq(3)
     end
 
-    it 'increments a player score' do
+    it 'adds correct cards to array' do
+      @round.take_turn('169')
+      expect(@round.correct_card_array).to_not be_empty
+    end
+
+    it 'counts correct cards' do
       @round.take_turn('169')
       expect(@round.number_correct).to eq(1)
+    end
+
+    it 'counts correct cards by category' do
+      @round.take_turn('169')
+      expect(@round.number_correct_by_category(:Math)).to eq(1)
+    end
+
+    it 'does not count correct cards when outside category' do
+      @round.take_turn('169')
+      expect(@round.number_correct_by_category(:Civics)).to eq(0)
+    end
+
+    # Keep in mind there are 3 cards total in the instance above
+    it 'can calculate percentage correct' do
+      @round.take_turn('169')
+      @round.take_turn('idk yo')
+      @round.take_turn('so sorryy')
+      expect(@round.percent_correct).to eq(33.3)
     end
 
   end
