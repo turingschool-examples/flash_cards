@@ -10,12 +10,22 @@ class Deck
   def count
    cards.length
   end
-  # This doesn't work
-  # def cards_in_category(category)
-  #   @cards.select { |card| card.category }
+
+  # I'll be back for this. 
+  # def cards_in_category
+  #   stem = []
+  #   geography = []
+  #
+  #   cards.each do |card|
+  #     if card.category == :STEM
+  #       stem << card
+  #     elsif card.category == :Geography
+  #       geography << card
+  #     else
+  #       []
+  #     end
+  #   end
   # end
-
-
 end
 
 

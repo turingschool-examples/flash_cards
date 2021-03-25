@@ -34,8 +34,8 @@ RSpec.describe Turn do
   it 'is incorrect' do
     card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
     turn = Turn.new("Satrun", card)
-    require 'pry'; binding.pry 
-    expect(turn.guess). to eq(card.answer)
+
+    expect(turn.guess). to eq("Satrun")
   end
 end
 
