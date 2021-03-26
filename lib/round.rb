@@ -10,13 +10,15 @@ class Round
   end
 
   def current_card
-    @deck.cards[0]
+    @deck.cards.find do |card|
+      card
+    end
   end
 
   def take_turn(guess)
     new_turn = Turn.new(guess, current_card)
     @turns << new_turn
-    @deck.cards.rotate!
+    @deck.cards.shift #may need to change this back to rotate!
     new_turn
   end
 
@@ -29,9 +31,9 @@ class Round
     amount_correct
   end
 
-  # def number_correct_by_category(category)
-  #   # find correct turns
-  #   # match to category to category
-  #   # return an integer
-  # end
+  def number_correct_by_category(category)
+    @turns.find_all do |turn|
+      turn.card.category == category && turn.card.answer == turn.guess
+    end.length
+  end
 end
