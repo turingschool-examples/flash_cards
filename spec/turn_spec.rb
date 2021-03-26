@@ -18,7 +18,7 @@ describe Turn do
     expect(turn.guess).to eq("Juneau")
   end
 
-  it 'has a guess' do
+  it 'has a card' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
 
@@ -39,7 +39,7 @@ describe Turn do
     expect(turn.correct?).to eq(false)
   end
 
-  it 'is the positive feedback' do
+  it 'gives positive feedback' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
 
