@@ -1,5 +1,6 @@
 require 'csv'
 require './lib/card'
+
 class CardGenerator
     attr_accessor :csv, :cards
     def initialize(filename)

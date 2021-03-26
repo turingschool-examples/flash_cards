@@ -1,5 +1,3 @@
-# require 'colorize'
-
 class Round
     attr_reader :deck, :turn, :turns
 
@@ -32,12 +30,20 @@ class Round
     end
 
     def number_correct
-        @turns.select{|turn| turn.correct?}.length
+        number_correct = @turns.select do |turn| 
+            turn.correct? 
+        end
+        number_correct.length
     end
 
     def number_correct_by_category(category)
-        t = @turns.select{ |turn| turn.correct?}
-        t.select{|turn| turn.card.category == category}.length
+        correct_turns = @turns.select do 
+            |turn| turn.correct?
+        end
+        number_correct_by_category = correct_turns.select do 
+            |turn| turn.card.category == category
+        end
+        number_correct_by_category.length
     end
 
     def percent_correct
@@ -45,15 +51,17 @@ class Round
     end
 
     def percent_correct_by_category(category)
-        l = @turns.select{|turn| turn.card.category == category}.length
-        (number_correct_by_category(category).to_f / l.to_f) * 100
+        turns_with_category = @turns.select do |turn| 
+            turn.card.category == category
+        end
+        (number_correct_by_category(category).to_f / turns_with_category.length.to_f) * 100
     end
 
     def game_over
         puts "_-_-_-_-_-|Game Over|-_-_-_-_-_"
         puts "You had #{number_correct} correct guesses out of #{@turns.length} for a total score of #{percent_correct.round(2)}%".green
-        @deck.categories.each do |cat|
-            puts "#{cat} - #{percent_correct_by_category(cat)}%"
+        @deck.categories.each do |category|
+            puts "#{category} - #{percent_correct_by_category(category)}%"
         end
         
     end

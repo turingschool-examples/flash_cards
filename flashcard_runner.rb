@@ -19,6 +19,5 @@ card_gen = CardGenerator.new('./cards.txt')
 deck = Deck.new(card_gen.cards)
 
 round = Round.new(deck)
-
 round.start
 
