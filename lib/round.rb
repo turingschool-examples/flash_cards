@@ -18,14 +18,13 @@ class Round
     new_turn = Turn.new(guess, current_card)
     turns << new_turn
     @number_correct += 1 if new_turn.correct?
-    return new_turn
+    new_turn
   end
 
   def list_categories
     category_list = deck.cards.map do |card|
       card.category
     end.uniq
-    return category_list
   end
 
   def number_correct_by_category(category)
@@ -35,7 +34,7 @@ class Round
         total_for_category += 1
       end
     end
-    return total_for_category
+    total_for_category
   end
 
   def percent_correct
@@ -50,9 +49,7 @@ class Round
     # num correct for category divided by num turns in category
     turns_in_category = 0
     @turns.each do |turn|
-      if turn.card.category == category
-        turns_in_category += 1
-      end
+      turns_in_category += 1 if turn.card.category == category
     end
     correct_in_category = number_correct_by_category(category)
     if turns_in_category > 0
