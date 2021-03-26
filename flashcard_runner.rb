@@ -36,6 +36,5 @@ puts "****** Game over! ******"
 puts "You had #{round.number_correct} correct guesses out of #{deck.count} for a total score of #{round.percent_correct}%."
 
 categories.each {|category|
-  print "#{category} -  %0.1f" % round.percent_correct_by_category(category)
-  puts "%"
+  puts "#{category} -  %0.1f %%" % round.percent_correct_by_category(category)
 }
