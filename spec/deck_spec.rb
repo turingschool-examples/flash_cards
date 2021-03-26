@@ -17,4 +17,8 @@ RSpec.describe Deck do
   it 'has cards' do
     expect(@deck.cards).to eq(@cards)
   end
+
+  it 'can return count of cards in it' do
+    expect(@deck.count).to eq(3)
+  end
 end
