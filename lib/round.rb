@@ -5,33 +5,18 @@ class Round
     @turns = []
   end
 
-  # def turns
-  #   # this could possibly be a default instance variable
-  #   # the default value is an empty array
-  # end
-
   def current_card
-    @deck.cards.first
+    @deck.cards[@turns.length]
   end
 
   def take_turn(guess)
     turn = Turn.new(guess, current_card)
-    #instantiates and returns a new Turn instance?
-    #maybe at the end of the method it also
-    #takes the current card and shovels it to
-    #the turns array and also removes the current
-    #card from the deck?
     @turns.push(turn)
-    @deck.cards.shift
-    return turn
-    #maybe there are 2 default instance variables
-    # of empty arrays called 'correct' and incorrect
-    # that we shovel to as well? This would help when
-    #counting the number of correct
+    #@deck.cards.shift
+    turn
   end
 
   def number_correct
-    #iterate across the turns array and count all correct?'s
     count = 0
     @turns.each do |turn|
       if turn.correct?
@@ -41,14 +26,20 @@ class Round
     count
   end
 
+  # def number_correct_by_category(category)
+  #   count = 0
+  #   @turns.each do |turn|
+  #     if turn.card.category == category && turn.correct?
+  #       count += 1
+  #     end
+  #   end
+  #   count
+  # end
+
   def number_correct_by_category(category)
-    count = 0
-    @turns.each do |turn|
-      if turn.card.category == category && turn.correct?
-        count += 1
-      end
-    end
-    count
+    @turns.find_all do |turn|
+      turn.card.category == category && turn.correct?
+    end.length
   end
 
   def percent_correct
