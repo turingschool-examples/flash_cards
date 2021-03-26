@@ -11,7 +11,16 @@ class PlayGame
   def initialize(guess, deck)
     @guess = guess
     @deck = deck
+    @category = []
   end
+
+  # def categories
+  #   @deck.cards.each do |card|
+  #     @category << card.category
+  #   end
+  #   @category
+  # end
+
 
   def start
     p "Welcome! You're playing with 4 cards."
@@ -22,8 +31,12 @@ class PlayGame
     game = Turn.new(@guess, @deck)
     counter = 1
 
+    @deck.cards.each do |card|
+      @category << card.category
+    end
+
+
     until deck.cards.empty? == true
-      # require 'pry'; binding.pry
       p "This is card number #{counter} out of 4."
       p "Question #{counter} is: #{round.current_card.question}"
       @guess = gets.chomp.downcase
@@ -35,8 +48,13 @@ class PlayGame
     p "****** Game over! ******"
     p "You had #{round.number_correct} correct guesses out of 4 for a total score of #{round.percent_correct}%."
 
-    p "STEM - #{round.percent_correct_by_category(:STEM)}% correct"
-    p "Turing Staff - #{round.percent_correct_by_category(:TuringStaff)}% correct"
-    p "Pop Culture - #{round.percent_correct_by_category(:PopCulture)}% correct"
+    # p "STEM - #{round.percent_correct_by_category(:STEM)}% correct"
+    # p "Turing Staff - #{round.percent_correct_by_category(:TuringStaff)}% correct"
+    # p "Pop Culture - #{round.percent_correct_by_category(:PopCulture)}% correct"
+    @category.uniq.each do |category|
+      p "#{category}- #{round.percent_correct_by_category(category).to_i}% correct"
+    end
+
+
   end
 end
