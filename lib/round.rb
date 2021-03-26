@@ -12,11 +12,16 @@ class Round
   end
 
   def take_turn(guess)
-    #should create a new instance of a turn with current card
-    card = current_card
-    turn = Turn.new(guess, card)
+    turn = Turn.new(guess, current_card)
+    turns << turn
+    return turn
   end
 
-  
+  def number_correct
+    correct_turns = turns.find_all do |turn|
+      turn.correct? 
+    end
+    correct_turns.length 
+  end
 end
  
