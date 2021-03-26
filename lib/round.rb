@@ -39,5 +39,16 @@ class Round
     end
     correct_by_category.length
   end
+
+  def percent_correct
+    #check number of guesses made 
+    percent_correct = turns.find_all do |turn|
+      turn.correct?
+    end
+    #calculate percent correct 
+    percentage = (turns.length.to_f / percent.correct.length.to_f) * 100
+    #return percent correct as a float
+    return percentage
+  end
 end
  
