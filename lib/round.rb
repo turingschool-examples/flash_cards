@@ -26,16 +26,6 @@ class Round
     count
   end
 
-  # def number_correct_by_category(category)
-  #   count = 0
-  #   @turns.each do |turn|
-  #     if turn.card.category == category && turn.correct?
-  #       count += 1
-  #     end
-  #   end
-  #   count
-  # end
-
   def number_correct_by_category(category)
     @turns.find_all do |turn|
       turn.card.category == category && turn.correct?
