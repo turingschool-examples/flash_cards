@@ -135,5 +135,3 @@ describe Round do
       end
   end
 end
-# round.current_card
-# #=> #<Card:0x00007fa161a136f0 @answer="North north west", @question="Describe in words the exact direction that is 697.5° clockwise from due north?", @category=:STEM>
