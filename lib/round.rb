@@ -46,6 +46,16 @@ class Round
     percent.truncate(2)
   end
 
+  def percent_correct_by_category(subject)
+    correct = number_correct_by_category(subject)
+    total = @turns.select do |turn| 
+      turn.card.category == subject
+    end
+    total = total.length
+    percent = (correct.to_f / total.to_f) * 100
+    percent.truncate(2)
+  end
+
 
 
 end
