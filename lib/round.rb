@@ -30,18 +30,14 @@ class Round
     correct_turns.length 
   end 
 
-  def number_correct_by_category(specific_category) 
+  def number_correct_by_category(specific_category)
     #check if guess is correct according to category 
-    #round >> deck >> cards_in_category
-    #round >> turns >> card >> correct? 
+    #round >> turns >> correct? 
     #return the number of in correct by category array
-    correct_by_category = deck.find_all do |turn|
-      deck.card.category.correct? 
+    correct_by_category = turns.find_all do |turn|
+      turn.correct? && turn.card.category == specific_category  
     end
     correct_by_category.length
-
-    #collect array of correct cards first
-    #then sort by the category
   end
 end
  
