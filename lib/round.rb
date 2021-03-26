@@ -2,11 +2,12 @@ require './lib/turn'
 
 class Round
 
-  attr_reader :deck, :turns
+  attr_reader :deck, :turns, :number_correct
 
   def initialize(deck)
     @deck = deck
     @turns = []
+    @number_correct = identify_correct.count
   end
 
   def current_card
@@ -18,6 +19,16 @@ class Round
     turn = Turn.new(guess, current_card)
     @turns << turn
     turn
+  end
+
+  def identify_correct
+    @turns.map do |turn|
+      turn.correct?
+    end
+  end
+
+  def counter
+    @number_correct = identify_correct.count
   end
 
 
