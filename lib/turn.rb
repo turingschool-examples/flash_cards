@@ -1,3 +1,5 @@
 class Turn
 
-end 
+  def initialize(guess, card)
+  end 
+end
