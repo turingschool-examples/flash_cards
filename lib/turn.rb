@@ -6,6 +6,7 @@ class Turn
   end
 
   def correct?
-
-  end 
+    return true if guess == card.answer
+    return false if guess != card.answer
+  end
 end

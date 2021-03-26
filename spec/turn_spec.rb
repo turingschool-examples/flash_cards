@@ -36,7 +36,7 @@ describe Turn do
       expect(turn.correct?).to eq(true)
     end
 
-    xit 'can return false'  do
+    it 'can return false'  do
       card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       turn = Turn.new("Fairbanks", card)
 
