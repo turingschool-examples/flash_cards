@@ -74,19 +74,18 @@ class Round
     percentage.truncate(1) # truncates to 1 decimal place
   end
 
+
   # This method starts the round and provides user iteraction and feedback
   def start
-
     puts "Welcome! You're playing with #{@deck.cards.count} cards."
     37.times do print("-")
     end
+    print "\n"
 
     # Iterating over each card in the deck and providing user with a guess
     @deck.cards.each do |turn|
-
       puts "This is card number #{@card_index + 1} out of #{@deck.cards.count}."
       puts "Question: #{@current_card.question}"
-
       guess = gets.chomp
       self.take_turn(guess)
     end
@@ -100,12 +99,6 @@ class Round
       category = card.category
       puts "#{category} - #{percent_correct_by_category(category)}%"
     end
-
-    # Initial testing fails in runner file due to not creating new Round
-    # This isn't in the scope of project, but provides a way for user to play again
-    # puts "Do you want to try again? y/n"
-    # @play_again = gets.chomp
-
   end
 
 end
