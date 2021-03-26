@@ -8,13 +8,13 @@ class Round
     end
 
     def current_card
-        @deck.cards.first
+        index = @turns.length
+        @deck.cards[index]
     end
 
     def take_turn(guess)
-        turn = Turn.new("#{guess}", current_card)
+        turn = Turn.new(guess, current_card)
         @turns << turn
-        @deck.cards.rotate
         return turn
     end
 
