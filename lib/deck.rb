@@ -7,8 +7,7 @@ class Deck
   end
 
   def count
-    self.cards.count
-    #is this really what they want? Re interaction pattern
+    cards.count
   end
 
   def cards_in_category(category)
