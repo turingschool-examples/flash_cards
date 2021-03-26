@@ -7,7 +7,7 @@ class Round
                 :current_card_num,
                 :current_card,
                 :number_correct,
-                :correct_answer_hash
+                :num_correct_in_category
 
   def initialize(deck)
     @deck = deck
@@ -15,7 +15,7 @@ class Round
     @current_card_num = 0
     @current_card = deck.cards[0]
     @number_correct = 0
-    @correct_answer_hash = {}
+    @num_correct_in_category = 0
   end
 
   def take_turn(guess, game)
@@ -57,9 +57,7 @@ class Round
 
   def percent_correct_by_category(category)
     num_in_category = turns.find_all do |turn|
-      if turn.card.category == category
-        turn.correct? == true
-      end
+      turn.card.category == category
     end
     (number_correct_by_category(category).to_f / num_in_category.count) * 100
 
