@@ -15,11 +15,6 @@ RSpec.describe CardGenerator do
       card_generator = CardGenerator.new(filename)
       card_array = card_generator.cards
 
-<<<<<<< HEAD
-=======
-      # require 'pry'; binding.pry
-
->>>>>>> 4d4a8f37e9fa09820df446f46ab8624bfc8797f1
       expect(card_array[0]).to be_a(Card)
     end
   end
