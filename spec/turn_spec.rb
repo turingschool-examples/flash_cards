@@ -52,13 +52,13 @@ describe Turn do
       expect(turn.feedback).to eq("Correct!")
     end
 
-    xit 'responds to incorrect feedback' do
+    it 'responds to incorrect feedback' do
       card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-      turn = Turn.new("Juneau", card)
+      turn = Turn.new("Fairbanks", card)
 
       expect(turn.feedback).to eq("Incorrect.")
     end
-  end 
+  end
 
 
 
