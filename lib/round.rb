@@ -61,14 +61,20 @@ class Round
 
   def start
     puts "Welcome! You're playing with 4 cards.
-    ---------------------------------------------
-    This is card number #{@turn_counter} out of #{@deck.cards.length + @turns.length}
-    Question: #{current_card.question}
-    "
+    --------------------------------------------- "
   end
 
-  def get_guess
+  def display_question
+    puts "This is card number #{@turn_counter} out of #{@deck.cards.length + @turns.length}
+    Question: #{current_card.question}"
+    get_guess
+  end
 
+
+  def get_guess
+    guess = gets.chomp
+    turn = take_turn(guess)
+    store_turn(turn)
   end
 
 

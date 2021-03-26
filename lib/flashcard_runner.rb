@@ -14,4 +14,6 @@ cards = [card_1, card_2, card_3]
 deck = Deck.new(cards)
 round = Round.new(deck)
 
-round.start 
+round.start
+(cards.length).times do round.display_question end
+  
