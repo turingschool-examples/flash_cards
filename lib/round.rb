@@ -81,7 +81,10 @@ class Round
   def game_over
     puts "****** Game over! ******"
     puts "You had #{number_correct} correct guesses out of #{turns.length} for a total score of #{percent_correct}"
+  end
 
+  def summarize_by_category(category)
+  puts "#{category} - #{percent_correct_by_category(category)}"
   end
 
 
