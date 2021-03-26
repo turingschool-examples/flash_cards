@@ -1,22 +1,15 @@
+require 'pry'
 class Turn
-  attr_accessor :string,
+  attr_accessor :guess,
                 :card
 
-  def initialize(string, card)
-    @string = string
+  def initialize(guess, card)
+    @guess = guess
     @card = card
   end
 
-  def guess()
-    guess = @string
-  end
-
-  def card()
-    card = @card
-  end
-
-  def correct?()
-    if guess == @string
+  def correct?
+    if @guess == @card.answer
       puts true
     end
   end
@@ -28,5 +21,5 @@ class Turn
       puts "Incorrect."
     end
   end
-
+   # binding.pry
 end

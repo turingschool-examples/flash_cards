@@ -1,4 +1,5 @@
 require './lib/card'
+require 'pry'
 
 RSpec.describe Card do
   it 'exists' do
@@ -24,4 +25,5 @@ RSpec.describe Card do
 
     expect(card.category).to eq(:Geography)
   end
+  binding.pry
 end
