@@ -74,6 +74,7 @@ class Round
   def get_guess
     guess = gets.chomp
     turn = take_turn(guess)
+    puts turn.feedback
     store_turn(turn)
   end
 
