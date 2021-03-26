@@ -9,6 +9,11 @@ class Round
 
   def current_card
     deck.cards.first
-  end 
+  end
+
+  def take_turn(guess)
+  card = current_card
+  turn = Turn.new(guess, card)
+  end
 
 end
