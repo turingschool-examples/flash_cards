@@ -1,6 +1,5 @@
-require 'pry'
 class Turn
-  attr_accessor :guess,
+  attr_reader :guess,
                 :card
 
   def initialize(guess, card)
@@ -9,17 +8,14 @@ class Turn
   end
 
   def correct?
-    if @guess == @card.answer
-      puts true
-    end
+    @guess == @card.answer
   end
 
   def feedback()
     if correct? == true
-      puts "Correct!"
+      "Correct!"
     else
-      puts "Incorrect."
+      "Incorrect."
     end
   end
-   # binding.pry
 end
