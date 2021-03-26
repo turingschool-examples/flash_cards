@@ -214,6 +214,8 @@ describe Round do
       round.store_turn(third_turn)
 
       expect(round.number_correct_by_category(:STEM)).to eq(1)
+      expect(round.number_correct_by_category(:Geography)).to eq(1)
+      expect(round.number_correct_by_category(:KPOP)).to eq(0)
     end
   end
 
