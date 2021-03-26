@@ -17,7 +17,7 @@ class Round
   turn = Turn.new(guess, card)
   end
 
-  def next_turn(turn)
+  def store_turn(turn)
     @turns << turn
     deck.cards.shift
   end
@@ -27,6 +27,10 @@ class Round
       turn.correct? == true
     end
     return correct.length
+  end
+
+  def number_correct_by_category(subject)
+
   end
 
 

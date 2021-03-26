@@ -60,7 +60,7 @@ describe Round do
       expect(round.current_card).to eq(card_1)
     end
 
-    it 'reads the correct card after .next_turn' do
+    it 'reads the correct card after .store_turn' do
       card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       card_2 = Card.new("The Viking spacecraft sent back to Earth photographs
         and reports about the surface of which planet?", "Mars", :STEM)
@@ -70,7 +70,7 @@ describe Round do
       deck = Deck.new(cards)
       round = Round.new(deck)
       new_turn = round.take_turn("Fairbanks")
-      round.next_turn(new_turn)
+      round.store_turn(new_turn)
 
       expect(round.current_card).to eq(card_2)
     end
@@ -107,7 +107,7 @@ describe Round do
     end
   end
 
-  describe '#next_turn' do
+  describe '#store_turn' do
     it 'adds the turn to @turns array' do
       card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       card_2 = Card.new("The Viking spacecraft sent back to Earth photographs
@@ -118,7 +118,7 @@ describe Round do
       deck = Deck.new(cards)
       round = Round.new(deck)
       new_turn = round.take_turn("Juneau")
-      round.next_turn(new_turn)
+      round.store_turn(new_turn)
 
       expect(round.turns[0]).to be_a(Turn)
     end
@@ -133,9 +133,9 @@ describe Round do
       deck = Deck.new(cards)
       round = Round.new(deck)
       new_turn = round.take_turn("Juneau")
-      round.next_turn(new_turn)
+      round.store_turn(new_turn)
       second_turn = round.take_turn("Pluto")
-      round.next_turn(second_turn)
+      round.store_turn(second_turn)
 
       expect(round.turns.count).to eq(2)
     end
@@ -150,12 +150,12 @@ describe Round do
       deck = Deck.new(cards)
       round = Round.new(deck)
       new_turn = round.take_turn("Juneau")
-      round.next_turn(new_turn)
+      round.store_turn(new_turn)
       second_turn = round.take_turn("Pluto")
-      round.next_turn(second_turn)
+      round.store_turn(second_turn)
 
       expect(round.turns.last.feedback).to eq("Incorrect.")
-    end 
+    end
 
   end
 
@@ -170,12 +170,12 @@ describe Round do
       deck = Deck.new(cards)
       round = Round.new(deck)
       new_turn = round.take_turn("Juneau")
-      round.next_turn(new_turn)
+      round.store_turn(new_turn)
 
       expect(round.number_correct).to eq(1)
 
       second_turn = round.take_turn("Mars")
-      round.next_turn(second_turn)
+      round.store_turn(second_turn)
 
       expect(round.number_correct).to eq(2)
     end
@@ -190,11 +190,29 @@ describe Round do
       deck = Deck.new(cards)
       round = Round.new(deck)
       new_turn = round.take_turn("Fairbanks")
-      round.next_turn(new_turn)
+      round.store_turn(new_turn)
 
       expect(round.number_correct).to eq(0)
     end
   end
+
+  # describe '#number_correct_by_category' do
+  #   it 'returns correct guesses by category' do
+  #     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+  #     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs
+  #       and reports about the surface of which planet?", "Mars", :STEM)
+  #     card_3 = Card.new("Describe in words the exact direction that is 697.5°
+  #        clockwise from due north?", "North north west", :STEM)
+  #     cards = [card_1, card_2, card_3]
+  #     deck = Deck.new(cards)
+  #     round = Round.new(deck)
+  #     new_turn = round.take_turn("Juneau")
+  #     round.store_turn(new_turn)
+  #     second_turn = round.take_turn("Mars")
+  #     round.store_turn(second_turn)
+  #     third_turn = round.take_turn("West")
+  #     round.store_turn(third_turn)
+  #
 
 
 
