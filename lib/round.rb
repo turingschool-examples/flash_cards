@@ -1,11 +1,13 @@
 class Round
 
   attr_reader :deck,
-              :turns
+              :turns,
+              :turn_counter
 
   def initialize(deck)
     @deck = deck
     @turns = []
+    @turn_counter = 1
   end
 
   def current_card
@@ -20,6 +22,7 @@ class Round
   def store_turn(turn)
     @turns << turn
     deck.cards.shift
+    @turn_counter += 1
   end
 
   def number_correct
@@ -57,12 +60,16 @@ class Round
   end
 
   def start
-
+    puts "Welcome! You're playing with 4 cards.
+    ---------------------------------------------
+    This is card number #{@turn_counter} out of #{@deck.cards.length + @turns.length}
+    Question: #{current_card.question}
+    "
   end
 
   def get_guess
 
-  end 
+  end
 
 
 
