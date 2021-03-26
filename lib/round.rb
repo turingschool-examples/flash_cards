@@ -9,7 +9,8 @@ class Round
     end
 
     def current_card
-        @deck.cards.shift
+        index = @turns.length
+        @deck.cards[index]
     end
 
     def take_turn(guess)
@@ -25,6 +26,8 @@ class Round
     end
 
     def number_correct_by_category(category)
-        require "pry"; binding.pry
+        @turns.find_all do |turn|
+            turn.correct? && turn.card.category == category
+        end.length
     end
 end
