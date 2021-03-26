@@ -16,4 +16,9 @@ class Round
   turn = Turn.new(guess, card)
   end
 
+  def next_turn(turn)
+    @turns << turn
+    deck.cards.shift
+  end
+
 end
