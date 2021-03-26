@@ -9,4 +9,8 @@ class Turn
     return true if guess == card.answer
     return false if guess != card.answer
   end
+
+  def feedback
+
+  end 
 end
