@@ -7,6 +7,7 @@ class Round
 
   def current_card
     @deck.cards[@turns.length]
+    #@deck.cards.first
   end
 
   def take_turn(guess)
@@ -17,13 +18,9 @@ class Round
   end
 
   def number_correct
-    count = 0
-    @turns.each do |turn|
-      if turn.correct?
-        count += 1
-      end
-    end
-    count
+    @turns.find_all do |turn|
+      turn.correct?
+    end.length
   end
 
   def number_correct_by_category(category)
@@ -34,12 +31,13 @@ class Round
 
   def percent_correct
     # May not need 'self.'
-    ((self.number_correct * 100.0) / @turns.count).round(1)
+    ((number_correct * 100.0) / @turns.count).round(1)
   end
 
   def percent_correct_by_category(category)
-    ((number_correct_by_category(category) * 100.0) / cards_in_category(category)).round(1)
-    #   NoMethodError: undefined method `cards_in_category' for #<Round:0x0000000130a8d7d0>
-    #   from /Users/brantfuller/turing/1module/flash_cards/lib/round.rb:59:in `percent_correct_by_category'
+    total_cards_in_category = @turns.find_all do |turn|
+      turn.card.category == category
+    end.length
+    ((number_correct_by_category(category) * 100.0) / total_cards_in_category).round(1)
   end
 end
