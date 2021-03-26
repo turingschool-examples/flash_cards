@@ -71,20 +71,6 @@ RSpec.describe Round do
       expect(round.turns[0].card).to eq(cards[0])
     end
 
-    it 'does not take more turns than cards' do
-      card1 = Card.new('What is the capital of CO?', 'Denver', :Geography)
-      card2 = Card.new('What is the captial of Mexico?', 'Mexico City', :Geography)
-      cards = [card1, card2,]
-      deck = Deck.new(cards)
-      round = Round.new(deck)
-        # require "pry"; binding.pry
-      round.take_turn('Denver')
-      round.take_turn('Mexico City')
-      actual = round.take_turn('What?')
-
-      expect(actual).to eq('****** Game Over!******')
-    end
-
     it 'fills the turns array as turns are taken' do
       card1 = Card.new('What is the capital of CO?', 'Denver', :Geography)
       card2 = Card.new('What is the captial of Mexico?', 'Mexico City', :Geography)
@@ -172,7 +158,7 @@ RSpec.describe Round do
       expect(actual).to eq(2)
     end
 
-    it 'does not count categories that it contain' do
+    it 'does not count categories that it does not contain' do
       card1 = Card.new('What is the capital of CO?', 'Denver', :Geography)
       card2 = Card.new('What is the captial of Mexico?', 'Mexico City', :Geography)
       card3 = Card.new('What is the boiling point (degrees celcius) of water?', '100', :Science)
@@ -222,6 +208,75 @@ RSpec.describe Round do
       # require "pry"; binding.pry
 
       expect(actual).to eq(50)
+    end
+
+    it 'wont explode if have not taken any turns' do
+      card1 = Card.new('What is the capital of CO?', 'Denver', :Geography)
+      card2 = Card.new('What is the captial of Mexico?', 'Mexico City', :Geography)
+      card3 = Card.new('What is the boiling point (degrees celcius) of water?', '100', :Science)
+      card4 = Card.new('What position did Satchel Paige play?', 'pitcher', :Sports)
+      card5 = Card.new('What element is abbreviated as Cl?', 'chlorine', :Science)
+      cards = [card1, card2, card3, card4, card5]
+      deck = Deck.new(cards)
+      round = Round.new(deck)
+
+      actual = round.percent_correct
+      # require "pry"; binding.pry
+
+      expect(actual).to eq("error divide by zero")
+    end
+  end
+
+  describe '#percent_correct_by_category' do
+    it 'can tell you what percent of a category have correct guesses' do
+      card1 = Card.new('What is the capital of CO?', 'Denver', :Geography)
+      card2 = Card.new('What is the captial of Mexico?', 'Mexico City', :Geography)
+      card3 = Card.new('What is the boiling point (degrees celcius) of water?', '100', :Science)
+      card4 = Card.new('What position did Satchel Paige play?', 'pitcher', :Sports)
+      card5 = Card.new('What element is abbreviated as Cl?', 'chlorine', :Science)
+      cards = [card1, card2, card3, card4, card5]
+      deck = Deck.new(cards)
+      round = Round.new(deck)
+
+      round.take_turn('Denver')
+      round.take_turn('Mexico City')
+      actual = round.percent_correct_by_category(:Geography)
+
+      expect(actual).to eq(100)
+    end
+
+    it 'still gives you the correct percent if you get some wrong' do
+      card1 = Card.new('What is the capital of CO?', 'Denver', :Geography)
+      card2 = Card.new('What is the captial of Mexico?', 'Mexico City', :Geography)
+      card3 = Card.new('What is the boiling point (degrees celcius) of water?', '100', :Science)
+      card4 = Card.new('What position did Satchel Paige play?', 'pitcher', :Sports)
+      card5 = Card.new('What element is abbreviated as Cl?', 'chlorine', :Science)
+      cards = [card1, card2, card3, card4, card5]
+      deck = Deck.new(cards)
+      round = Round.new(deck)
+
+      round.take_turn('Denver')
+      round.take_turn('No idea')
+      actual = round.percent_correct_by_category(:Geography)
+
+      expect(actual).to eq(50)
+    end
+
+    it 'wont divide by zero if no cards of that category have been turned' do
+      card1 = Card.new('What is the capital of CO?', 'Denver', :Geography)
+      card2 = Card.new('What is the captial of Mexico?', 'Mexico City', :Geography)
+      card3 = Card.new('What is the boiling point (degrees celcius) of water?', '100', :Science)
+      card4 = Card.new('What position did Satchel Paige play?', 'pitcher', :Sports)
+      card5 = Card.new('What element is abbreviated as Cl?', 'chlorine', :Science)
+      cards = [card1, card2, card3, card4, card5]
+      deck = Deck.new(cards)
+      round = Round.new(deck)
+
+      round.take_turn('Denver')
+      round.take_turn('No idea')
+      actual = round.percent_correct_by_category(:Sports)
+
+      expect(actual).to eq("error divide by zero")
     end
   end
 end

@@ -1,32 +1,30 @@
 class Round
   attr_reader :turns,
               :deck,
-              :category_to_count_correct,
-              :category_cards_seen,
-              :category_correct
+              :current_card_count
 
   def initialize(deck)
     @deck = deck
     @turns = []
-    @current_card = 0
+    @current_card_count = 0
   end
 
   def take_turn(guess)
     @guess = guess
-    if @current_card < @deck.cards.count
-      @new_turn = Turn.new(@guess, @deck.cards[@current_card])
-      @current_card += 1
-      @turns.push(@new_turn)
-      @new_turn
-    elsif @current_card >= @deck.cards.count
-      @new_turn = "****** Game Over!******"
-    else
-      @new_turn = "Error!!!"
-    end
+    # if @current_card_count < @deck.cards.count
+    @new_turn = Turn.new(@guess, @deck.cards[@current_card_count])
+    @current_card_count += 1
+    @turns.push(@new_turn)
+    @new_turn
+    # elsif @current_card_count >= @deck.cards.count
+    #   @new_turn = "****** Game Over!******"
+    # else
+    #   @new_turn = "Error!!!"
+    # end
   end
 
   def current_card
-    @deck.cards[@current_card]
+    @deck.cards[@current_card_count]
   end
 
   def number_correct
@@ -47,19 +45,22 @@ class Round
   end
 
   def percent_correct
-    @turns_guess_correct = @turns.count { |turn| turn.correct?}
-    @turns_taken = @turns.count.to_f
-    (@turns_guess_correct / @turns_taken) * 100
+    if @turns.count > 0
+      @turns_guess_correct = @turns.count { |turn| turn.correct?}
+      @turns_taken = @turns.count.to_f
+      return (@turns_guess_correct / @turns_taken) * 100
+    else
+      return "error divide by zero"
+    end
   end
 
-  def percent_correct_by_category(catagory_percent_check)
-    # @catagory_percent_check = catagory_percent_check
-    # @category_turn_deck = Deck.new(@turns)
-    # @category_percent_correct = @category_turn_deck.cards_in_category(@catagory_percent_check)
-    # @category_correct = @category_percent_correct.count do |turn|
-    #   turn.correct?
-    # end
-    # @category_total = @category_turn_deck.count
-    # @category_percent_correct = (@category_correct / @category_total) * 100
+  def percent_correct_by_category(category_percent_check)
+    if @turns.count {|turn| turn.card.category == category_percent_check} > 0
+      category_correct = number_correct_by_category(category_percent_check)
+      category_seen = @turns.count {|turn| turn.card.category == category_percent_check}
+      return (category_correct.to_f / category_seen) * 100
+    else
+      return "error divide by zero"
+    end
   end
 end
