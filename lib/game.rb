@@ -25,8 +25,10 @@ class Game
     }
   end
 
-
-
+  def guess_card
+    @player_guess = gets.chomp
+    @round.take_turn(@player_guess)
+  end
 
   def start
     @round = Round.new(@deck)
@@ -35,9 +37,9 @@ class Game
     while @round.current_card_count < (@round.deck.cards.count) do
       puts "This is card #{@round.current_card_count + 1} of #{@round.deck.cards.count}"
       puts "Question: #{@round.deck.cards[@round.current_card_count].question}"
-      @player_guess = gets.chomp
-      @round.take_turn(@player_guess)
-      # require "pry"; binding.pry
+
+      guess_card
+
       puts (@round.turns[@round.current_card_count - 1].feedback)
     end
     puts "****** Game over! ******"
@@ -52,11 +54,7 @@ class Game
   end
 
 
-  # @card1 = Card.new('What is the capital of CO?', 'Denver', :Geography)
-  # @card2 = Card.new('What is the captial of Mexico?', 'Mexico City', :Geography)
-  # @card3 = Card.new('What is the boiling point (degrees celcius) of water?', '100', :Science)
-  # @card4 = Card.new('What position did Satchel Paige play?', 'pitcher', :Sports)
-  # @card5 = Card.new('What element is abbreviated as Cl?', 'chlorine', :Science)
+
   # @card1 = Card.new('What is the capital of CO?', '1', :Geography)
   # @card2 = Card.new('What is the captial of Mexico?', '2', :Geography)
   # @card3 = Card.new('What is the boiling point (degrees celcius) of water?', '3', :Science)
