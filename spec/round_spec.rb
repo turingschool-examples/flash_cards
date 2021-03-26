@@ -228,14 +228,17 @@ RSpec.describe Round do
       card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
       card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+      card_4 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
-      cards = [card_1, card_2, card_3]
+      cards = [card_1, card_2, card_3, card_4]
       deck = Deck.new(cards)
       round = Round.new(deck)
       first_turn = round.take_turn("Juneau")
       second_turn = round.take_turn("Juneau")
+      third_turn = round.take_turn("Juneau")
+      fourth_turn = round.take_turn("Juneau")
 
-      expect(round.number_correct_by_category(:Geography)).to eq(1)
+      expect(round.number_correct_by_category(:Geography)).to eq(2)
     end
 
     it 'percentage correct by category' do
@@ -273,7 +276,7 @@ RSpec.describe Round do
       expect(round.turns_by_category(:Geography)).to eq(2)
     end
 
-    it 'correct cards' do
+    it 'correct turns' do
       card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
       card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
@@ -287,7 +290,7 @@ RSpec.describe Round do
       third_turn = round.take_turn("Juneau")
       fourth_turn = round.take_turn("Juneau")
 
-      expect(round.correct_cards).to eq([card_1, card_4])
+      expect(round.correct_turns).to eq([first_turn, fourth_turn])
     end
 
   end

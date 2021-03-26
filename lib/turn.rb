@@ -8,7 +8,7 @@ class Turn
   end
 
   def correct?
-    @guess == @card.answer
+    @guess == @card.answer.downcase
   end
 
   def feedback
@@ -18,6 +18,5 @@ class Turn
       "Incorrect."
     end
   end
-  # require 'pry'; binding.pry
 
 end
