@@ -1,22 +1,18 @@
 class Deck
-  attr_accessor :cards
+  attr_reader :cards,
+              :count
 
+  #create a deck
   def initialize(cards)
     @cards = cards
-  end
-
-  def count
     @count = cards.count
   end
 
+  #return all cards in a given category
   def cards_in_category(category)
-    cards_in_category = []
-    @cards.each do |card|
-      if card.category == category
-        cards_in_category << card
-      end
+    @cards.find_all do |card|
+      card.category == category
     end
-    cards_in_category
   end
 
 end

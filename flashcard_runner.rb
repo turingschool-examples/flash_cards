@@ -5,6 +5,6 @@ require './lib/round'
 require './lib/game'
 require 'pry'
 
-game = Game.new
+game = Game.new(false)
 
 game.start

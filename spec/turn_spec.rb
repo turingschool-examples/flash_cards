@@ -1,31 +1,41 @@
 require './lib/turn'
 require './lib/card'
 
-
 RSpec.describe Turn do
 
+  #set up my test suite with the creation of a card and two turns
   before do
     @card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    @turn_correct = Turn.new("Juneau", @card)
-    @turn_incorrect = Turn.new("Saturn", @card)
+    @correct_turn = Turn.new("Juneau", @card)
+    @incorrect_turn = Turn.new("Saturn", @card)
   end
 
-  it 'exists' do
-    expect(@turn_correct).to be_instance_of(Turn)
+  #vet that the initialize method works correctly
+  describe "#initialize" do
+    it 'creates a new turn object' do
+      expect(@correct_turn).to be_instance_of(Turn)
+    end
+    it 'has a guess' do
+      expect(@correct_turn.guess).to eq("Juneau")
+    end
+    it 'has a card' do
+      expect(@correct_turn.card).to eq(@card)
+    end
   end
 
-  it 'has a guess' do
-    expect(@turn_correct.guess).to eq("Juneau")
-  end
+  #vet that the correct? method accurately returns true/false
+    describe "#correct?" do
+      it 'evaluates guess and returns true/false' do
+        expect(@correct_turn.correct?).to eq(true)
+        expect(@incorrect_turn.correct?).to eq(false)
+      end
+    end
 
-  it 'evaluates correctness' do
-    expect(@turn_correct.correct?).to eq(true)
-    expect(@turn_incorrect.correct?).to eq(false)
+    #vet that the feedback method accurately returns Correct!/Incorrect.
+    describe "#feedback" do
+      it 'evaluates guess and returns Correct!/Incorrect.' do
+        expect(@correct_turn.feedback).to eq("Correct!")
+        expect(@incorrect_turn.feedback).to eq("Incorrect.")
+      end
   end
-
-  it 'provides feedback' do
-    expect(@turn_correct.feedback).to eq("Correct!")
-    expect(@turn_incorrect.feedback).to eq("Incorrect.")
-  end
-
 end
