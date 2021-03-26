@@ -1,2 +1,4 @@
 class Card
-end 
+  def initialize(question, answer, category)
+  end 
+end
