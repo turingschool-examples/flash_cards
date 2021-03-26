@@ -30,6 +30,15 @@ class Round
   end
 
   def number_correct_by_category(subject)
+    group = @turns.select do |turn|
+      turn.card.category == subject
+    end
+
+    correct = group.select do |turn|
+      turn.correct? == true
+    end
+
+    correct.length
 
   end
 
