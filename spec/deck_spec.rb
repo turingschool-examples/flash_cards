@@ -34,7 +34,8 @@ describe Deck do
     expect(deck.count).to eq(3)
   end
 
-deck.count
+
+
 deck.cards_in_category(:STEM)
 deck.cards_in_category(:Geography)
 deck.cards_in_category("Pop Culture")
