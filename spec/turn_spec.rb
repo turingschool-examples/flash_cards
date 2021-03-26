@@ -3,14 +3,12 @@ require './lib/card'
 
 RSpec.describe Turn do
 
-  #set up my test suite with the creation of a card and two turns
   before do
     @card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     @correct_turn = Turn.new("Juneau", @card)
     @incorrect_turn = Turn.new("Saturn", @card)
   end
 
-  #vet that the initialize method works correctly
   describe "#initialize" do
     it 'creates a new turn object' do
       expect(@correct_turn).to be_instance_of(Turn)
@@ -23,7 +21,6 @@ RSpec.describe Turn do
     end
   end
 
-  #vet that the correct? method accurately returns true/false
     describe "#correct?" do
       it 'evaluates guess and returns true/false' do
         expect(@correct_turn.correct?).to eq(true)
@@ -31,7 +28,6 @@ RSpec.describe Turn do
       end
     end
 
-    #vet that the feedback method accurately returns Correct!/Incorrect.
     describe "#feedback" do
       it 'evaluates guess and returns Correct!/Incorrect.' do
         expect(@correct_turn.feedback).to eq("Correct!")

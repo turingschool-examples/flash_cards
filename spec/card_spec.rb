@@ -1,7 +1,6 @@
 require './lib/card'
 
 RSpec.describe Card do
-  #vet that the initialize method works correctly
   describe "#initialize" do
     it 'creates a new card object' do
       card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)

@@ -3,7 +3,6 @@ require './lib/deck'
 
 RSpec.describe Deck do
 
-  #set up my test suite with the creation of a basic deck
   before do
     @card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     @card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
@@ -12,7 +11,6 @@ RSpec.describe Deck do
     @deck = Deck.new(@cards)
   end
 
-  #vet that the initialize method works correctly
   describe "#initialize" do
     it 'creates a new deck object' do
       expect(@deck.cards).to eq([@card_1, @card_2, @card_3])
@@ -22,7 +20,6 @@ RSpec.describe Deck do
     end
   end
 
-  #vet that the cards_in_category method works correctly
   describe "#cards_in_category" do
     it 'returns cards in a given category' do
       expect(@deck.cards_in_category(:Geography)).to eq([@card_1])
@@ -30,5 +27,4 @@ RSpec.describe Deck do
       expect(@deck.cards_in_category("Pop Culture")).to eq([])
     end
   end
-
 end

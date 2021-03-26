@@ -5,7 +5,6 @@ require './lib/round'
 
 RSpec.describe Round do
 
-#set up my test suite with the creation of a basic deck
   before do
     @card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     @card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
@@ -15,7 +14,6 @@ RSpec.describe Round do
     @round = Round.new(@deck)
   end
 
-  #vet that the round initialize method works correctly
   describe "#initialize" do
     it 'creates a new round object' do
       expect(@round.deck).to eq(@deck)
@@ -34,7 +32,6 @@ RSpec.describe Round do
     end
   end
 
-  #vet that the take_turn method works correctly
   describe "#take_turn" do
     it 'creates a new Turn object' do
       new_turn = @round.take_turn("Juneau")
@@ -51,8 +48,6 @@ RSpec.describe Round do
       new_turn_3 = @round.take_turn("Cheetos")
       expect(@round.current_card).to eq(@card_3)
     end
-    #vet that upon calling the take_turn method, evaluate_correctness methods
-    #kicks off and runs correctly
     describe "#evaluate_correctness" do
       it 'counts the number of correct responses' do
         new_turn = @round.take_turn("Juneau")
@@ -63,7 +58,6 @@ RSpec.describe Round do
     end
   end
 
-  # #vet that the number_correct_by_category method works correctly
   describe "#number_correct_by_category" do
     it 'counts the number of correct responses by category' do
       new_turn = @round.take_turn("Juneau")
@@ -74,7 +68,6 @@ RSpec.describe Round do
     end
   end
 
-  #vet that the percent_correct method works correctly
   describe "#percent_correct" do
     it 'reports the percentage of correct responses' do
       new_turn = @round.take_turn("Juneau")
@@ -83,7 +76,6 @@ RSpec.describe Round do
     end
   end
 
-  #vet that the percent_correct_by_category method works correctly
   describe "#percent_correct_by_category" do
     it 'reports the percentage of correct responses by category' do
       new_turn = @round.take_turn("Juneau")
