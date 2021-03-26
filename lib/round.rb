@@ -16,12 +16,14 @@ class Round
 
   # This method does a lot of leg-work, specifically it:
   # - instantiates a new turn and adds a turn to turns array
+  # - provides user with feedback
   # - checks if a turn is correct
   # - increments card index and current card
   def take_turn(user_guess)
     new_turn = Turn.new(user_guess, @current_card)
     @turns << new_turn # adds turn to turns array
 
+    puts new_turn.feedback # provide user with feedback
     # helper method to deal with correct cards and store them
     check_if_correct(new_turn)
 
@@ -37,7 +39,6 @@ class Round
   def check_if_correct(turn)
     if turn.correct?
       @correct_card_array << @current_card
-      puts "Correct!" # output to user
     end
   end
 
