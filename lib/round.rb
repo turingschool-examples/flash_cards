@@ -3,7 +3,7 @@ require_relative 'deck'
 require_relative 'turn'
 
 class Round
-  attr_reader :deck, :turns, :current_card, :card_index, :correct_card_array
+  attr_reader :deck, :turns, :current_card, :card_index, :correct_card_array, :play_again
 
   def initialize(deck_in_play)
     @turns = []
@@ -37,6 +37,7 @@ class Round
   def check_if_correct(turn)
     if turn.correct?
       @correct_card_array << @current_card
+      puts "Correct!" # output to user
     end
   end
 
@@ -73,10 +74,38 @@ class Round
     percentage.truncate(1) # truncates to 1 decimal place
   end
 
+  # This method starts the round and provides user iteraction and feedback
   def start
+
     puts "Welcome! You're playing with #{@deck.cards.count} cards."
     37.times do print("-")
     end
+
+    # Iterating over each card in the deck and providing user with a guess
+    @deck.cards.each do |turn|
+
+      puts "This is card number #{@card_index + 1} out of #{@deck.cards.count}."
+      puts "Question: #{@current_card.question}"
+
+      guess = gets.chomp
+      self.take_turn(guess)
+    end
+
+    # These two statements only get printed once after game is over
+    puts "****** Game Over! ******"
+    puts "You had #{self.number_correct} correct guesses out of #{@deck.cards.count} for a total score of #{percent_correct}%"
+
+    # Another use of iteration to break down score by category
+    @correct_card_array.each do |card|
+      category = card.category
+      puts "#{category} - #{percent_correct_by_category(category)}%"
+    end
+
+    # Initial testing fails in runner file due to not creating new Round
+    # This isn't in the scope of project, but provides a way for user to play again
+    # puts "Do you want to try again? y/n"
+    # @play_again = gets.chomp
+
   end
 
 end
