@@ -14,7 +14,13 @@ class Round
   def take_turn(guess)
     turn = Turn.new(guess, current_card)
     turns << turn
+    shuffle_deck
     return turn
+  end
+
+  def shuffle_deck
+    shuffled_deck = deck.cards.rotate
+    deck.cards.replace(shuffled_deck)
   end
 
   def number_correct
@@ -22,6 +28,6 @@ class Round
       turn.correct? 
     end
     correct_turns.length 
-  end
+  end 
 end
  
