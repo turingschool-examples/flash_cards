@@ -2,6 +2,7 @@ class Round
 
   attr_reader :deck,
               :turns
+
   def initialize(deck)
     @deck = deck
     @turns = []
@@ -20,5 +21,14 @@ class Round
     @turns << turn
     deck.cards.shift
   end
+
+  def number_correct
+    correct = @turns.select do |turn|
+      turn.correct? == true
+    end
+    return correct.length
+  end
+
+
 
 end
