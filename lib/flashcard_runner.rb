@@ -16,4 +16,4 @@ round = Round.new(deck)
 
 round.start
 (cards.length).times do round.display_question end
-  
+round.game_over

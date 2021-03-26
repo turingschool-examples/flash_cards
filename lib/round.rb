@@ -78,6 +78,12 @@ class Round
     store_turn(turn)
   end
 
+  def game_over
+    puts "****** Game over! ******"
+    puts "You had #{number_correct} correct guesses out of #{turns.length} for a total score of #{percent_correct}"
+
+  end
+
 
 
 end
