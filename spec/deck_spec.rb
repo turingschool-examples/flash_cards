@@ -21,4 +21,10 @@ RSpec.describe Deck do
   it 'can return count of cards in it' do
     expect(@deck.count).to eq(3)
   end
+
+  it 'can return cards in a specific category' do
+    expect(@deck.cards_in_category(:STEM)).to eq([@card_2, @card_3])
+    expect(@deck.cards_in_category(:Geography)).to eq([@card_1])
+    expect(@deck.cards_in_category('Pop culture')).to eq([])
+  end
 end
