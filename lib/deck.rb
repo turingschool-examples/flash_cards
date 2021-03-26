@@ -12,6 +12,10 @@ class Deck
     category = @cards.select do |card|
       card.category == subject
     end
-  end 
+  end
+
+  def cards_in_category(subject)
+    category_size = categorize(subject).length
+  end
 
 end
