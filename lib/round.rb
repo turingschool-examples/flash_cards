@@ -1,26 +1,38 @@
 class Round
-  attr_reader :deck, :turns, :current_card
+  attr_accessor :deck, :turns, :correct_answer
   def initialize(deck)
     @deck = deck
     @turns = []
-    @current_card = current_card
   end
 
   def current_card
-    card = @deck.cards.first
+    index = @turns.count
+    @deck.cards[index]
   end
 
-  def take_turn (guess)
-    turn = Turn.new(guess, current_card)
-    @turns << turn
-    turn
-  end
-
-  def correct?
-    @turns == Turn.new(guess, current_card)
+  def take_turn(guess)
+    new_turn = Turn.new(guess, current_card)
+    @turns << new_turn
+    @deck.cards.rotate!
+    new_turn
   end
 
   def number_correct
-    @turns.length
+    @turns.count do |turn|
+      turn.correct?
+    end
+  end
+
+  def number_correct_by_category(category)
+    @turns.count do |turn|
+      turn.card.category == category && turn.correct?
+    end
+  end
+
+  def percent_correct
+    # require "pry"; binding.pry
+    # find percent of correct answers
+    # can use number coorect method
+    number_correct.to_f / @turns.count.to_f * 100.0
   end
 end
