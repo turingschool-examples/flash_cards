@@ -19,8 +19,12 @@ RSpec.describe Deck do
     end
 
     it 'finds cards in category' do
-        category = :STEM
         deck = Deck.new(cards)
+        category = :STEM
         expect(deck.cards_in_category(category).length).to eq(2)
+        category = :Geography
+        expect(deck.cards_in_category(category).length).to eq(1)
+        category = :History
+        expect(deck.cards_in_category(category).length).to eq(0)
     end
 end
