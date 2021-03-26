@@ -83,7 +83,7 @@ RSpec.describe Round do
       expect(round.number_correct).to eq(1)
     end
 
-    it 'check category' do
+    it 'check number of correct turns by category' do
       expect(round.number_correct_by_category(:Geography)).to eq(1)
       expect(round.number_correct_by_category(:STEM)).to eq(0)
     end
@@ -97,25 +97,9 @@ RSpec.describe Round do
     end
 
     it 'turn to current card in round' do
-      require "pry"; binding.pry
       expect(round.current_card).to eq(card_3)
     end
 
   end
 
 end
-
-
-# round.turns.last.feedback
-#
-# round.number_correct
-#
-# round.number_correct_by_category(:Geography)
-#
-# round.number_correct_by_category(:STEM)
-#
-# round.percent_correct
-#
-# round.percent_correct_by_category(:Geography)
-#
-# round.current_card

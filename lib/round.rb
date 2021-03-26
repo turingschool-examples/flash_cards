@@ -1,12 +1,10 @@
 class Round
   attr_accessor   :deck,
-                  :turns,
-                  :correct_answer
+                  :turns
 
   def initialize(deck)
     @deck = deck
     @turns = []
-    @correct_answer = 0
   end
 
   def current_card
@@ -16,33 +14,41 @@ class Round
   def take_turn(guess)
     new_turn = Turn.new(guess, current_card)
     @turns << new_turn
-    @deck.cards = @deck.cards.rotate
+    @deck.cards.rotate!
     new_turn
   end
 
   def number_correct
-    correct_turn = []
-    @turns.each do |turn|
-      if turn.card.answer == turn.guess
-        correct_turn << turn
+    correct_turns = @turns.find_all do |turn|
+      if turn.correct?
+        turn
       end
     end
-    correct_turn.count
+    correct_turns.count
+  end
+
+  def correct_answers_set
+    correct_answers = []
+    @turns.each do |turn|
+      if turn.card.answer == turn.guess
+        correct_answers << turn
+      end
+    end
+    correct_answers
+  end
+
+  def correct_category_set(category)
+    set = correct_answers_set.find_all do |turn|
+      turn.card.category == category
+    end
+    set
   end
 
   def number_correct_by_category(category)
-    new_set = []
-
-    @turns.each do |set|
-      if set.card.answer == set.guess
-        new_set << set
-      end
-    end
-
-    correct_set = new_set.find_all do |turn|
-      turn.card.category == category
-    end
-    correct_set.count
+    # correct_category_set = correct_answers_set.find_all do |turn|
+    #   turn.card.category == category
+    # end
+    correct_category_set(category).count
   end
 
   def percent_correct
@@ -50,19 +56,11 @@ class Round
   end
 
   def percent_correct_by_category(category)
-    new_set = []
+    # correct_set = correct_answers_set.find_all do |turn|
+    #   turn.card.category == category
+    # end
 
-    @turns.each do |set|
-      if set.card.answer == set.guess
-        new_set << set
-      end
-    end
-
-    correct_set = new_set.find_all do |turn|
-      turn.card.category == category
-    end
-
-    (number_correct_by_category(category).to_f / correct_set.count) * 100
+    (number_correct_by_category(category).to_f / correct_category_set(category).count) * 100
   end
 
 end

@@ -10,13 +10,13 @@ class Deck
   end
 
   def cards_in_category(category)
-    new_array = []
+    category_cards = []
     @cards.each do |card|
       if card.category == category
-        new_array << card
+        category_cards << card
       end
     end
-    new_array
+    category_cards
   end
 
 end
