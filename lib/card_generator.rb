@@ -18,7 +18,7 @@ class CardGenerator
       element.split(",")
     end
   end
-
+  
   def cards
     split_generated_cards.map do |card|
       question = card[0]

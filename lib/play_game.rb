@@ -14,19 +14,10 @@ class PlayGame
     @category = []
   end
 
-  # def categories
-  #   @deck.cards.each do |card|
-  #     @category << card.category
-  #   end
-  #   @category
-  # end
-
-
   def start
     p "Welcome! You're playing with 4 cards."
     p "-------------------------------------------------"
 
-    # deck = Deck.new(@cards)
     round = Round.new(@deck)
     game = Turn.new(@guess, @deck)
     counter = 1
@@ -34,7 +25,6 @@ class PlayGame
     @deck.cards.each do |card|
       @category << card.category
     end
-
 
     until deck.cards.empty? == true
       p "This is card number #{counter} out of 4."
@@ -46,15 +36,11 @@ class PlayGame
     end
 
     p "****** Game over! ******"
-    p "You had #{round.number_correct} correct guesses out of 4 for a total score of #{round.percent_correct}%."
+    p "You had #{round.number_correct} correct guesses out of 4 for a total score of #{round.percent_correct.to_i}%."
 
-    # p "STEM - #{round.percent_correct_by_category(:STEM)}% correct"
-    # p "Turing Staff - #{round.percent_correct_by_category(:TuringStaff)}% correct"
-    # p "Pop Culture - #{round.percent_correct_by_category(:PopCulture)}% correct"
     @category.uniq.each do |category|
       p "#{category}- #{round.percent_correct_by_category(category).to_i}% correct"
     end
-
 
   end
 end
