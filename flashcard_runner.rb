@@ -45,6 +45,15 @@ class Start
     second_question
   end
 
+  def try_again(card)
+    @user_input != "q"
+    puts messages.incorrect
+    puts messages.separator
+    puts messages.questions(card)
+    print "> "
+    @user_input = $stdin.gets.chomp
+  end
+
   def second_question
     if @user_input == card_1.answer
       puts "Gosh, great job! You got that right!"
@@ -56,12 +65,7 @@ class Start
       @user_input = $stdin.gets.chomp
       third_question
     elsif
-      @user_input != "q"
-      puts messages.incorrect
-      puts messages.separator
-      puts messages.questions(card_1)
-      print "> "
-      @user_input = $stdin.gets.chomp
+      try_again(card_1) #### THIS METHOD DOESN'T WORK - will not recognize 'q' for quit
       second_question
     else
       @user_input == "q"
@@ -80,7 +84,7 @@ class Start
       @user_input = $stdin.gets.chomp
       fourth_question
     elsif
-      @user_input != "q"
+      @user_input != "q" ## REFACTOR ##
       puts messages.incorrect
       puts messages.separator
       puts messages.questions(card_2)
@@ -104,7 +108,7 @@ class Start
       @user_input = $stdin.gets.chomp
       last_answer
     elsif
-      @user_input != "q"
+      @user_input != "q" ## REFACTOR ##
       puts messages.incorrect
       puts messages.separator
       puts messages.questions(card_3)
@@ -123,7 +127,7 @@ class Start
       puts messages.separator
       ############## #FIX - add percent methods here - FIX# ##############
     elsif
-      @user_input != "q"
+      @user_input != "q" ## REFACTOR ##
       puts messages.incorrect
       puts messages.separator
       puts messages.questions(card_4)
