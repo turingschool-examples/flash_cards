@@ -1,0 +1,5 @@
+What data structure does a Linked List implement?,Graph,STEM
+Where are values stored?,Variables,STEM
+What is an orogeny?,Mountain Building Event,Geology
+What is molten rock called before it erupts to the surface?,Magma,Geology
+What is the most common mineral on earth's surface?,Quartz,Geology
