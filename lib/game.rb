@@ -30,10 +30,7 @@ class Game
     @round.take_turn(@player_guess)
   end
 
-  def start
-    @round = Round.new(@deck)
-    puts "Welcome! You're playing with #{@round.deck.cards.count} cards."
-    puts "--------------------------------------------------------------------"
+  def answer_all_cards
     while @round.current_card_count < (@round.deck.cards.count) do
       puts "This is card #{@round.current_card_count + 1} of #{@round.deck.cards.count}"
       puts "Question: #{@round.deck.cards[@round.current_card_count].question}"
@@ -42,15 +39,27 @@ class Game
 
       puts (@round.turns[@round.current_card_count - 1].feedback)
     end
+  end
+
+  def print_category_percentage
+    @unique_categories.each_with_index do |category, index|
+      puts "#{@category_names_final[index]} - #{@categories_percent_correct[index]}% correct"
+    end
+  end
+
+  def start
+    @round = Round.new(@deck)
+    puts "Welcome! You're playing with #{@round.deck.cards.count} cards."
+    puts "--------------------------------------------------------------------"
+
+    answer_all_cards
+
     puts "****** Game over! ******"
     puts "You had #{@round.number_correct} correct guesses out of #{@round.turns.count} for a total score of #{@round.percent_correct}%."
 
     unique_categories_mod
     categories_percent_correct
-
-    @unique_categories.each_with_index do |category, index|
-      puts "#{@category_names_final[index]} - #{@categories_percent_correct[index]}% correct"
-    end
+    print_category_percentage
   end
 
 

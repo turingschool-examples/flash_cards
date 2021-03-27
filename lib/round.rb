@@ -11,16 +11,10 @@ class Round
 
   def take_turn(guess)
     @guess = guess
-    # if @current_card_count < @deck.cards.count
     @new_turn = Turn.new(@guess, @deck.cards[@current_card_count])
     @current_card_count += 1
     @turns.push(@new_turn)
     @new_turn
-    # elsif @current_card_count >= @deck.cards.count
-    #   @new_turn = "****** Game Over!******"
-    # else
-    #   @new_turn = "Error!!!"
-    # end
   end
 
   def current_card
@@ -46,11 +40,13 @@ class Round
 
   def percent_correct
     if @turns.count > 0
-      @turns_guess_correct = @turns.count { |turn| turn.correct?}
+      @turns_guess_correct = @turns.count do |turn|
+        turn.correct?
+      end
       @turns_taken = @turns.count.to_f
-      return (@turns_guess_correct / @turns_taken) * 100
+      (@turns_guess_correct / @turns_taken) * 100
     else
-      return "error divide by zero"
+      "error divide by zero"
     end
   end
 
