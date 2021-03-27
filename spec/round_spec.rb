@@ -31,7 +31,7 @@ RSpec.describe Round do
 
   end
 
-  context 'check for action of round' do
+  context 'turn card in round and number of correct guesses' do
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
@@ -75,7 +75,7 @@ RSpec.describe Round do
       expect(round.turns.count).to eq(2)
     end
 
-    it 'check feedback is correct or incorrect' do
+    it 'check feedback is incorrect' do
       expect(round.turns.last.feedback).to eq("Incorrect.")
     end
 

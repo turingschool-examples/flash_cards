@@ -8,13 +8,10 @@ class Turn
 
   def correct?
     @guess == card.answer
-
-    # OTHER WAYS TO WRITE
+    # OTHER WAYS TO WRITE:
     # return true if @guess == card.answer
     # false
-
     # @guess == card.answer ? true : false
-
   end
 
   def feedback

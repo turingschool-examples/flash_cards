@@ -45,9 +45,6 @@ class Round
   end
 
   def number_correct_by_category(category)
-    # correct_category_set = correct_answers_set.find_all do |turn|
-    #   turn.card.category == category
-    # end
     correct_category_set(category).count
   end
 
@@ -56,10 +53,6 @@ class Round
   end
 
   def percent_correct_by_category(category)
-    # correct_set = correct_answers_set.find_all do |turn|
-    #   turn.card.category == category
-    # end
-
     (number_correct_by_category(category).to_f / correct_category_set(category).count) * 100
   end
 
