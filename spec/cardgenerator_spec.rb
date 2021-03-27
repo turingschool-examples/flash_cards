@@ -15,7 +15,7 @@ RSpec.describe CardGenerator do
 
     it 'array elements are card objects' do
       expect(generator.cards[0].answer).to eq('169')
-    end 
+    end
 
   end
 end
