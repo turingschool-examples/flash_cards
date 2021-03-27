@@ -4,29 +4,28 @@ require './lib/deck'
 
 RSpec.describe Deck do
 
-  it 'exists' do
+  describe 'initialize and attr_reader' do
     cards = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     deck = Deck.new(cards)
 
-    expect(deck).to be_instance_of Deck
-  end
+    it 'exists' do
+      expect(deck).to be_instance_of Deck
+    end
 
-  it 'has cards' do
-    cards = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    deck = Deck.new(cards)
-
-    expect(deck.cards).to eq(cards)
+    it 'returns a cards attribute' do
+      expect(deck.cards).to eq(cards)
+    end
   end
 
   describe '#count ' do
-    it 'returns the count of cards' do
-      card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-      card_2 = Card.new("What is the capital of Colombia?", "Bogota", :Geography)
-      card_3 = Card.new("What planet is closest to the sun?", "Mercury", :STEM)
-      card_4 = Card.new("What year did the Titanic movie come out?", "1997", :Media)
-      cards = [card_1, card_2, card_3, card_4]
-      deck = Deck.new(cards)
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card_2 = Card.new("What is the capital of Colombia?", "Bogota", :Geography)
+    card_3 = Card.new("What planet is closest to the sun?", "Mercury", :STEM)
+    card_4 = Card.new("What year did the Titanic movie come out?", "1997", :Media)
+    cards = [card_1, card_2, card_3, card_4]
+    deck = Deck.new(cards)
 
+    it 'returns the count of cards' do
       expect(deck.count).to eq(4)
     end
   end
@@ -46,8 +45,11 @@ RSpec.describe Deck do
     end
 
     it 'returns empty array when no cards in a given category' do
-
       expect(deck.cards_in_category(:Pop_Culture)).to eq([])
+    end
+
+    it 'returns empty array when an empty category is given' do
+      expect(deck.cards_in_category("")).to eq([])
     end
   end
 end
