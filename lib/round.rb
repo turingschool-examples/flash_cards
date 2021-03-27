@@ -31,7 +31,12 @@ class Round
   end
 
   def number_correct_by_category(category)
+    cat = turns.find_all do |turn|
+      turn.correct? == true && turn.card.category == category
+    end
+    cat.length
   end
+
 
 
 
