@@ -72,7 +72,7 @@ class Round
 
 
   def get_guess
-    guess = gets.chomp
+    guess = gets.chomp.capitalize
     turn = take_turn(guess)
     puts turn.feedback
     store_turn(turn)
