@@ -40,5 +40,11 @@ class Round
     (number_correct.to_f/turns.count) * 100
   end
 
+  def percent_correct_by_category(category)
+    total_correct = number_correct_by_category(category)
+    category_total = deck.cards_in_category(category).count
+    (total_correct.to_f/category_total) * 100
+  end
+
 
 end
