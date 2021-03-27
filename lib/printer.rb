@@ -51,9 +51,17 @@ class Printer
     puts card4_message
   end
 
- #  def card3_feedback
+ #  def card4_feedback
  #   return "Correct!" if user_input == "alan turing" || "Alan Turing"
  #   "Incorrect."
+ # end
+
+ # def final_score_message
+ #   "****** Game over! ******
+ #   You had #{number_correct.to_i}% correct guesses out of 4 for a total score of #{percent_correct}.
+ #   Arithmetic - #{percent_correct_by_category.to_i}% correct
+ #   Animal Stuff - #{percent_correct_by_category.to_i}% correct
+ #   History - #{percent_correct_by_category.to_i}% correct"
  # end
 
 
