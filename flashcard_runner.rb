@@ -25,8 +25,6 @@ class Start
     @user_input = user_input
   end
 # #FIX# #
-# need to refactor methods
-# put into messages file?
 # should this runner file hold this much?
 
   def start_game
@@ -59,7 +57,7 @@ class Start
       third_question
     elsif
       @user_input != "q"
-      puts "Sorry, that's incorrect. Please try again."
+      puts messages.incorrect
       puts messages.separator
       puts messages.questions(card_1)
       print "> "
@@ -83,7 +81,7 @@ class Start
       fourth_question
     elsif
       @user_input != "q"
-      puts "Sorry, that's incorrect. Please try again."
+      puts messages.incorrect
       puts messages.separator
       puts messages.questions(card_2)
       print "> "
@@ -107,7 +105,7 @@ class Start
       last_answer
     elsif
       @user_input != "q"
-      puts "Sorry, that's incorrect. Please try again."
+      puts messages.incorrect
       puts messages.separator
       puts messages.questions(card_3)
       print "> "
@@ -126,7 +124,7 @@ class Start
       ############## #FIX - add percent methods here - FIX# ##############
     elsif
       @user_input != "q"
-      puts "Sorry, that's incorrect. Please try again."
+      puts messages.incorrect
       puts messages.separator
       puts messages.questions(card_4)
       print "> "
