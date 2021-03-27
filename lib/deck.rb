@@ -1,6 +1,5 @@
 class Deck
-  attr_accessor :cards
-  attr_reader :card
+  attr_reader :card, :cards 
 
   def initialize(cards)
   @cards = cards

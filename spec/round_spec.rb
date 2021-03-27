@@ -81,9 +81,13 @@ RSpec.describe Round do
                       :STEM)
     deck = Deck.new([card_1, card_2, card_3])
     round = Round.new(deck)
-    take_turn = Turn.new("Juneau", card_1)
+    # take_turn = Turn.new
+    # new_turn = round.take_turn("Juneau")
+    round.take_turn("Juneau")
+    new_turn = Turn.new(take_turn.guess, current_card)
     # binding.pry
-    expect(new_turn).to eq(round.take_turn("Juneau"))
+
+    expect(new_turn.class).to be_instance_of(Turn)
   end
 
 end
