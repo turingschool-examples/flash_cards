@@ -5,7 +5,6 @@ class Deck
   end 
 
   def count 
-    require 'pry'; binding.pry
     @cards.count 
   end 
 
