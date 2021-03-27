@@ -21,7 +21,7 @@ class Start
     @card_4 = Card.new("What is the return value of .each?", "the original array", :Wisdom)
     @deck = Deck.new([card_1, card_2, card_3, card_4])
     @round = Round.new(deck)
-    @messages = Messages.new
+    @messages = Messages.new(card_1, card_2, card_3, card_4)
     @user_input = user_input
   end
 # #FIX# #
@@ -33,9 +33,9 @@ class Start
     puts messages.separator
     puts messages.welcome
     puts messages.amount_of_cards
-    puts "You can press 'q' to quit at any time....but it would be really fun if you play!"
+    puts messages.quit_info
     puts messages.separator
-    puts "This is card number #{deck.card_num(card_1)} out of #{deck.count}."
+    puts messages.card_out_of(card_1)
     puts "Question: #{card_1.question}"
 
     print "> "
@@ -47,7 +47,7 @@ class Start
     if @user_input == card_1.answer
       puts "Gosh, great job! You got that right!"
       puts messages.separator
-      puts "This is card number #{deck.card_num(card_2)} out of #{deck.count}."
+      puts messages.card_out_of(card_2)
       puts "Question: #{card_2.question}"
 
       print "> "
@@ -72,7 +72,7 @@ class Start
     if @user_input == card_2.answer
       puts "Yes! Yay! Glad you're old enough to know that one!"
       puts messages.separator
-      puts "This is card number #{deck.card_num(card_3)} out of #{deck.count}."
+      puts messages.card_out_of(card_3)
       puts "Question: #{card_3.question}"
 
       print "> "
@@ -97,7 +97,7 @@ class Start
     if @user_input == card_3.answer
       puts "Correct! That was a tricky one."
       puts messages.separator
-      puts "This is card number #{deck.card_num(card_4)} out of #{deck.count}."
+      puts messages.card_out_of(card_4)
       puts "Question: #{card_4.question}"
 
       print "> "
