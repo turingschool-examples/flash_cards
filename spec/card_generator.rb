@@ -1,10 +1,11 @@
 require './lib/card_generator'
 require 'rspec'
 
-filename = "cards.txt"
 
 RSpec.describe CardGenerator do
 
+  filename = "cards.txt"
+  
   context 'class set up' do
 
     it 'exists' do
@@ -68,7 +69,7 @@ RSpec.describe CardGenerator do
       expect(cards.cards[3].category).to eq("PopCulture")
       expect(cards.cards[0].category).to eq("STEM")
     end
-    
+
   end
 
 end
