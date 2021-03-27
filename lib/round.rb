@@ -8,6 +8,7 @@ class Round
   end
 
   def current_card
+    # @deck.cards[@turns.length] <-- another way to write
     @deck.cards[0]
   end
 
@@ -37,6 +38,13 @@ class Round
     correct_answers
   end
 
+  def category_guessed(category)
+    set = @turns.find_all do |turn|
+      turn.card.category == category
+    end
+    set
+  end
+
   def correct_category_set(category)
     set = correct_answers_set.find_all do |turn|
       turn.card.category == category
@@ -53,7 +61,11 @@ class Round
   end
 
   def percent_correct_by_category(category)
-    (number_correct_by_category(category).to_f / correct_category_set(category).count) * 100
+    if category_guessed(category).count == 0
+      0
+    else
+      (number_correct_by_category(category).to_f / category_guessed(category).count) * 100
+    end
   end
 
 end

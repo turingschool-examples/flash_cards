@@ -94,6 +94,7 @@ RSpec.describe Round do
 
     it 'check percent correct by category' do
       expect(round.percent_correct_by_category(:Geography)).to eq(100.0)
+      expect(round.percent_correct_by_category(:STEM)).to eq(0)
     end
 
     it 'turn to current card in round' do
