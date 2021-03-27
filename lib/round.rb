@@ -16,19 +16,20 @@ class Round
   def take_turn(guess)
     new_turn = Turn.new(guess, current_card)
     @turns << new_turn
-    @deck.cards.shift 
+    @deck.cards.shift
     new_turn
   end
 
+  def number_correct
     @turns.count do |turn|
       turn.card.answer == turn.guess
     end
   end
 
   def number_correct_by_category(category)
-    @turns.count do |turn|
-      turn.card.category == category && turn.card.answer == turn.guess
-    end
+    @turns.find_all do |turn|
+      turn.card.category == category && turn.card.answer == turn.guess 
+    end.length
   end
 
   def percent_correct
