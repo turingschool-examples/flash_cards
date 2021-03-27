@@ -41,6 +41,6 @@ class PlayGame
     @category.uniq.each do |category|
       p "#{category}- #{round.percent_correct_by_category(category).to_i}% correct"
     end
-
+    
   end
 end

@@ -1,6 +1,5 @@
 require './lib/card'
 
-
 RSpec.describe Card do
 
   context 'class set up' do
@@ -10,7 +9,7 @@ RSpec.describe Card do
 
       expect(card).to be_instance_of(Card)
     end
-    
+
   end
 
   context 'class attributes' do

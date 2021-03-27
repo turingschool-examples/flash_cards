@@ -3,7 +3,6 @@ require './lib/turn'
 require './lib/deck'
 require './lib/round'
 
-
 RSpec.describe Round do
 
   context 'class set up' do

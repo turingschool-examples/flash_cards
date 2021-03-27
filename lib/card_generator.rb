@@ -1,4 +1,5 @@
 require './lib/card'
+
 class CardGenerator
   attr_reader :filename,
               :cards
@@ -18,7 +19,7 @@ class CardGenerator
       element.split(",")
     end
   end
-  
+
   def cards
     split_generated_cards.map do |card|
       question = card[0]
@@ -27,5 +28,4 @@ class CardGenerator
       Card.new(question, answer, category)
     end
   end
-
 end
