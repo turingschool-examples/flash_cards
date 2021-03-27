@@ -1,11 +1,10 @@
 require './lib/card_generator'
 require 'rspec'
 
-
 RSpec.describe CardGenerator do
 
   filename = "cards.txt"
-  
+
   context 'class set up' do
 
     it 'exists' do
