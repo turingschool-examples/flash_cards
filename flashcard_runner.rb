@@ -2,6 +2,7 @@ require './lib/card'
 require './lib/turn'
 require './lib/deck'
 require './lib/round'
+require './lib/messages'
 
 class Start
   attr_reader  :card_1,
@@ -10,120 +11,130 @@ class Start
                     :card_4,
                     :deck,
                     :round,
-                    :welcome
+                    :messages,
+                    :user_input
 
   def initialize
-    @card_1 = Card.new("What is the capital of Washington State?", "Olympia", :Geography)
-    @card_2 = Card.new("Who is the author of Green Eggs and Ham?", "Dr. Seuss", :Wisdom)
-    @card_3 = Card.new("Is an avocado a fruit or a vegetable?", "Fruit", :Science)
-    @card_4 = Card.new("What is Megan's dog's name?", "Nile", :Wisdom)
+    @card_1 = Card.new("What is the name of the greatest coding bootcamp ever established?", "turing", :Geography)
+    @card_2 = Card.new("What's the name of the Big Red Dog?", "clifford", :Wisdom)
+    @card_3 = Card.new("Is an avocado a fruit or a vegetable?", "fruit", :Science)
+    @card_4 = Card.new("What is the return value of .each?", "the original array", :Wisdom)
     @deck = Deck.new([card_1, card_2, card_3, card_4])
     @round = Round.new(deck)
-    @welcome = welcome
+    @messages = Messages.new
+    @user_input = user_input
   end
-
+# #FIX# #
+# need to refactor methods
+# put into messages file?
+# should this runner file hold this much?
 
   def start_game
-    puts "- " * 50
-    puts "Welcome to flashcards!"
-    puts "You're playing with #{deck.count} cards."
-    puts "- " * 50
-    puts "This is card number 1 out of #{deck.count}." #FIX - card out of
+    puts messages.separator
+    puts messages.welcome
+    puts messages.amount_of_cards
+    puts "You can press 'q' to quit at any time....but it would be really fun if you play!"
+    puts messages.separator
+    puts "This is card number #{deck.card_num(card_1)} out of #{deck.count}."
     puts "Question: #{card_1.question}"
 
     print "> "
-    @welcome = $stdin.gets.chomp
-    first_answer
+    @user_input = $stdin.gets.chomp
+    first_question
   end
 
-  def first_answer
-    if @welcome == "Olympia" #FIX - HARD CODED
-      puts "Correct"
-      puts "- " * 50
-      puts "This is card number 2 out of #{deck.count}." #FIX - card out of
+  def first_question
+    if @user_input == card_1.answer
+      puts "Gosh, great job! You got that right!"
+      puts messages.separator
+      puts "This is card number #{deck.card_num(card_2)} out of #{deck.count}."
       puts "Question: #{card_2.question}"
 
       print "> "
-      @welcome = $stdin.gets.chomp
-      second_answer
+      @user_input = $stdin.gets.chomp
+      second_question
     elsif
-      @welcome != "q"
+      @user_input != "q"
       puts "Sorry, that's incorrect."
       puts "Please try again"
-      puts "- " * 50
+      puts messages.separator
       puts "Question: #{card_1.question}"
       print "> "
-      @welcome = $stdin.gets.chomp
+      @user_input = $stdin.gets.chomp
+      first_question
     else
-      @welcome == "q"
-      puts "Okay, guess you're done now."
+      @user_input == "q"
+      puts messages.quit
     end
   end
 
-  def second_answer
-    if @welcome == "Dr. Seuss" #FIX - HARD CODED
-      puts "Correct"
-      puts "- " * 50
-      puts "This is card number 3 out of #{deck.count}." #FIX - card out of
+  def second_question
+    if @user_input == card_2.answer
+      puts "Yes! Yay! Glad you're old enough to know that one!"
+      puts messages.separator
+      puts "This is card number #{deck.card_num(card_3)} out of #{deck.count}."
       puts "Question: #{card_3.question}"
 
       print "> "
-      @welcome = $stdin.gets.chomp
-      third_answer
+      @user_input = $stdin.gets.chomp
+      third_question
     elsif
-      @welcome != "q"
+      @user_input != "q"
       puts "Sorry, that's incorrect."
       puts "Please try again"
-      puts "- " * 50
+      puts messages.separator
       puts "Question: #{card_2.question}"
       print "> "
-      @welcome = $stdin.gets.chomp
+      @user_input = $stdin.gets.chomp
+      second_question
     else
-      @welcome == "q"
-      puts "Okay, guess you're done now."
+      @user_input == "q"
+      puts messages.quit
     end
   end
 
-  def third_answer
-    if @welcome == "fruit" #FIX - HARD CODED
-      puts "Correct"
-      puts "- " * 50
-      puts "This is card number 4 out of #{deck.count}." #FIX - card out of
+  def third_question
+    if @user_input == card_3.answer
+      puts "Correct! That was a tricky one."
+      puts messages.separator
+      puts "This is card number #{deck.card_num(card_4)} out of #{deck.count}."
       puts "Question: #{card_4.question}"
 
       print "> "
-      @welcome = $stdin.gets.chomp
-      fourth_answer
+      @user_input = $stdin.gets.chomp
+      fourth_question
     elsif
-      @welcome != "q"
+      @user_input != "q"
       puts "Sorry, that's incorrect."
       puts "Please try again"
-      puts "- " * 50
+      puts messages.separator
       puts "Question: #{card_3.question}"
       print "> "
-      @welcome = $stdin.gets.chomp
+      @user_input = $stdin.gets.chomp
+      third_question
     else
-      @welcome == "q"
-      puts "Okay, guess you're done now."
+      @user_input == "q"
+      puts messages.quit
     end
   end
 
-  def fourth_answer
-    if @welcome == "Nile" #FIX - HARD CODED
-      puts "Correct"
-      puts "- " * 50
-      # third_answer
+  def fourth_question
+    if @user_input == card_4.answer
+      puts "Yes! Someone sure was listening in class!"
+      puts messages.separator
+      ############## #FIX - add percent methods here - FIX# ##############
     elsif
-      @welcome != "q"
+      @user_input != "q"
       puts "Sorry, that's incorrect."
       puts "Please try again"
-      puts "- " * 50
+      puts messages.separator
       puts "Question: #{card_4.question}"
       print "> "
-      @welcome = $stdin.gets.chomp
+      @user_input = $stdin.gets.chomp
+      fourth_question
     else
-      @welcome == "q"
-      puts "Okay, guess you're done now."
+      @user_input == "q"
+      puts messages.quit
     end
   end
 end
