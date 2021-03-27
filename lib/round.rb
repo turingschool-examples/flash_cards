@@ -42,13 +42,23 @@ class Round
 
   def percent_correct
     #check number of guesses made 
-    percent_correct = turns.find_all do |turn|
+    correct_turns = turns.find_all do |turn|
       turn.correct?
     end
     #calculate percent correct 
-    percentage = (turns.length.to_f / percent.correct.length.to_f) * 100
+    percentage = ( correct_turns.length.to_f / turns.length.to_f) * 100
     #return percent correct as a float
     return percentage
+  end
+
+  def percent_correct_by_category(specific_category)
+    #check number of guess made by category
+     correct_by_category = turns.find_all do |turn|
+      turn.correct? && turn.card.category == specific_category 
+     end
+    #calculate percent correct 
+    #return percent correct as a float 
+    percentage_by_category = (correct_by_category.length.to_f / deck.cards_in_category(specific_category).length.to_f) * 100
   end
 end
  
