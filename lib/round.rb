@@ -1,7 +1,3 @@
-require_relative 'card'
-require_relative 'deck'
-require_relative 'turn'
-
 class Round
   attr_reader :deck, :turns, :current_card, :card_index, :correct_card_array, :play_again
 
@@ -95,10 +91,22 @@ class Round
     puts "****** Game Over! ******"
     puts "You had #{self.number_correct} correct guesses out of #{@deck.cards.count} for a total score of #{percent_correct}%"
 
-    # Another use of iteration to break down score by category
+
+    # A bug happens when just iterating over the array of cards instead of the symbols.
+    # This happens when there are cards that utilize the same symbol, and output to user is also duplicated.
+    # thus, I use two for each loops to iterate over the category symbols and reduce duplicated output.
+    symbols = []
+    # for every card in the correct array, check to see if a card's symbol
+    # exists already in the accumulator, if not, then the new symbol is added.
     @correct_card_array.each do |card|
       category = card.category
-      puts "#{category} - #{percent_correct_by_category(category)}%"
+      unless symbols.find { |symbol| symbol == category } then
+        symbols << category
+      end
+    end
+    # Finally, we iterate over the common symbols to output percentage to user
+    symbols.each do |symbol|
+      puts "#{symbol} - #{percent_correct_by_category(symbol)}%"
     end
   end
 
