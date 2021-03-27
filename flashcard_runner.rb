@@ -46,12 +46,13 @@ class Start
   end
 
   def try_again(card)
-    @user_input != "q"
-    puts messages.incorrect
-    puts messages.separator
-    puts messages.questions(card)
-    print "> "
-    @user_input = $stdin.gets.chomp
+    if @user_input != "q"
+      puts messages.incorrect
+      puts messages.separator
+      puts messages.questions(card)
+      print "> "
+      @user_input = $stdin.gets.chomp
+    end
   end
 
   def second_question
@@ -65,7 +66,7 @@ class Start
       @user_input = $stdin.gets.chomp
       third_question
     elsif
-      try_again(card_1) #### THIS METHOD DOESN'T WORK - will not recognize 'q' for quit
+      try_again(card_1)
       second_question
     else
       @user_input == "q"
@@ -84,12 +85,7 @@ class Start
       @user_input = $stdin.gets.chomp
       fourth_question
     elsif
-      @user_input != "q" ## REFACTOR ##
-      puts messages.incorrect
-      puts messages.separator
-      puts messages.questions(card_2)
-      print "> "
-      @user_input = $stdin.gets.chomp
+      try_again(card_2)
       third_question
     else
       @user_input == "q"
@@ -108,12 +104,7 @@ class Start
       @user_input = $stdin.gets.chomp
       last_answer
     elsif
-      @user_input != "q" ## REFACTOR ##
-      puts messages.incorrect
-      puts messages.separator
-      puts messages.questions(card_3)
-      print "> "
-      @user_input = $stdin.gets.chomp
+      try_again(card_3)
       fourth_question
     else
       @user_input == "q"
@@ -127,12 +118,7 @@ class Start
       puts messages.separator
       ############## #FIX - add percent methods here - FIX# ##############
     elsif
-      @user_input != "q" ## REFACTOR ##
-      puts messages.incorrect
-      puts messages.separator
-      puts messages.questions(card_4)
-      print "> "
-      @user_input = $stdin.gets.chomp
+      try_again(card_4)
       fourth_question
     else
       @user_input == "q"
