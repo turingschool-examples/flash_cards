@@ -18,9 +18,8 @@ class Deck
   end
 
   def cards_in_category
-    result = []
-    cards.each do |card|
-      return << card if card.last?
+    cards.find_all do |card|
+      card.category
     end
   end
 end
