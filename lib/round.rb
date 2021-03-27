@@ -1,10 +1,28 @@
+require './lib/deck'
+require './lib/card'
+require './lib/turn'
+require 'pry'
 class Round
-    attr_reader :deck
-                #:current_card
+    attr_reader :deck,
+                :turns
     def initialize(deck)
-      #require './lib/deck'
       @deck = deck
-      #not understanding why this doesn't work, going to bed about it
-      #@current_card = deck(0)
+      @turns = []
+
     end
+
+    def current_card
+      deck.cards.rotate
+    end
+
+    def take_turn(guess)
+      turn = Turn.new(guess, self.current_card)
+      @turns << self.current_card
+      turn
+    end
+
+    def number_correct
+
+    end
+
   end

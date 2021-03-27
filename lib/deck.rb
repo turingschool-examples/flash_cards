@@ -9,7 +9,6 @@ class Deck
   end
 
   def cards_in_category(category)
-    # I think this is a stupid way to do this so try to come back to this
     cat_array = []
     @cards.each do |card|
       require './lib/card'
