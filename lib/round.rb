@@ -14,6 +14,7 @@ class Round
     # take_turn takes a guess
     new_turn = Turn.new(guess, self.current_card)
     @turns << new_turn
+    deck.cards.rotate!
     new_turn
     # want to return last method called
   end
@@ -27,12 +28,20 @@ class Round
   end
 
   def number_correct_by_category(category)
+    @turns.find_all do |turn|
+    turn.card.category == category && turn.correct?
+  end.count
   end
 
   def percent_correct
+    (number_correct * 100.0) / (turns.count)
   end
 
-  def percent_correct_by_category
-  end
+  def percent_correct_by_category(category)
+    total_cards_in_category = @turns.find_all do |turn|
+      turn.card.category == category
+    end.count
+    (number_correct_by_category(category) * 100.0) / total_cards_in_category
 
-end
+    end
+  end
