@@ -1,7 +1,7 @@
 require './lib/card'
 
 describe Card do
-  context '#initialize' do
+  context 'initialize' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
     it 'exists' do
