@@ -10,9 +10,8 @@ describe Deck do
     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
-
-    expect(deck).to be_an_instance_of(Deck)
   end
+    expect(deck).to be_an_instance_of(Deck)
 end
 
 describe 'count' do
@@ -22,9 +21,8 @@ describe 'count' do
   card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
   cards = [card_1, card_2, card_3]
   deck = Deck.new(cards)
-
-  expect(deck.count).to eq(cards.length)
   end
+  expect(deck.count).to eq(cards.length)
 end
 
 describe 'cards_in_category' do
@@ -35,7 +33,6 @@ describe 'cards_in_category' do
     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
-
-    expect(deck.cards_in_category(:STEM)).to eq([card_2, card_3])
   end
+    expect(deck.cards_in_category(:STEM)).to eq([card_2, card_3])
 end
