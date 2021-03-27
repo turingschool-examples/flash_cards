@@ -14,4 +14,8 @@ class Deck
       card.category == category
     end
   end
+
+  def card_num(card)
+    @cards.index(card) + 1
+  end
 end
