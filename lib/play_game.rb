@@ -15,7 +15,7 @@ class PlayGame
   end
 
   def start
-    p "Welcome! You're playing with 4 cards."
+    p "Welcome! You're playing with #{@deck.count} cards."
     p "-------------------------------------------------"
 
     round = Round.new(@deck)
@@ -27,7 +27,7 @@ class PlayGame
     end
 
     until deck.cards.empty? == true
-      p "This is card number #{counter} out of 4."
+      p "This is card number #{counter} out of #{@deck.count}."
       p "Question #{counter} is: #{round.current_card.question}"
       @guess = gets.chomp.downcase
       answer = round.take_turn(@guess)
@@ -36,11 +36,11 @@ class PlayGame
     end
 
     p "****** Game over! ******"
-    p "You had #{round.number_correct} correct guesses out of 4 for a total score of #{round.percent_correct.to_i}%."
+    p "You had #{round.number_correct} correct guesses out of #{deck.count} for a total score of #{round.percent_correct.to_i}%."
 
     @category.uniq.each do |category|
       p "#{category}- #{round.percent_correct_by_category(category).to_i}% correct"
     end
-    
+
   end
 end
