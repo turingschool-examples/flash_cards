@@ -1,55 +1,49 @@
+require 'rspec'
 require './lib/turn'
 require './lib/card'
 
-RSpec.describe Turn do
-  it 'exists' do
+describe Turn do
+  describe '#initialize' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
-
-    expect(turn).to be_instance_of(Turn)
+    it 'is a turn' do
+      expect(turn).to be_instance_of(Turn)
+    end
+    it 'has a card ' do
+      expect(turn.card).to eq (card)
+    end
+    it "is has guess" do
+      expect(turn.guess).to eq("Juneau")
+    end
   end
 
-  it 'has a card ' do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    turn = Turn.new("Juneau", card)
+  describe "#correct?" do
+    it 'checks if guess matches answer' do
+      card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+      turn = Turn.new("Juneau", card)
+      expect(turn.correct?).to be true
+    end
 
-    expect(turn.card).to eq (card)
+    it 'checks if guess matches answer' do
+      card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+      turn = Turn.new("new york", card)
+      expect(turn.correct?).to be false
+    end
   end
 
-  it "is has guess" do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    turn = Turn.new("Juneau", card)
+  describe '#feedback' do
+    it 'prints string if value is true' do
+      card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+      turn = Turn.new("Juneau", card)
+      turn.guess
+      expect(turn.correct?).to be true
+    end
 
-    expect(turn.guess).to eq("Juneau")
+    it 'prints string if value is false' do
+      card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+      turn = Turn.new("new york", card)
+      turn.guess
+      expect(turn.correct?).to be false
+    end
   end
-
-  it "is correct" do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    turn = Turn.new("Juneau", card)
-
-    expect(turn.correct?).to be true
-  end
-
-  it "is incorrect" do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    turn = Turn.new("new york", card)
-
-    expect(turn.correct?).to be false
-  end
-
-
-  it 'tells us if the guess was correct or incorrect' do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    turn = Turn.new("Juneau", card)
-    turn.guess
-    expect(turn.correct?).to be true
-  end
-
-  it 'tells us if answer is correct or incorrect' do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    turn = Turn.new("new york", card)
-    turn.guess
-    expect(turn.correct?).to be false
-  end
-
 end

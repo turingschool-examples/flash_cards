@@ -1,14 +1,18 @@
-require './lib/card'
-
 class Deck
-  attr_reader :cards
+  attr_reader :cards,
+              :count
 
-  def initialize(cards)
+  def initialize(cards, count)
     @cards = []
+    @count = count
   end
 
-   # def add_cards(cards)
-   #   @cards << card
-   # end
+  # def add_card(cards)
+  #   @cards << card
+  # end
+  #
+  # def count
+  #   @count = cards.length
+  # end
 
 end
