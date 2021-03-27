@@ -35,55 +35,33 @@ class Start
     puts messages.amount_of_cards
     puts messages.quit_info
     puts messages.separator
-    puts messages.card_out_of(card_1)
-    puts "Question: #{card_1.question}"
-
-    print "> "
-    @user_input = $stdin.gets.chomp
     first_question
   end
 
   def first_question
+    puts messages.card_out_of(card_1)
+    puts messages.questions(card_1)
+
+    print "> "
+    @user_input = $stdin.gets.chomp
+    second_question
+  end
+
+  def second_question
     if @user_input == card_1.answer
       puts "Gosh, great job! You got that right!"
       puts messages.separator
       puts messages.card_out_of(card_2)
-      puts "Question: #{card_2.question}"
-
-      print "> "
-      @user_input = $stdin.gets.chomp
-      second_question
-    elsif
-      @user_input != "q"
-      puts "Sorry, that's incorrect."
-      puts "Please try again"
-      puts messages.separator
-      puts "Question: #{card_1.question}"
-      print "> "
-      @user_input = $stdin.gets.chomp
-      first_question
-    else
-      @user_input == "q"
-      puts messages.quit
-    end
-  end
-
-  def second_question
-    if @user_input == card_2.answer
-      puts "Yes! Yay! Glad you're old enough to know that one!"
-      puts messages.separator
-      puts messages.card_out_of(card_3)
-      puts "Question: #{card_3.question}"
+      puts messages.questions(card_2)
 
       print "> "
       @user_input = $stdin.gets.chomp
       third_question
     elsif
       @user_input != "q"
-      puts "Sorry, that's incorrect."
-      puts "Please try again"
+      puts "Sorry, that's incorrect. Please try again."
       puts messages.separator
-      puts "Question: #{card_2.question}"
+      puts messages.questions(card_1)
       print "> "
       @user_input = $stdin.gets.chomp
       second_question
@@ -94,21 +72,20 @@ class Start
   end
 
   def third_question
-    if @user_input == card_3.answer
-      puts "Correct! That was a tricky one."
+    if @user_input == card_2.answer
+      puts "Yes! Yay! Glad you're old enough to know that one!"
       puts messages.separator
-      puts messages.card_out_of(card_4)
-      puts "Question: #{card_4.question}"
+      puts messages.card_out_of(card_3)
+      puts messages.questions(card_3)
 
       print "> "
       @user_input = $stdin.gets.chomp
       fourth_question
     elsif
       @user_input != "q"
-      puts "Sorry, that's incorrect."
-      puts "Please try again"
+      puts "Sorry, that's incorrect. Please try again."
       puts messages.separator
-      puts "Question: #{card_3.question}"
+      puts messages.questions(card_2)
       print "> "
       @user_input = $stdin.gets.chomp
       third_question
@@ -119,16 +96,39 @@ class Start
   end
 
   def fourth_question
+    if @user_input == card_3.answer
+      puts "Correct! That was a tricky one."
+      puts messages.separator
+      puts messages.card_out_of(card_4)
+      puts messages.questions(card_4)
+
+      print "> "
+      @user_input = $stdin.gets.chomp
+      last_answer
+    elsif
+      @user_input != "q"
+      puts "Sorry, that's incorrect. Please try again."
+      puts messages.separator
+      puts messages.questions(card_3)
+      print "> "
+      @user_input = $stdin.gets.chomp
+      fourth_question
+    else
+      @user_input == "q"
+      puts messages.quit
+    end
+  end
+
+  def last_answer
     if @user_input == card_4.answer
       puts "Yes! Someone sure was listening in class!"
       puts messages.separator
       ############## #FIX - add percent methods here - FIX# ##############
     elsif
       @user_input != "q"
-      puts "Sorry, that's incorrect."
-      puts "Please try again"
+      puts "Sorry, that's incorrect. Please try again."
       puts messages.separator
-      puts "Question: #{card_4.question}"
+      puts messages.questions(card_4)
       print "> "
       @user_input = $stdin.gets.chomp
       fourth_question
