@@ -40,6 +40,10 @@ class Messages
     "This is card number #{deck.card_num(card)} out of #{deck.count}."
   end
 
+  def incorrect
+    "Sorry, that's incorrect. Please try again."
+  end
+
   def questions(card)
     "Question: #{card.question}"
   end
