@@ -1,0 +1,8 @@
+
+What is the capital of Colorado?,Denver,Geography
+What is your favorite color?,Blue,SelfKnowledge
+What is the average airspeed velocity of an unladen swallow?,Unknown,MontyPython
+What is the largest metropolitan area in North America?,Mexico City,Geography
+Are you hungry?,Yes,SelfKnowledge
+Which Peter Gabriel album included 80's superhit 'Sledgehammer'?,So,Music
+Who would win in a fight, Lemmy or God?,Lemmy == God,Music
