@@ -21,7 +21,7 @@ class Round
   end
 
   def identify_correct
-    @turns.map do |turn|
+    @turns.find_all do |turn|
       turn.correct?
     end
   end
@@ -33,11 +33,11 @@ class Round
   def number_correct_by_category(category)
     turns.find_all do |turn|
       turn.correct? == true && turn.card.category == category
-    end.length
+    end.count
   end
 
   def percent_correct
-    (number_correct.to_f/turns.length) * 100
+    (number_correct.to_f/turns.count) * 100
   end
 
 
