@@ -12,12 +12,10 @@ class CardGenerator
   end
 
   def generate_cards_from(lines)
-    new_cards = []
-    lines.each {|line|
+    lines.map {|line|
       sections = line.split(',')
-      new_cards << Card.new(sections[0], sections[1], sections[2])
+      Card.new(sections[0], sections[1], sections[2])
     }
-    return new_cards
   end
 
   def cards_file(filename)
