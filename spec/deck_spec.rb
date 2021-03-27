@@ -2,7 +2,7 @@ require './lib/card'
 require './lib/deck'
 
 describe Deck do
-  context '#initialize' do
+  context 'initialize' do
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
@@ -22,7 +22,7 @@ describe Deck do
     end
   end
 
-  context '#sort by category' do
+  context 'sort by category' do
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
@@ -39,6 +39,18 @@ describe Deck do
 
     it 'can list cards in the :Geography category' do
       expect(deck.cards_in_category("Pop Culture")).to eq([])
+    end
+  end
+
+  context 'find cards at index' do
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+    card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+    cards = [card_1, card_2, card_3]
+    deck = Deck.new(cards)
+
+    it 'can find the index and add one' do
+      expect(deck.card_num(card_1)).to eq(1)
     end
   end
 end

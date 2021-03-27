@@ -2,7 +2,7 @@ require './lib/card'
 require "./lib/turn"
 
 describe Turn do
-  context '#initialize' do
+  context 'initialize' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
 
@@ -19,7 +19,7 @@ describe Turn do
     end
   end
 
-  context '#returning answers' do
+  context 'returning answers' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
 
