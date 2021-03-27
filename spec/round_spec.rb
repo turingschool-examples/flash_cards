@@ -23,19 +23,65 @@ end
 
     expect(round.deck).to eq(deck)
   end
+
+  it 'has no turns initiated yet' do
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+    card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+    deck = Deck.new([card_1, card_2, card_3])
+    round = Round.new(deck)
+
+    expect(round.turns).to eq([])
+  end
+
+# describe '#current_card' do (end)
+  it 'has a current card' do
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+    card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+    deck = Deck.new([card_1, card_2, card_3])
+    round = Round.new(deck)
+
+    expect(round.current_card).to eq(card_1)
+  end
+
+  it 'initiates new turn' do
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+    card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+    deck = Deck.new([card_1, card_2, card_3])
+    round = Round.new(deck)
+    new_turn = round.take_turn("Juneau")
+    # what is a turn?
+    expect(new_turn.guess).to eq("Juneau")
+    expect(new_turn.card).to eq(card_1)
+    expect(new_turn.class).to eq(Turn) # new_turn is part of the Turn class
+    expect(new_turn.correct?).to eq(true)
+    expect(round.turns[0].guess).to eq("Juneau")
+    expect(round.turns[0].card).to eq(card_1)
+    expect(round.number_correct).to eq(1)
+  end
+# the point the spec file is to test whether or not the methods are working, not to play the game
+  it 
+  # it 'turns to next card' do
+  #   card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+  #   card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+  #   card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+  #   deck = Deck.new([card_1, card_2, card_3])
+  #   round = Round.new(deck)
+  #   new_turn = round.take_turn("Juneau")
+  #
+  #   expect(new_turn.correct?).to eq(Turn)
+  #
+  # end
+
+
+
 end
 
-#
-# round.turns
-# #=> []
-#
-# round.current_card
-# #=> #<Card:0x00007fa16104e160 @answer="Juneau", @question="What is the capital of Alaska?", @category=:Geography>
-#
-# new_turn = round.take_turn("Juneau")
-# #=> #<Turn:0x00007f99842f09e8 @card=#<Card:0x00007f800e29f0c9 @question=""What is the capital of Alaska?", @answer="Juneau", @category=:Geography>, @guess="Juneau">
-#
-# new_turn.class
+
+
+# new_turn.class  #.class method that exists in Ruby
 # #=> Turn
 #
 # new_turn.correct?
