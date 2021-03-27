@@ -30,6 +30,9 @@ class Round
     identify_correct.count
   end
 
+  def number_correct_by_category(category)
+  end
+
 
 
 
