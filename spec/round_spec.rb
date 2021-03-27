@@ -84,10 +84,10 @@ RSpec.describe Round do
     # take_turn = Turn.new
     # new_turn = round.take_turn("Juneau")
     round.take_turn("Juneau")
-    new_turn = Turn.new(take_turn.guess, current_card)
+    new_turn = Turn.new("Juneau", round.current_card)
     # binding.pry
 
-    expect(new_turn.class).to be_instance_of(Turn)
+    expect(new_turn.class).to equal(Turn)
   end
 
 end
