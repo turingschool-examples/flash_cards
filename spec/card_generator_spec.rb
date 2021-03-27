@@ -35,5 +35,11 @@ RSpec.describe CardGenerator do
       expect(card_generator.cards.first.answer).to eq "10"
       expect(card_generator.cards.first.category).to eq "STEM"
     end
+
+    it 'creates all of the cards' do
+      card_generator = CardGenerator.new("cards.txt")
+
+      expect(card_generator.cards.length).to eq 8
+    end
   end
 end
