@@ -15,7 +15,7 @@ RSpec.describe Play do
     expect(play).to be_instance_of(Play)
   end
 
-  describe '#start ' do
+  describe '#start' do
     it 'prints welcome message' do
       cards = [Card.new("What is the capital of Alaska?", "Juneau", :Geography)]
       deck = Deck.new(cards)
@@ -26,8 +26,19 @@ RSpec.describe Play do
     end
   end
 
+  describe '#end_game' do
+    it 'prints game end message' do
+      cards = [Card.new("What is the capital of Alaska?", "Juneau", :Geography)]
+      deck = Deck.new(cards)
+      round = Round.new(deck)
+      play = Play.new(round)
+
+      expect{play.end_game}.to output("****** Game over! ******\nYou had #{round.number_correct} correct guesses out of #{round.turns.length} for a total score of #{round.percent_correct}%.\n").to_stdout
+    end
+  end
+
   describe '#card_review' do
-    # SKIPPING TESTING FOR THIS BASED ON ITERATION 4 DESCRIPTION
+    # SKIPPING TESTING FOR THIS BASED ON ITERATION 3 DESCRIPTION
   end
 
   describe '#unique_categories' do
