@@ -127,7 +127,7 @@ RSpec.describe Round do
     round.take_turn("Juneau")
     new_turn = Turn.new("Juneau", round.current_card)
     # round.turns << new_turn
-    binding.pry
+    # binding.pry
 
     expect(round.number_correct).to eq(1)
   end
