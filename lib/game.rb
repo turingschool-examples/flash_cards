@@ -35,9 +35,9 @@ class Game
         puts "****** Game over! ******"
         puts "You had #{@round.number_correct} out of #{@cards.count} for a total score of #{number_to_percentage(@round.percent_correct, :precision => 0)}."
         @round.turns.each do |turn|
-          if @categories.exclude? turn.card.category
-            @categories << turn.card.category
-          end
+            if @categories.exclude? turn.card.category
+              @categories << turn.card.category
+            end
         end
       @categories.each do |category|
           puts "#{category} - #{number_to_percentage(@round.percent_correct_by_category(category), :precision => 0)} correct"
