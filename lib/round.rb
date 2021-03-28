@@ -13,6 +13,10 @@ class Round
         @deck.cards[index]
     end
 
+    def current_card_number
+        card_number = @turns.length + 1
+    end
+
     def take_turn(guess)
         turn = Turn.new(guess, current_card)
         @turns << turn
