@@ -6,6 +6,7 @@ class Game
   end
 
   def start(round)
+    puts ""
     puts "Welcome! You're playing with #{round.deck.cards.count} cards."
     puts "--------------------------------------------------"
 
@@ -14,7 +15,7 @@ class Game
       puts "Question: #{round.deck.cards[0].question}"
       print "Enter guess: "
       guess = gets.chomp
-      puts "#{round.take_turn(guess).feedback}"
+      puts "#{round.take_turn(guess.strip.gsub(/\s+/, " ")).feedback}"
       puts ""
     end
   end
@@ -22,7 +23,7 @@ class Game
   def end_game(round)
     puts "****** Game Over! ******"
     if round.number_correct <= 1
-      puts "You had #{round.number_correct} correct guess out of #{round.cards.count} for a total score of #{round.percent_correct}%."
+      puts "You had #{round.number_correct} correct guess out of #{round.deck.cards.count} for a total score of #{round.percent_correct}%."
     else
       puts "You had #{round.number_correct} correct guesses out of #{round.deck.cards.count} for a total score of #{round.percent_correct}%."
     end
@@ -30,7 +31,7 @@ class Game
     puts "Turing Staff - #{round.percent_correct_by_category(:Turing)}% correct"
     puts "Pop Culture - #{round.percent_correct_by_category("Pop Culture")}% correct"
     puts ""
-    puts "Thank you for playing!"
+    puts "Thanks for playing this card game!"
   end
 
 end
