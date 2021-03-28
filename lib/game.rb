@@ -26,7 +26,7 @@ class Game
   end
 
   def guess_card
-    @player_guess = gets.chomp
+    @player_guess = gets.chomp.to_s
     @round.take_turn(@player_guess)
   end
 
