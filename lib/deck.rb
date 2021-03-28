@@ -3,10 +3,10 @@ class Deck
               :count,
               :cards_in_category
 
-  def initialize(count, cards_in_category)
+  def initialize(count)
     @cards = []
     @count = count
-    @cards_in_category = cards_in_category
+    @cards_in_category = []
   end
 
   def add_cards(card)
@@ -18,7 +18,7 @@ class Deck
   end
 
   def cards_in_category
-    cards.find_all do |card|
+    @cards_in_category = cards.map do |card|
       card.category
     end
   end
