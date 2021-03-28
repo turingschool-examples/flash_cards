@@ -8,9 +8,7 @@ class Round
   end
 
   def current_card
-    @deck.cards.find do |card|
-      card
-    end
+    @deck.cards[0]
   end
 
   def take_turn(guess)
@@ -22,13 +20,13 @@ class Round
 
   def number_correct
     @turns.count do |turn|
-      turn.card.answer == turn.guess
+      turn.correct?
     end
   end
 
   def number_correct_by_category(category)
     @turns.find_all do |turn|
-      turn.card.category == category && turn.card.answer == turn.guess 
+      turn.card.category == category && turn.card.answer == turn.guess
     end.length
   end
 
@@ -44,5 +42,9 @@ class Round
   @turns.count do |turn|
     turn.card.category == category
     end
+  end
+
+  def card_num
+     @turns.count + 1
   end
 end

@@ -49,8 +49,6 @@ describe Deck do
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
 
-    it 'can find the index and add one' do
-      expect(deck.card_num(card_1)).to eq(1)
-    end
+    
   end
 end
