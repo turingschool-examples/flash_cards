@@ -15,5 +15,4 @@ class Deck
       card if card.category == category
     end
   end
-
 end

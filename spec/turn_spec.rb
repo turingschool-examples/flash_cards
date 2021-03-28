@@ -51,7 +51,4 @@ RSpec.describe Turn do
 
     expect(turn.feedback).to eq("Incorrect.")
   end
-
-#refactor  - combine a few of these tests into one
-
 end
