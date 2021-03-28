@@ -43,7 +43,6 @@ RSpec.describe Deck do
       cards = [card_1, card_2, card_3]
       deck = Deck.new(cards)
       matching_cards = deck.cards_in_category(category)
-binding.pry
       expect(matching_cards).to eq([card_3])
     end
 end
