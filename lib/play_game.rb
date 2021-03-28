@@ -39,7 +39,7 @@ class PlayGame
     p "You had #{round.number_correct} correct guesses out of #{round.turns.count} for a total score of #{round.percent_correct.to_i}%."
 
     @category.uniq.each do |category|
-      p "#{category}- #{round.percent_correct_by_category(category).to_i}% correct"
+      p "#{category} - #{round.percent_correct_by_category(category).to_i}% correct"
     end
 
   end
