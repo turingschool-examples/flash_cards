@@ -11,13 +11,13 @@ describe Round do
     deck = Deck.new([card_1, card_2, card_3])
     round = Round.new(deck)
 
-      it 'exists' do
-        expect(round).to be_instance_of(Round)
-      end
+    it 'exists' do
+      expect(round).to be_instance_of(Round)
+    end
 
-      it 'has a deck' do
-        expect(round.deck).to eq(deck)
-      end
+    it 'has a deck' do
+      expect(round.deck).to eq(deck)
+    end
   end
 
   context 'start of round' do
@@ -45,29 +45,29 @@ describe Round do
 
     new_turn = round.take_turn("Juneau")
 
-      it 'creates a new turn' do
-        expect(new_turn.class).to eq(Turn)
-      end
+    it 'creates a new turn' do
+      expect(new_turn.class).to eq(Turn)
+    end
 
-      it 'can match the guess to the answer' do
-        expect(new_turn.guess).to eq(card_1.answer)
-      end
+    it 'can match the guess to the answer' do
+      expect(new_turn.guess).to eq(card_1.answer)
+    end
 
-      it 'can tell if the guess is correct' do
-        expect(new_turn.correct?).to eq(true)
-      end
+    it 'can tell if the guess is correct' do
+      expect(new_turn.correct?).to eq(true)
+    end
 
-      it 'can put the new turn in the turns array' do
-        expect(round.turns).to eq([new_turn])
-      end
+    it 'can put the new turn in the turns array' do
+      expect(round.turns).to eq([new_turn])
+    end
 
-      it 'has a new current card' do
-        expect(round.current_card).to eq(card_2)
-      end
+    it 'has a new current card' do
+      expect(round.current_card).to eq(card_2)
+    end
 
-      it 'can give the number of correct answers' do
-        expect(round.number_correct).to eq(1)
-      end
+    it 'can give the number of correct answers' do
+      expect(round.number_correct).to eq(1)
+    end
   end
 
   context 'new turn with an Incorrect guess' do
@@ -80,17 +80,17 @@ describe Round do
     round.take_turn("Juneau")
     round.take_turn("Venus")
 
-      it 'can count amount of turns taken' do
-        expect(round.turns.count).to eq(2)
-      end
+    it 'can count amount of turns taken' do
+      expect(round.turns.count).to eq(2)
+    end
 
-      it 'can give accurate feedback' do
-        expect(round.turns.last.feedback).to eq("Incorrect.")
-      end
+    it 'can give accurate feedback' do
+      expect(round.turns.last.feedback).to eq("Incorrect.")
+    end
 
-      it 'can give amount correct after taking two turns' do
-        expect(round.number_correct).to eq(1)
-      end
+    it 'can give amount correct after taking two turns' do
+      expect(round.number_correct).to eq(1)
+    end
   end
 
   context 'correct by category' do
@@ -103,13 +103,13 @@ describe Round do
     round.take_turn("Juneau")
     round.take_turn("Venus")
 
-      it 'can total correct answers in Geography category' do
-        expect(round.number_correct_by_category(:Geography)).to eq(1)
-      end
+    it 'can total correct answers in Geography category' do
+      expect(round.number_correct_by_category(:Geography)).to eq(1)
+    end
 
-      it 'can total correct answers in :STEM category' do
-        expect(round.number_correct_by_category(:STEM)).to eq(0)
-      end
+    it 'can total correct answers in :STEM category' do
+      expect(round.number_correct_by_category(:STEM)).to eq(0)
+    end
   end
 
   context 'correct percentages' do
@@ -122,20 +122,20 @@ describe Round do
     round.take_turn("Juneau")
     round.take_turn("Venus")
 
-      it 'can find percent correct overall' do
-        expect(round.percent_correct).to eq(50.0)
-      end
+    it 'can find percent correct overall' do
+      expect(round.percent_correct).to eq(50.0)
+    end
 
-      it 'can find percent correct by category' do
-        expect(round.percent_correct_by_category(:Geography)).to eq 100.0
-      end
+    it 'can find percent correct by category' do
+      expect(round.percent_correct_by_category(:Geography)).to eq 100.0
+    end
 
-      it 'only has one card left' do
-        expect(round.current_card).to eq(card_3)
-      end
+    it 'only has one card left' do
+      expect(round.current_card).to eq(card_3)
+    end
 
-      it 'can find the index and add one' do
-        expect(round.card_num).to eq(3)
-      end
+    it 'can find the index and add one' do
+      expect(round.card_num).to eq(3)
+    end
   end
 end
