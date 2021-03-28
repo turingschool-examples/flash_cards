@@ -1,7 +1,7 @@
 What is the capital of Colorado?,Denver,Geography
 What cardboard cutout lives at Turing?,Justin bieber,PopCulture
 What is the name of Andy’s neighbor in Toy Story?,Sid,Disney Trivia
-Who is the wife of Barack Obama?,Michelle Obama,U.S History
+Who is the husband of Michelle Obama?,Barack Obama,U.S History
 How many time zones does China have?,1,Geography
 Which planet in our solar system rotates the slowest?,Venus,STEM
 How many brothers does Prince Hans of the Southern Isles have in Frozen?,12,Disney Trivia
