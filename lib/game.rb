@@ -67,8 +67,11 @@ class Game
   def feedback
     if round.current_card.answer == @user_input
       "Gosh, great job! You got that right!"
+    elsif
+      @user_input == "q"
+      "Oh bummer you quit!"
     else
-      "Sorry, that's not quite right."
+      "Oh my, that's not quite right."
     end
   end
 
@@ -82,10 +85,6 @@ class Game
 
   def questions
     "Question: #{round.current_card.question}"
-  end
-
-  def incorrect
-    "Sorry, that's incorrect."
   end
 
   def ending_message
