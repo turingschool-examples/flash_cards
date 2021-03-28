@@ -1,4 +1,4 @@
-require './lib/start'
+require './lib/game'
 
-st = Start.new
-st.start_game
+game1 = Game.new
+game1.start_game
