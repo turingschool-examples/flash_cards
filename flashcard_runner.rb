@@ -2,6 +2,7 @@ require './lib/game'
 require './lib/card_generator'
 require './lib/deck'
 require 'pry'
+
 # @card1 = Card.new('What is the capital of CO?', 'Denver', :Geography)
 # @card2 = Card.new('What is the captial of Mexico?', 'Mexico City', :Geography)
 # @card3 = Card.new('What is the boiling point (degrees celcius) of water?', '100', :Science)
@@ -11,8 +12,6 @@ require 'pry'
 @cards_generated = CardGenerator.new("cards.txt")
 @cards_generated.create_cards
 @deck = Deck.new(@cards_generated.cards)
-
-
 
 game = Game.new(@deck)
 game.start

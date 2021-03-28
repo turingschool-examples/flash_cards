@@ -10,6 +10,5 @@ class Deck
     @cards.select do |card|
       card.category == category
     end
-    # require "pry"; binding.pry
   end
 end
