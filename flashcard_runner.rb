@@ -13,10 +13,9 @@ card_4 = Card.new("Which important person in history was recently unveiled as th
 @round = Round.new(@deck)
 @printer = Printer.new
 
-#keep writing out, then refactor (all 4 rounds) - then maybe attempt to condense into a loop,
-#on each loop, have count - use that to figure which card we're on
+#REFACTOR - move def of start method to aeparate class
 
-def start
+def start #REFACTOR TO LOOP IF TIME
   @printer.welcome_message
   #card_1
   @printer.card_message(@round.current_card, (@round.turns.count + 1))
@@ -34,9 +33,22 @@ def start
   @printer.card_message(@round.current_card, (@round.turns.count + 1))
   initiate_game_flow
   @printer.feedback_message(@round.turns[3].guess, @round.turns[3].card.answer)
-# binding.pry
-  # @printer.final_score_message(@round.number_correct, @round.percent_correct_by_category(category))
+
+  @printer.final_score_message(@round.number_correct, @round.percent_correct)
+
+
+  @deck.cards.each do |card|
+    percents = @round.percent_correct_by_category(card.category)
+    @printer.final_score_by_category_message(card.category, percents)
+  end
+
 end
+
+#loop through deck, each_with_index |card, index|
+# @printer.card_message(@round.current_card, (@round.turns.count + 1))
+# initiate_game_flow
+#  @printer.feedback_message(@round.turns[index].guess, @round.turns[index].card.answer)
+
 
 
 def initiate_game_flow

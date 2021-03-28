@@ -38,12 +38,18 @@ class Printer
 
 
 
- def final_score_message(number_correct, percent_correct_by_category)
-   "****** Game over! ******
-   You had #{number_correct.to_i}% correct guesses out of 4 for a total score of #{percent_correct}.
-   Arithmetic - #{percent_correct_by_category.to_i}% correct
-   Animal Stuff - #{percent_correct_by_category.to_i}% correct
-   History - #{percent_correct_by_category.to_i}% correct"
+ def final_score_message(number_correct, percent_correct)
+   print3 = "****** Game over! ******
+
+   You had #{number_correct.to_i} correct guesses out of 4 for a total score of #{percent_correct.to_i}%."
+
+   puts print3
+ end
+
+ def final_score_by_category_message(category, percents)
+   message =  "#{category} - #{percents.to_i}% correct"
+
+   puts message
  end
 
 
