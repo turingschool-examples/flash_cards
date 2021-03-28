@@ -11,14 +11,14 @@ cards = [card_1, card_2, card_3, card_4]
 deck = Deck.new(cards)
 round = Round.new(deck)
 
-puts "Welcome! You're playing with #{deck.cards.count} cards\n
+puts "Welcome! You're playing with #{deck.cards.count} cards
 -------------------------------------------------"
 
-while round.loop_break
-puts "This is card number #{round.turns.count + 1} out of #{round.deck.cards.count}\n
+while round.cards_remaining?
+puts "This is card number #{round.turns.count + 1} out of #{round.deck.cards.count}
 Question: #{deck.cards[0].question}\n"
 round.take_turn(gets.capitalize.chomp)
-puts "#{round.turns[-1].feedback}"
+puts "#{round.turns[-1].feedback}\n"
 end
 
 puts "******** Game over! *******\n
