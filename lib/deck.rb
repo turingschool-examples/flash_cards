@@ -13,4 +13,8 @@ class Deck
       card.category == category
     end
   end
+
+  def current_card
+    cards.first
+  end
 end

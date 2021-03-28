@@ -1,13 +1,12 @@
 class Round
-  attr_reader :deck, :turns, :guess
+  attr_reader :deck, :turns, :guess, :number_correct, :percent_correct, :percent_correct_by_category
   def initialize(deck)
     @deck = deck
     @turns = []
-    @guess = Turn.new(guess, current_card)
   end
 
-  def current_card #refactor me into cards!!
-    deck.cards.first
+  def current_card
+    deck.current_card
   end
 
   def take_turn(guess)
@@ -15,113 +14,87 @@ class Round
     @turns.push(nturn)
     deck.cards.rotate!
     nturn
-    # maybe gets.chomp lives here
   end
 
   def number_correct
     result = []
     @turns.each do |turn|
-      if turn.guess == turn.card.answer #refactor this turn.correct?
+      if turn.correct?
         result.push(turn.card)
       end
     end
-    result.count
+    result.length
   end
 
   def number_correct_by_category(category)
-  #   def number_correct_by_category(category)
-  #     @turns.find_all do |turn|
-  #       turn.card.category == category && turn.card.answer == turn.guess #want to refactor this
-  #      end.length
-  #   end
-    results = []
-    @turns.each do |turn|
-      if turn.correct? == true
-        results.push(turn)
-      end
-    end
-    separated = []
-    results.each do |result1|
-      if result1.card.category == category
-        separated.push(result1)
-      end
-    end
-    separated.count
+    @turns.find_all do |turn|
+      turn.card.category == category && turn.card.answer.downcase == turn.guess.downcase #want to refactor this
+     end.length
   end
 
+
   def percent_correct
-    (number_correct.to_f/turns.count)*100
+    ((number_correct.to_f/turns.count)*100).to_i
+  end
+
+  def correct_category(category)
+    @turns.count do |turn|
+      turn.card.category == category
+      end
   end
 
   def percent_correct_by_category(category)
-    result = []
-    @turns.each do |turn|
-      if turn.card.category == category && turn.correct? == true
-      result.push(turn)
-      end
-    end
-    (result.count.to_f)*100
+    ((number_correct_by_category(category).to_f/correct_category(category))*100).to_i
   end
 
   def start
-    puts "Welcome! \n You're playing with #{deck.count} cards.
+    puts "Welcome! \n       You're playing with #{deck.count} cards.
         -------------------------------------------------
           This is card number #{turns.count + 1} out of #{deck.count}.
           Question: #{current_card.question}?
           Type answer below"
     first_turn
     until finished_with_cards == true
-      if @guess.downcase == current_card.answer.downcase#refactor me
-        require "pry"; binding.pry
-        puts "#{turns[-1].feedback}
+      if @guess.downcase == @turns.last.card.answer.downcase#refactor me
+        puts "        #{@turns.last.feedback}
         This is card number #{@turns.count + 1} out of #{deck.count}.
         Question: #{current_card.question}?
         Type answer below"
         @guess = gets.chomp
           take_turn(@guess)
-      elsif @guess.downcase != current_card.answer
-        # require "pry"; binding.pry
-        puts " #{turns[-1].feedback}
+      elsif @guess.downcase != @turns.last.card.answer.downcase
+        puts "        #{@turns.last.feedback}
         This is card number #{@turns.count + 1} out of #{deck.count}.
         Question: #{current_card.question}?
         Type answer below"
         @guess = gets.chomp
-      else
-        puts "wtf is happening."
         take_turn(@guess)
       end
-
+    end
+    if @guess.downcase == @turns.last.card.answer.downcase
+      #refactor me
+      puts "        #{@turns.last.feedback}"
+      ending_message
+    else @guess.downcase != @turns.last.card.answer.downcase#refactor me
+      puts "        #{@turns.last.feedback}"
+      ending_message
     end
   end
 
   def first_turn
-    # @guess = gets.chomp
     nturn = Turn.new(@guess = gets.chomp, @deck.cards[0])
     @turns.push(nturn)
     @deck.cards.rotate!
   end
 
-  # def start
-  #
-  #   puts "Welcome! \n You're playing with #{deck.count} cards.
-  #       -------------------------------------------------
-  #         This is card number #{turns.count + 1} out of #{deck.count}.
-  #         Question: #{current_card.question}?
-  #         Type answer below"
-  #   first_turn
-  #
-  # end
-
   def finished_with_cards
-    @turns.count == (deck.cards.count)-1
+    @turns.count == (deck.cards.count)
   end
 
   def ending_message
-     if finished_with_cards == true
-       puts "****** Game over! ******
-You had #{number_correct} correct guesses out of 3 for a total score of #{percent_correct}%.
-STEM - #{percent_correct_by_category(:STEM)}% correct
-Geography - #{percent_correct_by_category(:Geography)}% correct"
-     end
+    puts "****** Game over! ******
+       You had #{number_correct} correct guesses out of #{@turns.count} for a total score of #{percent_correct}%.
+       STEM - #{percent_correct_by_category(:STEM)}% correct
+       Geography - #{percent_correct_by_category(:Geography)}% correct"
   end
 end

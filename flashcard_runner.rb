@@ -11,7 +11,7 @@ require './lib/round'
   round = Round.new(deck)
 
 round.start
-round.ending_message
+#round.ending_message
 
 #show turn method put question and accepts input
 #input into guess for take turn
