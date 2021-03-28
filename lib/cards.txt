@@ -2,3 +2,12 @@ What is 5 + 5?,10,STEM
 What is Rachel's favorite animal?,red panda,Turing Staff
 What is Mike's middle name?,nobody knows,Turing Staff
 What cardboard cutout lives at Turing?,Justin bieber,PopCulture
+
+
+
+
+
+card_1 = Card.new("Who is the best character in AOT?", "Zeke", :Anime)
+card_2 = Card.new("Who won the super bowl?", "Tampa Bay", :Sports)
+card_3 = Card.new("Best swordsman of the seven ninja swordsmen of the mist?", "Zabuza", :Anime)
+card_4 = Card.new("Who is the bad guy in all the Resident Evil games?", "Albert Wesker", :VideoGames)
