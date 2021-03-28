@@ -9,10 +9,14 @@ class Game
     puts "-------------------------------------------------"
     #loop
     @round.deck.cards.length.times do
-      puts "This is question #{@round.turns.length + 1} out of #{number_of_cards}."
-      
+      puts "This is card #{@round.turns.length + 1} out of #{number_of_cards}."
+      puts "Question: #{@round.current_card.question}"
+      answer = gets.chomp
+      new_turn = round.take_turn(answer)
+      puts "#{new_turn.feedback}"
     end
-
+      puts "You had #{@round.number_correct} correct guesses out of #{@round.turns.length} for a total score of #{@round.percent_correct}%."
+      
       #print stats
   end
 
