@@ -14,7 +14,7 @@ end
 def take_turn(guess)
   new_turn = Turn.new(guess, current_card)
   @turns << new_turn
-  @deck.cards.rotate!
+  @deck.cards.rotate! #rotate without bang wasn't moving it
   return new_turn
 end
 
@@ -40,7 +40,7 @@ def percent_correct_by_category(category)
   number_correct_by_category(category).fdiv(@turns.find_all {|turn| turn.card.category == category}.count) * 100
 end
 
-def loop_break
+def cards_remaining?
   return true if @turns.count + 1 <= deck.cards.count
   false
 end
