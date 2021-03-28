@@ -33,6 +33,13 @@ RSpec.describe Turn do
 
       expect(bad_turn.correct?).to eq false
     end
+
+    it "accepts guesses that only differ from the correct guess in capitalization" do
+      card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+      turn = Turn.new("juneau", card)
+
+      expect(turn.correct?).to eq true
+    end
   end
 
   describe '#feedback' do
