@@ -21,8 +21,8 @@ class Round
 
   def number_correct
     @turns.count do |turn|
-      # turn.feedback
-      turn.card.answer == turn.guess
+      turn.feedback
+      # turn.card.answer == turn.guess
     end
   end
 
