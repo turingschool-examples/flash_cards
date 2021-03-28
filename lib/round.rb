@@ -1,5 +1,8 @@
 class Round
-  attr_accessor :deck, :turns, :correct_answer
+  attr_accessor :deck,
+                :turns,
+                :correct_answer
+
   def initialize(deck)
     @deck = deck
     @turns = []
@@ -13,7 +16,6 @@ class Round
   def take_turn(guess)
     new_turn = Turn.new(guess, current_card)
     @turns << new_turn
-    @deck.cards.rotate!
     new_turn
   end
 
@@ -30,9 +32,16 @@ class Round
   end
 
   def percent_correct
-    # require "pry"; binding.pry
-    # find percent of correct answers
-    # can use number coorect method
-    number_correct.to_f / @turns.count.to_f * 100.0
+    number_correct.to_f / @turns.count.to_f * 100
+  end
+
+  def total_cards_in_category(category)
+    @deck.cards.count do |card|
+      card.category == category
+    end
+  end
+
+  def percent_correct_by_category(category)
+    number_correct_by_category(category).to_f / total_cards_in_category(category).to_f * 100
   end
 end
