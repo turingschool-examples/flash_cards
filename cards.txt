@@ -1,7 +1,7 @@
 What is 5 + 5?,10,STEM
 What is Rachel's favorite animal?,red panda,Turing Staff
 What is Mike's middle name?,nobody knows,Turing Staff
-What cardboard cutout lives at Turing?,Justin Bieber,PopCulture
+What cardboard cutout lives at Turing?,Justin Bieber,Pop Culture
 How many teeth does an adult human have?,32,Science
 How many noses does a slug have?,4,Science
 Where was Martin Luther King Jr. born?,Atlanta,History
