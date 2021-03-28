@@ -3,7 +3,7 @@ require './lib/turn'
 require './lib/deck'
 # require "pry"; binding.pry
 class Round
-  attr_reader :deck
+  attr_reader :deck,
               :turns
 
   def initialize(deck)
@@ -17,33 +17,55 @@ class Round
 
   def take_turn(guess)
      new_turn = Turn.new(guess, current_card)
-      @turns << guess
+      @turns << new_turn
+      rotate_card
       return new_turn
   end
 
-  # def take_turn(guess)
-  # Turn.new(guess, current_card).map do
-  # @turns << guess
-  #
-  # end
+  def rotate_card
+    deck.cards.shift
+  end
 
   def number_correct
-    round.correct?.count
+    correct_answers = @turns.find_all do |turn|
+      turn.correct? == true
+    end
+    return correct_answers.length
   end
 
-  def number_correct_by_category(category)
-    round.correct?.category
+  def number_by_category(category)
+    turns_in_category = @turns.select do |turn|
+      turn.card.category == category
+    end
+    return turns_in_category.length
   end
 
-  # def number_correct_by_category(category)
-  #     @turns.find_all do |new_turn|
-  #       turn.number_correct_by_category("") == true
-  #     end
-  # end
+   def number_correct_by_category(category)
+     turns_in_category = @turns.select do |turn|
+       turn.card.category == category
+     end
+     correct_in_category = turns_in_category.find_all do |turn|
+       turn.correct? == true
+    end
+    return correct_in_category.length
+   end
 
-  def percent_correct
-    round.percent
-  end
+   # def percent_correct
+   #   correct_answers = @turns.find_all do |turn|
+   #     turn.correct? == true
+   #    end
+   #  return correct_answers.length
+   # end
+
+   def percent_correct
+     correct_answers = @turns.find_all do |turn|
+       turn.correct? == true
+     end
+     total_correct = correct_answers.length / @turns.count
+     percent = total_correct.to_f
+     percent * 100
+   end
+
 
   def percent_correct_by_category(category)
     round.percent.category
