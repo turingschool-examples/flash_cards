@@ -27,7 +27,7 @@ class PlayGame
     end
 
     until deck.cards.empty? == true
-      p "This is card number #{counter} out of #{@deck.count}."
+      p "This is card number #{counter} out of #{(@deck.count + round.turns.count)}."
       p "Question #{counter} is: #{round.current_card.question}"
       @guess = gets.chomp.downcase
       answer = round.take_turn(@guess)
