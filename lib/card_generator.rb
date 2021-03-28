@@ -1,8 +1,9 @@
 class CardGenerator
 
-  attr_reader :filename
+  attr_reader :filename, :cards
   def initialize(filename)
     @filename = filename
-  end 
+    @cards = []
+  end
 
 end

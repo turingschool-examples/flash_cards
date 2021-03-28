@@ -12,7 +12,13 @@ describe CardGenerator do
     cards = CardGenerator.new(filename)
 
     expect(cards).to be_a(CardGenerator)
+  end
 
+  it 'can create cards' do
+    filename = './files/cards.txt'
+    cards = CardGenerator.new(filename)
+
+    expect(cards.cards).to eq([])
   end
 
 end
