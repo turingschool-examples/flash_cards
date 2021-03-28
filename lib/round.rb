@@ -72,9 +72,10 @@ class Round
 
 
   def get_guess
-    guess = gets.chomp.capitalize
+    guess = gets.chomp.strip.capitalize
     turn = take_turn(guess)
     puts turn.feedback
+    puts "The correct answer was #{turn.card.answer}" 
     store_turn(turn)
   end
 
