@@ -10,6 +10,7 @@ card_4 = Card.new("What is another name for a mountain ash tree?", "Rowan", :Gar
 card_5 = Card.new("What country is Prague in?", "Czech Republic", :Geography)
 card_6 = Card.new("Who directed the Lord of the Rings trilogy?", "Peter Jackson", :Cinema)
 cards  = [card_1, card_2, card_3, card_4, card_5, card_6]
+# cards = CardGenerator.new(filename).cards
 deck   = Deck.new(cards)
 round  = Round.new(deck)
 
