@@ -22,7 +22,7 @@ class Game
   end
 
   def number_of_cards
-    @round.deck.cards.length
+    @round.deck.cards.length + @round.turns.length
   end
 
   def end_of_game_stats
