@@ -6,7 +6,7 @@ class Deck
               # :cards_in_category
 
   def initialize(cards)
-    @cards = cards
+    @cards = cards #[]
     # @count = count
     # @cards_in_category = []
   end
@@ -16,7 +16,7 @@ class Deck
   # end
 
   def count_cards
-    cards.count
+    cards.length
   end
 
   def cards_in_category(category)

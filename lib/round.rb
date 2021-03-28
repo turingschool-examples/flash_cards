@@ -13,8 +13,20 @@ class Round
   end
 
   def take_turn(guess)
-    new_turn = Turn.new(guess, current_card)
+    turn = Turn.new(guess, current_card)
+    @turns << turn
+    @deck.cards.shift
+    turn
   end
+
+  def number_correct
+    number_correct = []
+    @turns.each do |turn|
+      number_correct << turn.correct?
+    end
+    number_correct.length
+  end
+
 
 
 
