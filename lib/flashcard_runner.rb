@@ -21,7 +21,7 @@ round.take_turn(gets.capitalize.chomp)
 puts "#{round.turns[-1].feedback}\n"
 end
 
-puts "******** Game over! *******\n
+puts "\n******** Game over! *******\n
 You had #{round.number_correct} out of #{deck.cards.count} for a total score of #{round.percent_correct}\n
 #{deck.cards[0].category} - #{round.percent_correct_by_category(deck.cards[0].category)}\n
 #{deck.cards[2].category} - #{round.percent_correct_by_category(deck.cards[2].category)}\n
