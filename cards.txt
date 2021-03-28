@@ -1,9 +1,9 @@
 What is the capital of Colorado?,Denver,Geography
 What cardboard cutout lives at Turing?,Justin bieber,PopCulture
-What is Rachel's favorite animal?,red panda,Turing Staff
-Who is the wife of Barack Obama?,Michelle Obama,U.S History
-What is Mike's middle name?,nobody knows,Turing Staff
-Who made the first American Flag?,Betsy Ross,U.S History
-What is 5 + 5?,10,Math
-How many brothers does Prince Hans of the Southern Isles have in Frozen?,12,Disney Trivia
 What is the name of Andy’s neighbor in Toy Story?,Sid,Disney Trivia
+Who is the wife of Barack Obama?,Michelle Obama,U.S History
+How many time zones does China have?,1,Geography
+Which planet in our solar system rotates the slowest?,Venus,STEM
+How many brothers does Prince Hans of the Southern Isles have in Frozen?,12,Disney Trivia
+Who made the first American Flag?,Betsy Ross,U.S History
+What is the symbol on the periodic table for sodium?,NA,STEM
