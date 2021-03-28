@@ -1,22 +1,27 @@
 require './lib/card'
 
 class Deck
-  attr_reader :cards,
-              :count,
-              :category
+  attr_reader :cards
+              # :count,
+              # :cards_in_category
 
-  def initialize(count, category)
-    @cards = []
-    @count = count
-    @category = category
+  def initialize(cards)
+    @cards = cards
+    # @count = count
+    # @cards_in_category = []
   end
 
-  def add_card(card)
-   @cards << card
-  end
+  # def add_card(card)
+  #   @cards << card
+  # end
 
   def count_cards
-   @count = cards.length
- end
+    cards.count
+  end
 
+  def cards_in_category(category)
+    cards.select do |card|
+      card.category == category
+    end
+  end
 end
