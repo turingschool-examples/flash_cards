@@ -26,7 +26,7 @@ def start
 
   while card_counter <= cards.length
     puts "This is card #{card_counter} out of #{cards.length}."
-    puts "Question: #{deck.cards[1].question}"
+    puts "Question: #{deck.cards[card_counter - 1].question}"
     new_turn = round.take_turn(gets.chomp)
     new_turn.feedback
     card_counter += 1

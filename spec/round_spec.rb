@@ -58,7 +58,7 @@ describe Round do
       deck = Deck.new(cards)
       round = Round.new(deck)
       new_turn = round.take_turn("Juneau")
-      expect(round.current_card).to eq(card_1)
+      expect(round.current_card).to eq(deck.cards[1])
     end
 
 
@@ -72,9 +72,9 @@ describe Round do
       deck = Deck.new(cards)
       round = Round.new(deck)
       new_turn = round.take_turn("Juneau")
-      expect(round.current_card).to eq(card_1)
+      expect(round.current_card).to eq(deck.cards[1])
       new_turn = round.take_turn("Mars")
-      expect(round.current_card).to eq(card_2)
+      expect(round.current_card).to eq(deck.cards[2])
     end
 
 
