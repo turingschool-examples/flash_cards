@@ -1,3 +1,4 @@
+
 class Card
   attr_reader :question,
               :answer,
@@ -6,5 +7,5 @@ class Card
     @question = question
     @answer = answer
     @category = category
-  end 
+  end
 end
