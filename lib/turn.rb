@@ -10,12 +10,8 @@ class Turn
   end
 
    def correct?
-    if @guess == "Juneau"
-      true
-    else
-      false
-    end
-  end
+     @guess == "Juneau"
+   end
 
     def feedback
       if @guess == "Juneau"
