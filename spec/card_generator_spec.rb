@@ -9,52 +9,23 @@ require 'pry'
 describe CardGenerator do
   it 'exists' do
     filename = './files/cards.txt'
-    cards = CardGenerator.new(filename)
+    generator = CardGenerator.new(filename)
 
-    expect(cards).to be_a(CardGenerator)
+    expect(generator).to be_a(CardGenerator)
   end
+  describe "#collect" do
+    it 'can create cards' do
+      filename = './files/cards.txt'
+      generator = CardGenerator.new(filename)
+      generator.collect
+      expect(generator.cards).to be_a(Array)
+    end
 
-  it 'can create cards' do
-    filename = './files/cards.txt'
-    cards = CardGenerator.new(filename)
-
-  
-
-    expect(cards.cards).to be_a(Array)
+    it 'creates the cards as Card objects' do
+      filename = './files/cards.txt'
+      generator = CardGenerator.new(filename)
+      generator.collect
+      expect(generator.cards[0]).to be_a(Card)
+    end
   end
-
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# describe CardGenerator do
-#   it 'exists' do
-#
-#   cards = ("./files/cards.txt")
-#   card_generator = CardGenerator.new(cards)
-#
-#   binding.pry
-#   expect(card_generator).to be_a(CardGenerator)
-#   end
-#
-#   # it 'can create a card' do
-#   #
-#   #
-#   # expect(card_generator.cards[0]).to be_a(Card)
-#   # end
-#   #
-#
-# end
