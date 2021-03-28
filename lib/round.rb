@@ -45,7 +45,4 @@ class Round
     category_total = deck.cards_in_category(category).count
     (total_correct.to_f/category_total) * 100
   end
-
-
-
 end

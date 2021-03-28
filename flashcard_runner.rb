@@ -27,7 +27,6 @@ def start
     percents = @round.percent_correct_by_category(card.category)
     @printer.final_score_by_category_message(card.category, percents)
   end
-
 end
 
 def initiate_game_flow
@@ -35,10 +34,5 @@ def initiate_game_flow
   player_input = gets.chomp
   @round.take_turn(player_input)
 end
-
-
-# def end_of_deck
-#   @turns.count == (deck.cards.count)
-# end
 
 start
