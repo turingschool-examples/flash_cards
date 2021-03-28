@@ -65,7 +65,7 @@ RSpec.describe Round do
     round = Round.new(deck)
     new_turn = round.take_turn("Juneau")
 
-    expect(new_turn).to be_instance_of(Turn)
+    expect(new_turn.class).to eq(Turn)
   end
 
   it 'can determine if the guess is correct' do
