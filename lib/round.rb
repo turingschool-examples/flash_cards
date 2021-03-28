@@ -50,24 +50,24 @@ class Round
     return correct_in_category.length
    end
 
-   # def percent_correct
-   #   correct_answers = @turns.find_all do |turn|
-   #     turn.correct? == true
-   #    end
-   #  return correct_answers.length
-   # end
-
    def percent_correct
      correct_answers = @turns.find_all do |turn|
        turn.correct? == true
      end
-     total_correct = correct_answers.length / @turns.count
-     percent = total_correct.to_f
-     percent * 100
+
+     total_correct = correct_answers.length.to_f / @turns.count
+    return total_correct.to_f * 100
    end
 
 
   def percent_correct_by_category(category)
-    round.percent.category
+      turns_in_category = @turns.select do |turn|
+        turn.card.category == category
+      end
+      correct_in_category = turns_in_category.find_all do |turn|
+        turn.correct? == true
+     end
+     total_correct = correct_in_category.length.to_f / turns_in_category.count
+    return total_correct.to_f * 100
   end
 end
