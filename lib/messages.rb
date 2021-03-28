@@ -2,7 +2,7 @@
 # require './lib/turn'
 # require './lib/deck'
 # require './lib/round'
-# require './lib/start'
+# require './lib/game'
 
 # class Messages
 #   attr_reader  :card_1,
