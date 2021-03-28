@@ -17,14 +17,14 @@ class Round
   def take_turn(guess)
     turn = Turn.new(guess, current_card)
     turn
-    require "pry"; binding.pry
+    # require "pry"; binding.pry
   end
 
-  # def turns
-  #
-  #
-  #   # require "pry"; binding.pry
-  # end
+  def turns
+    
+    @turns << deck.cards.first
+    # require "pry"; binding.pry
+  end
 
 
 end
