@@ -1,22 +1,26 @@
 require 'pry'
+require './lib/card'
     puts Dir.pwd
 class CardGenerator
   attr_reader :filename,
               :cards,
-              :dir_path
+              :filename_relative
 
   def initialize(filename)
-    @filename = Rails.root.join(".","lib",filename)
+    @filename = filename
+    @filename_relative = File.join(".","lib",@filename)
     @cards = []
-    create_cards
   end
 
   def create_cards
-    File.foreach(@filename) do |line|
+    File.foreach(@filename_relative, "\n") do |line|
       @line_text = line.split(",")
-      @card = Card.new(@line_text[0], @line_text[1], @line_text[2])
-      @cards.push(@card)
+      # binding.pry
+      @category =  @line_text[2].chomp.intern
+      @card_new = Card.new(@line_text[0], @line_text[1], @category)
+      @cards << @card_new
+      # binding.pry
     end
-    puts @cards
   end
+# binding.pry
 end
