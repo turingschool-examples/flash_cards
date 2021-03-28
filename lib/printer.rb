@@ -23,10 +23,14 @@ class Printer
     puts message
   end
 
- #  def card4_feedback
- #   return "Correct!" if user_input == "alan turing" || "Alan Turing"
- #   "Incorrect."
- # end
+  def feedback_message(user_input, answer)
+   return "Correct!" if @user_input == @round.current_card.answer #|| "Alan Turing"
+   # binding.pry
+   @guess == @card.answer
+
+   "Incorrect."
+
+ end
 
  def final_score_message
    "****** Game over! ******
