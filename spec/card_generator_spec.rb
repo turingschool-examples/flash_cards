@@ -9,5 +9,6 @@ describe CardGenerator do
 
   expect(cards).is_a? CardGenerator
   end
+
   
 end
