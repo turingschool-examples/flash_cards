@@ -18,12 +18,24 @@ def start
 
   puts "Welcome! You're playing with #{cards.length} cards."
   puts "----------------------------------------------------"
-  puts "This is card number 1 out of #{cards.length}."
+  puts "This is card 1 out of #{cards.length}."
   puts "Question: #{deck.cards[0].question}"
   new_turn = round.take_turn(gets.chomp)
   new_turn.feedback
   card_counter += 1
 
+  while card_counter <= cards.length
+    puts "This is card #{card_counter} out of #{cards.length}."
+    puts "Question: #{deck.cards[1].question}"
+    new_turn = round.take_turn(gets.chomp)
+    new_turn.feedback
+    card_counter += 1
+  end
+
+  puts "********* Game over! *********"
+  puts "You had #{round.number_correct} correct guesse(s) out of #{cards.length} for a total score of #{round.percent_correct}%."
+  puts "Geography - #{round.percent_correct_by_category(:Geography)}% correct"
+  puts "STEM - #{round.percent_correct_by_category(:STEM)}% correct"
 
 end
 
