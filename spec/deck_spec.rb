@@ -18,7 +18,7 @@ describe Deck do
     end
 
     it 'reads the cards' do
-     expect(deck.cards_in_category).to eq []
+     expect(deck.cards_in_category(:STEM)).to eq []
     end
   end
 
@@ -49,15 +49,17 @@ describe Deck do
   end
 
   describe '#cards_in_category' do
-    it 'reads the cards' do
-      deck = Deck.new(0)
+    it 'returns the cards in a category' do
+      deck = Deck.new(:STEM)
       card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
       card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
       deck.add_cards(card_1)
       deck.add_cards(card_2)
       deck.add_cards(card_3)
-     expect(deck.cards_in_category).to eq [:STEM]
-    end
+     expect(deck.cards_in_category(:STEM)).to eq [card_2, card_3]
+     expect(deck.cards_in_category(:Geography)).to eq [card_1]
+     expect(deck.cards_in_category("Pop Culture")).to eq []
+   end
   end
 end

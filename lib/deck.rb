@@ -1,12 +1,10 @@
 class Deck
   attr_reader :cards,
-              :count,
-              :cards_in_category
+              :count
 
   def initialize(count)
     @cards = []
     @count = count
-    @cards_in_category = []
   end
 
   def add_cards(card)
@@ -14,12 +12,12 @@ class Deck
   end
 
   def count_cards
-    @count = cards.count #or .length?
+    @count = cards.length # not .count(iterates through each)
   end
 
-  def cards_in_category
-    @cards_in_category = cards.map do |card|
-      card.category
+  def cards_in_category(filter)
+    @cards.find_all do |card|
+     card.category == filter
     end
   end
 end

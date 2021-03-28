@@ -20,29 +20,27 @@ describe Turn do
   end
 
   describe '#correct?' do
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     it 'it is correct?' do
-      card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       turn = Turn.new("Juneau", card)
      expect(turn.correct?).to eq(true)
     end
 
     it 'it is not correct?' do
-      card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       turn = Turn.new("Denver", card)
      expect(turn.correct?).to eq(false)
     end
   end
 
   describe '#feedback' do
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     it 'it gives feedback' do
-      card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       turn = Turn.new('Juneau', card)
-      # could also use turn.guess --> turn.correct? .to eq (true), what's the difference?
+       # could also use turn.guess --> turn.correct? .to eq (true), what's the difference?
      expect(turn.feedback).to eq("Correct!")
     end
 
     it 'it gives feedback' do
-      card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       turn = Turn.new("Denver", card)
      expect(turn.feedback).to eq("Incorrect.")
     end
