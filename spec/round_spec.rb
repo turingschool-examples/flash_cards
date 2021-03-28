@@ -133,5 +133,9 @@ describe Round do
       it 'only has one card left' do
         expect(round.current_card).to eq(card_3)
       end
+
+      it 'can find the index and add one' do
+        expect(round.card_num).to eq(3)
+      end
   end
 end
