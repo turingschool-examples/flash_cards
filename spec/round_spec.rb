@@ -86,15 +86,18 @@ describe Round do
     end
   end
 
-  describe '#category_scores(round)' do
-    it '' do 
+  describe '#category_scores' do
+    it 'returns unique categories and puts category scores to terminal' do 
       card_1   = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       card_2   = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
-      card_3   = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-      deck     = Deck.new([card_1, card_2, card_3])
+      deck     = Deck.new([card_1, card_2])
       round    = Round.new(deck)
-      
-      expect(round.category_scores).to eq 
+      round.deck.sort_categories
+ 
+      expect(round.category_scores).to eq [:Geography, :STEM]
+      #This also puts "Geography - 0%" and "STEM - 0%" to terminal
+      #I wasn't quite sure how to right a test to check a method for its puts input
+      #so I set the test to eq the return I got when I run the round.category_scores method
     end
   end
 

@@ -23,9 +23,9 @@ class Round
     @deck.cards.replace(shifted_deck)
   end
 
-  def category_scores(round)
-    @deck.categories.each do |category| 
-        puts "#{category} - #{round.percent_correct_by_category(category)}% correct"
+  def category_scores
+    test = @deck.categories.each do |category| 
+        puts "#{category} - #{percent_correct_by_category(category)}% correct"
     end
   end
 
