@@ -36,14 +36,14 @@ describe Turn do
       card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       turn = Turn.new("Juneau", card)
       turn.guess
-      expect(turn.correct?).to be true
+      expect(turn.correct?).to be true #< should use feedback?
     end
 
     it 'prints string if value is false' do
       card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       turn = Turn.new("new york", card)
       turn.guess
-      expect(turn.correct?).to be false
+      expect(turn.correct?).to be false #< should use feedback?
     end
-  end
+   end
 end
