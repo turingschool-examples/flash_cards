@@ -11,14 +11,16 @@ class Printer
     "Welcome! You're playing with 4 cards.
 
     -------------------------------------------------"
+
     puts welcome
   end
 
 
-  def card_message()
-    card4_message = "This is card number 3 out of 4.
-    Question: Which important person in history was recently
-    unveiled as the new face of the 50 pound note in the UK?"
+  def card_message(card, turn_count)
+    message = "This is card number #{turn_count} out of 4.
+    Question: #{card.question}"
+
+    puts message
   end
 
  #  def card4_feedback
