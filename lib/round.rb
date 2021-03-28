@@ -83,7 +83,7 @@ class Round
     @deck.cards.each do |turn|
       puts "This is card number #{@card_index + 1} out of #{@deck.cards.count}."
       puts "Question: #{@current_card.question}"
-      guess = gets.chomp
+      guess = gets.chomp.capitalize # capitalizes each input for consistency
       self.take_turn(guess)
     end
 

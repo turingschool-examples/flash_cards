@@ -17,5 +17,15 @@ RSpec.describe CardGenerator do
       expect(generator.cards[0].answer).to eq('169')
     end
 
+    describe '#sanitize_input' do
+      generator = CardGenerator.new('cards.txt')
+
+      it 'can clean input strings' do
+        input_string = "test,string\n"
+        ideal_result = ['test', 'string']
+        # This below line uses the depreciated 'should' but still works
+        expect(sanitize_input(input_string).should == ideal_result)
+      end
+    end
   end
 end

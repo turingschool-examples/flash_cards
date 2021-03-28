@@ -1,10 +1,10 @@
 Given x = 13 and y = 2 what is the result of x to the power of y?,169,Math
 Fill in the blank: In computer science the Law of ________ is a design guideline for writing OOP software.,Demeter,Programming
 What is the capital of the US state of Indiana?,Indianapolis,Geography
-Fill in the blank: The logic _____ is the primary building block of how a computer works.,gate,Computation
+Fill in the blank: The logic _____ is the primary building block of how a computer works.,Gate,Computation
 Given x = 2 y = 7 and z = 3 is the result of (x*y)/z an Odd or Even number?,Even,Math
 Fill in the blank: In the US the ___ of Rights is a section of the Constitution that guarantees the rights and liberties for an individual.,Bill,Civics
 What is the capital of the US state of California?,Sacramento,Geography
 Fill in the blank: In the US the Fourth ________ prohibits unreasonable searches and seizures.,Amendment,Civics
-The Arithmetic Logic Unit (ALU) allows a computer to process what common data type?,Integer,Computation
-What tool is bundled with Ruby to interactively test code?,irb,Programming
+The Arithmetic Logic Unit (ALU) allows a computer to process what common data type?,Integers,Computation
+What tool is bundled with Ruby to interactively test code?,Irb,Programming
