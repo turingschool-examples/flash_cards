@@ -84,6 +84,7 @@ describe Round do
      expect(round.current_card).to eq (card_2)
    end
  end
+end
 
 #  describe '#turn_count' do
 #    xit 'counts turns' do
