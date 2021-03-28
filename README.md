@@ -7,4 +7,5 @@ New cards can be added to the `cards.txt` file in the `data` directory. The curr
 
 ### Final Scores
 An overall final score is calculated and then broken down by category.
+
 ![](https://github.com/jamogriff/flash_cards/blob/54e7e2a796317f0bde865d1efe36088f1d94a2d5/documentation/demo_part2.gif)
