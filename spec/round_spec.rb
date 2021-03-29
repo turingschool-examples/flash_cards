@@ -19,4 +19,8 @@ RSpec.describe Round do
   it 'has turns' do
     expect(@round.turns).to eq([])
   end
+
+  it 'first card in deck starts as the current card' do
+    expect(@round.current_card).to eq(@card_1)
+  end
 end
