@@ -14,4 +14,8 @@ class Round
     @turns << Turn.new(guess, current_card)
     @turns.last
   end
+
+  def number_correct
+    @turns.count { |turn| turn.correct? }
+  end
 end

@@ -41,4 +41,14 @@ RSpec.describe Round do
     next_turn = @round.take_turn("Venus")
     expect(@round.current_card).to eq(@card_3)
   end
+
+  it 'can keep track of number of turns with correct guesses' do
+    expect(@round.number_correct).to eq(0)
+
+    new_turn = @round.take_turn("Juneau")
+    expect(@round.number_correct).to eq(1)
+
+    next_turn = @round.take_turn("Venus")
+    expect(@round.number_correct).to eq(1)
+  end
 end
