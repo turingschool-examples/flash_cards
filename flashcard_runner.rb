@@ -32,7 +32,8 @@ def start(cards, deck, round)
 
   puts "****** Game over! ******"
   puts "You had #{round.number_correct} guesses out of #{deck.count} for a total score of #{round.percent_correct.to_i}%."
-  deck.category_scores(round)
+  #I know this is after the time limit but I just noticed I didn't update this line...
+  round.category_scores
 end
 
 start(cards,deck,round)
