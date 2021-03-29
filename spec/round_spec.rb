@@ -73,6 +73,17 @@ RSpec.describe Round do
     expect(@round.percent_correct).to eq(50.0)
   end
 
+  it 'can keep track of number of turns with cards of a specific category' do
+    expect(@round.number_turns_for_category(:Geography)).to eq(0)
+    expect(@round.number_turns_for_category(:STEM)).to eq(0)
+
+    new_turn = @round.take_turn('Juneau')
+    expect(@round.number_turns_for_category(:Geography)).to eq(1)
+
+    next_turn = @round.take_turn('Venus')
+    expect(@round.number_turns_for_category(:STEM)).to eq(1)
+  end
+
   it 'can calculate percentage of correct guesses by category' do
     expect(@round.percent_correct_by_category(:Geography)).to eq(100.0)
     expect(@round.percent_correct_by_category(:STEM)).to eq(100.0)
