@@ -23,4 +23,22 @@ RSpec.describe Round do
   it 'first card in deck starts as the current card' do
     expect(@round.current_card).to eq(@card_1)
   end
+
+  it 'can create and add turns' do
+    new_turn = @round.take_turn("Juneau")
+    expect(new_turn).to be_instance_of(Turn)
+    expect(@round.turns).to eq([new_turn])
+
+    next_turn = @round.take_turn("Venus")
+    expect(next_turn).to be_instance_of(Turn)
+    expect(@round.turns).to eq([new_turn, next_turn])
+  end
+
+  it 'can increment current card by one after each turn' do
+    new_turn = @round.take_turn("Juneau")
+    expect(@round.current_card).to eq(@card_2)
+
+    next_turn = @round.take_turn("Venus")
+    expect(@round.current_card).to eq(@card_3)
+  end
 end
