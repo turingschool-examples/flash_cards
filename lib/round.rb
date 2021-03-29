@@ -35,6 +35,10 @@ class Round
 
   def percent_correct_by_category(category)
     correct_for_category = number_correct_by_category(category)
-    number_turns_for_category(category) == 0 ? 100 : ((correct_for_category.to_f / number_turns_for_category(category)) * 100)
+    if number_turns_for_category(category) > 0
+      correct_for_category.to_f / number_turns_for_category(category) * 100
+    else
+      100
+    end
   end
 end
