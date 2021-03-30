@@ -1,7 +1,5 @@
 require 'rspec'
 
-
-
 class CardGenerator
 
   def initialize(filename)
