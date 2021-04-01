@@ -10,7 +10,6 @@ class CardGenerator
   end
 
   #open cards.txt file and split each line into multiple lines. 
-  
 
-end
+  end
 
