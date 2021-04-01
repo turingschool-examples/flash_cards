@@ -15,7 +15,7 @@ class Round
     turn = Turn.new(guess, current_card)
     @turns << turn
     next_card
-    return turn
+    turn
   end
 
   def next_card
@@ -25,7 +25,7 @@ class Round
 
   def category_scores
     test = @deck.categories.each do |category| 
-        puts "#{category} - #{percent_correct_by_category(category)}% correct"
+      puts "#{category} - #{percent_correct_by_category(category)}% correct"
     end
   end
 
