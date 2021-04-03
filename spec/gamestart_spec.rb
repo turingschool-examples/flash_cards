@@ -18,11 +18,13 @@ describe GameStart do
       cards  = [card_1, card_2, card_3, card_4, card_5, card_6]
       deck   = Deck.new(cards)
       round  = Round.new(deck)
-  
+      game   = GameStart.new(cards, deck, round)
+      require 'pry'; binding.pry
       expect(card_1).is_a? Card
       expect(cards).to eq [card_1, card_2, card_3, card_4, card_5, card_6]
       expect(deck).is_a?  Deck
       expect(round).is_a? Round
+      expect(game).is_a? GameStart
     end
   end
 end 

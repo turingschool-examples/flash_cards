@@ -1,22 +1,13 @@
 
-
 class GameStart
   attr_reader :cards,
               :deck,
               :round
 
-  def initialize
-    card_1 = Card.new("What is the capital of Spain?", "Madrid", :Geography)
-    card_2 = Card.new("What actress has won the most Oscars?", "Katharine Hepburn", :Cinema)
-    card_3 = Card.new("What is the colour of a Welsh poppy?", "Yellow", :Gardening)
-    card_4 = Card.new("What is another name for a mountain ash tree?", "Rowan", :Gardening)
-    card_5 = Card.new("What country is Prague in?", "Czech Republic", :Geography)
-    card_6 = Card.new("Who directed the Lord of the Rings trilogy?", "Peter Jackson", :Cinema)
-    @cards  = [card_1, card_2, card_3, card_4, card_5, card_6]
+  def initialize(cards, deck, round)
+    @cards  = []
     @deck   = Deck.new(cards)
     @round  = Round.new(deck)
-
-    start(cards, deck, round)
   end
 
   def start(cards, deck, round)
@@ -47,7 +38,6 @@ class GameStart
   def game_over_message
     puts "****** Game over! ******"
     puts "You had #{round.number_correct} guesses out of #{deck.count} for a total score of #{round.percent_correct.to_i}%."
-    #I know this is after the time limit but I just noticed I didn't update this line...
     round.category_scores
   end
 end
