@@ -1,2 +1,2 @@
 --require spec_helper -f d
---format NyanFormatter 
+--format NyanCatFormatter
