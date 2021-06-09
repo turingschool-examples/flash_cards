@@ -1,0 +1,6 @@
+What is the capital of Alaska?,Juneau,:Geography
+What is the capital of Colombia?,Bogota,:Geography
+What planet is closest to the sun?,Mercury,:STEM
+In what year did the movie Titanic come out?,1997,:Pop_Culture
+Who is best known for known for developing the Enigma machine?,Alan Turing,:STEM
+What movie won the Academy Award for Best Picture in 2019?,Parasite,:Pop_Culture
