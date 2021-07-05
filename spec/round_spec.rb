@@ -8,4 +8,16 @@ RSpec.describe Round do
     @deck = Deck.new([@card_1, @card_2, @card_3])
     @round = Round.new(@deck)
   end
+
+  it 'exists' do
+    expect(@round).to be_a(Round)
+  end
+
+  it 'has a deck' do
+    expect(@round.deck).to be_a(Deck)
+  end
+
+  it 'has no turns by default' do
+    expect(@round.turns).to eq([])
+  end
 end
