@@ -19,7 +19,7 @@ RSpec.describe Deck do
     expect(@deck.count).to eq(3)
   end
 
-  it 'can has cards in a category' do
+  it 'has cards in a category' do
     result = @deck.cards_in_category(:Geography)
     expect(result).to eq([@card_1])
   end
