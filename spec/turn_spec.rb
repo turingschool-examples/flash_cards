@@ -24,10 +24,14 @@ RSpec.describe Turn do
 
       it 'exists & has attributes' do
         expect(@turn).to be_a(Turn)
+        expect(@new_turn.class).to e(Turn)
+        expect(@new_turn.correct).to eq(true)
         expect(@turn.card).to eq(@card)
         expect(@turn.guess).to eq("Saturn")
         expect(@turn.correct?).to be(false)
         expect(@turn.feedback).to eq('Incorrect.')
+        expect(@new_turn.class).to e(Turn)
+        expect(@new_turn.correct).to eq(true)
       end
     end
   end
