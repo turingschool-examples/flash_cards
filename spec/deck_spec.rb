@@ -10,4 +10,22 @@ RSpec.describe Deck do
     @cards = [@card_1, @card_2, @card_3]
     @deck = Deck.new(@cards)
   end
+
+  it 'exists' do
+    expect(@deck).to be_a(Deck)
+  end
+
+  it 'can has a card count' do
+    expect(@deck.count).to eq(3)
+  end
+
+  it 'can has cards in a category' do
+    result = @deck.cards_in_category(:Geography)
+    expect(result).to eq(@card_1)
+  end
+
+  it 'has no cards in a category it doesnt have' do
+    result = @deck.cards_in_category("Pop Culture")
+    expect(result).to eq([])
+  end
 end
