@@ -17,9 +17,9 @@ RSpec.describe Turn do
   end
 
   it 'returns card and feedback' do
-    expect(turn.card).to eq(@card1)
-    expect(turn.guess).to eq("Saturn")
-    expect(turn.correct?).to eq(false)
-    expect(turn.feedback).to eq("Incorrect.")
+    expect(@turn1.card).to eq(@card1)
+    expect(@turn1.guess).to eq("Saturn")
+    expect(@turn1.correct?).to eq(false)
+    expect(@turn1.feedback).to eq("Incorrect.")
   end
 end
