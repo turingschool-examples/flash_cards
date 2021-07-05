@@ -6,7 +6,7 @@ class Deck
 
   def initialize(cards)
     @cards = cards
-    @categories = make_categories
+    @cards_by_category = make_cards_by_category
   end
 
   def count
@@ -14,10 +14,10 @@ class Deck
   end
 
   def cards_in_category(category)
-    @categories[category] || []
+    @cards_by_category[category] || []
   end
 
-  def make_categories
+  def make_cards_by_category
     @cards.group_by(&:category)
   end
 end
