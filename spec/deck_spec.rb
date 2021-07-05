@@ -21,7 +21,7 @@ RSpec.describe Deck do
 
   it 'can has cards in a category' do
     result = @deck.cards_in_category(:Geography)
-    expect(result).to eq(@card_1)
+    expect(result).to eq([@card_1])
   end
 
   it 'has no cards in a category it doesnt have' do
