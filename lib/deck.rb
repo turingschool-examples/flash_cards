@@ -13,6 +13,10 @@ class Deck
     @cards.size
   end
 
+  def cards_in_category(category)
+    @categories[category] || []
+  end
+
   def make_categories
     @cards.group_by(&:category)
   end
