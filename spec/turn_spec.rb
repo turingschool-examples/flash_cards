@@ -20,4 +20,14 @@ RSpec.describe Turn do
   it 'has a guess' do
     expect(@turn1.guess).to eq("Juneau")
   end
+
+  it 'can correctly check a guess' do
+    expect(@turn1.correct?).to be(true)
+    expect(@turn2.correct?).to be(false)
+  end
+
+  it 'can provide correct feedback' do
+    expect(@turn1.feedback).to be("Correct")
+    expect(@turn2.feedback).to be("Incorrect")
+  end
 end
