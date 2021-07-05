@@ -25,44 +25,38 @@ RSpec.describe Round do
     expect(@round.current_card).to eq(@card_1)
   end
 
-  describe 'taking turns' do
-    before(:each) do
-      @new_turn = @round.take_turn("Juneau")
-    end
+  it 'has turns as Turn objects' do
+    new_turn = @round.take_turn("Juneau")
+    expect(new_turn).to be_a(Turn)
+  end
 
-    it 'has turns as Turn objects' do
-      expect(@new_turn).to be_a(Turn)
-    end
+  it 'keeps track of turns' do
+    expect(@round.turns.size).to eq(1)
+  end
 
-    it 'keeps track of turns' do
-      expect(@round.turns).to eq([@new_turn])
-    end
+  it 'can add another turn' do
+    @round.take_turn("Juneau")
+    expect(@round.turns.count).to eq(2)
+  end
 
-    it 'can add another turn' do
-      @round.take_turn("Venus")
+  it 'knows total number correct' do
+    expect(@round.number_correct).to eq(1)
+  end
 
-      expect(@round.turns.count).to eq(2)
-    end
+  it 'knows number correct by category' do
+    expect(@round.number_correct_by_category(:Geography)).to eq(1)
+    expect(@round.number_correct_by_category(:STEM)).to eq(0)
+  end
 
-    it 'knows total number correct' do
-      expect(@turn.number_correct).to eq(1)
-    end
+  it 'knows the percent correct' do
+    expect(@round.percent_correct).to eq(50.0)
+  end
 
-    it 'knows number correct by category' do
-      expect(@round.number_correct_by_category(:Geography)).to eq(1)
-      expect(@round.number_correct_by_category(:STEM)).to eq(0)
-    end
+  it 'knows the percent correct by category' do
+    expect(@round.percent_correct_by_category(:Geography)).to eq(100.0)
+  end
 
-    it 'knows the percent correct' do
-      expect(@round.percent_correct).to eq(50.0)
-    end
-
-    it 'knows the percent correct by category' do
-      expect(@round.percent_correct_by_category(:Geography)).to eq(100.0)
-    end
-
-    it 'keeps track of which card is the current card' do
-      expect(@round.current_card).to eq(@card_3)
-    end
+  it 'keeps track of which card is the current card' do
+    expect(@round.current_card).to eq(@card_3)
   end
 end
