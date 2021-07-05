@@ -52,5 +52,17 @@ RSpec.describe Round do
       expect(@round.number_correct_by_category(:Geography)).to eq(1)
       expect(@round.number_correct_by_category(:STEM)).to eq(0)
     end
+
+    it 'knows the percent correct' do
+      expect(@round.percent_correct).to eq(50.0)
+    end
+
+    it 'knows the percent correct by category' do
+      expect(@round.percent_correct_by_category(:Geography)).to eq(100.0)
+    end
+
+    it 'keeps track of which card is the current card' do
+      expect(@round.current_card).to eq(@card_3)
+    end
   end
 end
