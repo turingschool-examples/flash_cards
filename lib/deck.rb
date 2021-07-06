@@ -1,3 +1,6 @@
+require './lib/card'
+require './lib/turn'
+
 class Deck
   attr_reader :cards
 
@@ -12,6 +15,6 @@ class Deck
   def cards_in_category(category)
     @cards.find_all do |card|
       card.category == category
-    end 
+    end
   end
 end
