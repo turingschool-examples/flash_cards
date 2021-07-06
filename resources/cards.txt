@@ -3,3 +3,4 @@ What is Rachel's favorite animal?,red panda,Turing Staff
 What is Mike's middle name?,nobody knows,Turing Staff
 What cardboard cutout lives at Turing?,Justin bieber,PopCulture
 Did you hear about Pluto?,that's messed up, Pop Culture
+Does Kotlin integrate into Java?,yes, computer science
