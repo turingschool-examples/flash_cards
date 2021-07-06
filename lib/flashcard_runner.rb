@@ -4,6 +4,7 @@ class FlashcardRunner
   def initialize
     @round = make_round
     @deck = @round.deck
+    @deck_size = @deck.cards.size
 
     play_game
   end
@@ -16,7 +17,7 @@ class FlashcardRunner
 
   def welcome_message
     [
-      "Welcome! You're playing with #{@deck.cards.size} cards.",
+      "Welcome! You're playing with #{@deck_size} cards.",
       "-------------------------------------------------",
     ].join("\n")
   end
@@ -36,7 +37,7 @@ class FlashcardRunner
 
   def display_question
     [
-      "This is card number #{@round.turns.size + 1} out of #{@deck.cards.size}.",
+      "This is card number #{@round.turns.size + 1} out of #{@deck_size}.",
       "Question: #{@round.current_card.question}"
     ].join("\n")
   end
@@ -52,16 +53,15 @@ class FlashcardRunner
 
   def ending
     correct = @round.number_correct
-    total = @deck.cards.size
     percent = @round.percent_correct
-    puts ending_message(correct, total, percent)
+    puts ending_message(correct, percent)
     puts category_correct_percentages
   end
 
-  def ending_message(correct, total, percent)
+  def ending_message(correct, percent)
     [
       "****** Game over! ******\n",
-      "You had #{correct} correct guesses out of #{total} ",
+      "You had #{correct} correct guesses out of #{@deck_size} ",
       "for a total score of #{percent}%."
     ].join
   end
