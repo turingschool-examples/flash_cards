@@ -18,12 +18,12 @@ class Turn
   end
 
   def correct?
-    @guess == @answer
+    @guess == @card.answer
   end
 
   def feedback
 
-    if @guess == @answer
+    if @guess == @card.answer
       return "Correct!"
     else
       return "incorrect."
@@ -31,6 +31,7 @@ class Turn
   end
 
 
-  end
-
 end
+
+
+require "pry"; binding.pry
