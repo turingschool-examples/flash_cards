@@ -10,7 +10,7 @@ class FlashcardRunner
 
   def play_game
     run_turns
-  ending
+    ending
   end
 
   def run_turns
