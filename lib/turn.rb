@@ -6,7 +6,7 @@ class Turn
   end
 
   def correct?
-    if @guess == @answer
+    if @guess == @card.answer
       true
     else
       false
