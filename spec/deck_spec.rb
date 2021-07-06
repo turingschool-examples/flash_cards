@@ -15,7 +15,7 @@ RSpec.describe Deck do
     expect(@deck).to be_a(Deck)
   end
 
-  it 'can has a card count' do
+  it 'has a card count' do
     expect(@deck.count).to eq(3)
   end
 
