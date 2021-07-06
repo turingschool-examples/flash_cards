@@ -1,4 +1,5 @@
 require './lib/round'
+require './lib/turn'
 
 class FlashcardRunner
   attr_reader :round,
