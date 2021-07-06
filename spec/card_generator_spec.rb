@@ -2,7 +2,7 @@ require './lib/card_generator'
 
 RSpec.describe CardGenerator do
   context 'initialize' do
-    generator = CardGenerator.new
+    cards = CardGenerator.make_cards_from_file
 
     question_1 = "What is 5 + 5?"
     answer_1 = "10"
@@ -20,12 +20,8 @@ RSpec.describe CardGenerator do
     answer_4 = "Justin bieber"
     category_4 = :Pop_Culture
 
-    it 'exists' do
-      expect(generator).to be_a(CardGenerator)
-    end
-
     it 'can seperate cards' do
-      expect(generator.file_reader.length).to eq(4)
+      expect(cards.length).to eq(6)
     end
   end
 end
