@@ -1,4 +1,5 @@
 require './lib/card'
+require './lib/turn'
 
 RSpec.describe Turn do
   it 'exists' do
@@ -37,5 +38,6 @@ RSpec.describe Turn do
 
     expect(turn1.feedback).to eq('Correct!')
     expect(turn2.feedback).to eq('Incorrect!')
+  end
 
 end
