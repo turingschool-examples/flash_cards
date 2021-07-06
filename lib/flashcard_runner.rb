@@ -29,13 +29,13 @@ class FlashcardRunner
   end
 
   def process_turn
-    puts display_question
+    puts current_question
     geuss = get_guess
     current_turn = @round.take_turn(geuss)
-    puts display_feedback(current_turn)
+    puts turn_feedback(current_turn)
   end
 
-  def display_question
+  def current_question
     [
       "This is card number #{@round.turns.size + 1} out of #{@deck_size}.",
       "Question: #{@round.current_card.question}"
@@ -47,7 +47,7 @@ class FlashcardRunner
     gets.chomp
   end
 
-  def display_feedback(turn)
+  def turn_feedback(turn)
     turn.feedback
   end
 
