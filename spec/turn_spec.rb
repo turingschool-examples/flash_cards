@@ -6,5 +6,7 @@ RSpec.describe Turn do
   it 'exists' do
     card = Card.new("What is the capitol of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
+
+    expect(turn).to be_instance_of(Turn)
   end
 end
