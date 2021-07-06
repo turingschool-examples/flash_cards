@@ -52,15 +52,17 @@ class FlashcardRunner
 
   def ending_message(correct, total, percent)
     [
-      "****** Game over! ******",
-      "You had #{correct} correct guesses out of #{total} for a total score of #{percent}%."
-    ].join("\n")
+      "****** Game over! ******\n",
+      "You had #{correct} correct guesses out of #{total} ",
+      "for a total score of #{percent}%."
+    ].join
   end
 
   def category_correct_percentages
     @deck.cards_by_category.keys.map { |category|
-      name = category.to_s.gsub("_", " ")
-      "#{name.capitalize} - #{@round.percent_correct_by_category(category)}% correct."
+      name = category.to_s.gsub("_", " ").capitalize
+      percent = @round.percent_correct_by_category(category)
+      "#{name} - #{percent}% correct."
     }.join("\n")
   end
 
