@@ -7,6 +7,7 @@ module CardGenerator
     file = File.open("./resources/cards.txt")
     cards = make_cards(file)
     file.close
+    
     cards
   end
 
@@ -31,12 +32,13 @@ module CardGenerator
     else
       formatted = parse_category(category)
     end
+
     formatted.to_sym
   end
 
   def parse_category(category)
     words = category.scan(/[A-Z][a-z]+/)
-    
+
     words.size >= 1 ? words.join("_") : category
   end
 
