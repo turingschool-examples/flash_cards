@@ -36,6 +36,7 @@ module CardGenerator
 
   def parse_category(category)
     words = category.scan(/[A-Z][a-z]+/)
+    
     words.size >= 1 ? words.join("_") : category
   end
 
