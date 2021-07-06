@@ -7,7 +7,7 @@ module CardGenerator
     file = File.open("./resources/cards.txt")
     cards = make_cards(file)
     file.close
-    
+
     cards
   end
 
