@@ -1,7 +1,9 @@
 require './lib/card'
 
-class CardGenerator
-  def file_reader
+module CardGenerator
+  extend self
+
+  def make_cards_from_file
     file = File.open("./resources/cards.txt")
     cards = make_cards(file)
     file.close
@@ -17,12 +19,12 @@ class CardGenerator
 
   def process_card(card)
     question, answer, category = card.split(",")
-    category = format_category(category)
+    category = format_category_name(category)
 
     create_card(question, answer, category)
   end
 
-  def format_category(category)
+  def format_category_name(category)
     if category.count(" ") >= 1
       category = category.split
       formatted = category.join("_")
@@ -41,5 +43,3 @@ class CardGenerator
     Card.new(question, answer, category)
   end
 end
-
-CardGenerator.new.file_reader
