@@ -6,7 +6,11 @@ class Turn
   end
 
   def correct?
-    @card.answer.downcase == @guess.downcase
+    if @card.answer.class == Integer
+      @card.answer == @guess.to_i
+    else
+      @card.answer.downcase == @guess.downcase
+    end
   end
 
   def feedback
