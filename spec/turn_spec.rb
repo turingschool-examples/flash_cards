@@ -35,6 +35,16 @@ RSpec.describe Turn do
     turn = Turn.new("Juneau", card)
 
     expect(turn.feedback).to eq("Correct!")
+  end
+
+  it "can guess incorrectly" do
+    card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+    turn = Turn.new("Saturn", card)
+
+    expect(turn.card).to eq(card)
+    expect(turn.guess).to eq("Saturn")
+    expect(turn.correct?).to eq(false)
+    expect(turn.feedback).to eq("Incorrect.")
 
   end
 end
