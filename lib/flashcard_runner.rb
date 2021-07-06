@@ -58,7 +58,7 @@ class FlashcardRunner
   end
 
   def category_correct_percentages
-    @deck.cards_by_category.values.map { |category|
+    @deck.cards_by_category.keys.map { |category|
       name = category.to_s.gsub("_", " ")
       "#{name.capitalize} - #{@round.percent_correct_by_category(category)}% correct."
     }.join("\n")
