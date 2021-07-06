@@ -25,7 +25,7 @@ RSpec.describe CardGenerator do
     end
 
     it 'can seperate cards' do
-      expect(generator.cards.length).to eq(4)
+      expect(generator.file_reader.length).to eq(4)
     end
   end
 end
