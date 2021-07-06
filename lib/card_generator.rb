@@ -27,8 +27,7 @@ module CardGenerator
 
   def format_category_name(category)
     if category.count(" ") >= 1
-      category = category.split
-      formatted = category.join("_")
+      formatted = category.split.join("_")
     else
       formatted = parse_category(category)
     end
