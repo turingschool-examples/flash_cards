@@ -34,7 +34,7 @@ class Round
 
   def percent_correct_by_category(category)
     category_correct = number_correct_by_category(category)
-    (category_correct.fdiv(category_size(category)) * 100).round
+    (category_correct.fdiv(category_size(category)) * 100).round(1)
   end
 
   def category_size(category)
