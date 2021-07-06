@@ -12,7 +12,7 @@ class Turn
       if @guess == @card.answer
         return true
       else
-        false
+        return false
       end
   end
 
@@ -20,7 +20,7 @@ class Turn
     if @guess == @card.answer
       return "Correct!"
     else
-      "Incorrect."
+      return "Incorrect."
     end
   end
 end
