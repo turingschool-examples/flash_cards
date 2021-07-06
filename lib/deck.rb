@@ -3,7 +3,7 @@ require './lib/turn'
 
 class Deck
   attr_reader :cards, :cards_by_category
-
+  
   def initialize(cards)
     @cards = cards
     @cards_by_category = make_cards_by_category
