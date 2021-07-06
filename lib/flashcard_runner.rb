@@ -22,7 +22,7 @@ class FlashcardRunner
     [
       "Welcome! You're playing with #{@deck_size} cards.",
       "-------------------------------------------------",
-    ].join("\n")
+    ]
   end
 
   def run_turns
@@ -42,7 +42,7 @@ class FlashcardRunner
     [
       "This is card number #{@round.turns.size + 1} out of #{@deck_size}.",
       "Question: #{@round.current_card.question}"
-    ].join("\n")
+    ]
   end
 
   def get_guess
@@ -63,18 +63,18 @@ class FlashcardRunner
 
   def ending_message(correct, percent)
     [
-      "****** Game over! ******\n",
+      "****** Game over! ******",
       "You had #{correct} correct guesses out of #{@deck_size} ",
       "for a total score of #{percent}%."
-    ].join
+    ]
   end
 
   def category_correct_percentages
-    @deck.cards_by_category.keys.map { |category|
+    @deck.cards_by_category.keys.map do |category|
       name = format_category_name(category)
       percent = @round.percent_correct_by_category(category)
       "#{name} - #{percent}% correct."
-    }.join("\n")
+    end
   end
 
   def format_category_name(category)
