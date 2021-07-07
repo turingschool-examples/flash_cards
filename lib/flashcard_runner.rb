@@ -35,7 +35,7 @@ class FlashcardRunner
     puts current_question
     guess = get_guess
     current_turn = @round.take_turn(guess)
-    puts turn_feedback(current_turn)
+    puts current_turn.feedback
   end
 
   def current_question
@@ -50,10 +50,6 @@ class FlashcardRunner
     gets.chomp
   end
 
-  def turn_feedback(turn)
-    turn.feedback
-  end
-
   def ending
     correct = @round.number_correct
     percent = @round.percent_correct
@@ -62,10 +58,11 @@ class FlashcardRunner
   end
 
   def ending_message(correct, percent)
+    line_2_part_1 = "You had #{correct} correct guesses out of #{@deck_size} "
+    line_2_part_2 = "for a total score of #{percent}%."
     [
       "****** Game over! ******",
-      "You had #{correct} correct guesses out of #{@deck_size} ",
-      "for a total score of #{percent}%."
+      line_2_part_1 + line_2_part_2
     ]
   end
 
