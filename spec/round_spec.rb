@@ -15,4 +15,12 @@ RSpec.describe Round do
   it "exists" do
     expect(@round).to be_instance_of(Round)
   end
+
+  it "returns the deck" do
+    expect(@round.deck).to eq(@deck)
+  end
+
+  it "starts out with no turns" do
+    expect(@round.turns).to eq([])
+  end
 end
