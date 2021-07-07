@@ -4,7 +4,7 @@ class Turn
 
   def initialize(guess, card)
     @guess = guess
-    @card = card
+    @card  = card
   end
 
   def correct?
