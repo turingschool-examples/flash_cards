@@ -1,12 +1,12 @@
 class Deck
 
-  attr_reader :cards, :category
+  attr_reader :cards
   def initialize(cards)
     @cards = cards
-    @category = category
+
   end
 
-  def cards_in_category(category)
-    @cards.keep_if {|card| card.category == @category}
+  def cards_in_category(cat)
+    @cards.select {|card| card.category == cat}
   end
 end
