@@ -13,6 +13,7 @@ module CardGenerator
 
   def make_cards(file)
     raw_cards = file.read.split("\n")
+
     raw_cards.map do |card|
       process_card(card)
     end
