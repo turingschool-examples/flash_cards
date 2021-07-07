@@ -47,17 +47,25 @@ class FlashcardRunner
   def game_over
     puts "****** Game over! ******"
     puts "You had #{@round.number_correct} correct guesses out of #{@deck_size} for a total score of #{@round.percent_correct}%."
-    puts "STEM - #{@round.percent_correct_by_category(:STEM)}% correct"
-    puts "Turing Staff - #{@round.percent_correct_by_category(:turing_staff)} correct"
-    puts  "Pop Culture - #{@round.percent_correct_by_category(:pop_culture)} correct"
+    guesses_by_category
+  end
+
+  def guesses_by_category
+    category_count = 0
+
+    @round.categories.count.times do
+      current_category = @round.categories[category_count]
+      puts "#{@round.categories_strings[category_count]} - #{@round.percent_correct_by_category(current_category)}% correct"
+      category_count += 1
+    end
   end
 
   def game_objects
     card_1 = Card.new("What is 5 + 5?", "10", :STEM)
-    card_2 = Card.new("What is Rachel's favorite animal?", "Monkey", :turing_staff)
-    card_3 = Card.new("What is Mike's middle name?", "nobody knows", :turing_staff)
-    card_4 = Card.new("What cardboard cutout lives at Turing?", "Justin Bieber", :pop_culture)
-    @deck = Deck.new([card_1, card_2, card_3, card_4])
+    card_2 = Card.new("What is Rachel's favorite animal?", "Monkey", :Turing_Staff)
+    card_3 = Card.new("What is Mike's middle name?", "nobody knows", :Turing_Staff)
+    card_4 = Card.new("What cardboard cutout lives at Turing?", "Justin Bieber", :Pop_Culture)
+    @deck  = Deck.new([card_1, card_2, card_3, card_4])
   end
 end
 FlashcardRunner.new
