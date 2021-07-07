@@ -14,18 +14,22 @@ RSpec.describe Deck do
       expect(deck).to be_a(Deck)
     end
 
-    it 'has a card count' do
-      expect(deck.count).to eq(3)
+    context 'card count' do
+      it 'has a card count' do
+        expect(deck.count).to eq(3)
+      end
     end
 
-    it 'has cards in a category' do
-      result = deck.cards_in_category(:Geography)
-      expect(result).to eq([card_1])
-    end
+    context 'categories' do
+      it 'has cards in a category' do
+        result = deck.cards_in_category(:Geography)
+        expect(result).to eq([card_1])
+      end
 
-    it 'has no cards in a category it doesnt have' do
-      result = deck.cards_in_category("Pop Culture")
-      expect(result).to eq([])
+      it 'has no cards in a category it doesnt have' do
+        result = deck.cards_in_category("Pop Culture")
+        expect(result).to eq([])
+      end
     end
   end
 end
