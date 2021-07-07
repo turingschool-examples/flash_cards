@@ -4,7 +4,7 @@ class Card
 
   def initialize(quest, answer, category)
     @quest    = quest
-    @answer   = anser
+    @answer   = answer
     @category = category
   end
 
