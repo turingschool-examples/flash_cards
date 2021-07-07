@@ -5,4 +5,13 @@ class Round
     @deck = deck
     @turns = []
   end
+
+  def current_card
+    @deck.cards.first
+  end
+
+  def take_turn(guess)
+    Turn.new(guess, current_card)
+  end
+
 end

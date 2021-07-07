@@ -12,15 +12,31 @@ RSpec.describe Round do
     @round = Round.new(@deck)
   end
 
-  it "exists" do
+  it 'exists' do
     expect(@round).to be_instance_of(Round)
   end
 
-  it "returns the deck" do
+  it 'returns the deck' do
     expect(@round.deck).to eq(@deck)
   end
 
-  it "starts out with no turns" do
+  it 'starts out with no turns' do
     expect(@round.turns).to eq([])
+  end
+
+  it 'shows current card' do
+    expect(@round.current_card).to eq(@deck.cards.first)
+  end
+
+  it 'can take a turn' do
+    new_turn = @round.take_turn("Juneau")
+
+    expect(new_turn.class).to eq(Turn)
+  end
+
+  it 'works for correct guesses' do
+    new_turn = @round.take_turn("Juneau")
+
+    expect(new_turn.correct?).to be true
   end
 end
