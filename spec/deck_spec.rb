@@ -18,6 +18,10 @@ RSpec.describe Deck do
     expect(@deck.cards).to eq(@cards)
   end
 
+  it 'can count the number of cards in the deck' do
+    expect(@deck.count).to eq(@cards.length)
+  end
+
   it 'can show a collection of cards in certain categories' do
     expect(@deck.cards_in_category(:STEM)).to eq(@cards.select {|card| card.category == :STEM})
   end
