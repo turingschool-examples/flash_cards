@@ -19,4 +19,16 @@ RSpec.describe Deck do
   it 'can show a collection of all cards' do
     expect(@deck.cards).to eq(@cards)
   end
+
+  it 'can show a collection of cards in certain categories' do
+    expect(@deck.cards_in_category(:STEM)).to eq(@cards.select {|card| card.category == :STEM})
+  end
+
+  it 'can show a collection of cards in certain categories' do
+    expect(@deck.cards_in_category(:STEM)).to eq(@cards.select {|card| card.category == :Geography})
+  end
+
+  it 'can show a collection of cards in certain categories' do
+    expect(@deck.cards_in_category(:STEM)).to eq(@cards.select {|card| card.category == "Pop Culture"})
+  end
 end
