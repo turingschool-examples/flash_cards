@@ -9,8 +9,14 @@ RSpec.describe Deck do
     @card_3 = Card.new("Describe in words the exact direction that is 697.5°
       clockwise from due north?", "North north west", :STEM)
     @cards = [@card_1, @card_2, @card_3]
+    @deck = Deck.new(@cards)
   end
 
   it 'exists' do
-    expect(@card_1).to be_instance_of(Deck)
+    expect(@deck).to be_instance_of(Deck)
+  end
+
+  it 'can show a collection of all cards' do
+    expect(@deck.cards).to eq(@cards)
+  end
 end
