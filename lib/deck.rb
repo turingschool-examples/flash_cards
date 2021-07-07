@@ -6,11 +6,11 @@ class Deck
   end
 
   def count
-    @cards.length
+    cards.length
   end
 
   def cards_in_category(category)
-    self.cards.select do |card|
+    cards.select do |card|
       if card.category == category
         card
       end
