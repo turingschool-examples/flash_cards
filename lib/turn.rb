@@ -1,7 +1,5 @@
 class Turn
 
-  attr_reader :string, :card
-
   def initialize(string, card)
     @string = string
     @card = card
@@ -15,7 +13,6 @@ class Turn
     @card
   end
 
-  # checks whether or not the guess string matches the answer in the Card object
   def correct?
     if @string == @card.answer
       return true
@@ -24,7 +21,6 @@ class Turn
     end
   end
 
-  # provides answer feed back based on correct? method boolean value
   def feedback
     if correct? == true
       return "Correct!"
