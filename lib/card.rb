@@ -3,25 +3,20 @@ class Card
   attr_reader :quest, :answer, :category
 
   def initialize(quest, answer, category)
-    @quest = quest
-    @answer   = answer
+    @quest    = quest
+    @answer   = anser
     @category = category
   end
 
   def question
-    puts "#{@quest}"
+    @quest
   end
 
   def answer
-    puts "#{@answer}"
+    @answer
   end
 
   def category
-    puts "#{@category}"
+    @category
   end
 end
-
-card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-card.question
-card.answer
-card.category
