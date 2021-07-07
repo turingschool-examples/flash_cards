@@ -14,4 +14,15 @@ class Round
 
     @turns.last
   end
+
+  def number_correct
+    correct = 0
+
+    @turns.each do |turn|
+      if turn.card.answer == turn.guess
+        correct += 1
+      end
+    end
+    correct
+  end
 end
