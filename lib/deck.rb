@@ -9,20 +9,20 @@ class Deck
     @cards.count
   end
 
-#needs testing, got tedious (gotta be a faster way then copy/paste)
 
 
   def cards_in_category(category)
 
-    @categories = []
+    @category_chapter = []
 
-    @cards.each do |card|
-      if card.category = category
-        @categories << card.category
+
+    @cards.each do |card_sort|
+      if card_sort.category == category
+        @category_chapter << card_sort
       end
     end
 
-    @categories
+    @category_chapter
   end
 
 
