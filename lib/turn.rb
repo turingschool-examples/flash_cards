@@ -6,7 +6,7 @@ class Turn
   end
 
   def correct?
-    if @guess == card.answer
+    if @guess == @card.answer
       true
     else
       false
@@ -21,5 +21,3 @@ class Turn
     end
   end
 end
-
-require 'pry'; binding.pry
