@@ -35,7 +35,7 @@ RSpec.describe Turn do
     turn = Turn.new("Juneau", card)
     turn.correct?
 
-    expect(turn.correct?).to eq(true)
+    expect(turn.correct?).to be true
   end
 
   it 'has feedback' do
@@ -52,7 +52,7 @@ RSpec.describe Turn do
     turn = Turn.new("Saturn", card)
     turn.correct?
 
-    expect(turn.correct?).to eq(false)
+    expect(turn.correct?).to be false
   end
 
   it 'has feedback on incorrect' do
