@@ -44,5 +44,6 @@ RSpec.describe Round do
     new_turn = round.take_turn("Juneau")
 
     expect(new_turn.class).to eq(Turn)
+    expect(new_turn.correct?).to eq(true)
   end
 end
