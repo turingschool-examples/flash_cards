@@ -12,4 +12,18 @@ cards = [card_1, card_2, card_3, card_4, card_5]
 deck = Deck.new(cards)
 round = Round.new(deck)
 
-def start
+def start(deck, round)
+  puts "Welcome! You're playing with #{deck.count} cards."
+  puts "-------------------------------------------------"
+  (deck.count).times do
+    puts "This is card number #{round.current_card_index} out of #{deck.count}."
+    puts "Question: #{round.current_card.question}"
+    guess = gets.strip
+    most_recent_turn = round.take_turn(guess)
+    feedback = most_recent_turn.feedback
+    puts feedback
+  end
+end
+
+
+start(deck, round)
