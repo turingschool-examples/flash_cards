@@ -1,6 +1,8 @@
 require './lib/card'
 require './lib/deck'
 
+
+
 RSpec.describe Deck do
   it 'exists' do
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
@@ -39,6 +41,8 @@ RSpec.describe Deck do
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
 
-    expect(deck.cards_in_category(:STEM)).to eq(card_2, card_3)
+    expect(deck.cards_in_category(:STEM)).to eq([card_2, card_3])
+    expect(deck.cards_in_category(:Geography)).to eq([card_1])
+    expect(deck.cards_in_category("Pop Culture")).to eq([])
   end
 end
