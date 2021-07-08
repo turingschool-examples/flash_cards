@@ -1,9 +1,8 @@
 require './lib/card'
 
 class Deck
-  def initialize(card_1, card_2, card_3)
-    @card_1 = card_1
-    @card_2 = card_2
-    @card_3 = card_3
+  attr_reader :cards
+  def initialize(cards)
+    @cards = cards
   end
 end
