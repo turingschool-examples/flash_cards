@@ -46,6 +46,7 @@ RSpec.describe CardGenerator do
 
     it 'card 2' do
       card_2 = cards[1]
+
       expect(card_2.question).to eq(question_2)
       expect(card_2.answer).to eq(answer_2)
       expect(card_2.category).to eq(category_2)
@@ -53,6 +54,7 @@ RSpec.describe CardGenerator do
 
     it 'card 3' do
       card_3 = cards[2]
+
       expect(card_3.question).to eq(question_3)
       expect(card_3.answer).to eq(answer_3)
       expect(card_3.category).to eq(category_3)

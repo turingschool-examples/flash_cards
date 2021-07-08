@@ -15,11 +15,12 @@ class Round
   def take_turn(guess)
     new_turn = Turn.new(guess, current_card)
     @turns << new_turn
+
     new_turn
   end
 
   def number_correct
-    @turns.count(&:correct?)
+    @turns.count { |turn| turn.correct? }
   end
 
   def number_correct_by_category(category)
@@ -34,6 +35,7 @@ class Round
 
   def percent_correct_by_category(category)
     category_correct = number_correct_by_category(category)
+    
     (category_correct.fdiv(category_size(category)) * 100).round
   end
 
