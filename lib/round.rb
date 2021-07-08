@@ -1,7 +1,3 @@
-require './lib/card'
-require './lib/deck'
-require './lib/turn'
-
 
 class Round
   attr_reader :deck, :turns
@@ -11,12 +7,41 @@ class Round
   end
 
   def current_card
-    @deck.cards.shift
+    @deck.cards.first
   end
 
   def take_turn(guess)
     new_turn = Turn.new(guess, current_card)
     @turns << new_turn
+    @deck.cards.shift
     new_turn
+  end
+
+  def number_correct
+    num_correct = 0
+    @turns.each do |turn|
+      if turn.correct?
+        num_correct += 1
+      end
+    end
+    num_correct
+  end
+
+  def number_correct_by_category(category)
+    num_correct_category = 0
+    @turns.each do |turn|
+      if turn.correct? && turn.card.category == category
+        num_correct_category += 1
+      end
+    end
+    num_correct_category
+  end
+
+  def percent_correct
+    number_correct.fdiv(turns.length)*100
+  end
+
+  def percent_correct_by_category(category)
+  
   end
 end
