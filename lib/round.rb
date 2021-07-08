@@ -29,4 +29,13 @@ class Round
       turn.correct?
     end
   end
+
+  #I had to get help with the following and not sure I would have gotten there on my own just yet.
+  def number_correct_by_category(category)
+    @turns.find_all do |turn|
+      turn.card.category == category && turn.card.answer == turn.guess
+    end.length
+  end
+
+  #To get percentage I need to take the amount correct and divide it by the amount of turns. Then multiply by 100.
 end
