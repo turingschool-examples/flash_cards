@@ -52,11 +52,10 @@ RSpec.describe Round do
     deck = Deck.new([card_1, card_2, card_3])
     round = Round.new(deck)
 
-    expect(round.turns).to eq([])
-
     new_turn = round.take_turn("Juneau")
 
-    expect(new_turn).to eq(round.turns.last)
+    expect(new_turn.guess).to eq("Juneau")
+    expect(new_turn.card).to be_a(Card)
   end
 
   it 'turn exists' do
@@ -92,6 +91,7 @@ RSpec.describe Round do
 
     new_turn = round.take_turn("Juneau")
 
+    expect(new_turn).to eq(round.turns.last)
     expect(new_turn).to be_instance_of(Turn)
   end
 
