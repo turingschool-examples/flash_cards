@@ -143,6 +143,7 @@ RSpec.describe Round do
     turn_1 = round.take_turn("Juneau")
     turn_2 = round.take_turn("Venus")
 
-    expect(round.number_correct_by_category).to eq(1)
+    expect(round.number_correct_by_category(:Geography)).to eq(1)
+    expect(round.number_correct_by_category(:STEM)).to eq(0)
   end
 end
