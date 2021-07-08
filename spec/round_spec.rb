@@ -11,7 +11,7 @@ RSpec.describe Round do
     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
     deck = Deck.new([card_1, card_2, card_3])
     round = Round.new(deck)
-    next_turn = Turn.new("Juneau", round.current_card)
+    new_turn = Turn.new("Juneau", round.current_card)
 
     it 'exists' do
       expect(round).to be_a(Round)
@@ -31,26 +31,40 @@ RSpec.describe Round do
 
     it 'takes a turn' do
       round.take_turn("Juneau")
-
-      expect(next_turn.class).to eq(Turn)
+      expect(new_turn.class).to eq(Turn)
     end
 
     it 'checks answer' do
-      round.take_turn("Juneau")
-
-      expect(next_turn.correct?).to eq(true)
+      expect(new_turn.correct?).to eq(true)
     end
 
     it 'adds turns to array' do
-      round.take_turn("Juneau")
-
       expect(round.turns).to include(Turn)
     end
 
-    it 'counts correct guesses' do
-      round.take_turn("Juneau")
+    it 'counts turns' do
+      expect(round.turns.count).to eq(1)
+    end
 
-      expect(round.number_correct).to eq(1)
+    it 'returns feedback' do
+      expect(round.turns.last.feedback).to eq("Correct!")
+    end
+
+    it 'counts correct answers' do
+      round.take_turn("Mars")
+      expect(round.number_correct).to eq(2)
+    end
+
+    it 'groups correct answers by category' do
+      expect(round.number_correct_by_category(:STEM)).to eq(1)
+      expect(round.number_correct_by_category(:Geography)).to eq(1)
+    end
+
+    it 'calculates percentage of correct answers' do
+      round.number_correct_by_category(:STEM)
+      round.number_correct_by_category(:Geography)
+
+
     end
   end
 end
