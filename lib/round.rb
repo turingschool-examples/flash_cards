@@ -42,13 +42,8 @@ class Round
     (number_correct_by_category(category).to_f / turns_by_category(category).to_f) * 100
   end
 
-#figure out why this count is backwards
   def turn_count
-    @deck.cards.count - @turns.count
-  end
-
-  def turn_count2
-    @deck.cards.find_index(current_card) + 1
+    @turns.count + 1
   end
 
 end

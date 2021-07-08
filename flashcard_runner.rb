@@ -13,10 +13,8 @@ require './lib/round'
 @deck = Deck.new(@cards)
 @round = Round.new(@deck)
 
-# @round.start_game
-
 puts "Welcome! You're playing with #{@deck.count} cards."
-until @round.turn_count == 0
+until @round.turn_count == (@deck.cards.count + 1)
 puts "This is card number #{@round.turn_count} out of #{@deck.cards.count}."
 
 puts "Question: #{@round.current_card.question}"
