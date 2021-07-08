@@ -21,7 +21,7 @@ class FlashcardRunner
   def welcome_message
     [
       "Welcome! You're playing with #{@deck_size} cards.",
-      "-------------------------------------------------",
+      "-------------------------------------------------"
     ].join("\n")
   end
 
