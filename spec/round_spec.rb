@@ -39,4 +39,33 @@ RSpec.describe Round do
 
     expect(new_turn.correct?).to be true
   end
+
+  it 'records turns' do
+    new_turn = @round.take_turn("Juneau")
+
+    expect(@round.turns).to eq([new_turn])
+  end
+
+  it 'tracks # of correct answers' do
+    new_turn = @round.take_turn("Juneau")
+
+    expect(@round.number_correct).to eq(1)
+  end
+
+  it 'moves to the next card' do
+    new_turn = @round.take_turn("Juneau")
+
+    expect(@round.current_card).to eq(@deck.cards.first)
+  end
+
+  it 'moves to the next card' do
+    new_turn = @round.take_turn("Juneau")
+    turn_2 = @round.take_turn("Venus")
+
+    expect(@round.turns.count).to eq(2)
+    expect(@round.turns.last.feedback).to eq('Incorrect.')
+    expect(@round.number_correct).to eq(1)
+  end
+
+
 end
