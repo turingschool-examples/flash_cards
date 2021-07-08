@@ -11,6 +11,8 @@ class Turn
   def is_correct?
     if @guess == @card.answer
       true
+    elsif @guess != @card.answer
+      false
     end
   end
 
