@@ -5,11 +5,8 @@ RSpec.describe Turn do
   card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
   turn = Turn.new("Juneau", card)
 
-  it 'initializes a card' do
+  it 'initializes a card and turn' do
     expect(card).to be_instance_of(Card)
-  end
-
-  it 'exists' do
     expect(turn).to be_instance_of(Turn)
   end
 
