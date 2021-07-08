@@ -41,7 +41,17 @@ class Round
     number_correct.fdiv(turns.length)*100
   end
 
+  def total_number_by_category(category)
+    total_category_amount = 0
+    @turns.each do |turn|
+      if turn.card.category == category
+        total_category_amount += 1
+      end
+    end
+    total_category_amount
+  end
+
   def percent_correct_by_category(category)
-  
+    number_correct_by_category(category).fdiv(total_number_by_category(category))*100
   end
 end
