@@ -5,7 +5,7 @@ This is the starter repository for the [Flash Cards](http://backend.turing.io/mo
 ### Learning Goals
 
 * Follow an interaction pattern
-* Write readable code that adheres to Ruby convention
+<!-- * Write readable code that adheres to Ruby convention -->
 * Write tests
 * Create an Object Oriented Solution to a problem (objects should interact to achieve the stated goal)
 * Host code on Github and submit a Pull Request

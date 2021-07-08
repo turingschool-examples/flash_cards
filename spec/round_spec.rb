@@ -53,12 +53,12 @@ RSpec.describe Round do
     deck = Deck.new([card_1, card_2, card_3])
     round = Round.new(deck)
 
-    new_turn = round.take_turn("Juneau")
+    round.take_turn("Juneau")
 
     expect(round.number_correct).to eq(1)
     expect(round.current_card).to eq(card_2)
 
-    new_turn = round.take_turn("Venus")
+    round.take_turn("Venus")
 
     expect(round.turns.count).to eq(2)
     expect(round.turns.last.feedback).to eq("Incorrect.")
@@ -71,8 +71,9 @@ RSpec.describe Round do
     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
     deck = Deck.new([card_1, card_2, card_3])
     round = Round.new(deck)
-    new_turn = round.take_turn("Juneau")
-    new_turn = round.take_turn("Venus")
+
+    round.take_turn("Juneau")
+    round.take_turn("Venus")
 
     expect(round.number_correct_by_category(:Geography)).to eq(1)
     expect(round.number_correct_by_category(:STEM)).to eq(0)
@@ -84,8 +85,9 @@ RSpec.describe Round do
     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
     deck = Deck.new([card_1, card_2, card_3])
     round = Round.new(deck)
-    new_turn = round.take_turn("Juneau")
-    new_turn = round.take_turn("Venus")
+    
+    round.take_turn("Juneau")
+    round.take_turn("Venus")
 
     expect(round.percent_correct).to eq(50.0)
     expect(round.percent_correct_by_category(:Geography)).to eq(100.0)
