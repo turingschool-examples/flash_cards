@@ -1,10 +1,13 @@
-require './lib/card.rb'
-require './lib/turn.rb'
+require './lib/card'
+require './lib/turn'
 
 RSpec.describe Turn do
-  describe 'Turn exists' do
-    turn = Turn.new("Saturn", card)
+  describe "Turn" do
+    it 'exists' do
+      card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+      turn = Turn.new("Juneau", card)
 
-    expect(turn).to be_instance_of(Turn)
+      expect(turn).to be_instance_of(Turn)
+    end
   end
 end
