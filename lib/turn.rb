@@ -8,5 +8,11 @@ class Turn
     @card = card
   end
 
+  def is_correct?
+    if @guess == card.answer
+      true
+    end
+  end
+
 
 end
