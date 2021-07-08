@@ -4,4 +4,14 @@ class Deck
   def initialize(cards)
     @cards = cards
   end
+
+  def cards_in_category(category)
+    card_category = []
+    @cards.each do |card|
+      if card.category == category
+      card_category << card
+      end
+    end
+    card_category
+  end
 end
