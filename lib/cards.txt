@@ -1,0 +1,4 @@
+Who is Khoi's favorite superhero?,Batman,Khoi
+What is Kathy's pet bunny's name?,Toki,Kathy
+Does Khoi wear glasses?,Yes,Khoi
+Is Duy the eldest or youngest sibling?,Youngest,Duy
