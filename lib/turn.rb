@@ -28,5 +28,4 @@ class Turn
       return "Incorrect."
     end
   end
-
 end
