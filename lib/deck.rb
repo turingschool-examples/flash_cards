@@ -5,6 +5,10 @@ class Deck
     @cards = cards
   end
 
+  def count
+    @cards.length
+  end
+
   def cards_in_category(category)
     card_category = []
     @cards.each do |card|
