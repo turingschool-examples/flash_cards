@@ -35,7 +35,12 @@ class Round
     @turns.find_all do |turn|
       turn.card.category == category && turn.card.answer == turn.guess
     end.length
+    #I do not understand when/why to call a method after end like in line 37.
   end
 
   #To get percentage I need to take the amount correct and divide it by the amount of turns. Then multiply by 100.
+
+  def percent_correct
+    (number_correct.to_f / @turns.length) * 100
+  end
 end
