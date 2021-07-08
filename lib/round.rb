@@ -13,7 +13,6 @@ class Round
   def take_turn(guess)
     @turns << Turn.new(guess, current_card)
     @deck.cards.shift
-    current_card
 
     @turns.last
   end
@@ -24,9 +23,7 @@ class Round
 
   def number_correct_by_category(category)
     @turns.count do |turn|
-      if turn.card.category == category
-        turn.correct?
-      end
+      turn.correct? if turn.card.category == category
     end
   end
 
