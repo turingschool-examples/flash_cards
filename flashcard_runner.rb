@@ -16,13 +16,28 @@ def start
 
   puts "Welcome! You're playing with 4 cards."
   puts "-------------------------------------------------"
-  puts "This is card number 1 out of #{deck_1.cards.length}"
+  puts "This is card number #{round_1.used_cards.length + 1} out of 4" #how can I make this dynamic?
+  puts "#{round_1.current_card.question}" #how can I automate this?
+
+  guess = gets.chomp
+  puts round_1.take_turn(guess).feedback
+
+  puts "This is card #{round_1.used_cards.length + 1} out of 4 cards"
   puts "#{round_1.current_card.question}"
 
+  guess = gets.chomp
+  puts round_1.take_turn(guess).feedback
 
+  puts "This is card #{round_1.used_cards.length + 1} out of 4 cards"
+  puts "#{round_1.current_card.question}"
 
+  guess = gets.chomp
+  puts round_1.take_turn(guess).feedback
 
+  puts "This is card #{round_1.used_cards.length + 1} out of 4 cards"
+  puts "#{round_1.current_card.question}"
 
+  
 
 
 
