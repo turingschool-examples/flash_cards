@@ -131,8 +131,6 @@ RSpec.describe Round do
 
     expect(round.percent_correct).to eq(50.0)
     expect(round.percent_correct_by_category(:Geography)).to eq(100.0)
-
+    expect(round.current_card).to eq(card_3)
   end
-
-
 end
