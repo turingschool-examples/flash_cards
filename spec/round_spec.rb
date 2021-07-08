@@ -67,5 +67,33 @@ RSpec.describe Round do
     expect(@round.number_correct).to eq(1)
   end
 
+  it 'keeps track of number correct in each category' do
+    new_turn = @round.take_turn("Juneau")
+    turn_2 = @round.take_turn("Venus")
 
+    expect(@round.number_correct_by_category(:Geography)).to eq(1)
+    expect(@round.number_correct_by_category(:STEM)).to eq(0)
+  end
+
+  it 'tracks percent correct' do
+    new_turn = @round.take_turn("Juneau")
+    turn_2 = @round.take_turn("Venus")
+
+    expect(@round.percent_correct).to eq (50.0)
+  end
+
+  it 'tracks percent correct by category' do
+    new_turn = @round.take_turn("Juneau")
+    turn_2 = @round.take_turn("Venus")
+
+    expect(@round.percent_correct_by_category(:Geography)).to eq (100.0)
+    expect(@round.percent_correct_by_category(:STEM)).to eq (0.0)
+  end
+
+  it 'moves to the next card' do
+    new_turn = @round.take_turn("Juneau")
+    turn_2 = @round.take_turn("Venus")
+
+    expect(@round.current_card).to eq(@deck.cards.first)
+  end
 end
