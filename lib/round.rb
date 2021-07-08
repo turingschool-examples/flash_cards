@@ -51,6 +51,4 @@ class Round
     @deck.cards.find_index(current_card) + 1
   end
 
-
-
 end
