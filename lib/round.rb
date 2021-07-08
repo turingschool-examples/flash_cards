@@ -4,7 +4,7 @@ class Round
 
   def initialize(deck)
     @deck = deck
-    @turns = Array.new
+    @turns = []
   end
 
   def current_card
@@ -35,11 +35,22 @@ class Round
   end
 
   def percent_correct
-    (correct.count.to_f / turns.count.to_f) * 100
+    ((correct.count.to_f / turns.count.to_f) * 100).round(0)
   end
 
   def percent_correct_by_category(category)
     (number_correct_by_category(category).to_f / turns_by_category(category).to_f) * 100
   end
+
+#figure out why this count is backwards
+  def turn_count
+    @deck.cards.count - @turns.count
+  end
+
+  def turn_count2
+    @deck.cards.find_index(current_card) + 1
+  end
+
+
 
 end
