@@ -54,6 +54,7 @@ RSpec.describe Round do
 
     expect(new_turn).to be_a(Turn)
     expect(new_turn.correct?).to be true
+    expect(round.current_card).to eq(card_2)
     expect(round.turns).to eq([new_turn])
   end
 
