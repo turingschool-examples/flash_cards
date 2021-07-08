@@ -11,6 +11,9 @@ def start
   cards = [card_1, card_2, card_3, card_4]
   deck = Deck.new(cards)
   round = Round.new(deck)
+
+  puts "Welcome! You're playing with #{deck.count} cards."
+  puts "-------------------------------------------------"
 end
 
 start
