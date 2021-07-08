@@ -10,27 +10,15 @@ RSpec.describe Deck do
 
   deck = Deck.new(cards)
 
-  it 'initializes card_1' do
-    expect(card_1).to be_instance_of(Card)
-  end
-
-  it 'initializes card_2' do
-    expect(card_2).to be_instance_of(Card)
-  end
-
-  it 'initializes card_3' do
-    expect(card_3).to be_instance_of(Card)
-  end
-
-  it 'puts cards in array' do
+  it 'stores cards' do
     expect(cards).to eq([card_1, card_2, card_3])
   end
 
-  it 'has deck' do
+  it 'exists' do
     expect(deck).to be_instance_of(Deck)
   end
 
-  xit 'has cards' do
+  it 'has cards' do
     deck.cards
   end
 
@@ -40,21 +28,14 @@ RSpec.describe Deck do
     expect(deck.count).to eq(3)
   end
 
-  xit 'has cards in category STEM' do
+  it 'sorts cards in categories' do
     deck.cards_in_category(:STEM)
+    expect(deck.cards_in_category(:STEM)).to eq([card_2, card_3])
 
-
-  end
-
-  xit 'has cards in category Geography' do
     deck.cards_in_category(:Geography)
+    expect(deck.cards_in_category(:Geography)).to eq([card_1])
 
-    expect(deck.cards_in_category(:Geography)).to
-  end
-
-  xit 'has cards in category Pop Culture' do
     deck.cards_in_category("Pop Culture")
-
-    expect(deck.cards_in_category("Pop Culture")).to
+    expect(deck.cards_in_category("Pop Culture")).to eq([])
   end
 end
