@@ -10,7 +10,7 @@ RSpec.describe Deck do
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
 
-    expect(deck).to be_instance_of(Deck)
+    expect(deck).to be_a(Deck)
   end
 
   it "has cards" do
@@ -42,5 +42,5 @@ RSpec.describe Deck do
 
     expect(deck.cards_in_category(:STEM)).to eq([card_2, card_3])
   end
-  
+
 end

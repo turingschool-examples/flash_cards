@@ -4,7 +4,7 @@ RSpec.describe Card do
   it 'exists' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
-    expect(card).to be_instance_of(Card)
+    expect(card).to be_a(Card)
   end
 
   it 'has a question' do
