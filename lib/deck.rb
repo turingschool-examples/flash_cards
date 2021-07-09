@@ -17,6 +17,6 @@ class Deck
         include_category << card
       end
     end
-    include_category.count
+    return include_category
   end
 end
