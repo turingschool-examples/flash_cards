@@ -1,4 +1,4 @@
 require './lib/game'
 
-game = Game.new("./lib/cards.txt")
+game = Game.new("./resources/cards.txt")
 game.start
