@@ -4,14 +4,14 @@ RSpec.describe CardGenerator do
 
   context 'Initialize' do
     it 'exists' do
-      filename = "./lib/cards.txt"
+      filename = "./resources/cards.txt"
       gen = CardGenerator.new(filename)
 
       expect(gen).to be_a(CardGenerator)
     end
 
     it 'has a file' do
-      filename = "./lib/cards.txt"
+      filename = "./resources/cards.txt"
       gen = CardGenerator.new(filename)
 
       expect(gen.file).to be_a(File)
@@ -20,13 +20,13 @@ RSpec.describe CardGenerator do
 
   context 'Methods' do
     it 'converts each line of the text to an array' do
-      filename = "./lib/cards.txt"
+      filename = "./resources/cards.txt"
       gen = CardGenerator.new(filename)
       expect(gen.file_to_array).to eq(["What is 5 + 5?,10,STEM", "What is Rachel's favorite animal?,red panda,Turing Staff", "What is Mike's middle name?,nobody knows,Turing Staff", "What cardboard cutout lives at Turing?,Justin bieber,PopCulture"])
     end
 
     it 'splits each string in the array at the , creating new arrays' do
-      filename = "./lib/cards.txt"
+      filename = "./resources/cards.txt"
       gen = CardGenerator.new(filename)
       cards_as_strings = gen.file_to_array
 
@@ -35,7 +35,7 @@ RSpec.describe CardGenerator do
     end
 
     it 'creates Cards based on each array' do
-      filename = "./lib/cards.txt"
+      filename = "./resources/cards.txt"
       gen = CardGenerator.new(filename)
       cards_as_strings = gen.file_to_array
       cards_as_arrays = gen.split_string(cards_as_strings)
@@ -61,7 +61,7 @@ RSpec.describe CardGenerator do
     end
 
     it 'combines all previous methods into one' do
-      filename = "./lib/cards.txt"
+      filename = "./resources/cards.txt"
       gen = CardGenerator.new(filename)
       cards = gen.cards
 
