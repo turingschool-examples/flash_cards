@@ -41,7 +41,7 @@ class Game
     puts "************* Game over! ***************"
     puts "You had #{@round.number_correct.to_i} correct guesses out of #{deck_count} for a total score of #{'%.2f' % @round.percent_correct}%."
     list_of_categories.each do |category|
-      puts "#{category} - #{@round.percent_correct_by_category(category)}% correct"
+      puts "#{category} - #{'%.2f' % @round.percent_correct_by_category(category)}% correct"
     end
   end
 end
