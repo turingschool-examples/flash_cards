@@ -27,4 +27,18 @@ def play_flashcards
     puts "-------------------------------------------------"
   end
 
+  if @round.turns.length == @cards.length
+    puts "****** Game over! ******"
+
+    if @round.number_correct == 1
+      guess = 'guess'
+    else
+      guess = 'guesses'
+    end
+
+    puts "You had #{@round.number_correct} correct #{guess} out of #{@cards.length} for a total score of #{@round.percent_correct.to_i}% correct."
+
+  end
+end
+
 play_flashcards
