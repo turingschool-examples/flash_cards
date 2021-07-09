@@ -6,9 +6,8 @@ class Round
   def initialize(deck)
     @deck = deck
     @turns = []
-    @current_card = deck.cards.first
+    @current_card = 0
     @number_correct = 0
-    @used_cards = []
   end
 
   def take_turn(current_guess)
@@ -19,6 +18,10 @@ class Round
     return current_turn
   end
 
+  def current_card
+    deck.cards[@current_card]
+  end
+
   def add_correct_turns(turn)
     if turn.correct?
       @number_correct += 1
@@ -26,7 +29,7 @@ class Round
   end
 
   def next_card
-    @used_cards << @current_card
+    @current_card += 1
   end
 
   def number_correct_by_category(category)
@@ -36,10 +39,10 @@ class Round
   end
 
   def percent_correct
-    (@number_correct / @turns.count) * 100
+    (@number_correct / @turns.count.to_f) * 100
   end
 
   def percent_correct_by_category(category)
-    (number_correct_by_category(category) / @turns.count) * 100
+    (number_correct_by_category(category) / @turns.count.to_f) * 100
   end
 end
