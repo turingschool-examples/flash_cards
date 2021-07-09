@@ -1,11 +1,10 @@
 class Round
-  attr_reader :deck, :turns, :correct_turns, :turns_in_cat
+  attr_reader :deck,
+              :turns
 
   def initialize(deck)
-    @deck = deck
+    @deck  = deck
     @turns = []
-    @correct_turns = []
-    @turns_in_cat = []
   end
 
   def current_card
@@ -13,31 +12,25 @@ class Round
   end
 
   def take_turn(guess)
-      new_turn = Turn.new(guess, current_card)
-      @turns << new_turn
-      if new_turn.correct? == true
-        @correct_turns << new_turn
-      end
-      @deck.cards.shift
-      new_turn
+    new_turn = Turn.new(guess, current_card)
+    @turns << new_turn
+    @deck.cards.rotate!
+    new_turn
   end
 
   def number_correct
-    @correct_turns.length
+    @turns.count { |turn| turn.correct? }
   end
 
   def number_correct_by_category(cat)
-    @turns_in_cat = @correct_turns.select {|turn| turn.card.category == cat}
-    number_correct_by_category = @turns_in_cat.select {|turn| turn.correct? == true}.length
+    @turns.count { |turn| turn.card.category == cat && turn.correct? }
   end
 
   def percent_correct
-    @correct_turns.length.to_f / @turns.length * 100
+    number_correct.to_f / @turns.length * 100
   end
 
   def percent_correct_by_category(cat)
-    percent = (number_correct_by_category(cat) / @turns_in_cat.length).to_f * 100
-    rescue ZeroDivisionError
-      0
+    number_correct_by_category(cat) / @deck.cards_in_category(cat).length.to_f * 100
   end
 end
