@@ -47,4 +47,8 @@ class Round
     (correct.to_f / category.to_f) * 100
   end
 
+  def number_card
+    @turns.count + 1
+  end
+
 end
