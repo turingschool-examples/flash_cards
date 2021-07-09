@@ -86,10 +86,10 @@ puts " "
 
 puts "You guessed, #{@round.turns.first.guess}"
 puts "#{@round.turns.first.feedback}"
-# # game ends
+puts "******* Game Over! *******"
 
-# ****** Game Over! *******
-# You had 3 correct guesses out of 5 for a total score of 60%.
-# Geography - 100% correct
-# TV - 50% correct
-# Sports - 100% correct
+
+puts "You had #{@round.turns.correct} correct guesses out of 5 for a total score of 60%."
+# puts "Geography - 100% correct"
+# puts "TV - 50% correct"
+# puts "Sports - 100% correct"
