@@ -13,13 +13,11 @@ class Round
   end
 
   def take_turn(guess)
-      new_turn = Turn.new(guess, current_card)
-      @turns << new_turn
-      if new_turn.correct? == true
-        @correct_turns << new_turn
-      end
-      @deck.cards.shift
-      new_turn
+    new_turn = Turn.new(guess, current_card)
+    @turns << new_turn
+    @correct_turns << new_turn if new_turn.correct? == true
+    @deck.cards.rotate!
+    new_turn
   end
 
   def number_correct
@@ -27,8 +25,8 @@ class Round
   end
 
   def number_correct_by_category(cat)
-    @turns_in_cat = @correct_turns.select {|turn| turn.card.category == cat}
-    number_correct_by_category = @turns_in_cat.select {|turn| turn.correct? == true}.length
+    @turns_in_cat = @correct_turns.select { |turn| turn.card.category == cat }
+    @turns_in_cat.select { |turn| turn.correct? == true }.length
   end
 
   def percent_correct
@@ -36,8 +34,8 @@ class Round
   end
 
   def percent_correct_by_category(cat)
-    percent = (number_correct_by_category(cat) / @turns_in_cat.length).to_f * 100
-    rescue ZeroDivisionError
-      0
+    number_correct_by_category(cat) / @deck.cards_in_category(cat).length.to_f * 100
+  rescue ZeroDivisionError
+    0
   end
 end
