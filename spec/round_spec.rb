@@ -91,8 +91,7 @@ RSpec.describe Round do
 
     new_turn = round.take_turn("Juneau")
 
-    expect(new_turn).to eq(round.turns.last)
-    expect(new_turn).to be_instance_of(Turn)
+    expect(round.turns).to eq([new_turn])
   end
 
   it 'counts number of correct guesses' do
