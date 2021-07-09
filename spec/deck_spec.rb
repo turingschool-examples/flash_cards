@@ -19,7 +19,7 @@ RSpec.describe Deck do
 
     cards = [card_1, card_2, card_3]
     deck = Deck.new([card_1, card_2, card_3])
-    expect(deck.cards).to eq([card_1, card_2, card_3])
+    expect(deck.cards).to eq(cards)
   end
 
   it 'deterimines number of cards in deck' do
