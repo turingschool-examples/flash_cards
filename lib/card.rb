@@ -1,3 +1,5 @@
+require 'rspec'
+
 class Card
   attr_reader :question, :answer, :category
 
@@ -6,7 +8,7 @@ class Card
     @answer = answer_param
     @category = category_param
     # keeping pry within the initialize method will allow
-    # you to access the data within the method 
-    require 'pry'; binding.pry
+    # you to access the data within the method
+    # require 'pry'; binding.pry
   end
 end
