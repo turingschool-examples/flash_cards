@@ -40,4 +40,8 @@ class Round
       turn.card.category == category
     end)* 100
   end
+
+  def card_count
+    @turns.length + @deck.cards.length
+  end
 end

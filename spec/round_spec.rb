@@ -120,4 +120,20 @@ RSpec.describe Round do
     expect(round.percent_correct_by_category(:Geography)).to eq(100.0)
     expect(round.percent_correct_by_category(:STEM)).to eq(50.0)
   end
+
+  it "counts cards in deck" do
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+
+    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+
+    deck = Deck.new([card_1, card_2])
+
+    round = Round.new(deck)
+
+    expect(round.card_count).to eq(2)
+    round.take_turn("Juneau")
+    expect(round.card_count).to eq(2)
+    round.take_turn("Ted")
+    expect(round.card_count).to eq(2)
+  end
 end
