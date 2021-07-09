@@ -11,35 +11,36 @@ card_4 = Card.new("What is Mac Jones' middle name?", 'McCorkle', :NFL)
 @deck = Deck.new(@cards)
 @round = Round.new(@deck)
 
-def slow_text(txt)
-  txt.split(//).each do |char|
-    sleep 0.10
+def slow_text(text)
+  text.split(//).each do |char|
+    sleep 0.05
     print char
   end
 end
 
 slow_text('Welcome to Flash Cards! ')
-slow_text "You're playing with #{@cards.length} cards.\n"
+sleep 1
+slow_text "\n\nYou're playing with #{@cards.length} cards.\nYou must score 80% correct or higher to win.\n"
 50.times { print '-' }
-puts
+sleep 1
 
 def play_flashcards
   while @round.turns.length < @cards.length
-    puts "This is card number #{@round.turns.length + 1} out of #{@cards.length}."
+    puts "\nThis is card number #{@round.turns.length + 1} out of #{@cards.length}."
     puts "Question: #{@round.current_card.question}"
     print 'Answer: '
 
     guess = gets.chomp
 
-    
     turn = @round.take_turn(guess)
 
     puts turn.feedback
+    sleep 1
     50.times { print '-' }
   end
 
   if @round.turns.length == @cards.length
-    puts '****** Game over! ******'
+    puts "\n\n****** Game over! ******\n\n"
 
     guess = if @round.number_correct == 1
               'guess'
@@ -47,7 +48,16 @@ def play_flashcards
               'guesses'
             end
 
+    if @round.percent_correct > 80.0
+      slow_text "Congrats! You win!\n\n"
+    else
+      slow_text "As Willy Wonka would say...YOU LOSE!\n\n"
+    end
+
+    sleep 1
     puts "You had #{@round.number_correct} correct #{guess} out of #{@cards.length} for a total score of #{@round.percent_correct.to_i}% correct."
+    sleep 3
+    puts "\nCategories:"
 
     categories = @cards.map do |card|
       card.category
