@@ -51,12 +51,13 @@ class Round
       puts "This is card number #{turns.length + 1} out of #{set_of_cards.count}."
       puts "Question: #{current_card.question}"
       guess = gets.chomp
-      puts take_turn(guess).feedback
+      puts take_turn(guess.downcase).feedback
     end
     puts "****** Game over! ******"
     puts "You had #{number_correct} correct guesses out of #{set_of_cards.count} for a total score of #{percent_correct}."
-    turns.each do |turn|
-      puts "#{turn.card.category} - #{percent_correct_by_category(turn.card.category)}"
+    percentage_array = turns.map do |turn|
+      "#{turn.card.category} - #{percent_correct_by_category(turn.card.category)}%"
     end
+    puts percentage_array.uniq
   end
 end
