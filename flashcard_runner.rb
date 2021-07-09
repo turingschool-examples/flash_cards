@@ -13,7 +13,6 @@ def start
   deck_1 = Deck.new([card_1, card_2, card_3, card_4])
   round_1 = Round.new(deck_1)
 
-
   (deck_1.count).times {
     puts "Welcome! You're playing with 4 cards."
     puts "-------------------------------------------------"
@@ -21,21 +20,12 @@ def start
     puts "#{round_1.current_card.question}" #how can I automate this?
 
     guess = gets.chomp.upcase
-
-
-
     puts round_1.take_turn(guess).feedback
-
   }
 
-
   puts "****** Game Over! ******"
-
   puts "You had #{round_1.number_correct} correct guesses out of 4, for a total score of #{round_1.percent_correct}%"
-
   puts "Math - #{round_1.percent_correct_by_category(:Math)}% correct"  #make dynamic?
   puts "Dinosaurs - #{round_1.percent_correct_by_category(:Dinosaurs)}% correct"
-
-
 end
 start
