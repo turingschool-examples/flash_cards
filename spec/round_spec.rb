@@ -63,5 +63,10 @@ RSpec.describe Round do
     it 'calculates percentage of correct answers' do
       expect(round.percent_correct).to eq(100)
     end
+
+    it 'gives a card a number' do
+      #require "pry"; binding.pry
+      expect(round.number_card).to eq(3)
+    end
   end
 end
