@@ -9,20 +9,9 @@ class Deck
     @cards.count
   end
 
-
-
   def cards_in_category(category)
+    @cards.find_all {|type| type.category == category}
 
-    @category_chapter = []
-
-
-    @cards.each do |card_sort|
-      if card_sort.category == category
-        @category_chapter << card_sort
-      end
-    end
-
-    @category_chapter
   end
 
 
