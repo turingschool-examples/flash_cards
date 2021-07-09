@@ -21,8 +21,8 @@ class FlashcardRunner
   def welcome_message
     [
       "Welcome! You're playing with #{@deck_size} cards.",
-      "-------------------------------------------------",
-    ]
+      "-------------------------------------------------"
+    ].join("\n")
   end
 
   def run_turns
@@ -42,7 +42,7 @@ class FlashcardRunner
     [
       "This is card number #{@round.turns.size + 1} out of #{@deck_size}.",
       "Question: #{@round.current_card.question}"
-    ]
+    ].join("\n")
   end
 
   def get_guess
@@ -63,7 +63,7 @@ class FlashcardRunner
     [
       "****** Game over! ******",
       line_2_part_1 + line_2_part_2
-    ]
+    ].join("\n")
   end
 
   def category_correct_percentages
