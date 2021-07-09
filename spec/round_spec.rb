@@ -17,22 +17,47 @@ RSpec.describe Round do
   end
 
   it 'has deck' do
-    round.deck
-
-    expect(deck).to be_instance_of(Deck)
+    expect(round.deck).to eq(deck)
   end
 
-  xit 'has turns' do
-    round.turns
-
-    expect(turns).to be_instance_of(Turn)
+  it 'has turns' do
+    expect(round.turns).to eq([])
   end
 
-  xit 'shows current card' do
-    round.current_card
+  it 'shows current card' do
+    expect(round.current_card).to eq(card_1)
+  end
+
+  # new_turn = round.take_turn("Juneau")
+
+  xit 'is Turn' do
+
+    expect(new_turn.class).to be_instance_of(Turn)
   end
 
   xit 'takes turn' do
-    new_turn = round.take_turn
+    new_turn.class
+
+    expect(new_turn.class).to be_instance_of(Turn)
+  end
+
+  xit 'is correct' do
+    new_turn.correct?
+
+    expect(new_turn.correct?).to eq(true)
+  end
+
+  round.turns
+
+  xit 'tells number correct' do
+    round.number_correct
+
+    expect(round.number_correct).to eq(1)
+  end
+
+  xit 'tells number correct by category' do
+  end
+
+  xit 'tells percent correct' do
   end
 end
