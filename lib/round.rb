@@ -1,13 +1,12 @@
 class Round
   attr_reader :deck, :turns, :number_correct, :correct_turns, :used_cards
 
-
   def initialize(deck)
     @deck = deck
     @turns = []
     @number_correct = 0 #instance variable necessary?
     @correct_turns = []
-    @used_cards = []
+    @used_cards = []#will be redundant if fixed
   end
 
   def current_card
@@ -19,8 +18,8 @@ class Round
     @turns << turn
     @number_correct += 1 if turn.correct?
     @deck.cards.shift #is destructive, may need to change if need to loop deck later
-    @correct_turns << turn.card if turn.correct?
-    @used_cards << turn.card
+    @correct_turns << turn.card if turn.correct? #source of all of my earlier hardships. Fixing now will break round.
+    @used_cards << turn.card #may not be needed with @correct_turns fix
     turn
   end
 
