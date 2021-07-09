@@ -1,11 +1,11 @@
 class Round
-  attr_reader :deck, :turns, :number_correct, :correct_turns
+  attr_reader :deck, :turns, :number_correct, :correct_turns, :used_cards
 
 
   def initialize(deck)
     @deck = deck
     @turns = []
-    @number_correct = 0
+    @number_correct = 0 #instance variable necessary?
     @correct_turns = []
     @used_cards = []
   end
@@ -17,17 +17,17 @@ class Round
   def take_turn(guess)
     turn = Turn.new(guess, @deck.cards.first)
     @turns << turn
-    @used_cards << turn.card
     @number_correct += 1 if turn.correct?
     @deck.cards.shift #is destructive, may need to change if need to loop deck later
     @correct_turns << turn.card if turn.correct?
+    @used_cards << turn.card
     turn
   end
 
   def number_correct_by_category(type)
     count = 0
     @correct_turns.each do |card|
-        count += 1 if card.category == type #if extra time, maybe fine enumerable?
+        count += 1 if card.category == type #if extra time, maybe find enumerable?
       end
     count
   end
