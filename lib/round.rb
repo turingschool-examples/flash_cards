@@ -44,15 +44,19 @@ class Round
 
 
   def start
-    puts "Welcome! You're playing with #{deck.cards.count} cards."
+    set_of_cards = deck.cards.dup
+    puts "Welcome! You're playing with #{set_of_cards.count} cards."
     puts "-------------------------------------------------"
-    deck.cards.each do |card|
-      puts "This is card number #{turns.length + 1} out of #{(deck.cards.count + turns.length)}."
+    set_of_cards.each do |card|
+      puts "This is card number #{turns.length + 1} out of #{set_of_cards.count}."
       puts "Question: #{current_card.question}"
       guess = gets.chomp
       puts take_turn(guess).feedback
     end
     puts "****** Game over! ******"
+    puts "You had #{number_correct} correct guesses out of #{set_of_cards.count} for a total score of #{percent_correct}."
+    turns.each do |turn|
+      puts "#{turn.card.category} - #{percent_correct_by_category(turn.card.category)}"
+    end
   end
-
 end
