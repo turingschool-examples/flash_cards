@@ -13,3 +13,18 @@ card_4 = Card.new("What is Mac Jones' middle name?", "McCorkle", :NFL)
 
 
 puts "Welcome! You're playing with #{@cards.length} cards.\n-------------------------------------------------"
+
+def play_flashcards
+  while @round.turns.length < @cards.length
+    puts "This is card number #{@round.turns.length + 1} out of #{@cards.length}."
+    puts "Question: #{@round.current_card.question}"
+    print "Answer: "
+
+    guess = gets.chomp
+    turn = @round.take_turn(guess)
+
+    puts turn.feedback
+    puts "-------------------------------------------------"
+  end
+
+play_flashcards
