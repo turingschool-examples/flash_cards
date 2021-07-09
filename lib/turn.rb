@@ -6,18 +6,10 @@ class Turn
   end
 
   def correct?
-    if @card.answer.class == Integer
-      @card.answer == @guess.to_i
-    else
-      @card.answer.downcase == @guess.downcase
-    end
+    @card.answer.downcase == @guess.downcase
   end
 
   def feedback
-    if correct?
-      return "Correct!"
-    else
-      return "Incorrect!"
-    end
+   correct? ? "Correct!" : "Incorrect!"
   end
 end
