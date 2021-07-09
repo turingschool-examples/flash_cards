@@ -1,6 +1,6 @@
-require './card'
+require './lib/card'
 
-class Deck < Card
+class Deck
   attr_reader :cards
 
   def initialize(cards)
@@ -8,9 +8,8 @@ class Deck < Card
   end
 
   def cards_in_category(input_category)
-    @cards.find_all do |card|
-      input_category == card.category
-    end
+    categorize = @cards.find_all {|element| input_category == element.category}
+    return categorize
   end
 
 end

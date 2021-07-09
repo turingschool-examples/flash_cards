@@ -1,7 +1,7 @@
 require './lib/card'
 require './lib/turn'
 require './lib/deck'
- #future ryan remeber to put ./lib/file for requires
+
 class Round
   attr_accessor :current_card, :num_turns_taken, :turns
   def initialize(deck)
@@ -11,7 +11,7 @@ class Round
     @turns = []
   end
 
-  def take_turn(string)
+  def take_turn(string) #test file confirm every line of code
     turn = Turn.new(string, @current_card)
     @turns << turn
     @num_turns_taken += 1 #create if statement to reset this num
@@ -24,8 +24,9 @@ class Round
   end
 
   def number_correct_by_category(ctgry)
-    @turns.find_all {|element| element.is_correct? == true}.find_all {|element| element.card.category == ctgry}.length
-    #find a way to use cards_in_category method to do this so refactor deck.cards_in_category to accept turn objects
+    @turns.find_all do |element|
+      element.card.category == ctgry && element.is_correct?
+    end
   end
 
   def percent_correct
