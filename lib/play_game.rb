@@ -10,12 +10,14 @@ class PlayGame
   end
 
   def make_cards
-    @card_1 = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
-    @card_2 = Card.new('How long is the backend program at Turing?', '7 months', :Turing)
-    @card_3 = Card.new('What does FSD stand for? Hint: Pesto Paws!', 'Freedom Service Dogs', :Pesto)
-    @card_4 = Card.new('How long are the modules or innings at Turing?', '6 weeks', :Turing)
-    @card_5 = Card.new("Is it appropriate to greet or 'say hello' to Pesto when you meet him?", 'No', :Pesto)
-    @cards = [@card_1, @card_2, @card_3, @card_4, @card_5]
+    filename = "cards.txt"
+    @cards = CardGenerator.new(filename).cards
+    # @card_1 = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
+    # @card_2 = Card.new('How long is the backend program at Turing?', '7 months', :Turing)
+    # @card_3 = Card.new('What does FSD stand for? Hint: Pesto Paws!', 'Freedom Service Dogs', :Pesto)
+    # @card_4 = Card.new('How long are the modules or innings at Turing?', '6 weeks', :Turing)
+    # @card_5 = Card.new("Is it appropriate to greet or 'say hello' to Pesto when you meet him?", 'No', :Pesto)
+    # @cards = [@card_1, @card_2, @card_3, @card_4, @card_5]
   end
 
   def begin_game
