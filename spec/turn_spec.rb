@@ -3,8 +3,8 @@ require './lib/card'
 
 RSpec.describe Turn do
   before :each do
-    @card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    @turn = Turn.new("Juneau", @card)
+    @card = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
+    @turn = Turn.new('Juneau', @card)
   end
 
   it 'exists' do
@@ -12,7 +12,7 @@ RSpec.describe Turn do
   end
 
   it 'returns the guess with the guess method' do
-    expect(@turn.guess).to eq("Juneau")
+    expect(@turn.guess).to eq('Juneau')
   end
 
   it 'returns the Card with the card method' do
@@ -30,8 +30,8 @@ end
 
 RSpec.describe Turn do
   before :each do
-    @card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
-    @turn = Turn.new("Saturn", @card)
+    @card = Card.new('Which planet is closest to the sun?', 'Mercury', :STEM)
+    @turn = Turn.new('Saturn', @card)
   end
 
   it 'exists' do
@@ -39,7 +39,7 @@ RSpec.describe Turn do
   end
 
   it 'returns the guess with the guess method' do
-    expect(@turn.guess).to eq("Saturn")
+    expect(@turn.guess).to eq('Saturn')
   end
 
   it 'returns the Card with the card method' do
