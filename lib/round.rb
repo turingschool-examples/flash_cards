@@ -42,7 +42,6 @@ class Round
     (number_correct_by_category(category).to_f / turns_per_category(category).to_f) * 100
   end
 
-
   def start
     puts "Welcome! You're playing with #{deck.cards.count} cards."
     puts "-------------------------------------------------"
