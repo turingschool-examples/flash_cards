@@ -14,27 +14,23 @@ class Round
     turn = Turn.new(guess, current_card)
     @turns << turn
     @deck.cards.shift
-    return turn
+    turn
   end
 
   def number_correct
     total_correct = 0.0
     @turns.each do |turn|
-      if turn.correct?
-        total_correct += 1
-      end
+      total_correct += 1 if turn.correct?
     end
-    return total_correct
+    total_correct
   end
 
   def number_correct_by_category(category)
     total_correct = 0.0
     @turns.each do |turn|
-      if turn.correct? && turn.card.category == category
-        total_correct += 1
-      end
+      total_correct += 1 if turn.correct? && turn.card.category == category
     end
-    return total_correct
+    total_correct
   end
 
   def percent_correct
@@ -44,11 +40,8 @@ class Round
   def percent_correct_by_category(category)
     category_total = 0
     @turns.each do |turn|
-      if turn.card.category == category
-        category_total += 1
-      end
+      category_total += 1 if turn.card.category == category
     end
-    return (number_correct_by_category(category) / category_total) * 100
+    (number_correct_by_category(category) / category_total) * 100
   end
-
 end
