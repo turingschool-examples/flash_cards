@@ -10,16 +10,16 @@ RSpec.describe Turn do
     expect(turn).to be_instance_of(Turn)
   end
 
-  it 'has a guess' do
-    turn.guess
-
-    expect(turn.guess).to eq("Juneau")
-  end
-
   it 'has a card' do
     turn.card
 
     expect(turn).to be_instance_of(Turn)
+  end
+
+  it 'has a guess' do
+    turn.guess
+
+    expect(turn.guess).to eq("Juneau")
   end
 
   it 'is correct' do
