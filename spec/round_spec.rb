@@ -61,10 +61,7 @@ RSpec.describe Round do
     end
 
     it 'calculates percentage of correct answers' do
-      round.number_correct_by_category(:STEM)
-      round.number_correct_by_category(:Geography)
-
-
+      expect(round.percent_correct).to eq(100)
     end
   end
 end
