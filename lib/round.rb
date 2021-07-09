@@ -42,4 +42,18 @@ class Round
     (number_correct_by_category(category).to_f / turns_per_category(category).to_f) * 100
   end
 
+
+  def start
+    puts "Welcome! You're playing with #{deck.cards.count} cards."
+    puts "-------------------------------------------------"
+    deck.cards.each do |card|
+      puts "This is card number #{turns.length + 1} out of #{(deck.cards.count + turns.length)}."
+      puts "Question: #{current_card.question}"
+      answer = gets.chomp
+      take_turn(answer.downcase.capitalize)
+      puts turns.last.feedback
+    end
+    puts "****** Game over! ******"
+  end
+
 end
