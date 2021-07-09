@@ -6,7 +6,7 @@ class CardGenerator
     @file = File.new(file)
   end
 
-  def convert_to_array
+  def file_to_array
     string_cards = @file.readlines
     string_cards.map do |string|
       string.chomp
@@ -30,6 +30,6 @@ class CardGenerator
   end
 
   def cards
-    make_cards(split_string(convert_to_array))
+    make_cards(split_string(file_to_array))
   end
 end
