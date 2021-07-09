@@ -77,17 +77,17 @@ RSpec.describe Round do
   end
 
   it 'tracks percent correct' do
-    new_turn = @round.take_turn("Juneau")
-    turn_2 = @round.take_turn("Venus")
+    @round.take_turn("Juneau")
+    @round.take_turn("Venus")
 
-    expect(@round.percent_correct).to eq (50.0)
+    expect(@round.percent_correct).to eq(50.0)
   end
 
   it 'tracks percent correct by category' do
-    turn_1 = @round.take_turn("Juneau")
-    turn_2 = @round.take_turn("Venus")
-    turn_3 = @round.take_turn("North north west")
-    turn_4 = @round.take_turn(8)
+    @round.take_turn("Juneau")
+    @round.take_turn("Venus")
+    @round.take_turn("North north west")
+    @round.take_turn(8)
 
     expect(@round.percent_correct_by_category(:Geography)).to eq (100.0)
     expect(@round.percent_correct_by_category(:STEM)).to eq (50.0)

@@ -8,7 +8,11 @@ class Turn
   end
 
   def correct?
-    guess == @card.answer
+    if guess.is_a? String
+      guess.downcase == @card.answer.downcase
+    else
+      guess == @card.answer
+    end
   end
 
   def feedback
