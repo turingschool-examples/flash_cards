@@ -10,13 +10,8 @@ class Deck
   end
 
   def cards_in_category(category)
-    sorted = []
-    @cards.each do |card|
-      if card.category == category
-        sorted << card
-      end
+    @cards.find_all do |card|
+      card.category == category
     end
-    return sorted
   end
-  
 end
