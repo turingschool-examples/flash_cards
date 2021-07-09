@@ -38,6 +38,13 @@ def play_flashcards
 
     puts "You had #{@round.number_correct} correct #{guess} out of #{@cards.length} for a total score of #{@round.percent_correct.to_i}% correct."
 
+    categories = @cards.map do |card|
+      card.category
+    end
+
+    categories.uniq.map do |category|
+      puts "#{category} - #{@round.percent_correct_by_category(category).to_i}% correct"
+    end
   end
 end
 
