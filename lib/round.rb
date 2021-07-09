@@ -10,6 +10,8 @@ class Round
   def current_card
     index_number = @turns.length % @deck.cards.length #returns to index [0] once number of turns = number of cards; avoids running out of cards for turns
     @deck.cards[index_number]
+      #originanal thought for code below does not account for running out of cards before turns.
+    # @deck.cards[@turns.length] 
   end
 
   def take_turn(current_guess)
