@@ -8,13 +8,14 @@ class Round
     @turns = []
     @current_card = deck.cards.first
     @number_correct = 0
+    @used_cards = []
   end
 
   def take_turn(current_guess)
     current_turn = Turn.new(current_guess, current_card)
     @turns << current_turn
     add_correct_turns(current_turn)
-    @current_card = next_card
+    next_card
     return current_turn
   end
 
@@ -24,13 +25,8 @@ class Round
     end
   end
 
-  def current_card_slot
-    @deck.cards.index
-  end
-
   def next_card
-    next_card_slot = current_card_slot + 1
-    @deck.cards
+    @used_cards << @current_card
   end
 
   def number_correct_by_category(category)
