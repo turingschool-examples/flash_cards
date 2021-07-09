@@ -42,5 +42,21 @@ class Round
     (number_correct_by_category(category).to_f / turns_per_category(category).to_f) * 100
   end
 
+  def start
+    puts "Welcome! You're playing with #{deck.cards.count} cards."
+    puts "-------------------------------------------------"
+    while deck.cards.length > 0 do
+      card = deck.cards.last
+      puts "This is card number #{turns.length + 1} out of #{(deck.cards.count + turns.length)}."
+      puts "Question: #{current_card.question}"
+      guess = gets.chomp
+      puts take_turn(guess.downcase.delete "!.?").feedback
+    end
+    puts "****** Game over! ******"
+    puts "You had #{number_correct} correct guesses out of #{turns.length} for a total score of #{percent_correct}."
+    percentage_array = turns.map do |turn|
+      "#{turn.card.category} - #{percent_correct_by_category(turn.card.category)}%"
+    end
+    puts percentage_array.uniq
+  end
 end
- 
