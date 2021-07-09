@@ -26,15 +26,12 @@ RSpec.describe Turn do
   end
 
   describe '#correct?' do
-    it 'returns true when guess is correct' do
+    it 'can verify correctness' do
       card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       turn = Turn.new("Juneau", card)
 
       expect(turn.correct?).to be true
-    end
 
-    it 'returns false when guess is incorrect' do
-      card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       turn = Turn.new("London", card)
 
       expect(turn.correct?).to be false
@@ -42,15 +39,12 @@ RSpec.describe Turn do
   end
 
   describe '#feedback' do
-    it "text" do
+    it "gives feedback" do
       card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       turn = Turn.new("Juneau", card)
 
       expect(turn.feedback).to eq("Correct!")
-    end
 
-    it "text" do
-      card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       turn = Turn.new("London", card)
 
       expect(turn.feedback).to eq("Incorrect.")
