@@ -41,7 +41,9 @@ end
 
 def game_over(round)
   puts "You had #{round.number_correct} correct guesses out of #{round.deck.count} for a total of #{round.percent_correct}%."
-  
+  get_categories(round).each do |category|
+    category_message(category, round)
+  end
 end
 
 def get_categories(round)
@@ -52,5 +54,7 @@ def get_categories(round)
   unique_categories
 end
 
-
+def category_message(category, round)
+  puts "#{category} - #{round.percent_correct_by_category(category)}% correct"
+end
 start(round)
