@@ -35,6 +35,7 @@ class Round
     end
     correct_turns.length
   end
+  
   def percent_correct
     if @turns.length > 0
       percentage_in_progress = number_correct * 100.0
@@ -50,6 +51,7 @@ class Round
     end
 
     category_number_correct = number_correct_by_category(category)
+
     if category_number_correct > 0
       category_percentage_in_progress = category_number_correct * 100.00
       (category_percentage_in_progress / turns_in_category.length).round(1)
