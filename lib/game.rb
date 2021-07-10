@@ -9,7 +9,7 @@ class Game
   attr_reader :round
 
   def initialize
-    @round = make_round
+    @round = Deck.new(make_cards)
   end
 
   # This could be refactored?
@@ -17,14 +17,6 @@ class Game
     filename = 'cards.txt'
     card_generator = CardGenerator.new(filename)
     card_generator.cards
-  end
-
-  def make_deck
-    Deck.new(make_cards)
-  end
-
-  def make_round
-    Round.new(make_deck)
   end
 
   def start
