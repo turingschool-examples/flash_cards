@@ -16,12 +16,6 @@ RSpec.describe CardGenerator do
 
       expect(card_generator.filename).to eq('cards.txt')
     end
-
-    # I have no idea how to test this.
-    # Also I'm not sure @raw_cards needs to be readable outside the class.
-    it 'has raw cards from file' do
-
-    end
   end
 
   # This just opens cards, read-only. I'm not sure how to test this.
@@ -30,24 +24,24 @@ RSpec.describe CardGenerator do
   end
 
   # Similar to above, the following test is difficult since the file may change.
-  # context '#raw_cards_by_line' do
-  #   it 'outputs array with each line' do
-  #     filename = 'cards.txt'
-  #     card_generator = CardGenerator.new(filename)
-  #
-  #     raw_cards = card_generator.raw_cards_by_line
-  #
-  #     expect(raw_cards).to be_instance_of(Array)
-  #
-  #     # I assume this is a faux paux? Just curious.
-  #     raw_cards.each do |element|
-  #       expect(element).to be_instance_of(String)
-  #     end
-  #   end
-  # end
+  context '#raw_cards_by_line' do
+    it 'outputs array with each line a string' do
+      filename = 'cards.txt'
+      card_generator = CardGenerator.new(filename)
+
+      raw_cards = card_generator.raw_cards_by_line(card_generator.open_cards)
+
+      expect(raw_cards).to be_instance_of(Array)
+
+      # I assume this is a faux paux? Just curious.
+      raw_cards.each do |element|
+        expect(element).to be_instance_of(String)
+      end
+    end
+  end
 
   context '#remove_newlines' do
-    it 'removes \n from an array of strings' do
+    it 'removes \n from end of each element in an array of strings' do
       filename = 'cards.txt'
       card_generator = CardGenerator.new(filename)
 
@@ -74,6 +68,7 @@ RSpec.describe CardGenerator do
     end
   end
 
+  # Requires array of arrays. Inner arrays must contain 3 string elements.
   context '#make_cards_from_array' do
     it 'makes an array of cards' do
       filename = 'cards.txt'
