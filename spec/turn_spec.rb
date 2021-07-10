@@ -22,7 +22,7 @@ RSpec.describe Turn do
     expect(turn.card).to eq(Card)
   end
 
-  xit 'grades the guess' do
+  it 'grades the guess' do
     turn = Turn.new("42", "What's the meaning of life?")
 
     expect(turn.correct?).to be(true).or be(false)
