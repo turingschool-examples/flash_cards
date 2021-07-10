@@ -2,8 +2,18 @@ require 'spec_helper'
 
 RSpec.describe CardGenerator do
  it 'exists' do
-   cards = CardGenerator.new(filename).cards
+   card_gen = CardGenerator.new('cards.txt')
 
-   expect(cards).to be_a CardGenerator
+   expect(card_gen).to be_a CardGenerator
+ end
+
+ it 'can create cards' do
+   card_gen = CardGenerator.new('cards.txt')
+   # expected = , 'Juneau', :Geography)
+
+   cards = card_gen.cards
+   
+   expect(cards[0]).to be_a Card
+   expect(cards[0].question).to eq('What is the capital of Alaska?')
  end
 end
