@@ -1,31 +1,21 @@
 class Turn
-  attr_reader :answer
+  attr_reader :answer, :card, :guess
+
   def initialize(guess, card)
     @guess = guess
     @card = card
   end
 
-  def guess
-    @guess
-  end
-
-  def card
-    @card
-  end
-
   def correct?
-    if @guess.downcase == card.answer.downcase
-      true
-    else
-      false
-    end
+    @guess.downcase == card.answer.downcase
   end
 
   def feedback
-    if @guess.downcase == card.answer.downcase
+    if correct? == true
       "Correct!"
     else
       "Incorrect."
     end
   end
+
 end
