@@ -1,12 +1,11 @@
 class CardGenerator
 
-  def initialize(cards)
-    @cards = cards
-
+  def initialize(file_location)
+    @file_location = file_location
   end
 
   def create_array
-    cards_txt = File.open(@cards)
+    cards_txt = File.open(@file_location)
     cards_arr = cards_txt.readlines.map(&:chomp)
   end
 
@@ -15,9 +14,6 @@ class CardGenerator
   end
 
   def make_cards
-
-
-    seperate_array.map {|card| Card.new(*card)}
-
+    @card_set = seperate_array.map {|card| Card.new(*card)}
   end
 end

@@ -19,14 +19,15 @@ RSpec.describe CardGenerator do
     file_name = './lib/cards.txt'
     cards = CardGenerator.new(file_name)
 
-
-
     expect(cards.seperate_array.first).to eq(["What is 1+1?", "2", "Math"])
-
   end
 
+  it 'can create cards' do
+    file_name = './lib/cards.txt'
+    cards = CardGenerator.new(file_name)
 
-
+    expect(cards.make_cards.first).to be_a(Card)
+  end
 
 
 
