@@ -49,4 +49,8 @@ class Round
       ((number_correct.to_f / @count) * 100).to_i
     end
 
+    def percent_correct_by_category(category)
+      ((number_correct_by_category(category) / deck.cards_in_category(:Geography).length) * 100)
+    end
+
 end
