@@ -8,7 +8,7 @@ class Turn
     @card = card
   end
 
-  def is_correct?
+  def correct?
     if @guess == @card.answer
       true
     elsif @guess != @card.answer
