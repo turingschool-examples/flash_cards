@@ -64,28 +64,4 @@ RSpec.describe Deck do
     expect(deck.cards_in_category("Pop Culture")).to eq([])
   end
 
-  it 'get a card category' do
-    card_set = CardGenerator.new('./lib/cards.txt').make_cards
-    deck = Deck.new(card_set)
-
-    expect(deck.first_card_category).to eq('Math')
-  end
-
-  it 'get all categories' do
-    card_set = CardGenerator.new('./lib/cards.txt').make_cards
-    deck = Deck.new(card_set)
-
-
-    expect(deck.all_categories).to eq(['Math', 'Math', 'Dinosaurs', 'Dinosaurs'])
-  end
-
-  it 'get only unique categories' do
-    card_set = CardGenerator.new('./lib/cards.txt').make_cards
-    deck = Deck.new(card_set)
-
-    expect(deck.categories).to eq(['Math', 'Dinosaurs'])
-  end
-
-
-
 end
