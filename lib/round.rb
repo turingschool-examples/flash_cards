@@ -6,7 +6,7 @@ class Round
     @turns = []
     @number_correct = 0 #instance variable necessary?
     @correct_turns = []
-    @used_cards = []#will be redundant if fixed
+    @used_cards = []
   end
 
   def current_card
@@ -35,4 +35,22 @@ class Round
     type_turns = @used_cards.find_all {|card| card.category == type}
     number_correct_by_category(type) * 100 / type_turns.length
   end
+
+  def first_card_category
+    @used_cards.shift.category
+  end
+
+  def all_categories
+    num_cards = @used_cards.length
+    card_categories = []
+    num_cards.times {card_categories << first_card_category} #may be able to do this differently with map
+    card_categories
+  end
+
+  def used_categories
+    all_categories.uniq
+  end
+
+
+
 end
