@@ -3,7 +3,7 @@ require './lib/deck'
 require './lib/card'
 require './lib/round'
 require './lib/turn'
-require './flashcard_runner'
+require './lib/flashcard_runner'
 
 RSpec.describe FlashcardRunner do
   it "exists" do
@@ -11,7 +11,7 @@ RSpec.describe FlashcardRunner do
     deck = Deck.new(cards)
     round = Round.new(deck)
     flashcard_runner = FlashcardRunner.new(round)
-
+    flashcard_runner.game_over_categories
     expect(flashcard_runner).to be_a(FlashcardRunner)
   end
 
