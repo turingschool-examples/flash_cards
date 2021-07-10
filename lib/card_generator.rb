@@ -9,6 +9,7 @@ class CardGenerator
   end
 
   def generate_cards
+    lines = @file.split("\n")
     require "pry"; binding.pry
   end
 end
