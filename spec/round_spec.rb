@@ -136,4 +136,33 @@ RSpec.describe Round do
     round.take_turn("Ted")
     expect(round.card_count).to eq(2)
   end
+
+  it "can count turns" do
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+
+    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+
+    deck = Deck.new([card_1, card_2])
+
+    round = Round.new(deck)
+
+    expect(round.turn_count).to eq(1)
+    round.take_turn("Juneau")
+    expect(round.turn_count).to eq(2)
+  end
+
+  it "can display current card's question" do
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+    deck = Deck.new([card_1, card_2])
+
+    round = Round.new(deck)
+
+    expect(round.current_question).to eq("What is the capital of Alaska?")
+
+    round.take_turn("Juneau")
+
+    expect(round.current_question).to eq("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?")
+  end
+
 end

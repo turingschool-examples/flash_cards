@@ -44,4 +44,12 @@ class Round
   def card_count
     @turns.length + @deck.cards.length
   end
+
+  def turn_count
+    @turns.length + 1
+  end
+
+  def current_question
+    current_card.question
+  end
 end
