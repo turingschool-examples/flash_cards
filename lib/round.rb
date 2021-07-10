@@ -13,7 +13,7 @@ class Round
 
   def take_turn(guess)
     turn_store = Turn.new(guess, current_card)
-    turn_store << @turns
+    turn_store.push(@turns)
     turn_store
   end
 
