@@ -6,7 +6,7 @@ class Turn
     @guess = guess
     @card = card
   end
-
+  
   def guess
     @guess
   end
