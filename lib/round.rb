@@ -4,7 +4,7 @@ class Round
   def initialize(deck)
     @deck = deck
     @turns = []
-    @number_correct = 0 #instance variable necessary?
+    @number_correct = 0
     @correct_turns = []
     @used_cards = []
   end
@@ -17,9 +17,9 @@ class Round
     turn = Turn.new(guess, current_card)
     @turns << turn
     @number_correct += 1 if turn.correct?
-    @deck.cards.shift #is destructive, may need to change if need to loop deck later
-    @correct_turns << turn.card if turn.correct? #source of all of my earlier hardships. Fixing now will break round.
-    @used_cards << turn.card #may not be needed with @correct_turns fix
+    @deck.cards.shift
+    @correct_turns << turn.card if turn.correct?
+    @used_cards << turn.card
     turn
   end
 
@@ -28,7 +28,7 @@ class Round
   end
 
   def percent_correct
-    @number_correct *100 / turns.length
+    @number_correct *100 / @used_cards.length
   end
 
   def percent_correct_by_category(type)
@@ -37,11 +37,12 @@ class Round
   end
 
   def first_card_category
-    @used_cards.shift.category
+    cards = @turns
+    cards.shift.card.category
   end
 
   def all_categories
-    num_cards = @used_cards.length
+    num_cards = turns.length
     card_categories = []
     num_cards.times {card_categories << first_card_category} #may be able to do this differently with map
     card_categories

@@ -108,6 +108,8 @@ RSpec.describe Round do
       expect(round.current_card).to eq(card_3)
     end
 
+
+        #try nesting these tests later to match nested method
     it 'get a used card category' do
       card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
@@ -147,7 +149,10 @@ RSpec.describe Round do
       round.take_turn('Venus')
       round.take_turn('North north west')
 
+      require "pry" ; binding.pry
+      
       expect(round.used_categories).to eq([:Geography, :STEM])
+      expect(round.used_cards.length).to eq(3)
     end
 
 
