@@ -18,11 +18,15 @@ class Game
     current_question_to_ask
   end
 
-  # def rest_of_the_rounds
-  #   card_number_to_deck_count
-  #   current_question_to_ask
+  # def next_round(round)
+  #   until @current_card == @deck.count do
+  #     card_number_to_deck_count
+  #     current_question_to_ask
+  #     new_guess = gets.chomp
+  #     first_round.take_turn(new_guess)
+  #     puts first_round.number_correct #feedback
+  #   end
   # end
-
 
   def card_number_to_deck_count
     puts "This is card number #{@current_card} of #{@deck.count}" #CURRENT CARD NOT WORKING
