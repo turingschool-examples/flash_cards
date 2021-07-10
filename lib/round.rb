@@ -45,5 +45,4 @@ class Round
   def turn_count
     @turns.count + 1
   end
-
 end

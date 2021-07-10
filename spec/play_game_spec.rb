@@ -14,7 +14,7 @@ RSpec.describe PlayGame do
 end
 
 # to - do:
-  # 3 - 7 methods - testing depends on if it takes user input or just returns a string
-  # don't need to test puts
-  # cards method - tests instantiates and returns an array of cards
-  # user input gets.chomp as it's own method so I can later stub
+# 3 - 7 methods - testing depends on if it takes user input or just returns a string
+# don't need to test puts
+# cards method - tests instantiates and returns an array of cards
+# user input gets.chomp as it's own method so I can later stub
