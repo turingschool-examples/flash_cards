@@ -1,7 +1,7 @@
 require 'simplecov'
 SimpleCov.start do
   add_filter './lib/game'
-end 
+end
 
 require './lib/card'
 require './lib/turn'

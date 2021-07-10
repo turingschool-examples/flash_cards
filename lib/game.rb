@@ -3,10 +3,10 @@ require './lib/turn'
 require './lib/deck'
 require './lib/round'
 require './lib/card_generator'
-class Game
 
+class Game
   def initialize
-    @cards = CardGenerator.new("cards.txt").generate_cards
+    @cards = CardGenerator.new('cards.txt').generate_cards
     @deck = Deck.new(@cards)
     @round = Round.new(@deck)
   end
@@ -20,7 +20,7 @@ class Game
 
   def welcome_msg
     puts "Welcome! You're playing with #{@deck.count} cards."
-    puts "-------------------------------------------------"
+    puts '-------------------------------------------------'
   end
 
   def turn_interaction
@@ -34,7 +34,7 @@ class Game
   end
 
   def end_game_total
-    puts "****** Game over! ******"
+    puts '****** Game over! ******'
     puts "You had #{@round.number_correct} out of #{@deck.count} for a total score of #{@round.percent_correct}%."
   end
 

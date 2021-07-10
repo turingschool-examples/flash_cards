@@ -1,5 +1,4 @@
 class Round
-
   attr_reader :deck, :turns
 
   def initialize(deck)
@@ -29,9 +28,7 @@ class Round
 
   def number_correct_by_category(category)
     @turns.count do |turn|
-      if turn.card.category == category
-        turn.correct?
-      end
+      turn.correct? if turn.card.category == category
     end
   end
 
@@ -40,6 +37,6 @@ class Round
   end
 
   def percent_correct_by_category(category)
-      (number_correct_by_category(category).fdiv(@deck.cards_in_category(category).count) * 100).round(0)
+    (number_correct_by_category(category).fdiv(@deck.cards_in_category(category).count) * 100).round(0)
   end
 end
