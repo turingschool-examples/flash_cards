@@ -44,6 +44,8 @@ RSpec.describe Deck do
     expect(card_3).to be_instance_of(Card)
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
-    expect(deck.cards_in_category).to eq(:STEM)
+
+    expect(deck.cards_in_category(:Geography)).to eq([card_1])
+    expect(deck.cards_in_category("Pop Culture")).to eq([])
   end
 end

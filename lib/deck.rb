@@ -9,6 +9,7 @@ attr_reader :cards
     count = cards.count
   end
 
-  def cards_in_category
+  def cards_in_category(cat)
+    return @cards.select { |e| e.category == cat  }
   end
 end
