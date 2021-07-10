@@ -1,0 +1,11 @@
+Who is the greatest quarterback of all time?,Tom Brady,Sports
+What is Mac Jones' middle name,McCorkle,Sports
+What teams are in the UEFA Euro Finals?,Italy and England,Sports
+What town in Maine is Henry from?,Cumberland,Henry
+What is Henry's favorite music venue?,Red Rocks,Henry
+What fruit is a hybrid of tangerines and pomelos?,orange,Fruit
+What kind of dog is Obie?,Golden Retriever/Husky,Dogs
+What is the best cheap beer?PBR,Beer
+What brewery makes Heady Topper?The Alchemist,Beer
+What is the capital of Vermont?Montpelier,Geography
+What mountain's peak is furthest from the center of the Earth?Chimborazo,Geography
