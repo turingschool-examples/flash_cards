@@ -9,8 +9,8 @@ class Deck
   def cards_in_category(category)
       @cards.find_all do |card|
       category == card.category
-
+#instance variable processing power is being used 100%
     #require "pry"; binding.pry
     end
   end
-end
+end  
