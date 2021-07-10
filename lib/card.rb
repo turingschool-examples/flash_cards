@@ -1,3 +1,5 @@
+require './lib/turn'
+  
 class Card
   def initialize(question, answer, category)
   @question = question
