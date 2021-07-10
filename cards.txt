@@ -1,0 +1,5 @@
+What is the capital of Maine?,Augusta,Geography
+What is the Game of Games?,Chardee MacDennis,TV
+Who won the Stanley Cup in 1996 during their inaugural season?,Colorado Avalanche,Sports
+Who said, You miss 100 percent of the shots you don't take - Wayne Gretzky?,Michael Scott,TV
+Which baseball player has the most career hits?,Pete Rose,Sports
