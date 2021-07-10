@@ -13,17 +13,14 @@ class Round
     end
 
     def current_card
-      deck.cards[count]
+      @deck.cards[count]
     end
 
     def take_turn(guess)
-      #turns = Turn.new("Juneau", current_card)
-      #@deck.cards.shift
       turn = Turn.new(guess, current_card)
       @turns << turn
       @count += 1
       turn
-              require "pry"; binding.pry
     end
 
     def number_correct
@@ -35,6 +32,21 @@ class Round
         end
       end
         count_of_correct_turns
+    end
+
+    def number_correct_by_category(category)
+      correct_count = 0
+      @turns.each do |turn|
+        if turn.correct? == true && turn.card.category == category
+          correct_count = correct_count + 1
+        end
+      end
+      correct_count
+    end
+
+    def percent_correct
+      division_to_integer  = (number_correct.to_f / @count)
+      ((number_correct.to_f / @count) * 100).to_i
     end
 
 end

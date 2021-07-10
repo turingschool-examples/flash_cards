@@ -62,5 +62,5 @@ RSpec.describe Deck do
     deck = Deck.new(cards)
 
     expect(deck.cards_in_category('Pop Culture')).to eq([])
-  end
+  end 
 end
