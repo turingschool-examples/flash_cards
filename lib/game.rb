@@ -2,6 +2,7 @@ require './lib/card'
 require './lib/turn'
 require './lib/deck'
 require './lib/round'
+require './lib/card_generator'
 
 # Sets up the CLI and makes playable.
 class Game
@@ -11,13 +12,11 @@ class Game
     @round = make_round
   end
 
-  # This could be refactored? Right now it both makes cards, and returns array containing them.
+  # This could be refactored?
   def make_cards
-    card_1 = Card.new("What is 5 + 5?", "10", :STEM)
-    card_2 = Card.new("What is Rachel's favorite animal?", "jabberwocky", "Turing Staff")
-    card_3 = Card.new("What is Mike's middle name?", "nobody knows", "Turing Staff")
-    card_4 = Card.new("What cardboard cutout lives at Turing?", "Justin Beiber", "Pop Culture")
-    [card_1, card_2, card_3, card_4]
+    filename = 'cards.txt'
+    card_generator = CardGenerator.new(filename)
+    card_generator.cards
   end
 
   def make_deck
@@ -28,7 +27,6 @@ class Game
     Round.new(make_deck)
   end
 
-  # Not sure how to refactor.
   def start
     puts welcome_message
     take_turns
@@ -39,7 +37,6 @@ class Game
     "Welcome! You're playing with #{@round.deck.cards.count} cards.\n-------------------------------------------------"
   end
 
-  # Not sure how to refactor.
   def take_turns
     until @round.current_card == nil
       puts card_position
