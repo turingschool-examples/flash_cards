@@ -14,4 +14,10 @@ class CardGenerator
     create_array.map {|card| card.split(',')}
   end
 
+  def make_cards
+
+
+    seperate_array.map {|card| Card.new(*card)}
+
+  end
 end
