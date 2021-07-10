@@ -1,21 +1,21 @@
-class PlayGame
+require './lib/card'
+require './lib/turn'
+require './lib/deck'
+require './lib/round'
+require './lib/card_generator'
 
-  def start_game
-    make_cards
+class PlayGame
+  def initialize
+    @cards = CardGenerator.new('cards.txt').cards
     @deck = Deck.new(@cards)
     @round = Round.new(@deck)
+  end
+
+  def start_game
+    @cards
     begin_game
     game_flow
     end_game
-  end
-
-  def make_cards
-    @card_1 = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
-    @card_2 = Card.new('How long is the backend program at Turing?', '7 months', :Turing)
-    @card_3 = Card.new('What does FSD stand for? Hint: Pesto Paws!', 'Freedom Service Dogs', :Pesto)
-    @card_4 = Card.new('How long are the modules or innings at Turing?', '6 weeks', :Turing)
-    @card_5 = Card.new("Is it appropriate to greet or 'say hello' to Pesto when you meet him?", 'No', :Pesto)
-    @cards = [@card_1, @card_2, @card_3, @card_4, @card_5]
   end
 
   def begin_game
@@ -28,7 +28,7 @@ class PlayGame
 
       puts "Question: #{@round.current_card.question}"
       @round.take_turn(user_guess)
-      puts "#{@round.turns.last.feedback}"
+      puts @round.turns.last.feedback.to_s
     end
   end
 
@@ -37,7 +37,10 @@ class PlayGame
   end
 
   def end_game
-    puts "****** Game over! ******"
+    puts '****** Game over! ******'
+    # iterate over @deck.cards to get catergories
+    # then iterate over above and within iteration
+    # p #{@round.percent_correct_by_category(:Geography).round(0)}% correct
     puts "You had #{@round.number_correct} correct guesses out of #{@deck.count} for a total score of #{@round.percent_correct}%.
     Geography - #{@round.percent_correct_by_category(:Geography).round(0)}% correct
     Turing - #{@round.percent_correct_by_category(:Turing).round(0)}% correct
