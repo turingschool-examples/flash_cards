@@ -41,5 +41,16 @@ end
 
 def game_over(round)
   puts "You had #{round.number_correct} correct guesses out of #{round.deck.count} for a total of #{round.percent_correct}%."
+  
 end
+
+def get_categories(round)
+  unique_categories = []
+  round.turns.each do |turn|
+    unique_categories << turn.card.category if !(unique_categories.include?(turn.card.category))
+  end
+  unique_categories
+end
+
+
 start(round)
