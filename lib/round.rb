@@ -50,7 +50,7 @@ class Round
     end
 
     def percent_correct_by_category(category)
-      ((number_correct_by_category(category) / deck.cards_in_category(:Geography).length) * 100)
+      ((number_correct_by_category(category) / deck.cards_in_category(:Geography).length) * 100).to_f
     end
 
 end
