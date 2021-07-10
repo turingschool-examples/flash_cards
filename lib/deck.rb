@@ -16,13 +16,13 @@ class Deck
     end
   end
 
-  def cards_in_category2(category)
-    selected_cards = []
-    @cards.each do |card|
-      if card.category == category
-        selected_cards << card
-      end
-    end
-    selected_cards
-  end
+  # def cards_in_category2(category)
+  #   selected_cards = []
+  #   @cards.each do |card|
+  #     if card.category == category
+  #       selected_cards << card
+  #     end
+  #   end
+  #   selected_cards
+  # end
 end

@@ -1,5 +1,4 @@
-require './lib/card'
-require './lib/deck'
+require_relative 'spec_helper'
 
 RSpec.describe(Deck) do
   it 'exists' do
