@@ -9,7 +9,9 @@ class CardGenerator
   end
 
   def generate_cards
-    lines = @file.split("\n")
-    require "pry"; binding.pry
+    card_info = @file.split("\n")
+    card_info.each do |info|
+      @cards << Card.new(info.split(',')[0], info.split(',')[1], info.split(',')[2].to_sym)
+    end
   end
 end

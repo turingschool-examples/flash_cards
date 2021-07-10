@@ -15,8 +15,12 @@ RSpec.describe CardGenerator do
     end
 
     it '.cards is an array with cards' do 
-      expect(card_generator.cards.first).to be_a Card 
-      expect(card_generator.cards.last).to be_a Card 
+      card_generator.generate_cards
+      expect(card_generator.cards).to_not be_empty
+      card_generator.cards.each do |card|
+        expect(card).to be_a Card 
+      end
+      
     end
     
   end
