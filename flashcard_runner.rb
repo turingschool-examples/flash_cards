@@ -50,7 +50,7 @@ class Game
  end
 
  def card_quantity
-
+   "You have #{deck.count} cards to play with."
  end
 
  def quit_message
