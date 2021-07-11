@@ -18,16 +18,28 @@ class Game
     puts "Question: #{round.current_card.question}"
      # new_guess= round.take_turn(gets.chomp)
     # if new_guess == round.current_card.answer.correct?
-    if gets.chomp == round.current_card.answer
-      round.take_turn(gets.chomp)
-      puts "Correct!"
-    else
-      round.take_turn(gets.chomp)
-    puts "Incorrect!"
-  end
+      guess = gets.chomp
+     round.take_turn(guess)
+     puts round.turns.last.feedback
+
+  #   if gets.chomp == round.current_card.answer
+  #     round.take_turn(gets.chomp)
+  #     puts "Correct!"
+  #   else
+  #     round.take_turn(gets.chomp)
+  #   puts "Incorrect!"
+  # end
 end
 puts "****** Game over! ******
-You had correct #{round.deck.count+3} guesses out of #{round.deck.count+4} for a total score of 75%"
+You had  #{round.number_correct} correct guesses out of #{round.deck.count+4} for a total score of #{round.percent_correct}%"
+each_category = round.turns.map do |turn|
+  turn.card.category
+
+end
+ each_category.uniq.each do |category|
+   puts "#{category}  - #{round.percent_correct_by_category(category)}% correct"
+ end
+
 end
 # end
   # def draw_card
