@@ -11,18 +11,6 @@ cards = [card_1, card_2, card_3, card_4]
 deck = Deck.new(cards)
 round = Round.new(deck)
 
-def start
-  deck_count = @round.deck.count
-
-  puts "Welcome! You're playing with #{deck_count} cards."
-  puts "-------------------------------------------------"
-  puts "This is card number #{@cards.length} out of #{@deck.count}."
-  puts "Question: What is 5 + 5?"
-  gets.chomp
-end
-
-
-
 # puts "Welcome! You're playing with #{@deck.count} cards."
 # puts "-------------------------------------------------"
 # puts "This is card number 1 out of #{@deck.count}."
