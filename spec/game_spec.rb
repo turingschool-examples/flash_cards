@@ -3,7 +3,7 @@ require './lib/deck'
 require './lib/card'
 require './lib/round'
 require './lib/turn'
-require './lib/flashcard_runner'
+require './lib/game'
 
 RSpec.describe FlashcardRunner do
   it "exists" do
@@ -22,27 +22,6 @@ RSpec.describe FlashcardRunner do
     flashcard_runner = FlashcardRunner.new(round)
 
     expect(flashcard_runner.round).to eq(round)
-  end
-
-  it "has a start message" do
-    card_1 = Card.new("Question: What is 5 + 5?", 10, :STEM)
-    cards = [card_1]
-    deck = Deck.new(cards)
-    round = Round.new(deck)
-    flashcard_runner = FlashcardRunner.new(round)
-
-    expect(flashcard_runner.start_message).to eq("Welcome! You're playing with 1 cards. \n
-    ------------------------------------------------- \n")
-  end
-
-  it "has card count ratio" do
-    card_1 = Card.new("Question: What is 5 + 5?", 10, :STEM)
-    cards = [card_1, card_1]
-    deck = Deck.new(cards)
-    round = Round.new(deck)
-    flashcard_runner = FlashcardRunner.new(round)
-
-    expect(flashcard_runner.card_count_ratio).to eq("This is card number 1 out of 2. \n")
   end
 
   it "gets user input" do

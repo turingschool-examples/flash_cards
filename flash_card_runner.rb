@@ -2,7 +2,7 @@ require './lib/card'
 require './lib/deck'
 require './lib/round'
 require './lib/turn'
-require './lib/flashcard_runner'
+require './lib/game'
 
 card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
