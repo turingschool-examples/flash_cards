@@ -1,8 +1,5 @@
 class Round
-  attr_reader :deck,
-              :turns,
-              :number_correct,
-              :order
+  attr_reader :deck, :turns, :number_correct, :order, :number_correct
 
   def initialize(deck)
     @deck           = deck
@@ -19,15 +16,9 @@ class Round
   def take_turn(guess)
     turn_store = Turn.new(guess, current_card)
     @turns.push(turn_store)
-    if turn_store.correct?
-      @number_correct += 1
-    end
-    @order +=1
+    @number_correct += 1 if turn_store.correct?
+    @order += 1
     turn_store
-  end
-
-  def number_correct
-    @number_correct
   end
 
   def number_correct_by_category(category)
@@ -46,7 +37,7 @@ class Round
       turn.card.category == category
     end
     pct_cat_correct = pct_cat.find_all do |turn|
-      turn.correct?  && turn.card.category == category
+      turn.correct? && turn.card.category == category
     end
     Integer((pct_cat_correct.length.to_f / pct_cat.length.to_f) * 100)
   end
