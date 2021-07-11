@@ -46,13 +46,13 @@ def game_over(round)
   end
 end
 
-def get_categories(round)
-  unique_categories = []
-  round.turns.each do |turn|
-    unique_categories << turn.card.category if !(unique_categories.include?(turn.card.category))
-  end
-  unique_categories
-end
+# def get_categories(round)
+#   unique_categories = []
+#   round.turns.each do |turn|
+#     unique_categories << turn.card.category if !(unique_categories.include?(turn.card.category))
+#   end
+#   unique_categories
+# end
 
 def category_message(category, round)
   puts "#{category} - #{round.percent_correct_by_category(category)}% correct"
