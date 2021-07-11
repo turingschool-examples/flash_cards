@@ -11,7 +11,7 @@ RSpec.describe Deck do
   end
 
   it 'exists' do
-    expect(@deck).to be_instance_of(Deck)
+    expect(@deck).to be_a(Deck)
   end
 
   it 'can show a collection of all cards' do
@@ -24,13 +24,7 @@ RSpec.describe Deck do
 
   it 'can show a collection of cards in certain categories' do
     expect(@deck.cards_in_category(:STEM)).to eq(@cards.select { |card| card.category == :STEM })
-  end
-
-  it 'can show a collection of cards in certain categories' do
     expect(@deck.cards_in_category(:Geography)).to eq(@cards.select { |card| card.category == :Geography })
-  end
-
-  it 'can show a collection of cards in certain categories' do
     expect(@deck.cards_in_category('Pop Culture')).to eq(@cards.select { |card| card.category == 'Pop Culture' })
   end
 end

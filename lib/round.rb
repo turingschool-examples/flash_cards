@@ -19,11 +19,15 @@ class Round
   end
 
   def number_correct
-    @turns.count { |turn| turn.correct? }
+    @turns.count do |turn|
+      turn.correct?
+    end
   end
 
   def number_correct_by_category(cat)
-    @turns.count { |turn| turn.card.category == cat && turn.correct? }
+    @turns.count do |turn|
+      turn.card.category == cat && turn.correct?
+    end
   end
 
   def percent_correct
