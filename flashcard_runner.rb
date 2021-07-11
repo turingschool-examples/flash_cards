@@ -18,15 +18,15 @@ def start(round)
   list_of_categories = []
 
   while round.deck.count > 0
-     puts "This is card number #{round.turns.length + 1} out of #{card_count}."
-     puts "Question: #{round.current_card.question}"
+    puts "This is card number #{round.turns.length + 1} out of #{card_count}."
+    puts "Question: #{round.current_card.question}"
 
-     round.deck.cards.map {|card| card.category }.uniq.each do |category|
-       list_of_categories.push(category) unless list_of_categories.include?(category)
-     end
+    round.deck.cards.map {|card| card.category }.uniq.each do |category|
+      list_of_categories.push(category) unless list_of_categories.include?(category)
+    end
 
-     round.take_turn(gets.chomp)
-     puts round.turns.last.feedback
+    round.take_turn(gets.chomp)
+    puts round.turns.last.feedback
    end
 
   puts "****** Game over! ******"

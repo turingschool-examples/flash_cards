@@ -35,7 +35,7 @@ class Round
 
     @turns.each do |turn|
       if turn.correct? == true && turn.card.category == category
-       correct_answers += 1
+        correct_answers += 1
       end
     end
 
