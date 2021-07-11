@@ -26,12 +26,3 @@ class CardGenerator
   end
 
   end
-
-
-
-
-
-
-
-#take file, split by lines into an array, then iterate over array to create cards???
-# cards = CardGenerator.new(filename).cards
