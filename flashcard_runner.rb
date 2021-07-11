@@ -14,10 +14,30 @@ round = Round.new(deck)
 puts "Welcome! You're playing with #{cards.count} cards."
 40.times {print "-"}
 puts
-p "This is card #{round.turns.count+1} out of #{cards.count+1}"
+p "This is card #{round.turns.count+1} out of #{cards.count}"
 p "#{card_1.question}"
 card_answer = gets.chomp
 if card_answer.capitalize == card_1.answer
+  p "Correct!"
+else
+  p "Incorrect!"
+end
+
+new_turn = round.take_turn("Juneau")
+p "This is card #{round.turns.count+1} out of #{cards.count+1}"
+p "#{card_2.question}"
+card_answer = gets.chomp
+if card_answer.capitalize == card_2.answer
+  p "Correct!"
+else
+  p "Incorrect!"
+end
+
+new_turn = round.take_turn("Juneau")
+p "This is card #{round.turns.count+1} out of #{cards.count+2}"
+p "#{card_3.question}"
+card_answer = gets.chomp
+if card_answer.capitalize == card_3.answer
   p "Correct!"
 else
   p "Incorrect!"
