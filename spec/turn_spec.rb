@@ -4,33 +4,44 @@ require './lib/card'
 
 RSpec.describe Turn do
   it 'exists' do
-    card_1 = Card.new("What is the meaning of life?", "42", "Philosophy")
-    turn = Turn.new("42", card_1)
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Juneau", card)
 
     expect(turn).to be_instance_of(Turn)
   end
 
   it 'has a guess' do
-    turn = Turn.new("42", "What's the meaning of life?")
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Juneau", card)
 
-    expect(turn.guess).to eq("42")
+    expect(turn.guess).to eq("Juneau")
   end
 
   it 'returns the Card' do
-    turn = Turn.new("42", "What's the meaning of life")
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Juneau", card)
 
-    expect(turn.card).to eq(Card)
+    expect(turn.card).to eq(card)
   end
 
   it 'grades the guess' do
-    turn = Turn.new("42", "What's the meaning of life?")
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Juneau", card)
 
-    expect(turn.correct?).to be(true).or be(false)
+    expect(turn.correct?).to eq(true)
   end
 
   it 'gives feedback' do
-    turn = Turn.new("42", "What's the meaning of life?")
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Juneau", card)
 
     expect(turn.feedback).to eq("Correct!").or eq("Incorrect.")
+  end
+
+  it 'can take in another card' do
+    card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+    turn = Turn.new("Saturn", card)
+
+    expect(turn.card).to eq(card)
   end
 end
