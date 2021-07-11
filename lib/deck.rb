@@ -11,5 +11,5 @@ class Deck
 
   def cards_in_category(category)
     @cards.find_all {|type| type.category == category}
-  end
+  end  
 end
