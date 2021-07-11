@@ -53,7 +53,7 @@ class Round
       puts take_turn(guess.downcase.delete "!.?").feedback
     end
     puts "****** Game over! ******"
-    puts "You had #{number_correct} correct guesses out of #{turns.length} for a total score of #{percent_correct}."
+    puts "You had #{number_correct} correct guesses out of #{turns.length} for a total score of #{percent_correct}%."
     percentage_array = turns.map do |turn|
       "#{turn.card.category} - #{percent_correct_by_category(turn.card.category)}%"
     end
