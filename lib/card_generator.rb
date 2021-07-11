@@ -1,6 +1,5 @@
 
 require './lib/card'
-require './lib/deck'
 
 class CardGenerator
   attr_reader :filename
@@ -12,9 +11,9 @@ class CardGenerator
   def cards
     File.open(filename, 'r') do |file|
       file.lines.map do |line|
-        question, answer, category = line.chomp.split
-        Card.new(question, answer, category)
+        question, answer, category = line.chomp.split(',')
 
+        Card.new(question, answer, category.to_sym)
       end
     end
   end

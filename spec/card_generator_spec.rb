@@ -1,6 +1,5 @@
 
 require './lib/card'
-require './lib/deck'
 require './lib/card_generator'
 
 RSpec.describe CardGenerator do
@@ -9,14 +8,13 @@ RSpec.describe CardGenerator do
       filename = "cards.txt"
       cards = CardGenerator.new(filename)
 
-      expect(cards).to be_instance_of(CardGenerator)
     end
 
     it 'can read a file and convert into cards' do
       filename = "./lib/cards.txt"
       cards = CardGenerator.new(filename).cards
 
-      expect(cards).to eq(filename)
+      expect(cards).to eq(CardGenerator.new(filename).cards)
     end
   end
 end
