@@ -30,18 +30,16 @@ class Round
     end
   end
 
-  #I had to get help with the following and not sure I would have gotten there on my own just yet.
   def number_correct_by_category(category)
-    @turns.find_all do |turn|
-      turn.card.category == category && turn.card.answer == turn.guess
-    end.length
-    #I do not understand when/why to call a method after end like in line 37.
+    total_correct = 0.0
+    @turns.each do |turn|
+      total_correct += 1 if turn.correct? && turn.card.category == category
+    end
+    total_correct
   end
-
   #To get percentage I need to take the amount correct and divide it by the amount of turns. Then multiply by 100.
-
   def percent_correct
-    (number_correct.to_f / @turns.length) * 100
+    (number_correct.to_f / @turns.size) * 100
   end
 
   def correct_category(category)
