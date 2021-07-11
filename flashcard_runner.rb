@@ -18,7 +18,6 @@ def start
     puts "This card is #{round.turns.size + 1} out of #{deck.count}"
     puts "Question: #{round.current_card.question}"
     guess = gets.capitalize.chomp
-
     round.take_turn(guess)
     puts round.turns.last.feedback
   end
