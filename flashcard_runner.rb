@@ -14,6 +14,7 @@ card_6 = Card.new("What type of beer comes from the Cologne region of Germany?",
 cards = [card_1, card_2, card_3, card_4, card_5, card_6]
 deck = Deck.new(cards)
 round = Round.new(deck)
+@number_correct = 0
 
 puts "Welcome! You're playing with #{cards.count} cards."
 40.times {print "-"}
@@ -21,7 +22,7 @@ puts
 p "This is card #{round.turns.count+1} out of #{cards.count}"
 p "#{card_1.question}"
 card_answer = gets.chomp
-if card_answer.capitalize == card_1.answer
+if card_answer.capitalize == card_1.answer then @number_correct += 1
   p "Correct!"
 else
   p "Incorrect! The correct answer is #{card_1.answer}"
@@ -31,18 +32,63 @@ new_turn = round.take_turn("Juneau")
 p "This is card #{round.turns.count+1} out of #{cards.count+1}"
 p "#{card_2.question}"
 card_answer = gets.chomp
-if card_answer.capitalize == card_2.answer
-  p "Correct!"
-else
-  p "Incorrect! The correct answer is #{card_2.answer}"
-end
+  if card_answer.capitalize == card_2.answer then @number_correct += 1
+    p "Correct!"
+  else
+    p "Incorrect! The correct answer is #{card_2.answer}"
+  end
 
 new_turn = round.take_turn("Juneau")
 p "This is card #{round.turns.count+1} out of #{cards.count+2}"
 p "#{card_3.question}"
 card_answer = gets.chomp
-if card_answer.capitalize == card_3.answer
+if card_answer.capitalize == card_3.answer then @number_correct += 1
   p "Correct!"
 else
   p "Incorrect! The correct answer is #{card_3.answer}"
 end
+
+new_turn = round.take_turn("Juneau")
+p "This is card #{round.turns.count+1} out of #{cards.count+3}"
+p "#{card_4.question}"
+card_answer = gets.chomp
+if card_answer.capitalize == card_4.answer then @number_correct += 1
+  p "Correct!"
+else
+  p "Incorrect! The correct answer is #{card_4.answer}"
+end
+
+new_turn = round.take_turn("Juneau")
+p "This is card #{round.turns.count+1} out of #{cards.count+4}"
+p "#{card_5.question}"
+card_answer = gets.chomp
+if card_answer.capitalize == card_5.answer then @number_correct += 1
+  p "Correct!"
+else
+  p "Incorrect! The correct answer is #{card_5.answer}"
+end
+
+new_turn = round.take_turn("Juneau")
+p "This is card #{round.turns.count+1} out of #{cards.count+5}"
+p "#{card_6.question}"
+card_answer = gets.chomp
+if card_answer.capitalize == card_6.answer then @number_correct += 1
+  p "Correct!"
+else
+  p "Incorrect! The correct answer is #{card_6.answer}"
+end
+def take_turn(guess)
+  turn = Turn.new(guess, @deck.cards.shift)
+  @number_correct = 0
+  @turns << turn
+    if turn.correct?
+      @number_correct += 1
+    end
+  return turn
+end
+p "****** Game over! ******"
+def percent_correct
+  @number_correct.to_f / 6 * 100
+end
+p "You had #{@number_correct} correct guesses out of 6 for a total score of #{percent_correct.round(1)}%."
+# p "#{Cards.category} - #{round.percent_correct_by_category}"
