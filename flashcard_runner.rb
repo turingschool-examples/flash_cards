@@ -32,19 +32,21 @@ class Game
   end
 
   def beginning
-   puts line
    puts welcome_message
+   puts line
    puts card_quantity
    puts quit_message
    puts line
  end
 
- def line
 
- end
 
  def welcome_message
+   "🧠 " * 3 + "Welcome to JJ's FlashCard Trivia!" + "🧠 " * 3
+ end
 
+ def line
+   "- " * 50
  end
 
  def card_quantity
