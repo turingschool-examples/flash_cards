@@ -58,8 +58,9 @@ class Game
  end
 
  def trivia
-
+   "Trivia question: #{round.current_card.question}"
  end
+
 
  def feedback
 
