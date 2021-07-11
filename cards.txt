@@ -1,4 +1,16 @@
-What is 5 + 5?,10,STEM
-What is Rachel's favorite animal?,red panda,Turing Staff
-What is Mike's middle name?,nobody knows,Turing Staff
-What cardboard cutout lives at Turing?,Justin bieber,PopCulture
+What is one key way to tell if manual ventilations are ineffective?,No Chest Rise,Airway
+The tiny air sacs at the end of the bronchioles are called ____.,Alvioli,Airway
+What is a pneumothorax?,A buildup of air in the space between the chest wall and the lung,Airway
+When is a jaw thrust maneuver used?,When a patient has a possible neck or spinal injury,Airway
+The cardiac disease in which plaque forms and builds up around the inner walls of the blood vessels and causes blockage is called ____.,Atherosclerosis,Cardiology
+Another name for a moving clot is ____.,Embolus,Cardiology
+A clot that floats until it reaches a narrow vessel it is unable to pass is a(n) ____.,Thromboembolism,Cardiology
+How long can the brain be deprived of oxygen without sustaining damage?,4 to 6 minutes,Cardiology
+A normal heart rate in school aged children is ____.,60 to 140,Pediatrics
+Septic shock is usually caused by ____.,Infection,Medical
+What is compensated shock?,The early stage of shock when the body can still function,Medical
+A normal glucose reading in fasting adults is ____., 80 to 120 mg/dL,Medical
+In what type of injury is more than one body system impacted or injured?,Multisystem trauma,Trauma
+What is the term for the ways in which the body can be injured?,Mechanism of Injury (MOI),Trauma
+What are the two types of trauma?,Blunt and penetrating trauma,Trauma
+The pumping of fluid through an organ or tissues is called ____.,Perfusion,Trauma

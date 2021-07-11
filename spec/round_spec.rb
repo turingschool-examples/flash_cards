@@ -100,6 +100,7 @@ RSpec.describe(Round) do
 
     turn_1 = round.take_turn('Juneau')
     turn_2 = round.take_turn('Venus')
+    turn_3 = round.take_turn('North')
 
     expect(round.percent_correct).to eq(33)
   end
