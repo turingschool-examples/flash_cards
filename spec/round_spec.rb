@@ -14,7 +14,7 @@ RSpec.describe Round do
   end
 
   it 'exists' do
-    expect(@round).to be_instance_of(Round)
+    expect(@round).to be_a(Round)
   end
 
   it 'returns the deck' do
@@ -59,8 +59,13 @@ RSpec.describe Round do
     expect(@round.current_card).to eq(@deck.cards.first)
   end
 
-  it 'moves to the next card' do
+  it 'provides positive and negative feedback' do
     @round.take_turn('Juneau')
+
+    expect(@round.turns.count).to eq(1)
+    expect(@round.turns.last.feedback).to eq('Correct!')
+    expect(@round.number_correct).to eq(1)
+
     @round.take_turn('Venus')
 
     expect(@round.turns.count).to eq(2)

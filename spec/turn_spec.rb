@@ -9,14 +9,14 @@ RSpec.describe Turn do
   end
 
   it 'exists' do
-    expect(@turn).to be_instance_of(Turn)
+    expect(@turn).to be_a(Turn)
   end
 
-  it 'returns the guess with the guess method' do
+  it 'returns the guess' do
     expect(@turn.guess).to eq('Juneau')
   end
 
-  it 'returns the Card with the card method' do
+  it 'returns the Card' do
     expect(@turn.card).to eq(@card)
   end
 
@@ -39,19 +39,19 @@ RSpec.describe Turn do
     @turn = Turn.new('Saturn', @card)
   end
 
-  it 'exists' do
+  it 'exists if guess is incorrect' do
     expect(@turn).to be_instance_of(Turn)
   end
 
-  it 'returns the guess with the guess method' do
+  it 'returns an incorrect guess' do
     expect(@turn.guess).to eq('Saturn')
   end
 
-  it 'returns the Card with the card method' do
+  it 'returns the Card for incorrect guess' do
     expect(@turn.card).to eq(@card)
   end
 
-  it 'confirms if the guess is incorrect' do
+  it 'confirms if a guess is incorrect' do
     expect(@turn.correct?).to be false
   end
 
