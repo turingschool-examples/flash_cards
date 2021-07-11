@@ -13,4 +13,4 @@ class Deck
     #require "pry"; binding.pry
     end
   end
-end  
+end

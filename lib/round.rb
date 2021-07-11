@@ -1,5 +1,6 @@
+
 class Round
-  attr_reader :deck, :turns, :count
+  attr_reader :deck, :turns
 
   def initialize(deck)
     @deck = deck
@@ -12,9 +13,11 @@ class Round
   end
 
   def take_turn(guess)
-    @turns << Turn.new(guess, current_card)
+    new_turn=Turn.new(guess, current_card)
+    @turns << new_turn
     @deck.cards.shift
     @turns.last
+    new_turn
   end
 
   def number_correct
@@ -41,9 +44,9 @@ class Round
        turn.card.category == category
       end
       number_correct_by_category(category) / categories.length*100
-    end
-  end
 
+    end
+end
 
 
   #require 'pry'; binding.pry
