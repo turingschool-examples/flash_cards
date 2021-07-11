@@ -61,10 +61,19 @@ class Game
    "Trivia question: #{round.current_card.question}"
  end
 
-
  def feedback
-
+   if round.current_card.answer == @user_input
+     "🔥 Well hot diggity dawg you did that fast! 🔥"
+   elsif
+     @user_input == 'q'
+     "🤮 Quitting is not going to get you far in life... BYEBYE"
+   else
+     "Wrong answer, sorry!"
+   end
  end
+
+
+
 
  def card_number
 
