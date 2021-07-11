@@ -8,14 +8,15 @@ class CardGenerator
   attr_reader :deck
   def initialize(filename)
     @filename = filename
-    @deck = []
+
   end
 
   def create_new_deck
+    cards = []
     File.readlines(@filename).each do |line|
-      @deck << card_from_line(line)
+    cards << card_from_line(line)
     end
-    @deck
+    Deck.new(cards)
   end
 
   def card_from_line(line)
