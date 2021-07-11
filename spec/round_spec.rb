@@ -126,6 +126,17 @@ RSpec.describe Round do
     new_turn = round.take_turn("Juneau")
 
     expect(round.percent_correct_by_category(:Geography)).to eq(100)
+
+    new_turn = round.take_turn("Mars")
+    new_turn = round.take_turn("North north west")
+
+    expect(round.percent_correct_by_category(:STEM)).to eq(100)
+
+    new_turn = round.take_turn("Mars")
+    new_turn = round.take_turn("North south south")
+
+    expect(round.percent_correct_by_category(:STEM)).to eq(50)
+
   end
 
 end
