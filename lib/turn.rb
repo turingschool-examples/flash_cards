@@ -1,3 +1,4 @@
+require 'pry'
 class Turn
   attr_reader :guess, :card
 
@@ -11,10 +12,11 @@ class Turn
   end
 
   def feedback
-    if @guess == @card.answer
+    if @guess == @card.answer.downcase
       "Correct!"
     else
       "Incorrect."
     end
+    # binding.pry
   end
 end
