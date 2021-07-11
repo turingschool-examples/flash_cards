@@ -98,7 +98,7 @@ RSpec.describe Round do
     expect(round.number_correct_by_category(:Geography)).to eq(1)
 
     round.number_correct_by_category(:STEM)
-    
+
     expect(round.number_correct_by_category(:STEM)).to eq(0)
 
   end
@@ -110,7 +110,7 @@ RSpec.describe Round do
     new_turn = round.take_turn("Venus")
     round.percent_correct
 
-    expect(round.percent_correct).to eq(50.0)
+    expect(round.percent_correct).to eq(50)
   end
 
   it 'tells percent correct by category' do
@@ -120,7 +120,7 @@ RSpec.describe Round do
     new_turn = round.take_turn("Venus")
     round.percent_correct_by_category(:Geography)
 
-    expect(round.percent_correct_by_category(:Geography)).to eq(100.0)
+    expect(round.percent_correct_by_category(:Geography)).to eq(100)
   end
 
   it 'has third card' do

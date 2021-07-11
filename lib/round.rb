@@ -38,16 +38,16 @@ class Round
   end
 
   def percent_correct
-    (@number_correct.to_f / @turns.length) * 100
+    Integer((@number_correct.to_f / @turns.length) * 100)
   end
 
   def percent_correct_by_category(category)
     pct_cat = @turns.find_all do |turn|
-      turn.card.category == category && turn.correct?
+      turn.card.category == category
     end
     pct_cat_correct = pct_cat.find_all do |turn|
-      turn.correct?
+      turn.correct?  && turn.card.category == category
     end
-    (pct_cat_correct.length.to_f / pct_cat.length.to_f) * 100
+    Integer((pct_cat_correct.length.to_f / pct_cat.length.to_f) * 100)
   end
 end
