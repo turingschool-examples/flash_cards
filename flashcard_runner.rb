@@ -20,7 +20,7 @@ class Game
     @card_4 = Card.new("What plant is the main ingredient in tequila?", "Agave", :Alcohol)
     @deck = Deck.new([card_1, card_2, card_3, card_4])
     @round = Round.new(deck)
-    @begin = 0
+    # @begin = 0
     @user_input = user_input
   end
 
@@ -72,25 +72,25 @@ class Game
    end
  end
 
-
-
-
  def card_number
-
+   "This is card number #{round.card_number} out of 4"
  end
 
  def play_game
    while round.deck.cards.empty? != true
-       puts card_number
-       puts trivia
-       print "> "
-       @user_input = $stdin.gets.chomp.downcase
-       puts feedback
-       round.take_turn(@user_input)
-       puts line
-       break if @user_input == "q"
-     end
+     puts card_number
+     puts trivia
+     print "> "
+     @user_input = $stdin.gets.chomp.downcase
+     puts feedback
+     round.take_turn(@user_input)
+     puts line
+     break if @user_input == "q"
    end
+ end
+
+
+
 
    def final_message
 
