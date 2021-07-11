@@ -1,4 +1,3 @@
-
 require './lib/card'
 
 class CardGenerator
