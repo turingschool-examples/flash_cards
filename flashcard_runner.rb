@@ -60,7 +60,7 @@ class Game
  end
 
  def feedback
-   if round.current_card.answer == @user_input
+   if round.current_card.answer.downcase == @user_input
      "🔥 Well hot diggity dawg you did that fast! 🔥"
    elsif
      @user_input == 'q'
