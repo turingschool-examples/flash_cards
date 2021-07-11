@@ -19,23 +19,18 @@ RSpec.describe Deck do
   end
 
   it 'has cards' do
-    deck.cards
+    expect(deck.cards).to eq([card_1, card_2, card_3])
   end
 
   it 'counts cards' do
-    deck.count
-
     expect(deck.count).to eq(3)
   end
 
   it 'sorts cards in categories' do
-    deck.cards_in_category(:STEM)
     expect(deck.cards_in_category(:STEM)).to eq([card_2, card_3])
 
-    deck.cards_in_category(:Geography)
     expect(deck.cards_in_category(:Geography)).to eq([card_1])
 
-    deck.cards_in_category("Pop Culture")
     expect(deck.cards_in_category("Pop Culture")).to eq([])
   end
 end
