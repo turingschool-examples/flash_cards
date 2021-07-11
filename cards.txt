@@ -1,5 +1,6 @@
 What is the capital of Alaska?,Juneau,Geography
+What is the capital of Hawaii?,Honolulu,Geography
 How long is the backend program at Turing?,7 months,Turing
-What does FSD stand for? Hint: Pesto Paws!,Freedom Service Dogs,Pesto
 How long are the modules or innings at Turing?,6 weeks,Turing
+What does FSD stand for? Hint: Pesto Paws!,Freedom Service Dogs,Pesto
 Is it appropriate to greet or 'say hello' to Pesto when you meet him?,No,Pesto

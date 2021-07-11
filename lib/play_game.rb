@@ -12,14 +12,24 @@ class PlayGame
   end
 
   def start_game
-    @cards
     begin_game
     game_flow
     end_game
   end
 
   def begin_game
-    puts "Welcome! You're playing with #{@deck.count} cards."
+    @cards
+    puts "Welcome!"
+    # start 1.0
+    puts "You're playing with #{@deck.count} cards."
+  end
+
+
+  def correct_feedback
+    ["NICE!", "Good job!", "Love to see it!"]
+  end
+  def incorrect_feedback
+    ["Nah", "Womp womp", "Hate to see it!"]
   end
 
   def game_flow
@@ -28,7 +38,12 @@ class PlayGame
 
       puts "Question: #{@round.current_card.question}"
       @round.take_turn(user_guess)
-      puts @round.turns.last.feedback.to_s
+      puts "#{@round.turns.last.feedback}"
+      if @round.turns.last.correct?
+        puts correct_feedback.sample
+      else
+        puts incorrect_feedback.sample
+      end
     end
   end
 
@@ -38,12 +53,14 @@ class PlayGame
 
   def end_game
     puts '****** Game over! ******'
-    # iterate over @deck.cards to get catergories
-    # then iterate over above and within iteration
-    # p #{@round.percent_correct_by_category(:Geography).round(0)}% correct
-    puts "You had #{@round.number_correct} correct guesses out of #{@deck.count} for a total score of #{@round.percent_correct}%.
-    Geography - #{@round.percent_correct_by_category(:Geography).round(0)}% correct
-    Turing - #{@round.percent_correct_by_category(:Turing).round(0)}% correct
-    Pesto - #{@round.percent_correct_by_category(:Pesto).round(0)}% correct"
+    puts "You had #{@round.number_correct} correct guesses out of #{@deck.count} for a total score of #{@round.percent_correct}%."
+
+    categories = @deck.cards.map do |cards|
+      cards.category
+    end
+
+    categories.uniq.map do |category|
+      puts "#{category} - #{@round.percent_correct_by_category(category)}% correct"
+    end
   end
 end
