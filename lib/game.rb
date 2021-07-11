@@ -40,8 +40,24 @@ class Game
   def game_over
     puts "******* Game Over! *******"
     puts "You had #{@round.number_correct} correct guesses out of #{@round.used_cards.length} for a total score of #{@round.percent_correct}%."
-    puts "Geography - #{@round.percent_correct_by_category(:Geography)}% correct"
-    puts "TV - #{@round.percent_correct_by_category(:TV)}% correct"
-    puts "Sports - #{@round.percent_correct_by_category(:Sports)}% correct"
+    puts "#{category} - #{@round.percent_correct_by_category(:Geography)}% correct"
+    
+    # puts "TV - #{@round.percent_correct_by_category(:TV)}% correct"
+    # puts "Sports - #{@round.percent_correct_by_category(:Sports)}% correct"
+  end
+
+  def card_category
+    category = []
+    @round.deck.cards.each do |card|
+      category << card.category
+      @round.used_cards.each do |used_card|
+        category << used_card.category
+      end
+      require "pry"; binding.pry
+    end
+    category.uniq
   end
 end
+
+
+

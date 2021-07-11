@@ -2,6 +2,7 @@ require './lib/card'
 
 class CardGenerator
   attr_reader :cards
+  attr_writer :cards
   def initialize(file)
     @cards = []
     @file = File.open(file).read

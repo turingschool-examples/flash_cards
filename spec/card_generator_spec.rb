@@ -20,8 +20,14 @@ RSpec.describe CardGenerator do
       card_generator.cards.each do |card|
         expect(card).to be_a Card 
       end
-      
+      card_generator.cards = []
     end
-    
+
+    it 'can create 6 cards' do 
+      expect(card_generator.cards).to be_empty
+      card_generator.generate_cards
+      expect(card_generator.cards.length).to eq(6)
+      card_generator.cards = []
+    end
   end
 end
