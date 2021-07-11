@@ -1,6 +1,6 @@
 
 class CardGenerator
-  attr_reader :filename, :file_data
+  attr_reader :filename, :file_data, :read_cards_file
 
   def initialize(filename)
     @filename = filename
@@ -17,12 +17,21 @@ class CardGenerator
     @file_data.map do |item|
       item.split(",")
     end
-    # creates the cards somehow???
+  end
+
+  def cards
+    edit_cards_text.map do |item|
+      Card.new(item[0], item[1], item[2])
+    end
+  end
 
   end
 
 
 
-end
+
+
+
 
 #take file, split by lines into an array, then iterate over array to create cards???
+# cards = CardGenerator.new(filename).cards
