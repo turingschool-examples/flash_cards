@@ -41,5 +41,4 @@ class Round
     end
     (number_correct_by_category(category).to_f / num_in_category.length) * 100
   end
-
 end
