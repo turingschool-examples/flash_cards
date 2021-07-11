@@ -101,9 +101,10 @@ RSpec.describe Round do
       round = Round.new(deck)
       round.take_turn("Juneau")
       round.take_turn("Saturn")
+      round.take_turn("North north west")
 
       expect(round.number_correct_by_category(:Geography)).to eq(1)
-      expect(round.number_correct_by_category(:STEM)).to eq(0)
+      expect(round.number_correct_by_category(:STEM)).to eq(1)
     end
 
     it 'can calculate the percent of correct answers' do
@@ -126,8 +127,10 @@ RSpec.describe Round do
       round = Round.new(deck)
       round.take_turn("Juneau")
       round.take_turn("Saturn")
+      round.take_turn("North north west")
 
       expect(round.percent_correct_by_category(:Geography)).to eq(100.0)
+      expect(round.percent_correct_by_category(:STEM)).to eq(50.0)
     end
   end
 end
