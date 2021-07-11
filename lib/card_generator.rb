@@ -1,10 +1,13 @@
+# frozen_string_literal: true
+
 require './lib/card'
 
+# Accepts a filename, opens file, and makes cards. File must be formatted properly.
 class CardGenerator
   attr_reader :filename
 
   def initialize(filename)
-    @filename  = filename
+    @filename = filename
   end
 
   def open_cards
@@ -15,7 +18,7 @@ class CardGenerator
     raw_cards.readlines
   end
 
-    def remove_newlines(array)
+  def remove_newlines(array)
     array.map { |string| string.chop }
   end
 
@@ -29,7 +32,7 @@ class CardGenerator
   end
 
   def cards
-    raw_cards = self.open_cards
+    raw_cards = open_cards
     raw_cards_array = raw_cards_by_line(raw_cards)
     array_without_newlines = remove_newlines(raw_cards_array)
     array_without_commas = split_on_commas(array_without_newlines)

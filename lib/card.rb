@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Stores data for single cards.
 class Card
   attr_reader :question, :answer, :category
 

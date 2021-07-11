@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Stores guess String Object and Card Object, and evaluates.
 class Turn
   attr_reader :card, :guess
 
@@ -11,6 +14,6 @@ class Turn
   end
 
   def feedback
-    correct? ? "Correct!" : "Incorrect."
+    correct? ? 'Correct!' : 'Incorrect.'
   end
 end

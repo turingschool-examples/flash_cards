@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Stores and performs actions on Deck Object, turns as array, and current card.
 class Round
   attr_reader :deck, :turns, :current_card
 
@@ -32,11 +35,11 @@ class Round
   end
 
   def percent_correct
-    (number_correct.to_f / @turns.count.to_f) * 100.0
+    (number_correct.to_f / @turns.count) * 100.0
   end
 
   def percent_correct_by_category(category)
-    (number_correct_by_category(category).to_f / turns_by_category(category).to_f) * 100.0
+    (number_correct_by_category(category).to_f / turns_by_category(category)) * 100.0
   end
 
   def turns_by_category(category)

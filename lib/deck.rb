@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Stores array of Card Objects.
 class Deck
   attr_reader :cards
 
