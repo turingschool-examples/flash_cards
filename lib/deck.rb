@@ -2,7 +2,8 @@ require './lib/card'
 require './lib/turn'
 
 class Deck
-  attr_reader :cards, :current_card
+  attr_reader :cards,
+              :current_card
 
   def initialize (cards)
     @cards = cards

@@ -1,7 +1,11 @@
 require './lib/deck'
 
 class Round
-  attr_reader :deck, :turns, :correct_counter, :current_card, :num_turns
+  attr_reader :deck,
+              :turns,
+              :correct_counter,
+              :current_card,
+              :num_turns
 
   def initialize (deck)
     @deck = deck
