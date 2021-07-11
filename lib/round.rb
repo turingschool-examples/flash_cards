@@ -6,7 +6,6 @@ class Round
   def initialize (deck)
     @deck = deck
     @turns = []
-    @correct_counter = 0
     @current_card = 0
     @correct_for_category = 0
   end
@@ -27,10 +26,9 @@ class Round
   end
 
   def number_correct
-    @turns.each do |turn|
-      @correct_counter += 1 if turn.correct?
+    @turns.count do |turn|
+      turn.correct?
     end
-    @correct_counter
   end
 
   def number_correct_by_category(category)
@@ -40,7 +38,7 @@ class Round
   end
 
   def percent_correct
-    (number_correct / @turns.count.to_f) * 100
+    ((number_correct / @turns.count.to_f) * 100).round(1)
   end
 
   def percent_correct_by_category(category)

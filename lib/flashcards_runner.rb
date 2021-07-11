@@ -12,19 +12,58 @@ round = Round.new(deck)
 
 
 
-puts "Welcome! You're playing with 4 cards.
+puts "Welcome! You're playing with #{cards.count} cards.
 -------------------------------------------------
-This is card number 1 out of 4.
-Question: What is 5 + 5?"
+This is card number 1 out of #{cards.count}.
+Question: #{cards[0].question}"
 
 new_turn = round.take_turn(gets.chomp)
 
 if new_turn.correct?
   puts "Correct!
-This is card number 2 out of 4.
-Question: What is Rachel's favorite animal?"
+This is card number 2 out of #{cards.count}.
+Question: #{cards[1].question}"
 else
   puts "Incorrect.
-  This is card number 2 out of 4.
-  Question: What is Rachel's favorite animal?"
+  This is card number 2 out of #{cards.count}.
+  Question: #{cards[1].question}"
 end
+
+new_turn = round.take_turn(gets.chomp)
+
+if new_turn.correct?
+  puts "Correct!
+  This is card number 3 out of #{cards.count}.
+  Question: #{cards[2].question}"
+else
+  puts "Incorrect.
+  This is card number 3 out of #{cards.count}.
+  Question: #{cards[2].question}"
+end
+
+new_turn = round.take_turn(gets.chomp)
+
+if new_turn.correct?
+  puts "Correct!
+  This is card number 4 out of #{cards.count}.
+  Question: #{cards[3].question}"
+else
+  puts "Incorrect.
+  This is card number 4 out of #{cards.count}.
+  Question: #{cards[3].question}"
+end
+
+new_turn = round.take_turn(gets.chomp)
+
+if new_turn.correct?
+  puts "Correct!"
+else
+  puts "Incorrect."
+end
+
+puts "****** Game over! ******
+You had #{round.number_correct} correct guesses out of #{round.turns.count} for a total score of #{round.percent_correct}.
+Math - #{round.percent_correct_by_category(:Math)}
+Turing Staff - #{round.percent_correct_by_category(:Turing_staff)}
+Pop Culture - #{round.percent_correct_by_category(:Pop_culture)}
+"
