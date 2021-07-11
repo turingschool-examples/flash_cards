@@ -2,6 +2,7 @@ require './lib/card'
 require './lib/turn'
 require './lib/deck'
 require './lib/round'
+# require '.lib/card_generator'
 
 card_1 = Card.new("What is the name of my cat?", "Mabel", :Pets)
 card_2 = Card.new("What type of beer is sour and made with coriander and salt?", "Gose", :Beer)
@@ -23,7 +24,9 @@ puts
 p "This is card #{round.turns.count+1} out of #{cards.count}"
 p "#{card_1.question}"
 card_answer = gets.chomp
-if card_answer.capitalize == card_1.answer then @number_correct += 1 && @pets_number_correct += 1
+if card_answer.capitalize == card_1.answer then
+  @number_correct += 1
+  @pets_number_correct += 1
   p "Correct!"
 else
   p "Incorrect! The correct answer is #{card_1.answer}"
@@ -33,7 +36,9 @@ new_turn = round.take_turn("a")
 p "This is card #{round.turns.count+1} out of #{cards.count+1}"
 p "#{card_2.question}"
 card_answer = gets.chomp
-  if card_answer.capitalize == card_2.answer then @number_correct += 1 && @beer_number_correct += 1
+  if card_answer.capitalize == card_2.answer then
+    @number_correct += 1
+    @beer_number_correct += 1
     p "Correct!"
   else
     p "Incorrect! The correct answer is #{card_2.answer}"
@@ -43,7 +48,9 @@ new_turn = round.take_turn("a")
 p "This is card #{round.turns.count+1} out of #{cards.count+2}"
 p "#{card_3.question}"
 card_answer = gets.chomp
-if card_answer.capitalize == card_3.answer then @number_correct += 1 && @climbing_number_correct += 1
+if card_answer.capitalize == card_3.answer then
+  @number_correct += 1
+  @climbing_number_correct += 1
   p "Correct!"
 else
   p "Incorrect! The correct answer is #{card_3.answer}"
@@ -53,7 +60,9 @@ new_turn = round.take_turn("a")
 p "This is card #{round.turns.count+1} out of #{cards.count+3}"
 p "#{card_4.question}"
 card_answer = gets.chomp
-if card_answer.capitalize == card_4.answer then @number_correct += 1 && @pets_number_correct += 1
+if card_answer.capitalize == card_4.answer then
+  @number_correct += 1
+  @pets_number_correct += 1
   p "Correct!"
 else
   p "Incorrect! The correct answer is #{card_4.answer}"
@@ -63,7 +72,9 @@ new_turn = round.take_turn("a")
 p "This is card #{round.turns.count+1} out of #{cards.count+4}"
 p "#{card_5.question}"
 card_answer = gets.chomp
-if card_answer.capitalize == card_5.answer then @number_correct += 1 && @climbing_number_correct += 1
+if card_answer.capitalize == card_5.answer then
+    @number_correct += 1
+    @climbing_number_correct += 1
   p "Correct!"
 else
   p "Incorrect! The correct answer is #{card_5.answer}"
@@ -73,21 +84,15 @@ new_turn = round.take_turn("a")
 p "This is card #{round.turns.count+1} out of #{cards.count+5}"
 p "#{card_6.question}"
 card_answer = gets.chomp
-if card_answer.capitalize == card_6.answer then @number_correct += 1 && @beer_number_correct += 1
+if card_answer.capitalize == card_6.answer then
+  @number_correct += 1
+  @beer_number_correct += 1
   p "Correct!"
 else
   p "Incorrect! The correct answer is #{card_6.answer}"
 end
 print
-# def take_turn(guess)
-#   # turn = Turn.new(guess, @deck.cards.shift)
-#   @number_correct = 0
-#   @turns << turn
-#     if turn.correct?
-#       @number_correct += 1
-#     end
-#   return turn
-# end
+
 def percent_correct
   @number_correct.to_f / 6 * 100
 end
