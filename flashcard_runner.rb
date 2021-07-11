@@ -4,7 +4,6 @@ require './lib/turn'
 require './lib/round'
 require './lib/flashcardrun'
 
-#information needed for game!
 card_1 = Card.new("Who has the most career points in the NHL", "Wayne Gretzky", :Sports)
 card_2 = Card.new("Who won the UEFA Champions League in 2021", "Chelsea", :Sports)
 card_3 = Card.new("How many movies are there in the Harry Potter series?", "8", :Entertainment)

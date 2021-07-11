@@ -1,5 +1,4 @@
 class Deck
-  # @cards = []
 
   attr_reader :cards
 
