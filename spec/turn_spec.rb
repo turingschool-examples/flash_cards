@@ -28,6 +28,10 @@ RSpec.describe Turn do
     turn = Turn.new("Juneau", card)
 
     expect(turn.correct?).to be true
+
+    turn_2 = Turn.new("Denver", card)
+
+    expect(turn_2.correct?).to be false
   end
 
   it 'gives feedback' do
@@ -35,6 +39,9 @@ RSpec.describe Turn do
     turn = Turn.new("Juneau", card)
 
     expect(turn.feedback).to eq("Correct!")
-  end
 
+    turn_2 = Turn.new("Denver", card)
+
+    expect(turn_2.feedback).to eq("Incorrect.")
+  end
 end

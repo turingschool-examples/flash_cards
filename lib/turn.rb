@@ -7,7 +7,7 @@ class Turn
   end
 
   def correct?
-    if guess == card.answer.downcase
+    if guess.downcase == card.answer.downcase
       true
     else
       false
