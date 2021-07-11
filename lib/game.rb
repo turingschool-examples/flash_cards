@@ -70,6 +70,7 @@ class Game
     @deck.cards_by_category.keys.map do |category|
       name = format_category_name(category)
       percent = @round.percent_correct_by_category(category)
+
       "#{name} - #{percent}% correct."
     end
   end
