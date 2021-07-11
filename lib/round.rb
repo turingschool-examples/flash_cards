@@ -22,8 +22,8 @@ class Round
   def number_correct_by_category(category)
     # count the number of turns in the round that were correct and whose cards's category is of the desired category
     count = 0
-    @turns.each do |t|
-      if (t.correct? && t.card.category == category) then
+    @turns.each do |turn|
+      if (turn.correct? && turn.card.category == category) then
         count += 1
       end
       return count
@@ -38,10 +38,10 @@ class Round
       # return the number of correct answers in the category divided by number of turns in that category
       correct = 0
       total = 0
-      @turns.each do |t|
-        if t.card.category == category
+      @turns.each do |turn|
+        if turn.card.category == category
           total += 1
-          if t.correct? then
+          if turn.correct? then
             correct += 1
           end
         end
