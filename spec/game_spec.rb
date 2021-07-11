@@ -55,7 +55,11 @@ RSpec.describe Game do
 
     it 'can remove underscores' do
       expected = "Pop Culture"
-      expect(game.format_category_name("Pop_culture")).to eq(expected)
+      expect(game.format_category_name("Pop_Culture")).to eq(expected)
+    end
+
+    it 'can capitalize all words' do
+      expect(game.format_category_name("turing staff")).to eq("Turing Staff")
     end
   end
 
