@@ -53,4 +53,8 @@ class Round
   def percent_correct_by_category(category)
     (number_correct_by_category(category).to_f / correct_category(category)) * 100
   end
+
+  def card_number
+    @turns.count + 1
+  end
 end
