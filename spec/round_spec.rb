@@ -95,7 +95,12 @@ RSpec.describe Round do
     new_turn = round.take_turn("Venus")
     round.number_correct_by_category(:Geography)
 
-    expect(round.number_correct_by_category).to eq(1)
+    expect(round.number_correct_by_category(:Geography)).to eq(1)
+
+    round.number_correct_by_category(:STEM)
+    
+    expect(round.number_correct_by_category(:STEM)).to eq(0)
+
   end
 
   it 'tells percent correct' do
@@ -108,7 +113,7 @@ RSpec.describe Round do
     expect(round.percent_correct).to eq(50.0)
   end
 
-  xit 'tells percent correct by category' do
+  it 'tells percent correct by category' do
     deck = Deck.new([card_1, card_2, card_3])
     round = Round.new(deck)
     new_turn = round.take_turn("Juneau")
