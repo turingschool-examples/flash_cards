@@ -1,6 +1,5 @@
 require './lib/turn'
 require './lib/card'
-require 'rspec'
 
 RSpec.describe Turn do
   it 'a turn exists' do
