@@ -50,6 +50,11 @@ class Round
     end
 
     def percent_correct_by_category(category)
-      ((number_correct_by_category(category) / deck.cards_in_category(:Geography).length) * 100).to_f
+      # if there are no cards of that category in that deck
+      # return 0.0
+      if deck.cards_in_category(category).length == 0
+        return 0.0
+      end 
+      ((number_correct_by_category(category) / deck.cards_in_category(category).length) * 100).to_f
     end
 end

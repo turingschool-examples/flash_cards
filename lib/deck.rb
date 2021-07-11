@@ -17,9 +17,7 @@ class Deck
     # want to return an array of cards that only has :STEM category
     # run through array and check if ':STEM' matches the last
     # element in the array
-
     @cards.select {|card| card.category == category}
-
   end
 
 end
