@@ -54,6 +54,7 @@ class Game
  end
 
  def quit_message
+   "👀 If you feel you are not up to the task... press the letter 'q'"
  end
 
  def trivia
