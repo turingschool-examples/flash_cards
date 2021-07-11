@@ -1,14 +1,17 @@
 require './lib/round'
 require './lib/turn'
+require './lib/game_flow'
 
 class FlashcardRunner
   attr_reader :round,
               :deck,
+              :cards
               :deck_size
 
   def initialize
     @game_objects = game_objects
-    @deck         = deck
+    @cards        = @game_objects
+    @deck         = Deck.new(@cards)
     @turn_counter = 1
     @round        = Round.new(@deck)
     @deck_size    = deck.cards.count
@@ -61,11 +64,12 @@ class FlashcardRunner
   end
 
   def game_objects
-    card_1 = Card.new("What is 5 + 5?", "10", :STEM)
-    card_2 = Card.new("What is Rachel's favorite animal?", "Monkey", :Turing_Staff)
-    card_3 = Card.new("What is Mike's middle name?", "nobody knows", :Turing_Staff)
-    card_4 = Card.new("What cardboard cutout lives at Turing?", "Justin Bieber", :Pop_Culture)
-    @deck  = Deck.new([card_1, card_2, card_3, card_4])
+    filename = 'cards.txt'
+
+    @cards = File.readlines(filename).map do |line|
+      card = line.split(",")
+      Card.new(card[0], card[1], card[2].delete("\n").to_sym)
+    end
   end
 end
 FlashcardRunner.new
