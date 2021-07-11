@@ -2,3 +2,4 @@ What is 1+1?,2,Math
 When is it OK to divide by 0?,Never,Math
 Did the last living T'Rex live closer to the moonlanding or the last living Stegasaurus?,the moonlanding,Dinosaurs
 What is the spikey bit on the end of Stegasaurus' tail called?,Thagomizer,Dinosaurs
+What is the most expensive spice by weight?,Saffron,General

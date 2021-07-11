@@ -13,11 +13,11 @@ class Round
     @deck.cards.first
   end
 
-  def take_turn(guess)
+  def take_turn(guess) #I know this whole method is a mess, probably could've done it with half the contents, but I missed using @turns, it kinda ballooned, and fixing now would break everything else.
     turn = Turn.new(guess, current_card)
     @turns << turn
     @number_correct += 1 if turn.correct?
-    @deck.cards.shift
+    @deck.cards.shift  #is destructive, keep in mind if need to cycle deck
     @correct_turns << turn.card if turn.correct?
     @used_cards << turn.card
     turn
@@ -28,7 +28,7 @@ class Round
   end
 
   def percent_correct
-    @number_correct *100 / @used_cards.length
+    @number_correct * 100 / @used_cards.length
   end
 
   def percent_correct_by_category(type)
