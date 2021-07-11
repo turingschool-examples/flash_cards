@@ -29,7 +29,7 @@ else
   p "Incorrect! The correct answer is #{card_1.answer}"
 end
 
-new_turn = round.take_turn("Juneau")
+new_turn = round.take_turn("a")
 p "This is card #{round.turns.count+1} out of #{cards.count+1}"
 p "#{card_2.question}"
 card_answer = gets.chomp
@@ -39,7 +39,7 @@ card_answer = gets.chomp
     p "Incorrect! The correct answer is #{card_2.answer}"
   end
 
-new_turn = round.take_turn("Juneau")
+new_turn = round.take_turn("a")
 p "This is card #{round.turns.count+1} out of #{cards.count+2}"
 p "#{card_3.question}"
 card_answer = gets.chomp
@@ -49,7 +49,7 @@ else
   p "Incorrect! The correct answer is #{card_3.answer}"
 end
 
-new_turn = round.take_turn("Juneau")
+new_turn = round.take_turn("a")
 p "This is card #{round.turns.count+1} out of #{cards.count+3}"
 p "#{card_4.question}"
 card_answer = gets.chomp
@@ -59,7 +59,7 @@ else
   p "Incorrect! The correct answer is #{card_4.answer}"
 end
 
-new_turn = round.take_turn("Juneau")
+new_turn = round.take_turn("a")
 p "This is card #{round.turns.count+1} out of #{cards.count+4}"
 p "#{card_5.question}"
 card_answer = gets.chomp
@@ -69,7 +69,7 @@ else
   p "Incorrect! The correct answer is #{card_5.answer}"
 end
 
-new_turn = round.take_turn("Juneau")
+new_turn = round.take_turn("a")
 p "This is card #{round.turns.count+1} out of #{cards.count+5}"
 p "#{card_6.question}"
 card_answer = gets.chomp
@@ -79,16 +79,15 @@ else
   p "Incorrect! The correct answer is #{card_6.answer}"
 end
 print
-def take_turn(guess)
-  turn = Turn.new(guess, @deck.cards.shift)
-  @number_correct = 0
-  @turns << turn
-    if turn.correct?
-      @number_correct += 1
-    end
-  return turn
-end
-p "****** Game over! ******"
+# def take_turn(guess)
+#   # turn = Turn.new(guess, @deck.cards.shift)
+#   @number_correct = 0
+#   @turns << turn
+#     if turn.correct?
+#       @number_correct += 1
+#     end
+#   return turn
+# end
 def percent_correct
   @number_correct.to_f / 6 * 100
 end
@@ -115,6 +114,8 @@ def climbing_percent
   @climbing_number_correct.to_f / 2 * 100
 end
 
+p "****** Game over! ******"
+# this is ugly, but it works ¯\_(ツ)_/¯ ... mostly
 p "You had #{@number_correct} correct guesses out of 6 for a total score of #{percent_correct.round(1)}%."
 p "Pets - #{pets_percent.round(1)}% correct."
 p "Climbing - #{climbing_percent.round(1)}% correct."
