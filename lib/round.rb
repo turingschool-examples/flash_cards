@@ -1,12 +1,11 @@
 require './lib/turn'
 
 class Round
-  attr_reader :deck, :turns, :current_card, :number_correct, :current_card_index
+  attr_reader :deck, :turns, :current_card, :number_correct
 
   def initialize(deck)
     @deck = deck
     @turns = []
-    @current_card = 0
     @number_correct = 0
   end
 
@@ -14,22 +13,18 @@ class Round
     current_turn = Turn.new(current_guess, current_card)
     @turns << current_turn
     add_correct_turns(current_turn)
-    next_card
-    return current_turn
+    @deck.cards.shift
+    current_turn #maybe @turns.last
   end
 
   def current_card
-    deck.cards[@current_card]
+    @deck.cards[0]
   end
 
   def add_correct_turns(turn)
     if turn.correct?
       @number_correct += 1
     end
-  end
-
-  def next_card
-    @current_card += 1
   end
 
   def number_correct_by_category(category)
