@@ -4,6 +4,8 @@ require './lib/card_generator'
 class Game
   include CardGenerator
 
+  attr_reader :round, :deck, :deck_size
+
   def initialize
     @round = make_round
     @deck = @round.deck
@@ -68,19 +70,18 @@ class Game
     @deck.cards_by_category.keys.map do |category|
       name = format_category_name(category)
       percent = @round.percent_correct_by_category(category)
+
       "#{name} - #{percent}% correct."
     end
   end
 
   def format_category_name(category)
-    category.to_s.gsub("_", " ").capitalize
+    words = category.to_s.split("_")
+
+    words.map { |word| word.capitalize }.join(" ")
   end
 
   def make_round
-    # card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    # card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
-    # card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-    # deck = Deck.new([card_1, card_2, card_3, card_4])
     deck = Deck.new(CardGenerator.make_cards_from_file)
     Round.new(deck)
   end
