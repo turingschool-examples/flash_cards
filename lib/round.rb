@@ -1,5 +1,6 @@
 class Round
   attr_reader :deck, :turns
+
   def initialize(deck)
     @deck = deck
     @turns = []
@@ -22,7 +23,6 @@ class Round
     end
   end
 
-# use group by
   def number_correct_by_category(category)
     @turns.count do |turn|
       if turn.card.category == category
