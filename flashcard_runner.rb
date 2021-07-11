@@ -39,8 +39,6 @@ class Game
    puts line
  end
 
-
-
  def welcome_message
    "🧠 " * 3 + "Welcome to JJ's FlashCard Trivia!" + "🧠 " * 3
  end
@@ -89,17 +87,14 @@ class Game
    end
  end
 
-
-
-
-   def final_message
-
-   end
-
-
-
+ def final_message
+   puts "🙌 " * 6 + "GAME OVER" + "🙌" * 6
+   puts "You had #{round.number_correct} correct quesses out of 4, for a total score of #{round.percent_correct.to_i}%!"
+   puts "Musica - #{round.percent_correct_by_category(:Musica)} correct "
+   puts "Dogs - #{round.percent_correct_by_category(:Dogs)} correct "
+   puts "Alcohol - #{round.percent_correct_by_category(:Alcohol)} correct "
+ end
 end
-
 
 game1 = Game.new
 game1.start
