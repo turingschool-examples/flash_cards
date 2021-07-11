@@ -10,7 +10,6 @@ def start
   deck = Deck.new(cards)
   round = Round.new(deck)
   categories_all = cards.map { |card| card.category }
-  categories_unique = categories_all.uniq
 
   puts "Welcome! You're playing with #{deck.count} cards."
   puts "-------------------------------------------------"
@@ -25,9 +24,9 @@ def start
   end
 
   puts "****** Game over! ******"
-  puts "You had #{round.number_correct} correct guesses out of #{deck.count} for a total score of #{round.percent_correct}%."
+  puts "You had #{round.number_correct} correct guesses out of #{deck.count} for a total score of #{round.percent_correct.to_i}%."
   
-  categories_unique.each { |category| puts "#{category} - #{round.percent_correct_by_category("#{category}")}% correct" }
+  categories_all.uniq.each { |category| puts "#{category} - #{round.percent_correct_by_category("#{category}").to_i}% correct" }
 end
 
 start
