@@ -20,7 +20,8 @@ class Play
     puts dashes
     puts card_number
     puts question
-
+    player_input
+    puts feedback
   end
 
   def welcome_message
@@ -36,7 +37,22 @@ class Play
   end
 
   def question
-    "#{round.current_card.question}"
+    "Question: " + "#{round.current_card.question}"
+  end
+
+  def player_input
+    gets.downcase.chomp
+  end
+
+  def feedback
+    if player_input == round.current_card.answer
+      "Correct!"
+    elsif
+      player_input == "q"
+      "Quitting..."
+    else
+      "Incorrect."
+    end
   end
 
 end
