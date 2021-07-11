@@ -31,5 +31,5 @@ categories_in_round = round.turns.map do |category|
 end
 
 categories_in_round.uniq.each do |category|
-  puts "#{category} - #{round.percent_correct_by_category(category)}"
+  puts "#{category} - #{round.percent_correct_by_category(category).to_i}% correct"
 end
