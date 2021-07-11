@@ -39,13 +39,13 @@ def turn_message(round)
   Question: #{round.current_card.question}"
 end
 
-# def game_over(round)
-#   puts "****** Game over! ******
-#   You had #{round.number_correct} correct guesses out of #{turns.length} for a total score of #{round.percent_correct}%"
-#   get_categories(round).each do |category|
-#     category_message(category, round)
-#   end
-# end
+def game_over(round)
+  puts "****** Game over! ******
+  You had #{round.number_correct} correct guesses out of #{turns.length} for a total score of #{round.percent_correct}%"
+  get_categories(round).each do |category|
+    category_message(category, round)
+  end
+end
 
 def get_categories(round)
   unique_categories = []
@@ -58,4 +58,5 @@ end
 def category_message(category, round)
   puts "#{category} - #{round.percent_correct_by_category(category)}% correct"
 end
+
 start(round)
