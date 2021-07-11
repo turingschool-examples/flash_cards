@@ -47,9 +47,19 @@ class Game
 
   def get_guess
     print ">> "
-    gets.chomp
+    answer = gets.chomp
+    while answer == ""
+      answer_prompt
+      answer = gets.chomp
+    end
+    answer
   end
 
+  def answer_prompt
+    puts "Please enter your answer."
+    print ">> "
+  end
+  
   def ending
     correct = @round.number_correct
     percent = @round.percent_correct
