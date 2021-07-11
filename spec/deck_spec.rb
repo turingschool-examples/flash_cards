@@ -21,7 +21,6 @@ RSpec.describe Deck do
     deck = Deck.new(cards)
 
     expect(deck.cards).to eq(cards)
-
   end
 
   it 'has 3 cards' do
@@ -32,7 +31,6 @@ RSpec.describe Deck do
     deck = Deck.new(cards)
 
     expect(deck.count).to eq(3)
-
   end
 
   it 'has categories' do
