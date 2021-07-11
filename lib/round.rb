@@ -20,4 +20,17 @@ class Round
     @turns << next_turn
     next_turn
   end
+
+  def number_correct
+    correct_guesses = []
+
+    @turns.each do |turn|
+      if turn.correct? == true
+        correct_guesses << turn
+      end
+    end
+
+    correct_guesses.count
+  end
+
 end
