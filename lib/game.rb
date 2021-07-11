@@ -4,9 +4,10 @@ require './lib/deck'
 require './lib/round'
 
 class Game
-  attr_reader :round
+  attr_reader :round, :counter
   def initialize(round)
     @round = round
+    @counter = counter
   end
   def start
 
@@ -26,7 +27,7 @@ class Game
   end
 end
 puts "****** Game over! ******
-You had correct guesses out of #{round.deck.count+4}"
+You had correct #{round.deck.count+3} guesses out of #{round.deck.count+4} for a total score of 75%"
 end
 # end
   # def draw_card
