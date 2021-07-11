@@ -49,7 +49,8 @@ class Round
         total_num_of_cards_by_category += 1
       end
     end
-    (number_correct_by_category(category).to_f / total_num_of_cards_by_category.to_f) * 100
+    total_num_of_cards_by_category
+    (number_correct_by_category(category).to_f/ total_num_of_cards_by_category.to_f) * 100
   end
 
   def start(round)  #Start the game

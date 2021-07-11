@@ -124,19 +124,10 @@ RSpec.describe Round do
     round = Round.new(deck)
 
     new_turn = round.take_turn("Juneau")
+    new_turn = round.take_turn("Mars")
 
     expect(round.percent_correct_by_category(:Geography)).to eq(100)
-
-    new_turn = round.take_turn("Mars")
-    new_turn = round.take_turn("North north west")
-
     expect(round.percent_correct_by_category(:STEM)).to eq(100)
-
-    new_turn = round.take_turn("Mars")
-    new_turn = round.take_turn("North south south")
-
-    expect(round.percent_correct_by_category(:STEM)).to eq(50)
-
   end
 
 end

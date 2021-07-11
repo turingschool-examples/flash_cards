@@ -56,7 +56,7 @@ RSpec.describe Deck do
 
     deck = Deck.new(cards)
 
-    expect(deck.categories).to eq([:Geography, :STEM])
+    expect(deck.list_of_categories).to eq([:Geography, :STEM])
   end
 
 end
