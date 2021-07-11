@@ -49,7 +49,7 @@ class Round
       @turns.each do |turn|
         num_in_category += 1 if turn.card.category == category
       end
-      
+
     (number_correct_by_category(category) / num_in_category.to_f) * 100
   end
 end

@@ -1,7 +1,10 @@
+require './lib/card'
+require './lib/turn'
+
 class Deck
   attr_reader :cards, :current_card
 
-  cards = []
+
 
   def initialize (cards)
     @cards = cards
