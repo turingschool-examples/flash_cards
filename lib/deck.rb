@@ -10,10 +10,8 @@ class Deck
   end
 
   def cards_in_category(category)
-    card_category = []
-    @cards.each do |card|
-      card_category << card if card.category == category
+    @cards.filter_map do |card|
+      card if card.category == category
     end
-    card_category
   end
 end
