@@ -26,7 +26,7 @@ end
 
 def welcome_message(count)
   puts "Welcome! You're playing with #{count} cards.
-  -------------------------------------------------"
+-------------------------------------------------"
 end
 
 def user_guess(round)
@@ -36,12 +36,12 @@ end
 
 def turn_message(round)
   puts "This is card number #{round.turns.length + 1} out of #{round.deck.count}.
-  Question: #{round.current_card.question}"
+Question: #{round.current_card.question}"
 end
 
 def game_over(round)
   puts "****** Game over! ******
-  You had #{round.number_correct} correct guesses out of #{turns.length} for a total score of #{round.percent_correct}%"
+You had #{round.number_correct} correct guesses out of #{round.deck.count} for a total of #{round.percent_correct}%."
   get_categories(round).each do |category|
     category_message(category, round)
   end
