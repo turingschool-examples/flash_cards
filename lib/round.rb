@@ -38,7 +38,6 @@ class Round
   def percent_correct_by_category(category)
     amount_in_category = @turns.count do |turn|
       turn.card.category == category
-      turn.correct?
     end
     (number_correct_by_category(category).fdiv(amount_in_category)) * 100
   end
