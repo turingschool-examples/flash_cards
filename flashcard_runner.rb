@@ -35,8 +35,7 @@ guess = gets.chomp
 puts round.take_turn(guess).feedback
 
 puts "****** Game over! ******"
-puts "You had #{round.number_correct} correct guesses out of #{cards.length}
-        for a total score of #{round.percent_correct}%."
+puts "You had #{round.number_correct} correct guesses out of #{cards.length} for a total score of #{round.percent_correct}%."
 puts "STEM - #{round.percent_correct_by_category(:STEM)}% correct"
 puts "Turing Staff - #{round.percent_correct_by_category(:TuringStaff)}% correct"
 puts "Pop Culture - #{round.percent_correct_by_category(:PopCulture)}% correct"
