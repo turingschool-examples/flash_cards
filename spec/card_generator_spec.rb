@@ -23,7 +23,7 @@ RSpec.describe CardGenerator do
     filename = "./resources/cards.txt"
     generated_cards = CardGenerator.new(filename)
 
-    expect(generated_cards.cards).to eq([])
+    expect(generated_cards.new_cards).to eq([])
     end
   end
 
@@ -56,10 +56,19 @@ RSpec.describe CardGenerator do
       it 'uses input_formatter to convert each array into a card object' do
         filename = "./resources/cards.txt"
         generated_cards = CardGenerator.new(filename)
+        generated_cards.make_cards
 
-        expect(generated_cards.make_cards[0]).to be_a(Card)
-        expect(generated_cards.make_cards[1]).to be_a(Card)
-        expect(generated_cards.make_cards[2]).to be_a(Card)
+        expect(generated_cards.new_cards[0]).to be_a(Card)
+        expect(generated_cards.new_cards[1]).to be_a(Card)
+        expect(generated_cards.new_cards[2]).to be_a(Card)
+      end
+
+      it 'can store cards' do
+        filename = "./resources/cards.txt"
+        generated_cards = CardGenerator.new(filename)
+        generated_cards.make_cards
+        expect(generated_cards.new_cards[0]).to be_a(Card)
+
       end
     end
   end

@@ -2,11 +2,11 @@ require './lib/card'
 
 
 class CardGenerator
-  attr_reader :filename, :cards
+  attr_reader :filename, :new_cards
 
   def initialize(filename)
     @filename = filename
-    @cards = []
+    @new_cards = []
   end
 
   def read_file
@@ -27,12 +27,9 @@ class CardGenerator
       answer = input_formatter[x][1]
       question = input_formatter[x][0]
 
-      @cards << card = Card.new(question, answer, category)
+      @new_cards << card = Card.new(question, answer, category)
       x += 1
     end
-    @cards
+    @new_cards
   end
-
-
-
 end
