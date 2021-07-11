@@ -33,11 +33,17 @@ class Round
   end
 
   def percent_correct
-      amount = @turns.length.to_f
-       percentage= number_correct.to_f / amount
-       percentage *100
-       require 'pry'; binding.pry
+     number_correct.to_f / @turns.length.to_f*100
+  end
+
+  def percent_correct_by_category(category)
+    categories = @turns.find_all do |turn|
+       turn.card.category == category
+      end
+      number_correct_by_category(category) / categories.length*100
     end
   end
+
+
 
   #require 'pry'; binding.pry
