@@ -4,7 +4,7 @@ require './lib/deck'
 require './lib/round'
 require './lib/turn'
 
-class FlashcardRunner
+class Game
   attr_reader :round
   def initialize(round)
     @round = round
