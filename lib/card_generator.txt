@@ -1,0 +1,6 @@
+What is the name of my cat?,Mabel,Pets
+What type of beer is sour and made with coriander and salt?,Gose,Beer
+What is the name of a type of climbing hold that is big and easy to grip?,Jug,Climbing
+What was the name of my childhood puppy?,Cera,Pets
+What is the name of a type of climbing hold that is tiny and sharp?,Crimp,Climbing
+What type of beer comes from the Cologne region of Germany?,Kolsch,Beer
