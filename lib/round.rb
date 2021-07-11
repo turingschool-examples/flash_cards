@@ -33,4 +33,22 @@ class Round
     correct_guesses.count
   end
 
+  def number_correct_by_category(category)
+    turns_by_category = []
+
+    @turns.each do |turn|
+      if turn.card.category == category
+        turns_by_category << turn
+      end
+    end
+
+    correct_turns_for_category = []
+
+    turns_by_category.each do |turn|
+      if turn.correct? == true
+        correct_turns_for_category << turn
+      end
+    end
+    correct_turns_for_category.count
+  end
 end
