@@ -33,9 +33,11 @@ class Round
   end
 
   def percent_correct
-    @turns.count do |turn|
-      
+      amount = @turns.length.to_f
+       percentage= number_correct.to_f / amount
+       percentage *100
+       require 'pry'; binding.pry
+    end
   end
-end
 
   #require 'pry'; binding.pry
