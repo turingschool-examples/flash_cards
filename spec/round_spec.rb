@@ -63,6 +63,7 @@ RSpec.describe Round do
       expect(round.turns.count).to eq(2)
       expect(round.turns.last.feedback).to eq("Incorrect.")
       expect(round.turns.first.feedback).to eq("Correct!")
+      expect(round.current_card).to eq(card_3)
     end
 
     it 'can provide a score' do
