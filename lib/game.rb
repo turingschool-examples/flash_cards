@@ -76,7 +76,11 @@ class Game
   end
 
   def format_category_name(category)
-    words = category.to_s.split("_")
+    if category.to_s.include?("_")
+      words = category.to_s.split("_")
+    else
+      words = category.to_s.split(" ")
+    end
 
     words.map { |word| word.capitalize }.join(" ")
   end
