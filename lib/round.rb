@@ -14,7 +14,7 @@ class Round
     @turns << current_turn
     # add_correct_turns(current_turn)
     @deck.cards.shift
-    return current_turn #maybe @turns.last
+    # return current_turn #maybe @turns.last
   end
 
   def current_card

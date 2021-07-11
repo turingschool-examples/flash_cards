@@ -15,10 +15,10 @@ class FlashCardRun
   def start(round)
     welcome
 
-    round.deck.cards.each do |card|
+    until round.deck.cards.length == 0 do
       turn_message(round)
       get_guess(round)
-      puts round.number_correct
+      puts round.turns.last.feedback
     end
 
     game_over(round)
@@ -45,8 +45,10 @@ class FlashCardRun
 
 #final message when all cards are used
   def game_over(round)
+    require 'pry'; binding.pry
     puts "****** Game over! ******"
-    puts "You had #{round.number_correct} correct guesses out of #{@deck.count} for a total score of #{round.percent_correct}%!"
+    puts "You had #{round.number_correct} correct guesses out of #{round.turns.length} for a total score of #{round.percent_correct}%!"
+
   end
 end
 
