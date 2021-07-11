@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './lib/card'
 require './lib/turn'
 require './lib/deck'
@@ -9,7 +11,11 @@ class Game
   attr_reader :round
 
   def initialize
-    @round = Deck.new(make_cards)
+    @round = Round.new(make_deck)
+  end
+
+  def make_deck
+     Deck.new(make_cards)
   end
 
   # This could be refactored?
@@ -30,7 +36,7 @@ class Game
   end
 
   def take_turns
-    until @round.current_card == nil
+    until @round.current_card.nil?
       puts card_position
       puts current_question
       guess = player_input
