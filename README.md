@@ -17,7 +17,7 @@ The program is able to evaluate a user's guesses and give feedback at the
 end of a session.
 
 View the starter repository here:
-![Flash Cards](http://backend.turing.io/module1/projects/flashcards)
+[Flash Cards](http://backend.turing.io/module1/projects/flashcards)
 
 ## Screenshots
 ![Flash Cards CLI Image](https://user-images.githubusercontent.com/826189/125210604-1e6a0580-e25e-11eb-8388-737590acbd29.png)
