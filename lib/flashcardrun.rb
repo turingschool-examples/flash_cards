@@ -38,13 +38,20 @@ class FlashCardRun
     round.take_turn(new_guess)
   end
 
+  def get_categories
+    specific_categories = @round.turns.map do |turn|
+      turn.card.category
+    end
+  end
+
+
 #final message when all cards are used
   def game_over(round)
     puts "****** Game over! ******"
-    puts "You had #{round.number_correct} correct guesses out of #{round.turns.length} for a total score of #{round.percent_correct}%!"
-  end
+    puts "You had #{round.number_correct} correct guesses out of #{round.turns.length} for a total score of #{round.percent_correct.to_i}%."
 
-  # def find_categories
-  #   @turns.card.find_all do |card|
-  # end
+    get_categories.uniq.each do |category|
+      puts "#{category}- #{round.percent_correct_by_category(category).to_i}% correct"
+    end
+  end
 end

@@ -57,7 +57,7 @@ RSpec.describe Round do
     round = Round.new(deck)
     new_turn = round.take_turn("Juneau")
 
-    expect(new_turn.correct?).to eq(true)
+    expect(new_turn.correct?).to be true
   end
 
   it 'shows what is in turns' do
