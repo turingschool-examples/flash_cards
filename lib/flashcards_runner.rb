@@ -5,60 +5,22 @@ card_2 = Card.new("What is Rachel's favorite animal?", "Dog", :Turing_staff)
 card_3 = Card.new("What is Mike's middle name?", "Nobody knows", :Turing_staff)
 card_4 = Card.new("What cardboard cutout lives at Turing?", "Justin Bieber", :Pop_culture)
 
+
 cards = [card_1, card_2, card_3, card_4]
 
 deck = Deck.new(cards)
 round = Round.new(deck)
 
 
-
 puts "Welcome! You're playing with #{cards.count} cards.
--------------------------------------------------
-This is card number 1 out of #{cards.count}.
-Question: #{cards[0].question}"
+-------------------------------------------------"
+cards.each do |card|
+  puts "This is card number #{cards.index(card) + 1} out of #{cards.count}.
+  Question: #{card.question}"
 
-new_turn = round.take_turn(gets.chomp)
+  new_turn = round.take_turn(gets.chomp)
 
-if new_turn.correct?
-  puts "Correct!
-This is card number 2 out of #{cards.count}.
-Question: #{cards[1].question}"
-else
-  puts "Incorrect.
-  This is card number 2 out of #{cards.count}.
-  Question: #{cards[1].question}"
-end
-
-new_turn = round.take_turn(gets.chomp)
-
-if new_turn.correct?
-  puts "Correct!
-  This is card number 3 out of #{cards.count}.
-  Question: #{cards[2].question}"
-else
-  puts "Incorrect.
-  This is card number 3 out of #{cards.count}.
-  Question: #{cards[2].question}"
-end
-
-new_turn = round.take_turn(gets.chomp)
-
-if new_turn.correct?
-  puts "Correct!
-  This is card number 4 out of #{cards.count}.
-  Question: #{cards[3].question}"
-else
-  puts "Incorrect.
-  This is card number 4 out of #{cards.count}.
-  Question: #{cards[3].question}"
-end
-
-new_turn = round.take_turn(gets.chomp)
-
-if new_turn.correct?
-  puts "Correct!"
-else
-  puts "Incorrect."
+  puts new_turn.feedback
 end
 
 puts "****** Game over! ******
