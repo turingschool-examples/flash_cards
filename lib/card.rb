@@ -3,6 +3,7 @@ require 'rspec'
 class Card
   attr_reader :question, :answer, :category
 
+  # initialize a card with a question, answer, and category
   def initialize(question_param, answer_param, category_param)
     @question = question_param
     @answer = answer_param
