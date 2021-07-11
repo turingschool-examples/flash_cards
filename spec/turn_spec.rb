@@ -5,6 +5,7 @@ RSpec.describe Turn do
   before :each do
     @card = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
     @turn = Turn.new('Juneau', @card)
+    @turn_2 = Turn.new(' jUnEaU   ', @card)
   end
 
   it 'exists' do
@@ -21,6 +22,10 @@ RSpec.describe Turn do
 
   it 'confirms if the guess is correct' do
     expect(@turn.correct?).to be true
+  end
+
+  it 'is not case sensitive and leading and trailing whitespace is ok' do
+    expect(@turn_2.correct?).to be true
   end
 
   it 'provides positive feedback if correct' do
