@@ -17,10 +17,4 @@ class Deck
     end
     categorized_cards
   end
-
-  # def cards_in_category(category)
-  # can use the enumerable find_all
-  # @cards.find_all do |card|
-  #  card.category == category
-  # end
 end
