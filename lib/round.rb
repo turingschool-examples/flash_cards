@@ -48,6 +48,6 @@ class Round
         num_in_category += 1 if turn.card.category == category
       end
 
-    (number_correct_by_category(category) / num_in_category.to_f) * 100
+    ((number_correct_by_category(category) / num_in_category.to_f) * 100).round(1)
   end
 end
