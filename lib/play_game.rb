@@ -20,7 +20,7 @@ class PlayGame
   def begin_game
     @cards
     puts "Welcome!"
-    # start 1.0
+    sleep 1.0
     puts "You're playing with #{@deck.count} cards."
   end
 
