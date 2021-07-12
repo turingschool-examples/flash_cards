@@ -12,7 +12,7 @@ def turn(deck, round)
   puts "\nThis is card number #{round.num_turns_taken + 1} out of #{deck.count}."
   puts "Question: #{round.current_card.question}"
   guess = gets.chomp
-  round.take_turn(guess)
+  new_turn = round.take_turn(guess)
   puts "#{round.turns.last.feedback}"
 end
 
