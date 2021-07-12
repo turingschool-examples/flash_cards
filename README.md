@@ -35,9 +35,8 @@ Project is created with:
 
 ## Setup
 To run this program, save a copy of this repository locally. In the MacOS
-application 'Terminal,' navigate into the _night writer_ directory. Next, place
-a text file (.txt) to be translated in the same directory. Then, run it using
-ruby (note: '$' is not typed).
+application 'Terminal,' navigate into the _flash_cards_ directory.
+Then, run it using ruby (note: '$' is not typed).
 
 1. Clone the repo using the web url:
    ```
