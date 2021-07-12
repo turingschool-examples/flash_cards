@@ -4,7 +4,7 @@ require './lib/deck'
 require './lib/card_generator'
 
 class Round
-  attr_accessor :current_card, :num_turns_taken, :turns
+  attr_accessor :current_card, :num_turns_taken, :turns , :number_correct_by_category
   def initialize(deck)
     @deck = deck
     @num_turns_taken = 0
@@ -28,19 +28,18 @@ class Round
       end
     end
     correct.length
-
   end
 
-  def number_correct_by_category(category)
-    num = 0
+  def number_correct_by_category(input_category)
+    x = []
     @turns.each do |turn|
-      if turn.card.category == (category)
+      if turn.card.category == input_category
         if turn.is_correct?
-        num += 1
+          x << turn
         end
       end
     end
-    num
+    x.length
   end
 
   def percent_correct
@@ -48,11 +47,7 @@ class Round
   end
 
   def percent_correct_by_category(input_category)
-    if number_correct_by_category(input_category) > 0
-      (number_correct_by_category(input_category) / @deck.cards.length) * 100
-    else
-      0
-    end
+      (((number_correct_by_category(input_category).to_f) / (@deck.cards_in_category(input_category).length).to_f) * 100).to_i
   end
 
 end

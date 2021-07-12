@@ -8,7 +8,13 @@ class Deck
   end
 
   def cards_in_category(input_category)
-    @cards.find_all {|element| input_category == element.category}
+    cards_categorized = []
+    @cards.each do |element|
+      if input_category == element.category
+        cards_categorized << element
+      end
+    end
+    cards_categorized
   end
 
   def count
