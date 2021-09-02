@@ -14,7 +14,7 @@
 This project is designed to write a program to simulate a set of flash cards. A user will be able to see the questions, make guesses, and see a final score at the end of the round.
 
 ## Screenshots
-
+![CLI]<img width="1138" alt="Screen Shot 2021-09-02 at 9 04 20 AM" src="https://user-images.githubusercontent.com/72399033/131868407-9ea12655-0b17-4950-8e51-4bca280b1f1e.png">
 
 ## Learning Goals
 * Follow an interaction pattern
