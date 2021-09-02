@@ -46,7 +46,7 @@ Then, run it (note: '$' is not typed).
    ```
 3. Play the game by running:
    ```
-   $ cd ../ruby flashcards_runner.rb 
+   $ ruby flashcards_runner.rb 
    ```
 
 ## Features
