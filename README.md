@@ -62,7 +62,6 @@ List of features:
 Created by
 * [@isikapowers](https://github.com/Isikapowers)
 
-~ Feel free to contact us! ~
-~ Enjoy! ~
+
 
 
