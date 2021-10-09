@@ -19,7 +19,9 @@ class Round
   end
 
   def correct_turns
-    @turns.find_all {|turn| turn.correct?}
+    @turns.find_all do |turn|
+      turn.correct?
+    end
   end
 
   def number_correct
@@ -27,7 +29,9 @@ class Round
   end
 
   def number_correct_by_category(category)
-    correct_turns.find_all {|turn| turn.card.category == category}.count
+    correct_turns.find_all do |turn|
+      turn.card.category == category
+    end.count
   end
 
   def percent_correct
