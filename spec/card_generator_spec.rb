@@ -12,7 +12,9 @@ RSpec.describe CardGenerator do
 
       expect(card_generator).to be_an_instance_of(CardGenerator)
     end
+  end
 
+  describe '#create_cards' do
     it 'creates cards from given txt file' do
       file = File.open('./lib/cards.txt')
       card_generator = CardGenerator.new(file)
