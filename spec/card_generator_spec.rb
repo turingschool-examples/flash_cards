@@ -8,7 +8,6 @@ RSpec.describe CardGenerator do
   describe '#initialize' do
     it 'exists' do
       file = File.open('./lib/cards.txt')
-      require 'pry'; binding.pry
       card_generator = CardGenerator.new(file)
 
       expect(card_generator).to be_an_instance_of(CardGenerator)
@@ -19,6 +18,7 @@ RSpec.describe CardGenerator do
       card_generator = CardGenerator.new(file)
 
       expect(card_generator.cards.count).to eq(5)
+      expect(card_generator.cards).to be_an(Array)
     end
   end
 end
