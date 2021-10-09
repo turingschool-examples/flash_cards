@@ -15,7 +15,7 @@ class Round
     new_turn = Turn.new(guess, current_card)
     @turns << new_turn
     @deck.cards.rotate!
-    return new_turn
+    new_turn
   end
 
   def correct_turns
@@ -47,6 +47,6 @@ class Round
       true
     else
       false
-    end 
+    end
   end
 end
