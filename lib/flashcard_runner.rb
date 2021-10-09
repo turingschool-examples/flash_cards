@@ -2,12 +2,11 @@ require './card'
 require './deck'
 require './turn'
 require './round'
+require './card_generator'
 
-card_1 = Card.new("What is Aang's name in the Fire Nation?", "Kuzon", :Pop_Culture)
-card_2 = Card.new("Izuku Midoriya's hero name is?", "Deku", :Pop_Culture)
-card_3 = Card.new("The Colorado Avalanche have won how many Stanley Cups(requires number spelled out)?", "Two", :Sports)
-card_4 = Card.new("In cooking; a julienne is a type of what?", "Cut", :Cooking)
-cards = [card_1, card_2, card_3, card_4]
+file = File.open('./cards.txt')
+card_generator = CardGenerator.new(file)
+cards = card_generator.cards
 deck = Deck.new(cards)
 round = Round.new(deck)
 
