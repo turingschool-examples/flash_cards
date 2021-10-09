@@ -15,11 +15,13 @@ class Round
     new_turn = Turn.new(guess, current_card)
     @turns << new_turn
     @deck.cards.rotate!
-    return new_turn
+    new_turn
   end
 
   def correct_turns
-    @turns.find_all {|turn| turn.correct?}
+    @turns.find_all do |turn|
+      turn.correct?
+    end
   end
 
   def number_correct
@@ -27,7 +29,9 @@ class Round
   end
 
   def number_correct_by_category(category)
-    correct_turns.find_all {|turn| turn.card.category == category}.count
+    correct_turns.find_all do |turn|
+      turn.card.category == category
+    end.count
   end
 
   def percent_correct
@@ -35,11 +39,14 @@ class Round
   end
 
   def percent_correct_by_category(category)
-    number_correct_by_category(category).fdiv(@turns.find_all {|turn| turn.card.category == category}.count) * 100
+    number_correct_by_category(category).fdiv(number_correct_by_category(category)) * 100
   end
 
   def cards_remaining?
-    return true if @turns.count + 1 <= deck.cards.count
-    false
+    if @turns.count + 1 <= deck.cards.count
+      true
+    else
+      false
+    end
   end
 end
