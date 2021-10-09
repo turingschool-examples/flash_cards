@@ -39,7 +39,7 @@ class Round
   end
 
   def percent_correct_by_category(category)
-    number_correct_by_category(category).fdiv(@turns.find_all {|turn| turn.card.category == category}.count) * 100
+    number_correct_by_category(category).fdiv(number_correct_by_category(category)) * 100
   end
 
   def cards_remaining?
