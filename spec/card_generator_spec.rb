@@ -12,5 +12,12 @@ RSpec.describe CardGenerator do
 
       expect(card_generator).to be_an_instance_of(CardGenerator)
     end
+
+    it 'starts with an empty array of cards' do
+      file = File.open('./lib/cards.txt')
+      card_generator = CardGenerator.new(file)
+
+      expect(card_generator.cards).to eq([])
+    end
   end
 end
