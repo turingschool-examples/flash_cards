@@ -8,6 +8,7 @@ Start by cloning down this repo. In the event you wish to use your own questions
 ## Gameplay
 
 Questions will be posed in this manner:
+
 <img width="604" alt="Screen Shot 2021-10-09 at 3 04 06 PM" src="https://user-images.githubusercontent.com/78196294/136673765-fd5f099b-b163-4ef1-ba27-f8ca7e95180a.png">
 
 As the game progresses you will recieve real time feedback on your guesses:
