@@ -18,7 +18,6 @@ class Round
     return new_turn
   end
 
-
   def correct_turns
     @turns.find_all {|turn| turn.correct?}
   end
@@ -26,7 +25,6 @@ class Round
   def number_correct
     correct_turns.count
   end
-
 
   def number_correct_by_category(category)
     correct_turns.find_all {|turn| turn.card.category == category}.count
