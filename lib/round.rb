@@ -43,7 +43,10 @@ class Round
   end
 
   def cards_remaining?
-    return true if @turns.count + 1 <= deck.cards.count
-    false
+    if @turns.count + 1 <= deck.cards.count
+      true
+    else
+      false
+    end 
   end
 end
