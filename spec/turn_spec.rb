@@ -10,17 +10,17 @@ RSpec.describe Turn do
     expect(turn).to be_instance_of(Turn)
   end
 
-  xit "has a card" do
+  it "has a card" do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     #=> #<Card:0x00007f800e29f0c8 @question=""What is the capital of Alaska?", @answer="Juneau", @category=:Geography>
     turn = Turn.new("Juneau", card)
     #=> #<Turn:0x00007f99842f0998 @card=#<Card:0x00007f800e29f0c9 @question=""What is the capital of Alaska?", @answer="Juneau", @category=:geography>, @guess="Juneau">
 
-    expect(turn.card).to ea(card)
+    expect(turn.card).to eq(card)
     #=> #<Card:0x00007f800e29f0c8 @question=""What is the capital of Alaska?", @answer="Juneau", @category=:Geography>
   end
 
-  xit "has a guess" do
+  it "has a guess" do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
 
