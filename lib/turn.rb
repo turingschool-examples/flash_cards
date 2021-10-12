@@ -14,4 +14,9 @@ class Turn
   def correct?
     @guess == @card.answer ? true : false
   end
+
+  # Feedback definition returns correct? status to the user.
+  def feedback
+    self.correct? == true ? 'Correct!' : 'Incorrect.'
+  end
 end
