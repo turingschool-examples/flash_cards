@@ -8,10 +8,10 @@ class Turn
   end
 
   def correct?
-    @guess == card.answer
+    guess == card.answer
   end
 
   def feedback
-    @guess == card.answer ? "Correct!" : "Incorrect."
+    guess == card.answer ? 'Correct!' : 'Incorrect.'
   end
 end
