@@ -40,7 +40,7 @@ RSpec.describe Round do
     expect(round.turns).to eq([])
   end
 
-  xit "can show current card" do
+  it "can show current card" do
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)    #=> #<Card:0x00007fa16104e160 @answer="Juneau", @question="What is the capital of Alaska?", @category=:Geography>
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)    #=> #<Card:0x00007fa160a62e90 @answer="Mars", @question="The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", @category=:STEM>
     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)    #=> #<Card:0x00007fa161a136f0 @answer="North north west", @question="Describe in words the exact direction that is 697.5° clockwise from due north?", @category=:STEM>
@@ -48,7 +48,6 @@ RSpec.describe Round do
     round = Round.new(deck)
 
     expect(round.current_card).to eq(card_1)
-    #=> #<Card:0x00007fa16104e160 @answer="Juneau", @question="What is the capital of Alaska?", @category=:Geography>
   end
 
   xit "can take another turn" do
