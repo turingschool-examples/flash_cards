@@ -7,6 +7,10 @@ class Round
   end
 
   def current_card
-    deck.cards.shift
+    @deck.cards.shift
+  end
+
+  def take_turn(string)
+    new_turn = Turn.new(string, current_card)
   end
 end
