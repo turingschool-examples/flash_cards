@@ -9,4 +9,9 @@ class Turn
     @guess = guess
     @card = card
   end
+
+  # Correct? definition checks if guess is correct.
+  def correct?
+    @guess == @card.answer ? true : false
+  end
 end
