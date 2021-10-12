@@ -7,19 +7,19 @@ class Card
   end
 
   def question
-    @question
+    p @question
   end
 
   def answer
-    @answer
+    p @answer
   end
 
   def category
-    @category
+    p @category
   end
 end
 
 card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-p card.question
-p card.answer
-p card.category
+card.question
+card.answer
+card.category
