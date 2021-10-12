@@ -40,4 +40,16 @@ RSpec.describe Turn do
     # Test correct? method for a correct guess.
     expect(right_turn.correct?).to eq(true)
   end
+
+  it 'can return feedback to the user' do
+    card = Card.new('What is the captial of Alaska?', 'Juneau', :Geography)
+    wrong_turn = Turn.new('Anchorage', card)
+    right_turn = Turn.new('Juneau', card)
+
+    # Test feedback method for a wrong guess.
+    expect(wrong_turn.feedback).to eq('Incorrect.')
+
+    # Test feedback method for a right guess.
+    expect(right_turn.feedback).to eq('Correct!')
+  end
 end
