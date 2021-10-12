@@ -7,7 +7,7 @@ class Turn
   end
 
   def correct?
-    return true if self.guess == card.answer
+    return true if guess == card.answer
     false
   end
 
