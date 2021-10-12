@@ -1,19 +1,25 @@
 
 class Card
+  def initialize(question_param, answer_param, category_param)
+    @question = question_param
+    @answer = answer_param
+    @category = category_param
+  end
+
   def question
-    p "What is the capital of Alaska?"
+    @question
   end
 
   def answer
-    p "Juneau"
+    @answer
   end
 
   def category
-    p :Geography
+    @category
   end
 end
 
-card = Card.new
-card.question
-card.answer
-card.category
+card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+p card.question
+p card.answer
+p card.category
