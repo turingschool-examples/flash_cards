@@ -13,6 +13,7 @@ class Round
   def take_turn(string)
     new_turn = Turn.new(string, current_card)
     @turns << new_turn
+    @deck.cards.shift
     @turns.last
   end
 
