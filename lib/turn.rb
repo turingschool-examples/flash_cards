@@ -1,17 +1,17 @@
 class Turn
-  attr_accessor :string, :card
+  attr_accessor :obj_guess, :obj_card
 
   def initialize(string, card) # Creating internal variables
-    @string = string
-    @card = card
+    @obj_guess = string
+    @obj_card = card
   end
 
-  def card=(card) # Card method returns the value 'card', not the method 'card'
-    self.card
+  def card # Card method returns the value 'card', not the method 'card'
+    self.obj_card
   end
 
   def guess
-    self.string
+    self.obj_guess
   end
 
   def correct?
