@@ -12,6 +12,14 @@ class Turn
     else
       false
     end
+  end
+
+  def feedback
+    if @guess = true
+      puts "Correct!"
+    else
+      puts "Incorrect."
+    end
   end 
 
 end
