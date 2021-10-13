@@ -6,4 +6,9 @@ RSpec.describe Turn do
     turn = Turn.new("Juneau", Card)
     expect(turn).to be_instance_of(Turn)
   end
+
+  it 'has a guess' do
+    turn = Turn.new("Juneau", Card)
+    expect(turn.guess).to eq("Juneau")
+  end
 end
