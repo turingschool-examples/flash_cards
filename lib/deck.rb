@@ -23,10 +23,9 @@ class Deck
       if card.category == category
         cards_in_category << card
       end
+    end
     # return array that only has those cards that meet the category requirement
     cards_in_category
-    end
-
   end
 
 end
