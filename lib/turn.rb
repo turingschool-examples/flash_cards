@@ -7,8 +7,8 @@ class Turn
   end
 
   def correct?
-    guess == card.answer
-  end
+      guess == card.answer
+    end
 
   def feedback
     if correct? == true
