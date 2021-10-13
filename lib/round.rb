@@ -30,4 +30,8 @@ class Round
     correct_answers_by_category.length
   end
 
+  def percent_correct
+    (number_correct.to_f/@turns.length) * 100
+  end
+
 end
