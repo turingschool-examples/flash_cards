@@ -34,4 +34,11 @@ class Round
     (number_correct.to_f/@turns.length) * 100
   end
 
+  def number_of_cards_by_category(category)
+    cards_by_category = @turns.find_all do |turn|
+      turn.card.category == category
+    end
+    cards_by_category.length
+  end
+
 end
