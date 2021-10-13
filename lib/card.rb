@@ -8,4 +8,3 @@ class Card
     @category = category
   end
 end
-require 'pry'; binding.pry
