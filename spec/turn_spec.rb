@@ -29,12 +29,12 @@ describe Turn do
   it 'correct? returns true' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
-    expect(turn.correct).to eq(true)
+    expect(turn.correct?).to eq(true)
   end
   it 'correct? returns false' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Harrisburgh", card)
-    expect(turn.correct).to eq(false)
+    expect(turn.correct?).to eq(false)
   end
 
   # test feedback method
