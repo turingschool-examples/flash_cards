@@ -17,9 +17,17 @@ class Round
   end
 
   def number_correct
-    amt_correct = @turns.find_all do |turn|
+    correct_answers = @turns.find_all do |turn|
       turn.correct?
     end
-    amt_correct.length
+    correct_answers.length
   end
+
+  def number_correct_by_category(category)
+    correct_answers_by_category = @turns.find_all do |turn|
+      turn.correct? && turn.card.category == category
+    end
+    correct_answers_by_category.length
+  end
+
 end
