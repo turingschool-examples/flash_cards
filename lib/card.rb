@@ -1,11 +1,12 @@
 class Card
 
-  attr_accessor :Geography
+  attr_reader :Geography
 
   def initialize(question, answer)
 
     @question = question
     @answer = answer
+
 
   end
 
@@ -13,9 +14,9 @@ class Card
     puts @question
   end
 
-  def ask_for_answer
-    gets @answer
-      if @answer == answer || @answer == answer.downcase
+  def ask_for_answer(user_input)
+    gets user_input
+      if user_input == @answer || user_input == answer.downcase
         puts "Correct. The answer is Juneau."
       else
         puts "Incorrect. The answer is Juneau."
