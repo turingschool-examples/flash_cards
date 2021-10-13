@@ -41,7 +41,21 @@ RSpec.describe Deck do
   describe '#count' do
     # Test cards array count
     it 'outputs correct card count' do
-      expect(@deck.cards.size).to eq(3)
+      expect(@deck.count).to eq(3)
+    end
+  end
+
+  # Deck#cards_in_category test group.
+  describe '#cards_in_category' do
+    # Test category search return for defined categories.
+    it 'checks for cards of requested category' do
+      expect(@deck.cards_in_category(:STEM)).to eq([@card_2, @card_3])
+      expect(@deck.cards_in_category(:Geography)).to eq([@card_1])
+    end
+
+    # Test an undefined category search.
+    it 'checks for cards with a undefined category' do
+      expect(@deck.cards_in_category('Pop Culture')).to eq([])
     end
   end
 end
