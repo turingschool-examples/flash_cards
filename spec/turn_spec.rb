@@ -11,4 +11,9 @@ RSpec.describe Turn do
     turn = Turn.new("Juneau", Card)
     expect(turn.guess).to eq("Juneau")
   end
+
+  it 'has a flashcard' do
+    turn = Turn.new("Juneau", Card)
+    expect(turn.card).to eq(Card)
+  end
 end
