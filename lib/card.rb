@@ -15,6 +15,11 @@ class Card
 
   def ask_for_answer
     gets @answer
+      if @answer == answer || @answer == answer.downcase
+        puts "Correct. The answer is Juneau."
+      else
+        puts "Incorrect. The answer is Juneau."
+      end
   end
 
 end
