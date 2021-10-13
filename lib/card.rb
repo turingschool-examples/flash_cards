@@ -26,3 +26,5 @@ class Card
 end
 
 card = Card.new("What is the capital of Alaska?", "Juneau")
+card.show_question
+card.ask_for_answer
