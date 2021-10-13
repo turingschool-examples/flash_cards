@@ -28,6 +28,8 @@ RSpec.describe Round do
   end
 
   it '#take_turn' do
-    expect(@round.take_turn("Juneau")).to eq(@card_1)
+    # @round.take_turn('Juneau')
+    # @round.take_turn("Juneau")
+    expect(@round.take_turn('Juneau')).to eq(@round.turns[-1])
   end
 end
