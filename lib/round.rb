@@ -37,6 +37,6 @@ class Round
     category_count = @turns.find_all do |turn|
       turn.card.category == category
     end
-    number_correct_by_category(category).to_f / category_count.length.to_f * 100 
+    number_correct_by_category(category).to_f / category_count.length.to_f * 100
   end
 end
