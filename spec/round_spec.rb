@@ -29,7 +29,10 @@ RSpec.describe Round do
 
   it '#take_turn' do
     # @round.take_turn('Juneau')
-    # @round.take_turn("Juneau")
+    new_turn = @round.take_turn('Juneau')
     expect(@round.take_turn('Juneau')).to eq(@round.turns[-1])
+    expect(new_turn.class).to eq(Turn)
+    expect(new_turn.correct?).to eq(true)
+    expect(@round.turns).to eq([new_turn])
   end
 end
