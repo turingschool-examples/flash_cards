@@ -30,5 +30,4 @@ class Turn
     # end
   end
 
-  
 end

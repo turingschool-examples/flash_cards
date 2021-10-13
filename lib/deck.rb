@@ -2,7 +2,7 @@ class Deck
   attr_accessor :cards
 
   def initialize(cards)
-    @cards = []
+    @cards = cards
   end
 
   def add_card(card_added)
@@ -19,4 +19,6 @@ class Deck
     end
     cards_in_category_array
   end
+
+
 end
