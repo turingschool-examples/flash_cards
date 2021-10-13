@@ -41,7 +41,7 @@ RSpec.describe Deck do
   describe '#count' do
     # Test cards array count
     it 'outputs correct card count' do
-      expect(@deck.count).to eq(3)
+      expect(@deck.count).to eq(@deck.cards.size)
     end
   end
 
