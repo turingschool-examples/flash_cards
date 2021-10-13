@@ -29,4 +29,8 @@ describe Deck do
     expect(@deck.cards_in_category("Pop Culture")).to eq([])
     expect(@deck.cards_in_category("Pop Culture")).to be_empty
   end
+
+  it "#categories" do
+    expect(@deck.categories).to eq([:Geography, :STEM])
+  end
 end

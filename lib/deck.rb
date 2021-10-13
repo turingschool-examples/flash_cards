@@ -11,7 +11,13 @@ class Deck
 
   def cards_in_category(category)
     cards.find_all do |card|
-      category == card.category 
+      category == card.category
     end
+  end
+
+  def categories
+    cards.map do |card|
+      card.category
+    end.uniq
   end
 end
