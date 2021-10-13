@@ -16,4 +16,16 @@ class Round
     @turns << turn_guess
     turn_guess
   end
+
+  def number_correct
+    amount_turns_correct = 0
+    @turns.each do |turn|
+      if turn.correct? == true
+        amount_turns_correct += 1
+      else
+        amount_turns_correct += 0
+      end
+    end
+    amount_turns_correct
+  end
 end
