@@ -14,7 +14,7 @@ class Flashcards
 
   def start
     puts "Welcome! You're playing with #{@deck.count} cards."
-    puts "------------------------------------------------"
+    puts "-------------------------------------------------"
 
     while @round.turns.length < @deck.cards.length do
       puts "This is card number #{@round.turns.length + 1} out of #{@round.deck.cards.length}."
