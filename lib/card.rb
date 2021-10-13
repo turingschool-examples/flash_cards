@@ -1,10 +1,22 @@
 class Card
 
-  attr_reader :history, :technology, :famous_people
+  attr_accessor :Geography
 
-  def initialize
+  def initialize(question, answer)
 
+    @question = question
+    @answer = answer
 
   end
 
+  def show_question
+    puts @question
+  end
+
+  def ask_for_answer
+    gets @answer
+  end
+
 end
+
+card = Card.new("What is the capital of Alaska?", "Juneau")
