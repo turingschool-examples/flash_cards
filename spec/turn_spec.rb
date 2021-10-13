@@ -27,7 +27,7 @@ it 'checks if correct' do
 
 it 'checks if incorrect' do
   card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-  turn = Turn.new("Alaska", card)
+  turn = Turn.new("North Pole", card)
 
   expect(turn.correct?).to eq(false)
 
