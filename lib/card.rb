@@ -1,6 +1,6 @@
 #create class Card
 class Card
-  # initialize variables
+  # initialize variables with read / write funcationality
   attr_accessor :question,
                 :answer,
                 :category
