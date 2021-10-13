@@ -26,7 +26,7 @@ class Round
   def number_correct_by_category(category)
     turns.select do |turn|
       turn.card.answer == turn.guess && turn.card.category == category
-    end.count
+    end.size
   end
 
   def percent_correct
