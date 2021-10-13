@@ -1,8 +1,8 @@
 # create a turn class
 
 class Turn
-  # initialize variables
-  attr_accessor :guess,
+  # initialize variables with read funcationality
+  attr_reader :guess,
                 :card
 
   # initialize Turn class
