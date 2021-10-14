@@ -38,5 +38,20 @@ RSpec.describe Round do
   it 'can count the number of correct guesses' do
     @new_turn = @round.take_turn("Juneau")
     expect(@round.number_correct).to eq(1)
+    expect(@round.current_card).to eq(@card_2)
+    @round.take_turn("Venus")
+    expect(@round.turns.count).to eq(2)
+    expect(@round.turns.last.feedback).to eq("Incorrect.")
+    expect(@round.number_correct).to eq(1)
+    expect(@round.number_correct_by_category(:Geography)).to eq(1)
+  end
+
+  it 'can count the number of correct guesses by category' do
+    @new_turn = @round.take_turn("Juneau")
+    expect(@round.number_correct).to eq(1)
+    expect(@round.current_card).to eq(@card_2)
+    @round.take_turn("Venus")
+    expect(@round.number_correct_by_category(:Geography)).to eq(1)
+    expect(@round.number_correct_by_category(:STEM)).to eq(0)
   end
 end
