@@ -23,4 +23,10 @@ attr_accessor :deck, :turns
       turn.correct?
     end
   end
+
+  def number_correct_by_category(category_select)
+    @turns.count do |turn|
+      turn.correct? && turn.card.category == category_select
+    end
+  end
 end
