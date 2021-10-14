@@ -114,8 +114,14 @@ RSpec.describe Card do
       expect(turn.guess).to eq("A1")
 
     end
+
+    it 'can check if answer is correct' do
+
+      card = Card.new("Q1", "A1", :C1)
+      turn = Turn.new("A1", card)
+      expect(turn.correct?).to eq true
+
+    end
+
   end
-
-
-
 end
