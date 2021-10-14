@@ -1,24 +1,25 @@
 
-
-
 class Card
-  def initialize(question_param, answer_param, category_param)
-    @question = question_param
-    @answer = answer_param
-    @category = category_param
+
+  attr_accessor :question,
+                :answer,
+                :category
+
+  def initialize(question, answer, category)
+    @question = question
+    @answer = answer
+    @category = category
   end
 
-  def question
-    @question
-  end
+  # def question
+  #  @question
+  # end
 
-  def answer
-    @answer
-  end
+  #def answer
+  #  @answer
+  #end
 
-  def category
-    @category
-  end
+  #def category
+  #  @category
+  #end
 end
-
-require 'pry'; binding.pry
