@@ -3,6 +3,8 @@ require '../lib/deck'
 require '../lib/round'
 require '../lib/turn'
 
+
+# card.rb tests
 RSpec.describe Card do
   it 'exists' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
@@ -28,6 +30,8 @@ RSpec.describe Card do
     expect(card.category).to eq(:Geography)
   end
 
+  # deck.rb tests
+
   describe Deck do
     it 'exists' do
       card = Card.new("Q1", "A1", :C1)
@@ -52,6 +56,20 @@ RSpec.describe Card do
       deck = Deck.new(card_array)
 
       expect(deck.cards).to eq(card_array)
+    end
+
+    it 'can return internal array size' do
+
+      card = Card.new("Q1", "A1", :C1)
+      card_two = Card.new("Q2", "A2", :C2)
+      card_three = Card.new("Q3", "A3", :C3)
+
+      card_array = [card, card_two, card_three]
+
+      deck = Deck.new(card_array)
+
+      expect(deck.count).to eq(card_array.size)
+
     end
 
     it 'can return elements as array based on symbol input' do
