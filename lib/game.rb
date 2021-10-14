@@ -29,9 +29,6 @@ class Game
     @round.take_turn(guess)
     puts round.turns[-1].feedback
     self.report
-    if round.deck.card.length == 0
-      self.end_game
-    end
   end
 
   # end game
