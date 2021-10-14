@@ -1,5 +1,5 @@
 class Card
-  attr_accessor :question, :answer, :category
+  attr_reader :question, :answer, :category
 
   def initialize(q = nil, a = nil, c = nil) # Default values for parameters are null
     @question = q

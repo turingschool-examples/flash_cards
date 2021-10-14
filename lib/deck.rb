@@ -1,5 +1,5 @@
 class Deck
-  attr_accessor :obj_array
+  attr_reader :obj_array
 
   def initialize(input) # Declare internal variable
     @obj_array = input
