@@ -28,7 +28,7 @@ RSpec.describe Deck do
     end
     it 'returns an array that contaions cards of the same category' do
       deck = create_test_deck
-      expect(deck.cards_in_category(:Math).count).to eq(3)
+      expect(deck.cards_in_category(:Science).count).to eq(2)
     end
   end
 

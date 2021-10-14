@@ -9,13 +9,11 @@ class Deck
   end
 
   def cards_in_category(category_input) # Returns the number of cards that use the category from the argument provided
-    category_specific_cards = []
-    self.cards.find_all do |card|
+    category_specific_cards = self.cards.find_all do |card|
       if card.category == category_input
-          category_specific_cards.push(card)
+          card
       end
     end
-    return category_specific_cards
   end
 
 
