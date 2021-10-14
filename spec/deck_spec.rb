@@ -1,5 +1,3 @@
-require './lib/turn'
-require './lib/card'
 require './lib/deck'
 
 def create_test_deck
