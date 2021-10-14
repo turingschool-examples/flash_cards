@@ -29,7 +29,14 @@ RSpec.describe Round do
   end
 
   it 'can take turns' do
-    new_turn = @round.take_turn("Juneau")
-    expect(new_turn.class).to eq Turn
+    @new_turn = @round.take_turn("Juneau")
+    expect(@new_turn.class).to eq Turn
+    expect(@new_turn.correct?).to eq true
+    expect(@round.turns).to eq([@new_turn])
+  end
+
+  it 'can count the number of correct guesses' do
+    @new_turn = @round.take_turn("Juneau")
+    expect(@round.number_correct).to eq(1)
   end
 end
