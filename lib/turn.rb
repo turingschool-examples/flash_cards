@@ -7,7 +7,8 @@ class Turn
   end
 
   def correct?
-    return true if guess.upcase == card.answer.upcase
+    # return true if guess.upcase == card.answer.upcase
+    return true if card.answer.upcase.include?(guess.upcase) && !""
     false
   end
 
