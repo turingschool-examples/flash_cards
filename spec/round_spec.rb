@@ -124,4 +124,32 @@ RSpec.describe Round do
       expect(@round.number_correct_by_category(:Music)).to eq(0)
     end
   end
+
+    # Round#percent_correct test group.
+    describe '#percent_correct' do
+      # Test for initial percentatge.
+      it 'can check the inital percent correct' do
+        expect(@round.percent_correct).to eq(0.0)
+      end
+      
+      # Test for all correct answers.
+      it 'can check percentage with all right answers' do
+        @round.take_turn('Juneau')
+        expect(@round.percent_correct).to eq(100.0)
+        @round.take_turn('Mars')
+        expect(@round.percent_correct).to eq(100.0)
+        @round.take_turn('North north west')
+        expect(@round.percent_correct).to eq(100.0)
+      end
+
+      # Test for mix of right and wrong guesses.
+      it 'can check percentage with correct and incorrect answers' do
+        @round.take_turn('Juneau')
+        expect(@round.percent_correct).to eq(100.0)
+        @round.take_turn('Venus')
+        expect(@round.percent_correct).to eq(50.0)
+        @round.take_turn('North north west')
+        expect(@round.percent_correct).to eq(66.6)
+      end
+    end
 end
