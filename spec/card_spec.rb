@@ -182,5 +182,20 @@ RSpec.describe Card do
 
   end
 
+  it 'can read the current card' do
+
+    card = Card.new("Q1", "A1", :C1)
+    card_two = Card.new("Q2", "A2", :C2)
+    card_three = Card.new("Q3", "A3", :C3)
+
+    card_array = [card, card_two, card_three]
+
+    deck = Deck.new(card_array)
+
+    round = Round.new(deck)
+    expect(round.current_card).to eq(card_array[0])
+
+  end
+
   end
 end
