@@ -78,14 +78,31 @@ class Round
   def percent_correct
     # divide the current # of correct guesses by the total # of turns
     # multiply by 100 to change from fraction to percent
-    (self.number_correct / turns.length)* 100
+    if turns.length > 0
+      perc = (self.number_correct.to_f / self.turns.length)* 100
+    else
+      perc = 0
+    end
+    return perc
   end
 
 
   # method to return the % of correct guesses based on category
-  def percent_correct(category)
+  def percent_correct_by_category(category)
+    # get # of turns in category
+    cat_turns = []
+    self.turns.each do |turn|
+      if turn.card.category == category
+        cat_turns << turn
+      end
+    end
     # divide the current # of correct guesses by the total # of turns
     # multiply by 100 to change from fraction to percent
-    (self.number_correct_by_category(category) / turns.length)* 100
+    if cat_turns.length > 0
+      perc = (self.number_correct_by_category(category).to_f / cat_turns.length)* 100
+    else
+      perc = 0
+    end
+    return perc
   end
 end
