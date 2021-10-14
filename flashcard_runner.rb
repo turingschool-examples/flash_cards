@@ -1,8 +1,9 @@
-require 'lib/card'
-require 'lib/turn'
-require 'lib/deck'
-require 'lib/round'
-require 'lib/turn'
+require './lib/card'
+require './lib/turn'
+require './lib/deck'
+require './lib/round'
+require './lib/turn'
+require './lib/game'
 
 #initialize deck
 card_1 = Card.new("What is 5 + 5?", 10, :STEM)
@@ -17,7 +18,7 @@ game = Game.new(deck)
 #start game
 game.start
 # keep taking guesses until deck runs out
-until round.deck.card.length == 0
+until game.round.deck.card.length == 0
   guess = gets.chomp
   game.take_guess(guess)
 end

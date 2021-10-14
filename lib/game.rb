@@ -1,12 +1,13 @@
 class Game
 
-  attr_reader :deck
+  attr_reader :deck,
+              :round,
               :og_deck_length
 
   def initialize(deck)
     @deck = deck
     @round = Round.new(deck)
-    @og_deck_length = deck.cards.length
+    @og_deck_length = deck.count
   end
 
   def start
@@ -19,8 +20,8 @@ class Game
 
   # create a report method that can be called at every new turn.
   def report
-    puts "This is card number #{@round.turns.length} out of #{@og_deck_length} /n
-          Questions: #{@round.current_card.question}"
+    puts "This is card number #{@round.turns.length} out of #{@og_deck_length}. /n
+          Question: #{@round.current_card.question}"
   end
 
   # check guess, report feedback, go to next card
