@@ -3,11 +3,10 @@ class Deck
 
   def initialize(cards)
     @cards = cards
-    @count = 0
   end
 
   def count
-    @count = @cards.count
+    @cards.count
   end
 
   def cards_in_category(sort)
