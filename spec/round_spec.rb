@@ -95,4 +95,33 @@ RSpec.describe Round do
       expect(@round.number_correct).to eq(0)
     end
   end
+
+  # Round#number_correct_by_category test group.
+  describe '#number_correct_by_category' do
+    # Test for the number correct in a single category.
+    it 'can output correct for one category' do
+      @round.take_turn('Juneau')
+      expect(@round.number_correct_by_category(:Geography)).to eq(1)
+      @round.take_turn('Mars')
+      expect(@round.number_correct_by_category(:Geography)).to eq(1)
+      @round.take_turn('North north west')
+      expect(@round.number_correct_by_category(:Geography)).to eq(1)
+    end
+
+    # Test for another category.
+    it 'can output correct for another category' do
+      @round.take_turn('Juneau')
+      expect(@round.number_correct_by_category(:STEM)).to eq(0)
+      @round.take_turn('Mars')
+      expect(@round.number_correct_by_category(:STEM)).to eq(1)
+      @round.take_turn('North north west')
+      expect(@round.number_correct_by_category(:STEM)).to eq(2)
+    end
+
+    # Test for an undefined category.
+    it 'can check for a undefined category' do
+      @round.take_turn('Juneau')
+      expect(@round.number_correct_by_category(:Music)).to eq(0)
+    end
+  end
 end
