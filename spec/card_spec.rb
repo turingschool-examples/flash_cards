@@ -40,5 +40,20 @@ RSpec.describe Card do
 
       expect(deck).to be_instance_of(Deck)
     end
+
+    it 'can read internal array' do
+
+      card = Card.new("Q1", "A1", :C1)
+      card_two = Card.new("Q2", "A2", :C2)
+      card_three = Card.new("Q3", "A3", :C3)
+
+      card_array = [card, card_two, card_three]
+
+      deck = Deck.new(card_array)
+
+      expect(deck.cards).to eq(card_array)
+    end
+
+
+    end
   end
-end
