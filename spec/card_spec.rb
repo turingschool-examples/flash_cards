@@ -86,5 +86,22 @@ RSpec.describe Card do
 
     end
 
-    end
   end
+
+    # turn.rb tests
+
+  describe 'Turn' do
+    it 'is an instance of Turn' do
+
+      card = Card.new("Q1", "A1", :C1)
+      turn = Turn.new("Q1", card)
+      expect(turn).to be_instance_of(Turn)
+
+    end
+
+
+  end
+
+
+
+end
