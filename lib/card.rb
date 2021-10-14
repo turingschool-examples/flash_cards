@@ -10,7 +10,7 @@ class Card
 
   end
 
-  def category
+  def category # do i need this?
     @category
   end
 
