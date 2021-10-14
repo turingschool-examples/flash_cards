@@ -7,7 +7,7 @@ class Round
   end
 
   def current_card
-    @deck.cards.shift
+    @deck.cards[0]
   end
 
   def take_turn(string)
