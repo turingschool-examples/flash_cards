@@ -12,20 +12,33 @@ class Round
   end
 
   def take_turn(guess)
-    turn_guess = Turn.new(guess, current_card)
-    @turns << turn_guess
-    turn_guess
+    @turns << Turn.new(guess, current_card)
+    @deck.cards.rotate!
+    @turns.last
   end
 
   def number_correct
-    amount_turns_correct = 0
+    correct_guesses = 0
     @turns.each do |turn|
-      if turn.correct? == true
-        amount_turns_correct += 1
+      if turn.card.answer == turn.guess
+        correct_guesses += 1
       else
-        amount_turns_correct += 0
+        correct_guesses
       end
     end
-    amount_turns_correct
+    correct_guesses
+  end
+
+  def number_correct_by_category(category)
+    @turns.find_all do |turn|
+      turn.card.answer == turn.guess && turn.card.category == category
+    end.length 
+    # correct_turns_array = @turns.map do |turn|
+    #   turn.card.answer == turn.guess
+    # end
+    # same_category = correct_turns_array.find_all do |correct_turn|
+    #   correct_turn == true
+    # end
+    # same_category.length
   end
 end
