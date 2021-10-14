@@ -131,5 +131,27 @@ RSpec.describe Card do
 
     end
 
+  # round.rb tests
+
+  describe 'Round' do
+    it 'is an instance of Round' do
+
+      card = Card.new("Q1", "A1", :C1)
+      card_two = Card.new("Q2", "A2", :C2)
+      card_three = Card.new("Q3", "A3", :C3)
+
+      card_array = [card, card_two, card_three]
+
+      deck = Deck.new(card_array)
+
+      round = Round.new(deck)
+
+      expect(round).to be_instance_of(Round)
+
+    end
+
+
   end
+  end
+
 end
