@@ -18,8 +18,8 @@ class Card
     puts @question
   end
 
-  def ask_input(answer)
-    answer = gets.chomp
+  def ask_input(answer) # do I need an argument for this method?
+    answer = gets.chomp # should I use the instance variable when calling answer?
       if @answer == answer or @answer.downcase == answer
         puts "Correct. The answer is #{@answer}."
       else
