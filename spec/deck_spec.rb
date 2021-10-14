@@ -6,7 +6,6 @@ RSpec.describe Deck do
   describe 'class' do
     it 'is an instance of deck' do
       cards = []
-      # card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       deck = Deck.new(cards)
       expect(deck).to be_a(Deck)
     end
@@ -18,8 +17,8 @@ RSpec.describe Deck do
       card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
       cards = [card_1, card_2, card_3]
       deck = Deck.new(cards)
+
       expect(cards).to eq([card_1, card_2, card_3])
-      # require 'pry'; binding.pry
     end
   end
   describe 'tally the cards' do
@@ -29,8 +28,8 @@ RSpec.describe Deck do
       card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
       cards = [card_1, card_2, card_3]
       deck = Deck.new(cards)
+
       expect(deck.count).to eq(3)
-      # require 'pry'; binding.pry
     end
   end
   describe 'sorts cards' do
@@ -40,8 +39,8 @@ RSpec.describe Deck do
       card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
       cards = [card_1, card_2, card_3]
       deck = Deck.new(cards)
+
       expect(deck.cards_in_category(:STEM)).to eq([card_2, card_3])
-      # require 'pry'; binding.pry
     end
     it 'by different category' do
       card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
@@ -49,8 +48,8 @@ RSpec.describe Deck do
       card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
       cards = [card_1, card_2, card_3]
       deck = Deck.new(cards)
+
       expect(deck.cards_in_category(:Geography)).to eq([card_1])
-      # require 'pry'; binding.pry
     end
   end
 end
