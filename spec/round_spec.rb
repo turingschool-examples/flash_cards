@@ -60,8 +60,8 @@ describe Round do
       round = Round.new(deck)
       guess = 'Juneau'
       round.take_turn(guess)
-      expect(round.deck[0]).to eq(card_2)
-      expect(round.deck[-1]).to eq(card_1)
+      expect(round.deck.cards[0]).to eq(card_2)
+      expect(round.deck.cards[-1]).to eq(card_1)
     end
   end
 end
