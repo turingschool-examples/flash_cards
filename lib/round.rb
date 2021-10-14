@@ -14,12 +14,12 @@ class Round
     self.obj_turns
   end
 
-  def curent_card
-
+  def current_card # Read first element of our deck array using our .cards class method
+    self.obj_deck.cards[0]
   end
 
 
-  def take_turn(i)
+  def take_turn(user_guess)
 
   end
 
