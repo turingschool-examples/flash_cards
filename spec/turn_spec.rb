@@ -22,7 +22,7 @@ describe Turn do
   describe '#card' do
     it 'should return the entire card' do
       card = Card.new('What is the capital of Colorado?', 'Denver', :Geography)
-      turn = turn.new('Denver', card)
+      turn = Turn.new('Denver', card)
       expect(turn.card).to eq(card)
     end
   end
@@ -30,7 +30,7 @@ describe Turn do
   describe '#correct?' do
     it 'should return true' do
       card = Card.new('What is the capital of Colorado?', 'Denver', :Geography)
-      turn = turn.new('Denver', card)
+      turn = Turn.new('Denver', card)
       expect(turn.correct?).to be true
     end
   end
@@ -38,7 +38,7 @@ describe Turn do
   describe '#feedback' do
     it 'should print Correct!' do
       card = Card.new('What is the capital of Colorado?', 'Denver', :Geography)
-      turn = turn.new('Denver', card)
+      turn = Turn.new('Denver', card)
       expect(turn.feedback).to eq('Correct!')
     end
   end

@@ -1,11 +1,11 @@
 class Turn
-  def initialize(string, card) #
-    @string = string
+  def initialize(guess, card)
+    @guess = guess
     @card = card
   end
 
   def guess
-    @string
+    @guess
   end
 
   def card
@@ -13,18 +13,15 @@ class Turn
   end
 
   def correct?
-    if @string == card.answer
-      true
-    else
-      false
-    end
+    @guess == card.answer
   end
 
   def feedback
-    if correct? == true
-      puts "Correct!"
+    if correct?
+      return "Correct!"
     else
-      puts "Incorrect."
+      return "Incorrect."
     end
+
   end
 end
