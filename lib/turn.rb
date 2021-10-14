@@ -6,7 +6,6 @@ class Turn
   end
 
   def correct?
-    # require 'pry'; binding.pry
     if @guess == @card.answer
       @guess = true
     else

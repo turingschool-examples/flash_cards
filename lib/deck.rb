@@ -16,7 +16,6 @@ class Deck
       if card.category == sort
         sorted_cards << card
       end
-      # require 'pry'; binding.pry
     end
     sorted_cards
   end
