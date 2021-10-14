@@ -152,4 +152,39 @@ RSpec.describe Round do
         expect(@round.percent_correct).to eq(66.6)
       end
     end
+
+    # Round#percent_correct_by_category test group.
+    describe '#percent_correct_by_category' do
+      # Test for initial category percentage.
+      it 'can check the initial percentage by category' do
+        expect(@round.percent_correct_by_category(:Geography)).to eq(0.0)
+        expect(@round.percent_correct_by_category(:STEM)).to eq(0.0)
+      end
+      
+      # Test for all correct guesses percentage output by category.
+      it 'can check percentage with all correct guesses' do
+        @round.take_turn('Juneau')
+        expect(@round.percent_correct_by_category(:Geography)).to eq(100.0)
+        expect(@round.percent_correct_by_category(:STEM)).to eq(0.0)
+        @round.take_turn('Mars')
+        expect(@round.percent_correct_by_category(:Geography)).to eq(100.0)
+        expect(@round.percent_correct_by_category(:STEM)).to eq(100.0)
+        @round.take_turn('North north west')
+        expect(@round.percent_correct_by_category(:Geography)).to eq(100.0)
+        expect(@round.percent_correct_by_category(:STEM)).to eq(100.0)
+      end
+      
+      # Test for mix of correct and incorrect guesses percentage output by category.
+      it 'can check percentage with mix of guesses' do
+        @round.take_turn('Juneau')
+        expect(@round.percent_correct_by_category(:Geography)).to eq(100.0)
+        expect(@round.percent_correct_by_category(:STEM)).to eq(0.0)
+        @round.take_turn('Venus')
+        expect(@round.percent_correct_by_category(:Geography)).to eq(100.0)
+        expect(@round.percent_correct_by_category(:STEM)).to eq(0.0)
+        @round.take_turn('North north west')
+        expect(@round.percent_correct_by_category(:Geography)).to eq(100.0)
+        expect(@round.percent_correct_by_category(:STEM)).to eq(50.0)
+      end
+    end
 end
