@@ -123,5 +123,13 @@ RSpec.describe Card do
 
     end
 
+    it 'can return proper feedback' do
+
+      card = Card.new("Q1", "A1", :C1)
+      turn = Turn.new("A1", card)
+      expect(turn.feedback).to eq("Correct!")
+
+    end
+
   end
 end
