@@ -20,13 +20,15 @@ class Game
 
   # create a report method that can be called at every new turn.
   def report
-    puts "This is card number #{@round.turns.length} out of #{@og_deck_length}. /n
-          Question: #{@round.current_card.question}"
+    puts "This is card number #{@round.turns.length + 1} out of #{@og_deck_length}."
+    if @round.turns.length < @og_deck_length
+      puts "Question: #{@round.current_card.question}"
+    end
+
   end
 
   # check guess, report feedback, go to next card
   def take_guess(guess)
-    puts guess
     @round.take_turn(guess)
     puts round.turns[-1].feedback
     self.report
@@ -34,8 +36,8 @@ class Game
 
   # end game
   def end_game
-    puts "*** Game over! ***"
-    puts "You had #{self.round.number_correct} guesses out of #{@og_deck_length}"
+    puts "****** Game over! ******"
+    puts "You had #{self.round.number_correct} guesses out of #{@og_deck_length} for a total score of #{self.round.percent_correct}%."
     puts "STEM - #{self.round.percent_correct_by_category(:STEM)}% correct"
     puts "Turing Staff - #{self.round.percent_correct_by_category(:Turing_staff)}% correct"
     puts "Pop Culture- #{self.round.percent_correct_by_category(:Pop_culture)}% correct"
