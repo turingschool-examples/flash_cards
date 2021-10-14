@@ -11,15 +11,15 @@ class Card
     @category = category
   end
 
-  # def question
-  #  @question
-  # end
+   def question
+    @question
+   end
 
-  #def answer
-  #  @answer
-  #end
+  def answer
+   @answer
+  end
 
-  #def category
-  #  @category
-  #end
+  def category
+    @category
+  end
 end
