@@ -22,7 +22,7 @@ class Round
     # move deck to next card
     # make current card the next card in deck and put the previous current card to end of deck
     # get cards array from current deck and add current card to end
-    cards = deck.cards.concat(current_card)
+    cards = deck.cards.concat([current_card])
     # remove first card
     cards.shift
     # set current card to the first card and return
