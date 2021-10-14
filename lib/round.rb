@@ -29,4 +29,12 @@ attr_accessor :deck, :turns
       turn.correct? && turn.card.category == category_select
     end
   end
+
+  def percent_correct
+    if @turns.size == 0
+      0.0
+    else
+      ((number_correct.to_f / @turns.size.to_f) * 100.0).truncate(1)
+    end
+  end
 end
