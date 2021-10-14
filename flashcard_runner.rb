@@ -15,18 +15,16 @@ number_of_cards = deck.cards.length
 
 puts "Welcome! You're playing with #{number_of_cards} cards."
 
-until deck.cards.length == 0
+until deck.cards.length == round.turns.count
   puts "This is card number #{round.turns.length + 1} out of #{number_of_cards}."
   puts "Question: #{round.current_card.question}"
   guess = gets.chomp
-  round.take_turn(guess)
-  turn = Turn.new(guess, round.current_card)
-  puts turn.feedback
-  round.deck.cards.shift
+  new_turn = round.take_turn(guess)
+  puts new_turn.feedback
 end
 
 puts "****** Game over! ******"
-puts "You have #{round.number_correct}answers correct out of #{number_of_cards}questions for a total score of #{round.percent_correct}%!"
+puts "You have #{round.number_correct} answers correct out of #{number_of_cards} questions for a total score of #{round.percent_correct}%!"
 puts "Category- Personal #{round.percent_correct_by_category(:Personal)}%"
 puts "Category- Music #{round.percent_correct_by_category(:Music)}%"
 puts "Category- History #{round.percent_correct_by_category(:History)}%"
