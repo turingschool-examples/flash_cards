@@ -1,37 +1,33 @@
 class Game
-
+  # att reader ability to major variables
   attr_reader :deck,
               :round,
               :og_deck_length
 
+  # initialize deck
   def initialize(deck)
     @deck = deck
     @round = Round.new(deck)
     @og_deck_length = deck.count
   end
 
+  #method
   def start
     # print out starting things
     puts "Welcome! You're playing with #{@og_deck_length} cards"
     puts "-------------------------------------------------------"
-    # call report method
-    self.report
   end
 
-  # create a report method that can be called at every new turn.
-  def report
+  #method to ask a question
+  def ask
     puts "This is card number #{@round.turns.length + 1} out of #{@og_deck_length}."
-    if @round.turns.length < @og_deck_length
-      puts "Question: #{@round.current_card.question}"
-    end
-
+    puts "Question: #{@round.current_card.question}"
   end
 
   # check guess, report feedback, go to next card
   def take_guess(guess)
     @round.take_turn(guess)
     puts round.turns[-1].feedback
-    self.report
   end
 
   # end game
