@@ -5,51 +5,67 @@ require './lib/card'
 
 # Rspec tests for Turn class.
 RSpec.describe Turn do
-  it 'exists' do
-    card = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
-    turn = Turn.new('Juneau', card)
+  # Setup two card and turn objects to test different objects for all tests.
+  before(:each) do
+    @card_1 = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
+    @turn_1 = Turn.new('Juneau', @card_1)
+    @card_2 = Card.new('What is the largest city in Alaska?', 'Anchorage', :Geography)
+    @turn_2 = Turn.new('Anchorage', @card_2)
+    @wrong_turn_1 = Turn.new('Anchorage', @card_1)
+    @wrong_turn_2 = Turn.new('Juneau', @card_2)
+  end
+
+  # Turn class test group.
+  describe 'class' do
+    it 'exists' do      
+      # Test whether the Turn class exists.
+      expect(@turn_1).to be_instance_of(Turn)
+      expect(@turn_2).to be_instance_of(Turn)
+    end
+  end
+
+  # Turn#initialize test group.
+  describe '#initialize' do
+    it 'has a guess' do
+      # Test the Turn class guess.
+      expect(@turn_1.guess).to eq('Juneau')
+      expect(@turn_2.guess).to eq('Anchorage')
+    end
     
-    # Test whether the Turn class exists.
-    expect(turn).to be_instance_of(Turn)
+    it 'has a card object' do
+      # Test the Turn class attribute card object.
+      expect(@turn_1.card).to be(@card_1)
+      expect(@turn_2.card).to be(@card_2)
+    end
   end
-
-  it 'has a guess' do
-    card = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
-    turn = Turn.new('Juneau', card)
-
-    # Test the Turn class guess.
-    expect(turn.guess).to eq('Juneau')
-  end
-
-  it 'has a card object' do
-    card = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
-    turn = Turn.new('Juneau', card)
-
-    # Test the Turn class attribute card object.
-    expect(turn.card).to be(card)
-  end
-
-  it 'can check if guess is correct' do
-    card = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
-    wrong_turn = Turn.new('Anchorage', card)
-    right_turn = Turn.new('Juneau', card)
-
-    # Test correct? method for a wrong guess.
-    expect(wrong_turn.correct?).to eq(false)
-
-    # Test correct? method for a correct guess.
-    expect(right_turn.correct?).to eq(true)
-  end
-
-  it 'can return feedback to the user' do
-    card = Card.new('What is the captial of Alaska?', 'Juneau', :Geography)
-    wrong_turn = Turn.new('Anchorage', card)
-    right_turn = Turn.new('Juneau', card)
-
-    # Test feedback method for a wrong guess.
-    expect(wrong_turn.feedback).to eq('Incorrect.')
-
-    # Test feedback method for a right guess.
-    expect(right_turn.feedback).to eq('Correct!')
+  
+  # Turn#correct? test group.
+  describe '#correct?' do  
+    it 'can check if guess is correct' do
+      # Test correct? method for a correct guess.
+      expect(@turn_1.correct?).to eq(true)
+      expect(@turn_2.correct?).to eq(true)
+    end
+    
+    it 'can check if guess is incorrect' do
+      # Test correct? method for a correct guess.
+      expect(@wrong_turn_1.correct?).to eq(false)
+      expect(@wrong_turn_2.correct?).to eq(false)
+    end
+  end 
+  
+  # Turn#feedback test group.
+  describe '#feedback' do
+    it 'can return correct feedback to the user' do
+      # Test feedback method for a right guess.
+      expect(@turn_1.feedback).to eq('Correct!')
+      expect(@turn_2.feedback).to eq('Correct!')
+    end
+    
+    it 'can return incorrect feedback to the user' do
+      # Test feedback method for a wrong guess.
+      expect(@wrong_turn_1.feedback).to eq('Incorrect.')
+      expect(@wrong_turn_2.feedback).to eq('Incorrect.')
+    end
   end
 end
