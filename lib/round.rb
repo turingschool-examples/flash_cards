@@ -1,10 +1,9 @@
 class Round
-  attr_reader :deck, :turns#, :round
+  attr_reader :deck, :turns
 
   def initialize(deck)
     @deck = deck
     @turns = []
-    # @round = 0
   end
 
   def current_card
@@ -12,9 +11,6 @@ class Round
   end
 
   def take_turn(response)
-    # this_turn = Turn.new(response, current_card)
-    # @turns << this_turn
-    # this_turn
     @turns << Turn.new(response, current_card)
     @turns.last
   end
@@ -26,7 +22,6 @@ class Round
   end
 
   def number_correct_by_category(category)
-    # method will need to reference the turn.correct?
     @turns.count do |trivia|
         trivia.card.category == category && trivia.correct?
     end
@@ -41,7 +36,6 @@ class Round
   end
 
   def percent_correct_by_category(category)
-    #add content: need number correct by category divided by the number of turns with that category
     if @turns.length > 0
       (number_correct_by_category(category).to_f/@turns.count {|trivia| trivia.card.category == category}) * 100
     else
