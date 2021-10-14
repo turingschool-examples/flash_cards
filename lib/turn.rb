@@ -1,5 +1,8 @@
 class Turn
-  attr_accessor :obj_guess, :obj_card
+
+
+
+  attr_reader :obj_guess, :obj_card
 
   def initialize(string, card) # Creating internal variables
     @obj_guess = string
