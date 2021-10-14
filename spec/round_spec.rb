@@ -36,4 +36,63 @@ RSpec.describe Round do
       expect(@round.turns).to eq([])
     end
   end
+
+  # Round#current_card test group.
+  describe '#current_card' do
+    # Test current_card is a Card instance.
+    it 'is a Card instance' do
+      expect(@round.current_card).to be_instance_of(Card)
+    end
+
+    # Test that the initial current card is the first card in the Deck.
+    it 'displays the first card initially' do
+      expect(@round.current_card).to eq(@card_1)
+    end
+  end
+
+  # Round#take_turn test group.
+  describe '#take_turn' do
+    # Test that takes in user input and creates new Turn instance.
+    it 'returns a Turn instance' do
+      juneau_turn = Turn.new('Juneau', @card_1)
+      juneau_round = @round.take_turn('Juneau')
+      expect(juneau_round).to be_instance_of(Turn)
+    end
+
+    # Test initial Turn is correct.
+    it 'has correct initial Turn' do
+      juneau_turn = Turn.new('Juneau', @card_1)
+      juneau_round = @round.take_turn('Juneau')
+      expect(juneau_round.card).to eq(juneau_turn.card)
+      expect(juneau_round.guess).to eq(juneau_turn.guess)
+    end
+  end
+
+  # Round#number_correct test group.
+  describe '#number_correct' do
+    # Test initial number correct is zero.
+    it 'is initially zero' do
+      expect(@round.number_correct).to eq(0)
+    end
+
+    # Test for correct guesses updates after a guess.
+    it 'can update for correct guesses' do
+      @round.take_turn('Juneau')
+      expect(@round.number_correct).to eq(1)
+      @round.take_turn('Mars')
+      expect(@round.number_correct).to eq(2)
+      @round.take_turn('North north west')
+      expect(@round.number_correct).to eq(3)
+    end
+
+    # Test for incorrect guesses.
+    it 'it will stay the same with incorrect guesses' do
+      @round.take_turn('Anchorage')
+      expect(@round.number_correct).to eq(0)
+      @round.take_turn('Saturn')
+      expect(@round.number_correct).to eq(0)
+      @round.take_turn('South west')
+      expect(@round.number_correct).to eq(0)
+    end
+  end
 end
