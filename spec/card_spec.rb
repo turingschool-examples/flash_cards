@@ -94,12 +94,26 @@ RSpec.describe Card do
     it 'is an instance of Turn' do
 
       card = Card.new("Q1", "A1", :C1)
-      turn = Turn.new("Q1", card)
+      turn = Turn.new("A1", card)
       expect(turn).to be_instance_of(Turn)
 
     end
 
+    it 'can return internal card' do
 
+      card = Card.new("Q1", "A1", :C1)
+      turn = Turn.new("A1", card)
+      expect(turn.card).to eq(card)
+
+    end
+
+    it 'can return guess string' do
+
+      card = Card.new("Q1", "A1", :C1)
+      turn = Turn.new("A1", card)
+      expect(turn.guess).to eq("A1")
+
+    end
   end
 
 
