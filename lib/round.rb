@@ -1,8 +1,9 @@
 class Round
-  attr_reader :obj_deck
+  attr_reader :obj_deck, :obj_turns
 
   def initialize(input_deck)
     @obj_deck = input_deck
+    @obj_turns = []
   end
 
   def deck
@@ -10,7 +11,7 @@ class Round
   end
 
   def turns
-
+    self.obj_turns
   end
 
   def curent_card
