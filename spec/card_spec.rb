@@ -167,5 +167,20 @@ RSpec.describe Card do
 
   end
 
+  it 'can read turns array' do
+
+    card = Card.new("Q1", "A1", :C1)
+    card_two = Card.new("Q2", "A2", :C2)
+    card_three = Card.new("Q3", "A3", :C3)
+
+    card_array = [card, card_two, card_three]
+
+    deck = Deck.new(card_array)
+
+    round = Round.new(deck)
+    expect(round.turns).to eq([])
+
+  end
+
   end
 end
