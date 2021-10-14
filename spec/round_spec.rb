@@ -39,7 +39,33 @@ RSpec.describe Round do
   it '#number_correct' do
     @round.take_turn('Juneau')
     expect(@round.number_correct).to eq(1)
-    # @round.take_turn('Venus')
-    # expect(@round.number_correct).to eq(2)
+
+    @round.take_turn('Venus')
+    expect(@round.turns.count).to eq(2)
+    expect(@round.turns.last.feedback).to eq('Incorrect.')
+    expect(@round.number_correct).to eq(1)
+
+    @round.take_turn('North north west')
+    expect(@round.turns.count).to eq(3)
+    expect(@round.turns.last.feedback).to eq('Correct!')
+    expect(@round.number_correct).to eq(2)
+  end
+
+  it '#number_correct_by_category' do
+    @round.take_turn('Juneau')
+    expect(@round.number_correct_by_category(:Geography)).to eq(1)
+
+    @round.take_turn('Venus')
+    expect(@round.number_correct_by_category(:STEM)).to eq(0)
+
+    @round.take_turn('North north west')
+    expect(@round.number_correct_by_category(:STEM)).to eq(1)
+  end
+
+  xit '#percent_correct' do 
+    @round.take_turn('Juneau')
+    @round.take_turn('Venus')
+
+    expect(@round.number_correct_by_category(:STEM)).to eq(1)
   end
 end
