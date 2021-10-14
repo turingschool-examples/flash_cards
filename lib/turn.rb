@@ -4,9 +4,9 @@ class Turn
 
   attr_reader :obj_guess, :obj_card
 
-  def initialize(string, card) # Creating internal variables
-    @obj_guess = string
-    @obj_card = card
+  def initialize(turn_string, turn_card) # Creating internal variables
+    @obj_guess = turn_string
+    @obj_card = turn_card
   end
 
   def card # Card method returns the value 'card', not the method 'card'
