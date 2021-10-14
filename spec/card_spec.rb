@@ -54,6 +54,19 @@ RSpec.describe Card do
       expect(deck.cards).to eq(card_array)
     end
 
+    it 'can return elements as array based on symbol input' do
+
+      card = Card.new("Q1", "A1", :C1)
+      card_two = Card.new("Q2", "A2", :C2)
+      card_three = Card.new("Q3", "A3", :C3)
+
+      card_array = [card, card_two, card_three]
+
+      deck = Deck.new(card_array)
+
+      expect(deck.cards_in_category(:C1)).to match_array(deck.cards[0])
+
+    end
 
     end
   end
