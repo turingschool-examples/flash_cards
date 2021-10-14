@@ -45,7 +45,6 @@ RSpec.describe Round do
 
       expect(@round.current_card).to eq(@card_2)
 
-      require 'pry'; binding.pry
       @round.take_turn("Mars")
 
     end
@@ -58,8 +57,8 @@ RSpec.describe Round do
       new_turn_2 = @round.take_turn("Venus")
 
       expect(new_turn_2.correct?).to be false
-      # require 'pry'; binding.pry
     end
+
     it 'tests for correct/incorrect feedback' do
       @round.take_turn("Juneau")
 
@@ -70,7 +69,6 @@ RSpec.describe Round do
       expect(@round.turns.last.feedback).to eq('Incorrect.')
     end
     it 'test number of correct guesses' do
-      # require 'pry'; binding.pry
       @round.take_turn("Juneau")
       @round.take_turn("Venus")
       expect(@round.number_correct).to eq(1)
@@ -93,7 +91,7 @@ RSpec.describe Round do
 
       @round.take_turn("Juneau")
       @round.take_turn("Venus")
-      # require 'pry'; binding.pry
+
       expect(@round.percent_correct).to eq(50.0)
     end
 
@@ -102,7 +100,7 @@ RSpec.describe Round do
 
       @round.take_turn("Juneau")
       @round.take_turn("Venus")
-      # require 'pry'; binding.pry
+
       expect(@round.percent_correct_by_category(:Geography)).to eq(100.0)
     end
   end
