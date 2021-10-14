@@ -7,14 +7,14 @@ class Turn
   end
 
   def correct?
-      guess == card.answer
-    end
+    guess == card.answer
+  end
 
   def feedback
     if correct? == true
       puts "Correct!"
-      else
-        puts "Incorrect"
+    else
+      puts "Incorrect"
     end
   end
 end
