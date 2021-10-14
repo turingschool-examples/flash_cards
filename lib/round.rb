@@ -1,8 +1,8 @@
 class Round
-  attr_accessor :deck
+  attr_reader :obj_deck
 
-  def initialize(d)
-    @obj_deck = d
+  def initialize(input_deck)
+    @obj_deck = input_deck
   end
 
   def deck
