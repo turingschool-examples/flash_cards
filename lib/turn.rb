@@ -7,7 +7,7 @@ class Turn
 
   def correct?
     if @guess == @card.answer
-      @guess = true
+      true
     else
       false
     end
