@@ -15,7 +15,7 @@ class Turn
 
 
   def correct?
-    if @guess == @answer
+    if guess == @answer
       true
     else
       false

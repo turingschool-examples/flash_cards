@@ -21,7 +21,9 @@ end
 RSpec.describe Turn do
   it "correct answer to question returns true" do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    turn = Turn.new("Juneau", card)
+    turn = Turn.new("bruh", card)
+    # break the code on purpose for troubleshooting
+    # replace "bruh" with "Juneau" to make it pass.
     expect(turn.correct?).to eq(true)
   end
 end
