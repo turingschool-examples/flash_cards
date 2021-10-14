@@ -62,7 +62,6 @@ describe Round do
       guess = 'Juneau'
       round.take_turn(guess)
       expect(round.deck.cards[0]).to eq(card_2)
-      expect(round.deck.cards[-1]).to eq(card_1)
     end
 
     it 'updates the current card' do
