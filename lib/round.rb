@@ -1,47 +1,51 @@
-require '/turn'
-
 class Round
   attr_reader :deck, :turns#, :round
 
-  #need attributes for: deck, turns, number correct,
   def initialize(deck)
     @deck = deck
-    @number_correct = 0
     @turns = []
     # @round = 0
   end
 
-  #need methods for: take_turn, current_card, correct?, number_correct
   def current_card
-    if @turns.length == 0
-      @deck.cards[0]
-    else
       @deck.cards[@turns.length]
-    end
   end
 
   def take_turn(response)
-    #need to iterate through the cards/get the card to match current card
-    @turn = Turn.new(response, @deck.cards[@turns.length])
-    # @round += 1
-    @turns << @turn
-    @turn
+    # this_turn = Turn.new(response, current_card)
+    # @turns << this_turn
+    # this_turn
+    @turns << Turn.new(response, current_card)
+    @turns.last
   end
-#need to add a loop to check for each turn being true ******
+
   def number_correct
-    @turns.each do |trivia|
-      if trivia.correct?  == true
-        # require 'pry'; binding.pry
-        @number_correct += 1 #this counter is increasing each time number_correct is run
-      end
+    @turns.count do |trivia|
+      trivia.correct?
     end
-    @number_correct
   end
 
   def number_correct_by_category(category)
-
+    # method will need to reference the turn.correct?
+    @turns.count do |trivia|
+        trivia.card.category == category && trivia.correct?
+    end
   end
+
   def percent_correct
-    @number_correct/@turns.length
+    if @turns.length > 0
+      (number_correct.to_f/@turns.length) * 100
+    else
+      'No guesses taken'
+    end
+  end
+
+  def percent_correct_by_category(category)
+    #add content: need number correct by category divided by the number of turns with that category
+    if @turns.length > 0
+      (number_correct_by_category(category).to_f/@turns.count {|trivia| trivia.card.category == category}) * 100
+    else
+      'No guesses taken'
+    end
   end
 end
