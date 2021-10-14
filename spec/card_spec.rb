@@ -197,5 +197,53 @@ RSpec.describe Card do
 
   end
 
+  it 'can create a turn instance' do
+
+    card = Card.new("Q1", "A1", :C1)
+
+
+    card_array = [card]
+
+    deck = Deck.new(card_array)
+
+    round = Round.new(deck)
+    new_turn = round.take_turn("A1")
+
+    expect(new_turn.correct?).to eq true
+
+  end
+
+  it 'can return total number correct' do
+
+    card = Card.new("Q1", "A1", :C1)
+
+
+    card_array = [card]
+
+    deck = Deck.new(card_array)
+
+    round = Round.new(deck)
+    new_turn = round.take_turn("A1")
+
+    expect(round.number_correct).to eq(1)
+
+  end
+
+  it 'can return total number correct by category' do
+
+    card = Card.new("Q1", "A1", :C1)
+
+
+    card_array = [card]
+
+    deck = Deck.new(card_array)
+
+    round = Round.new(deck)
+    new_turn = round.take_turn("A1")
+
+    expect(round.number_correct_by_category(:C1)).to eq(1)
+
+  end
+
   end
 end
