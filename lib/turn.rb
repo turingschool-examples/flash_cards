@@ -3,7 +3,7 @@
 class Turn
   # initialize variables with read funcationality
   attr_reader :guess,
-                :card
+              :card
 
   # initialize Turn class
   def initialize(guess, card)
@@ -25,4 +25,6 @@ class Turn
     end
 
   end
+
+
 end
