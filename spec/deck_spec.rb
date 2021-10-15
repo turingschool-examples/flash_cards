@@ -27,4 +27,10 @@ RSpec.describe "deck" do
   it "can determine how many cards are in it" do
     expect(@deck.count).to eq(3)
   end
+
+  it "can list the cards in a category" do
+    expect(@deck.cards_in_category(:Geography)).to eq([@card_1])
+    expect(@deck.cards_in_category(:STEM)).to eq([@card_2, @card_3])
+    expect(@deck.cards_in_category("Pop Culture")).to eq([])
+  end
 end
