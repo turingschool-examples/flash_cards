@@ -3,7 +3,7 @@ require './lib/turn'
 require './lib/deck'
 require './lib/round'
 require './lib/turn'
-require './lib/game.rb'
+require './lib/game'
 
 describe Game do
   before(:each) do
