@@ -29,6 +29,10 @@ def start
     puts "#{@round_1.turns[0].feedback}"
   end
 
+  # def category_iteration
+  #
+  # end
+
   if @round_1.turns.length == @round_1.deck.cards.length
     puts "****** Game Over ******"
     puts "----------------------------------------------------"
