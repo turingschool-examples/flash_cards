@@ -22,24 +22,16 @@ class Round
     turn
   end
 
-  def number_correct
-    correct_int = 0
-    self.turns.each do |turn|
-      if turn.correct?
-        correct_int += 1
-      end
+  def number_correct # Returns how many questions the user got right no matter where they are in the game
+    @turns.count do |turn|
+      turn.correct?
     end
-    correct_int
   end
 
-  def number_correct_by_category(category_input)
-    correct_int = 0
-    self.turns.each do |turn|
-      if turn.correct? && turn.card.category == category_input
-        correct_int += 1
-      end
+  def number_correct_by_category(category_input) # Returns how many turns the user got right by category
+    @turns.count do |turn|
+      turn.card.category == category_input && turn.correct?
     end
-    correct_int
   end
 
   def percent_correct
@@ -47,13 +39,12 @@ class Round
   end
 
   def percent_correct_by_category(category_input)
-    category_turns_length = 0
-    @turns.each do |turn|
+    category_specific_arry = @turns.find_all do |turn|
       if turn.card.category == category_input
-        category_turns_length += 1
+        turn
       end
     end
-    (100 * (self.number_correct_by_category(category_input).to_f / category_turns_length))
+    (100 * (self.number_correct_by_category(category_input).to_f / category_specific_arry.length))
   end
 
 

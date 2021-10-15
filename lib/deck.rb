@@ -5,7 +5,7 @@ class Deck
 
   def initialize(cards_array)
     @cards = cards_array
-    @count = cards_array.count
+    @count = cards_array.length
   end
 
   def cards_in_category(category_input) # Returns an array of cards that use the category from the argument provided
