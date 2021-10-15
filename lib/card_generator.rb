@@ -13,7 +13,7 @@ class CardGenerator
     File.open(@filename).each do |line|
       question = line.split(',')[0]
       answer = line.split(',')[1]
-      category = line.split(',')[2]
+      category = line.split(',')[2].delete("\n")
       card = Card.new(question, answer, category)
       @cards << card
     end

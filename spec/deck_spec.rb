@@ -18,8 +18,8 @@ describe Deck do
     expect(@deck.cards).to eq(@cards)
   end
 
-  # test the describe method
-  describe '#count' do
+  # test the count method
+  describe ' #count' do
     it 'can count' do
       # execute and assess
       expect(@deck.count).to eq(3)
@@ -32,6 +32,23 @@ describe Deck do
     it 'can count empty decks' do
       deck = Deck.new([])
       expect(deck.count).to eq(0)
+    end
+  end
+
+  # test the get_categories method
+  describe ' #get_categories' do
+    it 'can gather categories' do
+      # execute and assess
+      expect(@deck.get_categories.sort()).to eq([:Geography,:STEM])
+
+      # try a second version
+      cards = [@card_2, @card_3]
+      deck = Deck.new(cards)
+      expect(deck.get_categories.sort()).to eq([:STEM])
+    end
+    it 'can gather categories in empty decks' do
+      deck = Deck.new([])
+      expect(deck.get_categories).to eq([])
     end
   end
 

@@ -6,11 +6,22 @@ class Deck
   # initialize class
   def initialize(cards)
     @cards = cards
+    @categories = []
   end
 
   # create count method
   def count
     self.cards.count
+  end
+
+  # gather all categories in deck
+  def get_categories
+    @cards.each do |card|
+      if !@categories.include?(card.category)
+        @categories << card.category
+      end
+    end
+    @categories
   end
 
   # create cards_in_category method
