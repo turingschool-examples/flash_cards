@@ -12,7 +12,7 @@ class Round
   end
 
   def take_turn(response)
-    @turns << Turn.new(response, current_card)
+    @turns << Turn.new(response.capitalize, current_card)
     @turn_num += 1
     @turns.last
   end
