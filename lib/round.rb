@@ -8,7 +8,7 @@ class Round
   end
 
   def current_card
-      @deck.cards[@turns.length]
+    @deck.cards[@turns.length]
   end
 
   def take_turn(response)
@@ -25,7 +25,7 @@ class Round
 
   def number_correct_by_category(category)
     @turns.count do |trivia|
-        trivia.card.category == category && trivia.correct?
+      trivia.card.category == category && trivia.correct?
     end
   end
 
@@ -33,15 +33,17 @@ class Round
     if @turns.length > 0
       (number_correct.to_f/@turns.length) * 100
     else
-      'No guesses taken'
+      'Not Enough Data'
     end
   end
 
   def percent_correct_by_category(category)
+    cards_in_category = @deck.cards_in_category(category).count
     if @turns.length > 0
-      (number_correct_by_category(category).to_f/@turns.count {|trivia| trivia.card.category == category}) * 100
+      number_correct = number_correct_by_category(category).to_f
+      number_correct/cards_in_category*100
     else
-      'No guesses taken'
+      'Not Enough Data'
     end
   end
 end
