@@ -1,4 +1,6 @@
 
+require './lib/card'
+
 class Card
 
   attr_accessor :question,

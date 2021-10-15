@@ -8,7 +8,7 @@ class Deck
 
   def initialize(cards)
     @cards = cards
-    @q_found = []
+
   end
 
   def cards
@@ -20,11 +20,12 @@ class Deck
   end
 
   def cards_in_category(cat)
-    @cards.each do |car|
-      if @cards.include?(cat)
-        @q_found << car
+    q_found = []
+    @cards.each do |card|
+      if card.category == cat
+        q_found << card
       end
     end
-    @q_found
+    q_found
   end
 end
