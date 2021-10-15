@@ -42,5 +42,18 @@ class Round
     correct_int
   end
 
+  def percent_correct
+    (100 * (self.number_correct.to_f / @turns.length))
+  end
+
+  def percent_correct_by_category(category_input)
+    category_specific_turns = @turns.map do |turn|
+      if turn.card.category == category_input
+        turn
+      end
+    end
+    (100 * (self.number_correct_by_category(category_input).to_f / category_specific_turns.length))
+  end
+
 
 end

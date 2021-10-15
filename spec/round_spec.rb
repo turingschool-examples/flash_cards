@@ -83,4 +83,22 @@ RSpec.describe Round do
     end
   end
 
+  describe '#percent_correct' do
+    it 'returns a float' do
+      deck = create_test_deck
+      round = Round.new(deck)
+      round.take_turn('hello lol')
+      expect(round.percent_correct).to be_an_instance_of(Float)
+    end
+  end
+
+  describe '#percent_correct_by_category' do
+    it 'returns a float' do
+      deck = create_test_deck
+      round = Round.new(deck)
+      round.take_turn('hello lol')
+      expect(round.percent_correct_by_category(:Science)).to be_an_instance_of(Float)
+    end
+  end
+
 end
