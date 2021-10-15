@@ -13,7 +13,7 @@ class Turn
 
   # add correct? method
   def correct?
-    self.guess == self.card.answer
+    self.guess.downcase == self.card.answer.downcase
   end
 
   # add feedback method
