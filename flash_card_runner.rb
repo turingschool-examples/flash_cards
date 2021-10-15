@@ -36,7 +36,7 @@ until round.current_card_index == round.deck.count
   puts "This is card #{round.current_card_index + 1} out of #{round.deck.count}"
   puts "Question: #{round.current_card.question}"
   print ' > '
-  user_answer = gets.chomp
+  user_answer = gets.chomp.to_s
   turn = round.take_turn(user_answer)
   puts turn.feedback
 end
