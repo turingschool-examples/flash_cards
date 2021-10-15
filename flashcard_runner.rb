@@ -32,7 +32,9 @@ def start
   if @round_1.turns.length == @round_1.deck.cards.length
     puts "****** Game Over ******"
     puts "----------------------------------------------------"
-    puts "You had #{@round_1.number_correct} correct guesses out of #{@cards.length} for a total score of #{@round_1.percent_correct.round(1)}%"
+    puts "You had #{@round_1.number_correct} correct guesses out of #{@cards.length} for a total score of #{@round_1.percent_correct.to_i}%"
+    puts "Geography - #{@round_1.percent_correct_by_category(:Geography).to_i}% correct"
+    puts "STEM - #{@round_1.percent_correct_by_category(:STEM).to_i}% correct"
   end
 end
 
