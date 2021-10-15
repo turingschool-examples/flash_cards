@@ -81,12 +81,12 @@ RSpec.describe Round do
         expect(@round.number_correct_by_category(:STEM)).to eq(0)
       end
 
-      xit "checks percent correct" do
+      it "checks percent correct" do
           @round.take_turn("Venus")
           expect(@round.percent_correct).to eq(50.0)
       end
 
-      xit "checks percent by category" do
+      it "checks percent by category" do
         @round.take_turn("Venus")
         expect(@round.percent_correct_by_category(:Geography)).to eq(100)
       end
