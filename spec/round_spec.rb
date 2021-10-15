@@ -90,6 +90,15 @@ RSpec.describe Round do
       round.take_turn('hello lol')
       expect(round.percent_correct).to be_an_instance_of(Float)
     end
+    it 'returns a correct percent correct for the round' do
+      deck = create_test_deck
+      round = Round.new(deck)
+      round.take_turn('2') # Math Card # Correct guess (1st Card)
+      round.take_turn('2') # Math Card # Incorrect guess (2nd Card)
+      round.take_turn('0') # Math Card # Correct guess (3rd Card)
+      round.take_turn('9.8') # Science Card # Correct guess (4th Card)
+      expect(round.percent_correct).to eq(75.0)
+    end
   end
 
   describe '#percent_correct_by_category' do
@@ -98,6 +107,17 @@ RSpec.describe Round do
       round = Round.new(deck)
       round.take_turn('hello lol')
       expect(round.percent_correct_by_category(:Science)).to be_an_instance_of(Float)
+    end
+    it 'returns a correct percent for the round for respective category' do
+      deck = create_test_deck
+      round = Round.new(deck)
+      round.take_turn('2') # Math Card # Correct guess (1st Card)
+      round.take_turn('2') # Math Card # Incorrect guess (2nd Card)
+      round.take_turn('0') # Math Card # Correct guess (3rd Card)
+      round.take_turn('9.8') # Science Card # Correct guess (4th Card)
+      round.take_turn('Albert Einstein') # Science Card # Correct guess (5th Card)
+      expect(round.percent_correct_by_category(:Math)).to eq(66.66666666666666)
+      expect(round.percent_correct_by_category(:Science)).to eq(100)
     end
   end
 
