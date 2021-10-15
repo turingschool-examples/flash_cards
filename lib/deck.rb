@@ -4,15 +4,11 @@ require './lib/card'
 
 class Deck
 
-  attr_accessor :cards
+  attr_reader :cards
 
   def initialize(cards)
     @cards = cards
 
-  end
-
-  def cards
-    @cards
   end
 
   def count
