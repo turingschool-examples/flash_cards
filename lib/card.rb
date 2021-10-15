@@ -2,8 +2,8 @@
 class Card
   # initialize variables with read funcationality
   attr_reader :question,
-                :answer,
-                :category
+              :answer,
+              :category
 
   # initialize class
   def initialize(question, answer, category)
@@ -11,7 +11,4 @@ class Card
     @answer = answer
     @category = category
   end
-
-
-
 end

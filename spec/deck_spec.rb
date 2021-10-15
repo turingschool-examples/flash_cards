@@ -29,6 +29,10 @@ describe Deck do
       deck = Deck.new(cards)
       expect(deck.count).to eq(2)
     end
+    it 'can count empty decks' do
+      deck = Deck.new([])
+      expect(deck.count).to eq(0)
+    end
   end
 
   # test the cards_in_category method
@@ -39,6 +43,11 @@ describe Deck do
       answer_2 = [@card_1]
       # execute and assess
       expect(@deck.cards_in_category(:STEM)).to eq(answer_1)
+    end
+
+    it 'works with category that does not exist in deck' do
+      # execute and assess
+      expect(@deck.cards_in_category(:test)).to eq([])
     end
   end
 
