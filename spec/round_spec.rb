@@ -67,7 +67,7 @@ RSpec.describe Round do
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
     round = Round.new(deck)
-    new_turn = Turn.new('Venus', card_1)
+    new_turn = Turn.new('Venus', card_2)
 
     expect(new_turn.correct?).to eq false
   end
