@@ -35,22 +35,40 @@ class Round
   end
 
   def number_correct_by_category(cat)
-    deck = Deck.new(@correct_cards)
-    correct = deck.cards_in_category(cat)
+    my_deck = Deck.new(@correct_cards)
+    correct = my_deck.cards_in_category(cat)
     correct.count()
   end
 
   def percent_correct
-    number_correct * 100 / @turns.count
+    if @turns.count > 0
+      number_correct * 100 / @turns.count
+    else
+      0
+    end
   end
 
   def percent_correct_by_category(cat)
-    # number_correct_by_category(cat) * 100 / @deck.cards_in_category(cat).count
-    deck = Deck.new(@correct_cards)
-    number_correct_by_category(cat) * 100 / deck.cards_in_category(cat).count
-    # puts number_correct_by_category(cat) * 100 / deck.cards_in_category(cat).count
-    # puts number_correct_by_category(cat)
-    # puts deck.cards_in_category(cat).count
+    #
+    # my_deck = Deck.new(@correct_cards)
+    # counter = my_deck.cards_in_category(cat).count
+    correct = number_correct_by_category(cat)
+
+    spent = []
+    @turns.each do |turn|
+      spent << turn.card
+    end
+
+    old = Deck.new(spent)
+    total = old.cards_in_category(cat).count
+
+    # puts "#{correct} / #{total}"
+    if total > 0
+      number_correct_by_category(cat) * 100 / total
+      # number_correct_by_category(cat) * 100 / @deck.cards_in_category(cat)
+    else
+      0
+    end
   end
 
 end
