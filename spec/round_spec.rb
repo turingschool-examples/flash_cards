@@ -16,7 +16,6 @@ RSpec.describe "round" do
                        :STEM)
     @deck     = Deck.new([@card_1, @card_2, @card_3])
     @round    = Round.new(@deck)
-    # @new_turn = @round.take_turn("Juneau")
   end
 
   it "exists" do
@@ -36,9 +35,27 @@ RSpec.describe "round" do
   it "can take a turn" do
     new_turn = @round.take_turn("Juneau")
 
-    
-
     expect(new_turn).to be_a Turn
     expect(new_turn.correct?).to be(true)
   end
+
+  it "can keep track of turns" do
+    new_turn = @round.take_turn("Juneau")
+
+    expect(@round.turns).to eq([new_turn])
+
+    new_turn_2 = @round.take_turn("Mars")
+
+    expect(@round.turns).to eq([new_turn, new_turn_2])
+  end
+
+  it "removes cards from the deck that have been used in a turn" do
+    new_turn = @round.take_turn("Juneau")
+    new_turn_2 = @round.take_turn("Mars")
+
+    expect(@round.turns).to eq([new_turn, new_turn_2])
+    expect(@round.deck.cards).to eq([@card_3])
+  end
+
+
 end
