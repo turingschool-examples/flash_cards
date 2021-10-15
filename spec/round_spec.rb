@@ -65,5 +65,6 @@ describe Round do
     expect(round.number_correct_by_category(:STEM)).to eq(0)
 
     expect(round.percent_correct).to eq(50.0)
+    expect(round.percent_correct_by_category(:Geography)).to eq(100.0)
   end
 end
