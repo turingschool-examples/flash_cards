@@ -12,7 +12,7 @@ RSpec.describe Deck do
     @deck1 = Deck.new(@cards)
   end
 
-  it 'is an instance of Turn class' do
+  it 'is an instance of Deck class' do
     expect(@deck1).to be_instance_of(Deck)
   end
 
