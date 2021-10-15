@@ -51,7 +51,7 @@ RSpec.describe Round do
   end
   describe 'turn results' do
     it 'test guess is correct/incorrect' do
-      new_turn = @round.take_turn("Juneau")
+      new_turn = @round.take_turn("juneau")
 
       expect(new_turn.correct?).to be true
       new_turn_2 = @round.take_turn("Venus")
@@ -87,7 +87,7 @@ RSpec.describe Round do
     end
 
     it 'testing percentage correct' do
-      expect(@round.percent_correct).to eq('No guesses taken')
+      expect(@round.percent_correct).to eq('Not Enough Data')
 
       @round.take_turn("Juneau")
       @round.take_turn("Venus")
@@ -96,7 +96,7 @@ RSpec.describe Round do
     end
 
     it 'testing percentage correct by category' do
-      expect(@round.percent_correct_by_category(:STEM)).to eq('No guesses taken')
+      expect(@round.percent_correct_by_category(:STEM)).to eq('Not Enough Data')
 
       @round.take_turn("Juneau")
       @round.take_turn("Venus")
