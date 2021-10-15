@@ -7,8 +7,9 @@ class Round
               :turns
 
   def initialize(deck)
-    @deck  = deck
-    @turns = []
+    @deck              = deck
+    @turns             = []
+    @correct_responses = []
   end
 
   def current_card
@@ -23,13 +24,18 @@ class Round
   end
 
   def number_correct
-    correct_responses = []
     @turns.select do |turn|
       if turn.correct? == true
-        correct_responses << turn
+        @correct_responses << turn
       end
     end
-    correct_responses.length
+    @correct_responses.length
   end
+
+  # def number_correct_by_category(category)
+  #   correct_responses = []
+  #   @turns.select do |turn|
+  #
+  # end
 
 end
