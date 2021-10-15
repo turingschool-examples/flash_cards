@@ -8,7 +8,6 @@ class Deck
     cards.length
   end
 
-
   def cards_in_category(category)
     card_categories = []
     cards.each do |card|
