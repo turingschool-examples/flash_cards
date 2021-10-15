@@ -32,10 +32,4 @@ describe Game do
   it 'has round' do
     expect(@game.round).to be_instance_of(Round)
   end
-
-  describe ' #report' do
-    xit 'reports correct text' do
-      expect(@game.report).to eq("This is card number 1 out of 4./n Question: What is Rachel's favorite animal?")
-    end
-  end
 end
