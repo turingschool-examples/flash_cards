@@ -4,6 +4,8 @@ require './lib/card'
 
 RSpec.describe Turn do
 
+# add test for card = Card.new
+
   it 'exists' do
     turn = Turn.new("Juneau", Card)
 
@@ -23,10 +25,10 @@ RSpec.describe Turn do
   end
 
 
-  it 'tests is guess is correct' do
+  it 'tests if guess is correct' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
-  
+
     expect(turn.correct?).to be true
   end
 
