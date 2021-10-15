@@ -11,11 +11,10 @@ class Deck
   end
 
   def cards_in_category(type)
-    categorize = []
-    cards.each do |card|
-      categorize << card if card.category == type
+    categorize = cards.select do |card|
+      card.category == type
     end
-    categorize
+
   end
 
 end
