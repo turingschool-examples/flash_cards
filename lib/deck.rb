@@ -1,6 +1,6 @@
 class Deck
 
-  attr_accessor :cards
+  attr_reader :cards
 
   def initialize(cards_array)
     @cards = cards_array
@@ -11,7 +11,19 @@ class Deck
   end
 
   def count
-    @cards.count
+    @cards.length
   end
 
+  def cards_in_category(category_search)
+    filtered = []
+    cards.each do |card|
+      if card.category == category_search
+        filtered << card
+
+      elsif card.category != category_search
+        next
+      end
+    end
+    return filtered
+  end
 end
