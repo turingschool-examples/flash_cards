@@ -64,4 +64,23 @@ RSpec.describe Round do
     end
   end
 
+  describe '#number_correct_by_category' do
+    it 'returns an integer' do
+      deck = create_test_deck
+      round = Round.new(deck)
+      round.take_turn('hello lol')
+      expect(round.number_correct_by_category(:Geography)).to be_an_instance_of(Integer)
+    end
+    it 'returns how maby questions the user got right from turns array for respective category' do
+      deck = create_test_deck
+      round = Round.new(deck)
+      round.take_turn('2') # Math Card # Correct guess (1st Card)
+      round.take_turn('2') # Math Card # Incorrect guess (2nd Card)
+      round.take_turn('0') # Math Card # Correct guess (3rd Card)
+      round.take_turn('9.8') # Science Card # Correct guess (4th Card)
+      expect(round.number_correct_by_category(:Math)).to eq(2)
+      expect(round.number_correct_by_category(:Science)).to eq(1)
+    end
+  end
+
 end

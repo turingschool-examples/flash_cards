@@ -32,5 +32,15 @@ class Round
     correct_int
   end
 
+  def number_correct_by_category(category_input)
+    correct_int = 0
+    self.turns.each do |turn|
+      if turn.correct? && turn.card.category == category_input
+        correct_int += 1
+      end
+    end
+    correct_int
+  end
+
 
 end
