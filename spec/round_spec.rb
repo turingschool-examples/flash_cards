@@ -48,4 +48,20 @@ RSpec.describe Round do
     end
   end
 
+  describe '#number_correct' do
+    it 'returns an integer' do
+      deck = create_test_deck
+      round = Round.new(deck)
+      round.take_turn('hello lol')
+      expect(round.number_correct).to be_an_instance_of(Integer)
+    end
+    it 'returns how maby questions the user got right from turns array' do
+      deck = create_test_deck
+      round = Round.new(deck)
+      round.take_turn('2') # Correct guess (1st Card)
+      round.take_turn('2') # Incorrect guess (2nd Card)
+      expect(round.number_correct).to eq(1)
+    end
+  end
+
 end
