@@ -22,4 +22,14 @@ class Round
     turn
   end
 
+  def number_correct
+    correct_responses = []
+    @turns.select do |turn|
+      if turn.correct? == true
+        correct_responses << turn
+      end
+    end
+    correct_responses.length
+  end
+
 end

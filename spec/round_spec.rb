@@ -43,18 +43,39 @@ RSpec.describe "round" do
     new_turn = @round.take_turn("Juneau")
 
     expect(@round.turns).to eq([new_turn])
+    expect(@round.turns.count).to eq(1)
 
     new_turn_2 = @round.take_turn("Mars")
 
     expect(@round.turns).to eq([new_turn, new_turn_2])
+    expect(@round.turns.count).to eq(2)
   end
 
   it "removes cards from the deck that have been used in a turn" do
-    new_turn = @round.take_turn("Juneau")
+    new_turn   = @round.take_turn("Juneau")
     new_turn_2 = @round.take_turn("Mars")
 
     expect(@round.turns).to eq([new_turn, new_turn_2])
     expect(@round.deck.cards).to eq([@card_3])
+  end
+
+  it "can tell you how many correct responses there are" do
+    new_turn   = @round.take_turn("Juneau")
+    new_turn_2 = @round.take_turn("Earth")
+
+    expect(new_turn.correct?).to eq true
+    expect(new_turn_2.correct?).to eq false
+    expect(@round.number_correct).to eq 1
+
+    new_turn_3 = @round.take_turn("North north west")
+
+    expect(@round.number_correct).to eq 2
+    expect(@round.turns.last.feedback).to eq("Correct!")
+  end
+
+  it "can show how many correct responses there are for a given category" do
+    
+
   end
 
 
