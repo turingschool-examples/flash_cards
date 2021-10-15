@@ -24,4 +24,6 @@ RSpec.describe Card do
 
     expect(card.category).to eq(:Geography)
   end
+
+  # card_2 = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
 end
