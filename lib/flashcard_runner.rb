@@ -19,17 +19,15 @@ puts "Welcome! You're playing with #{cards.size} cards."
 puts "-------------------------------------------------"
 puts "This is card number #{round.turns.size + 1} out of #{cards.size}."
 
-# puts "Question: #{round.deck.cards[0].question}"
-# guess = gets
-# turn = round.take_turn(guess)
-# puts "#{turn.feedback}" # this does not return the correct feedback but the feedback passes tests.
-
-cards.each do |card| # this loops skips every other element
-  puts "#{card.question}"
+cards.each do |card|  # @dmeskis This runs, but only for every other element and
+                      # provides the wrong feedback (correct/incorrect) but the
+                      # tests writteb for the feedback method pass.
+  puts "Question: #{card.question}"
   guess = gets
-  puts "#{round.current_card}"
-  # puts "Question: #{card.question}"
-  # guess = gets
-  # turn = round.take_turn(guess)
-  # puts "#{turn.feedback}"
+  turn = round.take_turn(guess)
+  puts "#{turn.feedback}"
 end
+
+puts "****** Game over! ******"
+puts "You had #{round.number_correct} correct guesses out of #{round.turns.size} for a total score of #{round.percent_correct}."
+puts ""

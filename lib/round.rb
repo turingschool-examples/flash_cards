@@ -6,21 +6,14 @@ class Round
     @turns = []
   end
 
-  def deck
-    @deck
-  end
-
-  def turns
-    @turns
-  end
-
   def current_card
     @deck.cards[0]
   end
 
   def take_turn(guess)
     turn = Turn.new(guess, @deck.cards[0])
-    @turns << @deck.cards.shift()
+    @turns << turn
+    @deck.cards.shift()
     return turn
   end
 
@@ -29,26 +22,41 @@ class Round
   end
 
   def number_correct
-    3
+    count = 0
+    @turns.each do |turn|
+      # require 'pry'; binding.pry
+      if turn.correct?
+        count += 1
+      end
+    end
+    return count
+
   end
 
   def number_correct_by_category(category)
-    1
+    count = 0
+    @turns.each do |turn|
+      if turn.category == category  # @dmeskis rspec gives an error that there is an
+                                    # undefined method 'category'.  I have also
+                                    # tried 'turn.card.category' with the same
+                                    # message.  I just need to compare the category
+                                    # parameter with the actual categories of the
+                                    # turns already taken.
+        if turn.correct?
+          count += 1
+        end
+      end
+    end
+    return count
   end
 
-  def percent_correct
-    num = number_correct_by_category / @turns.cards.size
-    num *= 100
+  def percent_correct # can't test until number_correct resolved
+    # num = number_correct_by_category / @turns.cards.size
+    # num *= 100
   end
 
-  def percent_correct_by_category(category)
-
+  def percent_correct_by_category(category) # can't test until number_correct resolved
+    # TODO - need to solve number_correct first
   end
 
 end
-
-
-# Do I need a correct? method in Round as well as Turn? (It works without it in Turn)
-# Why does @deck.cards[0] work?
-# Need help with the cards and cards_in_category tests in deck_spec.rb
-#

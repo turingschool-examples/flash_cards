@@ -41,12 +41,14 @@ describe Round do
     end
 
     it 'return the turns taken so far' do
+      skip
       card_1 = Card.new('What is the capital of Colorado?', 'Denver', :Geography)
       card_2 = Card.new('Who was the first woman in space?', 'Valentina Tereshkova', :STEM)
       card_3 = Card.new('When was the Declaration of Independence Signed?', '1776', :History)
       cards = [card_1, card_2, card_3]
       deck = Deck.new(cards)
       round = Round.new(deck)
+      turn = Turn
       new_turn = round.take_turn('Denver')
       expect(round.turns).to include(card_1) # the first element of the deck should contain card_1.
     end
@@ -96,7 +98,7 @@ describe Round do
       deck = Deck.new(cards)
       round = Round.new(deck)
       new_turn = round.take_turn('Denver')
-      expect(round.deck.cards[0].question).to include(card_2.question)
+      expect(round.deck.cards[0].question).to include(card_2.question) # not sure if this properly tests: review!!
     end
   end
 
@@ -124,7 +126,6 @@ describe Round do
 
   describe '#number_correct' do
     it 'returns the number of correct guesses (1)' do
-      skip
       card_1 = Card.new('What is the capital of Colorado?', 'Denver', :Geography)
       card_2 = Card.new('Who was the first woman in space?', 'Valentina Tereshkova', :STEM)
       card_3 = Card.new('When was the Declaration of Independence Signed?', '1776', :History)
@@ -137,7 +138,6 @@ describe Round do
     end
 
     it 'returns the number of correct guesses (2)' do
-      skip
       card_1 = Card.new('What is the capital of Colorado?', 'Denver', :Geography)
       card_2 = Card.new('Who was the first woman in space?', 'Valentina Tereshkova', :STEM)
       card_3 = Card.new('When was the Declaration of Independence Signed?', '1776', :History)
@@ -152,7 +152,7 @@ describe Round do
 
   describe '#number_correct_by_category(:category)' do
     it 'returns 1 for the amount of correct geography cards' do
-      skip
+
       card_1 = Card.new('What is the capital of Colorado?', 'Denver', :Geography)
       card_2 = Card.new('Who was the first woman in space?', 'Valentina Tereshkova', :STEM)
       card_3 = Card.new('When was the Declaration of Independence Signed?', '1776', :History)
@@ -164,7 +164,7 @@ describe Round do
     end
 
     it 'returns 2 for the amount of correct history cards and ignores other categories' do
-      skip
+      
       card_1 = Card.new('What is the capital of Colorado?', 'Denver', :Geography)
       card_2 = Card.new('Who was the first woman in space?', 'Valentina Tereshkova', :STEM)
       card_3 = Card.new('When was the Declaration of Independence Signed?', '1776', :History)

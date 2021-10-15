@@ -2,7 +2,7 @@ class Turn
   def initialize(guess, card)
     @guess = guess
     @card = card
-    @correct_answers = [] # this might not be needed.
+    
   end
 
   def guess
