@@ -8,6 +8,3 @@ class Card
   end
 
 end
-
-# card = Card.new("Test1", "Test2", "Test3")
-# puts card.question
