@@ -1,9 +1,10 @@
 class Round
-  attr_reader :deck, :turns
+  attr_reader :deck, :turns, :turn_num
 
   def initialize(deck)
     @deck = deck
     @turns = []
+    @turn_num = 1
   end
 
   def current_card
@@ -12,6 +13,7 @@ class Round
 
   def take_turn(response)
     @turns << Turn.new(response, current_card)
+    @turn_num += 1
     @turns.last
   end
 
