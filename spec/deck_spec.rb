@@ -15,6 +15,10 @@ RSpec.describe Deck do
     expect(@deck).to be_instance_of(Deck)
   end
 
+  it "checks to make sure cards in deck" do
+    expect(@deck.cards).to eq(@cards)
+  end
+
   it 'checks number of cards in deck' do
     expect(@deck.count).to eq(3)
   end

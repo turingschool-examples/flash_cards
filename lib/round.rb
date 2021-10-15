@@ -3,25 +3,36 @@ class Round
               :turns,
               :number_correct
 
+
   def initialize(deck)
     @deck = deck
     @turns = []
-    @number_correct = 1
+    @count = 1
   end
 
   def current_card
-    @deck.cards[0]
+    @deck.cards[@count - 1]
   end
 
   def take_turn(guess)
     @turns <<  Turn.new(guess, current_card)
-    @turns[0]
+    @count += 1
+    @turns.last
   end
 
-#   def
-# #once take trun is over we need to .each
-# #to get the next card go from [0] to [1]
-#   end
+    def number_correct
+      @turns.find_all do |turn|
+        turn.card.answer == turn.guess
+      end.size
+    end
 
+    def number_correct_by_category(genre)
+      @turns.find_all do |correct_category|
+        correct_category.card.answer == correct_category.guess && correct_category.card.category == genre
+      end.size
+    end
 
+    def percent_correct
+      
+    end
 end

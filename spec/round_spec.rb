@@ -31,28 +31,69 @@ RSpec.describe Round do
   it 'takes a new turn' do
     expect(@round.take_turn("Juneau")).to be_instance_of(Turn)
   end
+
   describe 'taking a turn' do
     before :each do
       @new_turn = @round.take_turn("Juneau")
     end
-    it 'has a class' do
-      expect(@new_turn.class).to eq(Turn)
-    end
+      it 'has a class' do
+        expect(@new_turn.class).to eq(Turn)
+      end
 
-    it 'checks if answer is correct' do
-      expect(@new_turn.correct?).to eq(true)
-    end
+      it 'checks if answer is correct' do
+        expect(@new_turn.correct?).to eq(true)
+      end
 
-    it 'returns an array of the turn' do
-      expect(@round.turns).to eq([@new_turn])
-    end
+      it 'returns an array of the turn' do
+        expect(@round.turns).to eq([@new_turn])
+      end
 
-    it "checks if the number is correct" do
-      expect(@round.number_correct).to eq(1)
-    end
+      it "checks if the number is correct for round 1" do
+        expect(@round.number_correct).to eq(1)
+      end
 
-    xit "checks if card2" do
-      expect(@round.current_card).to eq(@card_2)
-    end
+      it "checks if current round is card_2" do
+        expect(@round.current_card).to eq(@card_2)
+      end
+
+      it "takes a turn for card_2" do
+        expect(@round.take_turn("Venus")).to be_instance_of(Turn)
+      end
+
+      it "checks that it is now round 2" do
+        @round.take_turn("Venus")
+        expect(@round.turns.count).to eq(2)
+      end
+
+      it "checks answer for turn 2" do
+        @round.take_turn("Venus")
+        expect(@round.turns.last.feedback).to eq("Incorrect.")
+      end
+
+      it "checks if the number is correct for round 2" do
+        @round.take_turn("Venus")
+        expect(@round.number_correct).to eq(1)
+      end
+
+      it "checks number correct by category" do
+        @round.take_turn("Venus")
+        expect(@round.number_correct_by_category(:Geography)).to eq(1)
+        expect(@round.number_correct_by_category(:STEM)).to eq(0)
+      end
+
+      xit "checks percent correct" do
+          @round.take_turn("Venus")
+          expect(@round.percent_correct).to eq(50.0)
+      end
+
+      xit "checks percent by category" do
+        @round.take_turn("Venus")
+        expect(@round.percent_correct_by_category(:Geography)).to eq(100)
+      end
+
+      it "checks if round3" do
+        @round.take_turn("Venus")
+        expect(@round.current_card).to eq(@card_3)
+      end
   end
 end

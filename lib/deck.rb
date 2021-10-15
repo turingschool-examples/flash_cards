@@ -18,5 +18,5 @@ class Deck
     end
     correct_cards
   end
-
 end
+ 
