@@ -18,7 +18,7 @@ RSpec.describe Deck do
       cards = [card_1, card_2, card_3]
       deck = Deck.new(cards)
 
-      expect(cards).to eq([card_1, card_2, card_3])
+      expect(deck.cards).to eq([card_1, card_2, card_3])
     end
   end
   describe 'tally the cards' do
