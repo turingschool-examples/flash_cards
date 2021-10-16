@@ -5,9 +5,9 @@ require './lib/card'
 
 class Deck
 
-  attr_reader :cards, :category
+  attr_reader :cards
 
-  def initialize(cards) #instructions say to initialize with an array.. am I doing it right?
+  def initialize(cards) 
     @cards = cards
   end
 
@@ -18,9 +18,10 @@ class Deck
   def cards_in_category(category)
     cards_in_category = []
     @cards.each do |card|
-      if @category = :STEM
+      if card.category == category
         cards_in_category << card
       end
+    end
     cards_in_category
   end
 end
