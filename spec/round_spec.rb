@@ -19,21 +19,22 @@ RSpec.describe Round  do
   end
 
 
-  it 'round.current card test' do
-
-    expect(@round.current_card). to eq(@round.deck.cards[0])
-
+  it 'round.turns test' do
+    expect(@round.turns). to eq([])
   end
 
-  # it 'round.take turn test' do
-  #   new_turn = @round.takes_turn("Juneau")
-  #   expect(new_turn). to eq(Round)
-  # end
-  #
-  # it 'new_turn.class' do
-  #   new_turn = @round.take_turn("Juneau")
-  #   expect(new_turn.class). to eq(Round)
-  # end
+
+  it 'round.current card test' do
+    expect(@round.current_card). to eq(@round.deck.cards[0])
+  end
+
+
+  it 'new_turn.class' do
+    new_turn = @round.take_turn("Juneau")
+    expect(new_turn.class). to eq(Turn)
+  end
+
+
 
 
 end
