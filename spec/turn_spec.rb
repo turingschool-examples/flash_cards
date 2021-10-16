@@ -26,6 +26,6 @@ describe Turn do
 
   it 'feedback' do
     expect(@turn_1.feedback).to eq("Correct!")
-    expect(@turn_2.feedback).to eq("Incorrect")
+    expect(@turn_2.feedback).to eq("Incorrect! the correct answer is: #{@card_2.answer}")
   end
 end

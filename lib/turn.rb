@@ -8,7 +8,7 @@ class Turn
   end
 
 def correct?
-    return true if card.answer.upcase.include?(guess.upcase) && guess != ""
+    return true if card.answer.upcase == (guess.upcase) && guess != ""
     false
   end
 
@@ -16,7 +16,7 @@ def correct?
     if correct?
       "Correct!"
     else
-      "Incorrect"
+      "Incorrect! the correct answer is: #{@card.answer}"
     end
   end
 end

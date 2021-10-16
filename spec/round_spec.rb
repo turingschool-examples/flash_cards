@@ -71,6 +71,12 @@ describe 'new turns' do
     expect(@round.turns.count).to eq(2)
   end
 
+  it 'returns the correct card after a turn is taken' do
+    new_turn_2 = @round.take_turn("venus")
+
+    expect(@round.turns.last).to eq(new_turn_2)
+  end
+
   it 'can return feedback of the next turn' do
     new_turn_2 = @round.take_turn("venus")
 
