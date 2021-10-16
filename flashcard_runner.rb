@@ -2,13 +2,19 @@ require './lib/card'
 require './lib/deck'
 require './lib/turn'
 require './lib/round'
+require './lib/card_generator'
+
+# This is leftover hardcoded data from iteration 3. This can be used if CardGenerator class is not used for trivia card creation.
 
 # Create a deck for the trivia round.
-card_1 = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
-card_2 = Card.new('The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?', 'Mars', :STEM)
-card_3 = Card.new('Describe in words the exact direction that is 697.5° clockwise from due North?', 'North north west', :STEM)
-card_4 = Card.new("Where did the character Indiana Jones get his name 'Indiana' from?", 'The dog', :Movie)
-cards = [card_1, card_2, card_3, card_4]
+# card_1 = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
+# card_2 = Card.new('The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?', 'Mars', :STEM)
+# card_3 = Card.new('Describe in words the exact direction that is 697.5° clockwise from due North?', 'North north west', :STEM)
+# card_4 = Card.new("Where did the character Indiana Jones get his name 'Indiana' from?", 'The dog', :Movie)
+# cards = [card_1, card_2, card_3, card_4]
+
+# Setup the Round class for trivia.
+cards = CardGenerator.new('lib/cards.txt').cards
 deck = Deck.new(cards)
 round = Round.new(deck)
 
@@ -22,7 +28,6 @@ def start(round)
     print_card(round)
     guess_response(round)
   end
-
   print_end_screen(round)
 end
 
