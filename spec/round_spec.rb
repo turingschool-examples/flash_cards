@@ -82,5 +82,23 @@ RSpec.describe "round" do
     expect(@round.number_correct_by_category(:STEM)).to eq(2)
   end
 
+  it "can show the percentage of correct answers" do
+    new_turn   = @round.take_turn("Juneau")
+    new_turn_2 = @round.take_turn("Earth")
 
+    expect(@round.percent_correct).to eq(50.0)
+
+    new_turn_3 = @round.take_turn("North north west")
+
+    expect(@round.percent_correct).to eq(66.67)
+  end
+
+  it "can show the percentage of correct answer per category" do
+    new_turn   = @round.take_turn("Juneau")
+    new_turn_2 = @round.take_turn("Earth")
+    new_turn_3 = @round.take_turn("North north west")
+
+    expect(@round.percent_correct_by_category(:Geography)).to eq(100.0)
+    expect(@round.percent_correct_by_category(:Geography)).to eq(50.0)
+  end
 end
