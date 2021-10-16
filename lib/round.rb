@@ -11,8 +11,10 @@ class Round
     @turns = []
   end
 
+
   def current_card
-    deck.cards[0]
+    current_card = deck.cards[0]
+    current_card
   end
 
   def take_turn(guess)
@@ -20,6 +22,11 @@ class Round
     @turns << turn
     @deck.cards.shift
     turn
+  end
+
+  def turns_count
+    tcount = @turns.count
+    tcount
   end
 
   def correct_cards
@@ -37,27 +44,35 @@ class Round
   end
 
   def number_correct_by_category(category)
-    by_category = []
+    count_by_category = 0
     correct_cards.each do |card|
       if card.category == category
-        by_category << card.category
+        count_by_category += 1
       end
     end
-    by_category.length
+    count_by_category
   end
 
-  def percent_of
-
+  def percent_correct
+    (number_correct.to_f / turns_count.to_f * 100).to_i
   end
 
   def percent_correct_by_category(category)
-    for_percent_by_cat = []
-    correct_cards.each do |card|
-      if card.category == category
-        for_percent_by_cat << card.category
+    numcards = 0
+    numcorrect = 0
+    @turns.each do |turn|
+      # if the category matches this method's arg
+      if turn.card.category == category
+        # count number of cards in the category
+        numcards += 1
+        # and then, also
+        if turn.feedback == "Correct!"
+          # track the number of correct turns in same category
+          numcorrect += 1
+        end
       end
     end
-    (for_percent_by_cat.length / number_correct) * 100
+    (numcorrect.to_f / numcards.to_f * 100).to_i
   end
 
 end
