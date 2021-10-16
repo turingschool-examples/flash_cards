@@ -62,15 +62,33 @@ describe Round do
     end
   end
 
-  # describe '#percent_correct' do
-  #   it 'returns total correct/total turns' do
-  #     expect(round.percent_correct).to
-  #   end
-  # end
-  #
-  # describe '#percent_correct_by_category' do
-  #   it 'returns percent correct sorted by category' do
-  #     expect(round.percent_correct_by_category).to eq()
-  #   end
-  # end
+  describe '#percent_correct' do
+    it 'returns total correct/total turns' do
+      card_1= Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+      card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+      turn = Turn.new("Juneau", card_1)
+      cards = [card_1, card_2]
+      deck = Deck.new(cards)
+      round = Round.new(deck)
+      new_turn = round.take_turn("Juneau")
+      round.take_turn("Venus")
+      expect(round.percent_correct).to eq(50)
+    end
+  end
+
+  describe '#percent_correct_by_category' do
+    it 'returns percent correct per category' do
+      card_1= Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+      card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+      turn = Turn.new("Juneau", card_1)
+      cards = [card_1, card_2]
+      deck = Deck.new(cards)
+      round = Round.new(deck)
+      new_turn = round.take_turn("Juneau")
+      round.take_turn("Venus")
+      expect(round.percent_correct_by_category(:Geography)).to eq(100)
+      expect(round.percent_correct_by_category(:STEM)).to eq(0)
+      expect(round.percent_correct_by_category("Pop Culture")).to eq(0)
+    end
+  end
 end
