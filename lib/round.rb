@@ -1,12 +1,13 @@
 class Round
-  attr_accessor :deck, :turns, :store_correct, :store_correct_by_category
-  #:number_of_rounds
+  attr_accessor :deck, :turns, :store_correct, :store_correct_by_category,
+  :total_in_category
+
   def initialize(deck)
     @deck = deck
     @turns = []
     @store_correct = []
     @store_correct_by_category = []
-    # @number_of_rounds = []
+    @total_in_category = []
   end
 
   def current_card
@@ -21,7 +22,7 @@ class Round
     #move Round to next card in the deck
     turn = Turn.new(guess, current_card)
     turns << turn
-    # number_of_turns << guess
+    total_in_category << current_card
 
     if turn.correct?
       store_correct << guess
@@ -47,5 +48,6 @@ class Round
 
   def percent_correct_by_category(category)
     number_correct_by_category(category).to_f/
-
+    total_in_category.count {|card| card.category == category}.to_f * 100
+  end
 end
