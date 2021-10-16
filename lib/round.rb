@@ -39,8 +39,15 @@ class Round
     end.length
   end
 
+  def percent_correct
+    number_correct
+    numerator   = @correct_responses.uniq.length
+    denominator = @turns.length.to_f
+    (numerator / denominator).round(4) * 100.0
+  end
 
-
-
-
+  def percent_correct_by_category(category)
+    number_correct
+    require "pry"; binding.pry
+  end
 end
