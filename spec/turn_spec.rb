@@ -1,3 +1,4 @@
+require './lib/card'
 require './lib/turn'
 
 describe Turn do
