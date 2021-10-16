@@ -38,6 +38,14 @@ class Round
   def percent_correct_by_category(category)
     (number_correct_by_category(category).to_f / number_correct.to_f) * 100
   end
+
+  def start
+    puts "Welcome! You're playing with 4 cards."
+    puts "-------------------------------------------------"
+
+    puts "This is card number #{} out of 4."
+    puts "Question: #{current_card.question}"
+  end
 end
 
 
