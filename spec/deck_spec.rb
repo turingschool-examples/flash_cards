@@ -9,14 +9,7 @@ describe Deck do
     deck = Deck.new(cards)
     expect(deck).to be_instance_of(Deck)
   end
-  # describe '#count' do
-  #   it 'returns number of cards' do
-  #     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-  #     cards = [card_1]
-  #     deck = Deck.new(cards)
-  #     expect(deck.count).to eq(1)
-  #   end
-  # end
+
   describe '#cards_in_category' do
     it 'returns cards in given category' do
       card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
