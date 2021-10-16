@@ -3,21 +3,41 @@ require './lib/turn'
 require './lib/deck'
 require './lib/round'
 
-card_1 = Card.new("What is 5 + 5?", 10, :STEM)
+card_1 = Card.new("What is 5 + 5?", "10", :STEM)
 card_2 = Card.new("What is Seth's favorite color?", "Orange", "Student")
 card_3 = Card.new("What is the capital of Virginia?", "Richmond", :Geography)
 card_4 = Card.new("What is the capital of the US?", "Washington DC", :Geography)
 cards = [card_1, card_2, card_3, card_4]
 deck = Deck.new(cards)
 round = Round.new(deck)
-guess = gets.chomp
-puts "Welcome! You're playing with 4 cards"
-puts "-" * 50
-puts "This is card number 1 out of 4."
-puts round.deck.card_1.question
-gets = guess
-def take_turn(guess)
-  @turns << Turn.new(guess, current_card)
-  deck.cards.rotate!(1)
-  #this_turn
+
+def start(round)
+  counter = 1
+  puts "Welcome! You're playing with #{round.deck.count} cards"
+  while(counter <= round.deck.count)
+    puts "-" * 50
+    puts "This is card number #{counter} out of #{round.deck.count}."
+    puts round.deck.cards[0].question
+    guess = gets.chomp
+    turn = round.take_turn(guess)
+    puts turn.feedback
+    counter += 1
+  end
+
+  # puts "************* Game Over! ************"
+  # require "pry"; binding.pry
+  # puts "You had #{round.number_correct} out of #{round.deck.count} for a total."
+  # puts "Score of #{round.percent_correct}%"
+  # puts "STEM - #{round.percent_correct_by_category}"
+  # puts "Student - #{round.percent_correct_by_category}"
+  # puts "Geography - #{round.percent_correct_by_category}"
+
 end
+start(round)
+puts "************* Game Over! ************"
+#require "pry"; binding.pry
+puts "You had #{round.number_correct} correct out of #{round.deck.count} for a total."
+puts "Score of #{round.percent_correct}%"
+puts "STEM - #{round.percent_correct_by_category(:STEM)}%"
+puts "Student - #{round.percent_correct_by_category("Student")}%"
+puts "Geography - #{round.percent_correct_by_category(:Geography)}%"

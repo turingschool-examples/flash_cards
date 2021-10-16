@@ -55,9 +55,10 @@ RSpec.describe Round do
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
     round = Round.new(deck)
-    #new_turn = round.take_turn(guess)
+    new_turn = round.take_turn("Venus")
 
     expect(round.current_card).to eq(deck.cards[0])
+    expect(round.turns.last).to eq(new_turn)
   end
 
   it 'create turn instance' do
@@ -67,7 +68,7 @@ RSpec.describe Round do
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
     round = Round.new(deck)
-    new_turn = Turn.new('Venus', card_2)
+    new_turn = round.take_turn("Venus")
 
     expect(new_turn.correct?).to eq false
   end
