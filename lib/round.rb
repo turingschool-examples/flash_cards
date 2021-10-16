@@ -25,7 +25,7 @@ class Round
 
   def number_correct_by_category(category)
     @turns.find_all do |turn|
-      turn.guess == turn.card.answer && turn.card.category == category
+      turn.correct? && turn.card.category == category
     end.length
   end
 
@@ -34,9 +34,9 @@ class Round
   end
 
   def percent_correct_by_category(category)
-    category_count = @turns.find_all do |turn|
+    category_count = @turns.count do |turn|
       turn.card.category == category
     end
-    number_correct_by_category(category).to_f / category_count.length.to_f * 100
+    (number_correct_by_category(category).to_f / category_count.to_f * 100).round
   end
 end
