@@ -15,35 +15,35 @@ require './lib/round'
 @num_turing = @round.deck.cards_in_category("Turing Staff").size
 @num_pop = @round.deck.cards_in_category("Pop Culture").size
 
-# Start method initiates play / iterates through deck / asks for user input
+# Start method initiates play / simulates card play / asks for user guesses
 def start
 
 puts "Welcome! You're playing with #{@round.deck.cards.count}
 -------------------------------------------------"
 puts "This is card number #{@round.turns.length + 1} out of #{@round.deck.cards.count} cards.
 Question: #{@round.deck.cards.first.question}"
-# require 'pry'; binding.pry
+
+end
+
+def play_game
 while @round.deck.cards != []
   guess = $stdin.gets.strip
-  if guess.include?("")
-    guess.capitalize
-  end
   @round.take_turn(guess.capitalize)
   "#{@round.turns.last.feedback}"
-   require "pry"; binding.pry
   puts "This is card number #{@round.turns.length + 1}" if @round.deck.cards != []
   puts "#{@round.deck.cards.first.question}" if @round.deck.cards != []
   end
+
   puts "****** Game over! ******"
   puts "You had #{@round.number_correct} correct guesses out of #{@round.turns.length} for a total score of #{@round.percent_correct}%"
   puts "STEM - #{@round.number_correct_by_category(:STEM).to_f / @num_stem * 100 }%"
   puts "Turing Staff - #{@round.number_correct_by_category("Turing Staff").to_f / @num_turing * 100 }%"
   puts "Pop Culture - #{@round.number_correct_by_category("Pop Culture").to_f / @num_pop * 100}%"
-
-
-
 end
 
 
 
+
+
 start
+play_game
