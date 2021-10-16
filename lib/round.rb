@@ -27,11 +27,17 @@ class Round
   end
 
   def number_correct_by_category(category)
-    @deck.cards_in_category(category).each do
-      # @turns.select do |turn|
-        @turns.correct? do
-      end
-    end
+    @turns.select do |turn|           #look at the array of turns and select these
+      (turn.guess == turn.card.answer) && (turn.card.category == category)
+    end.size                               #output array of turns that are correct
+
+    # @deck.cards_in_category(category).each do #look at each card in the array
+    #   @turns.something do |turn|              #
+    #     turn.correct? == true
+    # @turns.select do |turn|
+    #   turn.correct?
+    # end
+    #returns an array of cards in given category
   end
 
   # def percent_correct
