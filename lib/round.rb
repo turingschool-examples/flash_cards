@@ -43,11 +43,23 @@ class Round
     number_correct
     numerator   = @correct_responses.uniq.length
     denominator = @turns.length.to_f
-    (numerator / denominator).round(4) * 100.0
+    (numerator / denominator).round(4) * 100
+  end
+
+  def turns_per_category(category)
+    counter = 0
+    @turns.select do |turn|
+      if turn.card.category == category
+        counter += 1
+      end
+    end
+    counter
   end
 
   def percent_correct_by_category(category)
     number_correct
-    require "pry"; binding.pry
+    numerator   = number_correct_by_category(category).to_f
+    denominator = turns_per_category(category)
+    (numerator / denominator).round(4) * 100
   end
 end
