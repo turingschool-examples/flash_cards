@@ -83,6 +83,7 @@ RSpec.describe Round do
      deck = Deck.new([card_1, card_2, card_3])
      round = Round.new(deck)
      new_turn = round.take_turn("Juneau")
+     # require 'pry'; binding.pry
      expect(round.number_correct_by_category(:Geography)).to eq(1)
    end
 

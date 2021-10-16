@@ -1,9 +1,9 @@
 class Deck
-  attr_reader :cards, :category
+  attr_reader :cards
 
   def initialize (cards)
     @cards = cards
-    @category = category
+
   end
 
   def count
@@ -13,8 +13,9 @@ class Deck
   def cards_in_category(type)
     categorize = cards.select do |card|
       card.category == type
-    end
-
+      end
   end
+
+
 
 end
