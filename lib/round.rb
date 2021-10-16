@@ -19,7 +19,7 @@ class Round
 
   def number_correct
     @turns.find_all do |turn|
-      turn.card.answer == turn.guess
+      turn.correct?
     end.length
   end
 

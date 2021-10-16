@@ -22,8 +22,8 @@ while @round.turns.length < @deck.cards.length do
 end
 
   puts "****** Game over! ******"
-  puts "You had #{@round.number_correct} correct guesses out of #{@round.deck.cards.length} for a total score of #{@round.percent_correct.to_i}%."
   category
+  puts "You had #{@round.number_correct} correct guesses out of #{@round.deck.cards.length} for a total score of #{@round.percent_correct.to_i}%."
 end
 
 def category
