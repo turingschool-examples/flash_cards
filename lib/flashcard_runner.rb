@@ -19,10 +19,11 @@ puts "Welcome! You're playing with #{cards.size} cards."
 puts "-------------------------------------------------"
 
 card_count = round.deck.cards.length
-
+categories_used = []
 card_count.times do |num|
   puts "This is card number #{num+1} out of #{card_count}."
   puts "Question: #{round.current_card.question}"
+  categories_used << round.current_card.category
 
   guess = gets.chomp
 
@@ -31,5 +32,11 @@ card_count.times do |num|
 end
 
 puts "****** Game over! ******"
-puts "You had #{round.number_correct} correct guesses out of #{round.turns.size} for a total score of #{round.percent_correct}."
-puts ""
+puts "You had #{round.number_correct} correct guesses out of #{round.turns.size} for a total score of #{round.percent_correct}%."
+
+
+categories_used.uniq!
+
+categories_used.each do |category|
+  puts "#{category.to_s.tr(':', '')} - #{round.percent_correct_by_category(category)}% correct"
+end
