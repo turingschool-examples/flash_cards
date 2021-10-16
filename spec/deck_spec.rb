@@ -19,22 +19,24 @@ RSpec.describe Deck do
     expect(@deck). to be_instance_of(Deck)
   end
 
-#come back to this
   it '#count' do
-
     expect(@deck.count). to eq(3)
   end
 
-  #come back to this
-    it 'cards_in_category - Geography' do
+  it 'cards_in_category - Geography' do
+    expect(@deck.cards_in_category(:Geography).length). to eq(1)
+  end
 
-      expect(@deck.cards_in_category(:Geography).length). to eq(1)
-    end
+  it 'cards_in_category - STEM' do
+    expect(@deck.cards_in_category(:STEM).length). to eq(2)
+  end
 
-    #come back to this
-      it 'cards_in_category - STEM' do
+  it 'cards_in_category - STEM' do
+    expect(@deck.cards_in_category(:STEM).length). to eq(2)
+  end
 
-        expect(@deck.cards_in_category(:STEM).length). to eq(2)
-      end
+  it 'cards_in_category - Pop culture' do
+    expect(@deck.cards_in_category("PopCulture").length). to eq(0)
+  end
 
 end
