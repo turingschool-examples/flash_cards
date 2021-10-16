@@ -11,9 +11,9 @@ class Round
   end
 
   def take_turn(guess)
-    turn = Turn.new(guess, @deck.cards[0])
+    turn = Turn.new(guess, current_card)
     @turns << turn
-    # @deck.cards.shift()
+    @deck.cards.shift()
     return turn
   end
 
