@@ -17,19 +17,15 @@ class Round
   end
 
   def number_correct
-    correct_turns = 0
-    @turns.each do |turn|
-      correct_turns += 1 if turn.correct?
+    @turns.count do |turn|
+       turn.correct?
     end
-    correct_turns
   end
 
   def number_correct_by_category(category)
-    correct_category = 0
-    @turns.each do |turn|
-      correct_category += 1 if turn.correct? if turn.card.category == category
+    @turns.count do |turn|
+      turn.correct? if turn.card.category == category
     end
-    correct_category
   end
 
   def percent_correct
@@ -37,13 +33,9 @@ class Round
   end
 
   def percent_correct_by_category(category)
-    # this is not working but I'm leaving it for the night
-    grade = 0
-    category_data = turns.each do |turn|
-      grade += if turn.correct? if turn.card.category == category
-        (number_correct_by_category(category).to_f / category_data) * 100
-      end
+    category_data = @turns.count do |turn|
+      turn.card.category == category
     end
-    grade
+      (number_correct_by_category(category).to_f / category_data) * 100
   end
 end
