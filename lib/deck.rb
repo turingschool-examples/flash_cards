@@ -11,12 +11,6 @@ class Deck
   end
 
   def cards_in_category(sort)
-    @sorted_cards = []
-    @cards.each do |card|
-      if card.category == sort
-        sorted_cards << card
-      end
-    end
-    sorted_cards
+    @sorted_cards = @cards.select {|card| card.category == sort}
   end
 end
