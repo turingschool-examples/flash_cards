@@ -2,7 +2,7 @@ class Turn
   def initialize(guess, card)
     @guess = guess
     @card = card
-    
+
   end
 
   def guess
@@ -18,7 +18,7 @@ class Turn
   end
 
   def feedback
-    if correct? == true
+    if correct?
       return "Correct!"
     else
       return "Incorrect."

@@ -13,7 +13,7 @@ class Round
   def take_turn(guess)
     turn = Turn.new(guess, @deck.cards[0])
     @turns << turn
-    @deck.cards.shift()
+    # @deck.cards.shift()
     return turn
   end
 
@@ -30,18 +30,13 @@ class Round
       end
     end
     return count
-
   end
 
   def number_correct_by_category(category)
     count = 0
     @turns.each do |turn|
-      if turn.category == category  # @dmeskis rspec gives an error that there is an
-                                    # undefined method 'category'.  I have also
-                                    # tried 'turn.card.category' with the same
-                                    # message.  I just need to compare the category
-                                    # parameter with the actual categories of the
-                                    # turns already taken.
+      # require 'pry'; binding.pry
+      if turn.card.category == category
         if turn.correct?
           count += 1
         end
@@ -50,13 +45,24 @@ class Round
     return count
   end
 
-  def percent_correct # can't test until number_correct resolved
-    # num = number_correct_by_category / @turns.cards.size
-    # num *= 100
+  def percent_correct
+    num = number_correct * 100 / @turns.size
   end
 
-  def percent_correct_by_category(category) # can't test until number_correct resolved
-    # TODO - need to solve number_correct first
+  def percent_correct_by_category(category)
+    count = 0
+    category_count = 0
+    @turns.each do |turn|
+      if turn.card.category == category
+        category_count += 1
+        if turn.correct?
+          count += 1
+        end
+      end
+    end
+    num = count * 100 / category_count # this needs to identify the quantity in the category.
   end
 
 end
+
+# require 'pry'; binding.pry

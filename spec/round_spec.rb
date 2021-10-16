@@ -152,7 +152,7 @@ describe Round do
 
   describe '#number_correct_by_category(:category)' do
     it 'returns 1 for the amount of correct geography cards' do
-
+      skip
       card_1 = Card.new('What is the capital of Colorado?', 'Denver', :Geography)
       card_2 = Card.new('Who was the first woman in space?', 'Valentina Tereshkova', :STEM)
       card_3 = Card.new('When was the Declaration of Independence Signed?', '1776', :History)
@@ -164,7 +164,6 @@ describe Round do
     end
 
     it 'returns 2 for the amount of correct history cards and ignores other categories' do
-      
       card_1 = Card.new('What is the capital of Colorado?', 'Denver', :Geography)
       card_2 = Card.new('Who was the first woman in space?', 'Valentina Tereshkova', :STEM)
       card_3 = Card.new('When was the Declaration of Independence Signed?', '1776', :History)
@@ -173,7 +172,7 @@ describe Round do
       deck = Deck.new(cards)
       round = Round.new(deck)
       new_turn_1 = round.take_turn('Denver')
-      new_turn_2 = round.take_turn('Valentina Tereschkova')
+      new_turn_2 = round.take_turn('Valentina Tereshkova')
       new_turn_3 = round.take_turn('1776')
       new_turn_4 = round.take_turn('Obama')
       expect(round.number_correct_by_category(:History)).to eq(2)
@@ -182,7 +181,6 @@ describe Round do
 
   describe '#percent_correct' do
     it 'returns 100 when all answers are correct' do
-      skip
       card_1 = Card.new('What is the capital of Colorado?', 'Denver', :Geography)
       card_2 = Card.new('Who was the first woman in space?', 'Valentina Tereshkova', :STEM)
       card_3 = Card.new('When was the Declaration of Independence Signed?', '1776', :History)
@@ -191,16 +189,15 @@ describe Round do
       deck = Deck.new(cards)
       round = Round.new(deck)
       new_turn_1 = round.take_turn('Denver')
-      new_turn_2 = round.take_turn('Valentina Tereschkova')
+      new_turn_2 = round.take_turn('Valentina Tereshkova')
       new_turn_3 = round.take_turn('1776')
       expect(round.percent_correct).to eq(100)
     end
 
     it 'returns 50 when only half of the answers are right' do
-      skip
       card_1 = Card.new('What is the capital of Colorado?', 'Denver', :Geography)
       card_2 = Card.new('Who was the first woman in space?', 'Valentina Tereshkova', :STEM)
-      cards = [card_1, card_2, card_3]
+      cards = [card_1, card_2]
       deck = Deck.new(cards)
       round = Round.new(deck)
       new_turn_1 = round.take_turn('Denver')
@@ -211,7 +208,6 @@ describe Round do
 
   describe '#percent_correct_by_category(:Category)' do
     it 'returns the percentage of correct answers (100) within a category' do
-      skip
       card_1 = Card.new('What is the capital of Colorado?', 'Denver', :Geography)
       card_2 = Card.new('Who was the first woman in space?', 'Valentina Tereshkova', :STEM)
       card_3 = Card.new('What is the capital of Utah?', 'Salt Lake City', :Geography)
@@ -225,7 +221,6 @@ describe Round do
     end
 
     it 'returns the percentage of correct answer (50) within a category' do
-      skip
       card_1 = Card.new('What is the capital of Colorado?', 'Denver', :Geography)
       card_2 = Card.new('Who was the first woman in space?', 'Valentina Tereshkova', :STEM)
       card_3 = Card.new('What is the capital of Utah?', 'Salt Lake City', :Geography)
