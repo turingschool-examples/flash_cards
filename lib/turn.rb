@@ -7,8 +7,9 @@ class Turn
     @guess = guess
   end
 
-  def correct?
-    @guess == card.answer
+def correct?
+    return true if card.answer.upcase.include?(guess.upcase) && guess != ""
+    false
   end
 
   def feedback
