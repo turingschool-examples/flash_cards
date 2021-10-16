@@ -13,13 +13,13 @@ def start
   puts "Welcome! You're playing with #{@deck.count} cards."
   puts "---------------------------------------------------"
 
-while @round.turns.length < @deck.cards.length do
-  puts "This is card number #{@round.turns.length + 1} out of #{@round.deck.cards.length}."
-  puts "Question: #{@round.current_card.question}"
-  puts "Please enter a guess:"
-  @round.take_turn(gets.chomp)
-  puts @round.turns.last.feedback
-end
+  while @round.turns.length < @deck.cards.length do
+    puts "This is card number #{@round.turns.length + 1} out of #{@round.deck.cards.length}."
+    puts "Question: #{@round.current_card.question}"
+    puts "Please enter a guess:"
+    @round.take_turn(gets.chomp)
+    puts @round.turns.last.feedback
+  end
 
   puts "****** Game over! ******"
   category
