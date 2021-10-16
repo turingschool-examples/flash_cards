@@ -31,8 +31,7 @@ class CardGenerator
     end
   end
 
+  def close_file
+    @filename.close
+  end
 end
-
-#   # def close_file
-#   #   @card_file.close
-#   # end
