@@ -14,22 +14,26 @@ RSpec.describe Round  do
       clockwise from due north?", "North north west", :STEM)
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
-    round = Round.new(deck)
+    @round = Round.new(deck)
+
   end
+
 
   it 'round.current card test' do
-    expect(round.current_card(deck)). to eq(Round)
+
+    expect(@round.current_card). to eq(@round.deck.cards[0])
+
   end
 
-  it 'round.take turn test' do
-    new_turn = round.takes_turn("Juneau")
-    expect(new_turn). to eq(Round)
-  end
-
-  it 'new_turn.class' do
-    new_turn = round.take_turn("Juneau")
-    expect(new_turn.class). to eq(Round)
-  end
+  # it 'round.take turn test' do
+  #   new_turn = @round.takes_turn("Juneau")
+  #   expect(new_turn). to eq(Round)
+  # end
+  #
+  # it 'new_turn.class' do
+  #   new_turn = @round.take_turn("Juneau")
+  #   expect(new_turn.class). to eq(Round)
+  # end
 
 
 end
