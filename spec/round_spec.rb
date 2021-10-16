@@ -73,11 +73,13 @@ RSpec.describe "round" do
     expect(@round.turns.last.feedback).to eq("Correct!")
   end
 
-  xit "can show how many correct responses there are for a given category" do
+  it "can show how many correct responses there are for a given category" do
     new_turn   = @round.take_turn("Juneau")
-    new_turn_2 = @round.take_turn("Earth")
+    new_turn_2 = @round.take_turn("Mars")
+    new_turn_3 = @round.take_turn("North north west")
 
     expect(@round.number_correct_by_category(:Geography)).to eq(1)
+    expect(@round.number_correct_by_category(:STEM)).to eq(2)
   end
 
 

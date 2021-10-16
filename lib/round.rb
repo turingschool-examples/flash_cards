@@ -29,13 +29,18 @@ class Round
         @correct_responses << turn
       end
     end
-    @correct_responses.length
+    @correct_responses.uniq.length
   end
 
-  # def number_correct_by_category(category)
-  #   correct_responses = []
-  #   @turns.select do |turn|
-  #
-  # end
+  def number_correct_by_category(category)
+    number_correct
+    @correct_responses.uniq.select do |response|
+      response.card.category == category
+    end.length
+  end
+
+
+
+
 
 end
