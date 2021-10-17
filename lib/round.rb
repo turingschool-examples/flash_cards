@@ -65,9 +65,9 @@ class Round
 
   def start
     puts "Welcome! You are playing with #{deck.count} cards"
-    until @turns.length == deck.count do
+    until @deck.count == 0 do
       puts "-" * 15
-      puts "This is card number #{(turns.length.to_i) + 1} of #{@deck.count}"
+      puts "This is card number #{(turns.length.to_i) + 1} of 5"
       puts "#{current_card.question}"
       guess = gets.chomp
       puts (take_turn(guess)).feedback
@@ -75,7 +75,7 @@ class Round
 
     puts """
     -------GAME OVER-------
-    You had #{number_correct} guesses out of 5 for a total score of #{percent_correct}%
+    You had #{number_correct} guesses correct out of 5 for a total score of #{percent_correct}%
     Geography -- #{percent_correct_by_category(:Geography)}% correct
     STEM      -- #{percent_correct_by_category(:Stem)}% correct
     """
