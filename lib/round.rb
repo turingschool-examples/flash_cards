@@ -25,48 +25,10 @@ class Round
     else
     end
   end
-
-
-  # if @turns == []
-  #   new_turn = Turn.new(guess, deck.cards[0])
-  # elsif @turns == [Turn.new(guess, deck.cards[0])]
-  #   new_turn = Turn.new(guess, deck.cards[1])
-  # elsif @turns == [Turn.new(guess, deck.cards[0]), Turn.new(guess, deck.cards[1])]
-  #   new_turn = Turn.new(guess, deck.cards[2])
-  # elsif @turns == [Turn.new(guess, deck.cards[0]), Turn.new(guess, deck.cards[1]), Turn.new(guess, deck.cards[2])]
-  #   new_turn = Turn.new(guess, deck.cards[3])
-  # else
+  # def current_card
+  #   @turns[0]
   # end
-  #
-  # if guess == "Juneau"
-  #   new_turn = Turn.new(guess, deck.cards[0])
-  # elsif guess == "Venus"
-  #   new_turn = Turn.new(guess, deck.cards[1])
-  # elsif guess == "North north west"
-  #   new_turn = Turn.new(guess, deck.cards[2])
-  # else
-  # end
-
-  # if @turns == []
-  #   new_turn = Turn.new(guess, deck.cards[0])
-  # elsif @turns.last == [Turn.new(guess, deck.cards[0])]
-  #   new_turn = Turn.new(guess, deck.cards[1])
-  # elsif @turns.last == [Turn.new(guess, deck.cards[1])]
-  #   new_turn = Turn.new(guess, deck.cards[2])
-  # elsif @turns.last == [Turn.new(guess, deck.cards[2])]
-  #   new_turn = Turn.new(guess, deck.cards[3])
-  # else
-  # end
-#
-#   if guess == card_1.guess
-#   new_turn = Turn.new(guess, card_1)
-# elsif guess == card_2.guess
-#   new_turn = Turn.new(guess, card_2)
-# elsif guess == card_3.guess
-#   new_turn = Turn.new(guess, card_3)
-# end
-
-
+  
   def take_turn(guess)
     if @turns.count == 0
       new_turn = Turn.new(guess, deck.cards[0])
@@ -81,6 +43,13 @@ class Round
       @turns << new_turn
       return new_turn
   end
+
+  # def take_turn(guess) #dont forget to copy edits to round.rb
+  #       @turns << Turn.new(guess, current_card)
+  #       @turns.rotate!
+  #       @turns.last
+  #   end
+
 
   def number_correct
     number_correct = []

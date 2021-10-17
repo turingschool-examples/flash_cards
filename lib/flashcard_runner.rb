@@ -1,7 +1,7 @@
-# require './lib/card'
-# require './lib/deck'
-# require './lib/turn'
-# require './lib/round'
+# require './card'
+# require './deck'
+# require './turn'
+# require './round'
 
 
 class Card
@@ -157,12 +157,12 @@ end
 #   end
 # end
 #
-# require './lib/card'
-# require './lib/turn'
-# require './lib/deck'
-
-
-
+# # require './lib/card'
+# # require './lib/turn'
+# # require './lib/deck'
+#
+#
+#
 class Round
 
   attr_reader :deck, :turns
@@ -226,19 +226,18 @@ class Round
 # end
 
 
-  def take_turn(guess)
+  def take_turn(guess) #dont forget to copy edits to round.rb
     if @turns.count == 0
       new_turn = Turn.new(guess, deck.cards[0])
     elsif @turns.count == 1
       new_turn = Turn.new(guess, deck.cards[1])
     elsif @turns.count == 2
       new_turn = Turn.new(guess, deck.cards[2])
-    elsif @turn.count == 3
+    elsif @turns.count == 3
       new_turn = Turn.new(guess, deck.cards[3])
-    else
     end
       @turns << new_turn
-      return new_turn
+      return @turns.last
   end
 
   def number_correct
@@ -304,8 +303,8 @@ end
 
 def start
   card_1 = Card.new("What is 5 + 5?", "10", :STEM)
-  card_2 = Card.new("What is Rachel's favorite animal?", "Elephant", :Fun)
-  card_3 = Card.new("What is Mike's middle name?", "nobody knows", :Fun)
+  card_2 = Card.new("What is Rachel's favorite animal?", "Elephant", :Staff)
+  card_3 = Card.new("What is Mike's middle name?", "nobody knows", :Staff)
   card_4 = Card.new("What cardboard cutout lives at Turing?", "Justin Bieber", :Turing)
   cards = [card_1, card_2, card_3, card_4]
   deck = Deck.new(cards)
@@ -315,74 +314,38 @@ def start
   puts "This is card number 1 out of 4."
   puts card_1.question
   guess = gets.chomp
-  # turn = Turn.new(guess, card_1)
-  round.take_turn(guess).correct?
-  puts 
-  # require 'pry';binding.pry
-  # turn_0 = Turn.new(guess, card_0)
-  # new_turn.correct?
-  # puts turns.last.feedback
+  round.take_turn(guess)
+  round.turns.last.correct?
+  puts round.turns.last.feedback
 
   puts "This is card number 2 out of 4."
   puts card_2.question
   guess = gets.chomp
-  take_turn(guess)
-  # turn_1 = Turn.new(guess, card_1)
-  turn_1.correct?
-  puts turn_1.feedback
+  round.take_turn(guess)
+  round.turns.last.correct?
+  puts round.turns.last.feedback
 
   puts "This is card number 3 out of 4."
   puts card_3.question
   guess = gets.chomp
-  take_turn(guess)
-  # turn_2 = Turn.new(guess, card_2)
-  turn_2.correct?
-  puts turn_2.feedback
+  round.take_turn(guess)
+  round.turns.last.correct?
+  puts round.turns.last.feedback
 
   puts "This is card number 4 out of 4."
   puts card_4.question
   guess = gets.chomp
-  take_turn(guess)
-  # turn_3 = Turn.new(guess, card_2)
-  turn_3.correct?
-  puts turn_3.feedback
+  round.take_turn(guess)
+  round.turns.last.correct?
+  puts round.turns.last.feedback
+
 
   puts "****** Game over! ******"
-
+  puts "You had #{round.number_correct} correct guesses out of #{round.turns.count} for a total score of #{round.percent_correct.to_i}%."
+  puts "STEM -#{round.percent_correct_by_category(:STEM).to_i}% correct"
+  # require 'pry';binding.pry
+  puts "Fun -#{round.percent_correct_by_category(:Staff).to_i}% correct"
+  # require 'pry';binding.pry
+  puts "Turing -#{round.percent_correct_by_category(:Turing).to_i}% correct"
 end
 start
-
-# def first_turn
-#   card_0 = Card.new("What is 5 +5 ?", "10", :STEM)
-#   card_1 = Card.new("What is Rachel's favorite animal?", "Elephant", :Fun)
-#   card_2 = Card.new("What is Mike's middle name?", "nobody knows", :Fun)
-#   card_3 = Card.new("What cardboard cutout lives at Turing?", "Justin Bieber", :Turing)
-#   cards = [card_0, card_1, card_2, card_3]
-#   deck = Deck.new(cards)
-#   round = Round.new(deck)
-#   guess = gets.chomp
-#   turn_0 = Turn.new(guess, card_0)
-#   # require 'pry';binding.pry
-#   turn_0.correct?
-#   # require 'pry';binding.pry
-#   puts turn_0.feedback
-# end
-# first_turn
-#
-# def second_turn
-#   card_0 = Card.new("What is 5 +5 ?", "10", :STEM)
-#   card_1 = Card.new("What is Rachel's favorite animal?", "Elephant", :Fun)
-#   card_2 = Card.new("What is Mike's middle name?", "nobody knows", :Fun)
-#   card_3 = Card.new("What cardboard cutout lives at Turing?", "Justin Bieber", :Turing)
-#   cards = [card_0, card_1, card_2, card_3]
-#   deck = Deck.new(cards)
-#   round = Round.new(deck)
-#
-#   puts "This is card number 2 out of 4."
-#   puts card_1.question
-#   guess = gets.chomp
-#   turn_1 = Turn.new(guess, card_1)
-#   turn_1.correct?
-#   puts turn_1.feedback
-# end
-# second_turn
