@@ -9,7 +9,7 @@ class Round
   end
 
   def current_card
-    deck.cards[@turns.count]
+    @deck.cards[@turns.count]
 
   end
 
@@ -31,9 +31,12 @@ class Round
   end
 
   def percent_correct_by_category(category)
-    percent = turns.select do |turn|
-      turn.card.answer == turn.guess && turn.card.category == category
-    end.count
-    (percent.to_f / (turns.count) * 100).round
+
+    (number_correct_by_category(category).to_f / @deck.cards_in_category(category).size) * 100.round
+
+    # percent = turns.select do |turn|
+    #   turn.card.answer == turn.guess && turn.card.category == category
+    # end.count
+    # (percent.to_f / (turns.count) * 100).round
   end
 end
