@@ -24,6 +24,7 @@ def start
     user_guess = gets.chomp
     new_turn = round.take_turn(user_guess)
     puts "#{round.turns.last.feedback}"
+    puts "-" * 40
   end
 
   puts "*" * 10 + " GAME OVER! " + "*" * 10
