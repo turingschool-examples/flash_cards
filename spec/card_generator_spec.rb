@@ -6,10 +6,9 @@ require './lib/round'
 
 RSpec.describe CardGenerator do
 
-filename = "cards.txt"
+  filename = "cards.txt"
 
-cards = CardGenerator.new(filename).cards
+  cards = CardGenerator.new(filename).cards
 
-# enter test here
-
+  # enter test here
 end
