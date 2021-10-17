@@ -56,9 +56,9 @@ class Round
     puts """
     *-*-*-* GAME OVER *-*-*-*
     You had #{number_correct} guesses out of 6 for a total score of #{percent_correct}%.
-    Boolean Logic -- #{percent_correct_by_category(:Boolean_Logic)} correct
-    Syntactic Fun -- #{percent_correct_by_category(:Syntactic_Fun)} correct
-    Dumb Shit I've Done -- #{percent_correct_by_category(:Dumb_Shit_Ive_Done)} correct
+    Boolean Logic -- #{percent_correct_by_category(:Boolean_Logic)}% correct
+    Syntactic Fun -- #{percent_correct_by_category(:Syntactic_Fun)}% correct
+    Dumb Shit I've Done -- #{percent_correct_by_category(:Dumb_Shit_Ive_Done)}% correct
     """
   end
 end
