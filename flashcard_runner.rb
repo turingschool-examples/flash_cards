@@ -20,30 +20,33 @@ def start
 
 puts "Welcome! You're playing with #{@round.deck.cards.count}
 -------------------------------------------------"
-puts "This is card number #{@round.turns.length + 1} out of #{@round.deck.cards.count} cards.
-Question: #{@round.deck.cards.first.question}"
-
+puts "This is card number #{@round.current_card.to_s.to_i + 1} out of #{@round.deck.cards.count} cards.
+Question: #{@round.current_card.question}"
 end
 
-def play_game
-while @round.deck.cards != []
-  guess = $stdin.gets.strip
-  @round.take_turn(guess.capitalize)
-  "#{@round.turns.last.feedback}"
-  puts "This is card number #{@round.turns.length + 1}" if @round.deck.cards != []
-  puts "#{@round.deck.cards.first.question}" if @round.deck.cards != []
+def game_play
+  until @round.turns.count == @round.deck.cards.count
+    guess = $stdin.gets.strip
+    @round.take_turn(guess)
+    @round.turns.last.feedback
+    puts "This is card number #{@round.turns.count + 1}" if @round.turns.count != @round.deck.cards.count
+    puts @round.current_card.question.to_s if @round.turns.count != @round.deck.cards.count
   end
 
   puts "****** Game over! ******"
-  puts "You had #{@round.number_correct} correct guesses out of #{@round.turns.length} for a total score of #{@round.percent_correct}%"
-  puts "STEM - #{@round.number_correct_by_category(:STEM).to_f / @num_stem * 100 }%"
-  puts "Turing Staff - #{@round.number_correct_by_category("Turing Staff").to_f / @num_turing * 100 }%"
-  puts "Pop Culture - #{@round.number_correct_by_category("Pop Culture").to_f / @num_pop * 100}%"
+  game_over =  @round.turns.map do |turn|
+     puts "#{turn.card.category} -  #{@round.percent_correct_by_category(turn.card.category)}%"
+    end
+  if @round.turns.count == @round.deck.cards.count
+    game_over
+  end
+
 end
+
 
 
 
 
 
 start
-play_game
+game_play
