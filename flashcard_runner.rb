@@ -34,8 +34,11 @@ def start
   end
 
   puts "*" * 10 + " GAME OVER! " + "*" * 10
+  puts "You had #{round.number_correct} correct guesses out of #{round.turns.count} for a total score of #{round.percent_correct.round(2)}%."
 
-
+  round.deck.get_all_categories.each do |category|
+    puts "#{category} - #{round.percent_correct_by_category(category)}% correct"
+  end
 end
 
 start
