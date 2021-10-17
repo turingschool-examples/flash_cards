@@ -20,6 +20,7 @@ RSpec.describe Deck do
     it 'can display cards by category' do
 
       expect(@deck.cards_in_category(:STEM)).to eq([@card_2, @card_3])
+      expect(@deck.cards_in_category(:Geography)).to eq([@card_1])
       expect(@deck.cards_in_category("Pop Cultre")).to eq([])
     end
   end
