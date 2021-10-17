@@ -5,6 +5,15 @@ require './lib/round'
 
 # set up
 
+# eventually.....
+filename = "cards.txt"
+cards = CardGenerator.new(filename).cards
+
+break
+
+
+
+
 card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
 card_2 = Card.new("The Viking spacecraft sent back to Earth photographs
