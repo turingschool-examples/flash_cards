@@ -67,7 +67,7 @@ class Round
     puts "Welcome! You are playing with #{deck.count} cards"
     until @deck.count == 0 do
       puts "-" * 15
-      puts "This is card number #{(turns.length.to_i) + 1} of 5"
+      puts "This is card number #{(turns.length.to_i) + 1} of #{@deck.count + @turns.count}"
       puts "#{current_card.question}"
       guess = gets.chomp
       puts (take_turn(guess)).feedback
