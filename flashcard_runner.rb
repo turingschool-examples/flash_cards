@@ -11,25 +11,27 @@ require './lib/round'
 @cards = [@card_1, @card_2, @card_3, @card_4]
 @deck = Deck.new(@cards)
 @round = Round.new(@deck)
-
-# @turn = Turn.new(guess, @card_1)
+# require "pry"; binding.pry
 @round.start
-# until @turns == @cards
-guess = gets.chomp
-@turn = Turn.new(guess, @round.deck.cards.first)
-@turn.correct?
-puts @turn.feedback
-@round.take_turn(guess)
+@round.play_round
+# require "pry"; binding.pry
+# During refactor will move code below from
+# Round file to this flashcard_runner
 
-@round.turns.count
-
-@round.playing
-guess = gets.chomp
-@turn = Turn.new(guess, @round.deck.cards.first)
-@turn.correct?
-puts @turn.feedback
-@round.take_turn(guess)
-require "pry"; binding.pry
-# @round.current_card
-
-# end
+  # until @turns.length == @deck.cards.length
+  #   guess = gets.chomp
+  #   take_turn(guess)
+  #   puts @turns.last.feedback
+  #   puts "This is card #{@count} out of 4."
+  #   puts "Question: #{current_card.question}"
+  # end
+  #   puts "****** Game over! ******"
+  #   puts "You had #{number_correct} out of #{turns.count} for a score of #{percent_correct.to_i.to_s.insert(-1, "%")}"
+  #   @round.turns.map do |card|
+  #     puts card.category
+  #   end
+  #   #need dynamic way to access each card category and interpolate,
+  #   #into a string with % appended (i.e. STEM - 100% correct)
+  #   puts "STEM - #{percent_correct_by_category(:STEM).to_i.to_s.insert(-1, '%')}"
+  #   puts "Turing Staff - #{percent_correct_by_category("Turing Staff").to_i.to_s.insert(-1, '%')}"
+  #   puts "Pop Culture - #{percent_correct_by_category("Pop Culture").to_i.to_s.insert(-1, '%')}"
