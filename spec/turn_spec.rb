@@ -40,6 +40,13 @@ RSpec.describe Turn do
         expect(turn.correct?).to eq(true)
       end
 
+      it "tests that capitalization doesn't matter" do # Wanted capitalization to not matter in user input.
+        card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        turn = Turn.new("JuNeAu", card)
+
+        expect(turn.correct?).to eq(true)
+      end
+
      it 'tests correctness correctly' do
        card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
        turn = Turn.new("Albany", card)
