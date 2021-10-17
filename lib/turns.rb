@@ -8,3 +8,11 @@ class Turn
   def guess
       turn_guess
     end
+
+  def card
+    card_actual
+  end
+
+  def correct?
+    @turn_guess == card.answer
+  end
