@@ -13,7 +13,7 @@ def start
 
   card_4 = Card.new("What is the capital of New York state?", "Albany", :Geography)
 
-  card_5 = Card.new("Who is the wizarding protagonist in the 7 part series written by J.K. Rowling?", "Harry Potter", "Pop Culture")
+  card_5 = Card.new("Who is the wizarding protagonist in the 7 part series written by J.K. Rowling?", "Harry Potter", :Pop_Culture)
 
   card_6 = Card.new("Name the fruit based company whose operating system is preferred by Turing.", "Apple", :Pop_Culture)
 
@@ -23,23 +23,18 @@ def start
 
   puts "Welcome! You're playing with #{round.deck.count} cards."
   puts "-" * 40
-  # Turn 1
+
   until round.current_card_position == round.deck.cards.count
     puts "This is card number #{round.current_card_position+1} of #{round.deck.count}."
     puts "Question: #{round.deck.cards[round.current_card_position].question}"
-    puts "Type answer then press enter:"
+    print "Type answer then press enter: "
     user_guess = gets.chomp
     new_turn = round.take_turn(user_guess)
     puts "#{round.turns.last.feedback}"
   end
 
-  # Turn 2
-  # puts "This is card number #{round.current_card_position+1} of #{round.deck.count}."
-  # puts "Question: #{round.deck.cards[round.current_card_position].question}"
-  # puts "Type answer then press enter:"
-  # user_guess = gets.chomp
-  # new_turn = round.take_turn(user_guess)
-  # puts "#{round.turns.last.feedback}"
+  puts "*" * 10 + " GAME OVER! " + "*" * 10
+
 
 end
 
