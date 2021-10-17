@@ -9,9 +9,8 @@ require './lib/round'
 filename = "cards.txt"
 cards = CardGenerator.new(filename).cards
 
-break
 
-
+require "pry"; binding.pry
 
 
 card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
