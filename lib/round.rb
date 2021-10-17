@@ -15,4 +15,14 @@ class Round
     @deck.cards.shift
     return turn
   end
+
+  def number_correct
+    correct_answers = []
+    turns.each do |turn|
+      if turn.correct?
+        correct_answers << turn
+      end
+    end
+    return correct_answers.length
+  end
 end
