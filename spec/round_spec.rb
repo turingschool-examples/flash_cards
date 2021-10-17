@@ -55,6 +55,7 @@ RSpec.describe Round do
   end
   it 'detects correct in round' do
     new_turn = @round.take_turn("Juneau")
+    # require 'pry'; binding.pry
     expect(@round.number_correct).to eq(1)
   end
 end
