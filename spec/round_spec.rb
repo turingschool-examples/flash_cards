@@ -57,11 +57,11 @@ RSpec.describe Round do
       expect(@round.percent_correct_by_category(:Geography)).to eq(100.0)
     end
 
-    it 'can ready the next card' do
+    it 'can ready a third turn/card' do
       @round.take_turn("Juneau")
       @round.take_turn("Venus")
 
       expect(@round.current_card).to eq(@card_3)
-    end 
+    end
   end
 end
