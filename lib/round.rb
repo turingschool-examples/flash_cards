@@ -33,7 +33,6 @@ class Round
         category_count += 1
       end
     end
-
     category_count
   end
 
