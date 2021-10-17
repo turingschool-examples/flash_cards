@@ -11,19 +11,17 @@ require './lib/round'
 @card_4 = Card.new("What cardboard cutout lives at Turing?", "Justin Bieber", "Turing Staff")
 @deck = Deck.new([@card_1, @card_2, @card_3, @card_4])
 @round = Round.new(@deck)
-@num_stem =@round.deck.cards_in_category(:STEM).size
-@num_turing = @round.deck.cards_in_category("Turing Staff").size
-@num_pop = @round.deck.cards_in_category("Pop Culture").size
 
-# Start method initiates play / simulates card play / asks for user guesses
+# Start method initiates flash card game
 def start
 
-puts "Welcome! You're playing with #{@round.deck.cards.count}
+puts "Welcome! You're playing with #{@round.deck.cards.count} cards
 -------------------------------------------------"
 puts "This is card number #{@round.current_card.to_s.to_i + 1} out of #{@round.deck.cards.count} cards.
 Question: #{@round.current_card.question}"
 end
 
+# creates a question / answer response from user
 def game_play
   until @round.turns.count == @round.deck.cards.count
     guess = $stdin.gets.strip
@@ -37,6 +35,7 @@ def game_play
   game_over =  @round.turns.map do |turn|
      puts "#{turn.card.category} -  #{@round.percent_correct_by_category(turn.card.category)}%"
     end
+
   if @round.turns.count == @round.deck.cards.count
     game_over
   end
