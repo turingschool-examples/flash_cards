@@ -287,6 +287,8 @@ class Round
     @turns.each do |turn|
       if turn.feedback.include?("Correct!") && turn.card.category == category
         cat_correct << turn
+      elsif turn.feedback.include?("Correct!") && turn.card.category != category
+        cat_correct << turn
       else
         cat_incorrect << turn
       end
@@ -344,8 +346,9 @@ def start
   puts "You had #{round.number_correct} correct guesses out of #{round.turns.count} for a total score of #{round.percent_correct.to_i}%."
   puts "STEM -#{round.percent_correct_by_category(:STEM).to_i}% correct"
   # require 'pry';binding.pry
-  puts "Fun -#{round.percent_correct_by_category(:Staff).to_i}% correct"
+  puts "Staff -#{round.percent_correct_by_category(:Staff).to_i}% correct"
   # require 'pry';binding.pry
   puts "Turing -#{round.percent_correct_by_category(:Turing).to_i}% correct"
+  # require 'pry';binding.pry
 end
 start
