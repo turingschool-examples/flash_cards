@@ -11,7 +11,6 @@ class Round
     @turns = []
   end
 
-
   def current_card
     current_card = deck.cards[0]
     current_card
