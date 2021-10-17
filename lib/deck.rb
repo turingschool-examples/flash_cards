@@ -6,10 +6,6 @@ class Deck
     @cards = cards_array
   end
 
-  def cards
-    @cards
-  end
-
   def count
     @cards.length
   end
