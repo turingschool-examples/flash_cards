@@ -35,17 +35,17 @@ class Round
   end
 
   def percent_correct
-    (@correct_turns.length.to_f / @turns.length.to_f) * 100
+    ((@correct_turns.length.to_f / @turns.length.to_f) * 100).ceil(2)
   end
 
   def percent_correct_by_category(category)
-    (((number_correct_by_category(category)).to_f / @deck.cards_in_category(category).length.to_f) * 100).ceil(4)
+    (((number_correct_by_category(category)).to_f / @deck.cards_in_category(category).length.to_f) * 100).ceil(2)
   end
 
   def start
     puts "Welcome! You're playing with #{deck.count} cards!"
 
-    until @turns.length == 6 do
+    until @turns.length == deck.count do
       puts " -*- " * 6
       puts "This is card number #{(turns.length.to_i) + 1} of #{@deck.count}"
       puts "#{current_card.question}"
