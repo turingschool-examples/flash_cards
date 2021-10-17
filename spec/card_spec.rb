@@ -2,13 +2,13 @@ require './lib/card'
 # require RSpec
 #  require 'pry'; binding.pry
 
-RSpec.describe Card do
+describe Card do
   it 'exists' do
     #setup  + also execution...???
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     #assertion
     expect(card).to be_instance_of(Card)
-    # tear down after test ran 
+    # tear down after test ran
   end
 
   it 'has a question' do
