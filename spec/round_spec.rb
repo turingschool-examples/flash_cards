@@ -61,7 +61,7 @@ RSpec.describe "round" do
 
   it "can tell you how many correct responses there are" do
     new_turn   = @round.take_turn("Juneau")
-    new_turn_2 = @round.take_turn("Earth")
+    new_turn_2 = @round.take_turn("Earth") #purposely incorrect
 
     expect(new_turn.correct?).to eq true
     expect(new_turn_2.correct?).to eq false
@@ -84,7 +84,7 @@ RSpec.describe "round" do
 
   it "can show the percentage of correct answers" do
     new_turn   = @round.take_turn("Juneau")
-    new_turn_2 = @round.take_turn("Earth")
+    new_turn_2 = @round.take_turn("Earth")#purposely incorrect
 
     expect(@round.percent_correct).to eq(50.0)
 
@@ -95,7 +95,7 @@ RSpec.describe "round" do
 
   it "can tell how many turns per category" do
     new_turn   = @round.take_turn("Juneau")
-    new_turn_2 = @round.take_turn("Earth")
+    new_turn_2 = @round.take_turn("Earth")#purposely incorrect
     new_turn_3 = @round.take_turn("North north west")
 
     expect(@round.turns_per_category(:Geography)).to eq(1)
@@ -104,7 +104,7 @@ RSpec.describe "round" do
 
   it "can show the percentage of correct answer per category" do
     new_turn   = @round.take_turn("Juneau")
-    new_turn_2 = @round.take_turn("Earth")
+    new_turn_2 = @round.take_turn("Earth")#purposely incorrect
     new_turn_3 = @round.take_turn("North north west")
 
     expect(@round.percent_correct_by_category(:Geography)).to eq(100.0)
