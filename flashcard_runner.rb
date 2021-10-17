@@ -26,16 +26,20 @@ def start
     puts "Question: #{@round_1.current_card.question}"
     user_reply = gets.chomp
     @round_1.take_turn(user_reply)
-    puts "#{@round_1.turns[0].feedback}"
+    puts "#{@round_1.turns.last.feedback}"
+    puts "--" * 52
   end
 
   # def category_iteration
-  #
+  #   category_names = []
+  #   @round_1.deck.cards.map do |card|
+  #     category_names << card.category
+  #   end
+  #   print category_names.flatten
   # end
 
   if @round_1.turns.length == @round_1.deck.cards.length
-    puts "****** Game Over ******"
-    puts "----------------------------------------------------"
+    puts "*********** GAME OVER ***********"
     puts "You had #{@round_1.number_correct} correct guesses out of #{@cards.length} for a total score of #{@round_1.percent_correct.to_i}%"
     puts "Geography - #{@round_1.percent_correct_by_category(:Geography).to_i}% correct"
     puts "STEM - #{@round_1.percent_correct_by_category(:STEM).to_i}% correct"

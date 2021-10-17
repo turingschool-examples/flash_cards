@@ -13,9 +13,9 @@ class Turn
 
   def feedback
     # correct? ? 'Correct!' : 'Incorrect.'
-    if correct? 
+    if correct? == true
       return 'Correct!'
-    else
+    elsif correct? == false
       return 'Incorrect.'
     end
     ## CHECK THIS OUT LATER!!!!!!!!(Ask during project check in)
