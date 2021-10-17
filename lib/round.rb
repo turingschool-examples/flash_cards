@@ -30,7 +30,7 @@ class Round
     correct_counter
   end
 
-  def number_correct_by_category(category)
+  def number_correct_by_category(category) # Forgot I  had cards_in_category method in Deck class.
     correct_counter = 0
     filtered_by_category = turns.select{|turn| turn.card_data.category == category}
 
