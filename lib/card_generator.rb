@@ -1,14 +1,34 @@
-# require './cards.txt'
-
-# require "pry"; binding.pry
+require './lib/card'
+require './lib/deck'
+require './lib/turn'
+require './lib/round'
 
 class CardGenerator
-
+  attr_accessor :filename
   def initialize(filename)
-    # file = File.new("/cards.txt")
-    # questions_array = file.readlines[0]
+    # @filename = "cards.txt"
+    file = File.new(filename)
+    questions_array = file.readlines
 
-    # questions_array.split("\n") << questions_array
+    card = Card.new("","","")
+    cards_for_deck = []
+
+    questions_array.each do |element|
+      # each time it runs - initialize card
+      card = Card.new("","","")
+      # add question, answer, category
+      card_array = []
+      card_array = element.split(',')
+      # require "pry"; binding.pry
+      card.question = card_array[0]
+      card.answer = card_array[1]
+      card.category = card_array[2]
+      # deck << card
+      cards_for_deck << card
+    end
+    deck = Deck.new(cards_for_deck)
+    require "pry"; binding.pry
+    return deck
   end
 
 end
