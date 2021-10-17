@@ -24,7 +24,6 @@ class Round
   def number_correct
     count = 0
     @turns.each do |turn|
-      # require 'pry'; binding.pry
       if turn.correct?
         count += 1
       end
@@ -35,7 +34,6 @@ class Round
   def number_correct_by_category(category)
     count = 0
     @turns.each do |turn|
-      # require 'pry'; binding.pry
       if turn.card.category == category
         if turn.correct?
           count += 1
@@ -60,9 +58,7 @@ class Round
         end
       end
     end
-    num = count * 100 / category_count # this needs to identify the quantity in the category.
+    num = count * 100 / category_count
   end
 
 end
-
-# require 'pry'; binding.pry
