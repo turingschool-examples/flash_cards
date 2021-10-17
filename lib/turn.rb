@@ -9,10 +9,6 @@ class Turn
     @card_data = card
   end
 
-  def card
-    @card_data
-  end
-
   def correct? # Wanted capitalization to not matter in user input.
     @user_guess.downcase == @card_data.answer.downcase
   end
@@ -24,5 +20,4 @@ class Turn
       return "Incorrect"
     end
   end
-
 end
