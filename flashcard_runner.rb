@@ -2,13 +2,13 @@ require './lib/card'
 require './lib/turn'
 require './lib/deck'
 require './lib/round'
+require './lib/card_generator'
 require 'pry'
 
-card_1 = Card.new("The 18th Amendment which was ratified in 1919 led to this 13 year illegalization of alcohol?", "The Prohibition", :History)
-card_2 = Card.new("What is Kerri's favorite type of food?", "Thai", :Personal)
-card_3 = Card.new("Which band has the album 'Make Yourself'?", "Incubus", :Music)
-card_4 = Card.new("What is Kerri's cat's name?", "Burton", :Personal)
-deck = Deck.new([card_1, card_2, card_3, card_4])
+filename = 'cards.txt'
+cards = CardGenerator.new(filename).cards
+
+deck = Deck.new(cards)
 round = Round.new(deck)
 
 number_of_cards = deck.cards.length
