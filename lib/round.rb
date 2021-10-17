@@ -16,19 +16,13 @@ class Round
   end
 
   def number_correct
-    correct = []
-     turns.each do |turn|
-      if turn.correct?
-        correct << turn
-      end
-    end
-    return correct.length
+    turns.count{ |turn| turn.correct? }
   end
 
   def number_correct_by_category(category)
-    @turns.find_all do |turn|
-      turn.card.category == category && turn.card.answer == turn.guess
-    end.size
+    @turns.count do |turn|
+      turn.card.category == category && turn.correct?
+    end
   end
 
   def percent_correct
@@ -38,7 +32,4 @@ class Round
   def percent_correct_by_category(category)
     ((number_correct_by_category(category).to_f / @deck.cards_in_category(category).length.to_f) * 100).round
   end
-
-
-
 end

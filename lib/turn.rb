@@ -1,12 +1,13 @@
 class Turn
-  attr_accessor :guess, :card
+  attr_accessor :guess, :card, :correct
   def initialize(guess, card)
     @guess = guess
     @card = card
+    @correct = nil
   end
 
   def correct?
-    @guess == card.answer
+    @correct = @guess == card.answer
   end
 
   def feedback

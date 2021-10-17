@@ -23,19 +23,10 @@ def start(round)
     puts turn.feedback
     counter += 1
   end
-
-  # puts "************* Game Over! ************"
-  # require "pry"; binding.pry
-  # puts "You had #{round.number_correct} out of #{round.deck.count} for a total."
-  # puts "Score of #{round.percent_correct}%"
-  # puts "STEM - #{round.percent_correct_by_category}"
-  # puts "Student - #{round.percent_correct_by_category}"
-  # puts "Geography - #{round.percent_correct_by_category}"
-
 end
+
 start(round)
 puts "************* Game Over! ************"
-#require "pry"; binding.pry
 puts "You had #{round.number_correct} correct out of #{round.deck.count} for a total."
 puts "Score of #{round.percent_correct}%"
 puts "STEM - #{round.percent_correct_by_category(:STEM)}%"
