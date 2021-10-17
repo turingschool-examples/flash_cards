@@ -72,5 +72,12 @@ class Round
       guess = gets.chomp
       puts (take_turn(guess)).feedback
     end
+
+    puts """
+    -------GAME OVER-------
+    You had #{number_correct} guesses out of 5 for a total score of #{percent_correct}%
+    Geography -- #{percent_correct_by_category(:Geography)}% correct
+    STEM      -- #{percent_correct_by_category(:Stem)}% correct
+    """
   end
 end
