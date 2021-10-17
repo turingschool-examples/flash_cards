@@ -2,6 +2,8 @@ require './lib/card'
 require './lib/turn'
 require './lib/deck'
 require './lib/round'
+# require './lib/card_generator'
+
 
 card_1 = Card.new("What is the capital of Colorado?",
   "Denver",
@@ -15,6 +17,7 @@ card_3 = Card.new("Which state is known for potatoes, trout, and precious stones
 card_4 = Card.new("What is the sum of 55 and 45?",
   "100",
   :Math)
+# cards = CardGenerator.new(filename).cards
 cards = [card_1, card_2, card_3, card_4]
 deck = Deck.new(cards)
 round = Round.new(deck)
@@ -35,7 +38,7 @@ def start(round)
     round.take_turn(user_guess.capitalize)
     puts round.turns.last.feedback
   end
-  
+
 puts "***** Game over! *****"
 puts "You had #{round.number_correct} guesses out of #{card_total} for a total score of #{round.percent_correct}%."
 puts "Geography - #{round.percent_correct_by_category(:Geography)}% correct"
