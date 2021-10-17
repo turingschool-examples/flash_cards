@@ -1,0 +1,4 @@
+What is the capital of Colorado?,Denver,Geography
+What is Sierra's favorite color?,Orange,Random
+Which state is known for potatoes, trout, and precious stones?,Idaho,Geography
+What is the sum of 55 and 45?,100,Math
