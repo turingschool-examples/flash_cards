@@ -98,12 +98,12 @@ describe Round do
       deck = Deck.new(cards)
       round = Round.new(deck)
       new_turn = round.take_turn('Denver')
-      expect(round.deck.cards[0].question).to include(card_2.question) # not sure if this properly tests: review!!
+      expect(round.deck.cards[0].question).to include(card_2.question)
     end
   end
 
-  describe '#class' do # Tested
-    it 'returns the class (Deck) of the method being used' do # should this description be more specific?
+  describe '#class' do
+    it 'returns the class (Deck) of the method being used' do
       card_1 = Card.new('What is the capital of Colorado?', 'Denver', :Geography)
       card_2 = Card.new('Who was the first woman in space?', 'Valentina Tereshkova', :STEM)
       card_3 = Card.new('When was the Declaration of Independence Signed?', '1776', :History)
@@ -168,7 +168,7 @@ describe Round do
       card_2 = Card.new('Who was the first woman in space?', 'Valentina Tereshkova', :STEM)
       card_3 = Card.new('When was the Declaration of Independence Signed?', '1776', :History)
       card_4 = Card.new('Who was the first African American president?', 'Obama', :History)
-      cards = [card_1, card_2, card_3]
+      cards = [card_1, card_2, card_3, card_4]
       deck = Deck.new(cards)
       round = Round.new(deck)
       new_turn_1 = round.take_turn('Denver')
