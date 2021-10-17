@@ -2,3 +2,5 @@ What is 5 + 5?,10,STEM
 What is Rachel's favorite animal?,red panda,Turing Staff
 What is Mike's middle name?,nobody knows,Turing Staff
 What cardboard cutout lives at Turing?,Justin bieber,PopCulture
+How many licks to get to the center of a tootsie pop?,150,STEM
+What is Dr. Frankenstein's monster's name?,Frankenstein's Monster,PopCulture
