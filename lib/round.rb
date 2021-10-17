@@ -85,7 +85,7 @@ class Round
     category_array.each do |category|
       puts "#{category} - #{percent_correct_by_category(category)}% correct"
     end
-    
+
   end
 
 end
