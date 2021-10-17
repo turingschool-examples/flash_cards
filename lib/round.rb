@@ -4,10 +4,11 @@ class Round
   def initialize(deck)
     @deck  = deck
     @turns = []
+    @count = 0
   end
 
   def current_card
-    deck.cards.first
+    @deck.cards.first
   end
 
   def take_turn(guess)
@@ -32,7 +33,7 @@ class Round
   end
 
   def percent_correct
-    (number_correct.to_f / turns.length.to_f) * 100
+    (number_correct.to_f / @turns.length.to_f) * 100
   end
 
   def percent_correct_by_category(category)
@@ -42,8 +43,13 @@ class Round
   def start
     puts "Welcome! You're playing with 4 cards."
     puts "-------------------------------------------------"
+    @count += 1
+    puts "This is card number #{@count} out of 4."
+    puts "Question: #{current_card.question}"
+  end
 
-    puts "This is card number #{} out of 4."
+  def playing
+    puts "This is card #{@turns.length} out of 4."
     puts "Question: #{current_card.question}"
   end
 end
