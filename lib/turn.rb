@@ -9,10 +9,6 @@ class Turn
     @card_data = card
   end
 
-  def guess
-    @user_guess
-  end
-
   def card
     @card_data
   end
