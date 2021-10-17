@@ -44,36 +44,34 @@ RSpec.describe Round  do
     expect(@round.number_correct). to eq(1)
   end
 
-
   it 'round.number_correct_by_category(:Geography)' do
     new_turn = @round.take_turn("Juneau")
     expect(@round.number_correct_by_category(:Geography)). to eq(1)
   end
 
-  # finish
   it 'round.number_correct_by_category(:STEM)' do
     new_turn = @round.take_turn("Juneau")
     expect(@round.number_correct_by_category(:STEM)). to eq(0)
   end
 
-  # # finish
-  # it 'round.percent_correct' do
-  #   # new_turn = @round.take_turn("Juneau")
-  #   expect(@round.number_correct). to eq(1)
-  # end
-  #
-  # # finish
-  # it 'round.percent_correct_by_category(:Geography)' do
-  #   # new_turn = @round.take_turn("Juneau")
-  #   expect(@round.number_correct). to eq(1)
-  # end
-  #
-  # # finish
-  # it 'round.current_card)' do
-  #   # new_turn = @round.take_turn("Juneau")
-  #   expect(@round.number_correct). to eq(1)
-  # end
-  #
+  it 'round.percent_correct' do
+    new_turn = @round.take_turn("Juneau")
+    @round.take_turn("Venus")
+    expect(@round.percent_correct). to eq(50)
+  end
 
+  it 'round.percent_correct_by_category(:Geography)' do
+    new_turn = @round.take_turn("Juneau")
+    @round.take_turn("Venus")
+    expect(@round.percent_correct_by_category(:Geography)). to eq(100.0)
+  end
+
+  # test that current card is corret by checking question 
+  it 'round.current_card)' do
+    new_turn = @round.take_turn("Juneau")
+    @round.take_turn("Venus")
+    expect(@round.current_card.question). to eq("Describe in words the exact direction that is 697.5°
+      clockwise from due north?")
+  end
 
 end
