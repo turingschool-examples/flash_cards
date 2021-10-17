@@ -1,27 +1,26 @@
 class Deck
-  attr_reader :cards, :categories
+  attr_reader :cards
 
    def initialize(cards)
      @cards = cards
-     @categories = categories
-
    end
 
    def count
      cards.count
    end
 
-   def cards_in_categories
-     cards
+   def cards_in_categories(category)
+     cards.find_all {|card|category == card.category}
    end
 
-   # Here inside the deck we can rotate
-   # the cards.
-   # Does that make sense?
+   def categories
+     cards.map do |card|
+       card.category
+     end.uniq.sort
+   end
+
    def rotate
      @cards = @cards.rotate
    end
 
-
-
-   end
+end
