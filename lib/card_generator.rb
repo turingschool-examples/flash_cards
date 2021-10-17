@@ -8,7 +8,6 @@ class CardGenerator
   end
 
   def make_cards
-    @file
-    require "pry"; binding.pry
+    
   end
 end
