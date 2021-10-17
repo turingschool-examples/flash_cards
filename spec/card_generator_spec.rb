@@ -9,12 +9,6 @@ RSpec.describe do CardGenerator
     expect(card_generator).to be_an_instance_of(CardGenerator)
   end
 
-  it "starts with no cards" do
-    card_generator = CardGenerator.new('cards.txt')
-
-    expect(card_generator.cards).to eq([])
-  end
-
   it "can read a file" do
     card_generator = CardGenerator.new('cards.txt')
 
@@ -36,7 +30,6 @@ RSpec.describe do CardGenerator
   it "can make a new card" do
     card_generator = CardGenerator.new('cards.txt')
 
-    expect(card_generator.make_cards).to be_an(Array)
     expect(card_generator.cards).to be_an(Array)
   end
 
