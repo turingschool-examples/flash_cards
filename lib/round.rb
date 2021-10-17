@@ -75,9 +75,9 @@ class Round
 
     puts """
     -------GAME OVER-------
-    You had #{number_correct} guesses correct out of 5 for a total score of #{percent_correct}%
+    You had #{number_correct} guesses correct out of #{@turns.count} for a total score of #{percent_correct}%
     Geography -- #{percent_correct_by_category(:Geography)}% correct
-    STEM      -- #{percent_correct_by_category(:Stem)}% correct
+    STEM      -- #{percent_correct_by_category(:STEM)}% correct
     """
   end
 end
