@@ -16,3 +16,12 @@ class Turn
   def correct?
     @turn_guess == card.answer
   end
+
+  def feedback
+    if correct?
+      "Correct!"
+    else
+      "Incorrect."
+    end
+  end
+end
