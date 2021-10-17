@@ -3,15 +3,6 @@ require './lib/deck'
 require './lib/turn'
 require './lib/round'
 
-# set up
-
-# eventually.....
-filename = "cards.txt"
-cards = CardGenerator.new(filename).cards
-
-
-require "pry"; binding.pry
-
 
 card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
