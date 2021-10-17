@@ -22,7 +22,7 @@ describe Deck do
       card_3 = Card.new('What is the capital of California?', 'Sacramento', :Geography)
       cards = [card_1, card_2, card_3]
       deck = Deck.new(cards)
-      expect(deck).to eq(cards)
+      expect(deck.cards).to eq(cards)
     end
   end
 
@@ -44,7 +44,7 @@ describe Deck do
       card_3 = Card.new('When was the Declaration of Independence Signed?', '1776', :History)
       cards = [card_1, card_2, card_3]
       deck = Deck.new(cards)
-      expect(deck.cards_in_category(:History)).to eq(cards[2]) # is this being implemented properly?
+      expect(deck.cards_in_category(:History)).to include(cards[2]) # is this being implemented properly?
     end
   end
 end
