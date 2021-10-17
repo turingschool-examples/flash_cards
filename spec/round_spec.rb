@@ -162,10 +162,11 @@ RSpec.describe Round do
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
     round = Round.new(deck)
-    new_turn_0 = round.take_turn("Juneau")
+    new_turn = round.take_turn("Juneau")
+    # expect(round.turns.last.feedback).to eq("Correct!")
     new_turn = round.take_turn("Venus")
-    # require 'pry'; binding.pry
-
+    # # require 'pry'; binding.pry
+    #
     expect(round.turns.last.feedback).to eq("Incorrect.")
   end
 
@@ -176,7 +177,7 @@ RSpec.describe Round do
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
     round = Round.new(deck)
-    new_turn_0 = round.take_turn("Juneau")
+    new_turn = round.take_turn("Juneau")
     new_turn = round.take_turn("Venus")
 
     expect(round.number_correct).to eq(1)
@@ -189,7 +190,7 @@ RSpec.describe Round do
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
     round = Round.new(deck)
-    new_turn_0 = round.take_turn("Juneau") #can i change this back to new_turn and still pass
+    new_turn = round.take_turn("Juneau") #can i change this back to new_turn and still pass
     new_turn = round.take_turn("Venus")
 
     expect(round.number_correct_by_category(:Geography)).to eq(1)
@@ -203,7 +204,7 @@ RSpec.describe Round do
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
     round = Round.new(deck)
-    new_turn_0 = round.take_turn("Juneau")
+    new_turn = round.take_turn("Juneau")
     new_turn = round.take_turn("Venus")
 
     expect(round.percent_correct).to eq(50.0)
@@ -216,7 +217,7 @@ RSpec.describe Round do
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
     round = Round.new(deck)
-    new_turn_0 = round.take_turn("Juneau") #can i change this back to new_turn and still pass
+    new_turn = round.take_turn("Juneau") #can i change this back to new_turn and still pass
     new_turn = round.take_turn("Venus")
 
     expect(round.percent_correct_by_category(:Geography)).to eq(100.0)
@@ -230,7 +231,7 @@ RSpec.describe Round do
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
     round = Round.new(deck)
-    new_turn_0 = round.take_turn("Juneau") #can i change this back to new_turn and still pass
+    new_turn = round.take_turn("Juneau") #can i change this back to new_turn and still pass
     new_turn = round.take_turn("Venus")
 
     expect(round.current_card).to eq(card_3)
