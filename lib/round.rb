@@ -62,4 +62,8 @@ class Round
     denominator = turns_per_category(category)
     (numerator / denominator).round(4) * 100
   end
+
+  def start
+    puts "Welcome! You are playing with #{deck.count} cards"
+  end
 end
