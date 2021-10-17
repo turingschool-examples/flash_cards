@@ -17,11 +17,19 @@ class Deck
 
 
     def count
+<<<<<<< HEAD
+=======
+
+>>>>>>> bae5df1dd08d97ff1c882f82c861390c267b2c02
       @cards.length
     end
 
     def cards_in_category(cat)
       cat_cards = []
+<<<<<<< HEAD
+=======
+
+>>>>>>> bae5df1dd08d97ff1c882f82c861390c267b2c02
       # use cat to find cards in category
       @cards.each do |card|
         cat_cards << card if card.category == cat

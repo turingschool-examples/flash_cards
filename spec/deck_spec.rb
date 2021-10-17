@@ -39,6 +39,10 @@ RSpec.describe Deck do
       cards = [card_1, card_2, card_3]
       deck = Deck.new(cards)
       expect(deck.cards_in_category(:STEM)).to eq([card_2, card_3])
+<<<<<<< HEAD
+=======
+      # require "pry"; binding.pry
+>>>>>>> bae5df1dd08d97ff1c882f82c861390c267b2c02
     end
 
   it 'determines what cards fall into Geography category' do
