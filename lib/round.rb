@@ -1,7 +1,7 @@
 class Round
   attr_accessor :deck, :turns
 
-  def initialize(deck) # deck = collection of card OBJECTS (that each contain strings/category)
+  def initialize(deck)
     @deck = deck
     @turns = []
   end
