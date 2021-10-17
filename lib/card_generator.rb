@@ -2,10 +2,9 @@ require './cards.txt'
 
 require "pry"; binding.pry
 
-class CardGenerator
-  cards_txt_string = ""
+class CardGenerator(filename)
+  cards_txt_string = cards.txt
   questions_array = []
-
 
 
 end
