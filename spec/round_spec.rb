@@ -34,7 +34,46 @@ RSpec.describe Round  do
     expect(new_turn.class). to eq(Turn)
   end
 
+  it 'new_turn.correct?' do
+    new_turn = @round.take_turn("Juneau")
+    expect(new_turn.correct?). to eq(true)
+  end
 
+  it 'round.number_correct' do
+    new_turn = @round.take_turn("Juneau")
+    expect(@round.number_correct). to eq(1)
+  end
+
+
+  it 'round.number_correct_by_category(:Geography)' do
+    new_turn = @round.take_turn("Juneau")
+    expect(@round.number_correct_by_category(:Geography)). to eq(1)
+  end
+
+  # finish
+  it 'round.number_correct_by_category(:STEM)' do
+    new_turn = @round.take_turn("Juneau")
+    expect(@round.number_correct_by_category(:STEM)). to eq(0)
+  end
+
+  # # finish
+  # it 'round.percent_correct' do
+  #   # new_turn = @round.take_turn("Juneau")
+  #   expect(@round.number_correct). to eq(1)
+  # end
+  #
+  # # finish
+  # it 'round.percent_correct_by_category(:Geography)' do
+  #   # new_turn = @round.take_turn("Juneau")
+  #   expect(@round.number_correct). to eq(1)
+  # end
+  #
+  # # finish
+  # it 'round.current_card)' do
+  #   # new_turn = @round.take_turn("Juneau")
+  #   expect(@round.number_correct). to eq(1)
+  # end
+  #
 
 
 end
