@@ -4,7 +4,7 @@ require './lib/turn'
 require './lib/round'
 
 class CardGenerator
-  attr_accessor :filename
+  attr_accessor :filename, :cards
   def initialize(filename)
     # @filename = "cards.txt"
     file = File.new(filename)
@@ -26,9 +26,9 @@ class CardGenerator
       # deck << card
       cards_for_deck << card
     end
-    deck = Deck.new(cards_for_deck)
-    require "pry"; binding.pry
-    return deck
+    return deck = Deck.new(cards_for_deck)
+    # require "pry"; binding.pry
   end
+
 
 end
