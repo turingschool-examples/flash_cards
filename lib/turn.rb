@@ -1,16 +1,9 @@
 class Turn
+  attr_accessor :guess, :card
+
   def initialize(guess, card)
     @guess = guess
     @card = card
-
-  end
-
-  def guess
-    @guess
-  end
-
-  def card
-    @card
   end
 
   def correct?
@@ -23,6 +16,6 @@ class Turn
     else
       return "Incorrect."
     end
-
   end
+  
 end
