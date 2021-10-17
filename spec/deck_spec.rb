@@ -44,7 +44,7 @@ describe Deck do
       card_3 = Card.new('When was the Declaration of Independence Signed?', '1776', :History)
       cards = [card_1, card_2, card_3]
       deck = Deck.new(cards)
-      expect(deck.cards_in_category(:History)).to include(cards[2]) # is this being implemented properly?
+      expect(deck.cards_in_category(:History)).to include(cards[2])
     end
   end
 end
