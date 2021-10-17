@@ -65,5 +65,12 @@ class Round
 
   def start
     puts "Welcome! You are playing with #{deck.count} cards"
+    until @turns.length == deck.count do
+      puts "-" * 15
+      puts "This is card number #{(turns.length.to_i) + 1} of #{@deck.count}"
+      puts "#{current_card.question}"
+      guess = gets.chomp
+      puts (take_turn(guess)).feedback
+    end
   end
 end
