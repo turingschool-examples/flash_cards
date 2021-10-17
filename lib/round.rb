@@ -25,10 +25,7 @@ class Round
     else
     end
   end
-  # def current_card
-  #   @turns[0]
-  # end
-  
+
   def take_turn(guess)
     if @turns.count == 0
       new_turn = Turn.new(guess, deck.cards[0])
@@ -36,20 +33,12 @@ class Round
       new_turn = Turn.new(guess, deck.cards[1])
     elsif @turns.count == 2
       new_turn = Turn.new(guess, deck.cards[2])
-    elsif @turn.count == 3
+    elsif @turns.count == 3
       new_turn = Turn.new(guess, deck.cards[3])
-    else
     end
       @turns << new_turn
-      return new_turn
+      return @turns.last
   end
-
-  # def take_turn(guess) #dont forget to copy edits to round.rb
-  #       @turns << Turn.new(guess, current_card)
-  #       @turns.rotate!
-  #       @turns.last
-  #   end
-
 
   def number_correct
     number_correct = []
@@ -66,7 +55,7 @@ class Round
     correct_by_cat = []
 
     @turns.each do |turn|
-      if turn.feedback.include?("Correct!") && turn.card.category == category # and if the
+      if turn.feedback.include?("Correct!") && turn.card.category == category
         correct_by_cat << turn
       end
       return correct_by_cat.count
@@ -88,18 +77,21 @@ class Round
     fraction = x / y
     100 * fraction
 
-    # require 'pry';binding.pry
   end
 
   def percent_correct_by_category(category)
     cat_correct = []
     cat_incorrect = []
-      # require 'pry';binding.pry
     @turns.each do |turn|
       if turn.feedback.include?("Correct!") && turn.card.category == category
         cat_correct << turn
-      else
+      elsif turn.feedback.include?("Correct!") && turn.card.category != category
+        cat_correct << turn
+      elsif turn.feedback.include?("Incorrect.") && turn.card.category == category
         cat_incorrect << turn
+      elsif turn.feedback.include?("Incorrect.") && turn.card.category !=
+        cat_incorrect << turn
+      else
       end
 
       x = cat_correct.count.to_f
@@ -109,4 +101,3 @@ class Round
     end
   end
 end
-# require 'pry';binding.pry
