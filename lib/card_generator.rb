@@ -1,15 +1,14 @@
-require './cards.txt'
+# require './cards.txt'
 
-require "pry"; binding.pry
+# require "pry"; binding.pry
 
 class CardGenerator
 
   def initialize(filename)
-    
-  end
+    # file = File.new("/cards.txt")
+    # questions_array = file.readlines[0]
 
-  cards_txt_string = cards.txt
-  questions_array = []
-  cards_txt_string.split("\n") << questions_array
+    # questions_array.split("\n") << questions_array
+  end
 
 end
