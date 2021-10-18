@@ -23,15 +23,6 @@ game = Game.new(deck)
 
 #start game
 game.start
-# keep taking guesses until deck runs out
-until game.round.deck.cards.length == 0
-  game.ask
-  guess = gets.chomp
-  if guess == ''
-    puts 'Did you mean to press enter? Please try another guess.'
-    guess = gets.chomp
-  end
-  game.take_guess(guess)
-end
+
 #end game
 game.end_game

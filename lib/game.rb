@@ -18,6 +18,16 @@ class Game
     # print out starting things
     puts "Welcome! You're playing with #{@og_deck_length} cards"
     puts "-------------------------------------------------------"
+    # keep taking guesses until deck runs out
+    until round.deck.cards.length == 0
+      ask
+      guess = gets.chomp
+      if guess == ''
+        puts 'Did you mean to press enter? Please try another guess.'
+        guess = gets.chomp
+      end
+      take_guess(guess)
+    end
   end
 
   #method to ask a question

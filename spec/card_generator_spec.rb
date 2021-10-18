@@ -15,7 +15,7 @@ describe CardGenerator do
 
   # check that all cards are gathered from the file
   it 'returns the correct number of cards' do
-    expect(@cards.length).to eq(4)
+    expect(@cards.length).to eq(5)
   end
 
   # check that the cards have the exact expected values
