@@ -14,10 +14,7 @@ RSpec.describe Turn do
       turn = Turn.new('Juneau', card)
       expect(turn.card).to eq(card)
     end
-<<<<<<< HEAD
-=======
 
->>>>>>> bae5df1dd08d97ff1c882f82c861390c267b2c02
 
   it 'has a guess' do
       card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)

@@ -13,9 +13,11 @@ end
 
 
   def current_card
+    @deck.cards.first
     @cards
   end
-  #
+
+
   def take_turn(guess)
     if @guess == @answer
       new_turn = Turn.new(guess, card)
