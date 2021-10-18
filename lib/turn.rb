@@ -1,7 +1,7 @@
 # Richard Tillies
 # October 12, 2021
 # Turn class
-# ~/turing/1module/projects/lib/turn.rb
+# ~/turing/1module/projects/flash_cards/lib/turn.rb
 
 class Turn
   attr_reader :guess, :card

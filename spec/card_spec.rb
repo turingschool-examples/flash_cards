@@ -1,4 +1,8 @@
-# require './lib/card'
+# Richard Tillies
+# October 12, 2021
+# Card testing class
+# ~/turing/1module/projects/flash_cards/spec/card_spec.rb
+
 require 'rspec'
 require './lib/card'
 

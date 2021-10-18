@@ -1,4 +1,8 @@
-# require './lib/turn'
+# Richard Tillies
+# October 12, 2021
+# Deck testing class
+# ~/turing/1module/projects/flash_cards/spec/deck_spec.rb
+
 require 'rspec'
 require './lib/deck'
 require './lib/card'

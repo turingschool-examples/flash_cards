@@ -1,0 +1,5 @@
+Will you say Yes to this question?,Yes,STEM
+What is the capital of Alaska?,Juneau,Geography
+Which type of triangle contains a 90 degree angle?,Right,STEM
+What is the capital of North Carolina?,Raleigh,Geography
+What object-oriented programming language is also a precious gem?,Ruby,STEM

@@ -1,4 +1,8 @@
-# require './lib/turn'
+# Richard Tillies
+# October 15, 2021
+# Round testing class
+# ~/turing/1module/projects/flash_cards/spec/round_spec.rb
+
 require 'rspec'
 require './lib/deck'
 require './lib/card'
@@ -15,7 +19,7 @@ RSpec.describe Deck do
     @deck = Deck.new(@cards)
     @round = Round.new(@deck)
 
-    ## flashcard_runner.rb 
+    ## flashcard_runner.rb
     # @card_1 = Card.new("What is the capital of Alaska?",
     #    "Juneau", :Geography)
     # @card_2 = Card.new("What is the capital of North Carolina?",

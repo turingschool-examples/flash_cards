@@ -1,7 +1,7 @@
 # Richard Tillies
 # October 12, 2021
 # Deck class
-# ~/turing/1module/projects/lib/deck.rb
+# ~/turing/1module/projects/flash_cards/lib/deck.rb
 
 class Deck
   attr_reader :cards
@@ -11,7 +11,7 @@ class Deck
   end
 
   def count
-    @cards.length()
+    @cards.size
   end
 
   def cards_in_category(cat)

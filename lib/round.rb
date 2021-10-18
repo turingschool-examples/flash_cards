@@ -1,7 +1,7 @@
 # Richard Tillies
 # October 13, 2021
 # Round class
-# ~/turing/1module/projects/lib/round.rb
+# ~/turing/1module/projects/flash_cards/lib/round.rb
 
 class Round
   attr_reader :deck, :turns, :correct_cards
@@ -42,16 +42,14 @@ class Round
 
   def percent_correct
     if @turns.count > 0
-      number_correct * 100 / @turns.count
+      # number_correct * 100 / @turns.count
+      number_correct.to_f * 100 / @turns.count
     else
       0
     end
   end
 
   def percent_correct_by_category(cat)
-    #
-    # my_deck = Deck.new(@correct_cards)
-    # counter = my_deck.cards_in_category(cat).count
     correct = number_correct_by_category(cat)
 
     spent = []
@@ -62,13 +60,10 @@ class Round
     old = Deck.new(spent)
     total = old.cards_in_category(cat).count
 
-    # puts "#{correct} / #{total}"
     if total > 0
-      number_correct_by_category(cat) * 100 / total
-      # number_correct_by_category(cat) * 100 / @deck.cards_in_category(cat)
+      number_correct_by_category(cat) * 100.0 / total
     else
       0
     end
   end
-
 end

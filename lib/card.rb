@@ -1,7 +1,7 @@
 # Richard Tillies
 # October 12, 2021
 # Card class
-# ~/turing/1module/projects/lib/card.rb
+# ~/turing/1module/projects/flash_cards/lib/card.rb
 
 class Card
   attr_reader :question, :answer, :category
