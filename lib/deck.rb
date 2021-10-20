@@ -16,6 +16,12 @@ class Deck
       end
   end
 
+  def categories
+      cards.map(&:category).uniq
+   end
+
+
+
 
 
 end

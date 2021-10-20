@@ -4,6 +4,7 @@ require './lib/turn'
 require './lib/deck'
 require './lib/round'
 
+
 # Creates setup for flash cards to play with
 @card_1 = Card.new("What is 5 + 5?", "10" || "ten" || 10, :STEM)
 @card_2 = Card.new("What is Rachel's favorite animal?", "Cat", "Pop Culture")
@@ -32,12 +33,12 @@ def game_play
   end
 
   puts "****** Game over! ******"
-  game_over =  @round.turns.map do |turn|
-     puts "#{turn.card.category} -  #{@round.percent_correct_by_category(turn.card.category)}%"
-    end
+  game_over =  @round.deck.categories.map do |category|
+    "#{category} -  #{@round.percent_correct_by_category(category)}%"
+  end
 
   if @round.turns.count == @round.deck.cards.count
-    game_over
+    puts game_over
   end
 
 end
