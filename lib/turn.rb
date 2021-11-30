@@ -5,7 +5,7 @@ class Turn
 
   def initialize(string,card)
     @guess = string
-    @card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    @card = card
   end
 
   def correct?
