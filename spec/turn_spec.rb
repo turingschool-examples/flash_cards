@@ -1,6 +1,7 @@
 
 require '../lib/card'
 require '../lib/turn'
+require 'pry'
 
 RSpec.describe Turn do
   it "exists" do
@@ -24,10 +25,20 @@ RSpec.describe Turn do
 
     expect(turn.correct?).to be true
   end
+
+  it "returns feedback" do
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+
+    turn = Turn.new("Juneau",card)
+    expect(turn.feedback).to eq("Correct!")
+  end
+
   # it "displays card" do
   #   card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+  #
   #   turn = Turn.new("Juneau",card)
-  #   turn.card
+  #
   #   expect(turn.card).to eq(card)
   # end
+
 end
