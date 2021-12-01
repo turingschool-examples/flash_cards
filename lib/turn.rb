@@ -6,7 +6,7 @@ class Turn
   end
 
   def guess
-    card.answer
+    @guess = card.answer
   end
 
   def card
@@ -14,8 +14,9 @@ class Turn
   end
 
   def correct?
-    if guess == card
-    end
+
+    @string == @guess
+
   end
 
   def feedback
