@@ -3,13 +3,19 @@ class Round
   def initialize(deck)
     @deck = deck
     @turns = []
-    @card_counter = 0
+    @card_counter = -1
+  end
+
+
+  def current_card
+    self.deck.cards[@card_counter]
   end
 
 
   def take_turn(guess)
-    new_turn = Turn.new(guess, self.deck.cards[self.card_counter])
-    @turns.push self.deck.cards[self.card_counter]
+    @card_counter += 1
+    @turns.push Turn.new(guess, current_card)
+    return @turns.last
   end
 
 
