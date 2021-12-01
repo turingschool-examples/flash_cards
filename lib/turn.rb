@@ -1,6 +1,4 @@
 #~/turn.rb
-require './lib/card'
-
 
 class Turn
   attr_reader :guess, :card
@@ -14,4 +12,15 @@ class Turn
   def correct?
     guess == card.answer
   end
+
+  def feedback
+    if guess == card.answer
+      p "Correct!"
+    elsif guess != card.answer
+      p "Incorrect."
+    else
+      p "Invalid entry"
+    end
+  end
+
 end

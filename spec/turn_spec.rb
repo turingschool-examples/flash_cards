@@ -35,9 +35,21 @@ RSpec.describe Turn do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
 
-
     expect(turn.correct?).to be true
   end
 
+  it "returns Correct!" do
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Juneau", card)
+
+    expect(turn.feedback).to eq("Correct!")
+  end
+
+  it "returns Incorrect" do
+    card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+    turn = Turn.new("Saturn", card)
+
+    expect(turn.feedback).to eq("Incorrect.")
+  end
 
 end
