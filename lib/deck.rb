@@ -8,4 +8,14 @@ class Deck
   def count
     @cards.count
   end
+
+  def cards_in_category(category)
+    @cards.select do |card|
+      if card.category == category
+         card
+      else
+       []
+     end
+    end
+  end
 end
