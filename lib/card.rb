@@ -6,6 +6,10 @@ class Card
     @category = :categroy
   end
 
+  def question
+    @question = "What is the capital of Alaska?"
+  end
+
 
 
 end
