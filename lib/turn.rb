@@ -3,6 +3,18 @@ class Turn
   def initialize(capital, card)
     @capital = capital
     @card = card
+    @correct = true
   end
 
+  def guess
+    @capital
+  end
+
+  def correct?
+    @correct
+  end
+
+  def feedback
+    "Correct!"
+  end
 end
