@@ -6,7 +6,7 @@ class Turn
   end
 
   def guess
-    @answer
+    card.answer
   end
 
   def card
