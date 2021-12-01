@@ -1,16 +1,6 @@
 class Turn
-attr_reader :string, :card
-  def initialize string, card
-    @string = string
-    @card = card
+  def initialize(guess, card)
+    @guess = guess
+    @card = card 
   end
-
-  def guess()
-    guess = gets.chomp
-  end
-
 end
-
-
-guess = gets
-guess
