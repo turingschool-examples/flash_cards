@@ -12,4 +12,9 @@ class Turn
     return @guess
   end
 
+  def card
+    return @card
+  end
+
 end
+require 'pry'; binding.pry
