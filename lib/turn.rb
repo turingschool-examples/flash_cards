@@ -1,3 +1,4 @@
+
 class Turn
   attr_reader :string, :card
 
@@ -7,12 +8,26 @@ class Turn
   end
 
   def guess
-    return "Juneau"
+    if @guess == "Juneau"
+      "Juneau"
+    else @guess == "Saturn"
+      "Saturn"
+    end
   end
 
   def correct?
-    if guess == "Juneau"
+    if @guess == "Juneau"
       true
+    elsif @guess == "Saturn"
+      false
+    end
+  end
+
+  def feedback
+    if @guess == "Juneau"
+      return "Correct!"
+    elsif @guess == "Saturn"
+      return "Incorrect."
     end
   end
 
