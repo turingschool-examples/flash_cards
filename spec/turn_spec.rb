@@ -12,26 +12,29 @@ RSpec.describe Card do
     expect(turn).to be_instance_of(Turn)
   end
 
-  xit 'has a question' do
+  it "turn has a guess" do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-
-    expect(card.question).to eq("What is the capital of Alaska?")
+    turn = Turn.new("Juneau", card)
+    expect(turn.guess).to eq('Juneau')
   end
 
-  xit 'has an answer' do
+  it "will return a boolean for correct?" do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-
-    expect(card.answer).to eq("Juneau")
+    turn = Turn.new("Juneau", card)
+    expect(turn.correct?).to be(true)
   end
 
-  xit 'has a category' do
+  it "will give feedback" do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-
-    expect(card.category).to eq(:Geography)
+    turn = Turn.new("Juneau", card)
+    expect(turn.feedback).to eq('Correct!')
   end
-  xit 'can turn a card' do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    expect(card.category).to eq(:Geography)
+
+  it "will recognize incorrect answers" do
+    card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+    turn = Turn.new("Venus", card)
+    expect(turn.correct?).to be(false)
+    expect(turn.feedback).to eq('Incorrect')
   end
 
 end
