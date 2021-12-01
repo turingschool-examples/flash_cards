@@ -11,5 +11,16 @@ def initialize(guess, card)
 def correct?
   card.answer == guess
   end
+
+def feedback
+    if correct?
+      "Correct!"
+    else
+      "Incorrect."
+    end
+  end
 end
+
+
+
 # binding.pry
