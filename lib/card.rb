@@ -5,4 +5,8 @@ class Card
     @category = category
   end
 
+  def question
+    @question
+  end
+
  end
