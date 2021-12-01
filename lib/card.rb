@@ -1,16 +1,37 @@
-class Card
-  def initialize(question,answer,category)
-    @question = question
-    @answer = answer
-    @category = category
-  end
+# class Card
+#   def initialize(question,answer,category)
+#     @question = question
+#     @answer = answer
+#     @category = category
+#   end
+#
+#   def question
+#     @question
+#   end
+#
+#   def answer
+#     @answer
+#   end
+#
+#
+#  end
 
-  def question
-    @question
-  end
+ class Card
+   attr_reader :question, :answer, :category
 
-  def answer
-    @answer
-  end
+   def initialize(question,answer,category)
+     @question = question
+     @answer = answer
+     @category = category
+   end
 
- end
+   # def question
+   #   @question
+   # end
+   #
+   # # def answer
+   # #   @answer
+   # # end
+
+
+  end
