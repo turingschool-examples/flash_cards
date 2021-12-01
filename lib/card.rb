@@ -4,4 +4,13 @@ class Card
     @answer   = answer
     @category = category
   end
+
+  def question
+  end
+
+  def answer
+  end
+
+  def category
+  end
 end
