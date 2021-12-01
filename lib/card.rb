@@ -6,11 +6,14 @@ class Card
   end
 
   def question
+    @question
   end
 
   def answer
+    @answer
   end
 
   def category
+    @category
   end
 end
