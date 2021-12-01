@@ -29,4 +29,11 @@ RSpec.describe Turn do
 
     expect(turn.correct?).to be(true)
   end
+
+  it 'can tell if guess is incorrect' do
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Denver", card)
+
+    expect(turn.correct?).to be(false)
+  end
 end
