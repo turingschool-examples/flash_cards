@@ -14,6 +14,8 @@ class Card
     @answer = "Juneau"
   end
 
-
+  def category
+    @category = :Geography
+  end
 
 end
