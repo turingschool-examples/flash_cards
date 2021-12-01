@@ -1,5 +1,7 @@
-require 'pry'
+
+
 class Turn
+  attr_reader :string, :card
   def initialize(string, card)
     @string = string
     @card   = card
@@ -12,6 +14,7 @@ class Turn
   def card
     @card
   end
+# binding.pry
 
   def correct?
     @string == card.answer
@@ -26,4 +29,4 @@ class Turn
   end
 
 end
-binding.pry
+#binding.pry
