@@ -8,13 +8,3 @@ class Card
   end
 
 end
-
-#class Turn
-#  def initialize(string, card)
-#    @string = string
-#    @card   = card
-#  end
-
-#  def guess()
-#    guess =
-# end
