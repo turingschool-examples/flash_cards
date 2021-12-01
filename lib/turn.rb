@@ -10,4 +10,10 @@ class Turn
     return "Juneau"
   end
 
+  def correct?
+    if guess == "Juneau"
+      true
+    end
+  end
+
 end
