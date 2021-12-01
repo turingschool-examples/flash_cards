@@ -10,6 +10,10 @@ class Card
     @question = "What is the capital of Alaska?"
   end
 
+  def answer
+    @answer = "Juneau"
+  end
+
 
 
 end
