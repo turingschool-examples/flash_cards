@@ -1,7 +1,7 @@
-def Turn
+class Turn
   def initialize(guess, card)
     @guess  = guess
-    @card   = Card
+    @card   = card
   end
 
   def guess
@@ -9,11 +9,12 @@ def Turn
   end
 
   def card
-    @card
+    Card
   end
 
-  def correct?
-    @guess == Card(:answer)
-  end
-
+  # def correct?
+  #   if @guess == card.answer
+  #     return true
+  #   end
+  # end
 end
