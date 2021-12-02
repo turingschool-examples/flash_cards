@@ -5,4 +5,8 @@ class Turn
     @card = card
     @guess = string
   end
+
+  def correct?
+    @card.answer == @guess
+  end
 end
