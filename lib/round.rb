@@ -12,7 +12,7 @@ class Round
   end
 
   def take_turn(guess)
-    turn = Turn.new(guess, self.current_card)
+    turn = Turn.new(guess, current_card)
     if turn.correct?
       @number_correct += 1
     else
@@ -20,6 +20,9 @@ class Round
     @turns << turn
     @curr_card += 1
     return turn
+  end
+
+  def number_correct_by_category(cat)
   end
 
 
