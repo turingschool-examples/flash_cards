@@ -1,4 +1,4 @@
-#require 'pry' ; binding.pry
+require 'pry' ; binding.pry
 require './lib/card'
 
 RSpec.describe Card do
@@ -14,7 +14,7 @@ RSpec.describe Card do
     expect(card.question).to eq("What is the capital of Alaska?")
   end
 
-  xit 'has an answer' do
+  it 'has an answer' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
     expect(card.answer).to eq("Juneau")
