@@ -2,6 +2,7 @@ class Deck
   attr_reader :deck, :cards
   def initialize()
     @cards = []
+    @count = 0
   end
 
   def add(card_to_add)
@@ -11,5 +12,11 @@ class Deck
   def contents()
     puts @cards
   end
+
+  def count
+    @count = @cards.count
+  end
+
 end
+
 #binding.pry
