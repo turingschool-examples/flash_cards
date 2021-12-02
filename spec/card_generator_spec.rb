@@ -24,4 +24,12 @@ RSpec.describe CardGenerator do
     expect(generator.cards[0].category).to eq('STEM')
   end
 
+  it 'has second card' do
+    filename = "cards.txt"
+    generator = CardGenerator.new(filename)
+    expect(generator.cards[1]).to be_an_instance_of(Card)
+    expect(generator.cards[1].question).to eq("What is Rachel's favorite animal?")
+    expect(generator.cards[1].answer).to eq('red panda')
+    expect(generator.cards[1].category).to eq('Turing Staff')
+  end
 end
