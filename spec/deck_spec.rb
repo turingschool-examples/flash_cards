@@ -58,4 +58,14 @@ RSpec.describe Deck do
 
     expect(deck.cards_in_category(:STEM)).to eq [card_2, card_3]
   end
+
+  it '' do
+  end
+
+  it '' do
+  end
+  
+  it '' do
+  end
+
 end
