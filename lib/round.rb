@@ -31,5 +31,13 @@ class Round
     end
   end
 
+  def feedback
+    if correct? == true
+      "Correct, the answer is #{self.turns.last.card.answer}"
+    else
+      "Incorrect, the correct answer is #{self.turns.last.card.answer}"
+    end
+  end 
+
 
 end
