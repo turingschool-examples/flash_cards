@@ -25,17 +25,27 @@ RSpec.describe Turn do
 
   it 'returns true if the guess matches the answer' do
     card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
-    turn = Turn.new("Saturn", card)
+    turn = Turn.new("Mercury", card)
 
-    expect(turn.correct?).to be False
+    expect(turn.correct?).to be true
   end
 
-  xit 'returns false if the guess does not match' do
+  it 'returns false if the guess does not match' do
+    card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+    turn = Turn.new("Saturn", card)
+
+    expect(turn.correct?).to be false
   end
 
   xit 'returns feedback if guess is correct' do
+    card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+    turn = Turn.new("Mercury", card)
+
+
   end
 
   xit 'returns feedback if guess is not correct' do
+    card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+    turn = Turn.new("Saturn", card)
   end
 end

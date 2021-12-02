@@ -7,6 +7,10 @@ What is the return value of calling 'STRING'.capitalize, String, :string
 What is the return value of calling 'string'.delete('tr'), sing, :string
 What is the return value of calling 'string'.gsub('g', 'k'), stink, :string
 What is the return value of 'string'.index('n')?, 4, :string
+What is the return value of 'string'.casecmp('StRinG'), true, :string
+What is the return value of 'string'.casecmp('StRinGf'), false, :string
+
+
 If variable = 'string' and you call variable.delete('st'), what is the value of variable?, string, :string
 If variable = 'string' and you call variable.delete!('st'), what is the value of variable?, ring, :string
 If variable x = 'string' and you call x.capitalize!, what is the value of x?, String, :string

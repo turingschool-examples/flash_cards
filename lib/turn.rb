@@ -8,5 +8,7 @@ class Turn
     @card = card
   end
 
-  
+  def correct?
+    guess.casecmp?(card.answer)
+  end
 end
