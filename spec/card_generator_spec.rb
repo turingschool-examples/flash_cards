@@ -15,10 +15,13 @@ RSpec.describe CardGenerator do
     expect(generator.filename).to eq("cards.txt")
   end
 
-  it 'has cards' do
+  it 'has first card' do
     filename = "cards.txt"
     generator = CardGenerator.new(filename)
-
-    expect(generator.cards).to eq([])
+    expect(generator.cards[0]).to be_an_instance_of(Card)
+    expect(generator.cards[0].question).to eq("What is 5 + 5?")
+    expect(generator.cards[0].answer).to eq('10')
+    expect(generator.cards[0].category).to eq('STEM')
   end
+
 end
