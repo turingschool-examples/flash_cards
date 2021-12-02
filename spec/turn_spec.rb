@@ -21,8 +21,9 @@ describe Turn do
 
   it 'returns values of card instance' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Juneau", card)
 
-    expect(card).to include('@question="What is the capital of Alaska?"', '@answer="Juneau"', "@category=:Geography")
+    expect(turn.card).to eq(card)
   end
 
   it 'returns the value of Guess' do
@@ -43,11 +44,14 @@ describe Turn do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
 
-    if @guess == @answer
-      expect(turn.feedback).to eq("Correct!")
-    else
-      expect(turn.feedback).to eq("Incorrect.")
-    end
+    expect(turn.feedback).to eq("Correct!")
+  end
+
+  it 'returns proper feedback when question answered    incorrectly' do
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Anchorage", card)
+
+    expect(turn.feedback).to eq("Incorrect.")
   end
 
 end
