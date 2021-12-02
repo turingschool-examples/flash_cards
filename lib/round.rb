@@ -20,4 +20,10 @@ class Round
     @deck.cards.shift
     @new_turn
   end
+
+  def number_correct_by_category(category)
+    @num_by_category = @turns.count do |turn|
+      turn.card.category == category && turn.correct?
+    end
+  end
 end
