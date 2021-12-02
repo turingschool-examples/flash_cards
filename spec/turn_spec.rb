@@ -1,5 +1,5 @@
-require './lib/turn.rb'
-require './lib/card.rb'
+require './lib/turn'
+require './lib/card'
 require 'pry'
 require 'rspec'
 
@@ -13,6 +13,7 @@ end
 
 describe Turn do
   it 'exists' do
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
 
     expect(turn).to be_instance_of(Turn)
@@ -21,21 +22,21 @@ describe Turn do
   it 'returns values of card instance' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
-    expect(card).to eq("What is the capital of Alaska?", "Juneau", :Geography)
+    expect(card).to include('@question="What is the capital of Alaska?"', '@answer="Juneau"', "@category=:Geography")
   end
 
   it 'returns the value of Guess' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
 
-    expect(turn.guess)to eq("Juneau")
+    expect(turn.guess).to eq("Juneau")
   end
 
   it 'compares answer to guess' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
 
-    expect(turn.correct?)to be true
+    expect(turn.correct?).to be true
   end
 
   it 'returns proper feedback when question answered correctly' do
@@ -43,10 +44,10 @@ describe Turn do
     turn = Turn.new("Juneau", card)
 
     if @guess == @answer
-      expect(turn.feedback)to eq("Correct!")
+      expect(turn.feedback).to eq("Correct!")
     else
-      expect(turn.feedback)to eq("Incorrect.")
+      expect(turn.feedback).to eq("Incorrect.")
+    end
   end
-
 
 end

@@ -7,16 +7,16 @@ class Card
     @category = category
   end
 
-  # def question
-  #   return @question
-  # end
-  #
-  # def answer
-  #   return @answer
-  # end
-  #
-  # def category
-  #   return @category
-  # end
+  def question
+    return @question
+  end
+
+  def answer
+    return @answer
+  end
+
+  def category
+    return @category
+  end
 
 end
