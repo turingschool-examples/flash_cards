@@ -25,6 +25,9 @@
      @category = category
    end
 
+   # def category
+   #   @category << category
+   # end
    # def question
    #   @question
    # end
