@@ -1,21 +1,15 @@
-What is the method to return the first character of a string, String.___, chr, :string
-
+Which method returns the first character of a string?, String.___, chr, :string
 Which method returns true or false depending on whether the string contains any characters? String#_____, empty?, :string
+
 
 What is the return value of  calling 'string'.chr, s, :string
 What is the return value of calling 'STRING'.capitalize, String, :string
 What is the return value of calling 'string'.delete('tr'), sing, :string
 What is the return value of calling 'string'.gsub('g', 'k'), stink, :string
-
+What is the return value of 'string'.index('n')?, 4, :string
 If variable = 'string' and you call variable.delete('st'), what is the value of variable?, string, :string
 If variable = 'string' and you call variable.delete!('st'), what is the value of variable?, ring, :string
-
 If variable x = 'string' and you call x.capitalize!, what is the value of x?, String, :string
-
 If variable x = 'string' and you call x.capitalize, what is the value of x?, string, :string
-
-What is the return value of 'string'.index('n')?, 4, :string
-
 If variable x 'string' and you call x << 'thing', what is the value of x?, stringthing, :string
-
 What is the return value of 'grnits'.reverse, string, :string
