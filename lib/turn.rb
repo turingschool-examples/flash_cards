@@ -19,7 +19,5 @@ class Turn
     else
       "Incorrect."
     end
-
   end
-
 end

@@ -36,13 +36,13 @@ RSpec.describe Turn do
 
   it 'recieves an incorrect guess' do
     card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
-    turn = Turn.new("Saturn", card)
+    turn = Turn.new("Saturn", @card)
     expect(turn.guess).to eq("Saturn")
   end
 
   it 'returns incorrect feedback' do
     card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
-    turn = Turn.new("Saturn", card)
+    turn = Turn.new("Saturn", @card)
     expect(turn.feedback).to eq("Incorrect.")
   end
   # binding.pry
