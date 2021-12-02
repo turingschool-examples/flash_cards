@@ -37,7 +37,10 @@ class Round
     else
       "Incorrect, the correct answer is #{self.turns.last.card.answer}"
     end
-  end 
+  end
 
+  def number_correct_by_category(category)
+    @stats_hash[category].count(true)
+  end
 
 end
