@@ -1,20 +1,18 @@
-require './lib/card'
-
 
 class Turn
-
+  attr_reader :guess, :card
   def initialize(guess, card)
     @guess = guess
     @card = card
   end
 
-  def guess
-    return @guess
+  def correct?
+     guess == card.answer
   end
 
-  def card
-    return @card
+  def feedback
+    guess == card.answer ? 'Correct!' : 'Incorrect.'
   end
+
 
 end
-require 'pry'; binding.pry
