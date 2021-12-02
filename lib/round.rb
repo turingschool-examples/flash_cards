@@ -32,11 +32,11 @@ class Round
       @number_correct += 1
       @stats_hash[self.turns.last.card.category.to_sym] << true
       @card_counter += 1
-      return "Correct, the answer is #{self.turns.last.card.answer}"
+      return "Correct! The correct answer is #{self.turns.last.card.answer}."
     else
       @stats_hash[self.turns.last.card.category.to_sym] << false
       @card_counter += 1
-      return "Incorrect, the correct answer is #{self.turns.last.card.answer}"
+      return "Incorrect. The correct answer is #{self.turns.last.card.answer}."
     end
   end
 
