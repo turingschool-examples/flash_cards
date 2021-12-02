@@ -8,4 +8,8 @@ class Round
   def current_card
     @deck.cards[@curr_card]
   end
+
+  def take_turn(guess)
+    Turn.new(guess, self.current_card)
+  end
 end
