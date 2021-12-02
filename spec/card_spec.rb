@@ -64,9 +64,4 @@ RSpec.describe Turn do
     expect(turn.correct?).to be (false)
     expect(turn.feedback).to eq("Incorrect.")
   end
-
-
-
-
-
 end
