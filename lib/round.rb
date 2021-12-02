@@ -13,7 +13,7 @@ class Round
 
   def take_turn(guess)
     turn = Turn.new(guess, self.current_card)
-    if guess = @deck.cards[@curr_card].answer
+    if turn.correct?
       @number_correct += 1
     else
     end
