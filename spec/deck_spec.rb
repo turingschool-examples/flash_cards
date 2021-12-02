@@ -14,6 +14,13 @@ RSpec.describe Deck do
   it 'exists' do
     expect(@deck).to be_instance_of(Deck)
   end
-  
+
+  it 'has some cards' do
+    expect(@deck.cards).to eq(@cards)
+  end
+
+  it 'counts the cards' do
+    expect(@deck.count).to eq(3)
+  end
 
 end
