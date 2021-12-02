@@ -1,6 +1,9 @@
+require 'rspec'
 require './lib/card'
+require 'pry'
 
-RSpec.describe Card do
+# RSpec.describe Card do
+describe Card do
   it 'exists' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
