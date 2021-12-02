@@ -150,7 +150,7 @@ RSpec.describe Round do
       round.correct?
       round.take_turn('North north west') #correct
       round.correct?
-      expect(round.percent_correct).to eq(0.33)
+      expect(round.percent_correct).to eq(33.33)
     end
   end
   describe '#percent_correct_by_category' do
@@ -164,15 +164,14 @@ RSpec.describe Round do
       cards= [card_1, card_2, card_3]
       deck = Deck.new(cards)
       round = Round.new(deck)
+      binding.pry
       round.take_turn('Sacramento') #incorrect
       round.correct?
       round.take_turn('Venus') #incorrect
       round.correct?
-      binding.pry
       round.take_turn('North north west') #correct
       round.correct?
-
-      expect(round.percent_correct_by_category(:STEM)).to eq(0.5)
+      expect(round.percent_correct_by_category(:STEM)).to eq(50.00)
       expect(round.percent_correct_by_category(:Geography)).to eq(0)
     end
   end
