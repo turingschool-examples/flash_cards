@@ -2,8 +2,16 @@ require './lib/card_generator'
 
 RSpec.describe CardGenerator do
   it 'exists' do
-    generator = CardGenerator.new
+    filename = "cards.txt"
+    generator = CardGenerator.new(filename)
 
     expect(generator).to be_an_instance_of(CardGenerator)
+  end
+
+  it 'takes file as argument' do
+    filename = "cards.txt"
+    generator = CardGenerator.new(filename)
+
+    expect(generator.filename).to eq("cards.txt")
   end
 end
