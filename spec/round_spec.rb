@@ -6,5 +6,6 @@ require './lib/round'
 RSpec.describe Deck do
   it 'exists' do
     round = Round.new()
-    expect(deck).to be_instance_of(Deck)
+    expect(round).to be_instance_of(Round)
   end
+end
