@@ -8,4 +8,8 @@ class Deck
   def count
     @cards.count
   end
+
+  def cards_in_category(category)
+    @cards.map { |card| card.category == category }
+  end
 end

@@ -44,6 +44,8 @@ RSpec.describe Deck do
 
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
+
+    expect(deck.cards_in_category(:Geography)).to be card_1
   end
 
   xit 'can return all the cards from a certain category' do
