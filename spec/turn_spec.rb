@@ -16,10 +16,18 @@ RSpec.describe Turn do
     expect(turn.card).to be_instance_of(Card)
   end
 
-  xit 'can return the inputted guess' do
+  it 'can return the inputted guess' do
+    card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+    turn = Turn.new("Saturn", card)
+
+    expect(turn.guess).to eq('Saturn')
   end
 
-  xit 'returns true if the guess matches the answer' do
+  it 'returns true if the guess matches the answer' do
+    card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+    turn = Turn.new("Saturn", card)
+
+    expect(turn.correct?).to be False
   end
 
   xit 'returns false if the guess does not match' do
