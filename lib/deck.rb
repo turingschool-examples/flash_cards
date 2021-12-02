@@ -10,10 +10,10 @@ class Deck
   end
 
   def cards_in_category(cat)
-    count = 0
+    cat_cards = []
     @cards.each do |card|
-      count += 1 if card.category == cat
+      cat_cards << card if card.category == cat
     end
-    return count
+    return cat_cards
   end
 end
