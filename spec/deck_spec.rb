@@ -26,7 +26,6 @@ RSpec.describe Deck do
 
   describe "test card array" do
     it "make array" do
-
       card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
       card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
@@ -42,8 +41,6 @@ RSpec.describe Deck do
 
   describe "Test the deck" do
     it "make the deck be a deck" do
-
-      deck = Deck.new
       card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
       card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
@@ -55,8 +52,6 @@ RSpec.describe Deck do
 
   describe "count the cards" do
     it "does a .count" do
-
-      deck = Deck.new
       card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
       card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
@@ -66,17 +61,15 @@ RSpec.describe Deck do
     end
   end
 
-  # describe "count the category" do
-  #   it "does the thing" do
-  #
-  #     deck = Deck.new
-  #     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-  #     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
-  #     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-  #     cards = [card_1, card_2, card_3]
-  #     deck = Deck.new(cards)
-  #     expect(deck.count).to be(3)
-  #   end
-  # end
+  describe "count the category" do
+    it "counts categories" do
+      card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+      card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+      card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+      cards = [card_1, card_2, card_3]
+      deck = Deck.new(cards)
+      expect(deck.cards_in_category(:STEM)).to include(card_2, card_3)
+    end
+  end
 
 end

@@ -17,14 +17,14 @@ class Deck
   def count
     @count = @cards.count
   end
+  # def fetch_category
+  #   return cards(2)
+  # end
 
-  def cards_in_category(category)
-    cards_in_category = 0
-    @cards.each.category  |category|
-    cards_in_category += 1
-    #card.category
+  def cards_in_category(look_for)
+    @cards.select{|look_for| look_for}
+
   end
-
 end
 
 #binding.pry
