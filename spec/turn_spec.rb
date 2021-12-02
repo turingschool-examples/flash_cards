@@ -15,5 +15,13 @@ RSpec.describe Turn do
   it 'can have a card' do
     expect(@turn.card).to be_instance_of(Card)
   end
+
+  it 'has a guess' do
+    expect(@turn.guess).to eq("Juneau")
+  end
+
+  it 'was guessed correctly' do
+    expect(@turn.correct?).to eq(true)
+  end
   # binding.pry
 end
