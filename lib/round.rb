@@ -48,4 +48,8 @@ class Round
     rounded = messy.floor(2)
   end
 
+  def percent_correct_by_category(category)
+    number_correct_by_category(category).to_f / @stats_hash[category].length
+  end
+
 end
