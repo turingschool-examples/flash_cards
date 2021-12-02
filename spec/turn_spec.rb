@@ -11,5 +11,9 @@ RSpec.describe Turn do
   it 'exists' do
     expect(@turn).to be_a(Turn)
   end
+
+  it 'can have a card' do
+    expect(@turn.card).to be_instance_of(Card)
+  end
   # binding.pry
 end
