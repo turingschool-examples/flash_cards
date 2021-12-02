@@ -1,4 +1,5 @@
 class Card
+
   def initialize(question, answer, category)
     @question = question
     @answer   = answer
@@ -17,3 +18,5 @@ class Card
     @category
   end
 end
+
+cards = []
