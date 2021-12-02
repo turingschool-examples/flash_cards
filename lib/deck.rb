@@ -1,13 +1,15 @@
 class Deck
-  attr_reader :deck, :category
-  def initialize(deck, category)
-    @deck = []
-    @category = category
+  attr_reader :deck, :cards
+  def initialize()
+    @cards = []
   end
 
-  def add_card(card)
-    @deck << card
+  def add(card_to_add)
+    @cards << card_to_add
   end
 
-
+  def contents()
+    puts @cards
+  end
 end
+#binding.pry
