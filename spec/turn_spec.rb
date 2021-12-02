@@ -40,6 +40,29 @@ RSpec.describe Turn do
     expect(turn.feedback).to eq("Correct!")
   end
 
+  it "pulls a new card" do
+    card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+    turn = Turn.new("Saturn", card)
+    expect(turn.card).to eq(card)
+  end
+
+  it "takes a guess" do
+    card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+    turn = Turn.new("Saturn", card)
+    expect(turn.guess).to eq("Saturn")
+  end
+
+  it "is the guess correct?" do
+    card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+    turn = Turn.new("Saturn", card)
+    expect(turn.correct?).to eq(false)
+  end
+
+  it "gives feedback of Incorrect" do
+    card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+    turn = Turn.new("Saturn", card)
+    expect(turn.feedback).to eq("Incorrect.")
+  end
 
 
 
