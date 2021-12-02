@@ -1,5 +1,3 @@
-require './lib/card'
-require './lib/deck'
 
 class Deck
 
@@ -7,5 +5,11 @@ class Deck
   def initialize(card)
     @card = []
   end
+
+  def cards(new_card)
+    @card << new_card
+  end
+
+
 
 end
