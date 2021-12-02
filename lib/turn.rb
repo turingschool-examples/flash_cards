@@ -17,4 +17,11 @@ class Turn
       return true
     end
   end
+
+  def feedback
+    if @guess == card.answer
+      "Correct!"
+    end
+  end
+
 end
