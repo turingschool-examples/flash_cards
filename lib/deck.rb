@@ -8,4 +8,8 @@ class Deck
   def count
     @cards.count
   end
+
+  def cards_in_category(named_category)
+    @cards 
+  end
 end
