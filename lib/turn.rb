@@ -9,12 +9,12 @@ class Turn
   end
 
   def card
-    Card
+   @card
   end
 
-  # def correct?
-  #   if @guess == card.answer
-  #     return true
-  #   end
-  # end
+  def correct?
+    if @guess == card.answer
+      return true
+    end
+  end
 end
