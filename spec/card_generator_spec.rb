@@ -14,4 +14,11 @@ RSpec.describe CardGenerator do
 
     expect(generator.filename).to eq("cards.txt")
   end
+
+  it 'has cards' do
+    filename = "cards.txt"
+    generator = CardGenerator.new(filename)
+
+    expect(generator.cards).to eq([])
+  end
 end
