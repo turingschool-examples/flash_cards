@@ -7,7 +7,7 @@ class Round
   end
 
   def current_card
-    @deck.cards[0]
+    @deck.cards.first
 
   end
 
