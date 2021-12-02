@@ -1,17 +1,21 @@
-
+require './lib/card'
 
 class CardGenerator
   attr_accessor :filename, :cards
 
   def initialize(filename)
     @filename = filename
-    File.open("lib/#{filename}", "r") do |file|
-      puts file.readline()
-    end
     @cards = []
+    @file = File.open("lib/#{filename}", "r")
+    @file.map do |line|
+      line.chomp!
+      line = line.split(',')
+      @cards << Card.new(line[0], line[1], line[2])
+    end
   end
 end
 
 
-#filename = "cards.txt"
-#generator = CardGenerator.new(filename)
+filename = "cards.txt"
+generator = CardGenerator.new(filename)
+p generator.cards
