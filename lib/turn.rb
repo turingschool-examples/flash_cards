@@ -6,5 +6,8 @@ class Turn
     @guess = guess
     @card = card
   end
+  def correct?
+    @guess == @card.answer
+  end
 end
 #binding.pry
