@@ -19,6 +19,7 @@ RSpec.describe Deck do
     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
+    #require'pry'; binding.pry
     deck.cards_in_category(:STEM)
     expect(deck.cards_in_category).to eq(card_1, card_2)
   end
