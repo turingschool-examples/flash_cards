@@ -10,7 +10,11 @@ class Round
 
 
   def current_card
-    self.deck.cards[@card_counter]
+    if @card_counter == -1
+      self.deck.cards[0]
+    else
+      self.deck.cards[@card_counter]
+    end
   end
 
 
@@ -45,11 +49,12 @@ class Round
 
   def percent_correct
     messy = @number_correct.to_f / (@card_counter + 1)
-    rounded = messy.floor(2)
+    rounded = messy.floor(4) * 100
   end
 
   def percent_correct_by_category(category)
-    number_correct_by_category(category).to_f / @stats_hash[category].length
+    messy = number_correct_by_category(category).to_f / @stats_hash[category].length
+    rounded = messy.floor(4) * 100
   end
 
 end
