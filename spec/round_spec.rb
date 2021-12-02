@@ -48,6 +48,7 @@ RSpec.describe Deck do
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
     round = Round.new(deck)
+    expect(round.turns).to eq([])
     new_turn = round.take_turn("Juneau")
     expect(round.turns).to eq([new_turn])
     next_turn = round.take_turn("Mars")
