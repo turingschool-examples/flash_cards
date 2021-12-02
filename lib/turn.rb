@@ -6,6 +6,11 @@ class Turn
     @card   = card
   end
 
+def correct?
 
+  if @guess == "Juneau"
+    true
+  end
+end
 
 end
