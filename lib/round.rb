@@ -43,4 +43,9 @@ class Round
     @stats_hash[category].count(true)
   end
 
+  def percent_correct
+    messy = @number_correct.to_f / (@card_counter + 1)
+    rounded = messy.floor(2)
+  end
+
 end
