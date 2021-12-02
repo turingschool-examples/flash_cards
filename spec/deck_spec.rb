@@ -9,6 +9,13 @@ RSpec.describe Deck do
       expect(card_1).to be_instance_of(Card)
     end
   end
+
+  describe "test" do
+    it "make card" do
+      card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+      expect(card_2).to be_instance_of(Card)
+    end
+  end
 #deck = Deck.new
 #deck_1.add_card(card_1)
 end
