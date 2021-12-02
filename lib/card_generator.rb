@@ -14,8 +14,3 @@ class CardGenerator
     end
   end
 end
-
-
-filename = "cards.txt"
-generator = CardGenerator.new(filename)
-p generator.cards
