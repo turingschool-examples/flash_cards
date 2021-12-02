@@ -20,4 +20,19 @@ def start(round)
     round.take_turn(guess)
     p round.turns.last.feedback
   end
+  gameover(round)
 end
+
+def gameover(round)
+  puts "****** Game over! ******"
+  puts "You had #{round.number_correct} correct guesses out of #{round.deck.cards.length} for a total score of #{round.percent_correct.to_i}%"
+  categories = []
+  round.turns.each do |turn|
+    categories << turn.card.category unless categories.include?(turn.card.category)
+  end
+  categories.each do |category|
+    puts "#{category} - #{round.percent_correct_by_category(category).to_i}% correct"
+  end
+end
+
+start(round)
