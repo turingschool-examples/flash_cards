@@ -10,4 +10,8 @@ class Deck
       card.category == category
     end
   end
+
+  def count
+    @cards.size
+  end
 end
