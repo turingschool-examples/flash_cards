@@ -17,7 +17,7 @@ class Round
     @new_turn = Turn.new(guess, current_card)
     @turns << current_card
     @number_correct += 1 if @new_turn.correct?
-    @deck.cards.pop
+    @deck.cards.shift
     @new_turn
   end
 end
