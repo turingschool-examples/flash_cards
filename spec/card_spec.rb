@@ -2,7 +2,7 @@ require './lib/card'
 
 RSpec.describe Card do
   before :each do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    @card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
   end
 
   it 'exists' do
