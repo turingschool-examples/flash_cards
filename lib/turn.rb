@@ -11,4 +11,8 @@ class Turn
   def correct?
     guess.casecmp?(card.answer)
   end
+
+  def feedback
+    correct? ? 'Correct' : 'Incorrect'
+  end
 end
