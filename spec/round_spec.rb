@@ -76,5 +76,24 @@ RSpec.describe Round do
       new_turn = round.take_turn('Sacramento')
       expect(new_turn.correct?).to be(false)
     end
+    it 'can add boolean values to @stats_hash array based on category' do
+      card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+      card_2 = Card.new("The Viking spacecraft sent back to Earth photographs
+        and reports about the surface of which planet?", "Mars", :STEM)
+
+      card_3 = Card.new("Describe in words the exact direction
+         that is 697.5° clockwise from due north?", "North north west", :STEM)
+      cards= [card_1, card_2, card_3]
+      deck = Deck.new(cards)
+      round = Round.new(deck)
+      round.take_turn('Juneau')
+      round.correct?
+      round.take_turn('Venus')
+      round.correct?
+      round.take_turn('North north west')
+      round.correct?
+
+      expect(round.stats_hash).to include(Geography: [true], STEM: [false, true])
+    end
   end
 end
