@@ -11,10 +11,10 @@ class Turn
 
   def feedback
     if correct? == true
-      'Correct!'
+      "Correct! The answer is #{card.answer}."
     else
-      'Incorrect'
-    end 
+      "Incorrect. The answer is #{card.answer}."
+    end
   end
 
 end
