@@ -11,6 +11,5 @@ class Deck
 
   def cards_in_category(category)
     @cards.select { |card| card if card.category == category }
-    @cards[0]
   end
 end

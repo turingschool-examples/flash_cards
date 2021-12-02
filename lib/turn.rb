@@ -1,5 +1,3 @@
-require_relative 'card'
-
 class Turn
   attr_reader :guess, :card
 
