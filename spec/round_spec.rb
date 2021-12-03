@@ -27,8 +27,8 @@ RSpec.describe Deck do
       deck = Deck.new(cards)
       round = Round.new(deck)
       new_turn = round.take_turn("Juneau")
-      expect(round.current_card).to be(card_1)
-
+      # expect(round.current_card).to be(card_1)
+      expect(new_turn).to be_instance_of(Turn)
     end
   end
 end

@@ -3,10 +3,12 @@ class Round
 
   def initialize(deck)
     @deck = deck
+    @turns = []
+
   end
 
   def current_card
-    @current_card[] = @deck.cards[0]
+    @current_card = @deck.cards[0]
     @deck.cards[0]
   end
 
@@ -14,10 +16,11 @@ class Round
     @turns = []
   end
 
-  # def take_turn(guess)
-  #   @turns = @current_card << guess
-  # end
+  def take_turn(guess)
+    turn = Turn.new(current_card, guess)
+  end
 
+ binding.pry
 
 
 end
