@@ -22,8 +22,16 @@ class Play_Game
     50.times {print "-"}
   end
 
+  def question
+    @round_number +=1
+    puts "\nThis is card number #{@round_number} out of #{4} " #Add way to look at how many cards in deck. Cards shift out of deck so out of keeps subtracting
+    puts @round.current_card.question
+    guess
+  end
+
 
 end
 
   game = Play_Game.new
   game.start
+  game.question 
