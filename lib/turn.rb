@@ -14,6 +14,10 @@ class Turn
     end
   end
 
+  def grab_cat
+    @card.category
+  end
+
   def feedback
     if @guess == card.answer
       "Correct!"
