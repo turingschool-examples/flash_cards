@@ -13,7 +13,7 @@ class Round
   def take_turn(guess)
     @turns << Turn.new(guess, current_card)
     @turns.last
-    @number_correct += 1 if round.turn.correct? == true
+    # @number_correct += 1 if round.turn.correct? == true
 
   end
 
