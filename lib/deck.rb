@@ -26,11 +26,13 @@ class Deck
 
   def cards_in_category(category)
     if @cards.at(2) == (:STEM)
-      stem.push(category)
+      stem.push
     elsif @cards.at(2) == (:Geography)
-      geography.push(category)
-    else @cards.at(2) == ("Pop Culture")
-      pop_culture.push(category)
+      geography.push
+    elsif @cards.at(2) == ("Pop Culture")
+      pop_culture.push
+    else
+      puts "There are no cards of that category"
     end
   end
 end
