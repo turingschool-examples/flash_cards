@@ -44,12 +44,19 @@ class Round
     "You haven't taken any turns yet."
   end
 
-
-  def percent_correct_by_category
-
+  def percent_correct_by_category(card_category)
+    correct_by_category = []
+    percent_by_category = []
+    @correct_guesses.each do |guess|
+      if card_category == guess.category
+        correct_by_category << guess
+      end
+    end
+    correct_by_category.each do |correct_turn|
+      if card_category == correct_turn.category
+        percent_by_category << correct_turn
+      end
+    end
+    (percent_by_category.size.fdiv(@correct_guesses.size) * 100)
   end
-
-
-
-
 end
