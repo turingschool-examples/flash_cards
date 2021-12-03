@@ -32,7 +32,7 @@ RSpec.describe Round do
     cards = [card_1, card_2, card_3]
     deck = cards
     round = Round.new(deck)
-    expect(round.turns).to eq []
+    expect(round.turns).to eq([])
   end
 
   it 'Can display the first card' do
@@ -52,7 +52,31 @@ RSpec.describe Round do
     cards = [card_1, card_2, card_3]
     deck = cards
     round = Round.new(deck)
-    new_turn = Turn.new("Juneau")
+    new_turn = Turn.new("Juneau", cards[0])
+
+    # new_turn outputs turn, card and guess
     expect(new_turn).to be_instance_of(Turn)
+  end
+
+  # xit 'stores a new turn and returns it' do
+  #   card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+  #   card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+  #   card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+  #   cards = [card_1, card_2, card_3]
+  #   deck = cards
+  #   round = Round.new(deck)
+  #   new_turn = Turn.new("Juneau", cards[0])
+  #   expect(new_turn).to include(@guess)
+  #   expect(new_turn).to include(cards[0])
+  # end
+
+  it 'Stores the new turn in turns' do
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+    card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+    cards = [card_1, card_2, card_3]
+    deck = cards
+    round = Round.new(deck)
+    expect(round.take_turn("Juneau")).to eq(round.turns)
   end
 end
