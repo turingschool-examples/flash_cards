@@ -1,4 +1,5 @@
 class Turn
+
 attr_reader :guess,
             :card
 
@@ -7,4 +8,7 @@ attr_reader :guess,
     @card      = card
   end
 
+  def correct?
+    @guess == card.answer #is nil == nil or Juneau == Juneau ?
+  end
 end
