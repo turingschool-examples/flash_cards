@@ -9,4 +9,8 @@ class Turn
   def correct?
     @guess == @card.answer
   end
+
+  def feedback
+    return "Correct!"
+  end
 end
