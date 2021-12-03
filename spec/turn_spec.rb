@@ -7,4 +7,11 @@ RSpec.describe Turn do
     turn = Turn.new("Juneau", card)
     expect(turn).to be_a(Turn)
   end
+
+  it 'has attributes' do
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Juneau", card)
+    expect(turn.guess).to eq("Juneau")
+    expect(turn.card).to eq(card)
+  end
 end
