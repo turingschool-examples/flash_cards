@@ -39,6 +39,16 @@ class Round
     correct_by_category.size
   end
 
+  def percent_correct
+    return ((@correct_guesses.size.fdiv(@turns.size)) * 100) if turns.size > 0
+    "You haven't taken any turns yet."
+  end
+
+
+  def percent_correct_by_category
+
+  end
+
 
 
 
