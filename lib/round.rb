@@ -12,12 +12,16 @@ class Round
   end
 
   def take_turn(guess)
-    @turns << current_card
     turn = Turn.new(guess, current_card)
+    @turns << turn
+    @deck.cards.shift
+    return turn
   end
 
   def number_correct
-    
+    @turns.find_all do |turn|
+      turn.correct?
+    end.size
   end
 
 end
