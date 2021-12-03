@@ -11,4 +11,13 @@ class Turn
     return @string
   end
 
+  def correct?
+    if guess == answer
+      return true
+    else
+      return false
+    end
+
+     
+
 end
