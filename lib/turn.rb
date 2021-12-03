@@ -11,6 +11,10 @@ class Turn
     return @string
   end
 
+  def card
+    return @card
+  end
+
   def correct?
     if guess == @card.answer
       return true
