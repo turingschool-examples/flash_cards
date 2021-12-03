@@ -14,5 +14,8 @@ class Turn
     return "Correct!"
   end
 
-  
+def feedback2
+  return "Incorrect"
+end
+
 end
