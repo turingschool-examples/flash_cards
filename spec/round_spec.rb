@@ -66,5 +66,6 @@ RSpec.describe Deck do
     new_turn = round.take_turn("Juneau")
 
     expect(round.turns).to eq(card_1)
+    expect(round.number_correct).to eq(1)
   end
 end
