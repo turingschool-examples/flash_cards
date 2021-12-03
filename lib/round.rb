@@ -32,4 +32,17 @@ class Round
       0
     end
   end
+
+  def percent_correct
+    @number_correct.to_f / @turns.size * 100
+  end
+
+  def percent_correct_by_category(category)
+    if @correct_category.include?(category)
+      100 #Add stuff to include   number of correct category / how many of certain category appeared * 100 for percentage 
+    else
+      0
+    end
+
+  end
 end
