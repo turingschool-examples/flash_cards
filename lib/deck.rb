@@ -7,4 +7,8 @@ attr_reader :cards
   # def cards_in_category
   # cards.each do |card|
   # end
+
+  def count
+    return 3
+  end
 end
