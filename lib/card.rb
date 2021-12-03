@@ -1,3 +1,4 @@
+# require './lib/turn' # - This fixed the bug for returning both to true!!!!!!
 # require 'pry'
 
 class Card
