@@ -6,4 +6,8 @@ class Card
   @category = category
  end
 
+ def question
+    return @question
+ end
+
 end
