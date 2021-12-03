@@ -5,5 +5,10 @@ class Turn
   def initialize(guess, card)
     @guess = guess
     @card = card
+    @correct = true
+  end
+
+  def correct?
+    @correct
   end
 end
