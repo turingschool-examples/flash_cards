@@ -6,5 +6,7 @@ require './lib/card_generator'
 require 'pry'
 
 class CardGenerator
-
+  def initialize(file)
+    #file.open ./li
+  end
 end
