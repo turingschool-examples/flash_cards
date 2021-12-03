@@ -16,7 +16,7 @@ class Round
     return hey
   end
 
-  def number_correct?
+  def number_correct
     correct_turn = []
     @turns.each do |accuracy_check|
       if accuracy_check.correct?
