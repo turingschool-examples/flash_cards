@@ -1,6 +1,6 @@
 #~/round.rb
 class Round
-  attr_reader :deck, :turns, :count, :correct_tally
+  attr_reader :deck, :turns, :count, :correct_tally,
 
   def initialize(deck)
     @deck = deck
@@ -26,5 +26,13 @@ class Round
     end
   end
 
-  
+  def number_correct_by_category(target_category)
+    correct_by_category_tally = 0
+    @turns.each do |turn|
+      if turn.card.category == target_category && turn.correct?
+        correct_by_category_tally += 1
+      end
+    end
+    correct_by_category_tally
+  end
 end
