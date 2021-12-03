@@ -29,6 +29,16 @@ class Round
     @correct_guesses.size
   end
 
+  def number_correct_by_category(card_category)
+    correct_by_category = []
+    @correct_guesses.each do |guess|
+      if card_category == guess.category
+        correct_by_category << guess
+      end
+    end
+    correct_by_category.size
+  end
+
 
 
 
