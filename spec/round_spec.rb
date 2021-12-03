@@ -28,6 +28,7 @@ RSpec.describe Round do
     expect(@round.current_card).to eq(@card_1)
   end
 
+# tried my hand at making a large test, I think its ugly but it works.
   it "takes a turn, and prepares a new turn" do
     expect(@new_turn).to be_a(Turn)
 
@@ -50,5 +51,11 @@ RSpec.describe Round do
     expect(@round.percent_correct).to eq(50.0)
   end
 
+  it "returns percent of answers correct by category" do
+    @round.take_turn("Juneau")
+    @round.take_turn("Venus")
 
+    expect(@round.percent_correct_by_category(:Geography)).to eq(100.0)
+    # binding.pry
+  end
 end
