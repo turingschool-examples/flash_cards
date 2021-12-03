@@ -14,4 +14,5 @@ class Deck
       card.category == category
     end
   end
+  
 end
