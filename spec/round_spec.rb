@@ -132,23 +132,7 @@ RSpec.describe Round do
     expect(round.number_correct).to eq 2
   end
 
-  it 'can return # of correct answers by category' do
-    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
-    card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-
-    cards = [card_1, card_2, card_3]
-    deck = Deck.new(cards)
-    round = Round.new(deck)
-
-    new_turn = round.take_turn("Juneau")
-    newer_turn = round.take_turn("Venus")
-    newest_turn = round.take_turn("South")
-
-    expect(round.number_correct_by_category).to eq 1
-  end
-
-  describe '#percent_correct' do
+  describe '#number_correct_by_category' do
     before(:each) do
       card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
@@ -160,15 +144,35 @@ RSpec.describe Round do
 
       new_turn = @round.take_turn("Juneau")
       newer_turn = @round.take_turn("Venus")
-      newest_turn = @round.take_turn("South")
     end
 
-    it 'calculates % of correct answers' do
-      expect(@round.percent_correct).to be 33
-    end
-
-    it 'calculates % of correct answers by category' do
+    it 'can return # of correct answers by category' do
+      expect(@round.number_correct_by_category(:Geography)).to eq 1
+      expect(@round.number_correct_by_category(:STEM)).to eq 0
     end
   end
 
+  describe '#percent_correct and #percent_correct_by_category' do
+    before(:each) do
+      card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+      card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+      card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+
+      cards = [card_1, card_2, card_3]
+      deck = Deck.new(cards)
+      @round = Round.new(deck)
+
+      new_turn = @round.take_turn("Juneau")
+      newer_turn = @round.take_turn("Venus")
+      # newest_turn = @round.take_turn("South")
+    end
+
+    it 'calculates % of correct answers' do
+      expect(@round.percent_correct).to be 50
+    end
+
+    it 'calculates % of correct answers by category' do
+      expect(@round.percent_correct_by_category(:Geograpy)).to be 100
+    end
+  end
 end

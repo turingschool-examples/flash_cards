@@ -17,7 +17,11 @@ class Round
     @turns.last
   end
 
+  def number_correct_by_category(category)
+    @turns.count { |turn| turn if turn.card.category == category && turn.correct? }
+  end
+
   def percent_correct
-    ((@number_correct.to_f / (@deck.cards.size + @turns.count)) * 100).to_i
+    ((@number_correct.to_f / @turns.count) * 100).to_i
   end
 end
