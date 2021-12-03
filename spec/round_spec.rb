@@ -75,6 +75,14 @@ RSpec.describe Round do
     expect(round.turns).to eq([new_turn])
     expect(round.number_correct).to eq(1)
     expect(round.current_card).to eq(card_2)
+
+    next_turn = round.take_turn("Venus")
+
+    expect(round.turns.count).to eq(2)
+    expect(round.turns.last.feedback).to eq("Incorrect.")
+    expect(round.number_correct).to eq(1)
+    expect(round.number_correct_by_category(:Geography)).to eq(1)
+    expect(round.number_correct_by_category(:STEM)).to eq(0)
   end
 
 

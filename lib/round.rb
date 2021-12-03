@@ -5,6 +5,7 @@ class Round
     @deck = deck
     @turns = []
     @number_correct = 0
+    @correct_category = []
   end
 
   def current_card
@@ -14,8 +15,21 @@ class Round
   def take_turn(guess)
       new_turn = Turn.new(guess,current_card)
       @turns << new_turn
-      @number_correct +=1 if new_turn.correct?
+
+      if new_turn.correct?
+        @correct_category << @deck.cards[0].category
+        @number_correct +=1
+      end
+
       @deck.cards.shift
       new_turn
+  end
+
+  def number_correct_by_category(category)
+    if @correct_category.include?(category)
+      return @correct_category.count(category)
+    else
+      0
+    end
   end
 end
