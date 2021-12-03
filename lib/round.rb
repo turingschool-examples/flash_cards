@@ -5,15 +5,17 @@ class Round
     @deck = deck
   end
 
-  # def current_card
-  #   @current_card = @deck(0)
-  # end
+  def current_card
+    @current_card[] = @deck.cards[0]
+    @deck.cards[0]
+  end
+
   def turns
     @turns = []
   end
 
-  # def take_turn(guess, current_card)
-  #   @turns = [guess << card]
+  # def take_turn(guess)
+  #   @turns = @current_card << guess
   # end
 
 

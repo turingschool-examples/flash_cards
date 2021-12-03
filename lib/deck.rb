@@ -17,9 +17,6 @@ class Deck
   def count
     @count = @cards.count
   end
-  # def fetch_category
-  #   return cards(2)
-  # end
 
   def cards_in_category(category)
     my_cards = []
