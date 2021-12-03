@@ -1,4 +1,4 @@
-require 'pry' ; binding.pry
+#require 'pry' ; binding.pry
 require './lib/card'
 
 RSpec.describe Card do
