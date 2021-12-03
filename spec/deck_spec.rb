@@ -24,11 +24,16 @@ RSpec.describe Deck do
     expect(deck.cards).to be_empty
     expect(deck.cards ).to be_an Array
   end
-  
+
   it 'populates a deck' do
   deck = Deck.new($cards)
     expect(deck.cards_in_deck).to be_an Array
   end
 
+  it 'count cards' do
+    deck = Deck.new($cards)
+    deck.deck($cards)
+    expect(deck.count).to eq(3)
+  end
 
 end

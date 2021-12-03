@@ -14,4 +14,9 @@ class Deck
   def cards_in_deck
     @cards
   end
+
+  def count
+    @cards.count()
+  end
+
 end
