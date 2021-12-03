@@ -7,4 +7,8 @@ class Turn
     @card = card
   end
 
+  def guess
+    return @string
+  end
+
 end
