@@ -2,7 +2,6 @@ require './lib/card'
 
 class Deck
   attr_reader :cards, :cat_card_array
-
   def initialize(cards)
     @cards = cards
   end
