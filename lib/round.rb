@@ -1,4 +1,6 @@
 require './lib/turn'
+require './lib/card'
+require './lib/deck'
 
 class Round
   attr_reader :deck, :turns, :number_correct
@@ -17,7 +19,7 @@ class Round
     @new_turn = Turn.new(guess, current_card)
     @turns << @new_turn
     @number_correct += 1 if @new_turn.correct?
-    @deck.cards.shift
+    @deck.cards.push(@deck.cards.shift)
     @new_turn
   end
 
