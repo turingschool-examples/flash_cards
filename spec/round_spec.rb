@@ -142,10 +142,10 @@ RSpec.describe Round do
     round = Round.new(deck)
 
     new_turn = round.take_turn("Juneau")
-    newer_turn = round.take_turn("Mercury")
+    newer_turn = round.take_turn("Venus")
     newest_turn = round.take_turn("South")
 
-    expect(round.number_correct).to eq 1
+    expect(round.number_correct_by_category).to eq 1
   end
 
   describe '#percent_correct' do
@@ -159,7 +159,7 @@ RSpec.describe Round do
       @round = Round.new(deck)
 
       new_turn = @round.take_turn("Juneau")
-      newer_turn = @round.take_turn("Mars")
+      newer_turn = @round.take_turn("Venus")
       newest_turn = @round.take_turn("South")
     end
 

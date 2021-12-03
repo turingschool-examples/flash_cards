@@ -16,4 +16,8 @@ class Round
     @turns << Turn.new(guess, deck.cards.shift)
     @turns.last
   end
+
+  def percent_correct
+    ((@number_correct.to_f / (@deck.cards.size + @turns.count)) * 100).to_i
+  end
 end
