@@ -47,7 +47,7 @@ RSpec.describe Turn do
     expect(turn.guess).to eq("Saturn")
   end
 
-  xit 'is correct?' do
+  it 'is correct?' do
     card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
     turn = Turn.new("Saturn", card)
     expect(turn.correct?).to eq(false)
