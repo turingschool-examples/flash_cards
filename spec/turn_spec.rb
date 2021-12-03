@@ -1,40 +1,39 @@
+require 'pry'
+require 'rspec'
 require './lib/turn'
 require './lib/card'
-require 'rspec'
-require 'pry'
 
 
-RSpec.describe Card do
+
+
+RSpec.describe Turn do
+  before(:each) do
+    @card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    @turn = Turn.new("Juneau", @card)
+  end
   it 'exists' do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    turn = Turn.new("Juneau", card)
-    expect(card).to be_instance_of(Card)
-    expect(turn).to be_instance_of(Turn)
+    expect(@card).to be_instance_of(Card)
+    expect(@turn).to be_instance_of(Turn)
   end
 
   it "turn has a guess" do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
-    expect(turn.guess).to eq('Juneau')
+    expect(@turn.guess).to eq('Juneau')
   end
 
   it "will return a boolean for correct?" do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    turn = Turn.new("Juneau", card)
-    expect(turn.correct?).to be(true)
+    expect(@turn.correct?).to be(true)
   end
 
   it "will give feedback" do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    turn = Turn.new("Juneau", card)
-    expect(turn.feedback).to eq('Correct!')
+    expect(@turn.feedback).to eq('Correct! The answer is Juneau.')
   end
 
   it "will recognize incorrect answers" do
-    card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
-    turn = Turn.new("Venus", card)
-    expect(turn.correct?).to be(false)
-    expect(turn.feedback).to eq('Incorrect')
+    @turn = Turn.new("Sacramento", @card)
+    expect(@turn.correct?).to be(false)
+    expect(@turn.feedback).to eq('Incorrect. The answer is Juneau.')
   end
 
 end
