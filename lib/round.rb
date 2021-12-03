@@ -4,4 +4,9 @@ class Round
   def initialize(deck)
     @deck = deck
   end
+
+  def deck
+    return @deck
+  end
+
 end
