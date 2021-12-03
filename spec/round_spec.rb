@@ -27,5 +27,10 @@ RSpec.describe Round do
     expect(@round.turns).to be_instance_of(Array)
   end
 
+  it "gets first card in deck" do
+    expect(@round.current_card).to eq(@deck.cards[0])
+  end
+
   
+
 end
