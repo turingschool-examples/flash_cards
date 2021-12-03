@@ -25,11 +25,11 @@ RSpec.describe Deck do
 
   it 'returns cards that have STEM category' do
     expect(@deck.cards_in_category(:STEM)).to eq(@cards[1..2])
-    # binding.pry
   end
 
   it 'returns cards that have Geography category' do
     expect(@deck.cards_in_category(:Geography)).to eq([@cards[0]])
+    # binding.pry
   end
 
 end
