@@ -1,7 +1,9 @@
 class Turn
+attr_reader :guess,
+            :card
 
-  def initialize(attempt, card)
-    @attempt   = attempt
+  def initialize(guess, card)
+    @guess     = guess
     @card      = card
   end
 
