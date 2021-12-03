@@ -15,7 +15,11 @@ class Round
 
   def current_card
     @deck.select do |card|
-      return [card] 
+      return [card]
     end
+  end
+
+  def take_turn(guess)
+    new_turn = Turn.new("Juneau")
   end
 end
