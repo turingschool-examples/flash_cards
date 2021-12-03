@@ -29,9 +29,22 @@ class Play_Game
     guess
   end
 
+  def guess
+    @user_guess = gets.chomp
+    @new_turn = Turn.new(@user_guess, @round.current_card)
+    puts @new_turn.feedback
+    @round.take_turn(@user_guess)
+      if @round_number == 4
+        end_game
+      else
+        question
+      end
+  end
+
 
 end
 
   game = Play_Game.new
   game.start
-  game.question 
+  game.question
+  game.guess
