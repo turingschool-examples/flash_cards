@@ -1,6 +1,7 @@
 require './lib/turn'
 require './lib/card'
 require './lib/deck'
+# require './flashcard_runner.'
 
 class Round
   attr_reader :deck, :turns, :correct_guesses
@@ -57,6 +58,7 @@ class Round
         percent_by_category << correct_turn
       end
     end
-    (percent_by_category.size.fdiv(@correct_guesses.size) * 100)
+    return (percent_by_category.size.fdiv(@correct_guesses.size) * 100) if correct_guesses.size > 0
+    "0"
   end
 end
