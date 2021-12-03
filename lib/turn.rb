@@ -1,13 +1,15 @@
 class Turn
-  def initialize(string, card)
-    @string = string
-    @card   = card
+  def initialize(my_guess, my_card)
+    @guess  = my_guess
+    @card   = my_card
   end
 
   def guess
+    @guess
   end
 
   def card
+    @card
   end
 
   def correct?
