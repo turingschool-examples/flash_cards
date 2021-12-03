@@ -53,10 +53,10 @@ RSpec.describe Turn do
     expect(turn.correct?).to eq(false)
   end
 
-  xit 'gives feedback' do
+  it 'gives feedback' do
     card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
     turn = Turn.new("Saturn", card)
-    expect(turn.feedback).to eq("Incorrect")
+    expect(turn.feedback2).to eq("Incorrect")
   end
 
 
