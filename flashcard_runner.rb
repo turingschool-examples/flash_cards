@@ -59,3 +59,7 @@ class Game
     game_over
   end
 end
+
+# START THE GAME
+game = Game.new(round)
+game.start
