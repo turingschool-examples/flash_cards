@@ -14,10 +14,19 @@ class Round
     hey = Turn.new(guess, current_card)
     @turns << hey
     return hey
-
   end
 
-  
+  def number_correct?
+    correct_turn = []
+    @turns.each do |accuracy_check|
+      if accuracy_check.correct?
+        correct_turn << accuracy_check
+      end
+    end
+    return correct_turn.count
+  end
+
+
 
 
 
