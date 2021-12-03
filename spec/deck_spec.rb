@@ -12,4 +12,9 @@ RSpec.describe Deck do
     expect($card_3).to be_instance_of(Card)
 
   end
-end 
+
+  it 'stores in array' do
+    $cards = [$card_1, $card_2, $card_3]
+    expect($cards).to be_an Array
+  end
+end
