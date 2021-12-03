@@ -47,12 +47,13 @@ RSpec.describe Deck do
       deck = Deck.new(cards)
       round = Round.new(deck)
       new_turn = round.take_turn("Juneau")
+      expect(round.turns).to eq(new_turn)
+      expect(round.current_card).to eq(card_1)
       new_turn = round.take_turn("Venus")
-
       expect(round.turns).to eq(new_turn)
       expect(round.number_correct).to be(1)
-      expect(round.current_card).to eq(card_2)
-
+      expect(round.current_card).to be(card_2)
+      expect(round.take_turn("Venus")).to be_instance_of(Turn)
     end
   end
 end
