@@ -41,6 +41,15 @@ class Play_Game
       end
   end
 
+  def end_game
+    puts "****** Game over! ******"
+    puts "You had #{@round.number_correct} correct guesses out of 4 for a total score of #{@round.percent_correct}%.
+  "
+    puts "#{:Math} - #{@round.percent_correct_by_category(:Math)}% correct"
+    puts "#{:Food} - #{@round.percent_correct_by_category(:Food)}% correct"
+    exit
+  end
+
 
 end
 
