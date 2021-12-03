@@ -14,4 +14,10 @@ class Card
   return @answer
 end
 
+def category
+  return @category
+end
+
+
+
 end
