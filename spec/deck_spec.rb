@@ -17,4 +17,12 @@ RSpec.describe Deck do
     $cards = [$card_1, $card_2, $card_3]
     expect($cards).to be_an Array
   end
+
+  it 'create a deck' do
+    deck = Deck.new($cards)
+    expect(deck.cards).to eq([])
+    expect(deck.cards).to be_empty
+    expect(deck.cards ).to be_an Array
+  end
+
 end

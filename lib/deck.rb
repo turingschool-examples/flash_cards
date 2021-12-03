@@ -4,4 +4,11 @@ class Deck
   def initialize(cards)
     @cards = []
   end
+
+  def deck(cards)
+    for card in cards
+      @cards << card
+    end
+  end
+  
 end
