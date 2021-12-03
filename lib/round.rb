@@ -9,4 +9,7 @@ class Round
     return @deck
   end
 
+  def turns
+    return []
+  end
 end
