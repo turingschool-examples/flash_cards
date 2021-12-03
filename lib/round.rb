@@ -4,6 +4,8 @@ class Round
   def initialize(deck)
     @deck = deck
     @turns = []
+    @number_correct = 0
+    @number_wrong = 0
 
   end
 
@@ -17,10 +19,16 @@ class Round
   end
 
   def take_turn(guess)
-    turn = Turn.new(current_card, guess)
+    turn = Turn.new(guess, current_card)
+    # if @current_card.answer == turn.guess
+    #   @number_correct += 1
+    # else
+    #   @number_wrong += 1
+    # end
+    #deck.insert(2, deck.delete_at(1))
   end
 
- binding.pry
+  #binding.pry
 
 
 end
