@@ -4,7 +4,7 @@ require './lib/deck'
 require './lib/round'
 require 'pry'
 
-RSpec.describe Deck do
+RSpec.describe Round do
   it 'exists' do
     round = Round.new([])
     expect(round).to be_instance_of(Round)
