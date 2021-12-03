@@ -17,6 +17,10 @@ class Deck
     return cards_in_category_list
   end
 
+  def rotate
+    @cards.shift
+  end
+
 
 
 end

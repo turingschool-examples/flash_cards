@@ -16,16 +16,20 @@ class Round
   end
 
   def take_turn(guess)
+    new_turn = Turn.new(guess, current_card)
     if current_card.answer == guess
       @correct_guesses << current_card
     end
     @turns << current_card
-    Turn.new(guess, current_card)
+    deck.rotate
+    new_turn
   end
 
   def number_correct
     @correct_guesses.size
   end
+
+  
 
 
 end
