@@ -35,5 +35,12 @@ RSpec.describe Deck do
     deck.deck($cards)
     expect(deck.count).to eq(3)
   end
+  it 'finds cards in category' do
+    deck = Deck.new($cards)
+    deck.cards_in_category($cards)
+    expect(deck.cards_in_category).to be_an Array
+  end
+
+
 
 end
