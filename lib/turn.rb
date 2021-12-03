@@ -20,7 +20,7 @@ class Turn
   end
 
   def feedback
-    if guess == answer
+    if guess == @card.answer
       puts "Congrats, You are correct!"
     else
       puts "Sorry, You are incorrect!"
