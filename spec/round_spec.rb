@@ -22,4 +22,10 @@ RSpec.describe Round do
   it "has a deck" do
     expect(@round.deck).to be_instance_of(Deck)
   end
+
+  it "starts with no turns" do
+    expect(@round.turns).to be_instance_of(Array)
+  end
+
+  
 end
