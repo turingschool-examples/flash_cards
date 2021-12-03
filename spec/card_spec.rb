@@ -1,6 +1,8 @@
 require './lib/card'
+require 'pry'
 
 RSpec.describe Card do
+
   it 'exists' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
@@ -21,7 +23,7 @@ RSpec.describe Card do
 
   it 'has a category' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-
     expect(card.category).to eq(:Geography)
   end
 end
+# binding.pry
