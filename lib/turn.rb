@@ -9,7 +9,14 @@ attr_reader :guess,
   end
 
   def correct?
-    @guess == card.answer #is nil == nil or Juneau == Juneau ?
+    @guess == card.answer
   end
 
+  def feedback
+    if @guess == card.answer
+      return "Correct!"
+    else
+      return "Incorrect."
+    end
+  end
 end

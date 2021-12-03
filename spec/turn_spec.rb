@@ -1,4 +1,4 @@
-#require 'pry'
+require 'pry'
 require './lib/turn'
 require './lib/card'
 
@@ -36,7 +36,7 @@ RSpec.describe Turn do
     turn = Turn.new("Juneau", card)
 
     expect(turn.feedback).to eq("Correct!")
-    #binding.pry
+    binding.pry
   end
 
 end
