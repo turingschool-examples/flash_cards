@@ -28,6 +28,7 @@ RSpec.describe Deck do
       round = Round.new(deck)
       new_turn = round.take_turn("Juneau")
       expect(new_turn.correct?).to be true
+      expect(round.turns).to eq (new_turn)
       #expect(new_turn.number_correct).to eq(1)
       #expect(round.current_card).to be(card_1)
       #expect(new_turn).to be_instance_of(Turn)

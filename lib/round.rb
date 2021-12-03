@@ -14,12 +14,9 @@ class Round
     @deck.cards[0]
   end
 
-  def turns
-    @turns = []
-  end
-
   def take_turn(guess)
-    turn = Turn.new(guess, current_card)
+    @turns = Turn.new(guess, current_card)
+
     # if @current_card.answer == turn.guess
     #   @number_correct += 1
     # else
@@ -28,6 +25,9 @@ class Round
     #deck.insert(2, deck.delete_at(1))
   end
 
+  def turns
+    @turns
+  end
   #binding.pry
 
 
