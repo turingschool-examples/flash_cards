@@ -11,4 +11,5 @@ attr_reader :guess,
   def correct?
     @guess == card.answer #is nil == nil or Juneau == Juneau ?
   end
+
 end
