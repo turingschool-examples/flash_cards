@@ -1,5 +1,3 @@
-# require './spec/card_spec'
-
 class Card
   attr_reader :question, :answer, :category
 
