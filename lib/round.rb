@@ -1,8 +1,3 @@
-require './lib/turn'
-require './lib/card'
-require './lib/deck'
-# require './flashcard_runner.'
-
 class Round
   attr_reader :deck, :turns, :correct_guesses
 
