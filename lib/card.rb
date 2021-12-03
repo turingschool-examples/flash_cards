@@ -10,4 +10,8 @@ class Card
     return @question
  end
 
+ def answer
+  return @answer
+end
+
 end
