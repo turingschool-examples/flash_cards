@@ -1,7 +1,13 @@
-file_data = File.read('./more_questions.txt').split(',')
-puts file_data[50] #51 entries
-require_relative './card'
+#iteration 4
+require './lib/card'
 
-file_data.length.times  {
-
+lines = []
+IO.foreach('./more_questions.txt') {
+  |line|
+  lines << a = line.split(',')
 }
+
+puts lines # each element follows #question, #answer, #category # array of 25
+
+
+puts lines[0].length # Array of arrays
