@@ -21,15 +21,15 @@ class Deck
   #   return cards(2)
   # end
 
-  def cards_in_category(look_for)
+  def cards_in_category(category)
     my_cards = []
     @cards.each do |card|
-      if card.category == look_for
+      if card.category == category
         my_cards << card
       end
     end
     my_cards
-    #@cards.select{|look_for| look_for}
+    # @cards.select{|look_for| card.category == look_for}
 # binding.pry
   end
 end

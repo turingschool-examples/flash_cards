@@ -32,4 +32,6 @@ class Turn
     @feedback = feedback
   end
 
+
+
 end
