@@ -20,28 +20,31 @@ class Round
     else
       @number_wrong += 1
     end
-    #@deck.insert(2, current_card.delete_at(0))
+    #@current_card = @deck.cards.shift
+    # = current_card.insert(2, current_card.delete_at(0))
+
     @turns
   end
+
+  # def next_turn
+  #   @current_card << @current_card.shift
+  # end
 
   def turns
     @turns
   end
 
-  #binding.pry
-
   def number_correct
-    # if turns.correct?
-    #   @number_correct += 1
-    # else
-    #   @number_wrong += 1
-    # end
+    @current_card = @deck.cards.shift
     @number_correct
-
   end
 
-  def number_wrong
-    @number_wrong
-  end
+  # def number_wrong
+  #   @current_card << @current_card.shift
+  #   @number_wrong
+  # end
+
+
+
 
 end
