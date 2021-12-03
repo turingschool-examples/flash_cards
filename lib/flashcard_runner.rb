@@ -17,7 +17,7 @@ def start(round)
     puts "Question: #{round.current_card.question}" #gets question of current_card
     guess = gets.chomp #gets users guess
     round.take_turn(guess) #provides user guess as argument
-    p round.turns.last.feedback #returns feedback of most recent turn
+    puts round.turns.last.feedback #returns feedback of most recent turn
   end
   gameover(round) #once all cards have been attempted - run gameover method
 end
@@ -34,4 +34,4 @@ def gameover(round)
   end
 end
 
-start(round) #start flashcard game 
+start(round) #start flashcard game
