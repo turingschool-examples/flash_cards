@@ -13,10 +13,19 @@ class Turn
 
   def correct?
     if guess == answer
+      return true
+    else
+      return false
+    end
+  end
+
+  def feedback
+    if guess == answer
       puts "Congrats, You are correct!"
     else
       puts "Sorry, You are incorrect!"
     end
+  end
 
 
 
