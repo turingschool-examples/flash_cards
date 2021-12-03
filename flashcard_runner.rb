@@ -2,6 +2,7 @@ require './lib/card'
 require './lib/turn'
 require './lib/deck'
 require './lib/round'
+require './lib/card_generator'
 require 'pry'
 require 'io/console'
 
@@ -100,3 +101,6 @@ Math: #{@round.percent_correct_by_category(:Math).round}%
 Philosophy: #{@round.percent_correct_by_category(:Philosophy).round}%
 "
 anykey
+puts "
+Thanks for playing!
+"
