@@ -10,5 +10,8 @@ class Deck
       @cards << card
     end
   end
-  
+
+  def cards_in_deck
+    @cards
+  end
 end
