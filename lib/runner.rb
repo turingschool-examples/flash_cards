@@ -39,8 +39,7 @@ class Game
     puts @round.feedback
     }
     puts '***** Game over! *****'
-    puts "You had #{@round.number_correct} guesses out of #{@round.deck.cards.length} for a total score of #{@round.percent_correct}%."
-
+    puts "You had #{@round.number_correct} guesses out of #{@round.deck.cards.length} questions correct for a total score of #{@round.percent_correct}%."
     uniq_categories = @round.deck.cards.map {|t| t.category}.uniq
     uniq_categories.each do |category|
       puts "#{category.to_s}: #{@round.percent_correct_by_category(category)} correct"
