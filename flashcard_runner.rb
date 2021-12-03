@@ -15,7 +15,7 @@ card_6 = Card.new('"Go to bed with itchy butt, wake up with _______."', 'stinky 
 
 card_7 = Card.new('Who is the legendary pop diva that ROASTED rapper Jay-Z on a ground-breaking double album in 2016?', 'Beyoncé', :FamousPeople)
 card_8 = Card.new('You cut a large cheese wheel into 40 equal wedges. You eat four of the cheese wedges, give one to your neighbor, and lose five when you accidentally leave them on the roof of your car before driving off. You put the remaining wedges back together to form a circle with a missing section. If one edge of the missing section of this incomplete cheese wheel were to represent the minute hand pointing at 12 on a clock, and if the other edge of the missing section represented the clock\'s hour hand, what is the SMALLEST number that the hour hand could be pointing to?', 3, :Math)
-card_9 = Card.new('Between FAST, CHEAP, and GOOD, you can only have how many?', 2, :Philosophy)
+card_9 = Card.new('Between FAST, CHEAP, and GOOD, any project can only be how many of these things?', 2, :Philosophy)
 
 @cards = [card_1, card_2, card_3, card_4, card_5, card_6, card_7, card_8, card_9]
 @deck = Deck.new(@cards)
@@ -40,9 +40,9 @@ def play_card
     puts " "
     puts ["WHIFF!", "So sorry, but that's not the answer we're looking for.", "Seriously??"].sample
     anykey
-    if turn.card.answer.downcase == guess.downcase
+    if turn.card.answer.to_s.downcase == guess.downcase
       puts "
-Attention to capitalization is a sign of Big Brain Energy!
+Attention to capitalization is Big Brain Energy!
       "
       anykey
     end
