@@ -24,4 +24,8 @@ class Round
   def number_correct
     @correct_turns.length
   end
+
+  def percent_correct
+
+  end
 end

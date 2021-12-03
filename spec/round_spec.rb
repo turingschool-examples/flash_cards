@@ -30,16 +30,26 @@ RSpec.describe Round do
 
   it "takes a turn, and prepares a new turn" do
     expect(@new_turn).to be_a(Turn)
+
     new_turn = @round.take_turn("Juneau")
     expect(@new_turn.correct?).to be(true)
     expect(@round.turns).to eq([new_turn])
     expect(@round.number_correct).to eq(1)
     expect(@round.current_card).to eq(@card_2)
+
     @round.take_turn("Venus")
     expect(@round.turns.count).to eq(2)
     expect(@round.turns.last.feedback).to eq('Incorrect.')
     expect(@round.number_correct).to eq(1)
   end
 
-  
+  it "sorts correct responses by category" do
+    @round.take_turn("Juneau")
+    @round.take_turn("Venus")
+
+    expect(@round.percent_correct).to eq(50.0)
+    expect(@round.percent_correct_by_category(:Geography)).to eq(100.0)
+  end
+
+
 end
