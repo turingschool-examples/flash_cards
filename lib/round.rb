@@ -20,7 +20,7 @@ class Round
     if current_card.answer == guess
       @correct_guesses << current_card
     end
-    @turns << current_card
+    @turns << new_turn
     deck.rotate
     new_turn
   end
@@ -29,7 +29,7 @@ class Round
     @correct_guesses.size
   end
 
-  
+
 
 
 end
