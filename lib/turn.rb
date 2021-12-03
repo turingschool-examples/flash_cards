@@ -11,4 +11,8 @@ class Turn
   def correct?
     @correct
   end
+
+  def feedback
+    "Correct!"
+  end
 end
