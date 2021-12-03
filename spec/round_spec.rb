@@ -43,12 +43,11 @@ RSpec.describe Round do
     expect(@round.number_correct).to eq(1)
   end
 
-  it "sorts correct responses by category" do
+  it "returns percent of answers correct" do
     @round.take_turn("Juneau")
     @round.take_turn("Venus")
 
     expect(@round.percent_correct).to eq(50.0)
-    expect(@round.percent_correct_by_category(:Geography)).to eq(100.0)
   end
 
 
