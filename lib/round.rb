@@ -27,7 +27,7 @@ class Round
     @turns.last
   end
 
-  def number_correct_category(category)
+  def number_correct_by_category(category)
     my_correct_categories = 0
     @correct_turn.each do |look|
       if look.card.category == category
