@@ -18,7 +18,7 @@ class Round
     if turns.correct?
       @number_correct += 1
     end
-
+    @current_card = @deck.cards.rotate(1)
     @turns
 
 
@@ -29,7 +29,7 @@ class Round
   end
 
   def number_correct
-    # @deck.cards.shift
+
     @number_correct
   end
 
