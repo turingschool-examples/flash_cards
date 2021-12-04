@@ -3,12 +3,12 @@ require './lib/card'
 class Turn
 
   def initialize(string, card)
-    @string = string
+    @guess = string
     @card = card
   end
 
   def guess
-    return @string
+    return @guess
   end
 
   def card
