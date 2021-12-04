@@ -21,13 +21,13 @@ class Round
     if turn.correct? == true
       @number_correct += 1
     end
-
+    @count += 1
     @turns.last
   end
+
   def number_correct
     @number_correct
   end
-
 
   def turns
     @turns
