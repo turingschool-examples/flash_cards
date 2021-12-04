@@ -6,7 +6,7 @@ class Turn
   end
 
   def guess
-     @string
+    @string
   end
 
   def card
