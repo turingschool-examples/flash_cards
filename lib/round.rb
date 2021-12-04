@@ -28,17 +28,7 @@ class Round
     def number_correct
       @correct_turn += 1
     end
-  end
-    # if @turns.last = true
-    #   @correct_turn << Turn.new(guess, current_card)
-    # end
 
-    #@correct_turn << Turn.new(guess,current_card)
-
-
-  # def correct?
-  #   if take_turn(guess)
-  #     new_turn = round.take_turn("Juneau")
-  #     new_turn.correct?
-  #   end
+  #   def number_correct_by_category(category)
+  #
   # end
