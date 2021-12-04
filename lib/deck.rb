@@ -1,5 +1,4 @@
 #~/deck.rb
-
 class Deck
   attr_reader :cards
 
@@ -8,7 +7,7 @@ class Deck
   end
 
   def count
-    cards.count
+    @cards.length
   end
 
   def cards_in_category(requested_category)
@@ -16,17 +15,8 @@ class Deck
     @cards.each do |card|
       if requested_category == card.category
         catagorized_cards << card
-        #binding.pry
       end
     end
+    catagorized_cards
   end
-
-  # def cards_in_category(requested_category)
-  #   @flash_cards.select do |flash_card|
-  #     category == card.category
-  #   end
-  #
-  # end
-
-
 end

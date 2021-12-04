@@ -1,12 +1,11 @@
 #~/round.rb
 class Round
-  attr_reader :deck, :turns, :count, :correct_tally
+  attr_reader :deck, :turns, :count
 
   def initialize(deck)
     @deck = deck
     @turns = []
     @count = 1
-    @correct_tally = 0
   end
 
   def current_card
@@ -21,9 +20,13 @@ class Round
   end
 
   def number_correct
-    if @turns.last.correct? == true
-      @correct_tally += 1
+    correct = 0
+    @turns.each do |turn|
+      if turn.correct?
+        correct += 1
+      end
     end
+    correct
   end
 
   def number_correct_by_category(target_category)
@@ -59,4 +62,5 @@ class Round
     end
     correct / total * 100
   end
+
 end
