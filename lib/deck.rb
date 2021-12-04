@@ -1,7 +1,7 @@
 class Deck
 
-  def initialize(card)
-    @card = []
+  def initialize(cards)
+    @cards     = []
   end
 
 end
