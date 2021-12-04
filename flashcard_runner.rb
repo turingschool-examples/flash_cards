@@ -6,9 +6,6 @@ require './lib/card_generator'
 require 'pry'
 require 'io/console'
 
-cards = CardGenerator.new('./lib/cards.txt').cards
-@deck = Deck.new(cards)
-@round = Round.new(@deck)
 
 def anykey
   puts "
@@ -46,12 +43,17 @@ puts "
 Welcome to the ULTIMATE KNOWLEDGE CHALLENGE!!!!!!!!
  "
 sleep 2
-puts "The rules are simple. You will be asked #{@deck.count} questions. Answer them to the best of your ability. Your score will be used to evaluate your intellectual prowess."
+puts "The rules are simple. You will be asked a series of questions. Answer them to the best of your ability. Your score will be used to evaluate your intellectual prowess."
 puts "--------------------------------------------------------------------------"
 sleep 4
 puts "
 PRO TIP: Press any key to continue when you see the \">>\" symbol!"
 anykey
+puts "How many questions would you like? Choose any number from 1 to #{File.readlines('./lib/cards.txt').count}."
+number = gets.chomp.to_i
+cards = CardGenerator.new('./lib/cards.txt', number).cards
+@deck = Deck.new(cards)
+@round = Round.new(@deck)
 
 @deck.count.times do
   play_card

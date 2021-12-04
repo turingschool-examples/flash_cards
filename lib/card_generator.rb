@@ -8,7 +8,7 @@ require 'pry'
 class CardGenerator
   attr_reader :cards
 
-  def initialize(file)
+  def initialize(file, num)
     @cards = []
     File.readlines(file).each do |line|
       array = line.to_s.split(';')
@@ -16,5 +16,6 @@ class CardGenerator
       card = Card.new(array[0], array[1], array[2].chomp.to_sym)
       @cards << card
     end
+    @cards = @cards.sample(num)
   end
 end
