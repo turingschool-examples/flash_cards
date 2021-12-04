@@ -1,5 +1,5 @@
 class Round
-  attr_reader :deck, :turns
+  attr_reader :deck, :turns, :number_correct, :correct_turn
 
   def initialize(deck)
     @deck = deck
@@ -7,6 +7,7 @@ class Round
     @count = 0
     @current_card = @deck.cards[0]
     @number_correct = 0
+    @correct_turn = []
     # @number_wrong = 0
   end
 
@@ -20,15 +21,22 @@ class Round
 
     if turn.correct? == true
       @number_correct += 1
+      @correct_turn << turn
     end
     @count += 1
     @turns.last
   end
 
-  def number_correct
-    @number_correct
-  end
+  def number_correct_category(category)
+    my_correct_categories = 0
+    @correct_turn.each do |look|
+      if look.card.category == category
+        my_correct_categories += 1
+      end
+    end
+    my_correct_categories
 
+  end
   # def number_wrong
   #   @current_card << @current_card.shift
   #   @number_wrong
