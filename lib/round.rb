@@ -7,6 +7,14 @@ class Round
     @number_correct = 0
   end
 
+  def count
+    @turns.count + 1
+  end
+
+  def question
+    current_card.question
+  end
+
   def current_card
     deck.cards.first
   end

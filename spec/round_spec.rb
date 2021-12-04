@@ -67,6 +67,7 @@ RSpec.describe Round do
     it 'can return # of correct answers' do
       expect(@round.number_correct).to eq 1
     end
+    
     it 'can return # of correct answers by category' do
       expect(@round.number_correct_by_category(:Geography)).to eq 1
       expect(@round.number_correct_by_category(:STEM)).to eq 0
