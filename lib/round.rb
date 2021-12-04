@@ -1,21 +1,28 @@
+require './lib/turn'
 class Round
-  attr_reader :deck, :turns
+  attr_reader :deck, :turns, :correct_turn
 
   def initialize(deck)
     @deck = deck
     @turns = []
-    @true_turn = []
+    @correct_turn = []
   end
 
   def current_card
-    @deck.select do |card|
-      return [card]
-    end
+    deck.cards.shift
+    # @deck.select do |card|
+    #   return [card]
   end
 
   def take_turn(guess)
-    new_turn = Turn.new(guess, current_card)
-     @turns << new_turn
-     end
+    @turns << Turn.new(guess, current_card)
+    @turns.last
+  end
+
+  def correct?
+    if take_turn(guess)
+      new_turn = round.take_turn("Juneau")
+      new_turn.correct?
+    end
   end
 end
