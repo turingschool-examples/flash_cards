@@ -1,7 +1,10 @@
+require 'pry'
+
 class CardGenerator
-  attr_reader
-  
-  def initialize(argument)
-    @argument = argument
+  attr_reader :filename
+
+  def initialize(filename)
+    @filename = filename
   end
+
 end
