@@ -46,9 +46,4 @@ class Round
     # require "pry"; binding.pry
   end
 
-  def start
-    puts "Welcome! You're playing with #{deck.count} cards."
-
-
-  end
 end

@@ -1,5 +1,5 @@
-require '.lib/card'
-require '.lib/deck'
+require './lib/card'
+require './lib/deck'
 require './lib/turn'
 require './lib/round'
 
@@ -16,4 +16,25 @@ cards = [card_1, card_2, card_3, card_4, card_5, card_6]
 deck = Deck.new(cards)
 round = Round.new(deck)
 
-round.start
+
+def start(round)
+  card_total = round.deck.count
+  counter = 0
+
+  puts "Welcome! You're playing with #{card_total} cards."
+  puts "-" * 50
+
+  while(counter < card_total)
+    counter += 1
+    puts "This is card number #{counter} out of #{card_total} cards."
+    puts "Question: #{round.current_card.question}"
+    print ":"
+    player_guess = gets.chomp
+    round.take_turn(player_guess.capitalize)
+    puts round.turns.last.feedback
+  end
+
+end
+
+
+start(round)
