@@ -8,4 +8,8 @@ attr_reader :deck,
     @turn      = []
   end
 
+  def current_card
+    current_card = @deck.cards.first
+  end
+
 end
