@@ -19,7 +19,7 @@ def anykey
 end
 
 def play_card
-  puts ["Coming at you now is question ", "This is intellectual challenge number ", "Take a deep breath and prepare yourself for mental test "].sample + "#{@round.curr_card + 1} out of #{@deck.count}."
+  puts File.open('./lib/next_question.txt').flat_map{ |line| line.split (/\n/) }.sample + " #{@round.curr_card + 1} out of #{@deck.count}."
   anykey
   puts "#{@round.current_card.question}"
   guess = gets.chomp
@@ -93,4 +93,4 @@ Philosophy: #{@round.percent_correct_by_category(:Philosophy).round}%
 anykey
 puts "
 Thanks for playing!
-"
+ "
