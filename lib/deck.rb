@@ -1,8 +1,9 @@
 class Deck
-  attr_reader :cards
+  attr_reader :cards, :used_cards
 
   def initialize(cards)
     @cards = cards
+    @used_cards = []
   end
 
   def count
@@ -18,10 +19,10 @@ class Deck
   end
 
   def rotate
-    @cards.shift
+    @used_cards << @cards.shift
   end
 
   def shuffle
     @cards.shuffle
-  end 
+  end
 end

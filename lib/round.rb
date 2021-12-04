@@ -41,19 +41,11 @@ class Round
   end
 
   def percent_correct_by_category(card_category)
-    correct_by_category = []
-    percent_by_category = []
-    @correct_guesses.each do |guess|
-      if card_category == guess.category
-        correct_by_category << guess
-      end
+    used_card_categories = []
+    deck.used_cards.each do |card|
+      used_card_categories << card if card.category == (card_category)
     end
-    correct_by_category.each do |correct_turn|
-      if card_category == correct_turn.category
-        percent_by_category << correct_turn
-      end
-    end
-    return (percent_by_category.size.fdiv(@correct_guesses.size) * 100) if correct_guesses.size > 0
+    return (number_correct_by_category(card_category).fdiv(used_card_categories.count) * 100) if used_card_categories.count > 0
     "0"
   end
 end
