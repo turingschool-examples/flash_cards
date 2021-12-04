@@ -1,3 +1,4 @@
+
 class Round
 
   attr_reader :deck, :turns
@@ -7,8 +8,11 @@ class Round
   end
 
   def current_card
-      return deck.cards[0]
-    end
+    return deck.cards[0]
+  end
 
+  def take_turn(guess)
+  return turn = Turn.new(guess, current_card)
+  end
 
 end
