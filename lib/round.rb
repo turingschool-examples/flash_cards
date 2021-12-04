@@ -30,7 +30,7 @@ class Round
   end
 
   def percent_correct
-    number_correct / turns.size
+    (number_correct / turns.size.to_f) * 100
   end
 
   def number_correct_by_category(category)
