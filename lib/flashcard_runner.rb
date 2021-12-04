@@ -3,6 +3,7 @@ require './lib/card'
 require './lib/turn'
 require './lib/deck'
 require './lib/round'
+
 def start
   card_1 = Card.new("What is 5 + 5?", "10", :STEM)
   card_2 = Card.new("What is Rachel's favorite animal?", "Bonobo", "Turing Staff")
@@ -16,12 +17,16 @@ def start
   puts "-------------------------------------------------"
   while round.count <= deck.count do
     puts "This is card number #{round.count} of #{deck.count}"
-    puts "#{round.current_card.question}"
+    puts "Question: #{round.current_card.question}"
     guess = gets.chomp
     round.take_turn(guess)
-    puts "#{round.turns.last.card.answer}"
     round.turns.last.feedback
-    
-  end
+    end
+  puts "****** Game over! ******"
+  puts "You had #{round.number_correct} guesses out of #{deck.count} for a total score of #{round.percent_correct.round}%."
+  puts "STEM - #{round.percent_correct_by_category(:STEM).round}% correct"
+  puts "Turing Staff - #{round.percent_correct_by_category("Turing Staff").round}% correct"
+  puts "Pop Culture - #{round.percent_correct_by_category("Pop Culture").round}% correct"
 end
+
 start()
