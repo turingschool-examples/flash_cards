@@ -1,38 +1,18 @@
 class Deck
-  attr_reader :deck, :cards
+  attr_reader :cards, :cards_in_category
 
   def initialize(cards)
-    @cards = []
+    @cards = cards
   end
 
-  def deck(cards)
-    for card in cards
-      @cards << card
+  def cards_in_category(arg)
+    included_cards = []
+    cards.each do |card|
+      if card.category == arg
+        included_cards << card
+      end
     end
-  end
+    return included_cards
 
-  def cards_in_deck
-    @cards
-  end
-
-  def count
-    @cards.count()
-  end
-
-  stem = []
-  geography = []
-  pop_culture = []
-
-
-  def cards_in_category(category)
-    if @cards.at(2) == (:STEM)
-      stem.push
-    elsif @cards.at(2) == (:Geography)
-      geography.push
-    elsif @cards.at(2) == ("Pop Culture")
-      pop_culture.push
-    else
-      puts "There are no cards of that category"
-    end
   end
 end
