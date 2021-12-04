@@ -34,6 +34,13 @@ def start(round)
     puts round.turns.last.feedback
   end
 
+
+puts  "****** GAME OVER ******"
+puts  "You had #{round.number_correct} guesses out #{card_total} for a total score of #{round.percent_correct}%."
+puts "Data_types - #{round.percent_correct_by_category(:Data_types)}% correct"
+
+
+
 end
 
 
