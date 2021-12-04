@@ -1,12 +1,12 @@
 class Card
-  def initialize(trivia, answer, category)
-    @trivia = trivia
+  def initialize(question, answer, category)
+    @question = question
     @answer = answer
     @category = category
   end
 
-  def trivia
-    @trivia
+  def question
+    @question
   end
 
   def answer
