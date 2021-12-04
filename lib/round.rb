@@ -22,13 +22,23 @@ class Round
     @turns.last
   end
   def number_correct
-    correct = 0
-    #correct = 0
-    @turns.each do |turn|
-      if turn.correct?
-        correct += 1
-      end
+    @turns.count do|turn|
+      turn.correct?
     end
-    correct
+  end
+
+  def number_correct_by_category(category)
+    @turns.count do|turn|
+      turn.card.category == category && turn.correct?
+      #binding.pry
+    end
+  end
+
+  def percent_correct
+    ((number_correct.to_f / @turns.length.to_f) * 100).round(1)
+  end
+
+  def percent_correct_by_category(category)
+    ((number_correct_by_category(category).to_f / deck.cards_in_category(category).length.to_f) * 100).round(1)
   end
 end
