@@ -1,5 +1,3 @@
-
-
 class Turn
   attr_reader :string, :card
   def initialize(string, card)
@@ -14,7 +12,6 @@ class Turn
   def card
     @card
   end
-
 
   def correct?
     @string == card.answer
@@ -31,7 +28,4 @@ class Turn
     end
     @feedback = feedback
   end
-
-
-
 end

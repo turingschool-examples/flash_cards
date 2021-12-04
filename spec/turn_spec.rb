@@ -3,11 +3,6 @@ require './lib/turn'
 require './lib/card'
 
 RSpec.describe Turn do
-  describe "Turn" do
-    it "needs a library" do
-      expect { Turn.new }.to raise_error(ArgumentError)
-    end
-  end
 
   it 'does card exist' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
@@ -43,13 +38,13 @@ RSpec.describe Turn do
   it "follows sad path 1" do
     card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
     turn = Turn.new("Saturn", card)
-    expect(turn.correct?).to be false
+    expect(turn.correct?).to be(false)
   end
 
   it "confirm new turn" do
     card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
     turn = Turn.new("Saturn", card)
-    expect(turn.correct?).to be false
+    expect(turn.correct?).to be(false)
   end
 
   it 'gives feedback' do

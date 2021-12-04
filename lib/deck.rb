@@ -2,7 +2,6 @@ class Deck
   attr_reader :deck, :cards
   def initialize(cards)
     @cards = cards
-    @count = 0
 
   end
 
@@ -15,7 +14,7 @@ class Deck
   end
 
   def count
-    @count = @cards.count
+    @cards.count
   end
 
   def cards_in_category(category)
