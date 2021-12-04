@@ -29,4 +29,8 @@ class Round
     return correct_category.count
   end
 
+  def percent_correct
+    100 / turns.count / number_correct 
+  end
+
 end
