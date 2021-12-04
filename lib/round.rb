@@ -1,19 +1,36 @@
 class Round
-  attr_reader :round, :turns, :current_card
+  attr_reader :round, :turns, :current_card, :deck, :take_turn
 
-  def initialize(round)
+  def initialize(deck)
     @round = round
+    @deck = deck
     @turns = []
-    @current_card
+    @current_card = deck.cards[0]
+    # @deck = deck
+    #require 'pry'; binding.pry
   end
 
 
-  def current_card
-    deck.cards.first
-  end
+  # def current_card
+  #   @deck.cards.first
+  # end
 
-  def take_turns(guess)
-   @Turns << turns.new(guess, current_card)
+  def take_turn(guess)
+    x = Turn.new(guess, current_card)
+   @turns << x
    @turns.last
+  end
+  # def turns
+  #
+  # end
+#can be done in take turn class
+  def number_correct
+    correct_guesses = 0
+    @turns.each do |turn|
+      if turn.correct?
+        correct_guesses += 1
+      end
+    end
+    return correct_guesses
   end
 end
