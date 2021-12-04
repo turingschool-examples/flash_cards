@@ -55,8 +55,11 @@ RSpec.describe Round do
     deck = Deck.new(cards)
     round = Round.new(deck)
     new_turn = round.take_turn("Juneau")
-    # require 'pry'; binding.pry
     expect(new_turn).to be_instance_of(Turn)
+    # require 'pry'; binding.pry
+    expect(new_turn.class).to eq(Turn)
+    expect(new_turn.correct?).to eq(true)
+    expect(round.turns).to be_instance_of(Turn)
 
   end
 end
