@@ -33,7 +33,7 @@ RSpec.describe Turn do
     it '#feedback' do
       card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       turn_1 = Turn.new("Juneau", card_1)
-
+# require "pry"; binding.pry
       expect(turn_1.feedback).to eq("Correct!")
     end
   end
