@@ -15,9 +15,9 @@ describe Turn do
     expect(turn.correct?).to eq(true)
   end
 
-#   it "give feedback" do
-#     card = Card.new("How many ferrets does Ian have?", "3", :Myself)
-#     turn = Turn.new("3", card)
-#     expect(turn.feedback).to eq("Correct!")
-#   end
-# end
+  it "give feedback" do
+    card = Card.new("How many ferrets does Ian have?", "3", :Myself)
+    turn = Turn.new("3", card)
+    expect(turn.feedback).to eq("Correct!")
+  end
+end

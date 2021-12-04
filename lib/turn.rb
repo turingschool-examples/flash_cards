@@ -14,11 +14,11 @@ class Turn
     end
   end
 
-  # def feedback
-  #   if guess == @card.answer
-  #     return "Correct!"
-  #   else
-  #     return "Incorrect."
-  #   end
-  # end
+  def feedback
+    if guess == @card.answer
+      return "Correct!"
+    else
+      return "Incorrect."
+    end
+  end
 end
