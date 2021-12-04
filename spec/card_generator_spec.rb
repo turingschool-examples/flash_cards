@@ -7,7 +7,7 @@ require 'pry'
 
 RSpec.describe CardGenerator do
   it 'exists' do
-    filename = "cards.txt"
+    filename = "./lib/test_cards.txt"
     card_gen = CardGenerator.new(filename)
     expect(card_gen).to be_instance_of(CardGenerator)
   end
@@ -26,7 +26,7 @@ RSpec.describe CardGenerator do
 
     manual_cards = [card_1, card_2, card_3, card_4, card_5, card_6, card_7, card_8, card_9]
 
-    filename = "cards.txt"
+    filename = "./lib/test_cards.txt"
     #filename = "single_card.txt"
     auto_cards = CardGenerator.new(filename).cards
     #binding.pry
