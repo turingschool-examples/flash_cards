@@ -1,5 +1,5 @@
 class Card
-  attr_reader :question,
+  attr_accessor :question,
               :answer,
               :category
 
