@@ -1,6 +1,6 @@
 #~/round.rb
 class Round
-  attr_reader :deck, :turns, :count, :correct_tally,
+  attr_reader :deck, :turns, :count, :correct_tally
 
   def initialize(deck)
     @deck = deck
@@ -35,4 +35,16 @@ class Round
     end
     correct_by_category_tally
   end
+
+  def percent_correct
+    correct = 0.0
+    @turns.each do |turn|
+      if turn.correct?
+        correct += 1
+      end
+    end
+    correct / @turns.length * 100
+  end
+
+  
 end
