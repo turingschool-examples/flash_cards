@@ -1,9 +1,5 @@
 require './lib/card'
 
-# require './lib/turn'
-# require './lib/deck'
-# require './lib/round'
-
 RSpec.describe Card do
   it 'exists' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
