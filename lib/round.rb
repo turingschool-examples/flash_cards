@@ -28,4 +28,8 @@ class Round
       turn.correct? && category == turn.card.category
     end
   end
-end
+
+    def percent_correct
+      (number_correct / deck.count.to_f ) * 100
+    end
+  end
