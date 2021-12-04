@@ -6,8 +6,8 @@ require './lib/card_generator'
 require 'pry'
 require 'io/console'
 
-filename = './lib/cards.txt'
-cards = CardGenerator.new(filename).cards
+#filename = './lib/cards.txt'
+cards = CardGenerator.new('./lib/cards.txt').cards
 @deck = Deck.new(cards)
 @round = Round.new(@deck)
 
@@ -26,10 +26,10 @@ def play_card
   turn = @round.take_turn(guess)
   if turn.correct?
     puts " "
-    puts ["Great Job! That answer is correct.", "Damn, you're smart!", "¡CORRECTAMUNDO!"].sample
+    puts File.open('./lib/right.txt').flat_map{ |line| line.split (/\n/)}.sample
   else
     puts " "
-    puts ["WHIFF!", "So sorry, but that's not the answer we're looking for.", "Seriously??"].sample
+    puts File.open('./lib/wrong.txt').flat_map{ |line| line.split (/\n/)}.sample
     anykey
     if turn.card.answer.to_s.downcase == guess.downcase
       puts "
@@ -37,7 +37,8 @@ Attention to capitalization is Big Brain Energy!
       "
       anykey
     end
-    puts ["The only correct response we can accept is ", "The answer we're looking for here is ", "I'm surprised you didn't know it was "].sample + "#{turn.card.answer}."
+    puts File.open('./lib/actually.txt').flat_map{ |line| line.split (/\n/)}.sample + " #{turn.card.answer}."
+    # puts ["The only correct response we can accept is ", "The answer we're looking for here is ", "I'm surprised you didn't know it was "].sample + " #{turn.card.answer}."
   end
   anykey
 end
