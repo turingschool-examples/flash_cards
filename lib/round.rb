@@ -16,7 +16,6 @@ class Round
       @turns << turn
       turn.correct? ? @number_correct += 1 : @number_wrong += 1
       @current_card = deck.cards[+1]
-
     return turn
   end
 
