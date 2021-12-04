@@ -12,4 +12,11 @@ attr_reader :deck,
     current_card = @deck.cards.first
   end
 
+  def take_turn(guess)
+    container = Turn.new(guess, current_card)
+    @turn << container
+    deck.cards.shift()
+    return container
+  end
+
 end
