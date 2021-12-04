@@ -15,10 +15,9 @@ class Round
     turn = Turn.new(guess, current_card)
     if turn.correct?
       @number_correct += 1
-    else
     end
     @turns << turn
-    @curr_card += 1 unless current_card == @deck.cards[-1] 
+    @curr_card += 1 unless current_card == @deck.cards[-1]
     return turn
   end
 

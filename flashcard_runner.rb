@@ -13,7 +13,8 @@ cards = CardGenerator.new(filename).cards
 
 def anykey
   puts "
->>"
+>>
+  "
   STDIN.getch
 end
 
