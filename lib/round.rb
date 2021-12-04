@@ -28,9 +28,9 @@ class Round
     (number_correct / turns.size.to_f) * 100
   end
 
-  def number_correct_by_category(category)
+  def number_correct_by_category(cat)
     turns_correct_by_category = turns.count do |turn|
-      category == turn.card.category && turn.guess == turn.card.answer
+      cat == turn.card.category && turn.guess == turn.card.answer
     end
   end
 

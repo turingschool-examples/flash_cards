@@ -133,6 +133,4 @@ RSpec.describe Round do
     expect(round.current_card).to eq(card_3)
   end
 
-
-
 end
