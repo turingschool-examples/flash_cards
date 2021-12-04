@@ -1,0 +1,4 @@
+What is 3 + 3?,6,Math
+What is 7 + 10?,17,Math
+What is my new favorite food?,pineapples,Food
+What have I eaten too much of lately?,noodles,Food 
