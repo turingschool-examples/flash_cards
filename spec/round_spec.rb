@@ -1,4 +1,4 @@
-require 'pry' ; binding.pry
+#require 'pry' ; binding.pry
 require './lib/card'
 require './lib/turn'
 require './lib/deck'
