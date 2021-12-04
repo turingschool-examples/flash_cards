@@ -13,7 +13,7 @@ class Game
   end
 
   def get_response
-    guess = gets.chomp
+    guess = gets.capitalize.chomp
     turn = Turn.new(guess, round.current_card)
     round.take_turn(guess)
     p turn.feedback
