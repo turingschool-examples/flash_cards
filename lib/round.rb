@@ -23,13 +23,9 @@ class Round
 
   def number_correct_by_category(cat)
     cat_correct = 0
-    @turns.each do |turn|
-      if turn.correct? && turn.card.category == cat
-        cat_correct += 1
-      else
-      end
+    @turns.count do |turn|
+      turn.correct? && turn.card.category == cat
     end
-    return cat_correct
   end
 
 def percent_correct

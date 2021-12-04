@@ -6,7 +6,6 @@ require './lib/card_generator'
 require 'pry'
 require 'io/console'
 
-
 def anykey
   puts "
 >>
@@ -39,6 +38,7 @@ Attention to capitalization is Big Brain Energy!
   end
 end
 
+################GAME STARTS HERE!!!!!!!!!!!!!!!!!!!!!!
 puts "
 Welcome to the ULTIMATE KNOWLEDGE CHALLENGE!!!!!!!!
  "
@@ -50,6 +50,7 @@ puts "
 PRO TIP: Press any key to continue when you see the \">>\" symbol!"
 anykey
 puts "How many questions would you like? Choose any number from 1 to #{File.readlines('./lib/cards.txt').count}."
+
 number = gets.chomp.to_i
 cards = CardGenerator.new('./lib/cards.txt', number).cards
 @deck = Deck.new(cards)
