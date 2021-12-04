@@ -13,15 +13,15 @@ class Round
   end
 
   def take_turn(guess)
-    guess = Turn.new(guess, deck)
+    @guess = Turn.new(guess, current_card)
 
-    # if guess.current_card.correct?
+    # if guess.correct?
     #   @number_correct += 1
     # end
 
     # @turns = deck
 
-    guess
+
   end
 
   def turns
