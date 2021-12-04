@@ -45,4 +45,10 @@ class Round
     percent_correct.ceil(2)
     # require "pry"; binding.pry
   end
+
+  def start
+    puts "Welcome! You're playing with #{deck.count} cards."
+
+
+  end
 end
