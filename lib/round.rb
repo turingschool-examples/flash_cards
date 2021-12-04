@@ -35,8 +35,15 @@ class Round
       end
     end
     my_correct_categories
-
   end
+
+  def percent_correct
+    percent = @number_correct.to_f / @count.to_f
+    percent = percent * 100
+    percent
+  end
+
+
   # def number_wrong
   #   @current_card << @current_card.shift
   #   @number_wrong
