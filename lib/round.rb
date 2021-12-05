@@ -5,10 +5,14 @@ class Round
     @round = round
     @deck = deck
     @turns = []
-    @current_card = deck.cards[0]
-    # @deck = deck
-    #require 'pry'; binding.pry
   end
+
+
+    def current_card
+      @deck.cards[0]
+    end
+    # @deck = deck
+
 
 
   # def current_card
@@ -16,9 +20,12 @@ class Round
   # end
 
   def take_turn(guess)
-    x = Turn.new(guess, current_card)
-   @turns << x
+    new_turn = Turn.new(guess, current_card)
+   @turns << new_turn
    @turns.last
+   @deck.cards.rotate!
+   # require 'pry'; binding.pry
+   return new_turn
   end
   # def turns
   #
