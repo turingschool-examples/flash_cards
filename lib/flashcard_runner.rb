@@ -10,6 +10,7 @@ card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwi
 deck = Deck.new([card_1, card_2, card_3])
 round = Round.new(deck)
 
-puts "Welcome! You're playing with 3 cards."
-puts "-" * 40
+p "Welcome! You're playing with 3 cards."
+p "-" * 40
 round.start
+p "Round #{round.turns.count + 1} of #{round.deck.count}"
