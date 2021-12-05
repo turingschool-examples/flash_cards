@@ -1,14 +1,7 @@
-require './lib/card'
-require './lib/turn'
-require './lib/deck'
-require './lib/round'
-require './lib/card_generator'
-require 'pry'
-
 class CardGenerator
   attr_reader :cards
 
-  def initialize(file, num)
+  def initialize(file)
     @cards = []
     File.readlines(file).each do |line|
       array = line.to_s.split(';')
@@ -16,6 +9,6 @@ class CardGenerator
       card = Card.new(array[0], array[1], array[2].chomp.to_sym)
       @cards << card
     end
-    @cards = @cards.sample(num)
+    @cards# = @cards.sample(num)
   end
 end

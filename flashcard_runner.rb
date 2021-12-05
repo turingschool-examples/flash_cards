@@ -47,12 +47,12 @@ puts "The rules are simple. You will be asked a series of questions. Answer them
 puts "--------------------------------------------------------------------------"
 sleep 4
 puts "
-PRO TIP: Press any key to continue when you see the \">>\" symbol!"
+PRO TIP: Press ENTER to continue whenever you see the \">>\" symbol!"
 anykey
 puts "How many questions would you like? Choose any number from 1 to #{File.readlines('./lib/cards.txt').count}."
-
+puts " "
 number = gets.chomp.to_i
-cards = CardGenerator.new('./lib/cards.txt', number).cards
+cards = CardGenerator.new('./lib/cards.txt').cards.sample(number)
 @deck = Deck.new(cards)
 @round = Round.new(@deck)
 
