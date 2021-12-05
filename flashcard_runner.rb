@@ -18,7 +18,6 @@ def start(gogogo)
 end
 start(round)
 
-# puts "Welcome! You're playing with 4 cards."
 puts "Welcome! You're playing with #{round.deck.cards.size} cards."
 
 50.times do
@@ -34,34 +33,6 @@ deck.cards.each do
   puts turn.correct?
   puts turn.feedback
 end
-
-# puts "This is card number 1 out of 4."
-# puts card_1.question
-# answer = gets.chomp
-# turn_1 = round.take_turn(answer)
-# puts turn_1.correct?
-# puts turn_1.feedback
-#
-# puts "This is card number 2 out of 4."
-# puts card_2.question
-# answer = gets.chomp
-# turn_2 = round.take_turn(answer)
-# puts turn_2.correct?
-# puts turn_2.feedback
-#
-# puts "This is card number 3 out of 4."
-# puts card_3.question
-# answer = gets.chomp
-# turn_3 = round.take_turn(answer)
-# puts turn_3.correct?
-# puts turn_3.feedback
-#
-# puts "This is card number 4 out of 4."
-# puts card_4.question
-# answer = gets.chomp
-# turn_4 = round.take_turn(answer)
-# puts turn_4.correct?
-# puts turn_4.feedback
 
 puts "****** Game over! ******"
 puts "You had #{round.correct_turn} correct guesses out of #{round.turns.length}."
