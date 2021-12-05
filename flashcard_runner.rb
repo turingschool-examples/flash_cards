@@ -39,7 +39,7 @@ puts "Question: #{round.deck.cards.first.question}"
 round.take_turn(gets.chomp)
 p round.turns[3].feedback
 
-puts "****** Game over! ******"
+puts "******* Game over! *******"
 puts "You had #{round.number_correct} correct guesses out of #{round.turns.count} for a total score of #{round.percent_correct/2}%"
 
 puts "STEM - #{round.percent_correct_by_category(:STEM)}% correct"
