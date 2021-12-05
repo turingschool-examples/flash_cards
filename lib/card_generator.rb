@@ -8,7 +8,7 @@ class CardGenerator
   def cards
     file.map { |line|
       question, answer, category = line.split(",")
-      category = category.chop.to_sym
+      category = category.strip.to_sym
       Card.new(question, answer, category)
     }
   end
