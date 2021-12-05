@@ -28,4 +28,9 @@ class Round
       turn.correct? && category == turn.card.category
     end
   end
+
+  def percent_correct
+  end
+
+
 end
