@@ -43,7 +43,7 @@ class Round
     if percent_correct == 100
       return "That's some GENIUS LEVEL SHIT!!!!!!!!!!"
     elsif percent_correct >= 50
-      return "Overall, your brain is pretty good!"
+      return "Generally, your brain is pretty good!"
     elsif percent_correct > 0
       return "Additional studies are recommended to improve your knowledge."
     elsif percent_correct == 0 ###Refactor to else
