@@ -2,13 +2,20 @@ require './lib/deck'
 require './lib/card'
 require './lib/turn'
 require './lib/round'
+require './lib/card_generator'
 
+#HARDCODED CARD INPUTS
+# card_1 = Card.new("What is 5+5", "10", :STEM)
+# card_2 = Card.new("What is Rachel's favorite animal?", "Dog", "Turing Staff")
+# card_3 = Card.new("What is Mike's middle name?", "nobody knows", "Turing Staff")
+# card_4 = Card.new("What cardboard cutout lives at Turing", "Justin Beiber", "Pop Culture")
+# deck = Deck.new([card_1, card_2, card_3, card_4])
+# round = Round.new(deck)
 
-card_1 = Card.new("What is 5+5", "10", :STEM)
-card_2 = Card.new("What is Rachel's favorite animal?", "Dog", "Turing Staff")
-card_3 = Card.new("What is Mike's middle name?", "nobody knows", "Turing Staff")
-card_4 = Card.new("What cardboard cutout lives at Turing", "Justin Beiber", "Pop Culture")
-deck = Deck.new([card_1, card_2, card_3, card_4])
+# .TXT FILE CARD GENERATOR
+filename = "cards.txt"
+cards = CardGenerator.new(filename).deck.to_a
+deck = Deck.new(cards)
 round = Round.new(deck)
 
 
@@ -42,7 +49,7 @@ p round.turns[3].feedback
 puts "****** Game over! ******"
 puts "You had #{round.number_correct} correct guesses out of #{round.turns.count} for a total score of #{round.percent_correct/2}%"
 
-puts "STEM - #{round.percent_correct_by_category(:STEM)}% correct"
+puts "STEM - #{round.percent_correct_by_category("STEM")}% correct"
 puts "Turing Staff - #{round.percent_correct_by_category("Turing Staff")}% correct"
 puts "Pop Culture - #{round.percent_correct_by_category("Pop Culture")}% correct"
 
