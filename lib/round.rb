@@ -48,7 +48,7 @@ class Round
   end
 
   # analyze percentage of correct responses vs card category
-  # able to avoid 'divide by 0' errors
+  # able to avoid 'divide by 0' errors  
   def percent_correct_by_category(card_category)
     used_card_categories = []
     deck.used_cards.each do |card|
