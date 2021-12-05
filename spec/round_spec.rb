@@ -141,7 +141,7 @@ RSpec.describe Round do
     turn_7 = @round.take_turn("Beyoncé")
     turn_8 = @round.take_turn("3")
     turn_9 = @round.take_turn("2")
-    expect((@round.overall_feedback)).to eq("Overall, your brain is pretty good!")
+    expect((@round.overall_feedback)).to eq("Generally, your brain is pretty good!")
   end
 
   it 'gives feedback for a not-good overall score' do
@@ -182,7 +182,7 @@ RSpec.describe Round do
     turn_9 = @round.take_turn("2")
     expect((@round.category_feedback)).to eq({:FamousPeople => "0% - Abysmal", :Math => "100% - GENIUS LEVEL SHIT", :Philosophy => "67% - Pretty Good"})
   end
-  
+
   it 'gives feedback for individual categories' do
     turn_1 = @round.take_turn("MISS")
     turn_2 = @round.take_turn("21")

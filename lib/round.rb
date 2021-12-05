@@ -22,7 +22,6 @@ class Round
   end
 
   def number_correct_by_category(cat)
-    #cat_correct = 0
     @turns.count do |turn|
       turn.correct? && turn.card.category == cat
     end
@@ -46,7 +45,7 @@ class Round
       return "Generally, your brain is pretty good!"
     elsif percent_correct > 0
       return "Additional studies are recommended to improve your knowledge."
-    elsif percent_correct == 0 ###Refactor to else
+    else
       return "Abysmal. Just ...wow."
     end
   end
@@ -71,6 +70,4 @@ class Round
     end
     return cat_fb
   end
-
-
 end

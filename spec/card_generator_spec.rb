@@ -27,9 +27,7 @@ RSpec.describe CardGenerator do
     manual_cards = [card_1, card_2, card_3, card_4, card_5, card_6, card_7, card_8, card_9]
 
     filename = "./lib/test_cards.txt"
-    #filename = "single_card.txt"
     auto_cards = CardGenerator.new(filename).cards
-    #binding.pry
     expect(auto_cards[0].question).to eq(manual_cards[0].question)
     expect(auto_cards[0].answer).to eq(manual_cards[0].answer)
     expect(auto_cards[0].answer).to eq(manual_cards[0].answer)

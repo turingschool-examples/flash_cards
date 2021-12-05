@@ -9,6 +9,6 @@ class CardGenerator
       card = Card.new(array[0], array[1], array[2].chomp.to_sym)
       @cards << card
     end
-    @cards# = @cards.sample(num)
+    @cards
   end
 end
