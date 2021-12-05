@@ -1,3 +1,4 @@
+require 'pry'
 class Deck
   attr_reader :cards
   def initialize(cards)
@@ -8,7 +9,13 @@ class Deck
     return @cards.length
   end
 
-  # def cards_in_category
-  #   return @cards.category
-  # end
+  def cards_in_category(category)
+    arr = []
+      cards.each do |card|
+      if card.category == category
+        arr << card
+      end
+    end
+    return arr
+  end
 end
