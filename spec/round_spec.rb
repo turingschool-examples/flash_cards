@@ -69,7 +69,6 @@ RSpec.describe Round do
     deck = Deck.new([card_1, card_2, card_3])
     round = Round.new(deck)
     new_turn = round.take_turn("Juneau")
-    # binding.pry
     expect(round.current_card).to eq(card_2)
   end
 
@@ -92,7 +91,6 @@ RSpec.describe Round do
     round = Round.new(deck)
     new_turn = round.take_turn("Juneau")
     new_turn2 = round.take_turn("Venus")
-    # binding.pry
     geography_correct = round.number_correct_by_category(:Geography)
     stem_correct = round.number_correct_by_category(:STEM)
     expect(geography_correct).to eq(1)
@@ -132,5 +130,4 @@ RSpec.describe Round do
     new_turn2 = round.take_turn("Venus")
     expect(round.current_card).to eq(card_3)
   end
-
 end

@@ -11,7 +11,7 @@ RSpec.describe Turn do
   it 'turn exists' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
-  expect(turn).to be_instance_of(Turn)
+    expect(turn).to be_instance_of(Turn)
   end
 
   it 'turn maintains the card object in the turn class' do
@@ -49,10 +49,4 @@ RSpec.describe Turn do
     turn = Turn.new("Saturn", card)
     expect(turn.feedback).to eq('Incorrect!')
   end
-
-
 end
-
-  # it 'maintains the card object in the turn class' do
-  #   expect(tuard).to include(@question=""What is the capital of Alaska?", @answer="Juneau", @category=:Geography)
-  # end
