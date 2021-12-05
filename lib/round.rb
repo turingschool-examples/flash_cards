@@ -55,4 +55,9 @@ attr_reader :deck,
     return correct_counter
   end
 
+  def percent_correct
+    # binding.pry
+    (number_correct / turns.length.to_f) * 100
+  end
+
 end
