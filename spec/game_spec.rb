@@ -1,9 +1,4 @@
 require './lib/game'
-# require './lib/turn'
-# # require './lib/card'
-# require './lib/deck'
-# require './lib/game'
-# require './lib/card_generator'
 
 RSpec.describe Game do
   it 'exists' do

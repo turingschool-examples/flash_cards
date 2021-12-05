@@ -6,6 +6,9 @@ class CardGenerator
     @cards = generate
   end
 
+  # generates a deck of cards from the input file.
+  # converts text file to proper format
+  # creates Card instance for each line in file
   def generate
     some_cards = []
     deck_of_cards = []
