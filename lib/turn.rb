@@ -20,13 +20,12 @@ class Turn
 
   def feedback
 # binding.pry
-    if correct? == true
-
+    if correct?
       feedback = "Correct!"
     else
 
       feedback = "Incorrect."
     end
-    return feedback
+  
   end
 end

@@ -7,6 +7,7 @@ class Round
     @count = 0
     @current_card = deck.cards[0]
     @number_correct = 0
+    @incorrect_turn = []
     @correct_turn = []
     @number_wrong = 0
   end
@@ -23,6 +24,7 @@ class Round
       @number_correct += 1
       @correct_turn << turn
     else
+      # @incorrect_turn << turn
       @number_wrong += 1
     end
 
@@ -53,6 +55,7 @@ class Round
     end
     (percent_correct_by_category.to_f / category_math_var.to_f) * 100
   end
+
 
 
 end
