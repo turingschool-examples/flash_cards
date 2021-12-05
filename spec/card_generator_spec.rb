@@ -1,7 +1,7 @@
 require '../lib/card_generator'
 require '../lib/card'
 
-describe CardGenerator do
+RSpec.describe CardGenerator do
   let(:filename) {"cards.txt"}
   subject {CardGenerator.new(filename)}
 
@@ -21,5 +21,5 @@ describe CardGenerator do
     it "returns array of Card objects" do
       expect(subject.cards[0]).to be_a Card
     end
-  end 
+  end
 end

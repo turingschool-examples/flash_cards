@@ -3,14 +3,14 @@
   require './lib/deck'
   require './lib/round'
   require './lib/card_generator'
-  require 'pry'
+
 
 class Play_Game
 
     def initialize
       @card_1 = Card.new("Question: 1 + 1 = ?", "2", :Math)
       @card_2 = Card.new("Question: 1 + 2 = ?", "3", :Math)
-      @card_3 = Card.new("Question: What food do I like to eat now?", "Humus", :Food)
+      @card_3 = Card.new("Question: What food do I like to eat now?", "Hummus", :Food)
       @card_4 = Card.new("Question: What other food do I like to eat now?", "Grapes", :Food)
       @cards = [@card_1, @card_2, @card_3, @card_4]
       @cards_in_file = CardGenerator.new("cards.txt")
@@ -51,8 +51,6 @@ class Play_Game
     puts "#{:Food} - #{@round.percent_correct_by_category(:Food)}% correct"
     exit
   end
-
-
 end
 
   game = Play_Game.new
