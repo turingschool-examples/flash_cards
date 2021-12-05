@@ -1,4 +1,3 @@
-require_relative './turn'
 require_relative './deck'
 require_relative './round'
 require_relative './card_generator'
@@ -50,12 +49,8 @@ class FlashCardRunner
   end
 
   def print_percent_by_category
-    categories = []
-    round.turns.each do |turn|
-      categories << turn.card.category
-    end
-    categories.uniq.each do |category|
-      puts "#{category}: #{@round.percent_correct_by_category(category)}% correct"
+    @round.turns.map { |turn| turn.card.category }.uniq.each do |category|
+      puts "#{category}: #{@round.percent_correct_by_category(category).to_s.capitalize}% correct"
     end
   end
 end
