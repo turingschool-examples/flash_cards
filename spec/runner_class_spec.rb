@@ -5,5 +5,7 @@ RSpec.describe FlashCardRunner do
     @runner = FlashCardRunner.new
   end
 
-  it 'prints '
+  it 'exists' do
+    expect(@runner).to be_instance_of FlashCardRunner
+  end
 end
