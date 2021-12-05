@@ -16,10 +16,9 @@ class Round
   def take_turn(guess)
     turn = Turn.new(guess, deck.current_card(turns.length))
     turns << turn
-    #puts "turn.correct? #{turn.correct?}"
 
     if turn.correct?
-      @number_correct += 1
+      @number_correct += 1 #no clue why this needs @.... nothing else seems to.
     end
     return turn
 
