@@ -1,4 +1,4 @@
-# require 'pry';
+require 'pry'
 class Round
   attr_reader :round,
               :turns,
@@ -36,6 +36,7 @@ class Round
   end
 
   def number_correct_by_category(category)
+    #binding.pry
     @turns.count do |turn|
       turn.card.category == category && turn.correct?
     end
@@ -46,12 +47,11 @@ class Round
   end
 
   def percent_correct_by_category(category)
-    @turns.count.to_f
-    # percent_correct_by_category(category).to_f
-    # (percent_correct_by_category(category) / turns.count) * 100.0
+    (number_correct_by_category(category).to_f / number_correct.to_f) * 100.0
   end
 end
-#require 'pry'; binding.pry
+# percent_correct_by_category(category).to_f
+# (percent_correct_by_category(category) / turns.count) * 100.0
 # @turns
 #@turns.count.to_f
 #number_correct.to_f

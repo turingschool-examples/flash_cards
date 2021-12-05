@@ -107,7 +107,7 @@ RSpec.describe Round do
     new_turn_2 = round.take_turn("Venus")
 
     expect(round.percent_correct).to eq(50.0)
-    #expect(round.percent_correct_by_category(:Geography)).to eq(100.0)
-
+    expect(round.percent_correct_by_category(:Geography)).to eq(100.0)
+    #binding.pry
   end
 end
