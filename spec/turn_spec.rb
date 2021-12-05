@@ -21,8 +21,8 @@ describe Turn do
   it 'is correct' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
-binding.pry 
-    expect(turn.correct).to eq true
+
+    expect(turn.correct?).to eq true
   end
 
   it 'gives feedback' do
