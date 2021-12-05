@@ -18,7 +18,12 @@ p "#{round.deck.cards[0].question}"
 round.take_turn(gets.chomp)
 p round.turns[0].feedback
 
-p "Round #{round.turns.count + 1} of 3"
+p "Round #{round.turns.count + 1} of #{round.deck.count + round.turns.count}"
+p "#{round.deck.cards[0].question}"
+round.take_turn(gets.chomp)
+p round.turns[0].feedback
+
+p "Round #{round.turns.count + 1} of #{round.deck.count + round.turns.count}"
 p "#{round.deck.cards[0].question}"
 round.take_turn(gets.chomp)
 p round.turns[0].feedback
