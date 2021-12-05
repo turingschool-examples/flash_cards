@@ -1,7 +1,7 @@
 Which method returns the first character of a string? String#___, chr, string
 Which method returns true or false depending on whether the string contains any characters? String#_____, empty?, string
 What is the return value of  calling 'string'.chr?, s, string
-What is the return value of calling 'STRING'.capitalize?, string, string
+What is the return value of calling 'STRING'.capitalize?, String, string
 What is the return value of calling 'string'.delete('tr')?, sing, string
 What is the return value of calling 'string'.gsub('g','k')?, stink, string
 What is the return value of 'string'.index('n')?, 4, string
@@ -21,12 +21,12 @@ Which method will remove the first element of an array and return it? Array.____
 Which method will remove the last element of an array and return it? Array.___, pop, array
 Which method will return true if an array contains a specific element? Array._____(element), includes?, array
 Which method will return true if every value in an array meets a certain criteria?, all?, array
-Which method will remove all the nil values and their indexes from an array? Array.______, compact, array
+Which method will return an array with all the nil values and their indexes removed? Array.______, compact, array
 
 Which method will turn a integer into a float? Integer#___, to_f, numbers
 Which method will round down and turn a float into an integer? Float#___ => 1, to_i, numbers
 What is the return value of calling 1.23.class?, Float, numbers
 What is the return value of 1.23.to_i?, 1, numbers
 
-Everything is Ruby is an ______, object, ruby
+Everything is Ruby is an ______., object, ruby
 Ruby is implemented in which lower-level language?, C, ruby

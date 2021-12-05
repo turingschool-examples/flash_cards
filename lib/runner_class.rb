@@ -13,9 +13,9 @@ class FlashCardRunner
       print_header
       print_question
       input_guess
+      print_feedback(@turn)
       next_question
     end
-    print_feedback(@turn)
     print_end_game
   end
 

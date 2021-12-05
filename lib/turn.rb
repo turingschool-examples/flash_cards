@@ -7,7 +7,7 @@ class Turn
   end
 
   def correct?
-    guess.casecmp?(card.answer)
+    guess == card.answer
   end
 
   def feedback

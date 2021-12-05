@@ -81,8 +81,8 @@ RSpec.describe Round do
     end
 
     it 'calculates % of correct answers' do
-      expect(@round.percent_correct).to be_instance_of Integer
-      expect(@round.percent_correct).to be 50
+      expect(@round.percent_correct).to be_instance_of Float
+      expect(@round.percent_correct).to be 50.0
     end
 
     it 'calculates % of correct answers by category' do
