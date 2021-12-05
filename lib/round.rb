@@ -19,6 +19,7 @@ attr_reader :deck,
 
     if guess == @deck.cards.first.answer
       @correct_container += 1
+      #puts @correct_container
     end
 
     @turns << container
