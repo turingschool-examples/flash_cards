@@ -7,10 +7,19 @@ attr_reader :deck, :turns, :current_card, :number_correct, :number_wrong
     @current_card = deck.cards[0]
     @number_correct = 0
     @number_wrong = 0
+    @correct_cards = []
   end
 
   def take_turn(guess)
-    new_turn = Turn.new(guess, current_card)
-    # @turns << new_turn
+    turn = Turn.new(guess, current_card)
+    @turns << turn
+    if turn.correct?
+      @number_correct += 1
+      @correct_cards << turn
+    else
+      @number_wrong += 1
+    end
+    deck.cards.shift()
+    return turn
+    end
   end
-end
