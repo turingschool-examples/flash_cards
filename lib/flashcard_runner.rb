@@ -17,17 +17,17 @@ p "Round #{round.turns.count + 1} of 3"
 p "#{round.deck.cards[0].question}"
 round.take_turn(gets.chomp)
 p round.turns[0].feedback
-
+p "-" * 40
 p "Round #{round.turns.count + 1} of #{round.deck.count + round.turns.count}"
 p "#{round.deck.cards[0].question}"
 round.take_turn(gets.chomp)
 p round.turns[+1].feedback
-
+p "-" * 40
 p "Round #{round.turns.count + 1} of #{round.deck.count + round.turns.count}"
 p "#{round.deck.cards[0].question}"
 round.take_turn(gets.chomp)
 p round.turns[+1].feedback
-
+p "-" * 40
 p "****** Game over! ******"
 p "You had #{round.number_correct} correct guesses out of #{round.turns.count} for a total score of #{round.percent_correct}%"
 puts "STEM - #{round.percent_correct_by_category(:STEM)}% correct"
