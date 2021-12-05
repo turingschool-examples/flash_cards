@@ -27,6 +27,8 @@ describe Deck do
     cards = [card1, card2, card3]
     deck = Deck.new(cards)
     expect(deck.cards_in_category(:STEM)).to eq([card2, card3])
+    expect(deck.cards_in_category(:Geography)).to eq([card1])
+    expect(deck.cards_in_category("Pop Culture")).to eq([])
 
   end
 end
