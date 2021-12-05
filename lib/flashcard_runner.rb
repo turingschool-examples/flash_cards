@@ -15,3 +15,4 @@ p "-" * 40
 round.start
 p "Round #{round.turns.count + 1} of #{round.deck.count}"
 p "#{round.deck.cards[0].question}"
+round.take_turn(gets.chomp)
