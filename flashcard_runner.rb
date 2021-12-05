@@ -2,6 +2,7 @@
   require './lib/turn'
   require './lib/deck'
   require './lib/round'
+  require './lib/card_generator'
   require 'pry'
 
 class Play_Game
@@ -12,7 +13,8 @@ class Play_Game
       @card_3 = Card.new("Question: What food do I like to eat now?", "Humus", :Food)
       @card_4 = Card.new("Question: What other food do I like to eat now?", "Grapes", :Food)
       @cards = [@card_1, @card_2, @card_3, @card_4]
-      @deck = Deck.new(@cards)
+      @cards_in_file = CardGenerator.new("cards.txt")
+      @deck = Deck.new(@cards_in_file.cards)
       @round = Round.new(@deck)
       @round_number = 0
     end
@@ -43,8 +45,8 @@ class Play_Game
 
   def end_game
     puts "****** Game over! ******"
-    puts "You had #{@round.number_correct} correct guesses out of 4 for a total score of #{@round.percent_correct}%.
-  "
+    puts "You had #{@round.number_correct} correct guesses out of 4 for a total score of #{@round.percent_correct}%."
+
     puts "#{:Math} - #{@round.percent_correct_by_category(:Math)}% correct"
     puts "#{:Food} - #{@round.percent_correct_by_category(:Food)}% correct"
     exit
