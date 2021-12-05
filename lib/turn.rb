@@ -13,7 +13,8 @@ class Turn
     if correct? == true
       "Correct!"
     else
-    end 
+      "Incorrect"
+    end
   end
 
 end
