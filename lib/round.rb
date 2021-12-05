@@ -24,4 +24,19 @@ class Round
 
   end
 
+  def number_correct_by_category(category)
+    correct_by_category = 0
+    turns.each do |this_turn|
+      if this_turn.card.category == category
+         if this_turn.correct?
+           correct_by_category +=1
+         end
+      end
+    end
+    return correct_by_category
+  end
+
+
+
+
 end
