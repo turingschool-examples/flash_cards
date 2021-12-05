@@ -31,11 +31,10 @@ class Round
   end
 
   def percent_correct
-    (number_correct.to_f / @turns.count.to_f) * 100
+    ((number_correct.to_f / turns.count.to_f) * 100).round
   end
 
   def percent_correct_by_category(category)
-    ((number_correct_by_category(category).to_f / @deck.cards_in_category(category).length.to_f) * 100).round
+    ((number_correct_by_category(category).to_f / deck.cards_in_category(category).length.to_f) * 100).round
   end
-
 end
