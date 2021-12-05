@@ -1,3 +1,5 @@
+require './lib/turn'
+
 class Round
   attr_reader :deck, :turns, :number_correct
 

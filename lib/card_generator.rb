@@ -16,5 +16,6 @@ class CardGenerator
         @cards << Card.new(info[0], info[1], info[2].to_sym)
       end
     end
+    @cards.shuffle!
   end
 end
