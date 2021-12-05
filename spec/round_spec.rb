@@ -5,6 +5,7 @@ require './lib/turn'
 require './lib/round'
 
 RSpec.describe Round do
+
   it 'exists' do
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
@@ -108,6 +109,5 @@ RSpec.describe Round do
 
     expect(round.percent_correct).to eq(50.0)
     expect(round.percent_correct_by_category(:Geography)).to eq(100.0)
-    #binding.pry
   end
 end

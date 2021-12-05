@@ -13,7 +13,8 @@ class Deck
         included_cards << card
       end
     end
-    return included_cards
-  end
 
+    return included_cards
+
+  end
 end
