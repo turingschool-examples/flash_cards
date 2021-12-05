@@ -28,6 +28,6 @@ RSpec.describe Deck do
   end
 
   it 'has no cards in the Pop Culture category' do
-    expect(@deck.cards_in_category("Pop Culture")).to eq([])
+    expect(@deck.cards_in_category(:Culture)).to eq([])
   end
 end
