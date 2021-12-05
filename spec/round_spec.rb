@@ -105,9 +105,9 @@ RSpec.describe Round do
     round = Round.new(deck)
     new_turn = round.take_turn("Juneau")
     new_turn_2 = round.take_turn("Venus")
-    
+
     expect(round.percent_correct).to eq(50.0)
-    expect(round.percent_correct_by_category(:Geography)).to eq(100)
+    expect(round.percent_correct_by_category(:Geography)).to eq(100.0)
 
   end
 end
