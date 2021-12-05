@@ -1,12 +1,18 @@
 class Round
-
+#need a deck of cards
+#need a user to guess for a certain card in the deck
+#need a correct/incorrect for if answer matches guess
+#need to record correct turns
+#need to go to next card in deck
+#record # correct
+#record # correct by category
+#record % correct by category (req # correct by category over # in category attempted)
 attr_reader :deck,
             :turns
 
   def initialize(deck)
     @deck              = deck
     @turns             = []
-    @correct_container = 0
   end
 
   def current_card
@@ -16,10 +22,10 @@ attr_reader :deck,
   def take_turn(guess) #How to align?
     container = Turn.new(guess, current_card)
 
-    if guess == @deck.cards.first.answer
-      @correct_container += 1
-      #puts @correct_container
-    end
+    # if guess == current_card.answer
+    #   @correct_container += 1
+    #   #puts @correct_container
+    # end
 
     @turns << container
     deck.cards.rotate!
@@ -27,7 +33,14 @@ attr_reader :deck,
   end
 
   def number_correct
-    return @correct_container
+    correct_counter = 0
+
+    @turns.each do |turn|
+      if turn.correct? == true
+        correct_counter += 1
+      end
+    end
+    return correct_counter
   end
 
 end
