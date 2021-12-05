@@ -25,6 +25,16 @@ puts "Welcome! You're playing with #{round.deck.cards.size} cards."
   print "-"
 end
 
+deck.cards.each do
+
+  puts "This is card number #{round.current_card} out of 4"
+  puts round.current_card.question
+  answer= gets.chomp
+  turn = round.take_turn(answer)
+  puts turn.correct?
+  puts turn.feedback
+end
+
 # puts "This is card number 1 out of 4."
 # puts card_1.question
 # answer = gets.chomp
