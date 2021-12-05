@@ -16,17 +16,14 @@ card_counter = 4
 #def start
   puts "Welcome!  You're playing with #{round.deck.count} cards."
   puts "--------------------------------------------------"
-  puts "This is card number 1 out of 4."
-  #puts "#{round.current_card.question}"
-  #puts "#{card_1.question}"
-#end
-while round_counter < 5 do
-  round_counter += 1
-  puts "This is card number #{round_counter} out of 4. \n #{round.current_card.question}"
-  turn_FR = round.take_turn(gets.chomp)
-  puts "#{turn_FR.feedback}"
 
-end
-puts "#{turn_FR.feedback}"
-puts "***** Game over! *****"
-puts "You had #{round.number_correct} correct guesses out of 4 for a total score of #{round.percent_correct}."
+while round_counter < 4 do
+  round_counter += 1
+    puts "This is card number #{round_counter} out of 4. \n     #{round.current_card.question}"
+    turn_FR = round.take_turn(gets.chomp)
+    puts "#{turn_FR.feedback}"
+  end
+
+  puts "***** Game over! *****"
+  puts "You had #{round.number_correct} correct guesses out of 4 for a total score of #{round.percent_correct}."
+#end
