@@ -15,7 +15,7 @@ attr_reader :deck,
   def take_turn(guess)
     container = Turn.new(guess, current_card)
     @turn << container
-    deck.cards.shift()
+    deck.cards.rotate()
     return container
   end
 
