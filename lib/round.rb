@@ -40,24 +40,32 @@ class Round
   end
 
   def percent_correct
-    correct = 0.0
-    @turns.each do |turn|
-      if turn.correct?
-        correct += 1
-      end
-    end
-    correct / @turns.length * 100
+    number_correct.to_f / @turns.length * 100
   end
+
+  # def percent_correct_by_category(target_category)
+  #   correct = 0.0
+  #   total = 0.0
+  #   @turns.each do |turn|
+  #     if turn.card.category == target_category && turn.correct?
+  #       correct += 1
+  #       total += 1
+  #     elsif turn.card.category == target_category
+  #       total += 1
+  #     end
+  #   end
+  #   correct / total * 100
+  # end
 
   def percent_correct_by_category(target_category)
     correct = 0.0
     total = 0.0
     @turns.each do |turn|
-      if turn.card.category == target_category && turn.correct?
-        correct += 1
+      if turn.card.category == target_category
         total += 1
-      elsif turn.card.category == target_category
-        total += 1
+        if turn.correct?
+          correct += 1
+        end
       end
     end
     correct / total * 100
