@@ -67,7 +67,7 @@ RSpec.describe Round do
     it 'can return # of correct answers' do
       expect(@round.number_correct).to eq 1
     end
-    
+
     it 'can return # of correct answers by category' do
       expect(@round.number_correct_by_category(:Geography)).to eq 1
       expect(@round.number_correct_by_category(:STEM)).to eq 0
@@ -81,15 +81,18 @@ RSpec.describe Round do
     end
 
     it 'calculates % of correct answers' do
+      expect(@round.percent_correct).to be_instance_of Integer
       expect(@round.percent_correct).to be 50
     end
 
     it 'calculates % of correct answers by category' do
-      expect(@round.percent_correct_by_category(:Geography)).to be 100
+      expect(@round.percent_correct_by_category(:Geography)).to be_instance_of Float
+      expect(@round.percent_correct_by_category(:Geography)).to be 100.0
     end
 
     it 'calculates % of correct answers by category' do
-      expect(@round.percent_correct_by_category(:STEM)).to be 0
+      expect(@round.percent_correct_by_category(:STEM)).to be_instance_of Float
+      expect(@round.percent_correct_by_category(:STEM)).to be 0.0
     end
   end
 end

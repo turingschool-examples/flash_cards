@@ -12,6 +12,8 @@ class CardGenerator
   def create_cards
     File.open(@cards_file, 'r') do |file|
       file.readlines.each do |line|
+        next if line == "\n"
+
         info = line.chomp.split(', ')
         @cards << Card.new(info[0], info[1], info[2].to_sym)
       end

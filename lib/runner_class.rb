@@ -10,36 +10,42 @@ class FlashCardRunner
 
   def start
     until @deck.cards.empty? do
-      system('clear')
       print_header
       print_question
       input_guess
-      sleep(1)
-      system('clear')
+      next_question
     end
+    print_feedback(@turn)
     print_end_game
   end
 
   def print_header
-    puts "Welcome, you're playing with #{@deck.size} cards"
-    puts "This is card #{@round.count} out of #{@deck.size + @round.count}"
-    puts '---------------------------------'
+    system('clear')
+    puts "Welcome, you're playing with #{@deck.size + @round.count} cards\n"
+    puts "\nThis is card #{@round.count} out of #{@deck.size + @round.count}\n"
+    puts "\n---------------------------------\n"
   end
 
   def print_question
-    puts  "Question: #{@round.question}"
-    print 'Answer: '
+    puts  "\nQuestion: #{@round.question}\n"
+    print "\nAnswer: "
   end
 
   def input_guess
-    guess = gets.chomp
-    turn = @round.take_turn(guess)
-    print_feedback(turn)
+    @turn = @round.take_turn(gets.chomp)
+  end
+
+  def next_question
+    sleep(0.5)
+    print "\nPress ENTER for the next question"
+    gets
+    system('clear')
   end
 
   def print_feedback(turn)
-    puts turn.feedback
-    print " (#{turn.card.answer})\n" unless turn.correct?
+    puts
+    print turn.feedback
+    turn.correct? ? puts : (print "! || Answer: #{turn.card.answer}\n")
   end
 
   def print_end_game
