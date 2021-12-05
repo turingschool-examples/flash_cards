@@ -10,4 +10,7 @@ class Round
   def current_card
     @deck.cards[0]
   end
+
+  def take_turn
+  end
 end
