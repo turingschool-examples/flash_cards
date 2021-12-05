@@ -14,13 +14,14 @@ attr_reader :deck,
     current_card = @deck.cards.first
   end
 
-  def take_turn(guess)
+  def take_turn(guess) #How to align?
     container = Turn.new(guess, current_card)
+
     if guess == @deck.cards.first.answer
       @correct_container += 1
-      puts @correct_container
     end
-    @turns    << container
+
+    @turns << container
     deck.cards.rotate!
     return container
   end
