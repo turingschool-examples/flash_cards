@@ -36,13 +36,11 @@ class Round
   end
 
   def percent_correct_by_category(cat)
-
     if number_correct_by_category(cat) == 0
       0
     else
       (number_correct_by_category(cat).to_f / (turns.count{|turn| turn.card.category == cat})) * 100
     end
-
   end
 end
 

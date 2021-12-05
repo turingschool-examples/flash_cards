@@ -147,7 +147,6 @@ RSpec.describe Round do
     round.take_turn("Juneau")
     round.take_turn("Venus")
     expect(round.percent_correct).to eq(50)
-
   end
 
 
@@ -163,13 +162,7 @@ RSpec.describe Round do
     expect(round.percent_correct_by_category(:STEM)).to eq(0)
     round.take_turn("North north west")
     expect(round.percent_correct_by_category(:STEM)).to eq(50)
-
-
-
-
   end
-
-
 
 
 end
