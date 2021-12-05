@@ -20,3 +20,5 @@ puts "This is card number 4 out of 4."
 puts "Question: What cardboard cutout lives at Turing?"
 gets
 puts "Correct!"
+# I know that this is the incorrect way to do this, I am having a hard time
+# understanding the gets command interaction. How to call it or reference it.
