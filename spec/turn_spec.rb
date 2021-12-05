@@ -40,5 +40,4 @@ RSpec.describe Turn do
     turn = Turn.new("Saturn", card)
     expect(turn.feedback).to eq("Incorrect.")
   end
-  # binding.pry
 end

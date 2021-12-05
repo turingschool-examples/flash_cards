@@ -20,6 +20,5 @@ RSpec.describe Card do
 
   it 'has a category' do
     expect(@card.category).to eq(:Geography)
-    # binding.pry
   end
 end

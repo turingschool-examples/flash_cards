@@ -4,7 +4,6 @@ require './lib/turn'
 require './lib/deck'
 require './lib/round'
 
-
 RSpec.describe Round do
   before(:each) do
     @card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
@@ -27,7 +26,6 @@ RSpec.describe Round do
   it "gets first card in deck" do
     expect(@round.current_card).to eq(@card_1)
   end
-
 # tried my hand at making a large test, I think its ugly but it works.
   it "takes a turn, and prepares a new turn" do
     expect(@new_turn).to be_a(Turn)
@@ -56,6 +54,5 @@ RSpec.describe Round do
     @round.take_turn("Venus")
 
     expect(@round.percent_correct_by_category(:Geography)).to eq(100.0)
-    # binding.pry
   end
 end

@@ -29,7 +29,6 @@ RSpec.describe Deck do
 
   it 'returns cards that have Geography category' do
     expect(@deck.cards_in_category(:Geography)).to eq([@cards[0]])
-    # binding.pry
   end
 
 end

@@ -19,7 +19,6 @@ cards = [card_1, card_2, card_3, card_4, card_5, card_6, card_7, card_8, card_9]
 deck = Deck.new(cards)
 round = Round.new(deck)
 
-
 def start(round)
   card_total = round.deck.count
   counter = 0
@@ -37,8 +36,9 @@ def start(round)
     puts round.turns.last.feedback
   end
 
-puts  "****** GAME OVER ******"
-puts  "You had #{round.number_correct} guesses out #{card_total} for a total score of #{round.percent_correct.to_i}%."
+
+puts "****** GAME OVER ******"
+puts "You had #{round.number_correct} guesses out #{card_total} for a total score of #{round.percent_correct.to_i}%."
 puts "Data_types - #{round.percent_correct_by_category(:Data_types)}% correct"
 puts "Conditionals - #{round.percent_correct_by_category(:Conditionals)} % correct"
 puts "Animals - #{round.percent_correct_by_category(:Animals)} % correct"
