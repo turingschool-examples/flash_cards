@@ -22,25 +22,55 @@ class Round
   end
 
   def number_correct_by_category(cat)
-    cat_correct = 0
+    #cat_correct = 0
     @turns.count do |turn|
       turn.correct? && turn.card.category == cat
     end
   end
 
-def percent_correct
-  (@number_correct.to_f  / @turns.count * 100).round(1)
-end
-
   def percent_correct_by_category(cat)
-    total = 0
+    x = @turns.count do |turn|
+      turn.card.category == cat
+    end
+    (number_correct_by_category(cat).to_f / x * 100).round(1)
+  end
+
+  def percent_correct
+    (@number_correct.to_f  / @turns.count * 100).round(1)
+  end
+
+  def overall_feedback
+    if percent_correct == 100
+      return "That's some GENIUS LEVEL SHIT!!!!!!!!!!"
+    elsif percent_correct >= 50
+      return "Overall, your brain is pretty good!"
+    elsif percent_correct > 0
+      return "Additional studies are recommended to improve your knowledge."
+    elsif percent_correct == 0 ###Refactor to else
+      return "Abysmal. Just ...wow."
+    end
+  end
+
+  def category_feedback
+    cat_fb = {}
+    cats = []
     @turns.each do |turn|
-      if turn.card.category == cat
-        total += 1
+      cats << turn.card.category
+    end
+    cats.uniq!
+    cats.each do |cat|
+      if percent_correct_by_category(cat) == 100
+        cat_fb[cat] = "#{percent_correct_by_category(cat).round}% - GENIUS LEVEL SHIT"
+      elsif percent_correct_by_category(cat) >= 50
+        cat_fb[cat] = "#{percent_correct_by_category(cat).round}% - Pretty Good"
+      elsif percent_correct_by_category(cat) > 0
+        cat_fb[cat] = "#{percent_correct_by_category(cat).round}% - Needs Improvement"
       else
+        cat_fb[cat] = "#{percent_correct_by_category(cat).round}% - Abysmal"
       end
     end
-    (number_correct_by_category(cat).to_f / total * 100).round(1)
+    return cat_fb
   end
+
 
 end
