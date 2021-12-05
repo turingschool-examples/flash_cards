@@ -109,6 +109,9 @@ RSpec.describe Deck do
     round.take_turn("Venus")
     expect(round.turns_per_cat(:Geography)).to eq(1)
     expect(round.percent_correct_by_category(:Geography)).to eq(100.0)
+    expect(round.percent_correct_by_category(:STEM)).to eq(0)
     expect(round.current_card).to eq(card_3)
+    round.take_turn("North north west")
+    expect(round.percent_correct_by_category(:STEM)).to eq(50.0)
   end
 end
