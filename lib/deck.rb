@@ -14,7 +14,7 @@ class Deck
       if card.category == category
          card
       else
-       []
+       "This category is not in the deck."
      end
     end
   end
