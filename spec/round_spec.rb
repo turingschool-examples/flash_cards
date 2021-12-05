@@ -122,7 +122,6 @@ RSpec.describe Round do
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
     round = Round.new(deck)
-    # new_turn = round.take_turn("Juneau")
     round.take_turn("Juneau")
     expect(round.current_card).to eq(card_2)
   end
@@ -134,7 +133,6 @@ RSpec.describe Round do
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
     round = Round.new(deck)
-    # new_turn = round.take_turn("Juneau")
     round.take_turn("Juneau")
     round.take_turn("Venus")
     expect(round.percent_correct).to eq(50.0)

@@ -12,7 +12,7 @@ class Deck
   def cards_in_category(category)
     same = []
     @cards.each do |card|
-      if category == card.category
+      if card.category == category
         same << card
       end
     end

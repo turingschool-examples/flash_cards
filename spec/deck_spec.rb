@@ -10,7 +10,6 @@ RSpec.describe Deck do
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
     expect(deck).to be_instance_of(Deck)
-    #expect(deck).to be_a(Deck)
   end
 
   it 'Has cards' do
@@ -41,5 +40,4 @@ RSpec.describe Deck do
     expect(deck.cards_in_category(:Geography)).to eq([card_1])
     expect(deck.cards_in_category("Pop culture")).to eq([])
   end
-
 end
