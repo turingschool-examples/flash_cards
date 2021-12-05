@@ -1,5 +1,6 @@
 class Deck
-  attr_reader :cards, :cards_in_category
+  attr_reader :cards,
+              :cards_in_category
 
   def initialize(cards)
     @cards = cards
@@ -13,6 +14,6 @@ class Deck
       end
     end
     return included_cards
-
   end
+
 end

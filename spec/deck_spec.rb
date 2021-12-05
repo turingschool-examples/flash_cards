@@ -1,4 +1,4 @@
- require 'pry'
+require 'pry'
 require './lib/card'
 require './lib/deck'
 
@@ -17,7 +17,9 @@ RSpec.describe Deck do
     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
     deck = Deck.new ([card_1, card_2, card_3])
     cards = ([card_1, card_2, card_3])
+
     expect(deck.cards).to eq([card_1, card_2, card_3])
+
   end
 
   it 'counts cards' do
@@ -26,7 +28,9 @@ RSpec.describe Deck do
     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
     deck = Deck.new ([card_1, card_2, card_3])
     cards = ([card_1, card_2, card_3])
+
     expect(cards.count).to eq(3)
+
   end
 
   it 'cards in category ' do
@@ -39,10 +43,7 @@ RSpec.describe Deck do
     expect(deck.cards_in_category(:STEM)).to eq([card_2, card_3])
     expect(deck.cards_in_category(:Geography)).to eq([card_1])
     expect(deck.cards_in_category("Pop Culture")).to eq([])
-
+    
   end
-
-
-
 
 end
