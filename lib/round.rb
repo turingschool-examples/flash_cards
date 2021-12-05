@@ -39,7 +39,12 @@ class Round
     end.count
   end
 
-  def percent_correct_by_category(category)
-    @turns.size/@correct_turn * 100
+  def percent_correct
+    @correct_turn/@turns.size * 100
   end
+
+  # def percent_correct_by_category(category)
+  #   @turns.size/@correct_turn * 100
+  # end
+
 end
