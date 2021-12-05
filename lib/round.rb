@@ -10,7 +10,7 @@ class Round
     # I originally had correct turn as an empty array to store correct turns, but changed
     # @correct_turn to a counter since I'm not sure it's necessary to store the entire turn
     #@correct_turn = []
-    @correct_turn = 0
+    @correct_turn = 0.0
   end
 
   def current_card
@@ -37,5 +37,9 @@ class Round
     @turns.find_all do |turn|
       turn.card.category == category && turn.guess == turn.card.answer
     end.count
+  end
+
+  def percent_correct_by_category(category)
+    @turns.size/@correct_turn * 100
   end
 end
