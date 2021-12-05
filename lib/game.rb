@@ -26,7 +26,7 @@ class Game
   # prints final score and category scores when game is completed
   def game_over
     p "****** Game over! ******"
-    p "You had #{round.correct_guesses.count} correct guesses out of #{@starting_deck} for a total score of #{round.percent_correct}%."
+    p "You had #{round.correct_response.count} correct guesses out of #{@starting_deck} for a total score of #{round.percent_correct}%."
     p "STEM - #{round.percent_correct_by_category('STEM')}% correct"
     p "Sports - #{round.percent_correct_by_category('Sports')}% correct"
     p "Geography - #{round.percent_correct_by_category('Geography')}% correct"
