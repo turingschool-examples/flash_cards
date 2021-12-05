@@ -12,14 +12,13 @@ class Round
   end
 
   # creates new turn, checks guess against card answer,
-   # shuffles cards, returns new cards
+  # shuffles cards, returns new cards
   def take_turn(guess)
     new_turn = Turn.new(guess, current_card)
     @turns << new_turn
     if guess == current_card.answer
       @correct_turns << new_turn
     end
-    # binding.pry
     @deck.cards.rotate!
     return new_turn
   end
@@ -39,11 +38,13 @@ class Round
     return number.length
   end
 
+  #groups cards by category returns length converted to float
+  #looks at total correct in specific category and divides by total in that category
+  #returns percent correct with a limit on the numbers after decimal
   def percent_correct_by_category(category)
     total_cards_in_category = @deck.cards_in_category(category).length.to_f
     percent_correct = (total_correct_by_category(category).to_f / total_cards_in_category) * 100
     percent_correct.ceil(2)
-    # require "pry"; binding.pry
   end
 
 end
