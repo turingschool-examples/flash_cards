@@ -36,6 +36,16 @@ class Round
     return correct_by_category
   end
 
+  def percent_correct
+    float_number_correct = 0.0                   #Almost certainly a better way to convert to float
+    float_number_correct += @number_correct
+    float_turns_length = 0.0
+    float_turns_length += turns.length
+    puts @number_correct
+    puts turns.length
+    return  ((float_number_correct) / (float_turns_length)) * 100
+  end
+
 
 
 
