@@ -1,6 +1,10 @@
 # require 'pry';
 class Round
-  attr_reader :round, :turns, :current_card, :deck, :take_turn
+  attr_reader :round,
+              :turns,
+              :current_card,
+              :deck,
+              :take_turn
 
   def initialize(deck)
     @round = round
@@ -38,11 +42,7 @@ class Round
   end
 
   def percent_correct
-    #@turns.count.to_f
-    #number_correct.to_f
     (number_correct.to_f / @turns.count.to_f) * 100.0
-    #require 'pry'; binding.pry
-      # @turns
   end
 
   def percent_correct_by_category(category)
@@ -51,6 +51,10 @@ class Round
     # (percent_correct_by_category(category) / turns.count) * 100.0
   end
 end
+#require 'pry'; binding.pry
+# @turns
+#@turns.count.to_f
+#number_correct.to_f
 # def turns
 #
 # end
