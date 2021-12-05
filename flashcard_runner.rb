@@ -21,7 +21,7 @@ round = Round.new(deck)
 
 def start(round)
   counter = 0
-  # current_question = round.deck.cards[counter].question
+  categories_played = []
 
   puts "Welcome! You're playing with #{round.deck.cards.size} cards."
   puts "_________________________________________________"
@@ -30,9 +30,18 @@ def start(round)
     puts "This is card number #{round.turns.size + 1} out of #{round.deck.cards.size}"
     puts "Question: #{round.current_card.question}"
     counter += 1
+    categories_played << round.current_card.category
     answer = gets.chomp
     turn = round.take_turn(answer)
-    puts "Your answer is #{turn.correct?}"
+    puts "#{turn.feedback}"
+  end
+
+  puts "****** Game over! ******"
+
+  puts "You had #{round.number_correct} correct guesses out of #{counter} for a total score of #{(round.number_correct.to_f / counter * 100).to_i}%"
+  unique_categories_played = categories_played.uniq
+  print_unique_categories_played = unique_categories_played.each do |category|
+    puts "#{category} - #{round.percent_correct_by_category(category)}%."
   end
 end
 
