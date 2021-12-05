@@ -47,7 +47,7 @@ describe Turn do
     expect(turn.feedback).to eq("Correct!")
   end
 
-  it 'returns proper feedback when question answered    incorrectly' do
+  it 'returns proper feedback when question answered incorrectly' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Anchorage", card)
 

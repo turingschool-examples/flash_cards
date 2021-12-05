@@ -13,7 +13,6 @@ describe Card do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
     expect(card.question).to eq("What is the capital of Alaska?")
-    binding.pry
   end
 
   it 'has an answer' do
