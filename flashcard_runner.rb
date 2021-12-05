@@ -83,16 +83,18 @@ anykey
 puts "
 OVERALL SCORE: #{@round.percent_correct.round}%
 
+#{@round.overall_feedback}
+
 You answered #{@round.number_correct} out of #{@deck.count} questions correctly.
 "
 anykey
 puts "
 Areas of Intelligence
 ----------------------
-Famous People: #{@round.percent_correct_by_category(:FamousPeople).round}%
-Math: #{@round.percent_correct_by_category(:Math).round}%
-Philosophy: #{@round.percent_correct_by_category(:Philosophy).round}%
 "
+@round.category_feedback.each do | key, value |
+  puts "#{key}: #{value}"
+end
 anykey
 puts "
 Thanks for playing!
