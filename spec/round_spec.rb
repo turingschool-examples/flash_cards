@@ -27,7 +27,7 @@ RSpec.describe Round do
     expect(@round.current_card).to eq(@card_1)
   end
 # tried my hand at making a large test, I think its ugly but it works.
-  it "takes a turn, and prepares a new turn" do
+  it "takes a turn, accounts for wrong or right answer, and prepares a new turn" do
     expect(@new_turn).to be_a(Turn)
 
     new_turn = @round.take_turn("Juneau")
