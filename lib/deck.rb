@@ -9,10 +9,6 @@ class Deck
     @cards.count
   end
 
-  def draw
-    cards.shift
-  end
-
   def cards_in_category(named_category)
     selected_cards = []
     cards.each do |reviewed_card|
