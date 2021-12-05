@@ -56,7 +56,7 @@ class FlashCardRunner
 
   def print_percent_by_category
     @round.turns.map { |turn| turn.card.category }.uniq.each do |category|
-      puts "#{category}: #{@round.percent_correct_by_category(category).to_s.capitalize}% correct"
+      puts "#{category.capitalize}: #{@round.percent_correct_by_category(category).to_s}% correct"
     end
   end
 end
