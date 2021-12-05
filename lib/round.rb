@@ -16,6 +16,7 @@ class Round
   def take_turn(guess)
     turn = Turn.new(guess, deck.current_card(turns.length))
     turns << deck.current_card(turns.length)
+    return turn
     #if turn.correct? == true
     #  number_correct += 1
     #end
