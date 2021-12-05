@@ -1,12 +1,11 @@
 require './lib/turn'
 
 class Round
-  attr_reader :deck, :turns, :number_correct
+  attr_reader :deck, :turns
 
   def initialize(deck)
     @deck = deck
     @turns = []
-    @number_correct = 0
   end
 
   def count

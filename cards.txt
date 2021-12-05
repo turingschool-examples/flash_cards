@@ -19,7 +19,7 @@ What is the return value of [1 2 3].last?, 3, array
 What is the return value of [1 2 3 5].count?, 4, array
 Which method will remove the first element of an array and return it? Array._____, shift, array
 Which method will remove the last element of an array and return it? Array.___, pop, array
-Which method will return true if an array contains a specific element? Array._____(element), includes?, array
+Which method will return true if an array contains a specific element? Array._____(element), include?, array
 Which method will return true if every value in an array meets a certain criteria?, all?, array
 Which method will return an array with all the nil values and their indexes removed? Array.______, compact, array
 
