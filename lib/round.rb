@@ -1,11 +1,11 @@
 class Round
 
 attr_reader :deck,
-            :turn
+            :turns
 
   def initialize(deck)
     @deck      = deck
-    @turn      = []
+    @turns      = []
   end
 
   def current_card
@@ -14,7 +14,7 @@ attr_reader :deck,
 
   def take_turn(guess)
     container = Turn.new(guess, current_card)
-    @turn << container
+    @turns << container
     deck.cards.rotate()
     return container
   end
