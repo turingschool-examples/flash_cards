@@ -41,7 +41,6 @@ class Round
   end
 
   def number_correct_by_category(category)
-    # require 'pry'; binding.pry
     # cat_geography = 0
     # cat_stem = 0
     # p @turns.count
@@ -55,7 +54,12 @@ class Round
       #   puts "There is no category"
       # end
     end
-    # return cat_geography
-    # return cat_stem
+
+    require 'pry'; binding.pry
+  def percent_correct
+      round.number_correct.to_f
+      @turns/
+
+  end
   end
 end
