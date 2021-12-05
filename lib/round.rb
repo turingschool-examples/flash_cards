@@ -64,4 +64,12 @@ attr_reader :deck,
   def percent_correct
     ((number_correct * 100) / turns.length).to_f
   end
+
+  def percent_correct_by_category(category)
+    percent_correct_by_category = turns.count do |each_turn| category == each_turn.card.category && each_turn.guess == each_turn.card.answer
+    end
+    percentage_calculation = turns.count do |each_turn| category == each_turn.card.category
+    end
+    (percent_correct_by_category.to_f / percentage_calculation.to_f) * 100
+  end 
 end
