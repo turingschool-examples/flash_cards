@@ -16,6 +16,7 @@ class Round
   def round_count
     @round_count = @count +=1
   end
+
   def current_card
     @current_card = deck.cards[@count]
   end
