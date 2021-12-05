@@ -10,12 +10,10 @@ class Deck
   end
 
   def cards_in_category(category)
-    @cards.select do |card|
-      if card.category == category
-         card
-      else
-       "This category is not in the deck."
-     end
-    end
+    display_cards =
+      @cards.select do |card|
+        card if card.category == category
+      end
+    display_cards
   end
 end
