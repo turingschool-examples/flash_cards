@@ -46,4 +46,26 @@ RSpec.describe Deck do
     expect(stem).to include(card_2)
     expect(stem).to include(card_3)
   end
-end  
+
+  it "card in geography category" do
+    card_1    = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card_2    = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+    card_3    = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+    cards     = [card_1, card_2, card_3]
+    deck      = Deck.new(cards)
+    geography = deck.cards_in_category(:Geography)
+    expect(geography).to be_an(Array)
+    expect(geography).to include(card_1)
+  end
+
+  it "card in pop culture category" do
+    card_1      = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card_2      = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+    card_3      = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+    cards       = [card_1, card_2, card_3]
+    deck        = Deck.new(cards)
+    pop_culture = deck.cards_in_category("Pop Culture")
+
+    expect(pop_culture).to include()
+  end
+end
