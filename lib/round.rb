@@ -1,3 +1,4 @@
+# require 'pry'
 class Round
 #need a deck of cards
 #need a user to guess for a certain card in the deck
@@ -42,5 +43,18 @@ attr_reader :deck,
     end
     return correct_counter
   end
+
+  def number_correct_by_category(category)
+    correct_counter = 0
+
+    @turns.each do |turn|
+      # binding.pry
+      if turn.correct? == true && category == turn.card.category
+        correct_counter += 1
+      end
+    end
+    return correct_counter
+  end
+
 
 end
