@@ -49,7 +49,7 @@ class Round
 
   def percent_correct
     percent = @number_correct.to_f / @count.to_f
-    percent = percent * 100
+    percent = (percent * 100).to_i
     percent
   end
 
@@ -58,7 +58,7 @@ class Round
     end
     category_math_var = turns.count do |per_turn| category == per_turn.card.category
     end
-    (percent_correct_by_category.to_f / category_math_var.to_f) * 100
+    ((percent_correct_by_category.to_f / category_math_var.to_f) * 100).to_i
   end
 
 
