@@ -10,12 +10,13 @@ class Round
     @incorrect_turn = []
     @correct_turn = []
     @number_wrong = 0
-    @round_count = 1
+    
   end
 
   def round_count
     @round_count = @count +=1
   end
+
   def current_card
     @current_card = deck.cards[@count]
   end
@@ -23,15 +24,12 @@ class Round
   def take_turn(guess)
     turn = Turn.new(guess, current_card)
     @turns << turn
-
     if turn.correct?
       @number_correct += 1
       @correct_turn << turn
     else
-      # @incorrect_turn << turn
       @number_wrong += 1
     end
-
     @count += 1
     @turns.last
   end

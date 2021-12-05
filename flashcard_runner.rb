@@ -3,17 +3,17 @@ require './lib/card'
 require './lib/turn'
 require './lib/deck'
 require './lib/flash_round'
+require './lib/card_generator'
+# card_1 = Card.new("Question: 5 + 5?", "10", :STEM)
+# card_2 = Card.new("Question: What is Rachel's favorite animal?","Donkey", :Turing)
+# card_3 = Card.new("Question: What is Mike's middle name?", "nobody knows", :Turing)
+# card_4 = Card.new("Question: What cardboard cutout lives at turing?", "Justin Bieber", :PopCulture)
+# deck = Deck.new([card_1, card_2, card_3, card_4])
+# round = Round.new(deck)
+# round_counter = 0
+#card_counter = 4
 
-card_1 = Card.new("Question: 5 + 5?", "10", :STEM)
-card_2 = Card.new("Question: What is Rachel's favorite animal?","Donkey", :Turing)
-card_3 = Card.new("Question: What is Mike's middle name?", "nobody knows", :Turing)
-card_4 = Card.new("Question: What cardboard cutout lives at turing?", "Justin Bieber", :PopCulture)
-deck = Deck.new([card_1, card_2, card_3, card_4])
-round = Round.new(deck)
-round_counter = 0
-card_counter = 4
-
-#def start
+def start
   puts "Welcome!  You're playing with #{round.deck.count} cards."
   puts "--------------------------------------------------"
 
@@ -29,4 +29,4 @@ while round_counter < 4 do
   puts "STEM - #{round.percent_correct_by_category(:STEM)}% correct"
   puts "Turing Staff - #{round.percent_correct_by_category(:Turing)}% correct"
   puts "Pop Culture - #{round.percent_correct_by_category(:PopCulture)}% correct"
-#end
+end
