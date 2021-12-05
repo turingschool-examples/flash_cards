@@ -12,17 +12,25 @@ attr_reader :deck, :turns, :current_card, :number_correct, :number_wrong
   end
 
   def take_turn(guess)
-    turn = Turn.new(guess, current_card)
-    @turns << turn
-    if turn.correct?
+    x = Turn.new(guess, current_card)
+    @turns << x
+    if x.correct?
       @number_correct += 1
-      @correct_cards << turn
+      @correct_cards << x
     else
       @number_wrong += 1
     end
     @current_card = deck.cards[+1]
-    return turn
+    return turns.last
     end
 
-    # def number_correct_by_category
+    def number_correct_by_category
+      @correct_category = []
+      @turns.each do |turn|
+        if turn.card.category == category && turn.correct?
+        @correct_category << turn
+      end
+      end
+      return correct_category.count
+      end
   end
