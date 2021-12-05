@@ -51,9 +51,8 @@ RSpec.describe Round do
     round = Round.new(deck)
     new_turn = round.take_turn("Juneau")
     expect(new_turn.class).to eq(Turn)
-    # expect(new_turn.correct?). to eq(true)
-
-
-    # expect(). to eq()
+    expect(new_turn.correct?).to eq(true)
+    expect(round.turns).to eq([])
   end
+
 end
