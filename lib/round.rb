@@ -41,4 +41,12 @@ class Round
   def count
     @turns_array.count
   end
+
+  def number_correct_by_category(category)
+    @category = category
+    deck.cards_in_category(@category)
+    cat_card_array = @turns_array
+    turns.correct?
+  end
+
 end
