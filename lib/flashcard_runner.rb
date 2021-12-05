@@ -13,7 +13,12 @@ round = Round.new(deck)
 p "Welcome! You're playing with 3 cards."
 p "-" * 40
 round.start
-p "Round #{round.turns.count + 1} of #{round.deck.count}"
+p "Round #{round.turns.count + 1} of 3"
+p "#{round.deck.cards[0].question}"
+round.take_turn(gets.chomp)
+p round.turns[0].feedback
+
+p "Round #{round.turns.count + 1} of 3"
 p "#{round.deck.cards[0].question}"
 round.take_turn(gets.chomp)
 p round.turns[0].feedback
