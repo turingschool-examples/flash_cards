@@ -8,6 +8,7 @@ attr_reader :deck, :turns, :current_card, :number_correct, :number_wrong
     @number_correct = 0
     @number_wrong = 0
     @correct_cards = []
+
   end
 
   def take_turn(guess)
@@ -19,7 +20,9 @@ attr_reader :deck, :turns, :current_card, :number_correct, :number_wrong
     else
       @number_wrong += 1
     end
-    deck.cards.shift()
+    @current_card = deck.cards[+1]
     return turn
     end
+
+    # def number_correct_by_category
   end
