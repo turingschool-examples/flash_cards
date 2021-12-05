@@ -39,7 +39,8 @@ class Round
 
   def percent_correct_by_category(category)
     if @correct_category.include?(category)
-      100 #Add stuff to include   number of correct category / how many of certain category appeared * 100 for percentage 
+      categories = @turns.map { |turn| turn.card.category}
+      @correct_category.count(category).to_f / categories.count(category) * 100
     else
       0
     end

@@ -6,10 +6,11 @@ class CardGenerator
   def initialize(filename)
     @filename = filename
   end
-  
+
   def cards
     file.map { |line|
       question, answer, category = line.split(",")
+      category = category.chop.to_sym
       Card.new(question, answer, category)
     }
   end
