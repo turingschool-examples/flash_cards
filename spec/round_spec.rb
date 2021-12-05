@@ -81,7 +81,6 @@ RSpec.describe Round do
     new_turn = round.take_turn("Juneau")
 
     expect(round.current_card.answer).to eq("Mars")
-
   end
 
   it 'can have incorrect guesses' do
@@ -91,7 +90,6 @@ RSpec.describe Round do
     deck = Deck.new([card_1, card_2, card_3])
     round = Round.new(deck)
     new_turn = round.take_turn("Juneau")
-
     round.take_turn("Venus")
 
     expect(round.turns.count).to eq(2)

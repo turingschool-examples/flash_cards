@@ -1,0 +1,12 @@
+What sport is dubbed The King of Sports?,Soccer,Sports
+Area 51 is located in which state?,Nevada,Geography
+What is the national animal of Scotland?,Unicorn,Fun_Facts
+Dump floater and wipe are terms used in which team sport?,Volleyball,Sports
+Which country borders 14 nations and crosses 8 time zones?,Russia,Geography
+Iceland diverted roads to avoid disturbing communities of what,Elves,Fun_Facts
+What does a Geiger Counter measure?,Radiation,STEM
+True or false – lightning is hotter than the sun.,True,STEM
+The name of which African animal means River Horse?,Hippo,STEM
+In which state is it illegal for a donkey to sleep in a bathtub?,Arizona,Fun_Facts
+In which state is it illegal to keep a couch on your porch?,Colorado,Fun_Facts
+In which state are sleeveless shirts banned in public parks?,Maryland,Fun_Facts
