@@ -11,6 +11,11 @@ attr_reader :deck,
     @number_correct = 0
     @current_card = deck.cards[0]
     @count = 0
+    @correct_turn = []
+  end
+
+  def round_count
+    @round_count = @count += 1
   end
 
   def current_card
@@ -25,6 +30,7 @@ attr_reader :deck,
     @turns << turn
     if turn.correct?
       @number_correct += 1
+      @correct_turn << turn
     end
     @count += 1
     @turns.last
@@ -35,6 +41,16 @@ attr_reader :deck,
   #    end
   #  end
   #  return made_guesses
+  end
+
+  def number_correct_by_category(category)
+    correct_categories = 0
+    @correct_turn.each do |check|
+      if check.card.category == category
+        correct_categories += 1
+      end
+    end
+    correct_categories
   end
 
   #def number_correct
