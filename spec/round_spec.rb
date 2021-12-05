@@ -96,7 +96,23 @@ RSpec.describe Round do
     turn_1 = round.take_turn("Juneau")
     turn_2 = round.take_turn("Venus")
 
-    expect(round.number_correct_by_category(:Geography)).to eq(1)
+    expect(round.percent_correct).to eq(50)
   end
 
+  xit '#percent_correct_by_category' do
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+    card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+
+    cards = [card_1, card_2, card_3]
+
+    deck = Deck.new(cards)
+
+    round = Round.new(deck)
+
+    turn_1 = round.take_turn("Juneau")
+    turn_2 = round.take_turn("Venus")
+
+    expect(round.percent_correct_by_category(:Geography)).to eq(100)
+  end
 end
