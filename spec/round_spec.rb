@@ -63,10 +63,12 @@ RSpec.describe Round do
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
     round = Round.new(deck)
-    expect(round.current_card).to eq(card_1)
-    round.take_turn("Juneau")
+    new_turn = round.take_turn("Venus")
+    # expect(round.current_card).to eq(card_1)
+    # round.take_turn("Juneau")
     expect(round.current_card).to eq(card_2)
-
+    # expect(round.take_turn).to eq("Venus")
+    # expect(round.turns.count).to eq(2)
   end
 
 end
