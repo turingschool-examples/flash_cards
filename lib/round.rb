@@ -41,9 +41,23 @@ class Round
     float_number_correct += @number_correct
     float_turns_length = 0.0
     float_turns_length += turns.length
-    puts @number_correct
-    puts turns.length
     return  ((float_number_correct) / (float_turns_length)) * 100
+  end
+
+  def percent_correct_by_category(category)
+    correct_by_category = 0.0
+    cards_with_category = 0.0                    #Can probably call the actual method here
+    turns.each do |this_turn|
+      if this_turn.card.category == category
+        cards_with_category += 1.0
+         if this_turn.correct?
+           correct_by_category += 1.0
+         end
+      end
+    end
+
+    return ((correct_by_category) / (cards_with_category)) * 100
+
   end
 
 
