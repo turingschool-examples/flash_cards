@@ -121,6 +121,7 @@ RSpec.describe Round do
     #binding.pry
 
     expect(round.percent_correct).to be(50.0)
+    expect(round.current_card).to be(card_3)
 
   end
 end
