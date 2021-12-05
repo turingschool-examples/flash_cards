@@ -25,7 +25,7 @@ class Round
     new_turn = Turn.new(guess, current_card)
     @turns << new_turn
     # return new_turn
-    deck.cards.delete_at(0)
+    deck.cards.rotate!(1)
     new_turn
   end
 
@@ -40,11 +40,10 @@ class Round
   end
 
   def percent_correct
-    @correct_turn/@turns.size * 100
+    @correct_turn/@turns.size * 100.0
   end
 
-  # def percent_correct_by_category(category)
-  #   @turns.size/@correct_turn * 100
-  # end
-
+  def percent_correct_by_category(category)
+    (number_correct_by_category(category)/deck.cards_in_category(category).length) * 100.0
+  end
 end
