@@ -8,6 +8,10 @@ class Deck
     @cards = []
   end
 
+  def category
+    return card.category
+  end
+
   def cards
     @cards << @card
     return @cards
@@ -17,5 +21,14 @@ class Deck
     @card.count
   end
 
+  def cards_in_category(card_category)
+    category_cards = []
+
+    @cards.each do |each_card|
+      if cards.category == card_category
+        category_cards << each_card
+      end
+    end
+  end
 
 end
