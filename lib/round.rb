@@ -11,21 +11,22 @@ attr_reader :deck, :turns, :current_card, :number_correct, :number_wrong,
     @correct_cards = []
     @correct_category = []
     @turns_by_category = []
-
+    @counter = 0
   end
 
   def take_turn(guess)
-    x = Turn.new(guess, current_card)
-    @turns << x
-    if x.correct?
+    turn = Turn.new(guess, current_card)
+    @turns << turn
+    if turn.correct?
       @number_correct += 1
-      @correct_cards << x
+      @correct_cards << turn
     else
       @number_wrong += 1
     end
-    @current_card = deck.cards[+1]
+    @counter +=1
+    @current_card = deck.cards[@counter]
     return turns.last
-    end
+  end
 
     def number_correct_by_category(category)
       @correct_category = []
@@ -35,7 +36,7 @@ attr_reader :deck, :turns, :current_card, :number_correct, :number_wrong,
       end
       end
       return @correct_category.count
-      end
+    end
 
     def percent_correct
       (@number_correct.to_f / @turns.count) * 100
@@ -49,6 +50,7 @@ attr_reader :deck, :turns, :current_card, :number_correct, :number_wrong,
       end
       return @turns_by_category.count
     end
+
     def percent_correct_by_category(category)
       (number_correct_by_category(category).to_f / turns_by_category(category)) * 100
 
