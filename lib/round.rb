@@ -52,4 +52,21 @@ class Round
     (number_correct_by_category(category).to_f / turns_per_cat(category)) * 100
 
   end
+
+  def start
+
+    puts "Welcome! You're playing with #{@deck.cards.length} cards.
+-------------------------------------------------
+This is card number 1 out of #{@deck.cards.length}.
+Question: #{current_card.question}"
+  answer = gets.chomp
+   if answer == current_card.answer
+     puts "Correct!"
+   else
+     puts "Incorrect."
+   end
+    # turn.feedback <<<<< figure out how to use this method
+
+  end
+
 end
