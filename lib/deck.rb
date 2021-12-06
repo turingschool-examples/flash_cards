@@ -1,14 +1,24 @@
 class Deck
-  attr_reader :cards, :used_cards
+  attr_reader :cards, :used_cards, :categories_in_deck
 
   def initialize(cards)
     @cards = cards
     @used_cards = []
+    @categories_in_deck = categories_in_use
   end
 
   # Counts number of cards in Deck
   def count
     @cards.count
+  end
+
+  # Returns list of unique categories in Deck.
+  def categories_in_use
+    categories = []
+    @cards.each do |card|
+      categories << card.category
+    end
+    return categories.sort.uniq!
   end
 
   # Accepts argument. Returns number of cards that match the category given in argument
