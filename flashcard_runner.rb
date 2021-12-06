@@ -1,9 +1,20 @@
+require './lib/card.rb'
+require './lib/deck.rb'
+require './lib/turn.rb'
+require './lib/round.rb'
+
+@card("What is 5 + 5?", 10, :STEM)
+@card("What is Rachel's favorite animal?", "Dog", "Turing Staff")
+@card("What is Mike's middle name?", "nobody knows", "Turing Staff")
+@card("What cardboard cutout lives at Turing", "Justin Bieber", "Turing Staff")
+
+
 puts "Welcome! You're playing with 4 cards."
 puts "-------------------------------------------------"
 puts "This is card number 1 out of 4."
 puts "Question: What is 5 + 5?"
 gets
-if gets = 10
+if gets == 10
   puts "Correct!"
 else
   puts "Incorrect."
