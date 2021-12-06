@@ -68,7 +68,6 @@ RSpec.describe Round do
     round = Round.new(deck)
     new_turn = round.take_turn("Juneau")
     expect(round.current_card).to eq(card_2)
-
   end
 
   it 'is a new turn class2' do
