@@ -5,13 +5,16 @@ class Deck
 
   def initialize(card)
     @card = card
-    # @cards = []
+    @cards = []
   end
 
   def cards
-    # @cards << Card.new
-    # return @cards
+    @cards << @card
     return @cards
+  end
+
+  def count
+    @card.count
   end
 
 
