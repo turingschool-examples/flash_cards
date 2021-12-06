@@ -27,10 +27,14 @@ class Game
   def game_over
     p "****** Game over! ******"
     p "You had #{round.correct_response.count} correct guesses out of #{@starting_deck} for a total score of #{round.percent_correct}%."
-    p "STEM - #{round.percent_correct_by_category('STEM')}% correct"
-    p "Sports - #{round.percent_correct_by_category('Sports')}% correct"
-    p "Geography - #{round.percent_correct_by_category('Geography')}% correct"
-    p "Fun Facts - #{round.percent_correct_by_category('Fun_Facts')}% correct"
+    @round.deck.categories_in_deck.each do |category|
+      puts "#{category} - #{round.percent_correct_by_category(category)}% correct"
+    end
+    # Original hard-coded categories below. New refactored code above.
+    # p "STEM - #{round.percent_correct_by_category('STEM')}% correct"
+    # p "Sports - #{round.percent_correct_by_category('Sports')}% correct"
+    # p "Geography - #{round.percent_correct_by_category('Geography')}% correct"
+    # p "Fun Facts - #{round.percent_correct_by_category('Fun_Facts')}% correct"
   end
 
   # starts game and prints welcome message to player.

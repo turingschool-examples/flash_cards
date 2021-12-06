@@ -1,4 +1,6 @@
 require './lib/game'
+require './lib/deck'
+require './lib/round'
 
 RSpec.describe Game do
   it 'exists' do

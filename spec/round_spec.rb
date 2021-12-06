@@ -22,6 +22,7 @@ RSpec.describe Round do
     round = Round.new(deck)
 
     expect(round.deck).to be_instance_of(Deck)
+    expect(round.deck).to eq(deck) 
   end
 
   it 'begins the round with no turns taken' do
