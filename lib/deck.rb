@@ -18,6 +18,4 @@ class Deck
   end
 
 
-
-
 end
