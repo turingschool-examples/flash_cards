@@ -16,6 +16,6 @@ class Deck
   def cards_in_category(category)
     return nil unless @cards.each { |card| card.category == category}
 
-    @cards.select { |card| card if card.category == category }
+    @cards.select { |card| card.category == category }
   end
 end
