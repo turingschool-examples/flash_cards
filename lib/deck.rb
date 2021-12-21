@@ -7,13 +7,14 @@ class Deck
 
   end
   def cards_in_category(category)
-    cards_in = []
-    @cards.each do|card|
-      if card.category == category
-        cards_in << card
-      end
-    end
-    return cards_in
+    @cards.find_all { |card| card.category == category  }
+    #cards_in = []
+    #@cards.each do|card|
+    #  if card.category == category
+    #    cards_in << card
+    #  end
+    #end
+    #return cards_in
   end
 
 end

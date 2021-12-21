@@ -48,5 +48,5 @@ it 'exists' do
   #  cards = [card_1, card_2, card_3]
   #  deck = Deck.new(cards)
   #  expect(deck.current_card).to eq(card_1)
-  end
+  #end
 end
