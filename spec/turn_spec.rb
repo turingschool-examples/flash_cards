@@ -27,9 +27,20 @@ RSpec.describe Turn do
   end
 
   it 'identifies an incorrect guess' do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    turn = Turn.new("Anchorage", card)
+    card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+    turn = Turn.new("Saturn", card)
     expect(turn.correct?).to eq false
   end
 
+  it 'gives feedback on a correct answer' do
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Juneau", card)
+    expect(turn.feedback?).to eq('Correct')
+  end
+
+  it 'gives feedback on an incorrect answer' do
+    card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+    turn = Turn.new("Saturn", card)
+    expect(turn.feedback?).to eq('Incorrect')
+  end
 end
