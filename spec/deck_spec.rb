@@ -11,9 +11,40 @@ RSpec.describe Deck do
     expect(deck).to be_instance_of(Deck)
   end
 
-  xit 'gives feedback on an incorrect answer' do
-    card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
-    turn = Turn.new("Saturn", card)
-    expect(turn.feedback?).to eq('Incorrect')
+  it 'contains cards' do
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+    card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+    cards = [card_1, card_2, card_3]
+    deck = Deck.new(cards)
+    expect(deck.cards).to eq(cards)
   end
+
+  it 'contains three cards' do
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+    card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+    cards = [card_1, card_2, card_3]
+    deck = Deck.new(cards)
+    expect(deck.count).to eq(3)
+  end
+
+  it 'selects all cards in a category' do
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+    card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+    cards = [card_1, card_2, card_3]
+    deck = Deck.new(cards)
+    expect(deck.cards_in_category(:Geography)).to eq([card_1])
+  end
+
+  it 'does not select cards from a different category' do
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+    card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+    cards = [card_1, card_2, card_3]
+    deck = Deck.new(cards)
+    expect(deck.cards_in_category(:STEM)).to_not eql([card_1])
+  end
+
 end
