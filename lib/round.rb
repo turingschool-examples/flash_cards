@@ -33,7 +33,7 @@ class Round
   end
 
   def percent_correct
-    (@number_correct / @turns.length).to_f.round(2) * 100
+    (@number_correct.to_i / @turns.length.to_f).round(2) * 100
   end
 end
 
