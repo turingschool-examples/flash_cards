@@ -8,7 +8,7 @@ class Turn
     end
 
     def correct?
-        if @card.answer == @guess
+        if @card.answer.capitalize == @guess.capitalize
             true
         else
             false
@@ -22,5 +22,5 @@ class Turn
             'Incorrect.'
         end
     end
-    
+
 end
