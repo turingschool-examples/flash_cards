@@ -29,7 +29,7 @@ class Round
     total_correct = []
     total_questions << @turns.each { |turn| turn.card.category == category ? total_questions << turn : turn }
     total_correct << @turns.each { |turn| turn.card.category == category && turn.guess == turn.card.answer ? total_correct << turn : turn }
-    (total_correct.length / total_questions.length).to_f.round(2) * 100
+    (total_correct.length / total_questions.length.to_f).round(2) * 100
   end
 
   def percent_correct
@@ -37,4 +37,4 @@ class Round
   end
 end
 
-require 'pry'; binding.pry
+#require 'pry'; binding.pry
