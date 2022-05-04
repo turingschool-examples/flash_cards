@@ -15,7 +15,7 @@ RSpec.describe Deck do
     end
 
     it 'has cards' do
-        expect(deck.cards).to eq([@card_1, @card_2, @card_3])
+        expect(@deck.cards).to eq([@card_1, @card_2, @card_3])
     end
 
     it 'can count the cards' do
@@ -23,11 +23,11 @@ RSpec.describe Deck do
     end
 
     it 'can sort cards by category' do
-        expect(@deck.cards_in_category(:STEM)).to eq ([card_2,card_3])
+        expect(@deck.cards_in_category(:STEM)).to eq ([@card_2, @card_3])
     end
 
     it 'can sort by any category' do
-        expect(@deck.cards_in_category(:Geography)).to eq([card_1])
+        expect(@deck.cards_in_category(:Geography)).to eq([@card_1])
     end
 
     it 'can create new categories to sort by' do
