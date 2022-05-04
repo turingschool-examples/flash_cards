@@ -20,4 +20,11 @@ RSpec.describe Turn do
         expect(@turn.correct?).to eq false
     end
 
+    it 'can return feedback if answer is correct/incorrect' do
+        @turn1 = Turn.new("Juneau", @card)
+
+        expect(@turn.feedback).to eq('Incorrect.')
+        expect(@turn1.feedback).to eq('Correct.')
+    end
+
 end
