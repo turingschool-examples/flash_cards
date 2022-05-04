@@ -7,4 +7,12 @@ class Turn
         @card = card
     end
 
+    def correct?
+        if @card.answer == @guess
+            true
+        else
+            false
+        end
+    end
+
 end

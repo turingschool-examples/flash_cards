@@ -4,7 +4,7 @@ require './lib/card'
 RSpec.describe Turn do
     before :each do
         @card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-        @Turn.new("Saturn", @card)
+        @turn = Turn.new('Saturn', @card)
     end
 
     it 'exists' do
