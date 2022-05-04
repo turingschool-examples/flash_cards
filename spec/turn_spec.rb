@@ -27,4 +27,9 @@ RSpec.describe Turn do
         expect(@turn1.feedback).to eq('Correct!')
     end
 
+    it 'can evaluate if the answers match but casing is off' do
+        @turn1 = Turn.new("juneau", @card)
+        
+        expect(@turn1.correct?).to eq true
+    end
 end
