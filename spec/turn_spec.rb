@@ -41,5 +41,9 @@ RSpec.describe Turn do
         it 'new_turn is in Turn class' do
             expect(@new_turn.class).to be_a Turn
         end
+
+        it 'it can use the correct? method' do
+            expect(@new_turn.correct?).to eq true
+        end
     end
 end
