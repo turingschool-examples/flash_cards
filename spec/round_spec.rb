@@ -18,4 +18,8 @@ RSpec.describe Round do
         expect(@round).to be_a(Round)
     end
 
+    it 'has a deck' do
+        expect(@round.deck).to eq(@deck)
+    end
+
 end
