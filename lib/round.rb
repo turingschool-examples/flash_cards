@@ -8,5 +8,10 @@ class Round
     end
 
     def current_card; @deck.cards.first end
-    
+
+    def take_turn(guess)
+        binding.pry
+        current_card.guess
+    end
+
 end
