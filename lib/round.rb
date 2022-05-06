@@ -33,4 +33,8 @@ class Round
     end
     correct_count
   end
+
+  def percent_correct
+    (number_correct.to_f / @turns.length * 100).round
+  end
 end
