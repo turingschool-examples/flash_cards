@@ -13,4 +13,10 @@ it 'has a question' do
     expect(card.question).to eq("What is the capital of Alaska?")
   end
 
-end 
+  it 'has an answer' do
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+
+    expect(card.answer).to eq("Juneau")
+  end
+
+end
