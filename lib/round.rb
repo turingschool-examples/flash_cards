@@ -42,6 +42,6 @@ class Round
     category_total = turns.select do |turn|
       turn.card.category == category
     end.length
-      (number_correct_by_category(category).to_f / category_total) * 100
+    (number_correct_by_category(category).to_f / category_total) * 100
   end
 end
