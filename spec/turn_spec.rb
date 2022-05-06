@@ -15,6 +15,7 @@ RSpec.describe Turn do
     turn = Turn.new("Juneau", card)
 
     expect(turn.guess).to eq "Juneau"
-    expect(turn.correct?).to eq true 
+    expect(turn.correct?).to eq true
+    expect(turn.feedback).to eq "Correct!"
   end
 end
