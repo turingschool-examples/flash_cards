@@ -23,6 +23,13 @@ class Round
         correct_answer << turn
       end
     end
-    correct_answer.length 
+    correct_answer.length
+  end
+
+  def number_correct_by_category(category)
+    @turns.select do |turn|
+      # binding.pry
+      turn.card.category == category && turn.correct? == true
+    end.length
   end
 end
