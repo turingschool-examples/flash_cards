@@ -29,6 +29,12 @@ RSpec.describe Round do
     expect(new_turn.correct?).to eq true
     expect(round.turns).to eq [new_turn]
     expect(round.number_correct).to eq 1
-    expect(round.current_card).to eq  card_2
+    expect(round.current_card).to eq card_2
+
+    round.take_turn("Venus")
+
+    expect(round.turns.count).to eq 2
+    expect(round.turns.last.feedback).to eq "Incorrect."
+    expect(round.number_correct).to eq 1
   end
 end
