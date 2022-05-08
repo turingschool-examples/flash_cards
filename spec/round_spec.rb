@@ -26,6 +26,9 @@ RSpec.describe Round do
     round = Round.new(deck)
     new_turn = round.take_turn("Juneau")
 
-    expect(new_turn.correct?).to eq true 
+    expect(new_turn.correct?).to eq true
+    expect(round.turns).to eq [new_turn]
+    expect(round.number_correct).to eq 1
+    expect(round.current_card).to eq  card_2
   end
 end
