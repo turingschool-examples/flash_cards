@@ -15,4 +15,14 @@ class Round
     @deck.cards.rotate!(1)
     @turns.last
   end
+
+  def number_correct
+    correct_answer = []
+    @turns.each do |turn|
+      if turn.correct? == true
+        correct_answer << turn
+      end
+    end
+    correct_answer.length 
+  end
 end
