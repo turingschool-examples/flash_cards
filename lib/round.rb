@@ -9,4 +9,10 @@ class Round
   def current_card
     @deck.cards.first
   end
+
+  def take_turn(guess)
+    @turns << Turn.new(guess, current_card)
+    @deck.cards.rotate!(1)
+    @turns.last
+  end
 end
