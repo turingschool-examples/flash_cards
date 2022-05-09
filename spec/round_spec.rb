@@ -45,5 +45,10 @@ RSpec.describe Round do
         expect(@round.turns.count).to eq(2)
     end
 
+    it 'can check the last feedback' do
+        @round.take_turn("Venus")
+        
+        expect(@round.turns.last.feedback).to eq("Incorrect.")
+    end
 
 end
