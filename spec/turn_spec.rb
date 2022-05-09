@@ -1,3 +1,4 @@
+require './lib/round'
 require './lib/turn'
 require './lib/card'
 
@@ -5,6 +6,8 @@ RSpec.describe Turn do
     before :each do
         @card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
         @turn = Turn.new('Saturn', @card)
+
+        @new_turn = @round.take_turn("Juneau")
     end
 
     it 'exists' do
