@@ -35,4 +35,11 @@ RSpec.describe Round do
         expect(@round.turns).to eq([@new_turn])
     end
 
+
+    it 'Counts the number correct'
+    @new_turn = @round.take_turn("Juneau")
+
+    expect(@round.number_correct).to eq(1)
+
+
 end
