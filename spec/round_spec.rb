@@ -52,6 +52,7 @@ RSpec.describe Round do
     end
 
     it 'when counting the number correct doesnt include the incorrect feedback' do
+        @round.take_turn("Venus")
         expect(@round.number_correct).to eq(1)
     end
 
@@ -61,6 +62,7 @@ RSpec.describe Round do
     end
 
     it 'can calculate the percentage correct' do
+        @round.take_turn("Venus")
         expect(@round.percent_correct).to eq(50.0)
     end
 
