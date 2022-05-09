@@ -60,6 +60,8 @@ RSpec.describe Round do
         expect(@round.number_correct_by_category(:STEM)).to eq(0)
     end
 
-    it 'can'
+    it 'can calculate the percentage correct' do
+        expect(@round.percent_correct).to eq(50.0)
+    end
 
 end
