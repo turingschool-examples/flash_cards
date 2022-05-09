@@ -1,7 +1,7 @@
 require 'pry'
 
 class Round
-    attr_reader :deck, :turns
+    attr_reader :deck, :turns, :correct_answer
     def initialize(deck)
         @deck = deck
         @turns = []
@@ -17,7 +17,10 @@ class Round
     end
 
     def number_correct
-        @correct_answer += 1 if correct? == true
+        @turns.each do |turn|
+            @correct_answer += 1 if turn.correct? == true
+        end
+        @correct_answer
     end
 
 

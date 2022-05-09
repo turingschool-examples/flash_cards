@@ -12,6 +12,8 @@ RSpec.describe Round do
         @deck = Deck.new([@card_1, @card_2, @card_3])
 
         @round = Round.new(@deck)
+
+        @new_turn = @round.take_turn("Juneau")
     end
 
     it 'exists' do
@@ -28,18 +30,14 @@ RSpec.describe Round do
     end
 
     it 'can take a card' do
-        @new_turn = @round.take_turn("Juneau")
-
         expect(@new_turn.class).to eq(Turn)
         expect(@new_turn.correct?).to eq(true)
         expect(@round.turns).to eq([@new_turn])
     end
 
-
-    it 'Counts the number correct'
-    @new_turn = @round.take_turn("Juneau")
-
+    it 'Counts the number correct' do
     expect(@round.number_correct).to eq(1)
+    end
 
 
 end
