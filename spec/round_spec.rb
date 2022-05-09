@@ -39,5 +39,11 @@ RSpec.describe Round do
     expect(@round.number_correct).to eq(1)
     end
 
+    it 'can count the turns' do
+        @round.take_turn("Venus")
+
+        expect(@round.turns.count).to eq(2)
+    end
+
 
 end
