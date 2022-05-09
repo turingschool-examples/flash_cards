@@ -55,4 +55,8 @@ RSpec.describe Round do
         expect(@round.number_correct).to eq(1)
     end
 
+    it 'can count the number correct by category' do
+        expect(@round.number_correct_by_category(:Geography)).to eq(1)
+    end
+
 end
