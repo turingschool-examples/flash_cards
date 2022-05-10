@@ -14,4 +14,12 @@ def correct?
   end
 end
 
+def feedback
+  if correct? == true
+    'Correct!'
+  else
+    'Incorrect.'
+  end
+end
+
 end
