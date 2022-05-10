@@ -23,7 +23,7 @@ attr_reader :string, :card
     if correct?
       "Correct!"
     else
-      "Not correct."
+      "Not correct!"
     end
   end
 
