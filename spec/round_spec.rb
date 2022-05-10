@@ -70,4 +70,8 @@ RSpec.describe Round do
         expect(@round.percent_correct_by_category(:Geography)).to eq(100.0)
     end
 
+    it 'rotates top card to the bottom of the deck' do
+        expect(@round.current_card).to eq(@card_3)
+    end
+
 end
