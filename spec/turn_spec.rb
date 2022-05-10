@@ -32,6 +32,34 @@ RSpec.describe Turn do
     expect(turn.correct?).to be true
   end
 
+  it 'returns true if guesses match but are in different cases' do
+
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+
+    turn = Turn.new("juneau",card)
+
+    expect(turn.correct?).to be true
+  end
+
+  it 'returns true if guess matches but includes spaces before/after or extra spaces between words' do
+
+    card = Card.new("What is the capital of Arkansas?", "Little Rock", :Geography)
+
+    turn_1 = Turn.new("LittleRock",card)
+
+    expect(turn_1.correct?).to be true
+
+    turn_2 = Turn.new(" Little Rock",card)
+
+    expect(turn_2.correct?).to be true
+
+    turn_3 = Turn.new("Lil Rock   ").to be false
+
+    expect(turn_3.correct?).to be false
+  end
+
+
+
   # it 'has a category' do
   #   card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
   #
