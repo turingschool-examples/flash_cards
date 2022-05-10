@@ -8,5 +8,9 @@ class Card
     @subject = subject
   end
 
+  def question
+    @question
+  end
+
 
 end
