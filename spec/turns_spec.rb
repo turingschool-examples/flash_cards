@@ -1,9 +1,11 @@
+require './lib/card'
 require './lib/turns'
 
-RSpec.describe Card do
+RSpec.describe Turns do
+  ##Do I need this line 10??
   it 'exists' do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turns = Turns.new("Juneau", card)
 
-    expect(card).to be_instance_of(Card)
+    expect(turns).to be_instance_of(Turns)
   end
 end
