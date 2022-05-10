@@ -22,7 +22,7 @@ RSpec.describe Round do
 
     it 'has a deck, turns' do
         expect(@round.deck).to eq(@deck)
-        expect(@round.turns).to eq([])
+        expect(@round.turns).to eq([@new_turn])
     end
 
     it 'has a current card' do
@@ -64,6 +64,11 @@ RSpec.describe Round do
     it 'can calculate the percentage correct' do
         @round.take_turn("Venus")
         expect(@round.percent_correct).to eq(50.0)
+    end
+
+    it 'can calculate the percentage correct by category' do
+        @round.take_turn("Venus")
+        expect(@round.percent_correct_by_category(:Geography)).to eq(100.0)
     end
 
 end
