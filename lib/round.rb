@@ -7,7 +7,9 @@ class Round
         @turns = []
     end
 
-    def current_card; @deck.cards.first end
+    def current_card
+        @deck.cards.first 
+    end
 
     def take_turn(guess)
         @turns << Turn.new(guess, current_card)
