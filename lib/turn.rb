@@ -8,7 +8,7 @@ class Turn
   end
 
   def correct?
-    return self.guess == card.answer
+    return self.guess.downcase == card.answer.downcase
   end
 
 end
