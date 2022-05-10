@@ -5,6 +5,7 @@ require './lib/card'
 
 RSpec.describe Turn do
   it 'exists' do
+
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
     turn = Turn.new("My guess",card)
@@ -14,19 +15,23 @@ RSpec.describe Turn do
   end
 
   it 'has a guess' do
+
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
     turn = Turn.new("My guess",card)
 
     expect(turn.guess).to eq("My guess")
   end
-  #
-  # it 'has an answer' do
-  #   card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-  #
-  #   expect(card.answer).to eq("Juneau")
-  # end
-  #
+
+  it 'returns true if guess matches exactly' do
+
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+
+    turn = Turn.new("Juneau",card)
+
+    expect(turn.correct?).to be true
+  end
+
   # it 'has a category' do
   #   card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
   #
