@@ -7,4 +7,8 @@ class Turn
     @card = card
   end
 
+  def correct?
+    return self.guess == card.answer
+  end
+
 end
