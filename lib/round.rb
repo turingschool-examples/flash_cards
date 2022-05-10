@@ -18,7 +18,7 @@ class Round
 
   def take_turn(guess)
     @turns << Turn.new(guess, @deck.cards.first)
-    @number_correct += 1 if @turns.first.guess == @deck.cards.first.answer
+    @number_correct += 1 if @turns.last.guess == @deck.cards.first.answer
     @used_cards << @deck.cards.first
     @deck.cards.shift
     return @turns.last

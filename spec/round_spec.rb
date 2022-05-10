@@ -104,9 +104,14 @@ RSpec.describe Round do
     deck = Deck.new([card_1, card_2, card_3])
     round = Round.new(deck)
     new_turn = round.take_turn("Juneau")
+    expect(round.current_card).to eq(card_2)
     second_round = round.take_turn("Venus")
     expect(round.percent_correct).to eq(50.0)
     expect(round.percent_correct_by_category(:Geography)).to eq(100.0)
     expect(round.current_card).to eq(card_3)
+    third_round = round.take_turn("North north west")
+    expect(round.percent_correct).to eq(200/3.to_f)
+    expect(round.percent_correct_by_category(:STEM)).to eq(50.0)
+    expect(round.current_card).to be(nil)
   end
 end
