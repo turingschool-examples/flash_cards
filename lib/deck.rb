@@ -1,8 +1,8 @@
 require 'pry'
 
 class Deck 
-    attr_reader :count
     attr_accessor :cards
+
     def initialize(cards); @cards = cards end
 
     def count; @cards.length end

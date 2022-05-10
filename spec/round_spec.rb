@@ -77,4 +77,9 @@ RSpec.describe Round do
         expect(@round.percent_correct_by_category(:Geography)).to eq(100.0)
     end
 
+    it 'can rotate cards' do
+        @round.take_turn("Juneau")
+        expect(@round.current_card).to eq(@card_2)
+    end
+
 end
