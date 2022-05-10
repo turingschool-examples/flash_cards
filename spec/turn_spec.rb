@@ -1,6 +1,7 @@
 require './turn'
+require './card'
 
-Rspec.describe Turn do
+RSpec.describe Turn do
   it 'exists' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new('Juneau',card)
@@ -13,4 +14,5 @@ Rspec.describe Turn do
     turn = Turn.new('Juneau',card)
 
     expect(turn.card).to eq(card)
-  end 
+  end
+end
