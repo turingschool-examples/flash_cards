@@ -1,3 +1,4 @@
+require './lib/round'
 require './lib/turn'
 require './lib/card'
 
@@ -32,4 +33,5 @@ RSpec.describe Turn do
         
         expect(@turn1.correct?).to eq true
     end
+
 end
