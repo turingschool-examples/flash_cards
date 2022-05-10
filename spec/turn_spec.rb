@@ -1,3 +1,4 @@
+require 'rspec'
 require './turn'
 require './card'
 
@@ -24,9 +25,18 @@ RSpec.describe Turn do
   end
 
   it 'checks if the guess is correct' do
-  card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-  turn = Turn.new('Juneau',card)
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new('Juneau',card)
 
-  expect(turn.correct?).to be true
+    expect(turn.correct?).to be true
+  end
+
+  it 'provides feedback for guesses' do
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn_right = Turn.new('Juneau',card)
+    turn_wrong = Turn.new('Denver',card)
+
+    expect(turn_right.feedback).to eq('Correct!')
+    expect(turn_wrong.feedback).to eq('Incorrect.')
   end
 end
