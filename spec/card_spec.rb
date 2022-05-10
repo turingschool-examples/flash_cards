@@ -7,19 +7,19 @@ RSpec.describe Card do
     expect(card).to be_instance_of(Card)
   end
 
-  it 'has a question' do
+  xit 'has a question' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
     expect(card.question).to eq("What is the capital of Alaska?")
   end
 
-  it 'has an answer' do
+  xit 'has an answer' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
     expect(card.answer).to eq("Juneau")
   end
 
-  it 'has a category' do
+  xit 'has a category' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
     expect(card.category).to eq(:Geography)
