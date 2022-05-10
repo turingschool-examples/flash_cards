@@ -1,7 +1,6 @@
 class Card
 
-  def initialize 
-
+  def initialize (question, answer, category)
   end
 
 
