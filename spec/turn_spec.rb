@@ -15,4 +15,14 @@ RSpec.describe Turn do
     expect(@turn.card).to eq(@card)
   end
 
+  it "can guess the correct answer" do
+    expect(@turn.card).to eq(@card)
+    expect(@turn.guess).to eq("Juneau")
+    expect(@turn.correct?).to eq(true)
+  end
+
+  it "text" do
+
+  end
+
 end
