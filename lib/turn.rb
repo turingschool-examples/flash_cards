@@ -16,11 +16,15 @@ class Turn
     end
   end
 
-  def feedback
-    if @guess = card.answer
-      return "Correct!"
-    end
-  end
+
+
+  # def feedback
+  #   if @guess = card.answer
+  #     p "Correct!"
+  #   else
+  #     p "Incorrect."
+  #   end
+  # end
 
 
 end
