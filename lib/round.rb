@@ -8,7 +8,7 @@ class Round
 
   def initialize(deck)
     @deck = deck
-    @current_card = @deck.cards.first
+    @current_card = deck.cards.first
     @used_cards = []
     @turns = []
     @number_correct = 0
@@ -16,25 +16,25 @@ class Round
 
   def take_turn(guess)
     @turns << Turn.new(guess, current_card)
-    @number_correct += 1 if @turns.last.guess == current_card.answer
+    @number_correct += 1 if turns.last.guess == current_card.answer
     @used_cards << current_card
     @deck.cards.shift
-    @current_card = @deck.cards.first
+    @current_card = deck.cards.first
     return @turns.last
   end
 
   def number_correct_by_category(cat)
-    number_correct_by_category = @turns.count do |turn|
+    number_correct_by_category = turns.count do |turn|
       turn.card.category == cat && turn.correct?
     end
   end
 
   def percent_correct
-    @number_correct.to_f * 100 / @turns.count
+    number_correct.to_f * 100 / turns.count
   end
 
   def percent_correct_by_category(cat)
-    number_correct_by_category(cat) * 100 / @turns.count do |turn|
+    number_correct_by_category(cat) * 100 / turns.count do |turn|
       turn.card.category == cat
     end
   end
@@ -44,18 +44,18 @@ class Round
     puts "-" * 30
 
     total_cards = deck.cards.length + used_cards.length
-
-    # when card_number <= 4 /or/ deck.cards.length > 0
-
     card_number = 0
-    deck.cards.each do |card|
-      card_number = used_cards.count + 1
+
+    while card_number < total_cards
+      card_number = used_cards.length + 1
       puts "This is card number #{card_number} out of #{total_cards}."
       puts "Question: #{current_card.question}"
       answer = gets.chomp.to_s.downcase
       take_turn(answer)
-      puts @turns.last.feedback
+      puts turns.last.feedback
     end
+
+# - - - - - - - -
 
     # card_number = 1
     # puts "This is card number #{card_number} out of #{total_cards}."
@@ -85,7 +85,7 @@ class Round
     # fourth_turn = take_turn(answer_4)
     # puts fourth_turn.feedback
 
-    # when deck.cards == []
+    # - - - - - - - -
 
     puts "***** Game over! *****"
     puts "You had #{number_correct} correct guesses out of #{total_cards} for a total score of #{percent_correct.to_i}%."
