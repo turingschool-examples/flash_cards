@@ -1,3 +1,4 @@
+require 'rspec'
 require 'card'
 require 'card_generator'
 
