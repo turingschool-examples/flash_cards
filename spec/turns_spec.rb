@@ -18,9 +18,10 @@ describe Turns do
   end
 end
 
- # describe correct? do
- #  it 'is correct' do
- #    correct = Turns.new("Juneau", @card)
- #
- #    expect(correct).to_eq true
- #  end
+describe Turns do
+  it 'is correct' do
+    turns = Turns.new("Juneau", @card)
+    expect(turns.correct?).to eq(true)
+
+  end
+end
