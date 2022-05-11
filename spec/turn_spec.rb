@@ -39,10 +39,18 @@ describe 'correct?' do
   end
 
   describe 'feedback' do
-    it 'returns Correct! or Incorrect.' do
+    it 'returns Correct!' do
       card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       turn = Turn.new("Junea", card)
       expect(turn.feedback).to eq("Correct!")
+    end
+  end
+
+  describe 'feedback' do
+    it 'returns Incorrect.' do
+      card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+      turn = Turn.new("Mars", card)
+      expect(turn.feedback).to eq("Incorrect.")
     end
   end
 end
