@@ -11,4 +11,10 @@ class Turn
     return self.guess.downcase.delete(' ') == card.answer.downcase.delete(' ')
   end
 
+  def feedback
+    if self.correct?
+      return "Correct!"
+    end
+  end
+
 end
