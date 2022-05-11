@@ -15,4 +15,26 @@ RSpec.describe Turn do
     expect(@turn.card).to eq(@card)
   end
 
+  it "can guess the correct answer and return boolean" do
+    expect(@turn.card).to eq(@card)
+    expect(@turn.guess).to eq("Juneau")
+    expect(@turn.correct?).to eq(true)
+  end
+
+  it "can return a response based on if the guess is correct" do
+    expect(@turn.card).to eq(@card)
+    expect(@turn.guess).to eq("Juneau")
+    expect(@turn.correct?).to eq(true)
+    expect(@turn.feedback).to eq("Correct!")
+  end
+
+  it "can return a response based on if the guess is incorrect " do
+    @card2 = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+    @turn2 = Turn.new("Saturn", @card2)
+
+    expect(@turn2.card).to eq(@card2)
+    expect(@turn2.guess).to eq("Saturn")
+    expect(@turn2.correct?).to eq false
+    expect(@turn2.feedback).to eq ("Incorrect.")
+  end
 end
