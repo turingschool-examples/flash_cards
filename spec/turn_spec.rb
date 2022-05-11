@@ -16,4 +16,10 @@ describe Turn do
     expect(turn).to be_a Turn
   end
 
+  it 'Has a guess' do
+    card = Card.new("What is the capital of Oklahoma?", "Oklahoma City",
+      :Geography)
+    turn = Turn.new("Oklahoma City", card)
+    expect(turn.guess).to eq "Oklahoma City"
+  end
 end
