@@ -10,4 +10,12 @@ class Turns
     @guess == "Juneau"
     true
   end
+
+  def feedback
+    if @guess == "Juneau"
+      "Correct!"
+    else
+      "Incorrect!"
+    end
+  end
 end

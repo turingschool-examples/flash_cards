@@ -25,3 +25,10 @@ describe Turns do
 
   end
 end
+
+describe Turns do
+  it 'has feedback' do
+    turns = Turns.new("Juneau", @card)
+    expect(turns.feedback).to eq("Correct!")
+  end
+end
