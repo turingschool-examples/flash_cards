@@ -25,3 +25,14 @@ RSpec.describe Card do
     expect(card.category).to eq(:Geography)
   end
 end
+
+# RSpec.describe Turn do
+#  it 'takes a turn' do
+#     turn = Turn.new("Juneau", Card)
+#
+#     expect(turn).to eq(Turn, Card)
+#   end
+#
+#
+#
+# end
