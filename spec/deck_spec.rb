@@ -103,5 +103,6 @@ RSpec.describe Deck do
 
     expect(deck.cards_in_category(:STEM)).to eq(cards[1,2])
     expect(deck.cards_in_category(:Geography)).to eq(cards.first(1))
+    expect(deck.cards_in_category("Pop Culture")).to eq([])
   end
 end
