@@ -44,19 +44,19 @@ describe Turn do
     end
   end
 
-  # describe 'feedback' do
-  #   it 'returns Correct!' do
-  #     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-  #     turn = Turn.new("Juneau", card)
-  #     expect(turn.feedback).to eq("Correct!")
-  #   end
-  # end
+  describe 'feedback' do
+    it 'returns Correct!' do
+      card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+      turn = Turn.new("Juneau", card)
+      expect(turn.feedback).to eq("Correct!")
+    end
+  end
 
-  # describe 'feedback' do
-  #   it 'returns Incorrect.' do
-  #     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-  #     turn = Turn.new("Saturn", card)
-  #     expect(turn.feedback).to eq("Incorrect.")
-  #   end
-  # end
+  describe 'feedback' do
+    it 'returns Incorrect.' do
+      card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+      turn = Turn.new("Saturn", card)
+      expect(turn.feedback).to eq("Incorrect.")
+    end
+  end
 end
