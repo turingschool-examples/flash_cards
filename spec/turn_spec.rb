@@ -14,7 +14,14 @@ end
 
 describe 'guess' do
   it 'returns the guess' do
-  turn = Turn.new("Junea", "Placeholder")
+  turn = Turn.new("Junea", "Placeholder for current card")
   expect(turn.guess). to eq("Junea")
   end
-end 
+end
+
+describe 'correct?' do
+  it 'checks if the guess matches the answer' do
+    turn = Turn.new("Junea", "Placeholder")
+    expect(turn.correct?).to eq(true)
+  end
+end
