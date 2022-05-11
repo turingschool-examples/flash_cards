@@ -58,15 +58,25 @@ RSpec.describe Turn do
     expect(turn_3.correct?).to be false
   end
 
-it 'returns false when receiving an incorrect guess' do
+  it 'returns false when receiving an incorrect guess' do
 
-  card = Card.new("What is the capital of Arkansas?", "Little Rock", :Geography)
+    card = Card.new("What is the capital of Arkansas?", "Little Rock", :Geography)
 
-  turn_1 = Turn.new("Big Rock",card)
+    turn_1 = Turn.new("Big Rock",card)
 
-  expect(turn_1.correct?).to be false
+    expect(turn_1.correct?).to be false
 
-end
+  end
+
+  it 'puts "Correct!" when guess is correct' do
+
+    card = Card.new("What is the capital of Arkansas?", "Little Rock", :Geography)
+
+    turn_1 = Turn.new("Little Rock",card)
+
+    expect(turn_1.feedback).to eq("Correct!")
+
+  end
 
 
 
