@@ -1,26 +1,25 @@
 class Round
 
   attr_reader :deck,
+              :current_card,
               :used_cards,
               :turns,
               :number_correct
 
   def initialize(deck)
     @deck = deck
+    @current_card = @deck.cards.first
     @used_cards = []
     @turns = []
     @number_correct = 0
   end
 
-  def current_card
-    @deck.cards.first
-  end
-
   def take_turn(guess)
-    @turns << Turn.new(guess, @deck.cards.first)
-    @number_correct += 1 if @turns.last.guess == @deck.cards.first.answer
-    @used_cards << @deck.cards.first
+    @turns << Turn.new(guess, current_card)
+    @number_correct += 1 if @turns.last.guess == current_card.answer
+    @used_cards << current_card
     @deck.cards.shift
+    @current_card = @deck.cards.first
     return @turns.last
   end
 
@@ -48,34 +47,43 @@ class Round
 
     # when card_number <= 4 /or/ deck.cards.length > 0
 
-    card_number = 1
-    # deck.cards.each do |card|
-    puts "This is card number #{card_number} out of #{total_cards}."
-    puts "Question: #{deck.cards.first.question}"
-    answer_1 = gets.chomp.to_s.downcase
-    first_turn = take_turn(answer_1)
-    puts first_turn.feedback
+    card_number = 0
+    deck.cards.each do |card|
+      card_number = used_cards.count + 1
+      puts "This is card number #{card_number} out of #{total_cards}."
+      puts "Question: #{current_card.question}"
+      answer = gets.chomp.to_s.downcase
+      take_turn(answer)
+      puts @turns.last.feedback
+    end
 
-    card_number += 1
-    puts "This is card number #{card_number} out of #{total_cards}."
-    puts "Question: #{deck.cards.first.question}"
-    answer_2 = gets.chomp.to_s.downcase
-    second_turn = take_turn(answer_2)
-    puts second_turn.feedback
-
-    card_number += 1
-    puts "This is card number #{card_number} out of #{total_cards}."
-    puts "Question: #{deck.cards.first.question}"
-    answer_3 = gets.chomp.to_s.downcase
-    third_turn = take_turn(answer_3)
-    puts third_turn.feedback
-
-    card_number += 1
-    puts "This is card number #{card_number} out of #{total_cards}."
-    puts "Question: #{deck.cards.first.question}"
-    answer_4 = gets.chomp.to_s.downcase
-    fourth_turn = take_turn(answer_4)
-    puts fourth_turn.feedback
+    # card_number = 1
+    # puts "This is card number #{card_number} out of #{total_cards}."
+    # puts "Question: #{deck.cards.first.question}"
+    # answer_1 = gets.chomp.to_s.downcase
+    # first_turn = take_turn(answer_1)
+    # puts first_turn.feedback
+    #
+    # card_number += 1
+    # puts "This is card number #{card_number} out of #{total_cards}."
+    # puts "Question: #{deck.cards.first.question}"
+    # answer_2 = gets.chomp.to_s.downcase
+    # second_turn = take_turn(answer_2)
+    # puts second_turn.feedback
+    #
+    # card_number += 1
+    # puts "This is card number #{card_number} out of #{total_cards}."
+    # puts "Question: #{deck.cards.first.question}"
+    # answer_3 = gets.chomp.to_s.downcase
+    # third_turn = take_turn(answer_3)
+    # puts third_turn.feedback
+    #
+    # card_number += 1
+    # puts "This is card number #{card_number} out of #{total_cards}."
+    # puts "Question: #{deck.cards.first.question}"
+    # answer_4 = gets.chomp.to_s.downcase
+    # fourth_turn = take_turn(answer_4)
+    # puts fourth_turn.feedback
 
     # when deck.cards == []
 
