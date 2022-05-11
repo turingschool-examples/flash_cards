@@ -17,8 +17,13 @@ class Round
   end
 
   def take_turn(guess)
-    self.current_card
+    return_array = []
+    return_array << self.current_card
+    return_array << guess
+    return_array
   end
+
+
 
 
 end
