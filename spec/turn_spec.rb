@@ -2,7 +2,7 @@ require './lib/turn'
 require './lib/card'
 
 RSpec.describe Turn do
-  it 'can access Card' do
+  it 'can create a Card' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
     expect(card).to be_instance_of(Card)
