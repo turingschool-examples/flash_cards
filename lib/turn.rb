@@ -14,6 +14,8 @@ class Turn
   def feedback
     if self.correct?
       return "Correct!"
+    else
+      return "Incorrect."
     end
   end
 
