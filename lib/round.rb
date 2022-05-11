@@ -39,4 +39,19 @@ class Round
   def percent_correct_by_category(category)
     (number_correct_by_category(category).to_f / @deck.cards_in_a_category(category).length.to_f) * 100
   end
+
+  def start
+    puts "Welcome! You're playing with #{deck.count} cards."
+    puts "-" * 49
+    puts "This is card #{@turns.length.to_i} out of 4"
+    puts "#{current_card.question}"
+    gets.chomp
+    puts """
+    ****** Game Over ******
+    You had #{number_correct} guesses out of 4 for a total score of #{percent_correct}%.
+    STEM - #{percent_correct_by_category(:STEM)}% correct
+    Turing Staff - #{percent_correct_by_category(:Turing_Staff)}% correct
+    Pop Culture - #{percent_correct_by_category(:Pop_Culture)}% correct
+    """
+  end
 end
