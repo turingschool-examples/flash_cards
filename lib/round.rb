@@ -41,17 +41,24 @@ class Round
   end
 
   def start
-    puts "Welcome! You're playing with #{deck.count} cards."
+  counter = 1
+  puts "Welcome! You're playing with #{deck.count} cards."
+
+  until @turns.length == deck.count do
     puts "-" * 49
-    puts "This is card #{@turns.length.to_i} out of 4"
+    puts "This is card number #{counter} out of #{deck.count}"
     puts "#{current_card.question}"
-    gets.chomp
-    puts """
-    ****** Game Over ******
-    You had #{number_correct} guesses out of 4 for a total score of #{percent_correct}%.
-    STEM - #{percent_correct_by_category(:STEM)}% correct
-    Turing Staff - #{percent_correct_by_category(:Turing_Staff)}% correct
-    Pop Culture - #{percent_correct_by_category(:Pop_Culture)}% correct
-    """
+    guess = gets.chomp
+    puts (take_turn(guess)).feedback
+    counter += 1
+  end
+
+  puts """
+  ****** Game Over ******
+  you had #{number_correct} guesses out of 5 for a total score of #{percent_correct}%.
+  STEM - #{percent_correct_by_category(:STEM)}% correct
+  Turing Staff - #{percent_correct_by_category(:Turing_Staff)}% correct
+  Pop Culture - #{percent_correct_by_category(:Pop_Culture)}% correct
+  """
   end
 end
