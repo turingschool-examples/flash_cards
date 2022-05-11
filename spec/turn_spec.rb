@@ -64,6 +64,8 @@ it 'returns false when receiving an incorrect guess' do
 
   turn_1 = Turn.new("Big Rock",card)
 
+  expect(turn_1.correct?).to be false
+
 end
 
 
