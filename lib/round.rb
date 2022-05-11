@@ -5,8 +5,10 @@ require './lib/deck'
 
 class Round
 
-  def initialize()
+  attr_reader :deck
 
+  def initialize(deck)
+    @deck = deck
   end
 
 
