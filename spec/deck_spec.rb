@@ -12,4 +12,9 @@ describe Deck do
     expect(card_2).to be_instance_of(Card)
   end
 
+  it "third card" do
+    card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+    expect(card_3).to be_instance_of(Card)
+  end
+
 end
