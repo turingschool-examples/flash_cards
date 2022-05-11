@@ -68,13 +68,23 @@ RSpec.describe Turn do
 
   end
 
-  it 'puts "Correct!" when guess is correct' do
+  it 'returns "Correct!" when guess is correct' do
 
     card = Card.new("What is the capital of Arkansas?", "Little Rock", :Geography)
 
     turn_1 = Turn.new("Little Rock",card)
 
     expect(turn_1.feedback).to eq("Correct!")
+
+  end
+
+  it 'returns "Incorrect." when guess is incorrect' do
+
+    card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+
+    turn_1 = Turn.new("Saturn",card)
+
+    expect(turn_1.feedback).to eq("Incorrect.")
 
   end
 
