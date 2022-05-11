@@ -9,7 +9,7 @@ class Turn
   end
 
   def correct?
-    @guess == card.answer ? true : false
+    @guess.downcase.capitalize == card.answer.downcase.capitalize ? true : false
   end
 
   def feedback?
