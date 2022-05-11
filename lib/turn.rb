@@ -1,7 +1,8 @@
 require 'pry'
 
 class Turn
-    attr_reader :guess, :card
+    attr_reader :card
+    attr_accessor :guess
     def initialize(guess,card)
         @guess = guess
         @card = card

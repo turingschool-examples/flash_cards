@@ -44,4 +44,20 @@ class Round
         end
         (number_correct_by_category(input) / total_by_category.to_f)*100
     end
+
+    def start
+        puts "Welcome! You're playing with 4 cards. \n--------------------------------------"
+        card_count
+        puts "Question: #{current_card.question}"
+        # turn.guess = gets.chomp
+        # turn.feedback
+    end
+
+    def card_count
+        counter = deck.count
+        x = turns.count
+        x += 1 if x == 0
+        puts "This is card number #{x} out of #{counter}."
+    end
+
 end
