@@ -102,5 +102,6 @@ RSpec.describe Deck do
     deck = Deck.new(cards)
 
     expect(deck.cards_in_category(:STEM)).to eq(cards[1,2])
+    expect(deck.cards_in_category(:Geography)).to eq(cards.first(1))
   end
 end
