@@ -45,5 +45,4 @@ describe 'correct?' do
       expect(turn.feedback).to eq("Correct!")
     end
   end
-
 end
