@@ -7,12 +7,10 @@ class Turn
   end
 
   def correct?
-    if @guess == "Juneau"
+    if @guess == card.answer
       true
-    elsif @guess == "Saturn"
+    elsif @guess != card.answer
       false
-    else
-      p "error!"
     end
   end
 
