@@ -12,5 +12,9 @@ class Round
     @turns = []
   end
 
+  def current_card
+    deck.cards.shift
+  end
+
 
 end
