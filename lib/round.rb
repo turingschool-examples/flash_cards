@@ -16,5 +16,9 @@ class Round
     deck.cards.shift
   end
 
+  def take_turn(guess)
+    self.current_card
+  end
+
 
 end

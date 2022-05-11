@@ -54,7 +54,7 @@ RSpec.describe Deck do
 
   end
 
-  it 'can return count of cards in deck' do
+  it 'can return cards in specific category' do
 
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
@@ -70,8 +70,7 @@ RSpec.describe Deck do
 
     expect(deck.cards_in_category(:Geography)).to include(card_1)
 
-    expect(deck.cards_in_category(:Geography)).to eq([])
-
+    expect(deck.cards_in_category(:PopCulture)).to eq([])
 
   end
 
