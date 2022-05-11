@@ -18,10 +18,14 @@ RSpec.describe Round do
     expect(@round).to be_a(Round)
   end
 
-    it "has attributes" do
-      @round = Round.new(@deck)
-      expect(@round.deck).to eq(@deck)
-      expect(@round.turns).to eq([])
-    end
-    
+  it "has attributes" do
+    @round = Round.new(@deck)
+    expect(@round.deck).to eq(@deck)
+    expect(@round.turns).to eq([])
+  end
+
+  it "can list the first card in the deck" do
+    @round = Round.new(@deck)
+    expect(@round.current_card).to eq(@card_1)
+  end
 end
