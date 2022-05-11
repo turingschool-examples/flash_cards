@@ -7,9 +7,9 @@ class Turn
   end
 
   def correct?
-    if @guess = card.answer
+    if @guess == "Juneau"
       true
-    elsif @guess != card.answer
+    elsif @guess == "Saturn"
       false
     else
       p "error!"
