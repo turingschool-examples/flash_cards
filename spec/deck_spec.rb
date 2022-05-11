@@ -19,6 +19,9 @@ RSpec.describe Deck do
     expect(@deck.cards).to eq([@card_1, @card_2, @card_3])
   end
 
-
+  it "can return a deck count" do
+    @deck = Deck.new(@cards)
+    expect(@deck.count).to eq(3)
+  end
 
 end
