@@ -3,6 +3,22 @@ class Deck
   attr_reader :cards
   def initialize(cards)
      @cards = cards
-    # @count = count
+
   end
+
+  def count
+    cards.count
+  end
+
+  def cards_in_category(category)
+    test = []
+    @cards.each do |card|
+      # test << category == card.category
+      if category == card.category
+        test << card
+      end
+    end
+    return test
+  end
+
 end
