@@ -62,7 +62,7 @@ describe Round do
     expect(round.current_card).to eq card1
   end
 
-  it "New turns are a round" do
+  it "New turns are a turn" do
     card1 = Card.new("What is the capital of Oklahoma?", "Oklahoma City", :Geography)
     card2 = Card.new("What do the letters CPU stand for in computing?", "Central Processing Unit", :Technology)
     card3 = Card.new("What do the letters GPU stand for in computing?", "Graphics Processing Unit", :Technology)
@@ -76,7 +76,7 @@ describe Round do
 
     new_turn = round.take_turn("Oklahoma City")
 
-    expect(new_turn).to be_a Round
+    expect(new_turn).to be_a Turn
 
   end
 end
