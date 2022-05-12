@@ -63,7 +63,7 @@ RSpec.describe Deck do
 
   end
 
-  it 'take_turn takes a guess as an argument' do
+  xit 'take_turn takes a guess as an argument' do
 
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
@@ -78,7 +78,7 @@ RSpec.describe Deck do
     new_turn = round.take_turn("Juneau")
 
     expected_turn = Turn.new("Juneau",round.current_card)
-    
+
     expect(new_turn).to eq(expected_turn)
 
   end
@@ -100,5 +100,42 @@ RSpec.describe Deck do
     expect(new_turn).to be_instance_of(Turn)
 
   end
+
+  it 'correct? returns true if guess is correct' do
+
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+
+    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+
+    card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+
+    deck = Deck.new([card_1, card_2, card_3])
+
+    round = Round.new(deck)
+
+    new_turn_1 = round.take_turn("Juneau")
+
+    expect(new_turn_1.correct?).to be true
+
+  end
+
+  it 'correct? returns false if guess is correct' do
+
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+
+    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+
+    card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+
+    deck = Deck.new([card_1, card_2, card_3])
+
+    round = Round.new(deck)
+
+    new_turn_1 = round.take_turn("Hambone Jones")
+
+    expect(new_turn_1.correct?).to be false
+
+  end
+
 
 end
