@@ -22,5 +22,19 @@ RSpec.describe Turn do
 
 		expect(turn.guess).to eq("Juneau")
 	end
+
+	it 'confirms a guess and answer match' do
+		card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+		turn = Turn.new("Juneau", card)
+
+		expect(turn.correct?).to eq(true)
+	end
 	
+	it 'confirms a guess and answer dont match' do
+		card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+		turn = Turn.new("Saturn", card)
+
+		expect(turn.correct?).to eq(false)
+	end
+
 end
