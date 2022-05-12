@@ -17,7 +17,7 @@ class Deck
   end
 
   def cards_in_category(category)
-    p category.keys
+    p @cards
   end
 
 
