@@ -6,9 +6,6 @@ class Turn
     @card = card
   end
 
-  def guess
-  end
-
   def correct?
   end
 

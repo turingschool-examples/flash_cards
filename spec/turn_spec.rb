@@ -10,4 +10,12 @@ RSpec.describe Turn do
   it "is an instance of turn" do
     expect(@turn).to be_a(Turn)
   end
+
+  it "has a card" do
+    expect(@turn.card).to eq(@card)
+  end
+
+  it "can make a guess" do
+    expect(@turn.guess).to eq("Juneau")
+  end
 end
