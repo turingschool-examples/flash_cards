@@ -15,7 +15,8 @@ RSpec.describe Deck do
     expect(@deck).to be_a Deck
   end
 
-  it "can count total cards" do
+  it "can check and count total cards" do
+    expect(@deck.cards).to eq @cards
     expect(@deck.count).to eq 3
   end
 
