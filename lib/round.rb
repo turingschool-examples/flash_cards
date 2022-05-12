@@ -61,7 +61,7 @@ class Round
         end
     end
     number_in_category = deck.cards_in_category(category).count
-    percent_correct = (number_correct/number_in_category).to_f * 100
+    percent_correct = (number_correct.to_f / number_in_category.to_f) * 100
     return percent_correct
   end
 end
