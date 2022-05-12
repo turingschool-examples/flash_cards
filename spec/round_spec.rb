@@ -43,6 +43,7 @@ RSpec.describe Round do
     expect(@round.turns.count).to eq(2)
     expect(@round.turns.last.feedback).to eq('Incorrect.')
     expect(@round.number_correct).to eq(1)
+    expect(@round.deck.count).to eq(3)
   end
 
   it 'tells us the #number_correct_by_category' do

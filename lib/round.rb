@@ -15,9 +15,9 @@ class Round
     if guess == current_card.answer
       @correct += 1
     end
-    new_turn = Turn.new(guess, current_card)
-    @turns << new_turn
-    deck.cards.delete_at(0)
+    @turns << Turn.new(guess, current_card)
+    @deck.cards = @deck.cards.rotate(1)
+    @turns.last
   end
 
   def number_correct
@@ -43,5 +43,25 @@ class Round
       turn.card.category == category
     end.length
     (number_correct_by_category(category).to_f / category_total) * 100
+  end
+
+  def start
+    puts "Welcome! You're playing with #{@deck.count} cards."
+    puts "-------------------------------------------------"
+    until @turns.length == deck.count do
+      puts "This is card number #{@turns.length + 1} out of #{deck.count}"
+      puts "Question: #{current_card.question}"
+      guess = gets.chomp
+      (take_turn(guess))
+      puts turns.last.feedback
+    end
+  end
+
+  def display_results
+    puts "0.0 * x.x * Game over! * x.x * 0.0"
+    puts "You had #{number_correct} guesses out of 4 for a total score of #{percent_correct.to_i}%"
+    puts "STEM - #{percent_correct_by_category(:STEM).to_i}% correct"
+    puts "Geography - #{percent_correct_by_category(:Geography).to_i}% correct"
+    puts "Misc - #{percent_correct_by_category(:Misc).to_i}% correct"
   end
 end
