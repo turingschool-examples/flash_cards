@@ -1,3 +1,4 @@
+#Iteration #1
 class Card
   attr_accessor :question, :answer, :category
   def initialize(question, answer, category)
