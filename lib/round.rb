@@ -37,4 +37,7 @@ class Round
   def percent_correct
     return number_correct * 100.0 / @guess
   end
+  def percent_correct_by_category(category)
+    return number_correct_by_category(category) * 100.0 / @deck.cards_in_category(category).length
+  end
 end
