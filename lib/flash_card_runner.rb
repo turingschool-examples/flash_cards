@@ -13,6 +13,8 @@ require './lib/round'
 
 def card_feedback
   # require "pry"; binding.pry
+  @new_turn = Turn.new(guess, @round.current_card)
+  require "pry"; binding.pry
 end
 
 @round.start

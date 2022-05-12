@@ -15,9 +15,9 @@ class Round
     if guess == current_card.answer
       @correct += 1
     end
-    new_turn = Turn.new(guess, current_card)
-    @turns << new_turn
-    deck.cards.delete_at(0)
+    @turns << Turn.new(guess, current_card)
+    @deck.cards = @deck.cards.rotate(1)
+    @turns.last
   end
 
   def number_correct
@@ -46,12 +46,14 @@ class Round
   end
 
   def start
-
-
     puts "Welcome! You're playing with #{@deck.count} cards."
     puts "-------------------------------------------------"
-    puts "This is card number #{@turns.length + 1} out of 4"
-    puts "Question: #{current_card.question}"
-    take_turn(gets.chomp)
+    until @turns.length == deck.count do
+      puts "This is card number #{@turns.length + 1} out of #{deck.count}"
+      puts "Question: #{current_card.question}"
+      guess = gets.chomp
+      (take_turn(guess))
+      puts turns.last.feedback
+    end
   end
 end
