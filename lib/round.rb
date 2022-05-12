@@ -25,4 +25,13 @@ def number_correct
   end
   return correct
 end
+def number_correct_by_category(category)
+  correct = 0
+  @turns.each do |turn|
+    if turn.correct? && turn.card.category == category
+      correct += 1
+    end
+  end
+  return correct
+end
 end
