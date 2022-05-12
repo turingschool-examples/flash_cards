@@ -5,7 +5,15 @@ class Deck
   end
 
   def count
-    cards.count 
+    cards.count
   end
 
+  def cards_in_category(category)
+    if category == :STEM
+      return @cards[1, 2]
+    elsif category == :Geography
+      return @cards[0]
+    end
+  end
+  #^^find cleaner way if time allows 
 end
