@@ -1,5 +1,5 @@
 class Round
-  attr_reader :deck, :turns, :index, :number_correct, :correct_array
+  attr_reader :deck, :turns, :index, :number_correct, :correct_array, :category_array
 
   def initialize(deck)
     @deck = deck
@@ -7,6 +7,7 @@ class Round
     @number_correct = 0
     @index = 0
     @correct_array = []
+    @category_array = []
   end
 
   def current_card
@@ -15,15 +16,12 @@ class Round
 
   def take_turn(guess)
     another_turn = Turn.new(guess, current_card)
+    @category_array << another_turn.card.category
     if another_turn.correct? == true
       @number_correct += 1
       @correct_array << another_turn.card.category
     end
-    # @turns << current_card
-    # @index += 1
-    # another_turn.correct?
-    # another_turn.feedback
-    @turns << current_card
+    @turns << another_turn
     @index += 1
     another_turn
   end
@@ -39,11 +37,7 @@ class Round
   end
 
   def percent_correct_by_category(category_argument)
-    category_array = []
-    @turns.each do |card|
-       category_array << card.category
-    end
-    category_number = category_array.count(category_argument)
+    category_number = @category_array.count(category_argument)
     category_correct = number_correct_by_category(category_argument)
     result = (category_correct / category_number) * 100
     result.to_f

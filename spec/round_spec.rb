@@ -74,7 +74,7 @@ describe 'Round' do
     round = Round.new(deck)
     round.current_card
     new_turn = round.take_turn("Juneau")
-    expect(round.turns).to eq [card_1]
+    expect(round.turns).to eq [new_turn]
   end
 
   it 'counts the number of correct guesses' do

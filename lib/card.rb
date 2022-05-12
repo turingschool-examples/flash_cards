@@ -7,8 +7,4 @@ class Card
     @category = category
   end
 
-  def feedback
-    'Incorrect.'
-  end
-
 end
