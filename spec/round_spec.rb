@@ -44,8 +44,7 @@ describe Round do
       cards = [card_1, card_2, card_3]
       deck = Deck.new(cards)
       round = Round.new(deck)
-      expect(round.current_card).to eq(deck[0])
+      expect(round.current_card).to eq(deck.cards[0])
     end
   end
-
 end
