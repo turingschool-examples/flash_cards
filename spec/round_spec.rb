@@ -92,4 +92,22 @@ describe Round do
 
     expect(round.number_correct).to eq 1
   end
+
+  it "Adds turns, checks if guesses are correct, and returns number correct" do
+    card1 = Card.new("What is the capital of Oklahoma?", "Oklahoma City", :Geography)
+    card2 = Card.new("What do the letters CPU stand for in computing?", "Central Processing Unit", :Technology)
+    card3 = Card.new("What do the letters GPU stand for in computing?", "Graphics Processing Unit", :Technology)
+
+    cards = [card1, card2, card3]
+
+    deck = Deck.new(cards)
+
+    round = Round.new(deck)
+
+    new_turn = round.take_turn("Oklahoma City")
+    new_turn = round.take_turn("Central Processing Unit")
+    new_turn = round.take_turn("Graphical Processor Universe")
+
+    expect(round.number_correct).to eq 2
+  end
 end
