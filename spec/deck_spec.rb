@@ -46,8 +46,8 @@ describe Deck do
 
     deck = Deck.new(cards)
 
-    expect(deck.cards_in_category(:Technology)).to eq 2
-    expect(deck.cards_in_category(:Sports)).to eq 1
-    expect(deck.cards_in_category("Video Games")).to eq 0
+    expect(deck.cards_in_category(:Technology)).to eq [card2, card3]
+    expect(deck.cards_in_category(:Sports)).to eq [card4]
+    expect(deck.cards_in_category("Video Games")).to eq []
   end
 end
