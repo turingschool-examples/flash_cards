@@ -48,6 +48,6 @@ describe Deck do
 
     expect(deck.cards_in_category(:Technology)).to eq 2
     expect(deck.cards_in_category(:Sports)).to eq 1
-    expect(deck.cards_in_category(:Video_Games)).to eq 0
+    expect(deck.cards_in_category("Video Games")).to eq 0
   end
 end
