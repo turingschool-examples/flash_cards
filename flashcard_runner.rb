@@ -11,25 +11,24 @@ card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwi
 deck = Deck.new([card_1, card_2, card_3])
 round = Round.new(deck)
 
-total_card_count = deck.count
+# total_card_count = deck.count
 card_number = 0
 
-puts "Welcome! You're playing with #{total_card_count} cards.
+puts "Welcome! You're playing with #{deck.count} cards.
 -------------------------------------------------"
-until card_number == total_card_count
-  puts "This is card number #{card_number + 1} out of #{total_card_count}.\n Question: #{deck.cards[card_number].question}"
+until card_number == deck.count
+  puts "This is card number #{card_number + 1} out of #{deck.count}.\n Question: #{deck.cards[0].question}"
   guess = gets
-  if guess.chomp == round.deck.cards[card_number].answer
+  if guess.strip == round.deck.cards[0].answer
     puts "Correct!"
   else
     puts "Incorrect."
   end
-  round.take_turn(guess.chomp)
+  round.take_turn(guess.strip)
   card_number += 1
 end
 
 puts "****** Game over! ******
-You had #{round.number_correct} correct guesses out of #{total_card_count} for a total score of #{round.percent_correct}%.
-STEM - 100% correct
-Turing Staff - 50% correct
-Pop Culture - 100% correct"
+You had #{round.number_correct} correct guesses out of #{deck.count} for a total score of #{round.percent_correct.round}%.
+Geography - #{round.percent_correct_by_category(:Geography).round}% correct
+STEM - #{round.percent_correct_by_category(:STEM).round}% correct"

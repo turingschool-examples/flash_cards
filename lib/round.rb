@@ -85,11 +85,14 @@ class Round
           num_correct += 1
           category_count += 1
           turn_index += 1
+        elsif @turns[turn_index].card.category == category
+          turn_index += 1
+          category_count += 1
         else
           turn_index += 1
         end
       end
     end
-    num_correct / category_count.to_f * 100
+    (num_correct / category_count.to_f * 100).round(1)
   end
 end
