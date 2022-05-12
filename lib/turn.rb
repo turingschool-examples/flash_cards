@@ -15,8 +15,6 @@ class Turn ()
       return "Correct!"
     elsif !correct?(guess)
       return "Incorrect."
-    else
-      puts "Error"
     end
 
   end

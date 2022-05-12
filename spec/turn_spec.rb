@@ -40,11 +40,13 @@ describe '#correct?' do
 end
 describe  '#feedback' do
   it "gives guess feedback" do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    turn1 = Turn.new("Juneau", card)
-    turn2 = Turn.new("Anchorage", card)
+    card1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn1 = Turn.new("Juneau", card1)
 
-    expect(turn1.feedback(@guess)).to be("Correct!")
-    expect(turn2.feedback(@guess)).to be("Incorrect.")
+    card2 = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+    turn2 = Turn.new("Saturn", card2)
+
+    expect(turn1.feedback(@guess)).to eq("Correct!")
+    expect(turn2.feedback(@guess)).to eq("Incorrect.")
   end
 end
