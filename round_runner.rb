@@ -12,22 +12,9 @@ round = Round.new(deck)
 round.current_card
 new_turn = round.take_turn("Juneau")
 round.take_turn("Venus")
-round.percent_correct_by_category(:Geography)
 
 
-
-# arry = []
-# round.turns.each do |card|
-#    array << card.category
-# end
-# p array
-
-
-
-# p card_1.card
-
-# p round.turns.last.feedback
-
-# round.turns.count
-# round.turns
-# p round.turns.last.class
+p round.turns.count
+p round.turns
+p round.turns.last 
+p round.turns.last.class

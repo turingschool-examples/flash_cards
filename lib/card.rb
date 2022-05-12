@@ -8,7 +8,7 @@ class Card
   end
 
   def feedback
-    Turn.feedback
+    "Incorrect."
   end
 
 end
