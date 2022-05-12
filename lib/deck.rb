@@ -13,6 +13,8 @@ class Deck
       return @cards[1, 2]
     elsif category == :Geography
        return @cards[0]
+     else
+       return []
     end
   end
   #^^find cleaner way if time allows
