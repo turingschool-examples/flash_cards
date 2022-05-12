@@ -14,18 +14,29 @@ RSpec.describe Round do
   end
 
   it "exists" do
-    @round = Round.new(@deck)
     expect(@round).to be_a(Round)
   end
 
   it "has attributes" do
-    @round = Round.new(@deck)
     expect(@round.deck).to eq(@deck)
     expect(@round.turns).to eq([])
   end
 
-  it "can list the first card in the deck" do
-    @round = Round.new(@deck)
+  it "can list the current card in the deck" do
     expect(@round.current_card).to eq(@card_1)
+  end
+
+  it "can take turns and return the next card" do
+    @new_turn = @round.take_turn("Juneau")
+    expect(@new_turn.class).to eq (Turn)
+    expect(@new_turn.correct?).to eq true
+    expect(@round.turns).to eq [@new_turn]
+    expect(@round.number_correct).to eq (1)
+
+    expect(@round.current_card).to eq (@card_2)
+    expect(@round.take_turn("Venus")).to eq ("Venus")
+    expect(@round.turns.count).to eq (2)
+    expect(@round.turns.last.feedback).to eq ("Incorrect")
+    expect(@round.number_correct).to eq (1)
   end
 end
