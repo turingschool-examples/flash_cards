@@ -12,13 +12,21 @@ RSpec.describe Deck do
     deck = Deck.new(:card)
 
 
-    expect(deck.cards).to eq([@card])
+    expect(deck.cards).to eq([@card, @card, @card])
 
   end
 
-  xit 'has a count' do
+  it 'has a count' do
     deck = Deck.new(:card)
 
     expect(deck.count).to eq(3)
   end
+
+  xit 'belongs to a certain category' do
+    deck = Deck.new(:card)
+
+    expect(deck.cards_in_category(:STEM)). to eq([@card])
+  end
+
+
 end
