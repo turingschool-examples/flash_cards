@@ -46,4 +46,17 @@ describe Round do
 
     expect(round.turns).to eq []
   end
+
+  it "Returns the current card" do
+    # Probably better to have multiple cards (minimum of two) when testing this
+    card1 = Card.new("What is the capital of Oklahoma?", "Oklahoma City", :Geography)
+
+    cards = [card1]
+
+    deck = Deck.new(cards)
+
+    round = Round.new(deck)
+
+    expect(round.current_card).to eq card1
+  end
 end
