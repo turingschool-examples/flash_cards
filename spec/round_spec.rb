@@ -1,6 +1,7 @@
 require 'rspec'
 require './card'
 require './deck'
+require './lib/turn'
 require './lib/round'
 
 RSpec.describe Round do
@@ -60,8 +61,8 @@ RSpec.describe Round do
     deck = Deck.new(cards)
     round = Round.new(deck)
     new_turn = round.take_turn("Juneau")
-
-    expect(new_turn.class).to be_a(Turn)
-    expect(new_turn.corret?).to be true
+    
+    expect(new_turn.class).to eq(Turn)
+    expect(new_turn.correct?).to be true
   end
 end
