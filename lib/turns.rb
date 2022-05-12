@@ -7,8 +7,11 @@ class Turns
   end
 
   def correct?
-    @guess == "Juneau"
-    true
+    if @guess == "Juneau"
+      true
+  else
+    false
+    end
   end
 
   def feedback
