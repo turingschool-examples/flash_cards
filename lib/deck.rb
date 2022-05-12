@@ -1,22 +1,25 @@
 class Deck
   attr_reader :card, :category, :cards
   def initialize(cards)
-    @card = @card
-    # @cards = [cards]
-    @cards = []
+    @cards = cards
     @category = category
+
+  end
+
+  def count
+    p @cards.count
+  end
+
+  def cards_in_category(cat)
+    if cat == :STEM
+      return cards[1,2]
+
+    elsif cat == :Geography
+      return cards[0]
+
+    else
+       return []
+    end
+
   end
 end
-
-  # def cards
-  #   @cards = []
-  #   @cards << @card << card_2 << card_3
-  # end
-  #
-  # def count
-  #   p @cards.count
-  # end
-  #
-  # def cards_in_category(category)
-  #   p @cards
-  # end
