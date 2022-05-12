@@ -1,5 +1,5 @@
 class Turn
-  attr_accessor :card
+  attr_accessor :card, :string
 
   def initialize(string, card)
     @string = string
@@ -25,5 +25,4 @@ class Turn
       return "Incorrect."
     end
   end
-
 end
