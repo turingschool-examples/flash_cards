@@ -14,7 +14,8 @@ new_turn = round.take_turn("Juneau")
 round.take_turn("Venus")
 
 
-p round.turns.count
-p round.turns
-p round.turns.last 
+# p round.turns.count
+# p round.turns
+# p round.turns.last
 p round.turns.last.class
+p round.turns.last.feedback 

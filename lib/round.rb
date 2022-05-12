@@ -19,6 +19,10 @@ class Round
       @number_correct += 1
       @correct_array << another_turn.card.category
     end
+    # @turns << current_card
+    # @index += 1
+    # another_turn.correct?
+    # another_turn.feedback
     @turns << current_card
     @index += 1
     another_turn
@@ -42,7 +46,7 @@ class Round
     category_number = category_array.count(category_argument)
     category_correct = number_correct_by_category(category_argument)
     result = (category_correct / category_number) * 100
-    result.to_f 
+    result.to_f
   end
 
 end

@@ -8,7 +8,7 @@ class Card
   end
 
   def feedback
-    "Incorrect."
+    'Incorrect.'
   end
 
 end
