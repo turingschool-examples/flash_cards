@@ -9,17 +9,16 @@ class CardGenerator
     @card_deck = []
   end
 
-  # def cards
-  #   # @filename
-  #   file = File.open(@filename, "r")
-  #   contents = File.read(@filename)
-  #   p contents
-  #   array = contents.split("\n")
-  #   # turn each content into a string
-  #
-  #   # do this 4 times
-  #   @card_deck << Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-  #
-  #   # Deck.new(card_deck)
-  # end
+  def cards
+    File.open(@filename, "r")
+    line = IO.readlines(@filename)[0].strip.split(",")
+
+    new_card = Card.new(line[0], line[1], line[2])
+
+
+    # # do this 4 times
+    # @card_deck << Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+
+    # Deck.new(card_deck)
+  end
 end
