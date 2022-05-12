@@ -115,7 +115,7 @@ describe Round do
     card1 = Card.new("What is the capital of Oklahoma?", "Oklahoma City", :Geography)
     card2 = Card.new("What do the letters CPU stand for in computing?", "Central Processing Unit", :Technology)
 
-    cards = [card1, card2, card3]
+    cards = [card1, card2]
 
     deck = Deck.new(cards)
 
