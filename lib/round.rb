@@ -67,6 +67,4 @@ class Round
             end
         end
     end
-
- # puts "#{turn.card.category}- #{percent_correct_category(turn.card.category)} correct"
 end
