@@ -12,8 +12,8 @@ class Deck
     if category == :STEM
       return @cards[1, 2]
     elsif category == :Geography
-      return @cards[0]
+       return @cards[0]
     end
   end
-  #^^find cleaner way if time allows 
+  #^^find cleaner way if time allows
 end
