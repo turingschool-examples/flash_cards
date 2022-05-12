@@ -7,11 +7,11 @@ RSpec.describe Turn do
     expect(current_turn).to be_instance_of(Turn)
   end
 
-  # it 'has guess' do
-  #   current_turn = Turn.new("This is the guess", object_of_card)
-  #
-  #   expect(current_turn.guess).to eq("This is the guess")
-  # end
+  it 'has guess' do
+    current_turn = Turn.new("This is the guess", "This might be the question?")
+
+    expect(current_turn.guess).to eq("This is the guess")
+  end
 #
 #   it 'has an answer' do
 #     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
