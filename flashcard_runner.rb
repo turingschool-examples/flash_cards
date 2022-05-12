@@ -14,3 +14,4 @@ round = Round.new(deck)
 puts "Welcome! you're playing with #{deck.count} cards."
 puts "-"*38
 puts "This is card #{round.turns.length + 1} out of #{deck.count}."
+puts "Question: #{round.current_card.question}"
