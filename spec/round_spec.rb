@@ -110,4 +110,21 @@ describe Round do
 
     expect(round.number_correct).to eq 2
   end
+
+  it "Checks the number correct by category" do
+    card1 = Card.new("What is the capital of Oklahoma?", "Oklahoma City", :Geography)
+    card2 = Card.new("What do the letters CPU stand for in computing?", "Central Processing Unit", :Technology)
+
+    cards = [card1, card2, card3]
+
+    deck = Deck.new(cards)
+
+    round = Round.new(deck)
+
+    new_turn = round.take_turn("Oklahoma City")
+    new_turn = round.take_turn("Central Processing Unit")
+
+    expect(round.number_correct_by_category(:Geography)).to eq 1
+    expect(round.number_correct_by_category(:Pop_Culture)).to eq 0
+  end
 end
