@@ -7,7 +7,7 @@ class Turn
   end
 
   def correct?
-    @guess == @card.answer
+    @guess.capitalize == @card.answer.capitalize
   end
 
   def feedback
@@ -15,6 +15,6 @@ class Turn
       "Correct!"
     else
       "Incorrect."
-    end 
+    end
   end
 end
