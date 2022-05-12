@@ -52,7 +52,7 @@ RSpec.describe Round do
     expect(round.current_card).to eq(card_1)
   end
 
-  it 'takes turns' do
+  it 'takes turns and saves them' do
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
@@ -61,8 +61,22 @@ RSpec.describe Round do
     deck = Deck.new(cards)
     round = Round.new(deck)
     new_turn = round.take_turn("Juneau")
-    
+
     expect(new_turn.class).to eq(Turn)
     expect(new_turn.correct?).to be true
+    expect(round.turns).to eq([new_turn])
+  end
+
+  it 'tracks correct answers' do
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+    card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+    cards = [card_1, card_2, card_3]
+
+    deck = Deck.new(cards)
+    round = Round.new(deck)
+    new_turn = round.take_turn("Juneau")
+
+    expect(round.number_correct).to eq(1)
   end
 end
