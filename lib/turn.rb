@@ -24,9 +24,10 @@ class Turn
       "Correct!"
     else
       "Incorrect."
+    end
+
   end
 end
-
 
 
 end
