@@ -6,15 +6,15 @@ require './lib/round'
 
 class Card_generator
 
-  attr_reader :file_name
+  attr_reader :filename
 
-  def initialize(file_name)
-    @file_name = File.read(file_name)
+  def initialize(filename)
+    @filename = File.read(filename)
     @cards = []
   end
 
   def card_reader
-    file_lines = @file_name.lines
+    file_lines = @filename.lines
     split_file_lines = file_lines.map do |line|
       line.chomp.split(',')
     end
@@ -23,5 +23,4 @@ class Card_generator
       @cards << card
     end
   end
-  require 'pry'; binding.pry
 end
