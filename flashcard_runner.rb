@@ -17,5 +17,7 @@ deck.count.times do
   puts "This is card #{round.turns.length + 1} out of #{deck.count}."
   puts "Question: #{round.current_card.question}"
   guess = gets.chomp
-  puts round.take_turn(guess).feedback
+  puts round.take_turn(guess.capitalize).feedback
 end
+puts "****** Game over! ******"
+puts "You had #{round.number_correct} correct guesses out of #{deck.count} for a total score of #{round.percent_correct.to_i}%."
