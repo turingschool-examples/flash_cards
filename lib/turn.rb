@@ -1,14 +1,8 @@
 class Turn
-  def initialize(string, card)
-
-  end
-
-  def guess
-
-  end
-
-  def card
-
+  attr_reader :guess, :card
+  def initialize(guess, card)
+    @guess = guess
+    @card = card
   end
 
   def correct?
@@ -16,6 +10,6 @@ class Turn
   end
 
   def feedback
-
+    
   end
 end
