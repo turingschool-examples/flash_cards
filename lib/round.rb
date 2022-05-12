@@ -1,6 +1,8 @@
 require './lib/turn'
 require './lib/card'
 require './lib/deck'
+require 'pry'
+
 
 
 class Round
@@ -13,17 +15,11 @@ class Round
   end
 
   def current_card
-    deck.cards.shift
+    deck.cards.first
   end
 
   def take_turn(guess)
-    return_array = []
-    return_array << self.current_card
-    return_array << guess
-    return_array
+    Turn.new(guess,current_card)
   end
-
-
-
 
 end
