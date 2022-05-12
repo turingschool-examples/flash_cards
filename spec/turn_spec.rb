@@ -3,35 +3,38 @@ require './lib/turn'
 require './lib/card'
 
 
-describe 'Iteration 1' do
-  describe 'Turn' do
-    describe '#initialize' do
 
-      it "it exists" do
-        card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-        turn = Turn.new("Juneau", card)
+describe '#initialize' do
 
-        expect(turn).to be_a(Turn)
-      end
+  it "it exists" do
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Juneau", card)
 
-      it "has a guess" do
-        card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-        turn = Turn.new("Juneau", card)
+    expect(turn).to be_a(Turn)
+  end
 
-        expect(turn.guess).to eq("Juneau")
-      end
-      it "has a card" do
-        card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-        turn = Turn.new("Juneau", card)
+  it "has a guess" do
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Juneau", card)
 
-        expect(turn.card).to be_a(Card)
-      end
-    end
+    expect(turn.guess).to eq("Juneau")
+  end
 
-    describe '#correct?' do
-      it 'is true or false'
+  it "has a card" do
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Juneau", card)
 
-    end
+    expect(turn.card).to be_a(Card)
+  end
+end
 
+describe '#correct?' do
+  it 'is true or false' do
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn1 = Turn.new("Juneau", card)
+    turn2 = Turn.new("Anchorage", card)
+
+    expect(turn1.correct?).to eq(true)
+    expect(turn1.correct?).to eq(false)
   end
 end
