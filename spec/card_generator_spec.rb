@@ -7,7 +7,9 @@ RSpec.describe CardGenerator do
     filename = "cards.txt"
     generator = CardGenerator.new(filename)
     text_to_cards = generator.cards
-    binding.pry 
+    binding.pry
     expect(generator).to be_instance_of(CardGenerator)
   end
+
+
 end
