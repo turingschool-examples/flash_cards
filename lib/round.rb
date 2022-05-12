@@ -19,20 +19,7 @@ class Round
     if new_turn.correct? == true
       @number_correct += 1
     end
-    new_turn 
+    new_turn
   end
-
-
-  # def number_correct
-  #   number = 0
-  #   if Turn.correct? == true
-  #     number += 1
-  #   end
-  #   number
-  # end
-
-  #if take_turn(guess).correct? == true
-  #   @number_correct += 1
-  # end
 
 end
