@@ -7,4 +7,8 @@ class Card
     @category = category
   end
 
+  def feedback
+    Turn.feedback
+  end
+
 end

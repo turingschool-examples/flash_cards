@@ -34,4 +34,15 @@ class Round
     percent = (correct / total) * 100
   end
 
+  def percent_correct_by_category(category_argument)
+    category_array = []
+    @turns.each do |card|
+       category_array << card.category
+    end
+    category_number = category_array.count(category_argument)
+    category_correct = number_correct_by_category(category_argument)
+    result = (category_correct / category_number) * 100
+    result.to_f 
+  end
+
 end
