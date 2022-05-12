@@ -34,4 +34,7 @@ class Round
     end
     return correct
   end
+  def percent_correct
+    return number_correct * 100.0 / @guess
+  end
 end
