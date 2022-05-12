@@ -35,7 +35,7 @@ RSpec.describe CardGenerator do
     expect(generator.compiler ).to be_instance_of(Card)
   end
 
-  it "can shovel Card into cards" do
+  xit "can shovel Card into cards" do
     filename = "cards.txt"
     generator = CardGenerator.new(filename)
     generator.compiler
@@ -43,7 +43,7 @@ RSpec.describe CardGenerator do
     expect(generator.cards[0].category).to eq("STEM")
   end
 
-  it "can iterate through each line of the file" do
+  xit "can iterate through each line of the file" do
     filename = "cards.txt"
     generator = CardGenerator.new(filename)
     generator.compiler
@@ -51,10 +51,20 @@ RSpec.describe CardGenerator do
     expect(generator.cards.count).to eq(4)
   end
 
-  it "stores all four lines in the cards attribute" do
+  xit "stores all four lines in the cards attribute" do
     filename = "cards.txt"
     generator = CardGenerator.new(filename)
     generator.compiler
+
+    expect(generator.cards[0].answer).to eq("10")
+    expect(generator.cards[1].category).to eq("Turing Staff")
+    expect(generator.cards[2].question).to eq("What is Mike's middle name?")
+    expect(generator.cards[3].answer).to eq("Justin bieber")
+  end
+
+  it "can run all lines of code without calling on the compiler method" do
+    filename = "cards.txt"
+    generator = CardGenerator.new(filename)
 
     expect(generator.cards[0].answer).to eq("10")
     expect(generator.cards[1].category).to eq("Turing Staff")

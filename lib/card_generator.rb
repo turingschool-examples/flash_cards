@@ -7,9 +7,9 @@ class CardGenerator
   def initialize(filename)
     @filename = filename
     @cards = []
-  end
-
-  def compiler
+  # end
+  #
+  # def compiler
     File.open(@filename, "r").each do |line|
     # line = IO.readlines(@filename)[0].strip.split(",")
       new_card_content = line.strip.split(",")

@@ -13,7 +13,12 @@ require 'pry'
 # deck = Deck.new([card_1, card_2, card_3])
 # round = Round.new(deck)
 
-# total_card_count = deck.count
+# use cards.txt for the flashcards.
+filename = "cards.txt"
+generator = CardGenerator.new(filename)
+deck = Deck.new(generator.cards)
+round = Round.new(deck)
+
 card_number = 0
 
 puts "Welcome! You're playing with #{deck.count} cards.
