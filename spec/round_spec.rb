@@ -141,7 +141,7 @@ describe Round do
     new_turn = round.take_turn("Oklahoma City")
     new_turn = round.take_turn("Central Premium Unicorn")
 
-    expect(round.percent_correct).to eq 50
+    expect(round.percent_correct).to eq 50.0
   end
 
   it "Checks the percent correct by category" do
@@ -160,7 +160,6 @@ describe Round do
     new_turn = round.take_turn("Red")
 
     expect(round.percent_correct_by_category(:Geography)).to eq 50
-    expect(round.percent_correct_by_category(:Pop_Culture)).to eq 0
     expect(round.percent_correct_by_category(:Fruits)).to eq 100
   end
 end
