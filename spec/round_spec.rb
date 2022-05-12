@@ -77,6 +77,19 @@ describe Round do
     new_turn = round.take_turn("Oklahoma City")
 
     expect(new_turn).to be_a Turn
+  end
 
+  it "Outputs the number a user has gotten correct" do
+    card1 = Card.new("What is the capital of Oklahoma?", "Oklahoma City", :Geography)
+
+    cards = [card1]
+
+    deck = Deck.new(cards)
+
+    round = Round.new(deck)
+
+    new_turn = round.take_turn("Oklahoma City")
+
+    expect(round.number_correct).to eq 1
   end
 end
