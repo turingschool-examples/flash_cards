@@ -58,7 +58,7 @@ describe Round do
       cards = [card_1, card_2, card_3]
       deck = Deck.new(cards)
       round = Round.new(deck)
-      expect(round.take_turn("Juneau")).to eq(Turn.new("Juneau", round.current_card))
+      expect(round.take_turn("Juneau")).to be_a (Turn)
     end
   end
 end

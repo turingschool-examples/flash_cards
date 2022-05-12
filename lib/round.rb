@@ -12,4 +12,9 @@ class Round
     deck.cards[0]
   end
 
+  def take_turn(guess)
+    Turn.new(guess, current_card)
+    #code for puts a turn into turn array
+  end
+
 end
