@@ -21,7 +21,7 @@ RSpec.describe Turn do
     card = Card.new("What is the capitol of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau",card)
 
-    expect(turn.guess).to eq card.answer
+    expect(turn.correct?).to eq true
   end
 
   it "has feedback" do
