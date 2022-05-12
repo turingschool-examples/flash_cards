@@ -28,5 +28,11 @@ describe Turn do
     turn = Turn.new("Oklahoma City", card)
 
     expect(turn.correct?).to eq true
+
+    it 'Tells you if you are incorrect' do
+      card = Card.new("What is the capital of Oklahoma?", "Oklahoma City", :Geography)
+      turn = Turn.new("Tulsa", card)
+
+      expect(turn.correct?).to eq true
   end
 end
