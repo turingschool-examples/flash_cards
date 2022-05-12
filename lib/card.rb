@@ -8,4 +8,4 @@ attr_reader :question, :answer, :category
 end
 
 
-p "dave is cool "
+p "dave is cool ,,,,,, "
