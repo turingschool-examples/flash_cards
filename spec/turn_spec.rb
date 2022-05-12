@@ -1,4 +1,5 @@
 require 'rspec'
+require './lib/card'
 require './lib/turn'
 
 RSpec.describe Turn do
@@ -9,13 +10,22 @@ RSpec.describe Turn do
     end
 
     it 'exists' do
-
+      expect(@turn).to be_a(Turn)
     end
 
     it 'has attributes' do
-
+      expect(@turn.guess).to eq("Juneau")
+      expect(@turn.card).to eq(@card)
     end
 
+    it 'can tell if answer is correct' do
+      expect(@turn.correct?).to eq(True)
+    end
+
+    it 'can give feedback' do
+      expect(@turn.feebdack).to eq("Correct!")
+    end
+    
   end
 
 end
