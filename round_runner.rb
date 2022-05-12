@@ -12,10 +12,13 @@ round = Round.new(deck)
 round.current_card
 new_turn = round.take_turn("Juneau")
 round.take_turn("Venus")
-round.turns.count
-round.turns
-p round.turns.last.class 
-p round.number_correct
+p round.number_correct_by_category(:Geography)
+p round.number_correct_by_category(:STEM)
+
+# round.turns.count
+# round.turns
+# p round.turns.last.class
+# p round.number_correct
 
 # p round.take_turn("Juneau").correct?
 

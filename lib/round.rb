@@ -1,11 +1,12 @@
 class Round
-  attr_reader :deck, :turns, :index, :number_correct
+  attr_reader :deck, :turns, :index, :number_correct, :correct_array
 
   def initialize(deck)
     @deck = deck
     @turns = []
     @number_correct = 0
     @index = 0
+    @correct_array = []
   end
 
   def current_card
@@ -13,13 +14,18 @@ class Round
   end
 
   def take_turn(guess)
-    new_turn = Turn.new(guess, current_card)
-    if new_turn.correct? == true
+    another_turn = Turn.new(guess, current_card)
+    if another_turn.correct? == true
       @number_correct += 1
+      @correct_array << another_turn.card.category
     end
     @turns << current_card
     @index += 1
-    new_turn
+    another_turn
+  end
+
+  def number_correct_by_category(category)
+    @correct_array.count(category)
   end
 
 end
