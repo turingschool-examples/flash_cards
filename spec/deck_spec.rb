@@ -3,30 +3,38 @@ require './lib/deck'
 
 RSpec.describe Deck do
   it 'exists' do
-    deck = Deck.new(:card)
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+    card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+
+    cards = [card_1, card_2, card_3]
+    deck = Deck.new(cards)
 
     expect(deck).to be_instance_of(Deck)
   end
-
-  it 'returns an array of cards' do
-    deck = Deck.new(:card)
-
-
-    expect(deck.cards).to eq([@card, @card, @card])
-
-  end
-
-  it 'has a count' do
-    deck = Deck.new(:card)
-
-    expect(deck.count).to eq(3)
-  end
-
-  it 'belongs to a certain category' do
-    deck = Deck.new(:card)
-
-    expect(deck.cards_in_category("Pop Culture")). to eq([])
-  end
-
-
 end
+
+#   xit 'returns an array of cards' do
+#     deck = Deck.new(:card)
+#
+#
+#     expect(deck.cards).to eq([card, card_2, card_3])
+#
+#   end
+#
+#   xit 'has a count' do
+#     deck = Deck.new(:card)
+#
+#     expect(deck.count).to eq(3)
+#   end
+#
+#   xit 'belongs to a certain category' do
+#     deck = Deck.new(:card)
+#     # card_1 = Card.new(("What is the capital of Alaska?", "Juneau", :Geography))
+#
+#     # expect(deck.cards_in_category(:Geography)). to eq([card_1])
+#     expect(deck.cards_in_category("Pop Culture")). to eq([])
+#   end
+#
+#
+# end

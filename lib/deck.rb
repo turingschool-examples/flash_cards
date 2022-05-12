@@ -6,19 +6,17 @@ class Deck
     @cards = []
     @category = category
   end
-
-  def cards
-    @cards = []
-    @cards << @card << @card << @card
-  end
-
-  def count
-    p cards.count
-  end
-
-  def cards_in_category(category)
-    p @cards
-  end
-
-
 end
+
+  # def cards
+  #   @cards = []
+  #   @cards << @card << card_2 << card_3
+  # end
+  #
+  # def count
+  #   p @cards.count
+  # end
+  #
+  # def cards_in_category(category)
+  #   p @cards
+  # end
