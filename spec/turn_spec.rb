@@ -34,7 +34,7 @@ describe '#correct?' do
     turn1 = Turn.new("Juneau", card)
     turn2 = Turn.new("Anchorage", card)
 
-    expect(turn1.correct?).to eq(true)
-    expect(turn1.correct?).to eq(false)
+    expect(turn1.correct?(@guess)).to eq(true)
+    expect(turn2.correct?(@guess)).to eq(false)
   end
 end
