@@ -39,15 +39,15 @@ describe Turn do
 
   it 'Returns string "Correct." if you are correct' do
     card = Card.new("What is the capital of Oklahoma?", "Oklahoma City", :Geography)
-    turn = Turn.new("Tulsa", card)
+    turn = Turn.new("Oklahoma City", card)
 
-    expect(turn.feedback).to eq "Incorrect."
+    expect(turn.feedback).to eq "Correct!"
   end
 
   it 'Returns string "Incorrect." if you are incorrect' do
     card = Card.new("What is the capital of Oklahoma?", "Oklahoma City", :Geography)
-    turn = Turn.new("Oklahoma City", card)
+    turn = Turn.new("Tulsa", card)
 
-    expect(turn.feedback).to eq "Correct."
+    expect(turn.feedback).to eq "Incorrect."
   end
 end
