@@ -9,4 +9,9 @@ RSpec.describe Card do
       expect(@card).to be_an(Card)
     end
 
+    it "has attributes" do
+    expect(@card.question).to eq("What is the capital of Alaska?")
+    expect(@card.answer).to eq("Juneau")
+    expect(@card.category).to eq(:Geography)
+  end  
 end
