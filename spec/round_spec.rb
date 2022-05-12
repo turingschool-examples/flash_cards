@@ -4,13 +4,14 @@ require './lib/deck'
 require './lib/round'
 
 RSpec.describe Round do
-  card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-  card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
-  card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-  deck = Deck.new([card_1, card_2, card_3])
-  round = Round.new(deck)
 
   describe "#initialize" do
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+    card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+    deck = Deck.new([card_1, card_2, card_3])
+    round = Round.new(deck)
+
     it 'exists' do
       expect(round.class).to be(Round)
     end
@@ -34,60 +35,87 @@ RSpec.describe Round do
     end
   end
 
+  describe "#turns and number correct" do
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+    card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+    deck = Deck.new([card_1, card_2, card_3])
+    round = Round.new(deck)
 
-  describe "#take turns" do
-    it 'can take turns' do
-      first_turn = round.take_turn("Juneau")
+    it 'can take correct and incorrect turns' do
+      first_turn = round.take_turn("Juneau") # right answer
       expect(round.turns.last).to eq(first_turn)
-      second_turn = round.take_turn("Mars")
+      expect(round.number_correct).to be(1)
+      expect(round.turns.last.feedback).to eq("Correct!")
+      second_turn = round.take_turn("Venus") # wrong answer
       expect(round.turns.last).to eq(second_turn)
+      expect(round.turns.count).to be(2)
+      expect(round.number_correct).to be(1)
+      expect(round.turns.last.feedback).to eq("Incorrect.")
     end
 
-    xit 'can show number correct' do
+    it 'can show number correct' do
       expect(round.number_correct).to be(1)
+      third_turn = round.take_turn("North north west") # right answer
+      expect(round.number_correct).to be(2)
     end
+  end
+
+  describe "#changes current card" do
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+    card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+    deck = Deck.new([card_1, card_2, card_3])
+    round = Round.new(deck)
 
     it 'can show new current card after turn' do
-      card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-      card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
-      card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-      deck = Deck.new([card_1, card_2, card_3])
-      round = Round.new(deck)
       first_turn = round.take_turn("Juneau")
       expect(round.current_card).to eq(card_2)
     end
+  end
 
-    it 'can take an incorrect turn' do
-      card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-      card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
-      card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-      deck = Deck.new([card_1, card_2, card_3])
-      round = Round.new(deck)
+  describe "#incorrect turn" do
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+    card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+    deck = Deck.new([card_1, card_2, card_3])
+    round = Round.new(deck)
+
+    it 'can take an incorrect turn (detailed)' do
       first_turn = round.take_turn("Juneau")
+      expect(round.number_correct).to be(1)
       second_round = round.take_turn("Venus")
       expect(round.turns.count).to be(2)
       expect(round.turns.last.feedback).to eq("Incorrect.")
       expect(round.number_correct).to be(1)
+    end
+
+    it 'can give number correct by category' do
       expect(round.number_correct_by_category(:Geography)).to be(1)
       expect(round.number_correct_by_category(:STEM)).to be(0)
     end
+  end
+
+  describe "#percent correct" do
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+    card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+    deck = Deck.new([card_1, card_2, card_3])
+    round = Round.new(deck)
 
     it 'can give percent correct and percent correct by category' do
-      card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-      card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
-      card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-      deck = Deck.new([card_1, card_2, card_3])
-      round = Round.new(deck)
-      first_turn = round.take_turn("Juneau")
-      expect(round.current_card).to eq(card_2)
-      second_round = round.take_turn("Venus")
+      first_turn = round.take_turn("Juneau") # right answer
+      second_round = round.take_turn("Venus") # wrong answer
       expect(round.percent_correct).to eq(50.0)
       expect(round.percent_correct_by_category(:Geography)).to eq(100.0)
       expect(round.current_card).to eq(card_3)
       third_round = round.take_turn("North north west")
       expect(round.percent_correct).to eq(200/3.to_f)
-      expect(round.percent_correct_by_category(:STEM)).to eq(50.0)
       expect(round.current_card).to be(nil)
+    end
+
+    it 'can give percent correct by category' do
+      expect(round.percent_correct_by_category(:STEM)).to eq(50.0)
     end
   end
 end
