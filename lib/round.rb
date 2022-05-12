@@ -58,7 +58,7 @@ class Round
   end
 
   def display_results
-    puts "0.0 * x.x * Game over! * x.x * 0.0"
+    puts "0.0 * x.x * Game Over! * x.x * 0.0"
     puts "You had #{number_correct} guesses out of 4 for a total score of #{percent_correct.to_i}%"
     puts "STEM - #{percent_correct_by_category(:STEM).to_i}% correct"
     puts "Geography - #{percent_correct_by_category(:Geography).to_i}% correct"
