@@ -50,10 +50,10 @@ class Round
 
     def start
         puts "Welcome! You're playing with 4 cards. \n--------------------------------------"
-        card_count = 0
-        counter = deck.count
+        counter = 0
+        card_count = deck.count
         until turns.count == deck.count do
-            puts "This is card number #{card_count += 1} out of #{counter}."
+            puts "This is card number #{counter += 1} out of #{card_count}."
             puts "Question: #{current_card.question}"
             guessing = gets.chomp
             take_turn(guessing)
@@ -61,7 +61,7 @@ class Round
         end
         if turns.count == deck.count
             puts "****** Game over! ******"
-            puts "You had #{number_correct} correct guesses out of #{counter} for a total score of #{percent_correct.to_i}%."
+            puts "You had #{number_correct} correct guesses out of #{card_count} for a total score of #{percent_correct.to_i}%."
             turns.each do |turn|
                 puts "#{turn.card.category}- #{percent_correct_by_category(turn.card.category).to_i}% correct"
             end
