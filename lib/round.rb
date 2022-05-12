@@ -22,4 +22,10 @@ class Round
     Turn.new(guess,current_card)
   end
 
+  def correct?
+
+    self.take_turn.guess == self.take_turn.answer
+
+  end
+
 end
