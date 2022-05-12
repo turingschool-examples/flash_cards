@@ -44,4 +44,14 @@ class Round
     end.length
     (number_correct_by_category(category).to_f / category_total) * 100
   end
+
+  def start
+
+
+    puts "Welcome! You're playing with #{@deck.count} cards."
+    puts "-------------------------------------------------"
+    puts "This is card number #{@turns.length + 1} out of 4"
+    puts "Question: #{current_card.question}"
+    take_turn(gets.chomp)
+  end
 end
