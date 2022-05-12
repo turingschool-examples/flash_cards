@@ -23,17 +23,18 @@ describe Turn do
     expect(turn.guess).to eq "Oklahoma City"
   end
 
-  it 'Tells you if you are correct' do
+  it 'Returns true if you are correct' do
     card = Card.new("What is the capital of Oklahoma?", "Oklahoma City", :Geography)
     turn = Turn.new("Oklahoma City", card)
 
     expect(turn.correct?).to eq true
   end
 
-    it 'Tells you if you are incorrect' do
-      card = Card.new("What is the capital of Oklahoma?", "Oklahoma City", :Geography)
-      turn = Turn.new("Tulsa", card)
+  it 'Returns false if you are incorrect' do
+    card = Card.new("What is the capital of Oklahoma?", "Oklahoma City", :Geography)
+    turn = Turn.new("Tulsa", card)
 
-      expect(turn.correct?).to eq false
+    expect(turn.correct?).to eq false
   end
+
 end
