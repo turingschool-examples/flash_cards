@@ -14,6 +14,5 @@ class Deck
     cards.select do |card|
       card.category == category
     end
-
-end
+  end
 end
