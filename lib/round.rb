@@ -28,4 +28,10 @@ class Round
     @correct_array.count(category)
   end
 
+  def percent_correct
+    correct = @correct_array.count.to_f
+    total = @turns.count.to_f
+    percent = (correct / total) * 100
+  end
+
 end

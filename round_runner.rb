@@ -12,8 +12,12 @@ round = Round.new(deck)
 round.current_card
 new_turn = round.take_turn("Juneau")
 round.take_turn("Venus")
-p round.number_correct_by_category(:Geography)
-p round.number_correct_by_category(:STEM)
+round.number_correct_by_category(:Geography)
+round.number_correct_by_category(:STEM)
+round.percent_correct
+
+# p @turns.count
+# p round.percent_correct
 
 
 
