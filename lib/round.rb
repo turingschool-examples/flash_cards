@@ -1,4 +1,7 @@
 require 'pry'
+require_relative'./deck'
+require_relative'./turn'
+require_relative './card'
 
 class Round
     attr_reader :deck, :turns, :correct_answer
@@ -44,4 +47,26 @@ class Round
         end
         (number_correct_by_category(input) / total_by_category.to_f)*100
     end
+
+    def start
+        puts "Welcome! You're playing with 4 cards. \n--------------------------------------"
+        card_count = 0
+        counter = deck.count
+        until turns.count == deck.count do
+            puts "This is card number #{card_count += 1} out of #{counter}."
+            puts "Question: #{current_card.question}"
+            guessing = gets.chomp
+            take_turn(guessing)
+            puts turns.last.feedback
+        end
+        if turns.count == deck.count
+            puts "****** Game over! ******"
+            puts "You had #{number_correct} correct guesses out of #{counter} for a total score of #{percent_correct.to_i}%."
+            turns.each do |turn|
+                puts "#{turn.card.category}- #{percent_correct_by_category(turn.card.category).to_i}% correct"
+            end
+        end
+    end
+
+ # puts "#{turn.card.category}- #{percent_correct_category(turn.card.category)} correct"
 end
