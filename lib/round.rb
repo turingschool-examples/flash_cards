@@ -16,4 +16,13 @@ def take_turn(guess)
     @guess += 1
     return turn
 end
+def number_correct
+  correct = 0
+  @turns.each do |turn|
+    if turn.correct?
+      correct += 1
+    end
+  end
+  return correct
+end
 end
