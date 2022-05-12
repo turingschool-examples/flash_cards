@@ -10,6 +10,9 @@ card_4 = Card.new("What is the capital of Georgia?", "Atlanta", :Geography)
 deck = Deck.new([card_1, card_2, card_3, card_4])
 round = Round.new(deck)
 feedback_array = []
+math_array = []
+politics_array = []
+geography_array = []
 
 def start
   puts "Welcome, you're playing with 4 cards."
@@ -24,6 +27,7 @@ answer_1 = gets.chomp
 round_1 = round.take_turn(answer_1.to_i)
 round_1.correct?
 feedback_array << round_1.feedback
+math_array << round_1.feedback
 puts round_1.feedback
 
 puts 'This is card number 2 out of 4.'
@@ -33,6 +37,7 @@ round_2 = round.take_turn(answer_2.to_s.capitalize)
 round_2.correct?
 round_2.guess
 feedback_array << round_2.feedback
+politics_array << round_2.feedback
 puts round_2.feedback
 
 
@@ -43,6 +48,7 @@ round_3 = round.take_turn(answer_3.to_s.downcase)
 round_3.correct?
 round_3.guess
 feedback_array << round_3.feedback
+geography_array << round_3.feedback
 puts round_3.feedback
 
 puts 'This is card number 4 out of 4.'
@@ -52,13 +58,19 @@ round_4 = round.take_turn(answer_4.to_s.capitalize)
 round_4.correct?
 round_4.guess
 feedback_array << round_4.feedback
+geography_array << round_4.feedback
 puts round_4.feedback
 
 right = feedback_array.count('Correct!')
 percent_right = ((feedback_array.count('Correct!').to_f / 4) * 100).to_i
-
 puts "**** Game over! ****"
 puts "You had #{right} correct guesses out of 4 for a total score of #{percent_right}%."
-puts "Math - "
-puts "Politics - "
-puts "Geography - "
+
+math_percent_right = ((math_array.count('Correct!').to_f / 1) * 100).to_i
+puts "Math - #{math_percent_right}% correct"
+
+politics_percent_right = ((politics_array.count('Correct!').to_f / 1) * 100).to_i
+puts "Politics - #{politics_percent_right} % correct"
+
+geography_percent_right = ((geography_array.count('Correct!').to_f / 2) * 100).to_i
+puts "Geography - #{geography_percent_right}% correct"
