@@ -4,7 +4,7 @@ class Card
               :answer,
               :category
 
-  def initialize(question, answer, category = :Geography)
+  def initialize(question, answer, category)
     @question = question
     @answer = answer
     @category = category

@@ -14,5 +14,13 @@ class Deck
     @cards.select do |card|
       category == card.category
     end
+    # test = []
+    # @cards.each do |card|
+    #   if category == card.category
+    #     test << card
+    #   end
+    # end
+    #   return test
   end
+
 end
