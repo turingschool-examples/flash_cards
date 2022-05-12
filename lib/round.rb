@@ -7,11 +7,12 @@ require 'pry'
 
 class Round
 
-  attr_reader :deck, :turns
+  attr_reader :deck, :turns, :turn_count
 
   def initialize(deck)
     @deck = deck
     @turns = []
+    @turn_count = 0
   end
 
   def current_card
@@ -19,7 +20,8 @@ class Round
   end
 
   def take_turn(guess)
-    new_turn = Turn.new(guess,current_card)
+    @turn_count += 1
+    new_turn = Turn.new(guess,self.current_card)
     @turns << new_turn
     new_turn
   end
@@ -29,7 +31,6 @@ class Round
     self.take_turn.guess == self.take_turn.answer
 
   end
-
 
 
 end

@@ -151,6 +151,8 @@ RSpec.describe Deck do
 
     new_turn_1 = round.take_turn("Juneau")
 
+
+
     expect(round.turns).to eq([new_turn_1])
 
   end
