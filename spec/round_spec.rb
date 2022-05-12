@@ -34,4 +34,16 @@ describe Round do
 
     expect(round.deck).to eq deck
   end
+
+  it "Is created with no turns" do
+    card1 = Card.new("What is the capital of Oklahoma?", "Oklahoma City", :Geography)
+
+    cards = [card1]
+
+    deck = Deck.new(cards)
+
+    round = Round.new(deck)
+
+    expect(round.turns).to eq []
+  end
 end
