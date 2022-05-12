@@ -12,17 +12,13 @@ class Round
   end
 
   def number_correct
-    # Needs to iterate through turns
-    #
-    # number_correct = 0
-    # round.turns.each do |turn|
-    #   If guess == answer
-    #     number_correct += 1
-    #   end
-    # end
-    #
-    # return number_correct
-
+    number_correct = 0
+    turns.each do |turn|
+      if turn.guess == turn.card.answer
+        number_correct += 1
+      end
+    end
+    return number_correct
   end
 
   def current_card
