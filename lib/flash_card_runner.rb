@@ -11,12 +11,6 @@ require './lib/round'
 @deck = Deck.new(@cards)
 @round = Round.new(@deck)
 
-def card_feedback
-  # require "pry"; binding.pry
-  @new_turn = Turn.new(guess, @round.current_card)
-  require "pry"; binding.pry
-end
-
 @round.start
 
 require "pry"; binding.pry
