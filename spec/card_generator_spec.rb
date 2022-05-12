@@ -27,11 +27,19 @@ RSpec.describe CardGenerator do
     expect(generator.cards).to eq(["What is 5 + 5?", "10", "STEM"])
   end
 
-  it 'can input array into new Card' do
+  xit 'can input array into new Card' do
     filename = "cards.txt"
     generator = CardGenerator.new(filename)
     generator.cards
 
     expect(generator.cards).to be_instance_of(Card)
+  end
+
+  it "can shovel Card into card_deck" do
+    filename = "cards.txt"
+    generator = CardGenerator.new(filename)
+    generator.cards
+
+    expect(generator.card_deck[0].category).to eq("STEM")
   end
 end
