@@ -128,9 +128,25 @@ describe Round do
     expect(round.number_correct_by_category(:Pop_Culture)).to eq 0
   end
 
+  it "Checks the percent correct" do
+    card1 = Card.new("What is the capital of Oklahoma?", "Oklahoma City", :Geography)
+    card2 = Card.new("What do the letters CPU stand for in computing?", "Central Processing Unit", :Technology)
+
+    cards = [card1, card2]
+
+    deck = Deck.new(cards)
+
+    round = Round.new(deck)
+
+    new_turn = round.take_turn("Oklahoma City")
+    new_turn = round.take_turn("Central Premium Unicorn")
+
+    expect(round.percent_correct).to eq 50
+  end
+
   it "Checks the percent correct by category" do
     card1 = Card.new("What is the capital of Oklahoma?", "Oklahoma City", :Geography)
-    card2 = Card.new("What is the capital of Colorado?", "Denver", :Technology)
+    card2 = Card.new("What is the capital of Colorado?", "Denver", :Geography)
     card3 = Card.new("What color is a strawberry?", "Red", :Fruits)
 
     cards = [card1, card2, card3]
