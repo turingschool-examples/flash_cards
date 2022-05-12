@@ -16,15 +16,13 @@ it "has a guess" do
   expect(@turn.guess).to eq("Juneau")
 end
 
-describe "correct?" do
+  it "correct?" do
   @card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
   @turn = Turn.new("Juneau", @card)
 
-if
   expect(@turn.correct?).to eq(true)
   end
 
 
-  end
 
-end
+  end
