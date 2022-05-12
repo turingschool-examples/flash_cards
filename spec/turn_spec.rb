@@ -12,15 +12,15 @@ RSpec.describe Turn do
 
     expect(current_turn.guess).to eq("This is the guess")
   end
-#
-#   it 'has an answer' do
-#     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-#
-#     expect(card.answer).to eq("Juneau")
-#   end
+
+  it 'will return current card' do
+    current_turn = Turn.new("This is the guess", "This might be the question?")
+
+    expect(current_turn.card).to eq("This might be the question?")
+  end
 #
 #   it 'has a category' do
-#     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    # current_turn = Turn.new("This is the guess", "This might be the question?")
 #
 #     expect(card.category).to eq(:Geography)
 #   end

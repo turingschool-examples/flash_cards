@@ -6,4 +6,8 @@ class Turn
       @current_card = current_card
   end
 
+  def card
+    @current_card #implicit return of current_turn which is a string right now
+  end
+
 end
