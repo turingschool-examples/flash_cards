@@ -38,3 +38,13 @@ describe '#correct?' do
     expect(turn2.correct?(@guess)).to eq(false)
   end
 end
+describe  '#feedback' do
+  it "gives guess feedback" do
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn1 = Turn.new("Juneau", card)
+    turn2 = Turn.new("Anchorage", card)
+
+    expect(turn1.feedback(@guess)).to be("Correct!")
+    expect(turn2.feedback(@guess)).to be("Incorrect.")
+  end
+end
