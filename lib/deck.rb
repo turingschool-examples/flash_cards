@@ -1,19 +1,22 @@
 class Deck
 
-  attr_reader :cards,
-              :count
+  attr_reader :cards
 
   def initialize(cards)
     @cards = cards
-    @count = count
   end
 
-  def add_cards(card)
-    @cards << card
-  end
+  # def add_cards(card)
+  #   @cards << card
+  # end
 
   def count
     @cards.length
   end
 
+  def cards_in_category(category)
+    @cards.select do |card| 
+      category == card.category
+    end
+  end
 end
