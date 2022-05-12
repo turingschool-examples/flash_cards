@@ -15,7 +15,8 @@ require './lib/card_generator'
 # deck = Deck.new([card_1, card_2, card_3, card_4, card_5, card_6, card_7, card_8])
 # round = Round.new(deck)
 
-cards = CardGenerator.new("cards.txt").cards
+cards = CardGenerator.new("cards2.txt").cards
 deck_it4 = Deck.new(cards)
 round = Round.new(deck_it4)
+
 round.start
