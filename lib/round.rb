@@ -17,19 +17,11 @@ class Round
   end
 
   def number_correct
-    correct_answer = []
-    @turns.each do |turn|
-      if turn.correct? == true
-        correct_answer << turn
-      end
-    end
-    correct_answer.length
+    @turns.count{ |turn| turn.correct?}
   end
 
   def number_correct_by_category(category)
-    @turns.select do |turn|
-      turn.card.category == category && turn.correct? == true
-    end.length
+    @turns.count{ |turn| turn.card.category == category && turn.correct?}
   end
 
   def percent_correct
@@ -55,10 +47,10 @@ class Round
 
   puts """
   ****** Game Over ******
-  you had #{number_correct} guesses out of 5 for a total score of #{percent_correct}%.
-  STEM - #{percent_correct_by_category(:STEM)}% correct
-  Turing Staff - #{percent_correct_by_category(:Turing_Staff)}% correct
-  Pop Culture - #{percent_correct_by_category(:Pop_Culture)}% correct
+  you had #{number_correct} guesses out of 5 for a total score of #{percent_correct.round(1)}%.
+  STEM - #{percent_correct_by_category(:STEM).round(1)}% correct
+  Turing Staff - #{percent_correct_by_category(:Turing_Staff).round(1)}% correct
+  Pop Culture - #{percent_correct_by_category(:Pop_Culture).round(1)}% correct
   """
   end
 end
