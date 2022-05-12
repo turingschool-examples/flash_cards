@@ -8,7 +8,7 @@ class Round
 
   def initialize(deck)
     @deck = deck
-    @current_card = deck.cards.first
+    @current_card = @deck.cards.first
     @used_cards = []
     @turns = []
     @number_correct = 0
@@ -16,43 +16,43 @@ class Round
 
   def take_turn(guess)
     @turns << Turn.new(guess, current_card)
-    @number_correct += 1 if turns.last.guess == current_card.answer
-    @used_cards << current_card
+    @number_correct += 1 if guess.downcase == current_card.answer.downcase
+    @used_cards << @current_card
     @deck.cards.shift
-    @current_card = deck.cards.first
+    @current_card = @deck.cards.first
     return @turns.last
   end
 
   def number_correct_by_category(cat)
-    number_correct_by_category = turns.count do |turn|
+    number_correct_by_category = @turns.count do |turn|
       turn.card.category == cat && turn.correct?
     end
   end
 
   def percent_correct
-    number_correct.to_f * 100 / turns.count
+    @number_correct.to_f * 100 / @turns.count
   end
 
   def percent_correct_by_category(cat)
-    number_correct_by_category(cat) * 100 / turns.count do |turn|
+    number_correct_by_category(cat) * 100 / @turns.count do |turn|
       turn.card.category == cat
     end
   end
 
   def start
-    puts "Welcome! You're playing with #{deck.cards.length} cards."
+    puts "Welcome! You're playing with #{@deck.cards.length} cards."
     puts "-" * 30
 
-    total_cards = deck.cards.length + used_cards.length
+    total_cards = @deck.cards.length + @used_cards.length
     card_number = 0
 
     while card_number < total_cards
-      card_number = used_cards.length + 1
+      card_number = @used_cards.length + 1
       puts "This is card number #{card_number} out of #{total_cards}."
-      puts "Question: #{current_card.question}"
+      puts "Question: #{@current_card.question}"
       answer = gets.chomp.to_s.downcase
       take_turn(answer)
-      puts turns.last.feedback
+      puts @turns.last.feedback
     end
 
 # - - - - - - - -
@@ -88,8 +88,8 @@ class Round
     # - - - - - - - -
 
     puts "***** Game over! *****"
-    puts "You had #{number_correct} correct guesses out of #{total_cards} for a total score of #{percent_correct.to_i}%."
-    used_cards_by_category = used_cards.group_by do |card|
+    puts "You had #{@number_correct} correct guesses out of #{total_cards} for a total score of #{percent_correct.to_i}%."
+    used_cards_by_category = @used_cards.group_by do |card|
       card.category
     end
     stats = used_cards_by_category.each do |k,v|
