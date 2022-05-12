@@ -1,27 +1,33 @@
 require './lib/turn'
 
-RSpec.describe Turn do
+RSpec.describe Turn do #done
   it 'exists' do
-    current_turn = Turn.new("This is the guess", "This might be the question?") #placeholder = current card, whatever object that is
+    current_turn = Turn.new("This is the answer", "This might be the question?")
 
     expect(current_turn).to be_instance_of(Turn)
   end
 
-  it 'has guess' do
-    current_turn = Turn.new("This is the guess", "This might be the question?")
+  it 'has guess' do #done
+    current_turn = Turn.new("This is the answer", "This might be the question?")
 
-    expect(current_turn.guess).to eq("This is the guess")
+    expect(current_turn.guess).to eq("This is the answer")
   end
 
-  it 'will return current card' do
-    current_turn = Turn.new("This is the guess", "This might be the question?")
+  it 'will return current card' do #done
+    current_turn = Turn.new("This is the answer", "This might be the question?")
 
     expect(current_turn.card).to eq("This might be the question?")
   end
-#
-#   it 'has a category' do
-    # current_turn = Turn.new("This is the guess", "This might be the question?")
-#
-#     expect(card.category).to eq(:Geography)
-#   end
+
+  it 'returns True' do
+    current_turn = Turn.new("This is the answer", "This might be the question?")
+
+    expect(current_turn.correct?("This is the answer")).to eq(TRUE)
+  end
+
+  it 'returns "Correct!"' do
+    current_turn = Turn.new("This is the answer", "This might be the question?")
+
+    expect(current_turn.feedback("This is the answer")).to eq("Correct!")
+  end
 end
