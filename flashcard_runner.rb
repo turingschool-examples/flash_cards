@@ -11,18 +11,25 @@ card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwi
 deck = Deck.new([card_1, card_2, card_3])
 round = Round.new(deck)
 
-total_card_count = deck.cards.count
+total_card_count = deck.count
 card_number = 0
 
 puts "Welcome! You're playing with #{total_card_count} cards.
--------------------------------------------------
-This is card number #{card_number + 1} out of #{total_card_count}.
-Question: #{round.deck.cards[card_number].question}"
-
-answer = gets
-
-if answer.chomp == round.deck.cards[card_number].answer
-  puts "Correct!"
-else
-  puts "Incorrect."
+-------------------------------------------------"
+until card_number == total_card_count
+  puts "This is card number #{card_number + 1} out of #{total_card_count}.\n Question: #{deck.cards[card_number].question}"
+  guess = gets
+  if guess.chomp == round.deck.cards[card_number].answer
+    puts "Correct!"
+  else
+    puts "Incorrect."
+  end
+  round.take_turn(guess.chomp)
+  card_number += 1
 end
+
+puts "****** Game over! ******
+You had #{round.number_correct} correct guesses out of #{total_card_count} for a total score of #{round.percent_correct}%.
+STEM - 100% correct
+Turing Staff - 50% correct
+Pop Culture - 100% correct"
