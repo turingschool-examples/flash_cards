@@ -15,16 +15,10 @@ round.take_turn("Venus")
 p round.number_correct_by_category(:Geography)
 p round.number_correct_by_category(:STEM)
 
+
+
+
+
 # round.turns.count
 # round.turns
 # p round.turns.last.class
-# p round.number_correct
-
-# p round.take_turn("Juneau").correct?
-
-
-
-
-# card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-# turn = Turn.new("Juneau", card)
-# p turn.card.class
