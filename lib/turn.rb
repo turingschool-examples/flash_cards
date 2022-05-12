@@ -7,16 +7,12 @@ class Turn
     @card = card
   end
 
-  def guess
-    #this method returns the guess
-  end
-
   def correct?
-    
+    string == card.answer
   end
 
   def feedback
-    if @correct == true
+    if correct? == true
       puts "Correct"
     else
       puts "Incorrect."
