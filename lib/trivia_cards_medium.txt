@@ -13,3 +13,8 @@ Which Asian country had seven of the ten deadliest wars in human history some ev
 Victorians said this word before having their picture taken instead of the word “cheese”. What fruit did they say?,Prunes,History
 Who is the founder of the First Nations Development Institute?,Rebecca Adamson,History
 Whom did Cleopatra marry after the end of her relationship with Julius Caesar?,Mark Anthony,History
+How many federal states does Germany have?,16,Geography
+What is the only state in the United States that does not have a flag in a shape with 4 edges?,Ohio,Geography
+What is the smallest country in the world?,Vatican City,Geography
+What is the capital of Scotland?,Edinburgh,Geography
+What is the capital of Chile?,Santiago,Geography

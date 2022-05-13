@@ -13,3 +13,8 @@ What famous children’s party game that doesn’t involve balls was an Olympic 
 Who was the first black senator in the United States of America?,Carol Moseley Brown,History
 This woman’s refusal to give up her bus seat on the way home sparked national civil rights protests against segregation policies. What is the name of this brave woman?,Rosa Parks,History
 Elizabeth the Second was crowned as the queen during what year?,1952,History
+What is the capital of the American state of Arizona?,Phoenix,Geography
+Alaska is the largest state in the United States.,TRUE,Geography
+How many countries does the United States share a land border with?,2,Geography
+What is the capital city of New Zealand?,Wellington,Geography
+How many countries are inside the United Kingdom?,4,Geography
