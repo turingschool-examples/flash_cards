@@ -27,4 +27,15 @@ while i <= round.deck.count
 end
 
 puts "****** Game over! ******"
-puts "You had #{round.number_correct} correct guesses out of #{round.deck.count} for a total score of #{round.percent_correct}%."
+puts "You had #{round.number_correct} correct guesses out of #{round.deck.count} for a total score of #{round.percent_correct.to_i}%."
+
+used_categories = []
+
+round.turns.each do |turn|
+  if used_categories.include?(turn.card.category)
+    next
+  else
+    puts "#{turn.card.category} - #{round.percent_correct_by_category(turn.card.category).to_i}% correct"
+  end
+  used_categories << turn.card.category
+end
