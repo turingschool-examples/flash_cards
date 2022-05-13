@@ -32,3 +32,15 @@ RSpec.describe Turn do
     expect(turn.feedback).to eq("Correct!")
   end
 end
+
+it 'exists' do
+  card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+  turn = Turn.new("Saturn", card)
+  expect(turn).to_be_a(Turn)
+end
+
+xit 'has a card' do
+  card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+  turn = Turn.new("Saturn", card)
+  expect(turn.card).to eq(card)
+end
