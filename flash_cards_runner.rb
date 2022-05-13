@@ -4,19 +4,38 @@ require './lib/round'
 require './lib/turn'
 require './lib/card_generator'
 
-round.start
+puts "Welcome! You're playing Eagle's Knowledge Assessment!"
+
+puts "                        _--_"
+puts "                       /   -)"
+puts "                   ___/___|___"
+puts "      ____-----=~~///|     ||||~~~==-----______"
+puts "    //~////////////~/|     |/~/|||||\\\\\\\\\\\\\\\\\\~\\\\"
+puts "  ////////////////////|   |///////|\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"
+puts " /////~~~~~~~~~~~~~~~\ |.||/~~~~~~~~~~~~~~~~\\\\\\\\\\\\\\\\"
+puts "//~                  /\\|\\\\\                       ~\\\\"
+puts "                    ///W^\W\\"
+puts "                   ////|||\\\\"
+puts "                   ~~~~~~~~~~~"
+puts "This assessment will test your knowledge with 20 questions."
+puts "                  GOOD LUCK!!!
+"
+puts "Please select a dificulty 1 = easy, 2 = medium, 3 = hard"
+puts "
+
+"
 
 difficulty_selected = gets.chomp
 
-if diffculty_selected == "1"
+if difficulty_selected == "1"
 filename = './lib/trivia_cards_easy.txt'
 end
 
-if diffculty_selected == "2"
+if difficulty_selected == "2"
 filename = './lib/trivia_cards_medium.txt'
 end
 
-if diffculty_selected == "3"
+if difficulty_selected == "3"
 filename = './lib/trivia_cards_hard.txt'
 end
 

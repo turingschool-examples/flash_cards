@@ -7,28 +7,22 @@ class Round
   end
 
   def start
-puts "Welcome! You're playing Eagle's Knowledge Assessment!"
+    sleep(1)
+    puts "~~~*** Get Ready! ***~~~"
 
-puts "                        _--_"
-puts "                       /   -)"
-puts "                   ___/___|___"
-puts "      ____-----=~~///|     ||||~~~==-----______"
-puts "    //~////////////~/|     |/~/|||||\\\\\\\\\\\\\\\\\\~\\\\"
-puts "  ////////////////////|   |///////|\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"
-puts " /////~~~~~~~~~~~~~~~\ |.||/~~~~~~~~~~~~~~~~\\\\\\\\\\\\\\\\"
-puts "//~                  /\\|\\\\\                       ~\\\\"
-puts "                    ///W^\W\\"
-puts "                   ////|||\\\\"
-puts "                   ~~~~~~~~~~~"
-puts "This assessment will test your knowledge with #{@deck.count} questions."
-puts "                  GOOD LUCK!!!
-"
-puts "Please select a dificulty 1 = easy, 2 = medium, 3 = hard"
-puts "
+    sleep(1)
+    puts "~~~*** 3 ***~~~"
 
-"
+    sleep(1)
+    puts "~~~*** 2 ***~~~"
 
-end
+    sleep(1)
+    puts "~~~*** 1 ***~~~"
+
+    sleep(1)
+    puts "~~~*** GO!! ***~~~"
+  end
+
 
 
   def current_card
