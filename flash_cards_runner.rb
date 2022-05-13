@@ -9,7 +9,7 @@ puts "Welcome! You're playing Eagle's Knowledge Assessment!"
 puts "                        _--_"
 puts "                       /   -)"
 puts "                   ___/___|___"
-puts "      ____-----=~~///|     ||||~~~==-----______"
+puts "      ____-----=~~///|     ||||~~~=------______"
 puts "    //~////////////~/|     |/~/|||||\\\\\\\\\\\\\\\\\\~\\\\"
 puts "  ////////////////////|   |///////|\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"
 puts " /////~~~~~~~~~~~~~~~\ |.||/~~~~~~~~~~~~~~~~\\\\\\\\\\\\\\\\"
@@ -50,7 +50,8 @@ deck = Deck.new(cards)
 
 round = Round.new(deck)
 
-# round.start
+round.start
+
 
 loop do
   if round.turns.length == 0

@@ -21,6 +21,8 @@ class Round
 
     sleep(1)
     puts "~~~*** GO!! ***~~~"
+
+    sleep(1)
   end
 
 
