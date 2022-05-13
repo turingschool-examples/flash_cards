@@ -39,16 +39,22 @@ RSpec.describe Turn do
     expect(turn).to be_a(Turn)
   end
 
-  xit 'has a card' do
+  it 'has a card' do
     card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
     turn = Turn.new("Saturn", card)
     expect(turn.card).to eq(card)
   end
 
-  xit 'has a guess' do
+  it 'has a guess' do
     card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
     turn = Turn.new("Saturn", card)
     guess = turn.guess()
     expect(turn.guess).to eq("Saturn")
+  end
+
+  it 'returns a boolean indicating if the guess matched the answer on the Card' do
+    card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+    turn = Turn.new("Saturn", card)
+    expect(turn.correct?).to eq(false)
   end
 end
