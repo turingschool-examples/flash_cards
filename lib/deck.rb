@@ -1,4 +1,3 @@
-require 'pry'
 class Deck
   attr_reader :cards
 
@@ -7,7 +6,7 @@ class Deck
   end
 
   def count
-    return 3
+    @cards.count
   end
 
   def cards_in_categories(category)
