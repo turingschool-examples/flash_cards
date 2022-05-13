@@ -1,5 +1,6 @@
 class Round
   attr_reader :deck, :turns, :index, :number_correct, :correct_array, :category_array
+  attr_accessor :card_deck
 
   def initialize(deck)
     @deck = deck
@@ -8,10 +9,11 @@ class Round
     @index = 0
     @correct_array = []
     @category_array = []
+    @card_deck = deck.cards
   end
 
   def current_card
-    deck.cards[@index]
+    @card_deck[0]
   end
 
   def take_turn(guess)
@@ -23,6 +25,7 @@ class Round
     end
     @turns << another_turn
     @index += 1
+    @card_deck = deck.cards.rotate(@index)
     another_turn
   end
 

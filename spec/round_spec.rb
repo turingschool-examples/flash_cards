@@ -94,8 +94,8 @@ describe 'Round' do
     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
     deck = Deck.new([card_1, card_2, card_3])
     round = Round.new(deck)
-    round.current_card
     new_turn = round.take_turn("Juneau")
+    round.current_card
     expect(round.current_card).to eq card_2
   end
 
