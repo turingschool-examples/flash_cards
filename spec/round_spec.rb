@@ -10,16 +10,25 @@ RSpec.describe Round do
     @card_1 = Card.new("Which element has the symbol 'H'?", "Hydrogen", :ReactiveNonmetals)
     @card_2 = Card.new("Which element has the symbol 'Ne'?", "Neon", :NobleGases)
     @card_3 = Card.new("Which element has the symbol 'B'?", "Boron", :Metalloids)
-    @cards = [@card_1, @card_2, @card_3]
-    @deck = Deck.new(@cards)
+    @deck = Deck.new([@card_1, @card_2, @card_3])
     @round = Round.new(@deck)
   end
 
-  it 'plays a round of cards' do
+  it 'is a round of cards' do
 
     expect(@round).to be_instance_of Round
     expect(@round.deck).to eq(@deck)
   end
 
-  
+  it 'consists of turns' do
+
+    expect(@round.turns).to eq([])
+  end
+
+  it 'draws the first card' do
+
+   expect(@round.current_card).to eq(@card_1)
+  end
+
+
 end
