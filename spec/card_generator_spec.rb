@@ -7,12 +7,16 @@ require './lib/card_generator'
 
 describe CardGenerator do
   before :each do
-    @filename = File.open('cards.txt')
+    @filename = "cards.txt"
     @cards = CardGenerator.new(@filename)
   end
 
   it 'exists' do
     expect(@cards).to be_a CardGenerator
+  end
+
+  it 'has a filename' do
+    expect(@cards.filename).to eq(@filename)
   end
 
 end
