@@ -10,12 +10,7 @@ RSpec.describe CardGenerator do
     cards = CardGenerator.new(filename)
     expect(cards).to be_instance_of(CardGenerator)
   end
-  # xit 'reads card data' do
-  #   filename = "cards.txt"
-  #   cards = CardGenerator.new(filename)
-  #
-  #     expect(cards.card_data).to be_instance_of(Array)
-  # end
+
   it 'generates cards' do
     filename = "cards.txt"
     cards = CardGenerator.new(filename).cards

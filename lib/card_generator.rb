@@ -10,8 +10,4 @@ class CardGenerator
        @cards << Card.new(card_input[0],card_input[1],card_input[2].chomp)
      end
   end
-
-  def make_cards
-
-  end
 end
