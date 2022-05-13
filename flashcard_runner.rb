@@ -11,3 +11,7 @@ card4 = Card.new("What city is the capital of Germany?", "Berlin", :Geography)
 cards = [card1, card2, card3, card4]
 
 deck = Deck.new(cards)
+
+round = Round.new(deck)
+
+round.start
