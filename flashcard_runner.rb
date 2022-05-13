@@ -19,30 +19,4 @@ generator = CardGenerator.new(filename)
 deck = Deck.new(generator.cards)
 round = Round.new(deck)
 
-card_number = 0
-
-puts "Welcome! You're playing with #{deck.count} cards.
--------------------------------------------------"
-until card_number == deck.count
-  puts "This is card number #{card_number + 1} out of #{deck.count}.\n Question: #{deck.cards[0].question}"
-  guess = gets
-  if guess.strip == round.deck.cards[0].answer
-    puts "Correct!"
-  else
-    puts "Incorrect."
-  end
-  round.take_turn(guess.strip)
-  card_number += 1
-end
-
-# store categories as variables in an array
-categories = round.category_collector
-
-puts "****** Game over! ******
-You had #{round.number_correct} correct guesses out of #{deck.count} for a total score of #{round.percent_correct.round}%."
-
-round.category_results
-
-# Iteration 3 hard coded results
-# "Geography - #{round.percent_correct_by_category(:Geography).round}% correct
-# STEM - #{round.percent_correct_by_category(:STEM).round}% correct"
+round.start

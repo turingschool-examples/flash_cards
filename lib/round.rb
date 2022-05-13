@@ -19,11 +19,7 @@ class Round
   end
 
   def correct?
-    if round.turns.first.string == round.turns.fist.card.answer
-      return true
-    else
-      return false
-    end
+    round.turns.first.string == round.turns.fist.card.answer
   end
 
   def number_correct
@@ -96,8 +92,34 @@ class Round
     (num_correct / category_count.to_f * 100).round(1)
   end
 
+  def start
+    card_number = 0
+
+    puts "Welcome! You're playing with #{deck.count} cards.
+    -------------------------------------------------"
+    until card_number == deck.count
+      puts "This is card number #{card_number + 1} out of #{deck.count}.\nQuestion: #{deck.cards[0].question}"
+      guess = gets
+      if guess.strip == @deck.cards[0].answer
+        puts "Correct!"
+      else
+        puts "Incorrect."
+      end
+      take_turn(guess.strip)
+      card_number += 1
+    end
+
+    puts "****** Game over! ******\nYou had #{number_correct} correct guesses out of #{deck.count} for a total score of #{percent_correct.round}%."
+
+    category_results
+
+    # Iteration 3 hard coded results
+    # "Geography - #{round.percent_correct_by_category(:Geography).round}% correct
+    # STEM - #{round.percent_correct_by_category(:STEM).round}% correct"
+  end
+
   # for Iteration 4: iterate through the questions to store the cateogires in an array (see flashcard_runner.rb lines 38-39)
-  def  category_collector
+  def category_collector
     cats = []
     index = 0
     until index == @deck.cards.count

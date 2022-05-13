@@ -11,11 +11,7 @@ class Turn
   end
 
   def correct?
-    if @string == @card.answer
-      return true
-    else
-      return false
-    end
+    @string == @card.answer
   end
 
   def feedback

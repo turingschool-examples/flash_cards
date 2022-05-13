@@ -2,89 +2,95 @@ require './lib/turn'
 require './lib/card'
 
 RSpec.describe Turn do
-  it 'can create a Card' do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+  # code that runs turn.rb and lays the foundation for the tests that follow
+  card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+  turn = Turn.new("Juneau", card)
 
-    expect(card).to be_instance_of(Card)
+  describe Card do
+    it 'can create a Card' do
+      expect(card).to be_instance_of(Card)
+      expect(card.question).to eq("What is the capital of Alaska?")
+      expect(card.answer).to eq("Juneau")
+      expect(card.category).to eq(:Geography)
+    end
   end
 
-  it 'exists' do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    turn = Turn.new("Juneau", card)
-
-    expect(turn).to be_instance_of(Turn)
+  describe Turn do
+    it 'exists' do
+      expect(turn).to be_instance_of(Turn)
+      expect(turn.card.question).to eq("What is the capital of Alaska?")
+      expect(turn.card.answer).to eq("Juneau")
+      expect(turn.card.category).to eq(:Geography)
+    end
   end
 
-  it 'stores a card' do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    turn = Turn.new("Juneau", card)
-
-    expect(turn.card).to be_instance_of(Card)
+  describe '@card' do
+    it 'stores a card' do
+      expect(turn.card).to be_instance_of(Card)
+      expect(turn.card.question).to eq("What is the capital of Alaska?")
+      expect(turn.card.answer).to eq("Juneau")
+      expect(turn.card.category).to eq(:Geography)
+    end
   end
 
-  it 'stores a guess' do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    turn = Turn.new("Juneau", card)
-
-    expect(turn.guess).to eq("Juneau")
+  describe "@guess" do
+    it 'stores a guess' do
+      expect(turn.guess).to eq("Juneau")
+    end
   end
 
-  it 'tells you if you were correct' do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    turn = Turn.new("Juneau", card)
-
-    expect(turn.correct?).to eq(true)
+  describe "#correct?" do
+    it 'tells you if you were correct' do
+      expect(turn.correct?).to eq(true)
+    end
   end
 
-  it 'gives you feedback' do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    turn = Turn.new("Juneau", card)
-
-    expect(turn.feedback).to eq("Correct!")
+  describe "#feedback" do
+    it 'gives you feedback' do
+      expect(turn.feedback).to eq("Correct!")
+    end
   end
 
 end
 
 RSpec.describe Turn do
-  it 'can access Card' do
-    card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+  # code that runs turn.rb and lays the foundation for the tests that follow
+  card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+  turn = Turn.new("Saturn", card)
 
-    expect(card).to be_instance_of(Card)
+  describe Turn do
+    it 'exists' do
+      expect(turn).to be_instance_of(Turn)
+      expect(turn.card.question).to eq("Which planet is closest to the sun?")
+      expect(turn.card.answer).to eq("Mercury")
+      expect(turn.card.category).to eq(:STEM)
+    end
   end
 
-  it 'exists' do
-    card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
-    turn = Turn.new("Saturn", card)
-
-    expect(turn).to be_instance_of(Turn)
+  describe Card do
+    it 'stores a card' do
+      expect(turn.card).to be_instance_of(Card)
+      expect(turn.card.question).to eq("Which planet is closest to the sun?")
+      expect(turn.card.answer).to eq("Mercury")
+      expect(turn.card.category).to eq(:STEM)
+    end
   end
 
-  it 'stores a card' do
-    card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
-    turn = Turn.new("Saturn", card)
-
-    expect(turn.card).to be_instance_of(Card)
+  describe "#guess" do
+    it 'stores a guess' do
+      expect(turn.guess).to eq("Saturn")
+    end
   end
 
-  it 'stores a guess' do
-    card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
-    turn = Turn.new("Saturn", card)
-
-    expect(turn.guess).to eq("Saturn")
+  describe "#correct?" do
+    it 'tells you if you were correct' do
+      expect(turn.correct?).to eq(false)
+    end
   end
 
-  it 'tells you if you were correct' do
-    card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
-    turn = Turn.new("Saturn", card)
-
-    expect(turn.correct?).to eq(false)
+  describe "#feedback" do
+    it 'gives you feedback' do
+      expect(turn.feedback).to eq("Incorrect.")
+    end
   end
-
-  it 'gives you feedback' do
-    card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
-    turn = Turn.new("Saturn", card)
-
-    expect(turn.feedback).to eq("Incorrect.")
-  end
-
 end
