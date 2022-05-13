@@ -18,4 +18,11 @@ class Round
     return turn
   end
 
-end 
+  def number_correct
+    count_of_correct = 0
+    if @answer == @guess
+        count_of_correct += 1
+    end
+  end
+
+end
