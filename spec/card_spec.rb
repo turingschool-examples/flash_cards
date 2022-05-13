@@ -1,4 +1,6 @@
 require './lib/card'
+require './lib/turn'
+
 
 RSpec.describe Card do
   it 'exists' do
@@ -24,4 +26,18 @@ RSpec.describe Card do
 
     expect(card.category).to eq(:Geography)
   end
+
+  it 'exists' do
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+
+    expect(card.question).to eq("What is the capital of Alaska?")
+  end
+
+
+
+
+
+
+
+
 end

@@ -6,6 +6,3 @@ attr_reader :question, :answer, :category
       @category = category
     end
 end
-
-
-p "dave is cool ,,,,,, "
