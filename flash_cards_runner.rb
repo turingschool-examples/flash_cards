@@ -78,7 +78,6 @@ loop do
 
 
   else
-    # $stdout.flush
     sleep(1)
     puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     This is card #{(round.turns.count) + 1} of #{deck.count}
@@ -157,72 +156,98 @@ if round.number_correct <= 12
   "
 
   sleep(2)
-  puts "Your total correct was #{round.number_correct} out of 20."
+  puts "Your total correct was #{round.number_correct} out of 20.
+  "
 
   sleep(2)
-  puts "You got #{round.percent_correct}% correct."
+  puts "You got #{round.percent_correct}% correct.
+  "
 
   sleep(2)
-  puts "Your total correct in Science was #{round.number_correct_by_category("Science")} out of 5."
+  puts "Your total correct in Science was #{round.number_correct_by_category("Science")} out of 5.
+  "
 
   sleep(2)
-  puts "You got #{round.percent_correct_by_category("Science")}% correct in Science"
+  puts "You got #{round.percent_correct_by_category("Science")}% correct in Science
+  "
 
   sleep(2)
-  puts "Your total correct in Arts was #{round.number_correct_by_category("Arts")} out of 5."
+  puts "Your total correct in Arts was #{round.number_correct_by_category("Arts")} out of 5.
+  "
 
   sleep(2)
-  puts "You got #{round.percent_correct_by_category("Arts")}% correct in Arts"
+  puts "You got #{round.percent_correct_by_category("Arts")}% correct in Arts
+  "
 
   sleep(2)
-  puts "Your total correct in Geography was #{round.number_correct_by_category("Geography")} out of 5."
+  puts "Your total correct in Geography was #{round.number_correct_by_category("Geography")} out of 5.
+  "
 
   sleep(2)
-  puts "You got #{round.percent_correct_by_category("Geography")}% correct in Geography"
+  puts "You got #{round.percent_correct_by_category("Geography")}% correct in Geography
+  "
 
   sleep(2)
-  puts "Your total correct in History was #{round.number_correct_by_category("History")} out of 5."
+  puts "Your total correct in History was #{round.number_correct_by_category("History")} out of 5.
+  "
 
   sleep(2)
-  puts "You got #{round.percent_correct_by_category("History")}% correct in History"
+  puts "You got #{round.percent_correct_by_category("History")}% correct in History
+  "
 
 else
 
   sleep(2)
-  puts "~~~~~***** You Did Great! *****~~~~~"
+  puts "~~~~~***** You Did Great! *****~~~~~
+
+  "
 
   sleep(2)
-  puts "Your total correct was #{round.number_correct} out of 20."
+  puts "Your total correct was #{round.number_correct} out of 20.
+  "
 
   sleep(2)
-  puts "You got #{round.percent_correct}% correct."
+  puts "You got #{round.percent_correct}% correct.
+  "
 
   sleep(2)
-  puts "Your total correct in Science was #{round.number_correct_by_category("Science")} out of 5."
+  puts "Your total correct in Science was #{round.number_correct_by_category("Science")} out of 5.
+  "
 
   sleep(2)
-  puts "You got #{round.percent_correct_by_category("Science")}% correct in Science"
+  puts "You got #{round.percent_correct_by_category("Science")}% correct in Science
+  "
 
   sleep(2)
-  puts "Your total correct in Arts was #{round.number_correct_by_category("Arts")} out of 5."
+  puts "Your total correct in Arts was #{round.number_correct_by_category("Arts")} out of 5.
+  "
 
   sleep(2)
-  puts "You got #{round.percent_correct_by_category("Arts")}% correct in Arts"
+  puts "You got #{round.percent_correct_by_category("Arts")}% correct in Arts
+  "
 
   sleep(2)
-  puts "Your total correct in Geography was #{round.number_correct_by_category("Geography")} out of 5."
+  puts "Your total correct in Geography was #{round.number_correct_by_category("Geography")} out of 5.
+  "
 
   sleep(2)
-  puts "You got #{round.percent_correct_by_category("Geography")}% correct in Geography"
+  puts "You got #{round.percent_correct_by_category("Geography")}% correct in Geography
+  "
 
   sleep(2)
-  puts "Your total correct in History was #{round.number_correct_by_category("History")} out of 5."
+  puts "Your total correct in History was #{round.number_correct_by_category("History")} out of 5.
+  "
 
   sleep(2)
-  puts "You got #{round.percent_correct_by_category("History")}% correct in History"
+  puts "You got #{round.percent_correct_by_category("History")}% correct in History
+  "
 end
 
-puts "~~~~~***** THANKS FOR PLAYING! *****~~~~~"
+puts "~~~~~***** THANKS FOR PLAYING! *****~~~~~
+=====================================================
+=====================================================
+
+"
 
 
 
