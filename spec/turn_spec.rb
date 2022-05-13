@@ -12,7 +12,7 @@ RSpec.describe Turn do
     end
 
     it "has guess" do
-      expect(turn.guess).is_a? String
+      expect(turn.guess).to eq("Juneau")
 
     end
 
