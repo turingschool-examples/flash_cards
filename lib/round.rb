@@ -26,23 +26,15 @@ class Round
   end
 
   def take_turn(guess)
-
     new_turn = Turn.new(guess,@deck.cards.first)
-
     @used_card_array << @deck.cards.first
-
     @deck.cards.rotate!(1)
-
     if new_turn.guess == new_turn.card.answer
       increment_number_correct
     end
-
     @turns << new_turn
-
     increment_turn_count
-
     new_turn
-
   end
 
   def correct?
@@ -55,6 +47,17 @@ class Round
 
   def increment_turn_count
     @turn_count += 1
+  end
+
+  def number_correct_by_category(category)
+    correct_count_aggregator = 0
+    @turns.each do |turn|
+      ###
+      if turn.card.category == category && turn.guess == turn.card.answer
+        correct_count_aggregator += 1
+      end
+    end
+    correct_count_aggregator
   end
 
 end
