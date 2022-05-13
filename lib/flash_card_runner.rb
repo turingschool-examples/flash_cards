@@ -2,6 +2,7 @@ require './lib/card'
 require './lib/turn'
 require './lib/deck'
 require './lib/round'
+require './lib/card_generator'
 
 @card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 @card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
