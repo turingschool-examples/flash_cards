@@ -26,17 +26,15 @@ RSpec.describe Round do
     expect(@round.current_card).to eq(@card_1)
   end
 
-  it "can take turns and return the next card" do
-    @new_turn = @round.take_turn("Juneau")
-    expect(@new_turn.class).to eq (Turn)
-    expect(@new_turn.correct?).to eq true
-    expect(@round.turns).to eq [@new_turn]
-    expect(@round.number_correct).to eq (1)
+  it "can take turns, return the next card & determine if answer is correct" do
+    new_turn = @round.take_turn("Juneau")
+    expect(new_turn.class).to eq (Turn)
+    expect(new_turn.correct?).to eq true
+    expect(@round.turns).to eq ([new_turn])
 
     expect(@round.current_card).to eq (@card_2)
-    expect(@round.take_turn("Venus")).to eq ("Venus")
+    expect(@round.take_turn("Venus")).to be_a(Turn)
     expect(@round.turns.count).to eq (2)
-    expect(@round.turns.last.feedback).to eq ("Incorrect")
-    expect(@round.number_correct).to eq (1)
+    expect(@round.turns.last.feedback).to eq ("Incorrect.")
   end
 end
