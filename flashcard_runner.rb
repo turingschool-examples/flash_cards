@@ -13,13 +13,14 @@ feedback_array = []
 math_array = []
 politics_array = []
 geography_array = []
+number_of_cards = deck.count
 
-def start
-  puts "Welcome, you're playing with 4 cards."
-  puts "-------------------------------------------------"
+def start(card_number)
+  puts "Welcome, you're playing with #{card_number} cards."
+  puts "----------------------------------------------------"
 end
 
-start
+start(number_of_cards)
 
 puts 'This is card number 1 out of 4.'
 puts card_1.question
