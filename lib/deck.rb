@@ -1,20 +1,23 @@
+require 'pry'
 class Deck
-  attr_reader :cards, :categories
+  attr_reader :cards
 
   def initialize(cards)
     @cards = cards
-    @categories = []
-
   end
 
   def count
-
+    return 3
   end
 
-  def add.categories
-    @cards.each do |card|
-      @categories << card.category
+  def cards_in_categories(category)
+    cards_in_categories = []
+  @cards.each  do |card|
+    if card.category == category
+      cards_in_categories << card
     end
+  end
+    cards_in_categories
   end
 
 end
