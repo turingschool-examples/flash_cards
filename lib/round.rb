@@ -6,6 +6,29 @@ class Round
     @turns = []
   end
 
+  def start
+puts "Welcome! You're playing Eagle's Knowledge Assessment!"
+
+puts "                        _--_"
+puts "                       /   -)"
+puts "                   ___/___|___"
+puts "      ____-----=~~///|     ||||~~~==-----______"
+puts "    //~////////////~/|     |/~/|||||\\\\\\\\\\\\\\\\\\~\\\\"
+puts "  ////////////////////|   |///////|\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"
+puts " /////~~~~~~~~~~~~~~~\ |.||/~~~~~~~~~~~~~~~~\\\\\\\\\\\\\\\\"
+puts "//~                  /\\|\\\\\                       ~\\\\"
+puts "                    ///W^\W\\"
+puts "                   ////|||\\\\"
+puts "                   ~~~~~~~~~~~"
+puts "This assessment will test your knowledge with #{@deck.count} questions."
+puts "                  GOOD LUCK!!!"
+puts "
+
+"
+
+end
+
+
   def current_card
     @deck.cards[@turns.count]
   end

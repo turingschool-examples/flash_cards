@@ -2,7 +2,7 @@ require './lib/card_generator'
 require './lib/card'
 require './lib/deck'
 
-RSpec.describe Card_generator do
+RSpec.describe CardGenerator do
 
   it "file name is cards.txt" do
     filename = './lib/cards.txt'
@@ -11,13 +11,13 @@ RSpec.describe Card_generator do
 
   it "is a Card_generator" do
     filename = './lib/cards.txt'
-    cards = Card_generator.new(filename)
-    expect(cards).to be_instance_of(Card_generator)
+    cards = CardGenerator.new(filename)
+    expect(cards).to be_instance_of(CardGenerator)
   end
 
   it "is a Card_generator" do
     filename = './lib/cards.txt'
-    cards = Card_generator.new(filename).card_reader
+    cards = CardGenerator.new(filename).card_reader
     expect(cards).to eq([["What is 5 + 5?", "10", "STEM"],
     ["What is Rachel's favorite animal?", "red panda", "Turing Staff"],
     ["What is Mike's middle name?", "nobody knows", "Turing Staff"],

@@ -4,9 +4,9 @@ require './lib/turn'
 require './lib/round'
 
 
-class Card_generator
+class CardGenerator
 
-  attr_reader :filename
+  attr_reader :filename, :cards
 
   def initialize(filename)
     @filename = File.read(filename)
