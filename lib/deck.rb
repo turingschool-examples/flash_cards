@@ -4,6 +4,10 @@ class Deck
 
     @cards = cards
     p cards
-    
+
+  end
+
+  def count
+    return cards.length
   end
 end
