@@ -30,12 +30,20 @@ class Round
   end
 
   def percent_correct
-    @number_correct.to_f * 100 / @turns.count
+    if @turns.count == 0
+      return "Cannot divide by 0"
+    else
+      @number_correct.to_f * 100 / @turns.count
+    end
   end
 
   def percent_correct_by_category(cat)
-    number_correct_by_category(cat) * 100 / @turns.count do |turn|
-      turn.card.category == cat
+    if @turns.count == 0
+      return "Cannot divide by 0"
+    else
+      number_correct_by_category(cat) * 100 / @turns.count do |turn|
+        turn.card.category == cat
+      end
     end
   end
 
