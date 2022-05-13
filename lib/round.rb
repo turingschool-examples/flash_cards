@@ -52,7 +52,6 @@ class Round
   def number_correct_by_category(category)
     correct_count_aggregator = 0
     @turns.each do |turn|
-      ###
       if turn.card.category == category && turn.guess == turn.card.answer
         correct_count_aggregator += 1
       end
@@ -62,6 +61,25 @@ class Round
 
   def percent_correct
     (@number_correct.to_f/@turn_count.to_f)*100
+  end
+
+  def percent_correct_by_category(category)
+    turn_count_by_category = 0
+    correct_count_aggregator = 0
+
+    @turns.each do |turn|
+      if turn.card.category == category
+        turn_count_by_category += 1
+      end
+    end
+
+    @turns.each do |turn|
+      if turn.card.category == category && turn.guess == turn.card.answer
+        correct_count_aggregator += 1
+      end
+    end
+
+    (correct_count_aggregator.to_f/turn_count_by_category.to_f)*100
   end
 
 end
