@@ -60,4 +60,8 @@ class Round
     correct_count_aggregator
   end
 
+  def percent_correct
+    (@number_correct.to_f/@turn_count.to_f)*100
+  end
+
 end
