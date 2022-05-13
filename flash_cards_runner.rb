@@ -4,7 +4,9 @@ require './lib/round'
 require './lib/turn'
 require './lib/card_generator'
 
-puts "Welcome! You're playing Eagle's Knowledge Assessment!"
+puts "=====================================================
+=====================================================
+Welcome! You're playing Eagle's Knowledge Assessment!"
 
 puts "                        _--_"
 puts "                       /   -)"
@@ -55,7 +57,8 @@ round.start
 
 loop do
   if round.turns.length == 0
-    puts "This is card #{(round.turns.count) + 1} of #{deck.count}
+    puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    This is card #{(round.turns.count) + 1} of #{deck.count}
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
     puts round.current_card.question
     puts "What is your Answer"
@@ -77,7 +80,8 @@ loop do
   else
     # $stdout.flush
     sleep(1)
-    puts "This is card #{(round.turns.count) + 1} of #{deck.count}
+    puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    This is card #{(round.turns.count) + 1} of #{deck.count}
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
     puts round.current_card.question
     puts "What is your Answer"
