@@ -10,12 +10,15 @@ difficulty_selected = gets.chomp
 
 if diffculty_selected == "1"
 filename = './lib/trivia_cards_easy.txt'
+end
 
 if diffculty_selected == "2"
 filename = './lib/trivia_cards_medium.txt'
+end
 
 if diffculty_selected == "3"
 filename = './lib/trivia_cards_hard.txt'
+end
 
 
 
