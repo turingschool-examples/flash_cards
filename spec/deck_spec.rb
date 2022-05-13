@@ -25,6 +25,7 @@ RSpec.describe Deck do
 
     expect(deck.cards).to eq(cards)
   end
+
   it 'count the cards' do
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
@@ -47,8 +48,5 @@ RSpec.describe Deck do
     expect(deck.cards_in_category(:STEM)).to eq([card_2, card_3])
     expect(deck.cards_in_category(:Geography)).to eq([card_1])
     expect(deck.cards_in_category("Pop Culture")).to eq([])
-
   end
-
-
 end
