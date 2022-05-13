@@ -156,7 +156,6 @@ RSpec.describe Deck do
   end
 
   it 'keeps track of number of correct guesses' do
-    #NOT PASSING
 
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
@@ -170,9 +169,11 @@ RSpec.describe Deck do
 
     new_turn_1 = round.take_turn("Juneau")
 
-    new_turn_1.correct?
-
     expect(round.number_correct).to eq(1)
+
+    new_turn_2 = round.take_turn("Mars")
+
+    expect(round.number_correct).to eq(2)
 
   end
 
