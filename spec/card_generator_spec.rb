@@ -13,6 +13,13 @@ RSpec.describe CardGenerator do
   it 'exists & has attributes' do
     expect(@card_generator).to be_a(CardGenerator)
     expect(@card_generator.data).to eq(@data)
+    expect(@card_generator.cards).to eq([])
+  end
+
+  it 'can format the data into cards' do
+    @card_generator.format(:question, :answer, :category)
+    expect(@card_generator.cards.first.answer).to eq("10")
+    expect(@card_generator.cards)
   end
 end
 
@@ -27,4 +34,6 @@ end
 
 #A Method to format the lines of text that the class file is receiving
 
-#After its formatted, it needs to be
+#After its formatted, it needs to have the methods from my previous classes applied to the new cards.
+
+#In applying the methods I'll need to figure out how i'll need to call them in my runner.
