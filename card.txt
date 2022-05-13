@@ -1,0 +1,4 @@
+What is the capitol of Alaska?, Juneau, :Geography
+What is the capitol of Texas?, Austin, :Geography
+Who is the first officer of the Starship Enterprise D?, Riker, :Star_Trek_Trivia
+Who is the chief engineer of the Starship Enterprise D?, La Forge, :Star_Trek_Trivia)
