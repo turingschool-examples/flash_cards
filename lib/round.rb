@@ -35,28 +35,28 @@ class Round
   end
 
   def number_correct_by_category(category)
-    number_correct = 0
+    category_correct = 0
     @turns.each do |turn|
       if category == turn.card.category
           if turn.correct?
-            number_correct += 1
+            category_correct += 1
           end
         end
     end
-    return number_correct
+    return category_correct
   end
 
   def percent_correct_by_category(category)
-    number_correct = 0
+    category_correct = 0
     @turns.each do |turn|
       if category == turn.card.category
           if turn.correct?
-            number_correct += 1
+            category_correct += 1
           end
         end
     end
     number_in_category = deck.cards_in_category(category).count
-    percent_correct = (number_correct.to_f / number_in_category.to_f) * 100
+    percent_correct = (category_correct.to_f / number_in_category.to_f) * 100
     return percent_correct
   end
 end
