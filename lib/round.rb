@@ -62,8 +62,14 @@ class Round
         if turns.count == deck.count
             puts "****** Game over! ******"
             puts "You had #{number_correct} correct guesses out of #{card_count} for a total score of #{percent_correct.to_i}%."
+            turns_correct = []
             turns.each do |turn|
-                puts "#{turn.card.category}- #{percent_correct_by_category(turn.card.category).to_i}% correct"
+                if turns_correct.include?(turn.card.category)
+                    next
+                else
+                    puts "#{turn.card.category}- #{percent_correct_by_category(turn.card.category).to_i}% correct"
+                end
+                turns_correct << turn.card.category
             end
         end
     end
