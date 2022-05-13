@@ -4,7 +4,21 @@ require './lib/round'
 require './lib/turn'
 require './lib/card_generator'
 
-filename = './lib/trivia_cards.txt'
+round.start
+
+difficulty_selected = gets.chomp
+
+if diffculty_selected == "1"
+filename = './lib/trivia_cards_easy.txt'
+
+if diffculty_selected == "2"
+filename = './lib/trivia_cards_medium.txt'
+
+if diffculty_selected == "3"
+filename = './lib/trivia_cards_hard.txt'
+
+
+
 cardgenerator = CardGenerator.new(filename)
 cardgenerator.card_reader
 
@@ -14,7 +28,7 @@ deck = Deck.new(cards)
 
 round = Round.new(deck)
 
-round.start
+# round.start
 
 loop do
   if round.turns.length == 0

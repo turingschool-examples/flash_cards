@@ -21,7 +21,9 @@ puts "                    ///W^\W\\"
 puts "                   ////|||\\\\"
 puts "                   ~~~~~~~~~~~"
 puts "This assessment will test your knowledge with #{@deck.count} questions."
-puts "                  GOOD LUCK!!!"
+puts "                  GOOD LUCK!!!
+"
+puts "Please select a dificulty 1 = easy, 2 = medium, 3 = hard"
 puts "
 
 "
