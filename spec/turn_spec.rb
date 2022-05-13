@@ -13,37 +13,44 @@ end
 
 RSpec.describe Turn do
   it 'turn is present' do
-      turn = Turn.new("Juneau", @card)
+    turn = Turn.new("Juneau", @card)
 
-      expect(turn).to be_instance_of(Turn)
-    end
+    expect(turn).to be_instance_of(Turn)
+  end
 
   it "returns the card" do
-      card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
 
     expect(turn.card).to be_instance_of(Card)
-    end
+  end
 
   it "the guess" do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
 
     expect(turn.guess).to eq("Juneau")
-    end
+  end
 
-    it "did it match?" do
-      card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-      turn = Turn.new("Juneau", card)
+  it "did it match?" do
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Juneau", card)
 
-      expect(turn.correct?).to be(true)
-    end
+    expect(turn.correct?).to be(true)
+  end
 
-     it "is it correct?" do
-       card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-       turn = Turn.new("Juneau", card)
+  it "is it correct?" do
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Juneau", card)
 
-       expect(turn.feedback).to eq("Correct!")
-     end
+    expect(turn.feedback).to eq("Correct!")
+  end
+
+  it "is incorrect?" do
+    card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+    turn = Turn.new("Saturn", card)
+
+    expect(turn.feedback).to eq("Incorrect!")
+  end
 
 end
