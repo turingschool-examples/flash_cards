@@ -24,7 +24,7 @@ RSpec.describe Turn do
   end
 
   it "can tell you if your answer is right or wrong" do
-
+    expect(@turn.feedback).to eq("Correct!")
   end
 
 
