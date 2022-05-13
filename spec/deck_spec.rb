@@ -12,7 +12,7 @@ RSpec.describe Deck do
     card3 = Card.new("Who is the first officer of the Starship Enterprise D?", "Riker", :Star_Trek_Trivia)
     card4 = Card.new("Who is the chief engineer of the Starship Enterprise D?", "La Forge", :Star_Trek_Trivia)
     deck = Deck.new([card1, card2, card3,card4])
-    expect(deck).to be_instance_of(Deck)
+    expect(deck).to be_instance_of Deck
   end
 
   it "returns a count of cards" do
