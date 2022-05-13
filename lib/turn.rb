@@ -13,8 +13,9 @@ class Turn
       false
     end
   end
-  #def feedback("Correct")
 
-
-  #end
+  def feedback
+    return "Correct!" if true
+   "Incorrect!" if false 
+  end
 end
