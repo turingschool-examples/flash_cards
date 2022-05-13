@@ -16,17 +16,8 @@ round = Round.new(deck)
 
 round.start
 
-puts deck.count
-
-# While loop process
-# Check if card number is <= count of cards in deck
-#   Print out "This is card number x of y"
-#   Print out deck.card.question (?)
-#   Get user input in form of guess = gets.chomp()
-#   Print turn.feedback
-#   Proceed to next card
 i = 1
-while i <= deck.count
+while i <= round.deck.count
   puts "This is card number #{i} out of #{round.deck.count}."
   puts round.current_card.question
   guess = gets.chomp
@@ -34,3 +25,6 @@ while i <= deck.count
   puts next_turn.feedback
   i += 1
 end
+
+puts "****** Game over! ******"
+puts "You had #{round.number_correct} correct guesses out of #{round.deck.count} for a total score of #{round.percent_correct}%."
