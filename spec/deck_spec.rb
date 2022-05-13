@@ -9,6 +9,6 @@ RSpec.describe Deck do
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
 
-    expect(deck).to eq(Deck)
+    expect(deck).to be_a(Deck)
   end
 end
