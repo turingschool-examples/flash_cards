@@ -5,6 +5,12 @@ class Round
     @turns = []
   end
 
+  def start
+    start_message = "Welcome! You're playing with #{deck.cards.count} cards."
+    puts start_message
+    puts "-------------------------------------------------"
+  end
+
   def current_card
     return deck.cards[turns.count]
   end
