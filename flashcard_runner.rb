@@ -16,6 +16,8 @@ round = Round.new(deck)
 
 round.start
 
+puts deck.count
+
 # While loop process
 # Check if card number is <= count of cards in deck
 #   Print out "This is card number x of y"
@@ -23,7 +25,12 @@ round.start
 #   Get user input in form of guess = gets.chomp()
 #   Print turn.feedback
 #   Proceed to next card
-while (i <= (deck.count - 1))
-
+i = 1
+while i <= deck.count
+  puts "This is card number #{i} out of #{round.deck.count}."
+  puts round.current_card.question
+  guess = gets.chomp
+  next_turn = round.take_turn(guess)
+  puts next_turn.feedback
   i += 1
 end
