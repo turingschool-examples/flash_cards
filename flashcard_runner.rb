@@ -2,7 +2,6 @@ require './lib/turn'
 require './lib/card'
 require './lib/deck'
 require './lib/round'
-require 'pry'
 
 card_1 = Card.new(
 "In Kurt Vonnegut's Slaughterhouse-Five, what is the name of the planet Billy Pilgrim is kidnapped to?",
@@ -33,3 +32,29 @@ card_5 = Card.new(
 "Jeff VanderMeer",
 :SciFiAuthors
 )
+
+deck = Deck.new([card_1,card_2,card_3,card_4,card_5])
+
+round = Round.new(deck)
+
+def start(round)
+
+  #intro
+  puts "Welcome, you're playing with #{round.deck.count} cards."
+  puts "-------------------------------------------------
+  "
+
+  #rounds loop
+  (round.deck.count).times do |card|
+    puts "This is card number #{round.turn_count} out of #{round.deck.count}"
+    puts "Question: #{round.current_card.question}"
+
+    round.take_turn(gets.chomp)
+
+    puts round.turns.last.feedback
+
+  end
+
+end
+
+start(round)
