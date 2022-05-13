@@ -11,7 +11,7 @@ class Turn
 #This method returns a boolean
 #indicating if the guess matched the answer on the Card
   def correct?
-    @guess == @card.answer
+    guess == card.answer
   end
 
 #This method either returns "Correct!" or "Incorrect."
