@@ -19,7 +19,7 @@ RSpec.describe CardGenerator do
   it 'can format the data into cards' do
     @card_generator.format(:question, :answer, :category)
     expect(@card_generator.cards.first.answer).to eq("10")
-    expect(@card_generator.cards)
+    expect(@card_generator.cards.last.category).to eq("Pop Culture")
   end
 end
 
