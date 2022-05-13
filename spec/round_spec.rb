@@ -15,5 +15,5 @@ RSpec.describe Round do
     deck = Deck.new(cards)
     round = Round.new(deck)
 
-    expect(deck).to be_a(Deck)
     expect(round).to be_a(Round)
+  end
