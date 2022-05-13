@@ -3,3 +3,8 @@ What is the nearest planet to the sun?,Mercury,Science
 What is the largest planet in the solar system?,Jupiter,Science
 What part of the plant conducts photosyntehsis?,Leaf,Science
 What tissues connect the muscles to the bones?,Tendons,Science
+Who painted the “Mona Lisa”?,Leonardo Da Vinci,Arts
+Which period has a French name that translates to “rebirth” in English?,The Renaissance,Arts
+Who painted the “Girl Before a Mirror” and “The Weeping Woman”?,Pablo Picasso,Arts
+What do you call a combination of magazine cut-outs, pictures, cloth, and other objects?,A collage,Arts
+Which famous painter cut off a part of his ear?,Vincent Van Gogh,Arts
