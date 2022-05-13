@@ -1,4 +1,3 @@
-# Creates an instance of Card with a question, answer, and a category
 class Card
   attr_reader :question, :answer, :category
 
