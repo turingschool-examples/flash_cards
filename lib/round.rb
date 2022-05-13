@@ -49,8 +49,7 @@ class Round
   ****** Game Over ******
   you had #{number_correct} guesses out of 5 for a total score of #{percent_correct.round(1)}%.
   STEM - #{percent_correct_by_category(:STEM).round(1)}% correct
-  Turing Staff - #{percent_correct_by_category(:Turing_Staff).round(1)}% correct
-  Pop Culture - #{percent_correct_by_category(:Pop_Culture).round(1)}% correct
+  Geography - #{percent_correct_by_category(:Geography).round(1)}% correct
   """
   end
 end
