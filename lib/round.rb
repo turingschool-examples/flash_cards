@@ -51,7 +51,7 @@ class Round
     until @turns.length == deck.count do
       puts "This is card number #{@turns.length + 1} out of #{deck.count}"
       puts "Question: #{current_card.question}"
-      guess = gets.chomp
+      guess = gets.chomp.capitalize
       (take_turn(guess))
       puts turns.last.feedback
     end
@@ -59,7 +59,7 @@ class Round
 
   def display_results
     puts "0.0 * x.x * Game Over! * x.x * 0.0"
-    puts "You had #{number_correct} guesses out of 4 for a total score of #{percent_correct.to_i}%"
+    puts "You had #{number_correct} correct guesses out of 4 for a total score of #{percent_correct.to_i}%"
     puts "STEM - #{percent_correct_by_category(:STEM).to_i}% correct"
     puts "Geography - #{percent_correct_by_category(:Geography).to_i}% correct"
     puts "Misc - #{percent_correct_by_category(:Misc).to_i}% correct"
