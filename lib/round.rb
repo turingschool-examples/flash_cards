@@ -28,7 +28,24 @@ class Round
     correct
   end
 
+  def number_correct_by_category(category)
+    correct_turns = []
+    @turns.each do |turn|
+      if turn.card.answer == turn.guess
+        correct_turns << turn
+      end
+    end
+    correct_by_category = []
+    correct_turns.each do |turn|
+      if turn.card.category == category
+        correct_by_category << turn
+      end
+    end
+    correct_by_category.count
+  end
+
   
 end
+
 
 # require 'pry'; binding.pry
