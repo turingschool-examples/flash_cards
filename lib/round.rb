@@ -45,7 +45,6 @@ class Round
   end
 
   def number_correct_by_category(category)
-    # Needs to compare number_correct to count of turns
     number_correct = 0
     @turns.each do |turn|
       if category == turn.card.category
@@ -58,7 +57,6 @@ class Round
   end
 
   def percent_correct_by_category(category)
-    # Needs to compare number_correct to count of turns then return as a percentage
     number_correct = 0
     @turns.each do |turn|
       if category == turn.card.category
