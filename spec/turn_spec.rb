@@ -23,8 +23,15 @@ RSpec.describe Turn do
     expect(@turn.correct?).to eq(true)
   end
 
-  it "can tell you if your answer is right or wrong" do
+  it "can tell you if your answer is right" do
     expect(@turn.feedback).to eq("Correct!")
+  end
+
+  it "can tell you if your answer is wrong" do
+    card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+    turn = Turn.new("Saturn", card)
+    expect(turn.correct?).to eq(false)
+    expect(turn.feedback).to eq("Incorrect.")
   end
 
 
