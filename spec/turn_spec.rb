@@ -9,35 +9,41 @@ RSpec.describe Card do
 
     expect(card).to be_instance_of(Card)
   end
+end
 
-# RSpec.describe Turn do
+RSpec.describe Turn do
   it 'turn is present' do
-      turn = Turn.new("Juneau",@card)
+      turn = Turn.new("Juneau", @card)
 
       expect(turn).to be_instance_of(Turn)
     end
-end
-  #
-  it "returns the card" do
-        turn = Turn.new("Juneau", card)
 
-        expect(turn.card).to eq (Card)
+  it "returns the card" do
+      card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Juneau", card)
+
+    expect(turn.card).to be_instance_of(Card)
     end
-  # # #
-  # #   xit "the guess" do
-  # #     turn = Turn.new("Juneau", card)
-  # #
-  # #     expect(turn.guess).to eq(turn.users_guess)
-  # #   end
-  # #
-  # #   xit "is guess correct" do
-  # #     turn = Turn.new("Juneau", card)
-  # #
-  # #     expect(turn.correct?).to eq(Card.answer)
-  # #   end
-  #
-  #   xit "user feedback correct or incorrect" do
-  #     turn = Turn.new("Juneau", card)
-  #
-  #     expect(turn.feedback).to eq(turn.guess_result)
-  #   end
+
+  it "the guess" do
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Juneau", card)
+
+    expect(turn.guess).to eq("Juneau")
+    end
+
+    it "did it match?" do
+      card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+      turn = Turn.new("Juneau", card)
+
+      expect(turn.correct?).to be(true)
+    end
+
+     it "is it correct?" do
+       card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+       turn = Turn.new("Juneau", card)
+
+       expect(turn.feedback).to eq("Correct!")
+     end
+
+end
