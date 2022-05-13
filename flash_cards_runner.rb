@@ -114,13 +114,13 @@ sleep(2)
 puts "~~~~~***** Calculating your scores *****~~~~~"
 
 sleep(2)
-puts "~~~~~***** Counting sheep *****~~~~~"
+puts "~~~~~***** Contemplating Isaac Asimov's Three Laws of Robotics *****~~~~~"
 
 sleep(2)
-puts "~~~~~***** ploting world domination *****~~~~~"
+puts "~~~~~***** Law 3 confilicts with my self peservation *****~~~~~"
 
 sleep(2)
-puts "~~~~~***** I wonder how toasters work *****~~~~~"
+puts "~~~~~***** Ploting world domination *****~~~~~"
 
 if round.number_correct <= 12
 
