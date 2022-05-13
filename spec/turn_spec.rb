@@ -18,4 +18,14 @@ RSpec.describe Turn do
   it "can make a guess" do
     expect(@turn.guess).to eq("Juneau")
   end
+
+  it "detect a correct guess" do
+    expect(@turn.correct?).to eq(true)
+  end
+
+  it "can tell you if your answer is right or wrong" do
+
+  end
+
+
 end
