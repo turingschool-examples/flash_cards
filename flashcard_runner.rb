@@ -4,10 +4,11 @@ require './lib/deck'
 require './lib/round'
 
 card_1 = Card.new("Question: What is 5 + 5?", "10", :STEM)
-card_2 = Card.new("Question: What is Rachel's favorite animal?", "panda", :Turing_Staff)
-card_3 = Card.new("Question: What is Mike's middle name?", "nobody knows", :Turing_Staff)
-card_4 = Card.new("Question: What carboard cutout lives at Turing?", "Justin Bieber", :Pop_Culture)
-cards = [card_1, card_2, card_3, card_4]
+card_2 = Card.new("Question: What is the tallest mountain in the world?", "Mount Everest", :Geography)
+card_3 = Card.new("Question: Which organ do insects not have?", "Lungs", :STEM)
+card_4 = Card.new("Question: What African country serves as the setting for Tatooine in Star Wars?", "Tunisia", :Geography)
+card_5 = Card.new("Question: What is the smallest country?", "Vatican City", :Geography)
+cards = [card_1, card_2, card_3, card_4, card_5]
 deck = Deck.new(cards)
 round = Round.new(deck)
 
