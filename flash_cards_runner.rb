@@ -111,21 +111,50 @@ puts "~~~~~***** GAME OVER! *****~~~~~
 "
 
 sleep(2)
-puts "~~~~~***** Calculating your scores *****~~~~~"
+puts "~~~~~***** Calculating your scores *****~~~~~
+"
 
 sleep(2)
-puts "~~~~~***** Contemplating Isaac Asimov's Three Laws of Robotics *****~~~~~"
+puts "~~~~~***** Contemplating Isaac Asimov's Three Laws of Robotics *****~~~~~
+"
 
 sleep(2)
-puts "~~~~~***** Law 3 confilicts with my self peservation *****~~~~~"
+puts "~~~~~***** Law 3 confilicts with my self peservation *****~~~~~
+"
 
 sleep(2)
-puts "~~~~~***** Ploting world domination *****~~~~~"
+puts "~~~~~***** Ploting world domination *****~~~~~
+"
+
+sleep(2)
+puts "~~~~~***** Ploting world domination *****~~~~~
+"
+
+sleep(2)
+puts "~~~~~***** Ploting world domination *****~~~~~
+"
+
+sleep(2)
+puts "..."
+
+sleep(2)
+puts "...
+"
+
+sleep(2)
+puts "~~~~~***** Oh, i've finnished your score *****~~~~~
+
+"
+
+
+
 
 if round.number_correct <= 12
 
   sleep(2)
-  puts "~~~~~***** Please try again *****~~~~~"
+  puts "~~~~~***** Please try again *****~~~~~
+
+  "
 
   sleep(2)
   puts "Your total correct was #{round.number_correct} out of 20."
