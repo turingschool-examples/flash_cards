@@ -24,7 +24,7 @@ class Round
   def number_correct
     number_correct = 0
     @turns.each do |turn|
-      if turn.guess == turn.card.answer
+      if turn.correct?
         number_correct += 1
       end
     end
@@ -35,10 +35,11 @@ class Round
     number_correct = 0
 
     @turns.each do |turn|
-      if turn.guess == turn.card.answer
+      if turn.correct?
         number_correct += 1
       end
     end
+
     percent_correct = (number_correct.to_f / @turns.count.to_f) * 100
     return percent_correct
   end
@@ -48,7 +49,7 @@ class Round
     number_correct = 0
     @turns.each do |turn|
       if category == turn.card.category
-          if turn.guess == turn.card.answer
+          if turn.correct?
             number_correct += 1
           end
         end
@@ -61,7 +62,7 @@ class Round
     number_correct = 0
     @turns.each do |turn|
       if category == turn.card.category
-          if turn.guess == turn.card.answer
+          if turn.correct?
             number_correct += 1
           end
         end
