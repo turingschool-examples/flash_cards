@@ -1,6 +1,9 @@
 require './lib/turn'
 require './lib/card'
+<<<<<<< HEAD
 require 'pry'
+=======
+>>>>>>> d84564ef930ea3a87ade50f2ce92453e41bb48ec
 
 RSpec.describe Turn do
   it 'exists' do
@@ -10,6 +13,7 @@ RSpec.describe Turn do
     expect(turn).to be_instance_of(Turn)
   end
 
+<<<<<<< HEAD
   it 'has a guess' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
@@ -43,5 +47,9 @@ RSpec.describe Turn do
     turn = Turn.new("Saturn", card)
 
     expect(turn.feedback).to eq("Incorrect.")
+=======
+  it 'is correct?' do
+    
+>>>>>>> d84564ef930ea3a87ade50f2ce92453e41bb48ec
   end
 end
