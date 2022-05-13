@@ -6,5 +6,5 @@ class CardGenerator
         @filename = filename
     end
 
-    # how tf do i get cards in this bitch?!?
+    # how do i get cards in this?
 end

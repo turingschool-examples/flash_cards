@@ -7,7 +7,7 @@ require './lib/card_generator'
 RSpec.describe Round do
     before :each do
         @filename = "cards.txt"
-        @cards = CardGenerator.new(@filename)#.cards ----- wtf is .cards?!
+        @cards = CardGenerator.new(@filename)#.cards ----- what is .cards?!
     end
 
     it 'exists' do
