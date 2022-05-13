@@ -3,6 +3,7 @@ class Round
   def initialize(deck)
     @deck = deck
     @turns = []
+    @number_correct = 0
   end
 
   def start
@@ -18,29 +19,18 @@ class Round
   def take_turn(guess)
     turn = Turn.new(guess, current_card)
     @turns << turn
+    if turn.correct?
+      @number_correct += 1
+    end
     return turn
   end
 
   def number_correct
-    number_correct = 0
-    @turns.each do |turn|
-      if turn.correct?
-        number_correct += 1
-      end
-    end
-    return number_correct
+    return @number_correct
   end
 
   def percent_correct
-    number_correct = 0
-
-    @turns.each do |turn|
-      if turn.correct?
-        number_correct += 1
-      end
-    end
-
-    percent_correct = (number_correct.to_f / @turns.count.to_f) * 100
+    percent_correct = (@number_correct.to_f / @turns.count.to_f) * 100
     return percent_correct
   end
 
