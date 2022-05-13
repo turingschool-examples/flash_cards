@@ -16,13 +16,16 @@ RSpec.describe Turn do
 
   it 'turn card' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    turn = Turn.new("Juneau", @card)
-    expect(turn.card).to eq(@card)
+    turn = Turn.new("Juneau", card)
+    expect(turn.card).to eq(card)
   end
 
   it 'turn card' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    turn = Turn.new("Juneau", @card)
+    turn = Turn.new("Juneau", card)
     expect(turn.correct?).to eq(true)
   end
+
+
+
 end
