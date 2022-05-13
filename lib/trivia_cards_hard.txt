@@ -4,7 +4,7 @@ How many planets in our solar system have rings?,4,Science
 What was British physicist Ernest Rutherford the first to uncover the structure of in the 1910's?,Structure of the atom,Science
 What are the gases that surround the Earth called?,Atmosphere,Science
 What musical was shut down by the government and its cast forced to leave the country when it opened?,Hair,Arts
-Which character killed Clare Quilty?,Humbert,Arts
+Which character killed Clare Quilty?,Humbert Humbert,Arts
 Who was elected as leader of the boys at the beginning of the novel "Lord of the Flies"?,Ralph,Arts
 By what other name is the folk tale "Cinderella" also known as?,The Little Glass Slipper,Arts
 What William Golding novel tells the story of a group of boys cast away on a desert island?,Lord of the Flies,Arts
