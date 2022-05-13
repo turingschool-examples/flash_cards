@@ -95,4 +95,29 @@ class Round
     end
     (num_correct / category_count.to_f * 100).round(1)
   end
+
+  # for Iteration 4: iterate through the questions to store the cateogires in an array (see flashcard_runner.rb lines 38-39)
+  def  category_collector
+    cats = []
+    index = 0
+    until index == @deck.cards.count
+      @deck.cards.each do |card|
+        cats << @deck.cards[index].category
+        index += 1
+      end
+    end
+    cats.uniq
+  end
+
+  # for Iteration 4: iterate through the categories to output the % correct correct by category
+  def category_results
+    cat_index = 0
+    until cat_index == self.category_collector.count
+      self.category_collector.each do |category|
+        cat_index += 1
+        pct = self.percent_correct_by_category(category).round
+        puts "#{category} - #{pct}% correct"
+      end
+    end
+  end
 end

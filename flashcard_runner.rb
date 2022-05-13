@@ -35,7 +35,14 @@ until card_number == deck.count
   card_number += 1
 end
 
+# store categories as variables in an array
+categories = round.category_collector
+
 puts "****** Game over! ******
-You had #{round.number_correct} correct guesses out of #{deck.count} for a total score of #{round.percent_correct.round}%.
-Geography - #{round.percent_correct_by_category(:Geography).round}% correct
-STEM - #{round.percent_correct_by_category(:STEM).round}% correct"
+You had #{round.number_correct} correct guesses out of #{deck.count} for a total score of #{round.percent_correct.round}%."
+
+round.category_results
+
+# Iteration 3 hard coded results
+# "Geography - #{round.percent_correct_by_category(:Geography).round}% correct
+# STEM - #{round.percent_correct_by_category(:STEM).round}% correct"
