@@ -106,6 +106,7 @@ RSpec.describe Round do
     it 'can give percent correct and percent correct by category' do
       expect(round.percent_correct).to eq("Cannot divide by 0")
       expect(round.percent_correct_by_category(:Geography)).to eq("Cannot divide by 0")
+      
       first_turn = round.take_turn("Juneau") # right answer
       second_round = round.take_turn("Venus") # wrong answer
       expect(round.percent_correct).to eq(50.0)
