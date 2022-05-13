@@ -16,24 +16,62 @@ require './lib/card'
       expect(@turn.guess).to eq("Juneau")
     end
 
-    describe "correct?" do
+      it "is correct?" do
+        @card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        @turn = Turn.new("Juneau", @card)
 
-      it "is correct? equals true" do
       expect(@turn.correct?).to eq(true)
+
     end
 
-      it "isn't correct? equals false" do
+      it "is not correct?" do
+        @card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
         @turn = Turn.new("Phoenix", @card)
-        expect(turn.correct?).to eq(false)
-      end
 
-    it "has correct feedback" dogit
+      expect(@turn.correct?).to eq(false)
+    end
+
+
+      it "gives feedback to correct answer" do
+        @card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        @turn = Turn.new("Juneau", @card)
+
       expect(@turn.feedback).to eq("Correct!")
     end
 
-    it "has incorrect feedback" do
-      expect(@turn.feedback).to ("Incorrect.")
+      it "gives feedback to incorrect answer" do
+        @card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        @turn = Turn.new("Phoenix", @card)
+
+      expect(@turn.feedback2).to eq("Incorrect.")
     end
 
+      it "has a card" do
+        @card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+        @turn = Turn.new("Saturn", @card)
+
+      expect(@turn.card).to eq(@card)
+    end
+
+      it "has an incorrect guess" do
+        @card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+        @turn = Turn.new("Saturn", @card)
+
+        expect(@turn.guess).to eq("Saturn")
+    end
+
+      it "is not correct?" do
+        @card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+        @turn = Turn.new("Saturn", @card)
+
+        expect(@turn.correct?).to eq(false)
+      end
+
+      it "gives feedback to incorrect answer" do
+        @card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+        @turn = Turn.new("Saturn", @card)
+
+      expect(@turn.feedback2).to eq("Incorrect.")
+    end
 
   end
