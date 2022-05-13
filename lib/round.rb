@@ -13,8 +13,9 @@ class Round
   end
 
   def take_turn(guess)
-    Turn.new(guess, current_card)
-    #code for puts a turn into turn array
+    turn = Turn.new(guess, current_card)
+    turns << turn
+    return turn
   end
 
-end
+end 
