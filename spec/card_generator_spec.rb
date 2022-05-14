@@ -23,4 +23,9 @@ describe CardGenerator do
     expect(@cards.cards).to eq []
   end
 
+  it 'can add cards to the array' do
+    @cards.add_cards
+    expect(@cards.cards.count).to eq 4
+  end
+
 end
