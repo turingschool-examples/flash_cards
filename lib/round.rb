@@ -5,7 +5,8 @@ class Round
 
   def initialize(deck)
     @deck = deck
-    @turns = []
+    @turn_count = 0
+    @turns = [] ||
     @@rounds << self
   end
 
@@ -14,6 +15,7 @@ class Round
   end
 
   def take_turn(guess)
+    @turn_count += 1
     @turns.push(Turn.new(guess, current_card))
     check_guess
   end
