@@ -1,4 +1,7 @@
 require './lib/turn'
+require './lib/card'
+require 'rspec'
+require 'pry'
 
 RSpec.describe Turn do #done
   it 'exists' do
@@ -19,15 +22,17 @@ RSpec.describe Turn do #done
     expect(current_turn.card).to eq("This might be the question?")
   end
 
-  it 'returns True' do
-    current_turn = Turn.new("This is the answer", "This might be the question?")
+  # it 'returns True' do
+  #   current_turn = Turn.new("This is the answer", "This might be the question?")
+  #
+  #   expect(current_turn.correct?).to eq(TRUE)
+  # end
+  #
+  # it 'returns "Correct!"' do
+  #   current_turn = Turn.new("This is the answer", "This might be the question?")
+  #
+  #   expect(current_turn.feedback).to eq("Correct!")
+  # end
 
-    expect(current_turn.correct?("This is the answer")).to eq(TRUE)
-  end
 
-  it 'returns "Correct!"' do
-    current_turn = Turn.new("This is the answer", "This might be the question?")
-
-    expect(current_turn.feedback("This is the answer")).to eq("Correct!")
-  end
 end
