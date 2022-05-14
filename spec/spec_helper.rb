@@ -1,0 +1,5 @@
+require './lib/card'
+require './lib/deck'
+require './lib/card_generator'
+require './lib/round'
+require './lib/turn'
