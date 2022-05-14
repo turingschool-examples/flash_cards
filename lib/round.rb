@@ -13,10 +13,9 @@ class Round
   end
 
   def take_turn(guess)
-  turn = Turn.new(guess, current_card)
-  @turns << turn
-  turn
-
+    turn = Turn.new(guess, current_card)
+    @turns << turn
+    turn
   end
 
   def number_correct
@@ -46,6 +45,7 @@ class Round
         correct += 1
       end
     end
+
     correct
   end
 
@@ -59,6 +59,30 @@ class Round
 
 
   end
+
+  def start
+    # require 'pry'; binding.pry
+    puts "Welcome! You're playing with #{@deck.cards.count} cards."
+    puts "-------------------------------------------------"
+    @deck.cards.count.times do
+    puts "This is card number #{@turns.count + 1} of #{@deck.cards.count}"
+    puts "Question: #{current_card.question}"
+
+    guess = gets.chomp
+
+    new_turn = take_turn(guess)
+    puts new_turn.feedback
+  end
+  end
+
+  def game_over
+    puts "****** Game over! ******"
+    puts "You had #{number_correct} correct guesses out of #{turns.count} for a total score of #{percent_correct}."
+
+    
+
+  end
+
 
 
 
