@@ -33,22 +33,24 @@ p deck
 class Turns
   attr_reader :guess, :card, :answer
   def initialize(guess, card)
-    @guess = guess
-    @card = card
-    @answer = answer
+      @guess = guess
+      @card = card
+      @answer = answer
   end
+
+      turns = Turns.new("Juneau", @card)
+      p turns
 end
-turns = Turns.new("Juneau", @card)
-p turns
 
 class Round
-  attr_reader :deck, :turns, :turn_counter, :correct, :num
+  attr_reader :deck, :turns, :turn_counter, :correct, :num, :user_input
   def initialize(deck)
     @deck = deck
     @turns = []
     @turn_counter = 0
     @correct = 0
     @num = 0
+    @user_input = user_input
   end
 
   def start
@@ -57,8 +59,27 @@ class Round
     print "------------------------------------"
     puts "This is card 1 out of 4."
     puts "Question: What is 5 + 5?"
+    user_input = gets
+    print "You guessed #{user_input}"
+
+    if user_input = 10
+       "Correct!"
+    else
+       "Incorrect"
+    end
   end
+
 end
 
 round = Round.new(deck)
 p round.start
+
+
+
+  # if answer == 10
+  #   turns.correct? == true
+  # else
+  #   turns.correct? == false
+  #
+  # turns.feedback
+  #   p "This is card 2 out of 4."
