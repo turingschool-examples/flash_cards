@@ -5,7 +5,7 @@ class Card
               :category
   def initialize(question, answer, category)
     @question = question
-    @answer = answer
+    @answer = answer.downcase
     @category = category
   end
 end
