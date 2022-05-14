@@ -23,9 +23,22 @@ RSpec.describe Round do
       expect(@round.turns).to eq([])
     end
 
-    it 'can tell current card' do
+    it 'can tell current card (at index 0)' do
       expect(@round.current_card).to eq(@card_1)
     end
+
+    it 'can take a turn' do
+      new_turn = @round.take_turn("Juneau")
+
+      expect(new_turn.class).to eq(Turn)
+    end
+
+    xit 'can tell if new turn is correct' do
+      new_turn = @round.take_turn("Juneau")
+
+      expect(new_turn.correct?).to eq(true)
+    end
+
 
   end
 
