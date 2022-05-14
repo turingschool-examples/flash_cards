@@ -8,12 +8,14 @@ class Deck
   end
 
   def cards_in_category(category)
+    #cards.select {|card| card.category == category}
     card_category = []
       cards.each do |card|
         if category == card.category
-        card_category << card
+          card_category << card
       end
     end
     card_category
+
   end
 end
