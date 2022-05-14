@@ -24,11 +24,18 @@ RSpec.describe Deck do
     expect(@deck.count).to eq(3)
   end
 
-  it 'has categories' do
+  it 'has a reactive nonmetals category' do
 
     expect(@deck.cards_in_category(:ReactiveNonmetals)).to eq([@card_1])
-    expect(@deck.cards_in_category(:NobleGases)).to eq([@card_2])
-    expect(@deck.cards_in_category(:Metalloids)).to eq([@card_3])
   end
 
+  it 'has a noble gases category' do
+
+    expect(@deck.cards_in_category(:NobleGases)).to eq([@card_2])
+  end
+
+  it 'has a metalloids category' do
+
+    expect(@deck.cards_in_category(:Metalloids)).to eq([@card_3])
+  end
 end
