@@ -37,10 +37,10 @@ class Turns
       @card = card
       @answer = answer
   end
-
-      turns = Turns.new("Juneau", @card)
-      p turns
 end
+
+turns = Turns.new("Juneau", @card)
+p turns
 
 class Round
   attr_reader :deck, :turns, :turn_counter, :correct, :num, :user_input
@@ -60,14 +60,13 @@ class Round
     puts "This is card 1 out of 4."
     puts "Question: What is 5 + 5?"
     user_input = gets
-    print "You guessed #{user_input}"
-
-    if user_input = 10
-       "Correct!"
-    else
-       "Incorrect"
+    puts "You guessed #{user_input}"
+      if user_input == "10"
+       return "Correct!"
+     elsif user_input != "10"
+       return "Incorrect"
+      end
     end
-  end
 
 end
 
