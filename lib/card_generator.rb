@@ -1,7 +1,7 @@
-require './card'
-require './deck'
-require './turn'
-require './round'
+require './lib/card'
+require './lib/deck'
+require './lib/turn'
+require './lib/round'
 
 class CardGenerator
   attr_reader :filename, :data
@@ -25,7 +25,3 @@ class CardGenerator
   end
 
 end
-
-# filename = "cards.txt"
-# cards = CardGenerator.new(filename).cards
-# p cards
