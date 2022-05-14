@@ -23,7 +23,7 @@ class Deck
     end
     return @cards_in_category
     #unsuccessful! Ask why
-    # require 'pry'; binding.pry
+    #try passing it a specific index
     # @cards.each_with_index do |card, index|
     #   if @cards[index].category == @category
     #     @cards_in_category << @card[index]
