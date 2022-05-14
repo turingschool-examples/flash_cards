@@ -28,4 +28,21 @@ RSpec.describe Turn do
 
   end
 
+  describe "Robust tests" do
+    before :each do
+      @card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+      @turn = Turn.new("Saturn", @card)
+    end
+
+    it 'exists' do
+      expect(@card).to be_a(Card)
+    end
+
+    # it "has attributes" do
+    #   expect()
+    #   expect()
+    # end
+
+  end
+
 end
