@@ -44,8 +44,18 @@ class Round
     correct_by_category.count
   end
 
-  
+  def percent_correct
+    count = @turns.count
+    number_correct.to_f / count * 100
+  end
+
+  def percent_correct_by_category(category)
+    turns_by_category = []
+    @turns.each do |turn|
+      if turn.card.category == category
+        turns_by_category << turn
+      end
+    end
+    number_correct_by_category(category).to_f / turns_by_category.count * 100
+  end
 end
-
-
-# require 'pry'; binding.pry
