@@ -58,4 +58,15 @@ class Round
     end
     number_correct_by_category(category).to_f / turns_by_category.count * 100
   end
+
+  def start
+    turns = 0
+    until turns == 3
+      turns += 1
+      puts current_card.question
+      user_input = gets.chomp
+      turn = take_turn(user_input)
+      puts turn.feedback
+    end
+  end
 end
