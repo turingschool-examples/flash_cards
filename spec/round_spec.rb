@@ -20,4 +20,12 @@ describe Round do
     expect(@round.deck).to eq(@deck)
   end
 
+  it "can tell you that turns are empty by default" do
+    expect(@round.turns).to eq([])
+  end
+
+  it "can tell you what the current card is" do
+    expect(@round.current_card).to eq(@card_1)
+  end
+
 end
