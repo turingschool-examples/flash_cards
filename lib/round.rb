@@ -18,7 +18,7 @@ class Round
     turn = Turn.new(guess, current_card)
     @turns << turn
     @turn_counter += 1
-    if guess == "Juneau"
+    if guess == "Juneau" #refactor if time
       @correct_Geo << 1
     end
     return turn
@@ -42,4 +42,6 @@ class Round
   def percent_correct
      number_correct.to_f / @turns.count.to_f * 100
   end
+
+
 end
