@@ -38,4 +38,8 @@ class Round
   def number_correct
     @@turns.count {|turn| turn.card.answer == turn.guess}
   end
+
+  def number_incorrect
+    @@turns.count {|turn| turn.card.answer != turn.guess}
+  end  
 end
