@@ -10,10 +10,10 @@ class Turn ()
     @guess == card.answer
 
   end
-  def feedback(guess)
-    if correct?(guess)
+  def feedback()
+    if correct?(@guess)
       return "Correct!"
-    elsif !correct?(guess)
+    elsif !correct?(@guess)
       return "Incorrect."
     end
 
