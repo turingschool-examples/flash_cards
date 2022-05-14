@@ -27,18 +27,3 @@ RSpec.describe CardGenerator do
     expect(@card_generator.cards).to eq(@card_generator.nu_cards)
   end
 end
-
-
-
-
-
-
-# Things you need in your spec file
-
-# A way to confirm that you are passing your card.txt file into filename
-
-#A Method to format the lines of text that the class file is receiving
-
-#After its formatted, it needs to have the methods from my previous classes applied to the new cards.
-
-#In applying the methods I'll need to figure out how i'll need to call them in my runner.

@@ -8,7 +8,7 @@ class CardGenerator
 
   def format(question, answer, category)
     card_data = data.map {|line| line.split(",")}
-    @nu_cards = card_data.map {|card| Card.new(*card)}.compact
+    @nu_cards = card_data.map {|card| Card.new(*card)}
   end
 
   def cards
