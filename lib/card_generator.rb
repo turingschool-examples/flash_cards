@@ -2,11 +2,12 @@ require './lib/card'
 require './lib/deck'
 
 class CardGenerator
-  attr_reader :filename, :cards
+  attr_reader :filename, :cards, :deck
 
   def initialize(filename)
     @filename = filename
     @cards = []
+    @deck = []
   end
 
   def add_cards
@@ -20,6 +21,6 @@ class CardGenerator
   end
 
   def create_deck
-    new_deck = Deck.new(@cards)
+    @deck = Deck.new(@cards)
   end
 end
