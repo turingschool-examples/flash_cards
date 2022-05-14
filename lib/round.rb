@@ -56,11 +56,10 @@ class Round
 
   def percent_correct
     (number_correct / @turn_count.to_f) * 100
-    # rescue ZeroDivisionError
-    # 0.0
   end
 
   def percent_correct_by_category(category)
-    (number_correct_by_category(category) / number_in_category(category).to_f) * 100
+    percent = (number_correct_by_category(category) / number_in_category(category).to_f) * 100
+    percent.nan? ? 0 : percent
   end
 end
