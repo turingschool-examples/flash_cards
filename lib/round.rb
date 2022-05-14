@@ -34,4 +34,8 @@ class Round
   def card_complete
     @deck.cards.rotate
   end
+
+  def number_correct
+    @@turns.count {|turn| turn.card.answer == turn.guess}
+  end
 end
