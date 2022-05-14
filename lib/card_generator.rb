@@ -1,13 +1,17 @@
 class CardGenerator
 
-  attr_reader :data, :cards
+  attr_reader :data, :nu_cards
   def initialize(data)
     @data = data
-    @cards = []
+    @nu_cards = []
   end
 
   def format(question, answer, category)
     card_data = data.map {|line| line.split(",")}
-    @cards = card_data.map {|card| Card.new(*card)}
+    @nu_cards = card_data.map {|card| Card.new(*card)}.compact
+  end
+
+  def cards
+    @nu_cards = self.format(:question, :answer, :category)
   end
 end
