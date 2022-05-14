@@ -27,7 +27,7 @@ class Round
   def number_correct_by_category(category)
     correct_count = 0
     @turns.each do |turn|
-      if turn.card.answer == turn.guess && turn.card.category == category
+      if turn.card.answer.downcase == turn.guess.downcase && turn.card.category == category
         correct_count += 1
       end
     end
