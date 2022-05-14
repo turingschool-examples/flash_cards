@@ -63,6 +63,7 @@ RSpec.describe Round do
   end
 
   it 'can tell the percentage of correct answers in a category' do
+    round.take_turn('Juneau')    
     expect(round.percent_correct_by_category(:Geography)).to eq(100)
   end
 

@@ -54,9 +54,9 @@ class Round
     rescue ZeroDivisionError
     0.0
   end
-  
+
   def percent_correct_by_category(category)
-    100 * (number_correct_by_category(category) / @@turns.count)
+    100 * (number_correct_by_category(category) / @turns.count)
     rescue ZeroDivisionError
     0.0
   end
