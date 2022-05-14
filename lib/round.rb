@@ -43,5 +43,8 @@ class Round
      number_correct.to_f / @turns.count.to_f * 100
   end
 
+  def percent_correct_by_category(category)
+    (@correct_Geo[0] * 100).to_f
+  end
 
 end
