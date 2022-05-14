@@ -1,27 +1,35 @@
 require './lib/card'
 
 RSpec.describe Card do
-  it 'exists' do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+  describe '#initialize' do
+    it 'creates an instance of Card' do
+      card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
-    expect(card).to be_instance_of(Card)
+      expect(card).to be_instance_of(Card)
+    end
   end
 
-  it 'has a question' do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+  describe '@question' do
+    it 'returns a question' do
+      card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
-    expect(card.question).to eq("What is the capital of Alaska?")
+      expect(card.question).to eq("What is the capital of Alaska?")
+    end
   end
 
-  it 'has an answer' do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+  describe '@answer' do
+    it 'returns an answer' do
+      card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
-    expect(card.answer).to eq("Juneau")
+      expect(card.answer).to eq("Juneau")
+    end
   end
 
-  it 'has a category' do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+  describe '@category' do
+    it 'has a category' do
+      card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
-    expect(card.category).to eq(:Geography)
+      expect(card.category).to eq(:Geography)
+    end
   end
 end
