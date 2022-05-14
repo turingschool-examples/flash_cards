@@ -36,16 +36,23 @@ RSpec.describe Round do
     expect(round.check_guess).to eq(false)
   end
 
-  xit 'can give feedback based on guess' do
+  it 'can give feedback based on guess' do
     round.take_turn('Juneau')
     expect(round.turn_feedback).to eq('Correct!')
-    expect(round.number_correct).to eq(1)
     round.take_turn('Anchorage')
     expect(round.turn_feedback).to eq('Incorrect.')
-    expect(round.number_correct).to eq(1)
   end
 
-  xit 'can tell the number of correct answers in a specific category' do
+  it 'can tell the number of correct and incorrect guesses' do
+    round.take_turn('Juneau')
+    expect(round.number_correct).to eq(1)
+    expect(round.number_incorrect).to eq(0)
+    round.take_turn('Anchorage')
+    expect(round.number_correct).to eq(1)
+    expect(round.number_incorrect).to eq(1)
+  end
+
+  it 'can tell the number of correct answers in a specific category' do
     expect(round.number_correct_by_category(:Geography)).to eq(1)
   end
 
