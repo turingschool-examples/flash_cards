@@ -30,7 +30,7 @@ describe CardGenerator do
 
   it 'can create a deck' do
     @card_generator.add_cards
-    deck = Deck.new(@card_generator.cards)
+    deck = @card_generator.create_deck
     expect(deck).to be_a Deck
   end
 end
