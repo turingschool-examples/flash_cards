@@ -19,4 +19,8 @@ describe CardGenerator do
     expect(@cards.filename).to eq(@filename)
   end
 
+  it 'initializes with no cards' do
+    expect(@cards.cards).to eq []
+  end
+
 end
