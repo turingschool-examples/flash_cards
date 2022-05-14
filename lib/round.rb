@@ -5,7 +5,6 @@ class Round
     @turn_counter = 0
     @turns = []
     @correct_Geo = []
-    @correct_Stem = []
   end
 
   def current_card
