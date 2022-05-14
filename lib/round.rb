@@ -1,8 +1,9 @@
-class Class
-  attr_reader :,
-              :
+class Round
+  attr_reader :deck,
+              :turns
 
-  def initialize(argument)
-    @argument = argument
+  def initialize(deck)
+    @deck = deck
+    @turns = []
   end
 end
