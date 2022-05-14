@@ -1,5 +1,5 @@
 class Round
-  attr_reader :deck, :turns
+  attr_reader :deck, :turns, :turn_counter
   def initialize(deck)
     @deck = deck
     @turn_counter = 0
@@ -44,6 +44,22 @@ class Round
 
   def percent_correct_by_category(category)
     (@correct_Geo[0] * 100).to_f
+  end
+
+
+  def start
+      puts "Welcome! You're playing with #{deck.count} cards."
+      puts "-------------------------------------------------"
+      puts "This is card number 1 out of #{deck.count}." #refactor later
+      puts "Question: #{deck.cards[0].question}"
+      puts deck.cards[0].answer
+      guess_1 = gets.to_i
+
+      if guess_1 == deck.cards[0].answer
+        p "Correct!"
+      elsif guess_1 != deck.cards[0].answer
+        p "Incorrect."
+      end
   end
 
 end
