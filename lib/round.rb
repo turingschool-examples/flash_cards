@@ -8,12 +8,12 @@ class Round
     @num = 0
   end
 
-  def start
-    puts "Welcome! You're playing with 4 cards."
-    print "------------------------------------"
-    puts "This is card 1 out of 4."
-    puts "Question: What is 5 + 5?"
-  end
+  # def start
+  #   puts "Welcome! You're playing with 4 cards."
+  #   print "------------------------------------"
+  #   puts "This is card 1 out of 4."
+  #   puts "Question: What is 5 + 5?"
+  # end
 
   def rotate_cards
     @deck.cards.rotate

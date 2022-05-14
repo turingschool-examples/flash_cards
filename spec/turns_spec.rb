@@ -18,6 +18,7 @@ describe Turns do
   end
 end
 
+
 describe Turns do
   it 'is correct' do
     turns = Turns.new("Juneau", @card)

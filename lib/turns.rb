@@ -7,15 +7,14 @@ class Turns
   end
 
   def correct?
-    if @guess == "Juneau"
-      true
-  else
-    false
-    end
+    @guess == @answer
+    #"Juneau"
+    true
   end
 
   def feedback
-    if @guess == "Juneau"
+    if @guess == @answer
+      #"Juneau"
       "Correct!"
     else
       "Incorrect!"
