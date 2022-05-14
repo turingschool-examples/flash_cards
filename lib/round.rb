@@ -17,7 +17,7 @@ class Round
     @turns << this_turn
     if this_turn.guess == current_card().answer
       @number_correct += 1
-    end
+    end 
     # @deck.rotate(1)
     return this_turn
     #require 'pry'; binding.pry
