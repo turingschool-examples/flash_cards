@@ -16,5 +16,4 @@ class Round
     Turn.new(answer, @deck.cards[@turn_count])
   end
 
-
 end

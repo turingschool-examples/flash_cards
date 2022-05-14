@@ -33,12 +33,11 @@ RSpec.describe Round do
       expect(new_turn.class).to eq(Turn)
     end
 
-    xit 'can tell if new turn is correct' do
+    it 'can tell if new turn is correct' do
       new_turn = @round.take_turn("Juneau")
 
       expect(new_turn.correct?).to eq(true)
     end
-
 
   end
 
