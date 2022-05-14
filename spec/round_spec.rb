@@ -27,13 +27,19 @@ RSpec.describe Round do
       expect(@round.current_card).to eq(@card_1)
     end
 
-    it 'can take a turn, tell if new turn is correct and add to turns' do
+    it 'can take a turn, check it, and add to turns' do
       new_turn = @round.take_turn("Juneau")
 
       expect(new_turn.class).to eq(Turn)
       expect(new_turn.correct?).to eq(true)
       expect(@round.turns).to eq([new_turn])
     end
+
+    xit 'can tell the number correct' do
+      expect(@round.number_correct).to eq(1)
+    end
+
+
 
   end
 
