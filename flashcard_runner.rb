@@ -4,37 +4,6 @@ require './lib/deck'
 require './lib/round'
 require './lib/card_generator'
 
-
-card_1 = Card.new(
-"What's 1+1",
-"2",
-:addition
-)
-
-card_2 = Card.new(
-"What's 2*2",
-"4",
-:multiplication
-)
-
-card_3 = Card.new(
-"What's 3+3",
-"6",
-:addition
-)
-
-card_4 = Card.new(
-"What's 5*5",
-"25",
-:multiplication
-)
-
-card_5 = Card.new(
-"What's 10/2",
-"5",
-:division
-)
-
 cards = CardGenerator.new("./lib/cards.txt")
 
 cards.get_text_content

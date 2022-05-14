@@ -23,7 +23,6 @@ class CardGenerator
     file.each_line do |line|
       @text_file_lines << line
     end
-
     @text_file_lines
   end
 
