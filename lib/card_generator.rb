@@ -18,4 +18,8 @@ class CardGenerator
       @cards << Card.new(question, answer, category)
     end
   end
+
+  def create_deck
+    new_deck = Deck.new(@cards)
+  end
 end
