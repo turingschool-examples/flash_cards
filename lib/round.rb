@@ -17,8 +17,8 @@ class Round
     if turn.correct?
       @number_correct += 1
     end
+    deck.cards.shift
     puts turn.feedback
-    deck.cards.rotate
     turn
   end
 
@@ -46,7 +46,16 @@ class Round
     puts "This is card number #{turns.count + 1} out of 4"
     puts "Question: #{current_card.question}"
     take_turn
-
+    puts "This is card number #{turns.count + 1} out of 4"
+    puts "Question: #{current_card.question}"
+    take_turn
+    puts "This is card number #{turns.count + 1} out of 4"
+    puts "Question: #{current_card.question}"
+    take_turn
+    puts "This is card number #{turns.count + 1} out of 4"
+    puts "Question: #{current_card.question}"
+    take_turn
+    puts "****** Game over! ******"
   end
 
 end
