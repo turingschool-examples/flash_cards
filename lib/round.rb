@@ -2,7 +2,7 @@ require 'set'
 require_relative 'helper'
 
 class Round
-  attr_reader :deck, :turns
+  attr_reader :deck, :turns, :turn_count
 
   @@rounds = Set.new
 
@@ -20,7 +20,6 @@ class Round
   def take_turn(guess)
     @turn_count += 1
     @turns.push(Turn.new(guess, current_card))
-    check_guess
   end
 
   def check_guess

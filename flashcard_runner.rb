@@ -8,42 +8,40 @@ class FlashcardRunner
   end
 
   def start
-    puts messages[:start]
-    question
+    puts "Welcome! You're playing with 4 cards.
+         -------------------------------------------------
+         This is card number #{@round.turn_count + 1} out of 4."
+    ask_question
   end
 
-  def question
-    puts messages[:count]
-    puts messages[:question]
-    assess_answer
+  def ask_question
+    puts "Question: #{@round.current_card.question}"
+    check_input
   end
 
-  def assess_answer
+  def check_input
     guess = gets.chomp.downcase
     @round.take_turn(guess)
-    assess_next_step
+    get_feedback
   end
 
-  def assess_next_step
-    return question if round.turns.count < 4
-    return messages[:game_over] if round.turns.count == 4
+  def get_feedback
+    puts @round.turn_feedback
+    until @round.turn_count == @deck.cards.size
+      @round.card_complete
+      ask_question
+    end
+    game_over
+
+    # game_over
   end
 
-  def messages
-   {
-     start:
-     "Welcome! You're playing with 4 cards.
-     -------------------------------------------------",
-     count:
-     "This is card number #{@round.turn_count + 1} out of 4.",
-     question:
-     "Question: #{@round.current_card.question}",
-     game_over:
+  def game_over
+    puts
      "****** Game over! ******
      You had #{@round.number_correct} correct guesses out of 4 for a total score of #{@round.percent_correct}%.
      STEM - #{@round.percent_correct_by_category('STEM')}% correct
      Turing Staff - #{@round.percent_correct_by_category('Turing Staff')}% correct
      Pop Culture - #{@round.percent_correct_by_category('Pop Culture')}% correct"
-   }
   end
 end
