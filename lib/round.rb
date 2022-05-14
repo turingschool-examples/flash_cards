@@ -14,8 +14,12 @@ class Round
   end
 
   def take_turn(guess)
-    @turns << Turn.new(guess, current_card)
+    @turns.push(Turn.new(guess, current_card))
     check_guess
+  end
+
+  def check_guess
+
   end
 
 end
