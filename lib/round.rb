@@ -12,7 +12,7 @@ class Round
   end
 
   def take_turn(guess)
-    if guess == current_card.answer
+    if guess.downcase == current_card.answer.downcase
       @correct += 1
     end
     @turns << Turn.new(guess, current_card)
@@ -48,18 +48,22 @@ class Round
   def start
     puts "Welcome! You're playing with #{@deck.count} cards."
     puts "-------------------------------------------------"
+    # sleep(0.65)
     until @turns.length == deck.count do
       puts "This is card number #{@turns.length + 1} out of #{deck.count}"
       puts "Question: #{current_card.question}"
-      guess = gets.chomp.capitalize
+      guess = gets.chomp
       (take_turn(guess))
+      # sleep(0.5)
       puts turns.last.feedback
+      # sleep(0.25)
     end
   end
 
   def display_results
     puts "0.0 * x.x * Game Over! * x.x * 0.0"
     puts "You had #{number_correct} correct guesses out of 4 for a total score of #{percent_correct.to_i}%."
+    # sleep(0.5)
     current_category = {}
     @deck.cards.each do |card|
       if (current_category.has_key?(card.category))
