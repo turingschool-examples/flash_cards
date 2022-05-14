@@ -2,7 +2,7 @@
 
 To play:
 - save this repo to your computer
-- navigate to the repo in your terminal (`cd folder/folder_with_repo`)
+- navigate to the repo in your terminal (ex. `cd folder/folder_with_repo`)
 - run the game using the command:
   - `ruby flashcard_runner.rb`
 - type the answers in your terminal and press `ENTER`
