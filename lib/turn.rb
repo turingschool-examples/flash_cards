@@ -12,10 +12,10 @@ class Turn
   end
 
   def feedback
-    if @guess = @card.answer
-      "Correct!"
+    if @guess != @card.answer
+      "Incorrect!"
     else
-      "Incorrect"
+      "Correct!"
     end
   end
 

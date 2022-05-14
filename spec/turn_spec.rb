@@ -4,6 +4,7 @@ require './lib/turn'
 
 RSpec.describe Turn do
   describe 'Iteration 1' do
+  
     before :each do
       @card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       @turn = Turn.new("Juneau", @card)
@@ -38,10 +39,18 @@ RSpec.describe Turn do
       expect(@card).to be_a(Card)
     end
 
-    # it "has attributes" do
-    #   expect()
-    #   expect()
-    # end
+    it 'has attributes' do
+      expect(@turn.card).to eq(@card)
+      expect(@turn.guess).to eq("Saturn")
+    end
+
+    it 'can tell if answer is correct' do
+      expect(@turn.correct?).to eq(false)
+    end
+
+    it 'can give feedback' do
+      expect(@turn.feedback).to eq("Incorrect!")
+    end
 
   end
 
