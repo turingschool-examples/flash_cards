@@ -32,7 +32,7 @@ RSpec.describe CardGenerator do
 
     cards = CardGenerator.new(filename)
 
-    expect(cards.text_content).not_to be_empty
+    expect(cards.get_text_content).not_to be_empty
 
   end
 
@@ -42,7 +42,21 @@ RSpec.describe CardGenerator do
 
     cards = CardGenerator.new(filename)
 
-    expect(cards.text_content.count).to eq(2)
+    expect(cards.get_text_content.count).to eq(2)
+
+  end
+
+  it 'creates cards based on number of lines' do
+
+    filename = "./lib/cards.txt"
+
+    cards = CardGenerator.new(filename)
+
+    cards.get_text_content
+
+    cards.card_creator
+
+    expect(cards.card_array.length).to eq(2)
 
   end
 
