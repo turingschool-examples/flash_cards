@@ -15,27 +15,4 @@ deck = Deck.new(cards)
 round = Round.new(deck)
 
 round.start
-
-i = 1
-while i <= round.deck.count
-  puts "This is card number #{i} out of #{round.deck.count}."
-  puts round.current_card.question
-  guess = gets.chomp
-  next_turn = round.take_turn(guess)
-  puts next_turn.feedback
-  i += 1
-end
-
-puts "****** Game over! ******"
-puts "You had #{round.number_correct} correct guesses out of #{round.deck.count} for a total score of #{round.percent_correct.to_i}%."
-
-used_categories = []
-
-round.turns.each do |turn|
-  if used_categories.include?(turn.card.category)
-    next
-  else
-    puts "#{turn.card.category} - #{round.percent_correct_by_category(turn.card.category).to_i}% correct"
-  end
-  used_categories << turn.card.category
-end
+round.end
