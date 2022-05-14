@@ -32,9 +32,18 @@ RSpec.describe CardGenerator do
 
     cards = CardGenerator.new(filename)
 
-    expect(cards.text_content).to eq("What is 5 + 5?,10,Addition")
+    expect(cards.text_content).not_to be_empty
 
   end
 
+  it 'returns the number of lines in cards.txt file' do
+
+    filename = "cards.txt"
+
+    cards = CardGenerator.new(filename)
+
+    expect(cards.number_of_questions).to eq(2)
+
+  end
 
 end
