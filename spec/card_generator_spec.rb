@@ -2,14 +2,18 @@ require 'spec_helper'
 
 RSpec.describe CardGenerator do
   let!(:file) {'cards.txt'}
-  let!(:generate) {CardGenerator.new(file).cards}
-  let!(:cards) {generate.cards}
+  let!(:generator) {CardGenerator.new(file)}
+  let!(:cards) {CardGenerator.new(file).cards}
 
   it "is an instance of" do
-    expect(generate).to be_a CardGenerator
+    expect(generator).to be_a CardGenerator
   end
 
   it "can make cards" do
-    expect(cards.first).to be_instance_of(Card)
+    expect(cards).to include(Card)
+  end
+
+  it "can tell number of cards" do
+    expect(cards.size).to eq(4)
   end
 end
