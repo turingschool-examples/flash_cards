@@ -15,5 +15,3 @@ describe 'Card Generator' do
   end
 
 end
-
-# ctrl + r

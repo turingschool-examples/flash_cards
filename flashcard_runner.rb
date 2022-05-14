@@ -29,7 +29,7 @@ while index < number_of_cards
   puts "This is card number #{card_number} out of #{number_of_cards}."
   puts cards[index].question
   answer = gets.chomp
-  round_2 = round.take_turn(answer.to_s)
+  round_2 = round.take_turn(answer.downcase.to_s)
   round_2.correct?
   round_2.guess
   feedback_array << round_2.feedback

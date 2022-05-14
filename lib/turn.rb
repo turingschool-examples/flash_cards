@@ -8,7 +8,7 @@ def initialize(guess, card)
 end
 
 def correct?
-  if @guess == card.answer
+  if @guess == card.answer.downcase 
     true
   else
     false
