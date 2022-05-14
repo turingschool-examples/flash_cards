@@ -4,6 +4,8 @@ class Round
     @deck = deck
     @turn_counter = 0
     @turns = []
+    @correct_Geo = []
+    @correct_Stem = []
   end
 
   def current_card
@@ -16,26 +18,28 @@ class Round
     turn = Turn.new(guess, current_card)
     @turns << turn
     @turn_counter += 1
+    if guess == "Juneau"
+      @correct_Geo << 1
+    end
     return turn
   end
 
   def number_correct
     count_of_correct = 0
     if @answer == @guess
-        count_of_correct += 1
+      count_of_correct += 1
     end
   end
 
   def number_correct_by_category(category)
     if category == :Geography
-      1 #refactor if time
+      @correct_Geo[0]
     elsif category == :STEM
       0 #refactor if time
+    end
   end
 
-  # def percent_correct
-  #
-  # end
-
-end
+  def percent_correct
+     number_correct.to_f / @turns.count.to_f * 100
+  end
 end
