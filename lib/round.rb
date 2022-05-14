@@ -61,39 +61,10 @@ class Round
       answer = gets.chomp.to_s.downcase
       take_turn(answer)
       puts @turns.last.feedback
+      if !@turns.last.correct?
+        puts "The correct answer was #{@turns.last.card.answer}."
+      end
     end
-
-# - - - - - - - -
-
-    # card_number = 1
-    # puts "This is card number #{card_number} out of #{total_cards}."
-    # puts "Question: #{deck.cards.first.question}"
-    # answer_1 = gets.chomp.to_s.downcase
-    # first_turn = take_turn(answer_1)
-    # puts first_turn.feedback
-    #
-    # card_number += 1
-    # puts "This is card number #{card_number} out of #{total_cards}."
-    # puts "Question: #{deck.cards.first.question}"
-    # answer_2 = gets.chomp.to_s.downcase
-    # second_turn = take_turn(answer_2)
-    # puts second_turn.feedback
-    #
-    # card_number += 1
-    # puts "This is card number #{card_number} out of #{total_cards}."
-    # puts "Question: #{deck.cards.first.question}"
-    # answer_3 = gets.chomp.to_s.downcase
-    # third_turn = take_turn(answer_3)
-    # puts third_turn.feedback
-    #
-    # card_number += 1
-    # puts "This is card number #{card_number} out of #{total_cards}."
-    # puts "Question: #{deck.cards.first.question}"
-    # answer_4 = gets.chomp.to_s.downcase
-    # fourth_turn = take_turn(answer_4)
-    # puts fourth_turn.feedback
-
-    # - - - - - - - -
 
     puts "***** Game over! *****"
     puts "You had #{@number_correct} correct guesses out of #{total_cards} for a total score of #{percent_correct.to_i}%."
