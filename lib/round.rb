@@ -34,6 +34,7 @@ class Round
 
   def start
   counter = 1
+  categories = []
   puts "Welcome! You're playing with #{deck.count} cards."
 
   until @turns.length == deck.count do
@@ -45,11 +46,16 @@ class Round
     counter += 1
   end
 
-  puts """
-  ****** Game Over ******
-  you had #{number_correct} guesses out of #{@deck.count} for a total score of #{percent_correct.round(1)}%.
-  #{@deck.cards[0].category} - #{percent_correct_by_category(@deck.cards[0].category).round(1)}% correct
-  #{@deck.cards[1].category}- #{percent_correct_by_category(@deck.cards[1].category).round(1)}% correct
-  """
+    puts """
+    ****** Game Over ******
+    you had #{number_correct} correct guesses out of #{@deck.count} for a total score of #{percent_correct.round(1)}%.
+    """
+      @deck.cards.each do |card|
+        categories << card.category
+      end
+      categories = categories.uniq
+      categories.each do |category|
+        puts "#{category} - #{percent_correct_by_category(category).round(1)}% correct"
+    end
   end
 end
