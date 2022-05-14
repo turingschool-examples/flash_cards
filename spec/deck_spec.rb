@@ -33,7 +33,7 @@ RSpec.describe Deck do
     #require 'pry' ; binding.pry
 
   end
-  xit 'has an answer' do
+  it 'has an answer' do
 
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
@@ -41,9 +41,9 @@ RSpec.describe Deck do
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
 
-    expect(deck.cards_in_category(:STEM)).to be([card_2, card_3])
+    expect(deck.cards_in_category(:STEM)).to eq([card_2, card_3])
 
-       
+
   end
 
 end
