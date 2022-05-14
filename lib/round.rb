@@ -1,3 +1,6 @@
+require 'set'
+require_relative 'helper'
+
 class Round
   attr_reader :deck, :turns
 
@@ -6,7 +9,7 @@ class Round
   def initialize(deck)
     @deck = deck
     @turn_count = 0
-    @turns = [] ||
+    @turns = []
     @@rounds << self
   end
 
@@ -22,7 +25,10 @@ class Round
 
   def check_guess
     @turns.last.correct?
-    card_complete
+  end
+
+  def turn_feedback
+    @turns.last.feedback
   end
 
   def card_complete
