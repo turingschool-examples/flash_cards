@@ -13,7 +13,7 @@ class CardGenerator
     File.readlines(@filename).each do |line|
       split_line = line.rstrip.split(",")
       question = split_line[0]
-      answer = split_line[1]
+      answer = split_line[1].downcase
       category = split_line[2].to_sym
       @cards << Card.new(question, answer, category)
     end

@@ -14,8 +14,8 @@ class Round
     i = 1
     while i <= deck.count
       puts "This is card number #{i} out of #{deck.count}."
-      puts current_card.question
-      guess = gets.chomp
+      puts "Question: #{current_card.question}"
+      guess = gets.chomp.downcase
       next_turn = take_turn(guess)
       puts next_turn.feedback
       i += 1
