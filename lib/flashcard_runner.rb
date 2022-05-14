@@ -1,7 +1,7 @@
-require './lib/card'
-require './lib/deck'
-require './lib/round'
-require './lib/turn'
+require './card'
+require './deck'
+require './round'
+require './turn'
 
 card1 = Card.new("Who is the captain of the strawhat pirates", 'Luffy', :Anime)
 card2 = Card.new("Who is the main character in Demon slayer?", 'Tanjiro', :Anime)
