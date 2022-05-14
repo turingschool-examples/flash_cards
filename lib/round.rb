@@ -19,7 +19,9 @@ class Round
   end
 
   def check_guess
-
+    @turns.last.correct?
+    card_complete
   end
+
 
 end

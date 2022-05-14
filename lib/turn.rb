@@ -8,6 +8,7 @@ class Turn
 
   def correct?
     @guess == @card.answer
+    feedback
   end
 
   def feedback
