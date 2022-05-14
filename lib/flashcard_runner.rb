@@ -30,4 +30,5 @@ round.deck.cards.map {|card| card.category }.uniq.each do |category|
   end
 
 end
+
 start(round)

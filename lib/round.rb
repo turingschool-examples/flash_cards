@@ -15,9 +15,11 @@ class Round
 #adds that turn object to our turn array and incrementally increases our turn.
 #index by 1. This block also checks if the turn was correct, and adds 1 to the guesses_correct.
   def take_turn(guess)
-
+#turn needs a @ because it's just being declared, ask instructor why turns_index
+#breaks without "@" if it's already declared. @turn_index needs "@" because it's
+#being reassigned? (Ask instructor)
     @turn = Turn.new(guess, current_card)
-    @turns << @turn
+    turns << turn
     @turn_index += 1
 
     if @turn.correct? == true
@@ -35,31 +37,34 @@ class Round
 #This returns the number of correct guesses based on what's in our array of
 #given guesses
   def number_correct
-    @guesses_correct
+    guesses_correct
   end
 #This returns a percentage correct by taking the number of correct answers and
 #dividing it by the turn index. integer math ruby rounds to zero, so had to cast
 #to floats.
   def percent_correct
-    (@guesses_correct.to_f/ @turns.count.to_f) * 100
+    (guesses_correct.to_f/ turns.count.to_f) * 100
   end
 #This creates a local correct_by_category variable then runs an each loop for
 #every turn in my turns array. If the turn has a correct guess AND it's a part
 #of that category, it'll add it to the local variable correct_by_category.
   def number_correct_by_category(category)
     correct_by_category = 0
+
     turns.each do |turn|
-    if turn.correct? && turn.card.category == category
+      if turn.correct? && turn.card.category == category
       correct_by_category += 1
+      end
     end
-  end
     return correct_by_category
   end
   #
 
   #
   def percent_correct_by_category(category)
+
     (number_correct_by_category(category).to_f/ deck.cards_in_category(category).length.to_f) * 100
+
   end
 
  end
