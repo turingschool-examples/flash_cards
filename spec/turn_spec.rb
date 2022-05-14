@@ -23,6 +23,7 @@ RSpec.describe Turn do
   it 'guesses correctly' do
     card = Card.new("Which element has the symbol 'H'?", "Hydrogen", :ReactiveNonmetals)
     turn = Turn.new("Hydrogen", card)
+
     expect(turn.guess).to eq("Hydrogen")
   end
 
