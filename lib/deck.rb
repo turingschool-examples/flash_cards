@@ -12,7 +12,6 @@ class Deck
   def cards_in_category(topic)
     array = []
     @cards.each do |card|
-      # require 'pry'; binding.pry
       if card.category == topic
         array << card
       end
