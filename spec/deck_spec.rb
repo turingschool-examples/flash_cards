@@ -20,4 +20,8 @@ describe Deck do
   it "can tell you how many cards there are" do
     expect(@deck.count).to eq(3)
   end
+
+  it "can tell you which cards are in a catagory" do
+    expect(@deck.cards_in_category(:STEM)).to eq([@card_2, @card_3])
+  end
 end
