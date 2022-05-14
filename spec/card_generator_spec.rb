@@ -3,14 +3,12 @@ require 'pry'
 
 RSpec.describe CardGenerator do
   it 'can store a text file' do
-
     filename = "cards.txt"
     generator = CardGenerator.new(filename)
-
     expect(generator.filename).to eq("cards.txt")
   end
 
-  # I am adding "x" to tests as I make edits to card_generator.rb that will make this test fail. I still wanted to keep these tests and not delete them to document my process for building the code.
+  # README: I am adding "x" to tests as I make edits to card_generator.rb that will make this test fail. I still wanted to keep these tests and not delete them to document my process for building the code.
   xit 'can generate the first line in the txt file' do
 
     filename = "cards.txt"

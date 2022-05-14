@@ -2,7 +2,8 @@ require './lib/card'
 
 class CardGenerator
 
-  attr_accessor :filename, :cards
+  attr_reader :filename
+  attr_accessor :cards
 
   def initialize(filename)
     @filename = filename

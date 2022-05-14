@@ -13,21 +13,21 @@ class Round
 
   def take_turn(guess)
     turn = Turn.new(guess, deck.cards.first)
-    @turns << turn
+    turns << turn
     deck.cards.rotate!
     return turn
   end
 
   def correct?
-    round.turns.first.string == round.turns.fist.card.answer
+    round.turns.first.guess == round.turns.fist.card.answer
   end
 
   def number_correct
     num_correct = 0
     turn_index = 0
     until turn_index == @turns.count
-      @turns.each do |turn|
-        if @turns[turn_index].string == @turns[turn_index].card.answer
+      turns.each do |turn|
+        if turns[turn_index].guess == turns[turn_index].card.answer
           num_correct += 1
           turn_index += 1
         else
@@ -43,7 +43,7 @@ class Round
     turn_index = 0
     until turn_index == @turns.count
       @turns.each do |turn|
-        if @turns[turn_index].card.category == category && @turns[turn_index].string == @turns[turn_index].card.answer
+        if @turns[turn_index].card.category == category && @turns[turn_index].guess == @turns[turn_index].card.answer
           num_correct += 1
           turn_index += 1
         else
@@ -59,7 +59,7 @@ class Round
     turn_index = 0
     until turn_index == @turns.count
       @turns.each do |turn|
-        if @turns[turn_index].string == @turns[turn_index].card.answer
+        if @turns[turn_index].guess == @turns[turn_index].card.answer
           num_correct += 1
           turn_index += 1
         else
@@ -77,7 +77,7 @@ class Round
     turn_index = 0
     until turn_index == @turns.count
       @turns.each do |turn|
-        if @turns[turn_index].card.category == category && @turns[turn_index].string == @turns[turn_index].card.answer
+        if @turns[turn_index].card.category == category && @turns[turn_index].guess == @turns[turn_index].card.answer
           num_correct += 1
           category_count += 1
           turn_index += 1
