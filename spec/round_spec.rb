@@ -108,7 +108,7 @@ describe Round do
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
     round = Round.new(deck)
-    round.take_turn("Juneau")
+    new_turn = round.take_turn("Juneau")
     expect(round.number_correct).to eq(1)
   end
 
@@ -129,8 +129,8 @@ describe Round do
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
     round = Round.new(deck)
-    round.take_turn("Juneau")
-    round.take_turn("Venus")
+    new_turn = round.take_turn("Juneau")
+    new_turn = round.take_turn("Venus")
     expect(round.turns.count).to eq(2)
   end
 
@@ -141,8 +141,8 @@ describe Round do
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
     round = Round.new(deck)
-    round.take_turn("Juneau")
-    round.take_turn("Venus")
+    new_turn = round.take_turn("Juneau")
+    new_turn = round.take_turn("Venus")
     expect(round.turns.last.feedback).to eq("Incorrect.")
   end
 
@@ -153,8 +153,8 @@ describe Round do
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
     round = Round.new(deck)
-    round.take_turn("Juneau")
-    round.take_turn("Venus")
+    new_turn = round.take_turn("Juneau")
+    new_turn = round.take_turn("Venus")
     expect(round.number_correct).to eq(1)
   end
 
@@ -165,9 +165,8 @@ describe Round do
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
     round = Round.new(deck)
-    round.take_turn("Juneau")
-    round.take_turn("Venus")
-    # require "pry"; binding.pry
+    new_turn = round.take_turn("Juneau")
+    new_turn = round.take_turn("Venus")
     expect(round.number_correct_by_category(:Geography)).to eq(1)
   end
 
@@ -178,7 +177,7 @@ describe Round do
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
     round = Round.new(deck)
-    round.take_turn("Juneau")
+    new_turn = round.take_turn("Juneau")
     round.take_turn("Venus")
     expect(round.number_correct_by_category(:STEM)).to eq(0)
   end
@@ -190,8 +189,8 @@ describe Round do
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
     round = Round.new(deck)
-    round.take_turn("Juneau")
-    round.take_turn("Venus")
+    new_turn = round.take_turn("Juneau")
+    new_turn = round.take_turn("Venus")
     expect(round.percent_correct).to eq(50.0)
   end
 
@@ -202,8 +201,8 @@ describe Round do
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
     round = Round.new(deck)
-    round.take_turn("Juneau")
-    round.take_turn("Venus")
+    new_turn = round.take_turn("Juneau")
+    new_turn = round.take_turn("Venus")
     expect(round.percent_correct_by_category(:Geography)).to eq(100.0)
   end
 
