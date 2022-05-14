@@ -1,5 +1,5 @@
 require 'pry'
-require './lib/card'
+# require './lib/card'
 require './lib/deck'
 require './lib/round'
 
