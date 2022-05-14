@@ -6,4 +6,8 @@ class CardGenerator
     @filename = filename
   end
 
+  def text_content
+    File.read("./lib/cards.txt").chomp
+  end
+
 end
