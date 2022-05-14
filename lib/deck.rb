@@ -1,8 +1,9 @@
-class Class
-  attr_reader :,
-              :
+class Deck
+  attr_reader :cards,
+              :count
 
-  def initialize(argument)
-    @argument = argument
+  def initialize(cards)
+    @cards = cards
+    @count = cards.count
   end
 end

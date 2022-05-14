@@ -25,7 +25,7 @@ RSpec.describe Deck do
       expect(@deck.count).to eq(3)
     end
 
-    it 'can tell cards in a category' do
+    xit 'can tell cards in a category' do
       expect(@deck.cards_in_category(:Stem)).to eq([@card_2, @card_3])
       expect(@deck.cards_in_category(:Geography)).to eq([@card_1])
       expect(@deck.cards_in_category("Pop Culture")).to eq([])
