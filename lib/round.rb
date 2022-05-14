@@ -25,7 +25,9 @@ class Round
   def end
     puts "****** Game over! ******"
     puts "You had #{number_correct} correct guesses out of #{deck.count} for a total score of #{percent_correct.to_i}%."
+  end
 
+  def final_score
     used_categories = []
 
     turns.each do |turn|
