@@ -23,6 +23,10 @@ RSpec.describe Round do
       expect(@round.turns).to eq([])
     end
 
+    it 'can tell current card' do
+      expect(@round.current_card).to eq([@card1, @card1.answer, @card1.question, @card1.category])
+    end
+
   end
 
 end
