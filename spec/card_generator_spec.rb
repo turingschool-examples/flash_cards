@@ -11,7 +11,7 @@ describe 'Card Generator' do
   filename = './lib/cards.txt'
   cards = CardGenerator.new(filename).cards
 
-  expect(cards).to eq cards
+  expect(cards[0]).to be_a Card
   end
 
 end
