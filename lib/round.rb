@@ -23,5 +23,7 @@ class Round
     card_complete
   end
 
-
+  def card_complete
+    @deck.cards.rotate
+  end
 end
