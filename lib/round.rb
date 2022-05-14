@@ -11,9 +11,10 @@ class Round
     deck.cards[0]
   end
 
-  def take_turn(guess)
+  def take_turn(guess = gets.chomp)
     turn = Turn.new(guess, current_card)
     turns << turn
+    turn.feedback
     if turn.correct?
       @number_correct += 1
     end
@@ -39,6 +40,13 @@ class Round
     number_correct_by_category(category) / deck.cards_in_category(category).count.to_f * 100.0
   end
 
-
+  def start
+    puts "Welcome to the Fantasical Wonderful Flash Card Game! You're playing with #{deck.cards.length} cards."
+    puts "-------------------------------------------------"
+    puts "This is card number #{turns.count + 1} out of 4"
+    # puts "Question: #{card.question[0, 0]}"
+    take_turn
+    turn.feedback
+  end
 
 end
