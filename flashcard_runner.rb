@@ -16,3 +16,4 @@ round = Round.new(deck)
 
 round.start
 round.end
+round.final_score
