@@ -59,9 +59,17 @@ class Round
 
   def display_results
     puts "0.0 * x.x * Game Over! * x.x * 0.0"
-    puts "You had #{number_correct} correct guesses out of 4 for a total score of #{percent_correct.to_i}%"
-    puts "#{@deck.cards[1].category} - #{percent_correct_by_category(:STEM).to_i}% correct"
-    puts "#{@deck.cards[0].category} - #{percent_correct_by_category(:Geography).to_i}% correct"
-    puts "#{@deck.cards[3].category} - #{percent_correct_by_category(:Misc).to_i}% correct"
+    puts "You had #{number_correct} correct guesses out of 4 for a total score of #{percent_correct.to_i}%."
+    current_category = {}
+    @deck.cards.each do |card|
+      if (current_category.has_key?(card.category))
+        current_category[card.category] += 1
+      else
+        current_category[card.category] = 1
+      end
+    end
+    current_category.each do |key, value|
+      puts "#{key} - #{percent_correct_by_category(key).to_i}% correct."
+    end
   end
 end
