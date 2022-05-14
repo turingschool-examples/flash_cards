@@ -10,7 +10,7 @@ RSpec.describe CardGenerator do
 
   xit 'exists' do
 
-    cards = CardGenerator.new()
+    cards = CardGenerator.new(test)
 
     expect(cards).to be_instance_of(CardGenerator)
 
@@ -18,17 +18,17 @@ RSpec.describe CardGenerator do
 
   it 'takes a filename as parameter' do
 
-    filename = "cards.txt"
+    filename = "./lib/cards.txt"
 
     cards = CardGenerator.new(filename)
 
-    expect(cards.filename).to eq("cards.txt")
+    expect(cards.filename).to eq("./lib/cards.txt")
 
   end
 
   it 'returns text from the cards.txt file' do
 
-    filename = "cards.txt"
+    filename = "./lib/cards.txt"
 
     cards = CardGenerator.new(filename)
 
@@ -38,11 +38,11 @@ RSpec.describe CardGenerator do
 
   it 'returns the number of lines in cards.txt file' do
 
-    filename = "cards.txt"
+    filename = "./lib/cards.txt"
 
     cards = CardGenerator.new(filename)
 
-    expect(cards.number_of_questions).to eq(2)
+    expect(cards.text_content.count).to eq(2)
 
   end
 

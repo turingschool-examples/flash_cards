@@ -7,7 +7,14 @@ class CardGenerator
   end
 
   def text_content
-    File.read("./lib/cards.txt").chomp
+    text_file_lines = []
+    file = File.read(filename)
+
+    file.each_line do |line|
+      text_file_lines << line
+    end
+
+    text_file_lines
   end
 
 end
