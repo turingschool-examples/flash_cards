@@ -53,6 +53,7 @@ RSpec.describe Round do
   end
 
   it 'can tell the number of correct answers in a specific category' do
+    round.take_turn('Juneau')
     expect(round.number_correct_by_category(:Geography)).to eq(1)
   end
 

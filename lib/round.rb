@@ -42,4 +42,11 @@ class Round
   def number_incorrect
     @turns.count {|turn| turn.card.answer != turn.guess}
   end
+
+  def number_correct_by_category(category)
+    @turns.count do |turn|
+      turn.card.answer == turn.guess && turn.card.category == category
+    end
+  end
+
 end
