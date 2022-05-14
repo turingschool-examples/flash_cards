@@ -1,0 +1,5 @@
+require './lib/card.rb'
+require './lib/turn.rb'
+require './lib/deck.rb'
+require './lib/round.rb'
+require './lib/card_generator.rb'
