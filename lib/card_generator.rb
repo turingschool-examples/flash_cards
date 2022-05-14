@@ -34,7 +34,7 @@ class CardGenerator
       question = card_format_array[0].chomp
       answer = card_format_array[1].chomp
       category = card_format_array[2].chomp
-      @card_array << Card.new(question,answer,category)
+      @card_array << Card.new(question,answer,category.downcase)
     end
 
     @card_array

@@ -1,7 +1,7 @@
 require './lib/turn'
 require './lib/card'
 require './lib/deck'
-require 'pry'
+# require 'pry'
 
 
 
@@ -18,11 +18,7 @@ class Round
   end
 
   def current_card
-    if @used_card_array == []
-      @deck.cards.first
-    else
-      @used_card_array.last
-    end
+    @deck.cards.first
   end
 
   def take_turn(guess)

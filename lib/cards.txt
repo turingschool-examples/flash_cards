@@ -1,0 +1,9 @@
+What is 5 + 5?,10,addition
+What is 7 - 2?,5,subtraction
+What is 400 / 2?,200,division
+What is 17 * 2?,34,Multiplication
+What is 12 + 1?,13,addition
+What is 19 + 2?,21,addition
+What is 10 - 4?,6,Subtraction
+What is 700 / 7?,100,division
+What is 12 * 12?,144,multiplication
