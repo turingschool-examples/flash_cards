@@ -8,24 +8,29 @@ require './lib/card_generator'
 describe CardGenerator do
   before :each do
     @filename = "cards.txt"
-    @cards = CardGenerator.new(@filename)
+    @card_generator = CardGenerator.new(@filename)
   end
 
   it 'exists' do
-    expect(@cards).to be_a CardGenerator
+    expect(@card_generator).to be_a CardGenerator
   end
 
   it 'has a filename' do
-    expect(@cards.filename).to eq(@filename)
+    expect(@card_generator.filename).to eq(@filename)
   end
 
   it 'initializes with no cards' do
-    expect(@cards.cards).to eq []
+    expect(@card_generator.cards).to eq []
   end
 
   it 'can add cards to the array' do
-    @cards.add_cards
-    expect(@cards.cards.count).to eq 4
+    @card_generator.add_cards
+    expect(@card_generator.cards.count).to eq 4
   end
 
+  it 'can create a deck' do
+    @card_generator.add_cards
+    deck = Deck.new(@card_generator.cards)
+    expect(deck).to be_a Deck
+  end
 end
