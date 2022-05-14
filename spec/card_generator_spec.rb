@@ -8,7 +8,7 @@ require './lib/card_generator'
 
 RSpec.describe CardGenerator do
 
-  it 'exists' do
+  xit 'exists' do
 
     cards = CardGenerator.new()
 
@@ -25,5 +25,16 @@ RSpec.describe CardGenerator do
     expect(cards.filename).to eq("cards.txt")
 
   end
+
+  it 'returns text from the cards.txt file' do
+
+    filename = "cards.txt"
+
+    cards = CardGenerator.new(filename)
+
+    expect(cards.text_content).to eq("What is 5 + 5?,10,Addition")
+
+  end
+
 
 end
