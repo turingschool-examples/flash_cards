@@ -52,7 +52,7 @@ class Round
       puts "-------------------------------------------------"
       puts "This is card number 1 out of #{deck.count}." #refactor later
       puts "Question: #{deck.cards[0].question}"
-      puts deck.cards[0].answer
+
       guess_1 = gets.to_i
 
       if guess_1 == deck.cards[0].answer
@@ -60,6 +60,43 @@ class Round
       elsif guess_1 != deck.cards[0].answer
         p "Incorrect."
       end
+
+      puts "This is card number 2 out of #{deck.count}."
+      puts "Question: #{deck.cards[1].question}"
+
+      guess_2 = gets.to_s.chomp!
+
+      if guess_2 == "cat"
+        p "Correct!"
+      else
+        p "Incorrect."
+      end
+
+      puts "This is card number 3 out of #{deck.count}."
+      puts "Question: #{deck.cards[2].question}"
+
+      guess_3 = gets.to_s.chomp!
+
+      if guess_3 == deck.cards[2].answer
+        p "Correct!"
+      else
+        p "Incorrect."
+      end
+
+      puts "This is card number 4 out of #{deck.count}."
+      puts "Question: #{deck.cards[3].question}"
+
+      guess_4 = gets.to_s.chomp!
+
+      if guess_4 == deck.cards[3].answer
+        p "Correct!"
+      else
+        p "Incorrect."
+      end
+
+      puts "****** Game over! ******"
+      puts "You had #{STRING INTER GOES HERE} correct guesses out of #{deck.count} for a total score of #{percent_correct}."
+
   end
 
 end
