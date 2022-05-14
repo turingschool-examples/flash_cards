@@ -27,18 +27,17 @@ class FlashcardRunner
 
   def get_feedback
     puts @round.turn_feedback
-    until @round.turn_count == @deck.cards.size
+    if @round.turn_count == @deck.cards.size
+      game_over
+    else
       @round.card_complete
       ask_question
     end
-    game_over
-
     # game_over
   end
 
   def game_over
-    puts
-     "****** Game over! ******
+    puts "****** Game over! ******
      You had #{@round.number_correct} correct guesses out of 4 for a total score of #{@round.percent_correct}%.
      STEM - #{@round.percent_correct_by_category('STEM')}% correct
      Turing Staff - #{@round.percent_correct_by_category('Turing Staff')}% correct

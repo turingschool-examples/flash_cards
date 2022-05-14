@@ -31,7 +31,7 @@ class Round
   end
 
   def card_complete
-    @deck.cards.rotate
+    @deck.cards.rotate!
   end
 
   def number_correct
@@ -48,15 +48,19 @@ class Round
     end
   end
 
+  def number_in_category(category)
+    @deck.cards.count do |card|
+      card.category == category
+    end
+  end
+
   def percent_correct
-    100 * (number_correct / @turns.count)
-    rescue ZeroDivisionError
-    0.0
+    (number_correct / @turn_count.to_f) * 100
+    # rescue ZeroDivisionError
+    # 0.0
   end
 
   def percent_correct_by_category(category)
-    100 * (number_correct_by_category(category) / @turns.count)
-    rescue ZeroDivisionError
-    0.0
+    (number_correct_by_category(category) / number_in_category(category).to_f) * 100
   end
 end

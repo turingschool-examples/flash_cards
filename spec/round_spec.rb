@@ -52,6 +52,10 @@ RSpec.describe Round do
     expect(round.number_incorrect).to eq(1)
   end
 
+  it "knows how many cards in a category" do
+    expect(round.number_in_category(:STEM)).to eq(2)
+  end
+
   it 'can tell the number of correct answers in a specific category' do
     round.take_turn('Juneau')
     expect(round.number_correct_by_category(:Geography)).to eq(1)
@@ -60,11 +64,18 @@ RSpec.describe Round do
   it 'can tell the percentage of correct answers' do
     round.take_turn('Juneau')
     expect(round.percent_correct).to eq(100)
+    round.take_turn('Anchorage')
+    expect(round.percent_correct).to eq(50)
   end
 
   it 'can tell the percentage of correct answers in a category' do
-    round.take_turn('Juneau')    
+    round.take_turn('Juneau')
+    round.card_complete
     expect(round.percent_correct_by_category(:Geography)).to eq(100)
+    round.take_turn('Mars')
+    round.card_complete
+    round.take_turn('East')
+    expect(round.percent_correct_by_category(:STEM)).to eq(50)
   end
 
 end
