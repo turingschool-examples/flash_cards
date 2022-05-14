@@ -69,6 +69,12 @@ class Round
 
   end
 
+  def start
+   start_message = "Welcome! You're playing with #{deck.cards.count} cards."
+   puts start_message
+   puts "-------------------------------------------------"
+  end
+
 
   def percent_correct_by_category(category)
     return number_correct_by_category(category) * 100.0 / @deck.cards_in_category(category).length
