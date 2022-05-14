@@ -13,7 +13,10 @@ class Round
   end
 
   def take_turn(answer)
-    Turn.new(answer, @deck.cards[@turn_count])
+    new_turn = Turn.new(answer, @deck.cards[@turn_count])
+    @turns << new_turn
+    @turn_count += 1
+    return new_turn
   end
 
 end
