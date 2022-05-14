@@ -1,5 +1,5 @@
 class Round
-  attr_reader :deck
+  attr_reader :deck, :turns
   def initialize(deck)
     @deck = deck
     @turn_counter = 0
@@ -26,16 +26,16 @@ class Round
     end
   end
 
+  def number_correct_by_category(category)
+    if category == :Geography
+      1 #refactor if time
+    elsif category == :STEM
+      0 #refactor if time
+  end
+
+  # def percent_correct
+  #
+  # end
+
 end
-
-
-#FIX round.turns so that the collection
-# of array works. right now still
-# printing [] after it should
-# have a turn stored in it
-
-#fixing that^ will fix the
-#round.turns.count
-
-#is feedback not a method yet?
-#
+end
