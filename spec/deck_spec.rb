@@ -23,7 +23,6 @@ describe Deck do
     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
-    # deck = Deck.new(card_1, card_2, card_3)
     expect(deck).to be_instance_of(Deck)
   end
 
@@ -51,8 +50,7 @@ describe Deck do
       card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
       cards = [card_1, card_2, card_3]
       deck = Deck.new(cards)
-      deck.cards_in_category(:STEM)
-      expect(deck.found_cards).to eq([card_2, card_3])
+      expect(deck.cards_in_category(:STEM)).to eq([card_2, card_3])
     end
 
     it "cards in Geography category" do
@@ -61,8 +59,7 @@ describe Deck do
       card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
       cards = [card_1, card_2, card_3]
       deck = Deck.new(cards)
-      deck.cards_in_category(:Geography)
-      expect(deck.found_cards).to eq([card_1])
+      expect(deck.cards_in_category(:Geography)).to eq([card_1])
     end
 
     it "cards in Pop Culture category" do
@@ -71,8 +68,7 @@ describe Deck do
       card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
       cards = [card_1, card_2, card_3]
       deck = Deck.new(cards)
-      deck.cards_in_category("Pop Culture")
-      expect(deck.found_cards).to eq([])
+      expect(deck.cards_in_category("Pop Culture")).to eq([])
     end
 
 end

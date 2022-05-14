@@ -43,16 +43,16 @@ class Round
   def start
     puts "Welcome to the Fantasical Wonderful Flash Card Game! You're playing with #{deck.cards.length} cards."
     puts "-------------------------------------------------"
-    puts "This is card number #{turns.count + 1} out of 4"
+    puts "This is card number #{turns.count + 1} out of #{deck.cards.count}"
     puts "Question: #{current_card.question}"
     take_turn
-    puts "This is card number #{turns.count + 1} out of 4"
+    puts "This is card number #{turns.count + 1} out of #{deck.cards.count}"
     puts "Question: #{current_card.question}"
     take_turn
-    puts "This is card number #{turns.count + 1} out of 4"
+    puts "This is card number #{turns.count + 1} out of #{deck.cards.count}"
     puts "Question: #{current_card.question}"
     take_turn
-    puts "This is card number #{turns.count + 1} out of 4"
+    puts "This is card number #{turns.count + 1} out of #{deck.cards.count}"
     puts "Question: #{current_card.question}"
     take_turn
     puts "****** Game over! ******"

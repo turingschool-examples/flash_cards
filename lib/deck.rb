@@ -1,6 +1,6 @@
 class Deck
   attr_accessor :cards
-  attr_reader :found_cards, :cards_in_category
+  attr_reader :cards_in_category
   def initialize(cards)
     @cards = cards
   end
@@ -10,8 +10,7 @@ class Deck
   end
 
   def cards_in_category(category)
-    @found_cards = cards.select { |card| card.category == category }
-    return @found_cards
+    cards.select { |card| card.category == category }
   end
 
 end
