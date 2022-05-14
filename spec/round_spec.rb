@@ -58,14 +58,14 @@ RSpec.describe Round do
     expect(@round.number_correct_by_category(:STEM)).to eq(0)
   end
 
-  it "can return percent correct" do
+  it "can return percent correct and percent correct by category" do
     new_turn = @round.take_turn("Juneau")
     expect(@round.number_correct).to eq(1)
 
     expect(@round.current_card).to eq (@card_2)
     new_turn = @round.take_turn("Venus")
     expect(@round.turns.last.feedback).to eq ("Incorrect.")
-    expect(@round.number_correct).to eq(1)
     expect(@round.percent_correct).to eq(50.0)
+    expect(@round.percent_correct_by_category(:Geography)).to eq(100.0)
   end
 end
