@@ -33,7 +33,6 @@ class FlashcardRunner
       @round.card_complete
       ask_question
     end
-    # game_over
   end
 
   def game_over
