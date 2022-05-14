@@ -45,7 +45,7 @@ puts round_1.feedback
 puts "This is card number 2 out of #{number_of_cards}."
 puts cards[1].question
 answer_2 = gets.chomp
-round_2 = round.take_turn(answer_2.to_s.capitalize)
+round_2 = round.take_turn(answer_2.to_s.downcase)
 round_2.correct?
 round_2.guess
 feedback_array << round_2.feedback

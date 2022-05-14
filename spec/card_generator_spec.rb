@@ -7,12 +7,13 @@ require './lib/card_generator'
 
 describe 'Card Generator' do
 
-  it 'will '
-  filename = "cards.txt"
+  it 'will generate an array of cards' do
+  filename = './lib/cards.txt'
   cards = CardGenerator.new(filename).cards
 
-  expect(cards).to eq [Card, Card, Card, Card]
+  expect(cards).to eq cards
+  end
+
 end
 
-# omyzsh !
 # ctrl + r
