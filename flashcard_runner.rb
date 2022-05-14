@@ -11,23 +11,5 @@ require './lib/card_generator'
 cards = CardGenerator.new("cards.txt").cards
 deck = Deck.new(cards)
 round = Round.new(deck)
-categories = []
 
-puts "Welcome! you're playing with #{deck.count} cards."
-puts "-"*38
-deck.count.times do
-  puts "This is card #{round.turns.length + 1} out of #{deck.count}."
-  puts "Question: #{round.current_card.question}"
-  guess = gets.chomp
-  puts round.take_turn(guess).feedback
-end
-puts "****** Game over! ******"
-puts "You had #{round.number_correct} correct guesses out of #{deck.count} for a total score of #{round.percent_correct.to_i}%."
-
-deck.cards.each do |card|
-  categories << card.category
-end
-categories = categories.uniq
-categories.each do |category|
-  puts "#{category} - #{round.percent_correct_by_category(category).to_i}% correct"
-end
+round.start
