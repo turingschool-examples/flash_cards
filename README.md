@@ -11,4 +11,4 @@ Your game ends when all questions have been answered.
 Your results will display.
 Have fun!
 
-This is the starter repository for the Mod 1 [Flash Cards Project](http://backend.turing.io/module1/projects/flashcards).
+This is the starter repository for Turing School's Mod 1 [Flash Cards Project](http://backend.turing.io/module1/projects/flashcards).
