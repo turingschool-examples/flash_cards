@@ -35,7 +35,7 @@ describe Round do
   end
 
   describe 'current_card method' do
-    it 'returns the current card with question, answer, category and guess' do
+    it 'returns the current card with question, answer, category and guess and moves onto next card in the round' do
       card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       card_2 = Card.new("The Viking spacecraft sent back to Earth photographs
         and reports about the surface of which planet?", "Mars", :STEM)
@@ -45,6 +45,8 @@ describe Round do
       deck = Deck.new(cards)
       round = Round.new(deck)
       expect(round.current_card).to eq(deck.cards[0])
+      expect(round.current_card).to eq(deck.cards[1])
+      expect(round.current_card).to eq(deck.cards[3])
     end
   end
 
