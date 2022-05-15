@@ -173,8 +173,9 @@ describe '@deck' do
         round = Round.new(deck)
         round.take_turn("Juneau")
         round.take_turn("Venus")
+        round.take_turn("North north west")
 
-      expect(round.percent_correct_by_catagory(:Geography)).to eq(100.0)
+      expect(round.percent_correct_by_catagory(:STEM)).to eq(50.0)
     end
   end
 
