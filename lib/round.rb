@@ -60,13 +60,27 @@ class Round
   end
 
   def start
+    puts "Welcome! You're playing with #{deck.count} cards."
+    puts "-------------------------------------------------"
+    puts "This is card number 1 out of #{deck.count}."
     turns = 0
-    until turns == 3
+    until turns == deck.count do
       turns += 1
+      # require 'pry'; binding.pry
       puts current_card.question
       user_input = gets.chomp
       turn = take_turn(user_input)
       puts turn.feedback
     end
+      puts "****** Game over! ******"
+  end
+
+  def turns_by_category
+    categories = []
+    @deck.cards.each do |card|
+      card.category
+      categories << card.category
+    end
+    categories.uniq
   end
 end
