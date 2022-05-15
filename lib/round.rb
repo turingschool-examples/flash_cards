@@ -58,7 +58,7 @@ class Round
    i = 0
    while i < deck.count
     i += 1
-    puts "Question: #{current_card.question}"
+    puts "Question #{i} out of #{deck.count}: #{current_card.question}"
     puts take_turn(gets.chomp).feedback
    end
   end
