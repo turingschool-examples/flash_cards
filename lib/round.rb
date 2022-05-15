@@ -17,6 +17,8 @@ class Round
         @turns_correct << turn
         # require "pry"; binding.pry
       end
+      # require "pry"; binding.pry
+    @deck.cards.rotate! # last card is now first card
     return turn
 
   end
