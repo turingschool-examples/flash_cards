@@ -37,7 +37,7 @@ class Round
   end
 
   def percent_correct
-    @number_correct * 100 / turns.count
+    @number_correct * 100.0 / turns.count
   end
 
   def percent_correct_by_category(category)
@@ -59,7 +59,21 @@ class Round
 
   end
 
+  def list_of_categories
+    categories = []
+    turns.each do |turn|
+      unless categories.include?(turn.card.category)
+        categories << turn.card.category
+      end
+    end
+    categories
+  end
 
+  def percent_correct_for_all_categories
+    list_of_categories.each do |categories|
+      puts "#{categories} - #{percent_correct_by_category(categories).to_i}% correct"
+    end
 
+  end
 
 end
