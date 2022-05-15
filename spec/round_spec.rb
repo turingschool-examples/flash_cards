@@ -24,17 +24,16 @@ RSpec.describe Round do
 
     expect(round.turns).to eq([])
   end
-  #
-#   it 'returns the # of items in array' do #done
-#     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-#     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
-#     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-#     cards = [card_1, card_2, card_3]
-#
-#     deck = Deck.new(cards)
-#
-#     expect(deck.count).to eq(3)
-#   end
+
+  it 'returns the current card' do #done
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+    card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+    deck = Deck.new([card_1, card_2, card_3])
+    round = Round.new(deck)
+
+    expect(round.current_card).to eq(card_1)
+  end
 #
 #   it 'will return cards of given category' do #done
 #     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
