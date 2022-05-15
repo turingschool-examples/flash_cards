@@ -1,6 +1,9 @@
 class Round
-  attr_reader :round
-  def initialize(round)
-    @round = round
+
+  attr_reader :deck, :turns
+  def initialize(deck)
+    @deck = deck
+    @turns = []
   end
-end 
+
+end

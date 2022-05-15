@@ -14,5 +14,8 @@ RSpec.describe Round do
     expect(round).to be_instance_of(Round)
   end
 
+  xit 'has a round' do
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
-end 
+  end
+end
