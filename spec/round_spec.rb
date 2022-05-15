@@ -10,7 +10,7 @@ RSpec.describe Round do
   before :each do
     @card_1 = Card.new("Which element has the symbol 'H'?", "Hydrogen", :ReactiveNonmetals)
     @card_2 = Card.new("Which element has the symbol 'Ne'?", "Neon", :NobleGases)
-    @card_3 = Card.new("Which element has the symbol 'B'?", "Boron", :Metalloids)
+    @card_3 = Card.new("Which element has the symbol 'Xe'?", "Xenon", :NobleGases)
 
 
     @deck = Deck.new([@card_1, @card_2, @card_3])
@@ -119,7 +119,7 @@ RSpec.describe Round do
 
   it 'is the third card in the deck' do
     new_turn = @round.take_turn("Neon")
-    new_turn = @round.take_turn("Boron")
+    new_turn = @round.take_turn("Xenon")
 
     expect(@round.current_card).to eq(@card_3)
   end
