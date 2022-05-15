@@ -66,14 +66,36 @@ class Round
     end
 
 
+
+
+  def start
+    puts "Welcome! You're playing with #{deck.count} cards."
+    puts "-" * 42
+
+    card_x = 1
+    while card_x <= deck.count
+
+      puts "This is card number #{card_x} out of #{deck.count}."
+      puts "Question: #{current_card.question}"
+      guess = gets.chomp
+      new_guess = take_turn(guess)
+      puts new_guess.feedback
+
+      card_x += 1
+
+    end
+  end
+
+        
+
+
+
+
+
+
+
+
 end
-
-
-
-
-
-
-
 
       #
       # number_turns = turns.select do |turn|
