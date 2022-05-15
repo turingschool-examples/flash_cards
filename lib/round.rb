@@ -18,7 +18,6 @@ class Round
     if turn.correct?
       @number_correct += 1
     end
-
     turn
   end
 
