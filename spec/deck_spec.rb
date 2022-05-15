@@ -46,6 +46,6 @@ RSpec.describe Deck do
 
     deck = Deck.new(cards)
 
-    expect(deck.cards_in_category(:STEM)).to eq([])
+    expect(deck.cards_in_category(:STEM)).to eq([]) #returns array of stem cards?
   end
 end
