@@ -29,7 +29,7 @@ class Round
     end
 
     def percent_correct
-      percentage = (number_correct / @turns.length.to_f) * 100
+      percentage = (number_correct / @turns.count.to_f) * 100
       percentage.to_i
     end
 
