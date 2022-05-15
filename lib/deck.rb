@@ -14,6 +14,7 @@ class Deck
   @cards.each  do |card|
     if card.category == category
       cards_in_categories << card
+
     end
   end
     cards_in_categories
