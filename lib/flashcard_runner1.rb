@@ -4,12 +4,8 @@ require_relative 'turn'
 require_relative 'round'
 require_relative 'card_generator'
 
-card_1 = Card.new("Where did Go-Go music originate?", "Washington DC", :Culture)
-card_2 = Card.new("Mass x Velocity equals what?", "Momentum", :STEM)
-card_3 = Card.new("What is the name of Washington DC's soccer team?", "DC United", :Culture)
-card_4 = Card.new("What is a Hokie?", "Nobody knows", :Culture)
-card_5 = Card.new("What river divides Washington DC from Virginia?", "Potomac", :Geography)
-cards = [card_1, card_2, card_3, card_4, card_5]
+filename = "cards.txt"
+cards = CardGenerator.new(filename).cards
 deck = Deck.new(cards)
 round = Round.new(deck)
 
@@ -17,7 +13,7 @@ def start(round)
   count = 1
   puts "Welcome! You're playing with #{round.deck.count} cards."
   puts '-------------------------------------------------'
-  while count < 6
+  while count <= round.deck.count
     puts "\nThis is card number #{count}"
     puts round.deck.cards.first.question
     guess = gets.chomp
@@ -31,6 +27,6 @@ def start(round)
   puts "Geography - #{round.number_correct_by_category(:Geography)}% correct"
 end
 
-require 'pry'; binding.pry
+#require 'pry'; binding.pry
 
-#start(round)
+start(round)
