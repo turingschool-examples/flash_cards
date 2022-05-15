@@ -33,6 +33,9 @@ class Round
     end.size
   end
 
-  
+  def percent_correct
+    @turns_correct.size.to_f / @turns.size * 100
+    # require "pry"; binding.pry
+  end
 
 end
