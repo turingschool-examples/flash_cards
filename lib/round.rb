@@ -86,6 +86,10 @@ class Round
       puts next_turn.feedback
       card_number += 1
     end
+    puts "****** Game over! ******"
+    puts "You had #{@number_correct} guesses out of #{deck.count} for a total score of #{percent_correct.to_i}%. "
+
   end
+
 
 end
