@@ -38,4 +38,8 @@ class Round
     # require "pry"; binding.pry
   end
 
+  def percent_correct_by_category(category)
+    number_correct_by_category(category) / @deck.cards_in_category(category).size.to_f * 100.0
+  end
+
 end
