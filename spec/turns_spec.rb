@@ -17,6 +17,12 @@ RSpec.describe Turns do
     expect(turns).to be_instance_of(Turns)
   end
 
+  it 'returns the card' do
+    turns = Turns.new("Juneau", @card)
+
+    expect(turns.card).to eq(@card)
+  end
+
   it 'is correct' do
     turns = Turns.new("Juneau", @card)
     expect(turns.correct?).to eq(true)
