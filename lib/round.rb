@@ -37,4 +37,10 @@ class Round
     end
   end
 
+ def percent_correct
+    percent = (number_correct.to_f/turns.count) * 100
+    return percent
+  end
+
+  def
 end
