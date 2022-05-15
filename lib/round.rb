@@ -57,9 +57,9 @@ class Round
       i = 0
       while i < deck.count
         i += 1
-        puts "Question: #{current_card.question}"
+        puts "Question #{i} of #{deck.count}:  #{current_card.question}"
         puts take_turn(gets.chomp).feedback
-      end 
+      end
    end
    # def start
    #   i = 0

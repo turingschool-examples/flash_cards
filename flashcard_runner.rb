@@ -17,6 +17,7 @@ round = Round.new(deck)
 
 p "Welcome! You're playing with #{deck.count} cards."
 
-
-
 round.start
+
+p "Game over Bozo!!"
+p "You had #{round.number_correct} correct guesses out of #{deck.count} for a total score of #{round.percent_correct.to_i}%"
