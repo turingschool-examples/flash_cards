@@ -67,7 +67,10 @@ RSpec.describe Round do
         it 'can tell number correct by category' do
           expect(@round.number_correct_by_category(:Geography)).to eq(1)
           expect(@round.number_correct_by_category(:STEM)).to eq(0)
-          expect(@round.number_correct_by_category(:STEM)).to eq(50.0)
+        end
+
+        it 'can tell percent correct' do
+          expect(@round.percent_correct.to eq(50.0)
         end
 
         it 'can tell percent correct by category' do
