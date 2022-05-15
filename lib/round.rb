@@ -54,10 +54,13 @@ class Round
 
 
    def start
-     puts "Question: #{current_card.question}"
-     puts take_turn(gets.chomp).feedback
-
-   end 
+      i = 0
+      while i < deck.count
+        i += 1
+        puts "Question: #{current_card.question}"
+        puts take_turn(gets.chomp).feedback
+      end 
+   end
    # def start
    #   i = 0
    #   while i < deck.count

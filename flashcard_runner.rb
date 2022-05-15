@@ -15,8 +15,8 @@ round = Round.new(deck)
 
 
 
-p "Welcome! You're playing with 4 cards."
-p "#{deck}"
+p "Welcome! You're playing with #{deck.count} cards."
+
 
 
 round.start
