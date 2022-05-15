@@ -33,7 +33,6 @@ class Round
     @number_correct_by_category = 0
     @turns.each do |turn|
       if turn.card.category == category && turn.guess == turn.card.answer
-
       @number_correct_by_category += 1
       end
     end
