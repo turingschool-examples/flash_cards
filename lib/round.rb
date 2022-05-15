@@ -14,7 +14,7 @@ class Round
   def take_turn(guess)
     turn = Turn.new(guess, current_card)
     @turns << turn
-    @deck.cards.shift
+    @deck.cards.rotate!(1)
     turn
   end
 
@@ -57,5 +57,29 @@ class Round
       end
     end
     number_correct_by_category(category).to_f / turns_by_category.count * 100
+  end
+
+  def start
+    puts "Welcome! You're playing with #{deck.count} cards."
+    puts "-------------------------------------------------"
+    puts "This is card number 1 out of #{deck.count}."
+    turns = 0
+    until turns == deck.count do
+      turns += 1
+      puts current_card.question
+      user_input = gets.chomp
+      turn = take_turn(user_input)
+      puts turn.feedback
+    end
+      puts "****** Game over! ******"
+  end
+
+  def turns_by_category
+    categories = []
+    @deck.cards.each do |card|
+      card.category
+      categories << card.category
+    end
+    categories.uniq
   end
 end
