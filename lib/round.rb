@@ -9,7 +9,7 @@ class Round
   end
 
   def current_card
-     deck.cards.first
+     deck.cards[0]
   end
 
 
@@ -51,7 +51,21 @@ class Round
      end
      (number_correct_by_category(category).to_f / total_in_category) * 100
    end
- 
+
+
+   def start
+     puts "Question: #{current_card.question}"
+     puts take_turn(gets.chomp).feedback
+
+   end 
+   # def start
+   #   i = 0
+   #   while i < deck.count
+   #     if deck.count
+   #       i += 1
+   #
+   #    puts take_turn(gets.chomp).feedback
+
 
 
 
