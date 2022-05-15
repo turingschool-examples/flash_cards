@@ -2,6 +2,7 @@ require './card'
 require './deck'
 require './turn'
 require './round'
+require './card_generator'
 require 'rspec' #may not need since we're not testing this file but just in case
 require 'pry' #in case I want to run pry on this file
 
@@ -11,13 +12,14 @@ require 'pry' #in case I want to run pry on this file
 # round.current_card
 # new_turn = round.take_turn("20")
 # round.take_turn("The Nile")
-
 def start
-  card_1 = Card.new("TRUE or FALSE: We share 90% of our DNA with a slug", "FALSE", :STEM)
-  card_2 = Card.new("What is the longest river in the world?", "The Nile", :Geography)
-  card_3 = Card.new("What is the highest mountain in the world?", "Mount Everest", :Geography)
-  card_4 = Card.new("How many planets in our solar system?", "8", :STEM)
-  deck = Deck.new([card_1, card_2, card_3, card_4])
+  filename = "cards.txt"
+  # card_1 = Card.new("TRUE or FALSE: We share 90% of our DNA with a slug", "FALSE", :STEM)
+  # card_2 = Card.new("What is the longest river in the world?", "The Nile", :Geography)
+  # card_3 = Card.new("What is the highest mountain in the world?", "Mount Everest", :Geography)
+  # card_4 = Card.new("How many planets in our solar system?", "8", :STEM)
+  cards = CardGenerator.new(filename).cards
+  deck = Deck.new(card)
   round = Round.new(deck)
 
   puts "Welcome! You're playing with #{deck.count} cards" #should return 4 cards, placed outisde of  while loop so it doesn't continuously repeat
