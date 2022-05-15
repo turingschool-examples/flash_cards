@@ -19,6 +19,7 @@ class Deck
       end
     end
     cards_in_category
-    # require 'pry' ; binding.pry
+
   end
+
 end
