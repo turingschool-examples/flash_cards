@@ -19,13 +19,3 @@ class Deck
         return cards_in_category
     end
 end
-
-
-
-
-
-
-
-
-
-p "wes is cool"
