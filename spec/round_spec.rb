@@ -79,6 +79,25 @@ describe Round do
     expect(new_turn).to be_a Turn
   end
 
+  it "Checks what the previous guess, feedback, etc. was" do
+    card1 = Card.new("What is the capital of Oklahoma?", "Oklahoma City", :Geography)
+    card2 = Card.new("What do the letters CPU stand for in computing?", "Central Processing Unit", :Technology)
+    card3 = Card.new("What do the letters GPU stand for in computing?", "Graphics Processing Unit", :Technology)
+    card4 = Card.new("What does NBA stand for in US Sports?", "National Basketball Association", :Sports)
+
+    cards = [card1, card2, card3, card4]
+
+    deck = Deck.new(cards)
+
+    round = Round.new(deck)
+
+    new_turn = round.take_turn("Oklahoma City")
+
+    expect(round.turns.last.guess).to eq "Oklahoma City"
+    expect(round.turns.last.correct?).to eq true
+    expect(round.turns.last.feedback).to eq "Correct!"
+  end
+
   it "Outputs the number a user has gotten correct" do
     card1 = Card.new("What is the capital of Oklahoma?", "Oklahoma City", :Geography)
 
