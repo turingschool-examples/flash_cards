@@ -43,26 +43,16 @@ class Round
   end
 
   def start
-
-    system("clear")
     puts "Welcome! You're playing with #{@deck.cards.size} cards."
     puts "-------------------------------------------------"
-    puts "This is card number #{@turns.length + 1} out of #{@deck.cards.size}."
-    puts "#{@deck.cards.first.question}"
-    user_turn = gets.chomp
-    user_guess = take_turn(user_turn)
-    system("clear")
-    puts "That is #{user_guess.feedback}"
 
-
-    puts "-------------------------------------------------"
-    puts "This is card number #{@turns.length + 1} out of #{@deck.cards.size}."
-    puts "#{@deck.cards.first.question}"
-    user_turn = gets.chomp
-    user_guess = take_turn(user_turn)
-    system("clear")
-    puts "That is #{user_guess.feedback}"
-
+    until @turns.length == @deck.cards.size do #until you have completed as many Turns as you have Cards in the Deck
+      puts "This is card number #{@turns.length + 1} out of #{@deck.cards.size}."
+      puts "#{@deck.cards.first.question}"
+      user_turn = gets.chomp
+      user_guess = take_turn(user_turn)
+      system("clear")
+      puts "That is #{user_guess.feedback}"
+    end
   end
-
 end
