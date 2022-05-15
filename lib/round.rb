@@ -42,4 +42,20 @@ class Round
     number_correct_by_category(category) / @deck.cards_in_category(category).size.to_f * 100.0
   end
 
+  def start
+    puts "Welcome! You're playing with #{@deck.cards.size} cards."
+    puts "-------------------------------------------------"
+
+    until @turns.length == @deck.cards.size do #until you have completed as many Turns as you have Cards in the Deck
+      puts "This is card number #{@turns.length + 1} out of #{@deck.cards.size}."
+      puts "#{@deck.cards.first.question}"
+      user_turn = gets.chomp
+      user_guess = take_turn(user_turn)
+      system("clear")
+      puts "That is #{user_guess.feedback}"
+    end
+
+    puts "*** Game has Ended ***"
+    puts "You had #{number_correct} correct guesses out of #{@deck.cards.size}, for a total score of #{percent_correct}%."
+  end
 end
