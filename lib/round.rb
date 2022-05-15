@@ -37,5 +37,9 @@ class Round
     category_correct.count
   end
 
+  def percent_correct
+    (@correct_cards.count.to_f / @turns.count.to_f) * 100
+  end
+
 
 end
