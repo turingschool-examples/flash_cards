@@ -42,17 +42,7 @@ RSpec.describe Round do
     expect(round.current_card).to eq(card_1)
   end
 
-  it 'can take a new turn' do
-    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
-    card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-    deck = Deck.new([card_1, card_2, card_3])
-    round = Round.new(deck)
-    new_turn = round.take_turn("Juneau")
-    expect(round.take_turn).to eq("Juneau")
-  end
-
-  xit 'print the class' do
+  it 'it can take turns & list the class' do
       card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
       card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
@@ -60,38 +50,55 @@ RSpec.describe Round do
       round = Round.new(deck)
       new_turn = round.take_turn("Juneau")
       expect(new_turn.class).to eq(Turn)
+      expect(new_turn.correct?).to eq(true)
+
   end
 
-  xit 'determine if the class is correct' do
+#it can determine the class
+  it 'creates a new turn' do
       card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
       card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
       deck = Deck.new([card_1, card_2, card_3])
       round = Round.new(deck)
       new_turn = round.take_turn("Juneau")
-      expect(new_turn.correct?).to_be true
+
   end
 
-  xit 'can determine the number of correct guesses'do
+  it 'can determine the number of correct guesses' do
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
     deck = Deck.new([card_1, card_2, card_3])
     round = Round.new(deck)
     new_turn = round.take_turn("Juneau")
-    expect(round.number_correct).to_be 1
+    turns = [new_turn]
+    expect(new_turn.class).to eq(Turn)
+    expect(new_turn.correct?).to eq(true)
+    expect(round.turns).to eq(turns)
+    expect(round.number_correct).to eq(1)
     #is this the correct way to test an integer?
   end
 
-  xit 'can determine the number correct by category'do
+  it 'can determine the current card for the round' do
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
     deck = Deck.new([card_1, card_2, card_3])
     round = Round.new(deck)
     new_turn = round.take_turn("Juneau")
-    expect(round.number_correct_by_category(:Geography)).to_be 1
-    expect(round.number_correct_by_category(:STEM)).to_be 0
+    expect(round.current_card).to eq(card_2)
+  end
+
+  xit 'can determine the number correct by category' do
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+    card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+    deck = Deck.new([card_1, card_2, card_3])
+    round = Round.new(deck)
+    new_turn = round.take_turn("Juneau")
+    expect(round.number_correct_by_category(:Geography)).to eq(1)
+    expect(round.number_correct_by_category(:STEM)).to eq(0)
     #is this the correct way to test an integer?
   end
 
@@ -102,7 +109,7 @@ RSpec.describe Round do
     deck = Deck.new([card_1, card_2, card_3])
     round = Round.new(deck)
     new_turn = round.take_turn("Juneau")
-    expect(round.percent_correct).to_eq 50.0
+    expect(round.percent_correct).to eq(50.0)
   end
 
   xit 'can determine the percent of correct guesses' do
@@ -112,7 +119,7 @@ RSpec.describe Round do
     deck = Deck.new([card_1, card_2, card_3])
     round = Round.new(deck)
     new_turn = round.take_turn("Juneau")
-    expect(round.percent_correct_by_category).to_eq 100.0
+    expect(round.percent_correct_by_category).to eq(100.0)
   end
 
   xit 'can determine the percent of correct guesses' do
@@ -122,7 +129,7 @@ RSpec.describe Round do
     deck = Deck.new([card_1, card_2, card_3])
     round = Round.new(deck)
     new_turn = round.take_turn("Juneau")
-    expect(round.current_card).to_eq(card_3)
+    expect(round.current_card).to eq(card_3)
   end
   # before :each do
   #   @card_1 = Card.new("Which element has the symbol 'H'?", "Hydrogen", :ReactiveNonmetals)
@@ -135,3 +142,4 @@ RSpec.describe Round do
   # end
 
 end
+#round.take_turn("Venus") use to be be_instance_of
