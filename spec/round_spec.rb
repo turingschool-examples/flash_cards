@@ -36,6 +36,10 @@ RSpec.describe Round do
     round = Round.new(deck)
 
     expect(round.current_card).to eq(card_1)
+
+    round.take_turn("Juneau")
+
+    expect(round.current_card).to eq(card_2)
   end
 
   it 'returns an empty array' do
@@ -202,7 +206,6 @@ RSpec.describe Round do
 
     expect(round.percent_correct_by_category(:Geography)).to eq(100.0)
     expect(round.percent_correct_by_category(:STEM)).to eq(0.0)
-
   end
 
 end

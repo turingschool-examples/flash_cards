@@ -41,5 +41,38 @@ class Round
     (@correct_cards.count.to_f / @turns.count.to_f) * 100
   end
 
+  def percent_correct_by_category(category)
+    # correct_cards_by_category = []
+    # @correct_cards.each do |correct_card|
+    #   if correct_card.category == category
+    #     correct_cards_by_category << correct_card
+    #   end
+    # end
+    # total_turns_by_category = []
+    # @turns.each do |turn|
+    #   if turn.card.category == category
+    #     total_turns_by_category << turn
+    #   end
+    # end
+    #
+    # (correct_cards_by_category.count.to_f / total_turns_by_category.count.to_f) * 100
 
+    correct_cards_by_category = 0
+
+    @correct_cards.each do |correct_card|
+      if correct_card.category == category
+        correct_cards_by_category += 1
+      end
+    end
+
+    total_turns_by_category = 0
+
+    @turns.each do |turn|
+      if turn.card.category == category
+        total_turns_by_category += 1
+      end
+    end
+
+    (correct_cards_by_category.to_f / total_turns_by_category.to_f) * 100
+  end
 end
