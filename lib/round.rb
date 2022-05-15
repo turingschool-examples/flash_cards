@@ -24,6 +24,17 @@ class Round
      return turn
    end
 
+   def number_correct_by_category(category)
+     number_correct_by_category = 0
+
+     @turns.each do |turn|
+       if turn.card.category == category && turn.correct?
+         number_correct_by_category += 1
+       end
+       return number_correct_by_category
+     end
+   end
+
 
 
 
