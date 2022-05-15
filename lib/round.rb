@@ -30,7 +30,7 @@ class Round
         @correct_by_category = 0
         @turns.each do |turn|
             if turn.card.category == input
-                if turn.card.answer == turn.guess
+                if turn.card.answer.capitalize == turn.guess.capitalize
                     @correct_by_category += 1
                 end
             end
@@ -43,7 +43,9 @@ class Round
     def percent_correct_by_category(input)
         total_by_category = 0
         @turns.each do |turn|
-            total_by_category += 1 if turn.card.category == input
+            if turn.card.category == input
+                total_by_category += 1 
+            end
         end
         (number_correct_by_category(input) / total_by_category.to_f)*100
     end
@@ -64,12 +66,13 @@ class Round
             puts "You had #{number_correct} correct guesses out of #{card_count} for a total score of #{percent_correct.to_i}%."
             turns_correct = []
             turns.each do |turn|
-                if turns_correct.include?(turn.card.category)
-                    next
+                if turns_correct.include?(turn.card.category) == false
+                    turns_correct << turn.card.category 
                 else
-                    puts "#{turn.card.category}- #{percent_correct_by_category(turn.card.category).to_i}% correct"
+                    turns_correct.each do |category|
+                        puts "#{category}- #{percent_correct_by_category(category).to_i}% correct"
+                    end
                 end
-                turns_correct << turn.card.category
             end
         end
     end

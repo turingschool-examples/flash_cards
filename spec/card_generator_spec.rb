@@ -6,7 +6,7 @@ require './lib/card_generator'
 
 RSpec.describe Round do
     before :each do
-        @filename = "cards.txt"
+        @filename = File.read("cards.txt").split(",")
         @cards = CardGenerator.new(@filename)#.cards ----- what is .cards?!
     end
 
@@ -15,7 +15,7 @@ RSpec.describe Round do
     end
 
     it 'has a filename' do
-        expect(@cards.filename).to eq(@filename)
+        expect(@cards.output).to be_a Array
     end
 
 end
