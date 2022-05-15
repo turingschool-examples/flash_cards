@@ -4,6 +4,8 @@ require './lib/deck'
 require './lib/turn'
 require './lib/round'
 
+# No tests included for start, end, or final_score methods due to dependence on input/output behavior
+
 describe Round do
   it "Round exists" do
     card1 = Card.new("What is the capital of Oklahoma?", "Oklahoma City", :Geography)
