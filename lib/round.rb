@@ -46,10 +46,18 @@ class Round
       if turn.card.category == category
         number_in_category += 1
       end
-    end 
-    number_correct_by_category(category) * 100 / number_in_category
+    end
+    number_correct_by_category(category) * 100.0 / number_in_category
   end
 
+  def start
+    while deck_index < deck.count
+      puts "This is card number #{deck_index + 1} out of #{deck.count}"
+      puts "Question: #{current_card.question}"
+      puts take_turn(gets.chomp).feedback
+    end
+
+  end
 
 
 
