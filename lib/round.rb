@@ -1,5 +1,5 @@
 class Round
-  attr_reader :deck, :turns, :current_card, :current_turn, :number_correct, :correct_qs
+  attr_reader :deck, :turns, :current_card, :current_turn, :number_correct,:cat_choice_qs, :correct_qs, :num_right
 
   def initialize(deck)
     @deck = deck #deck of cards for this round
@@ -36,14 +36,24 @@ class Round
   end
 
   def number_correct_by_category(category_choice) #will send in a searchable category
-    num_right = 0 #initialized with 0, will increment for correct # for given category
-    @number_correct.times do #however # correct times, iterate through correct_qs array and check category of choice
-        if @correct_qs[num_right].category == category_choice
-          num_right += 1
+    @num_right = 0 #initialized with 0, will increment for correct # for given category
+    # @number_correct.times do #however # correct times, iterate through correct_qs array and check category of choice
+    #     if @correct_qs[@num_right].category == category_choice
+    #       @num_right += 1
+    #     end
+    # end
+    i = 0
+
+    while i < @deck.count
+      if @deck.cards[i].category == category_choice #might need to rewrite turns portion
+        if @turns[i].correct? #turns[i] returning (#stuff)
+          @num_right += 1
         end
+      end
+      i += 1
     end
 
-    return num_right
+    return @num_right
   end
 
   def percent_correct #not sure if percent correct total or currently?
@@ -52,16 +62,16 @@ class Round
   end
 
   def percent_correct_by_category(category_choice)
-    cat_choice_qs = 0 #number of questions for given category choice
+    @cat_choice_qs = 0 #number of questions for given category choice
     i = 0
     @deck.count.times do #however number of # in deck, .times do
       if @deck.cards[i].category == category_choice
-        cat_choice_qs += 1
+        @cat_choice_qs += 1
       end
       i += 1 #incrementing through card decks
     end
-
-    total = (number_correct_by_category(category_choice) /cat_choice_qs).to_f * 100
+    # puts @cat_choice_qs #does output 2 for test
+    total = (@cat_choice_qs/number_correct_by_category(category_choice)).to_f * 100
 
   end
 
