@@ -68,11 +68,10 @@ class Round
             turns.each do |turn|
                 if turns_correct.include?(turn.card.category) == false
                     turns_correct << turn.card.category 
-                else
-                    turns_correct.each do |category|
-                        puts "#{category}- #{percent_correct_by_category(category).to_i}% correct"
-                    end
                 end
+            end
+            turns_correct.each do |category|
+                puts "#{category}- #{percent_correct_by_category(category).to_i}% correct"
             end
         end
     end
