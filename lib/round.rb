@@ -34,8 +34,8 @@ class Round
       if turn.card.category == category && turn.correct?
         number_correct_by_category += 1
       end
-      return number_correct_by_category
     end
+    return number_correct_by_category
   end
 
  def percent_correct
@@ -50,9 +50,10 @@ class Round
      if turn.card.category == category
        percent_correct_by_cat += 1.0
      end
+   end
     return (number_correct_by_category(category)/percent_correct_by_cat) * 100
   end
- end
+
 
  def start
    i = 0
@@ -61,12 +62,6 @@ class Round
     puts "Question #{i} out of #{deck.count}: #{current_card.question}"
     puts take_turn(gets.chomp).feedback
    end
-  end
-
-  def print_percent_category
-    puts "STEM - #{percent_correct_by_category(:STEM)}% correct"
-    puts "Turing Staff - #{percent_correct_by_category(:"Turing Staff")}% correct"
-    puts "Pop Culture - #{percent_correct_by_category("Pop Culture")}% correct"
   end
 
 end

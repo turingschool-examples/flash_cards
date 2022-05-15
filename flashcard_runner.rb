@@ -18,5 +18,6 @@ round.start
 
 puts "****** Game Over! ******"
 puts "You had #{round.number_correct} out of #{deck.cards.count} correct for a total score of #{round.percent_correct.to_i}%"
-
-round.print_percent_category
+puts "STEM - #{round.percent_correct_by_category(:STEM).to_i}% correct"
+puts "Turing Staff - #{round.percent_correct_by_category(:"Turing Staff").to_i}% correct"
+puts "Pop Culture - #{round.percent_correct_by_category("Pop Culture").to_i}% correct"
