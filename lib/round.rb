@@ -35,7 +35,7 @@ class Round
   def number_correct_by_category(category)
 
     correct_turns = turns.select do |turn|
-      # turn.category =
+
 
       turn.card.category == category && turn.correct?
 
@@ -59,13 +59,14 @@ class Round
 
       turns.each do |turn|
         if turn.card.category == category
-          percent_correct_cat = 1.0
+          percent_correct_cat += 1.0
         end
       end
+
       (number_correct_by_category(category)/(percent_correct_cat)) * 100
     end
 
-
+# number_correct_by_category(category)
 
 
   def start
@@ -86,7 +87,9 @@ class Round
     end
   end
 
-        
+
+
+
 
 
 

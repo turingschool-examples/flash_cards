@@ -33,7 +33,6 @@ class Deck
 end
 # alternative method the .each method above
 # cards.select { |card| card.category == category }
-# I don't fully understand how this method works, so I didn't use it. But,
 # I wrote it here as a reference for the future.
 #card is the block variable and only exists locally in the method.
 #In this method it will iterate over each card. And when these two are equal (cards.cateogory == category0

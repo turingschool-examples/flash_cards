@@ -16,7 +16,7 @@ RSpec.describe Round do
   end
 
 #round is the object that processes respones and records guesses.
-  it 'can round (process responses & record guess)' do
+  it 'can round (process responses & record guesses)' do
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
@@ -187,6 +187,8 @@ RSpec.describe Round do
     round.take_turn("Venus")
     expect(round.current_card).to eq(card_3)
   end
+
+  #before each example
   # before :each do
   #   @card_1 = Card.new("Which element has the symbol 'H'?", "Hydrogen", :ReactiveNonmetals)
   #   @card_2 = Card.new("Which element has the symbol 'Ne'?", "Neon", :NobleGases)
@@ -198,5 +200,3 @@ RSpec.describe Round do
   # end
 
 end
-
-#round.take_turn("Venus") use to be be_instance_of
