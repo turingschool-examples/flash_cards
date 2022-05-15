@@ -1,6 +1,6 @@
 class Round
 
-  attr_reader :deck, :turns, :number_correct
+  attr_reader :deck, :turns, :number_correct, :round
 
   def initialize(deck)
     @deck = deck
@@ -54,7 +54,7 @@ class Round
  end
 
  def start
-   #method goes here
+   @round = Round.new
  end
 
 end
