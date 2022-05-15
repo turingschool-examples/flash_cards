@@ -40,11 +40,11 @@ class Round
   end
 
   def percent_correct
-
+    correct_percentage = (number_correct / @turns.count.to_f) * 100
   end
 
-  # def percent_correct_by_category(topic)
-  #   percent_correct = 0.0
-  # end
+  def percent_correct_by_category(topic)
+    percentage_correct = (number_correct_by_category(topic) / @deck.cards_in_category(topic).count.to_f) * 100
+  end
 
 end
