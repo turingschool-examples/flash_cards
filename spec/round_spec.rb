@@ -39,7 +39,7 @@ RSpec.describe Round do
     expect(new_turn.class).to eq Turn
   end
 
-  it 'answers correctly' do
+  it 'checks if correct' do
     new_turn = @round.take_turn("Hydrogen")
 
     expect(new_turn.correct?).to be true
@@ -57,7 +57,7 @@ RSpec.describe Round do
     expect(@round.number_correct).to eq(1)
   end
 
-  it 'is next card in the deck' do
+  it 'is the second card in the deck' do
     new_turn = @round.take_turn("Neon")
 
     expect(@round.current_card).to eq(@card_2)
@@ -77,13 +77,15 @@ RSpec.describe Round do
   end
 
   it 'gives feedback for incorrect answer' do
+    new_turn = @round.take_turn("Hydrogen")
     new_turn = @round.take_turn("Sodium")
 
     expect(@round.turns.last.feedback).to eq("Incorrect.")
   end
 
-  it 'got one correct' do
+  it 'tallies correct answers' do
     new_turn = @round.take_turn("Hydrogen")
+    new_turn = @round.take_turn("Sodium")
 
     expect(@round.number_correct).to eq(1)
   end
@@ -113,5 +115,12 @@ RSpec.describe Round do
 
     expect(@round.number_correct_by_category(:ReactiveNonmetals)).to eq(1)
     expect(@round.percent_correct_by_category(:ReactiveNonmetals)).to eq(100.0)
+  end
+
+  it 'is the third card in the deck' do
+    new_turn = @round.take_turn("Neon")
+    new_turn = @round.take_turn("Boron")
+
+    expect(@round.current_card).to eq(@card_3)
   end
 end
