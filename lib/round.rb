@@ -54,4 +54,36 @@ class Round
 
 	end
 
+	def start
+		card_number = 1
+		puts "Welcome! You're playing with #{deck.cards.count} cards. "
+		puts "-" * 50
+
+			while card_number <= deck.count
+				puts "This is card number #{card_number} out of #{deck.cards.count}."
+				puts "Question: #{current_card.question}"
+				guess = gets.chomp.downcase
+				next_turn = take_turn(guess)
+				puts next_turn.feedback
+				card_number += 1
+			end
+	end
+
+	def end
+		puts "****** Game over! ******"
+		puts "You had #{number_correct} correct guesses out of #{deck.cards.count} for a total score of #{percent_correct.to_i}%."
+	end
+
+	def final_score
+		categories = []
+		turns.each do |turn|
+			if categories.include?(turn.card.category)
+				next
+			else
+				puts "#{turn.card.category} – #{percent_correct_by_category(turn.card.category).to_i}% correct"
+			end
+			categories << turn.card.category
+		end
+
+	end
 end
