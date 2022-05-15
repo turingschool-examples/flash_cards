@@ -29,11 +29,8 @@ class Round
       return turn
 
   end
-  # deck.cards.rotate!
-  #   #turn
 
-    # turn = Turn.new(guess, current_card)
 
-    # new_turn = round.take_turn("Juneau")
+  
 
 end
