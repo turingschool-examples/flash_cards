@@ -53,15 +53,15 @@ class Round
     puts "  Welcome!  You're playing with #{deck.count} cards."
     puts "------------------------------------------------------"
 
-    3.times do
+    4.times do
       show_card
     end
 
     puts " ****** Game Over *******"
     puts " You had #{number_correct} guesses correct out of #{turns.count} for a total score of #{percent_correct}%"
-    puts "Geography - #{percent_correct_by_catagory(:Geography)}% correct"
+    puts "Turing Staff - #{percent_correct_by_catagory(:Turing)}% correct"
     puts "STEM - #{percent_correct_by_catagory(:STEM)}% correct"
-
+    puts "Pop Culture - #{percent_correct_by_catagory(:Pop)}% correct"
   end
 
   def show_card

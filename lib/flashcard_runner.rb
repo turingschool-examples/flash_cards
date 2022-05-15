@@ -3,10 +3,11 @@ require './turn'
 require './deck'
 require './round'
 
-card_1 = Card.new("What is the capital of Alaska", "Juneau", :Geography)
-card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
-card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due North?", "North north west", :STEM)
-cards = [card_1, card_2, card_3]
+card_1 = Card.new("What is 5 + 5", 10, :STEM)
+card_2 = Card.new("What is Rachel' favorite animal", "Red Panda", :Turing)
+card_3 = Card.new("What is Mike's middle name", "Nobody knows", :Turing)
+card_4 = Card.new("What cardboard cutout lives at Turing", "Justin Bieber", :Pop)
+cards = [card_1, card_2, card_3, card_4]
 
 deck = Deck.new(cards)
 round = Round.new(deck)
