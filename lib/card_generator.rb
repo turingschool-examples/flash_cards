@@ -16,9 +16,9 @@ class CardGenerator
     array = @data.map do |card|
         card.split(",")
     end
-    cards = array.map do |array|
+    array.map do |array|
        question = array.shift
-       answer = array.shift
+       answer = array.shift.downcase 
        category = array.shift
        Card.new(question, answer, category)
     end
