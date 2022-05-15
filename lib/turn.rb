@@ -6,6 +6,7 @@ class Turn ()
     @card = card
   end
 
+#refactor to not need a param
   def correct?(guess)
     @guess == card.answer
 

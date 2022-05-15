@@ -34,8 +34,8 @@ describe '#correct?' do
     turn1 = Turn.new("Juneau", card)
     turn2 = Turn.new("Anchorage", card)
 
-    expect(turn1.correct?(@guess)).to eq(true)
-    expect(turn2.correct?(@guess)).to eq(false)
+    expect(turn1.correct?()).to eq(true)
+    expect(turn2.correct?()).to eq(false)
   end
 end
 describe  '#feedback' do
@@ -46,7 +46,7 @@ describe  '#feedback' do
     card2 = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
     turn2 = Turn.new("Saturn", card2)
 
-    expect(turn1.feedback(@guess)).to eq("Correct!")
-    expect(turn2.feedback(@guess)).to eq("Incorrect.")
+    expect(turn1.feedback()).to eq("Correct!")
+    expect(turn2.feedback()).to eq("Incorrect.")
   end
 end
