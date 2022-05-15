@@ -1,4 +1,3 @@
-require 'pry'
 class Deck
   attr_reader :cards
 
@@ -13,7 +12,7 @@ class Deck
   def cards_in_category(category)
       cards.select { |card| card.category == category }
   end
-
+  #code was calling incorrect card when added card of same category
   # def cards_in_category(category)
   #   cards_in_category = []
   #   cards.each do |card|

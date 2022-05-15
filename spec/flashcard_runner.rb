@@ -3,7 +3,6 @@ require './lib/card'
 require './lib/turn'
 require './lib/deck'
 require './lib/round'
-require 'pry'
 
 card_1 = Card.new("Which element has the symbol 'H'?", "Hydrogen", :ReactiveNonmetals)
 card_2 = Card.new("Which element has the symbol 'Ne'?", "Neon", :NobleGases)
