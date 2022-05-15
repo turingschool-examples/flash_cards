@@ -1,7 +1,7 @@
-# note to reader
+#           note to reader
 
-# This is still a draft and needs work, I wrote the whole runner file
-# without testing between steps while the process was fresh in my head
+# This runner file is a draft and was speedcoded, in the final hour,
+# without testing between steps and probably needs some work
 
 require './lib/card'
 require './lib/turn'
