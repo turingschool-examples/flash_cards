@@ -114,7 +114,7 @@ describe Round do
       expect(round.number_correct_by_category(:STEM)).to eq(0)
     end
   end
-
+  #
   describe 'percent_correct method' do
     it 'returns the the percent correct' do
       card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)

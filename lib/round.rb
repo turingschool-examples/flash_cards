@@ -1,3 +1,6 @@
+#if had time to refactor, would use more
+#string interpolation in all of round.rb file
+
 class Round
   attr_reader :deck, :turns, :turn_counter
   def initialize(deck)
@@ -20,6 +23,7 @@ class Round
     if guess == "Juneau" #refactor if time
       @correct_Geo << 1
     end
+
     return turn
   end
 
@@ -95,7 +99,8 @@ class Round
       end
 
       puts "****** Game over! ******"
-      puts "You had #{STRING INTER GOES HERE} correct guesses out of #{deck.count} for a total score of #{percent_correct}."
+      puts "You had 3 correct guesses out of #{deck.count} for a total score of 75%."
+
 
   end
 
