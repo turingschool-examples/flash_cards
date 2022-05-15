@@ -12,6 +12,8 @@ class Deck
   def cards_in_category(category)
       cards.select { |card| card.category == category }
   end
+
+  
   # def cards_in_category(category)
   #   cards_in_category = []
   #   @cards.each do |card|
