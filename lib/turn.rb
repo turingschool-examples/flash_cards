@@ -14,9 +14,9 @@ attr_reader :guess, :card, :feedback
 
  def feedback
    if correct?
-     return "Correct"
+     return "Correct."
    else
-     return "Incorrect"
+     return "Incorrect."
    end
  end
 

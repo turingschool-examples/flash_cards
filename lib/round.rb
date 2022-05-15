@@ -8,7 +8,7 @@ attr_reader :turns, :deck, :turn, :number_correct, :take_turn
   end
 
   def current_card
-    deck.cards[0]
+    deck.cards.first
   end
 
   def take_turn(guess)
