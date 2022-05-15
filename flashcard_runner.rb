@@ -31,11 +31,11 @@ def start
       puts answer
       puts "#{@round.turns.last.feedback}"
     end
-
-    puts "****** Game over! ******"
-    puts "You had #{@round.number_correct} correct guesses out of #{@round.deck.count} for a total score of #{@round.percent_correct}."
-
-
   end
 
+  puts "****** Game over! ******"
+  puts "You had #{@round.number_correct} correct guesses out of #{@round.deck.count} for a total score of #{@round.percent_correct}."
+  puts "STEM - #{@round.percent_correct_by_category(:STEM).to_i}% correct"
+  puts "Turing Staff - #{@round.percent_correct_by_category(:TuringStaff).to_i}% correct"
+  puts "Pop Culture - #{@round.percent_correct_by_category(:PopCulture).to_i}% correct"
 end
