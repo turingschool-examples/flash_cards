@@ -7,4 +7,4 @@ The Count of Monte Cristo is set in which country?,France,Literature
 What does the Spanish word 'embarazada' mean?,Pregnant,Languages
 What county is Centennial CO in?,Arapahoe,Geography
 'I went home' in French is 'Je _______ alle chez moi.',Suis,Languages
-Complete the title: Cat's _______ by Kurt Vonnegut,Cradle,Literature
+Complete the title: Cat's _______ by Kurt Vonnegut.,Cradle,Literature
