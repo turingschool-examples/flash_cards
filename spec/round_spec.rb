@@ -63,7 +63,7 @@ RSpec.describe Round do
     expect(@round.current_card).to eq(@card_2)
   end
 
-  it 'counts as a turn' do
+  it 'still counts as a turn' do
     new_turn = @round.take_turn("Sodium")
 
     expect(@round.take_turn("Sodium")).to be_instance_of Turn
@@ -94,9 +94,24 @@ RSpec.describe Round do
     expect(@round.number_correct_by_category(:ReactiveNonmetals)).to eq(1)
   end
 
-  xit 'gets no points for incorrect answers' do
+  it 'gets no points for incorrect answers' do
     new_turn = @round.take_turn("Sodium")
 
     expect(@round.number_correct_by_category(:NobNobleGases)).to eq(0)
+  end
+
+  it 'got a percentage correct' do
+    new_turn = @round.take_turn("Hydrogen")
+    new_turn = @round.take_turn("Sodium")
+
+    expect(@round.number_correct).to eq(1)
+    expect(@round.percent_correct).to eq(50.0)
+  end
+
+  it 'measures percent correct by category' do
+    new_turn = @round.take_turn("Hydrogen")
+
+    expect(@round.number_correct_by_category(:ReactiveNonmetals)).to eq(1)
+    expect(@round.percent_correct_by_category(:ReactiveNonmetals)).to eq(100.0)
   end
 end
