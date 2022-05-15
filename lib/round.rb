@@ -63,4 +63,10 @@ class Round
    end
   end
 
+  def print_percent_category
+    puts "STEM - #{percent_correct_by_category(:STEM)}% correct"
+    puts "Turing Staff - #{percent_correct_by_category(:"Turing Staff")}% correct"
+    puts "Pop Culture - #{percent_correct_by_category("Pop Culture")}% correct"
+  end
+
 end
