@@ -1,3 +1,3 @@
 ##  Flash Cards
 
-This is the starter repository for the [Flash Cards](http://backend.turing.io/module1/projects/flashcards) project.
+When the program has been downloaded, change into the flash_cards directory, and run "ruby ./lib/flashcard_runner.rb" to start the game!. 
