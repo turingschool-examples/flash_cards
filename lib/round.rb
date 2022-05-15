@@ -18,13 +18,16 @@ class Round
   end
 
   def take_turn(guess)
-    require "pry"; binding.pry
+
     turn = Turn.new(guess, current_card)
       @turns << turn
       if guess == current_card.answer
         @number_correct += 1
       end
+      deck.cards.rotate!
+      #may require tinkering in iteration_3
       return turn
+
   end
   # deck.cards.rotate!
   #   #turn
