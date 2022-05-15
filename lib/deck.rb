@@ -4,13 +4,14 @@ attr_reader :cards
     @cards = cards
 
   end
-   def count
+    def count
      @cards.length
-   end
+    end
 
-def cards_in_category
+def cards_in_category(category)
+     cards.select do |card|
+       card.category == category
+     end
 
+    end
 end
-  
-  #doesnt work but might be on the right track !
-  #keep going bro its not a big deal you got this .
