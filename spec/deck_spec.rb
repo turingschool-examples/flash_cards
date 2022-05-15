@@ -14,9 +14,11 @@ describe Deck do
       cards = [card_1, card_2, card_3]
       deck = Deck.new(cards)
       expect(deck.cards).to eq([card_1, card_2, card_3])
+      expect(deck.stem_cards).to eq([card_2, card_3])
+      expect(deck.geography_cards).to eq([card_1])
     end
   end
-
+  #
   describe 'count method' do
     it 'counts how many cards in the deck' do
       card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
@@ -40,7 +42,7 @@ describe Deck do
       cards = [card_1, card_2, card_3]
       deck = Deck.new(cards)
       expect(deck.cards_in_category(:STEM)).to eq ([card_2, card_3])
-      expect(deck.cards_in_category(:Geography)).to eq (card_1)
+      expect(deck.cards_in_category(:Geography)).to eq ([card_1])
       expect(deck.cards_in_category("Pop Culture")).to eq ([])
     end
   end

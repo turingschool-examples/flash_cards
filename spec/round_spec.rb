@@ -37,6 +37,7 @@ describe Round do
       expect(round.current_card).to eq(deck.cards[2])
     end
   end
+end
 
   describe 'take_turn method' do
     it 'takes a string (the guess) and creates a new Turn object with guess and Card' do
@@ -66,7 +67,7 @@ describe Round do
       expect(new_turn.class).to eq(Turn)
     end
   end
-
+#
   describe 'correct? method' do
     it 'checks guess against answer; returns true or false' do
       card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
@@ -82,7 +83,8 @@ describe Round do
     end
   end
 
-  describe 'number_correct method' do
+#
+  describe 'number_correct attribute' do
     it 'counts how many guesses have been correct' do
       card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       card_2 = Card.new("The Viking spacecraft sent back to Earth photographs
@@ -109,12 +111,12 @@ describe Round do
       deck = Deck.new(cards)
       round = Round.new(deck)
       new_turn = round.take_turn("Juneau")
-      round.take_turn("Venus")
+      # round.take_turn("Venus")
       expect(round.number_correct_by_category(:Geography)).to eq(1)
       expect(round.number_correct_by_category(:STEM)).to eq(0)
     end
   end
-  #
+# #   #
   describe 'percent_correct method' do
     it 'returns the the percent correct' do
       card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
@@ -130,7 +132,7 @@ describe Round do
       expect(round.percent_correct).to eq(50.0)
     end
   end
-
+# #
   describe 'percent_correct_by category method' do
     it 'returns the the percent correct by category' do
       card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
@@ -146,5 +148,3 @@ describe Round do
       expect(round.percent_correct_by_category(:Geography)).to eq(100.0)
     end
   end
-
-end

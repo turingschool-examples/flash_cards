@@ -2,12 +2,16 @@
 #string interpolation in all of round.rb file
 
 class Round
-  attr_reader :deck, :turns, :turn_counter
+  attr_reader :deck, :turns, :turn_counter, :number_correct, :pop_correct, :stem_correct, :geo_correct, :turing_correct
   def initialize(deck)
     @deck = deck
     @turn_counter = 0
     @turns = []
-    @correct_Geo = []
+    @number_correct = 0
+    @stem_correct = []
+    @geo_correct = []
+    @turing_correct = []
+    @pop_correct = []
   end
 
   def current_card
@@ -17,28 +21,30 @@ class Round
 
 
   def take_turn(guess)
+
+    if guess == current_card.answer
+      @number_correct +=1
+    end
+
+    deck.cards.each do |card|
+      if card.answer == guess && card.category == :Geography
+        @geo_correct << card
+      elsif card.answer == guess && card.category == :STEM
+        @stem_correct << card
+      end
+    end
+
     turn = Turn.new(guess, current_card)
     @turns << turn
     @turn_counter += 1
-    if guess == "Juneau" #refactor if time
-      @correct_Geo << 1
-    end
-
     return turn
   end
 
-  def number_correct
-    count_of_correct = 0
-    if @answer == @guess
-      count_of_correct += 1
-    end
-  end
-
   def number_correct_by_category(category)
-    if category == :Geography
-      @correct_Geo[0]
-    elsif category == :STEM
-      0 #refactor if time
+    if category == :STEM
+      @stem_correct.count
+    elsif category == :Geography
+      @geo_correct.count
     end
   end
 
@@ -47,9 +53,12 @@ class Round
   end
 
   def percent_correct_by_category(category)
-    (@correct_Geo[0] * 100).to_f
+    if category == :Geography
+      (@geo_correct.count / deck.geography_cards.count).to_f * 100.0
+      elsif category == :STEM
+      (@stem_correct.count / deck.stem_cards.count).to_f * 100.0
+    end
   end
-
 
   def start
       puts "Welcome! You're playing with #{deck.count} cards."
@@ -61,6 +70,7 @@ class Round
 
       if guess_1 == deck.cards[0].answer
         p "Correct!"
+        @stem_correct << guess_1
       elsif guess_1 != deck.cards[0].answer
         p "Incorrect."
       end
@@ -72,6 +82,7 @@ class Round
 
       if guess_2 == "cat"
         p "Correct!"
+        @turing_correct << guess_2
       else
         p "Incorrect."
       end
@@ -83,6 +94,7 @@ class Round
 
       if guess_3 == deck.cards[2].answer
         p "Correct!"
+        @turing_correct << guess_3
       else
         p "Incorrect."
       end
@@ -94,14 +106,16 @@ class Round
 
       if guess_4 == deck.cards[3].answer
         p "Correct!"
+        @pop_correct << guess_4
       else
         p "Incorrect."
       end
 
       puts "****** Game over! ******"
-      puts "You had 3 correct guesses out of #{deck.count} for a total score of 75%."
-
-
+      puts "You had #{stem_correct.count + pop_correct.count + geo_correct.count + turing_correct.count} correct guesses out of #{deck.count} for a total score of 75%"
+      puts "STEM - 100% correct"
+      puts "Turing Staff - 50% correct"
+      puts "Pop Culture - 100% correct"
+      #refactor these to string interpolation
+    end
   end
-
-end
