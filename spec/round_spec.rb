@@ -99,9 +99,10 @@ RSpec.describe Round do
 
     expect(round.take_turn("Venus")).to be_instance_of(Turn)
     expect(round.turns.count).to eq(2)
+    expect(round.turns.last.feedback).to eq("Incorrect!")
   end
 
-  
+
 
 
 
