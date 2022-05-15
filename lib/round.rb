@@ -9,7 +9,7 @@ class Round
   end
 
 
-
+  #note to self, practice instanciating classes in methods
   def take_turn(guess)
     turns.unshift(deck.cards[0])
     deck.cards.shift
