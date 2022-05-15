@@ -68,7 +68,7 @@ class Round
     puts "This is card number #{@turns.count + 1} of #{@deck.cards.count}"
     puts "Question: #{current_card.question}"
 
-    guess = gets.chomp
+    guess = gets.chomp.downcase
 
     new_turn = take_turn(guess)
     puts new_turn.feedback
@@ -79,7 +79,11 @@ class Round
     puts "****** Game over! ******"
     puts "You had #{number_correct} correct guesses out of #{turns.count} for a total score of #{percent_correct}."
 
-    
+    puts "STEM - #{percent_correct_by_category("STEM")} correct"
+    puts "Turing Staff - #{percent_correct_by_category("Turing Staff")} correct"
+    puts "Pop Culture - #{percent_correct_by_category("Pop Culture")} correct"
+
+
 
   end
 
