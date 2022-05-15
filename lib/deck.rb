@@ -1,8 +1,9 @@
 
 class Deck
-  attr_reader :cards
+  attr_accessor :cards, :guess
     def initialize(cards)
         @cards = cards
+        @guess = guess
 
     end
 
