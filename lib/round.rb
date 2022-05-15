@@ -27,4 +27,24 @@ class Round
     correct_count
   end
 
+  def number_correct_by_category(topic)
+    correct_count = 0
+    @turns.each do |turn|
+      if turn.card.category == topic
+        if turn.feedback == "Correct!"
+          correct_count += 1
+        end
+      end
+    end
+    correct_count
+  end
+
+  def percent_correct
+
+  end
+
+  # def percent_correct_by_category(topic)
+  #   percent_correct = 0.0
+  # end
+
 end
