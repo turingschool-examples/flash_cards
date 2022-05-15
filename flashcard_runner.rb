@@ -26,17 +26,20 @@ guess = gets.chomp
 @turn = round.take_turn(guess)
 @category << @turn.card.category
 
+percent_category << round.percent_correct_by_category(category[round.number_correct])
+
+puts turn.feedback
+
 end
 
 
 puts "******** Game over! ********"
-puts "You had #{round.number_correct.to_s} correct guesses out of #{cards.count} for a total score of #{(@round.percent_correct).to_i}%."
-
-@category.each do |category|
-
-category - (@round.percent_correct_by_category(category)).to_i
-percentage.to_1
-
-puts "#{percentage.to_1}"
-
-end
+puts "You had #{@round.number_correct} correct guesses out of #{cards.count} for a total score of #{@round.percent_correct}."
+#
+# @category.each do |category|
+#
+# category - (@round.percent_correct_by_category(category)).to_i
+# percentage.to_1
+#
+# puts "#{percentage.to_1}"
+# end
