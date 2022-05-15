@@ -27,4 +27,12 @@ class Round
     @turns_correct.size
   end
 
+  def number_correct_by_category(category)
+    @turns_correct.select do |correct_turn|
+      category == correct_turn.card.category
+    end.size
+  end
+
+  
+
 end
