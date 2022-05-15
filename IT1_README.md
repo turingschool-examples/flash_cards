@@ -1,5 +1,5 @@
 # Iteration 1
-## Card Class-------------------------------------------------------------------
+## Card Class
 
 pry(main)> require './lib/card'
 #=> true
@@ -17,7 +17,7 @@ pry(main)> card.category
 #=> :Geography
 
 
-## Turn Class-------------------------------------------------------------------
+## Turn Class
 
 pry(main)> require './lib/turn'
 #=> true
