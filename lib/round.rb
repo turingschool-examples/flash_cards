@@ -30,7 +30,23 @@ class Round
 
   end
 
+  def number_correct_by_category(category)
 
-  
+    correct_turns = turns.select do |turn|
+      # turn.category =
+
+      turn.card.category == category && turn.correct?
+
+    end
+
+    correct_turns.count
+
+  end
+
+  def round.percent_correct
+
+  end
+
+#select retuns an array by default [] when nothing is in the block
 
 end
