@@ -13,7 +13,7 @@ require 'pry' #in case I want to run pry on this file
 # round.take_turn("The Nile")
 
 def start
-  card_1 = Card.new("What is 10 + 10?", "20", :STEM)
+  card_1 = Card.new("TRUE or FALSE: We share 90% of our DNA with a slug", "FALSE", :STEM)
   card_2 = Card.new("What is the longest river in the world?", "The Nile", :Geography)
   card_3 = Card.new("What is the highest mountain in the world?", "Mount Everest", :Geography)
   card_4 = Card.new("How many planets in our solar system?", "8", :STEM)
