@@ -16,7 +16,7 @@ def start(round)
   count = 1
   puts "Welcome! You're playing with #{round.deck.count} cards."
   puts '-------------------------------------------------'
-  while count < 6
+  while count < round.deck.count
     puts "\nThis is card number #{count}"
     puts round.deck.cards.first.question
     guess = gets.chomp
