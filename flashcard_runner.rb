@@ -19,9 +19,16 @@ def start(round)
   turn_number = 0
   current_card = round.current_card()
   turn_number = 0
+  answer = ""
+  #require 'pry'; binding.pry
   puts "Welcome! You're playing with #{this_round.deck.count} cards."
   puts "-----------------------------------------------------------"
   puts "This is card number #{turn_number + 1} out of #{this_round.deck.count}"
+  puts "Question: #{this_round.current_card.question}"
+  answer = gets.chomp
+  turn = round.take_turn(answer)
+  puts turn.feedback
+
 end
 
 start(round)
