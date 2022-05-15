@@ -69,7 +69,7 @@ RSpec.describe Round do
 
     expect(turn.class).to eq(Turn)
     expect(turn.correct?).to eq(true)
-
+    # expect()
   end
 
   it 'has number of correct' do
@@ -80,7 +80,10 @@ RSpec.describe Round do
     deck = Deck.new(cards)
     round = Round.new(deck)
     turn = round.take_turn("Juneau")
+    turns = [turn]
 
+    expect(round.current_card).to eq(card_2)
+    expect(round.turns).to eq(turns)
     expect(round.number_correct).to eq(1)
 
 

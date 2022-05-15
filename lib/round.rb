@@ -19,11 +19,12 @@ class Round
      @turns << turn
      if new_guess == current_card.answer
        @number_correct += 1
+     end
+     deck.cards.rotate!
      return turn
    end
 
-  end
-require "pry"; binding.pry
+
 
 
 
