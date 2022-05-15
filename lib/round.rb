@@ -55,11 +55,40 @@ class Round
 
   def percent_correct_by_category(category)
 
-    
+    percent_correct_cat = 0.0
 
-
-  end
+      turns.each do |turn|
+        if turn.card.category == category
+          percent_correct_cat = 1.0
+        end
+      end
+      (number_correct_by_category(category)/(percent_correct_cat)) * 100
+    end
 
 
 end
+
+
+
+
+
+
+
+
+      #
+      # number_turns = turns.select do |turn|
+      #
+      #   current_card(category) == category &&
+      # end
+      # # turns.select {|turn| current_card(category) == category}
+      #
+      # require "pry"; binding.pry
+      # (number_correct_by_category(category)/()) * 100
+
+
+
+
+
+  # if current_card(category) == category
+  #         @number_correct += 1
     #select retuns an array by default [] when nothing is in the block
