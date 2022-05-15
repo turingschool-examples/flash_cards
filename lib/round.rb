@@ -21,12 +21,12 @@ class Round
   end
 
   def number_correct
-    # @turns.each do |turn|
-    #   if turn.guess == turn.card.answer
+    @turns.each do |turn|
+      if turn.guess == turn.card.answer
      @number_correct += 1
-    #   end
-    # end
-    # @number_correct
+      end
+    end
+    @number_correct
   end
 
   def number_correct_by_category(category)
