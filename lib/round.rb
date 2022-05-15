@@ -17,4 +17,14 @@ class Round
     return new_turn
   end
 
+  def number_correct
+    correct_count = 0
+    @turns.each do |turn|
+      if turn.feedback == "Correct!"
+        correct_count += 1
+      end
+    end
+    correct_count
+  end
+
 end
