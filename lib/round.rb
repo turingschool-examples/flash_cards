@@ -19,29 +19,15 @@ class Round
   end
 
   def number_correct
-    correct = 0
-    @turns.map do |turn|
-      if turn.card.answer == turn.guess
-        correct += 1
-      end
+    @turns.count do |turn|
+      turn.card.answer == turn.guess
     end
-    correct
   end
 
   def number_correct_by_category(category)
-    correct_turns = []
-    @turns.each do |turn|
-      if turn.card.answer == turn.guess
-        correct_turns << turn
-      end
+    @turns.count do |turn|
+      turn.card.answer == turn.guess && turn.card.category == category
     end
-    correct_by_category = []
-    correct_turns.each do |turn|
-      if turn.card.category == category
-        correct_by_category << turn
-      end
-    end
-    correct_by_category.count
   end
 
   def percent_correct
@@ -62,10 +48,10 @@ class Round
   def start
     puts "Welcome! You're playing with #{deck.count} cards."
     puts "-------------------------------------------------"
-    puts "This is card number 1 out of #{deck.count}."
     turns = 0
     until turns == deck.count do
       turns += 1
+      puts "This is card number #{turns} out of #{deck.count}."
       puts current_card.question
       user_input = gets.chomp
       turn = take_turn(user_input)
@@ -76,10 +62,18 @@ class Round
 
   def turns_by_category
     categories = []
-    @deck.cards.each do |card|
+    @deck.cards.count do |card|
       card.category
       categories << card.category
     end
     categories.uniq
+  end
+
+  def game_end_stats
+    puts "You had #{number_correct} correct guesses out of #{deck.count} for a total score of #{percent_correct.round(0)}%."
+    categories = turns_by_category
+    categories.each do |category|
+      puts "#{category} - #{percent_correct_by_category(category).round(0)}% correct"
+    end
   end
 end
