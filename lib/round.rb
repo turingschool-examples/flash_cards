@@ -22,6 +22,19 @@ class Round
     end
     deck.cards.rotate!
     return this_turn
+  end
 
+  def number_correct_by_category(category)
+
+    number_correct_by_category = 0
+    i = 0
+    while i < turns.length
+      if turns[i].card.category == category && turns[i].guess == turns[i].card.answer
+
+           number_correct_by_category +=1
+      end
+      i += 1
+    end
+    return number_correct_by_category
   end
 end
