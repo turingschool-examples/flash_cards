@@ -53,4 +53,8 @@ class Round
   end
  end
 
+ def start
+   #method goes here
+ end
+
 end
