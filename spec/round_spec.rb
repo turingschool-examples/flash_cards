@@ -71,10 +71,10 @@ RSpec.describe Round do
     expect(round.number_correct).to eq(1)
     expect(round.current_card).to eq(card_2)
 
-    round.take_turn('Venus')
+    round.take_turn("Venus")
 
     expect(round.turns.count).to eq(2)
-    # expect(round.turns.last.feedback).to eq("Incorrect.")
+    expect(round.turns.last.feedback).to eq("Incorrect.")
     expect(round.number_correct).to eq(1)
  end
 
@@ -85,8 +85,8 @@ RSpec.describe Round do
     deck = Deck.new([card_1, card_2, card_3])
     round = Round.new(deck)
 
-    turn_1 = round.take_turn('Juneau')
-    turn_2 = round.take_turn('Venus')
+    turn_1 = round.take_turn("Juneau")
+    turn_2 = round.take_turn("Venus")
 
     expect(round.number_correct_by_category(:STEM)).to eq(0)
     expect(round.number_correct_by_category(:Geography)).to eq(1)
@@ -99,9 +99,9 @@ RSpec.describe Round do
     deck = Deck.new([card_1, card_2, card_3])
     round = Round.new(deck)
 
-    turn_1 = round.take_turn('Juneau')
-    turn_2 = round.take_turn('Venus')
-    turn_3 = round.take_turn('North')
+    turn_1 = round.take_turn("Juneau")
+    turn_2 = round.take_turn("Venus")
+    turn_3 = round.take_turn("North")
 
     expect(round.percent_correct).to eq(33)
   end
