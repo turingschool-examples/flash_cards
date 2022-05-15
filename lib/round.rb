@@ -47,4 +47,15 @@ class Round
   def percent_correct_by_category(category)
       @number_correct_by_category / @deck.cards_in_category(category).count.to_f * 100
   end
+
+  def start
+    puts "Welcome! You're playing with 4 cards."
+    puts "This is card number 1 out of 4."
+    current_card
+    puts (current_card.question)
+    guess = gets.capitalize
+    take_turn(guess)
+    binding.pry
+    puts (turns.feedback)
+  end
 end
