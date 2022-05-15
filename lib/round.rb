@@ -37,9 +37,11 @@ class Round
     end
     return number_correct_by_category
   end
+
   def percent_correct
       (number_correct.to_f / turns.length.to_f) * 100
   end
+
   def percent_correct_by_category(category)
     correct = number_correct_by_category(category)
     turns_in_category = 0
@@ -48,7 +50,7 @@ class Round
         turns_in_category += 1
       end
     end
-    return (correct / turns_in_category) * 100
+    return (correct.to_f / turns_in_category.to_f) * 100
 
   end
 end
