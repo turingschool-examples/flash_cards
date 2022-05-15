@@ -1,5 +1,5 @@
 class Round
-attr_reader :turns, :deck, :turn,:number_correct
+attr_reader :turns, :deck, :turn, :number_correct, :take_turn
 
   def initialize(deck)
     @deck = deck
@@ -13,11 +13,11 @@ attr_reader :turns, :deck, :turn,:number_correct
 
   def take_turn(guess)
     turn = Turn.new(guess, current_card)
-      turns << turn
+      @turns << turn
       if turn.correct?
         @number_correct += 1
       end
-      deck.cards.shift
+      deck.cards.rotate!
     return turn
   end
 
