@@ -77,12 +77,15 @@ class Round
   end
 
   def start
-    card_number = 0
-    while card_number < deck.count
+    card_number = 1
+    while card_number <= deck.count
+      puts "This is card number #{card_number} out of #{deck.cards.count}."
+      puts "Question: #{current_card.question}"
+      guess = gets.chomp
+      next_turn = take_turn(guess)
+      puts next_turn.feedback
       card_number += 1
     end
-    puts "This is card number #{card_number} out of #{deck.cards.count}."
-    puts "Question: #{current_card}"
   end
 
 end

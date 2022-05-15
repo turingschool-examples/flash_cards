@@ -3,7 +3,7 @@ class Deck
   attr_reader :cards, :count, :cards_in_category
 
   def initialize(cards)
-    @cards =cards
+    @cards = cards
     @count = cards.length
   end
 
