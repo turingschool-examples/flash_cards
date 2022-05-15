@@ -1,8 +1,9 @@
 require 'pry'
 class Round
- attr_reader :deck, :turns
+  attr_reader :deck, :turn
 
-def initialize(deck)
-  @deck = deck
-  @turns = []
+  def initialize(deck)
+    @deck = deck
+    @turns = []
+  end
 end
