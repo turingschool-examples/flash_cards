@@ -12,6 +12,12 @@ Your results will display.
 Have fun!
 ______________
 This is the repository for Turing School's Mod 1 [Flash Cards Project](http://backend.turing.io/module1/projects/flashcards).
+#### Goals:
+- Follow an interaction pattern
+- Write readable code that adheres to Ruby convention
+- Write tests
+- Create an Object Oriented Solution to a problem (objects should interact to achieve the stated goal)
+- Host code on Github and submit a Pull Request
 ______________
 *Thought this was easy?*
 
