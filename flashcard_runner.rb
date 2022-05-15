@@ -13,11 +13,7 @@ round = Round.new(deck)
 puts "Welcome! You're playing with #{deck.count} cards."
 puts "-" * 50
 
-while round.deck_index < deck.count
-  puts "This is card number #{round.deck_index + 1} out of #{deck.count}"
-  puts "Question: #{round.current_card.question}"
-  puts round.take_turn(gets.chomp).feedback
+round.start
 
-end
 puts "****** Game over! ******"
 puts "You had #{round.number_correct} out of #{deck.count} for a total score of #{round.percent_correct}%."
