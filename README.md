@@ -2,6 +2,8 @@
 
 This is the starter repository for the [Flash Cards](http://backend.turing.io/module1/projects/flashcards) project.
 
+Run 'ruby runner.rb' from the commandline to play the game!
+
 ## Iteration 1
 
 The goal of iteration 1 is to create a card instance and turn instance. 
