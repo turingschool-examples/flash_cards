@@ -54,5 +54,8 @@ class Round
       system("clear")
       puts "That is #{user_guess.feedback}"
     end
+
+    puts "*** Game has Ended ***"
+    puts "You had #{number_correct} correct guesses out of #{@deck.cards.size}, for a total score of #{percent_correct}%."
   end
 end
