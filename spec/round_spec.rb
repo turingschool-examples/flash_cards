@@ -16,6 +16,7 @@ RSpec.describe Round do
     expect(@round).to be_a(Round)
     expect(@round.deck).to eq(@deck)
     expect(@round.turns).to eq([])
+    expect(@round.deck.count).to eq(3)
   end
 
   it 'can tell us the current card' do
@@ -23,14 +24,14 @@ RSpec.describe Round do
   end
 
   it 'can take a new turn' do
-    @new_turn = Turn.new("Juneau", @card_1)
+    @new_turn = Turn.new("Juneau", @round.current_card) #round.current_card is more accurate than the specific card, still passes with either
 
     expect(@new_turn).to be_a(Turn)
     expect(@new_turn.correct?).to be(true)
   end
 
   it 'can tally correct answers' do
-    @new_turn = Turn.new("Juneau", @card_1)
+    @new_turn = Turn.new("Juneau", @round.current_card) #round.current_card is more accurate
     @round.take_turn("Juneau")
 
     expect(@round.number_correct).to eq(1)
@@ -43,7 +44,7 @@ RSpec.describe Round do
     expect(@round.turns.count).to eq(2)
     expect(@round.turns.last.feedback).to eq('Incorrect.')
     expect(@round.number_correct).to eq(1)
-    expect(@round.deck.count).to eq(3)
+    expect(@round.current_card).to eq(@card_3)
   end
 
   it 'tells us the #number_correct_by_category' do
