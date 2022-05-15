@@ -1,6 +1,9 @@
 class CardGenerator
-	def initialize(filename)
 
+	def initialize(filename)
+		@filename = filename
+		@cards = []
+		@deck = []
 	end
 
 end
