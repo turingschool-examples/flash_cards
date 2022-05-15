@@ -66,7 +66,6 @@ class Round
     turns = 0
     until turns == deck.count do
       turns += 1
-      # require 'pry'; binding.pry
       puts current_card.question
       user_input = gets.chomp
       turn = take_turn(user_input)
