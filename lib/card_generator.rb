@@ -8,18 +8,12 @@ class CardGenerator
     @card_library = card_library
   end
 
-  def create_objects_from_text_file
-    @card_library = @filename.split("\n")#note must use double quotes because string interpolation (won't work with single quotes around new line)
-
-  end
 
   def cards
-    @card_library
+    @card_library = @filename.split("\n")#note must use double quotes because string interpolation (won't work with single quotes around new line)
+    @card_library.map! {|x| x.split(",")}.map! {|y| Card.new(y[0],y[1],y[2])}
+    #@card_library.map! {|x| x.split(",")}.select! {|y| y[2] == 'STEM' ? Card.new(y[0],y[1],y[2]) : return }
   end
 end
 
-
-#cards = CardGenerator.new('cards.txt')
-#cards.create_objects_from_text_file(filename)
-
-require 'pry';binding.pry
+#require 'pry';binding.pry
