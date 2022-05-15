@@ -40,7 +40,7 @@ class Round
 
   def number_correct_by_category(category)
     number_correct_by_category = 0
-
+require 'pry' ; binding.pry
     @turns.each do |turn|
       if turn.card.category == category && turn.correct?
         number_correct_by_category += 1
@@ -63,4 +63,42 @@ class Round
     return (number_correct_by_category(category).to_f / i.to_f)*100.0
   end
 
-end
+  def start
+    x = 0
+    while x < deck.count
+      x += 1
+    puts "This is card number #{x} out of #{deck.cards.count}."
+    puts "Question: #{current_card.question}"
+    puts take_turn(gets.chomp).feedback
+    # y = 0
+    # if take_turn(gets.chomp).correct? == true
+    #   y += 1
+    # else y + 0
+    end
+    end
+  end
+
+#
+#     puts "This is card number 2 of #{deck.cards.count}"
+#     puts "Question: #{current_card.question}"
+#     puts take_turn(gets.chomp).feedback
+#
+#     puts "This is card number 3 of #{deck.cards.count}"
+#     puts "Question: #{current_card.question}"
+#     puts take_turn(gets.chomp).feedback
+#
+#     puts "This is card number 4 of #{deck.cards.count}"
+#     puts "Question: #{current_card.question}"
+#     puts take_turn(gets.chomp).feedback
+#   end
+# end
+# end
+    # puts "This is card number 2 of #{deck.cards.count}"
+    # puts "Question: #{current_card.question}"
+    # puts take_turn(gets.chomp).feedback
+    # x = 0
+    # if
+    #
+    # while deck.count > x
+    #
+    # @turns.each do |turn|
