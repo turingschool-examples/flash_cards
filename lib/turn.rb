@@ -21,7 +21,7 @@ class Turn
   end
 
   def correct?
-    @wrong_or_right =  @current_card.answer.include?(@guess)
+    @wrong_or_right = @current_card.answer.include?(@guess)
     # = @answer.include?(@guess)
   end
 

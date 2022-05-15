@@ -13,25 +13,24 @@ class Round
     @current_turn = 0 #to iterate through deck depending on turn
     @number_correct = 0 #inititalized with 0
     @correct_qs = [] #placeholder array for correct answers
-    @current_card = @deck.cards[@current_turn]#initializes current card with first card of deck
+
   end
 
- #
- #  def current_card
- #
 
- #
- #  end
+  def current_card #moved to individual method to make sure it updated the iteration
+    @current_card = @deck.cards[@current_turn]#initializes current card with first card of deck
+    return @current_card
+  end
 
   def take_turn(guess_string)
+
     if @current_turn > @deck.count #checks to make sure you stay within array bounds
        return  "you have reached the limit of questions"
+
     else
       new_turn = Turn.new(guess_string, @current_card)
       @turns << new_turn #shovel guesses into turns array
       @current_turn += 1 #incrementing current # of turns
-
-    # if @current_card.category
 
       if new_turn.correct?
         @number_correct += 1 #increments correct if correct
@@ -42,7 +41,7 @@ class Round
     end
   end
 
-  def correct_by_category(category_choice) #will send in a searchable category
+  def number_correct_by_category(category_choice) #will send in a searchable category
     num_right = 0 #initialized with 0, will increment for correct # for given category
     @number_correct.times do #however # correct times, iterate through correct_qs array and check category of choice
         if @correct_qs[num_right].category == category_choice
@@ -53,8 +52,23 @@ class Round
     return num_right
   end
 
-  def percent_correct
-    return @deck.count / @number_correct #divides total number of questions by number of correct
+  def percent_correct #not sure if percent correct total or currently?
+    total_correct = @number_correct.to_f / @current_turn.to_f * 100.00 #divides total number of questions by number of correct and returns as float
+    return total_correct
+  end
+
+  def percent_correct_by_category(category_choice)
+    cat_choice_qs = 0 #number of questions for given category choice
+    i = 0
+    @deck.count.times do
+      if @deck.cards[i].category == category_choice
+        cat_choice_qs += 1
+      end
+      i += 1 #incrementing through card decks
+    end
+
+    total = (cat_choice_qs / number_correct_by_category(category_choice)).to_f * 100
+
   end
 
 end
