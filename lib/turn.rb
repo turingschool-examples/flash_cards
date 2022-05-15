@@ -8,7 +8,6 @@ class Turn
   end
 
   def correct?
-    require "pry"; binding.pry
     @guess == @card.answer
   end
 

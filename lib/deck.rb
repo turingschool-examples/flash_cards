@@ -1,23 +1,30 @@
 class Deck
-  attr_reader :cards, :deck
-  def initialize(cards, deck)
+  attr_reader :cards 
+  def initialize(cards)
     @cards = cards
-    @deck = deck
+    # @deck = deck
   end
 
   def count
-    @card.length
-  require "pry"; binding.pry
+  # def length
+  #   require "pry"; binding.pry
+    @cards.count
+  # end
+  # require "pry"; binding.pry
   end
-
   def cards_in_category(category)
-    matching_cards = []
-    @cards.each do |card|
-      if card.category == cards_in_category
-        matching_cards << card
-
-      end
-      return matching_cards
-    end
+    # require "pry"; binding.pry
+    @cards.select do |card|
+      card.category == category
+  end
+    # matching_cards = []
+    # @cards.each do |card|
+    #   # require "pry"; binding.pry
+    #   if card.category == category
+    #     matching_cards << card
+    #
+    #   end
+    # end
+    # return matching_cards
   end
 end
