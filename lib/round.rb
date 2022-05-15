@@ -1,25 +1,27 @@
 require './lib/turn'
 class Round
-  attr_reader :deck, :turns, :new_turn, :number_correct
+  attr_reader :deck, :turns, :new_turn, :number_correct, :number_of_turns
   def initialize(deck)
     @deck = deck
     @turns = []
     @number_correct = 0
+    @number_of_turns = 0
   end
 
-  def current_card
-    deck.cards[0]
-  end
 
 
   def take_turn(guess)
+    turns.unshift(deck.cards[0])
+    deck.cards.shift
     @new_turn = Turn.new(guess, current_card)
-    turns << @new_turn
     if current_card.answer == guess
       add_correct
     end
-    # require 'pry' ; binding.pry
     new_turn
+  end
+
+  def current_card
+    turns[0]
   end
 
   def add_correct

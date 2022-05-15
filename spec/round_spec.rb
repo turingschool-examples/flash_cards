@@ -25,6 +25,7 @@ describe Round do
   end
 
   it "can tell you what the current card is" do
+    @round.take_turn("Juneau")
     expect(@round.current_card).to eq(@card_1)
   end
 
@@ -53,6 +54,19 @@ describe Round do
     expect(@round.number_correct).to eq(1)
   end
 
+  it "can count the number of turns" do
+    @round.take_turn("Juneau")
+    expect(@round.turns.count).to eq(1)
+  end
+
+  it "can test for multiple turns taken" do
+    @round.take_turn("Juneau")
+    @round.take_turn("Mars")
+    # require 'pry' ; binding.pry
+    expect(@round.current_card).to eq(@card_2)
+    expect(@round.number_correct).to eq(2)
+    expect(@round.turns.count).to eq(2)
+  end
 
 
 end
