@@ -31,8 +31,8 @@ class Round
        if turn.card.category == category && turn.correct?
          number_correct_by_category += 1
        end
-       return number_correct_by_category
      end
+     return number_correct_by_category
    end
 
    def percent_correct
@@ -61,6 +61,13 @@ class Round
         puts take_turn(gets.chomp).feedback
       end
    end
+
+
+   # p "You had #{round.number_correct} correct guesses out of #{deck.count} for a total score of #{round.percent_correct.to_i}%"
+   # p "STEM - #{round.percent_correct_by_category(:STEM).to_i}% correct"
+   # p "Turing Staff - #{round.percent_correct_by_category(:"Turing Staff").to_i}% correct"
+   # p "Pop Culture - #{round.percent_correct_by_category("Pop Culture").to_i}% correct"
+
    # def start
    #   i = 0
    #   while i < deck.count
@@ -68,7 +75,6 @@ class Round
    #       i += 1
    #
    #    puts take_turn(gets.chomp).feedback
-
 
 
 
