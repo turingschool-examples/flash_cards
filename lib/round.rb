@@ -1,6 +1,6 @@
 class Round
 
-  attr_reader :deck, :turns, :number_correct, :round
+  attr_reader :deck, :turns, :number_correct
 
   def initialize(deck)
     @deck = deck
@@ -9,7 +9,8 @@ class Round
   end
 
   def current_card
-    deck.cards.first
+    deck.cards[0]
+    #deck.cards.first
     #deck.cards.shift
     #deck.cards.rotate!(1)
   end
@@ -54,7 +55,12 @@ class Round
  end
 
  def start
-   @round = Round.new
- end
+   i = 0
+   while i < deck.count
+    i += 1
+    puts "Question: #{current_card.question}"
+    puts take_turn(gets.chomp).feedback
+   end
+  end
 
 end

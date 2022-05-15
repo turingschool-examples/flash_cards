@@ -10,4 +10,10 @@ card_4 = Card.new("What cardboard cutout lives at Turing?", "Justin Bieber", :Tu
 cards = [card_1, card_2, card_3, card_4]
 deck = Deck.new(cards)
 round = Round.new(deck)
-#calling start in runner
+
+puts "Welcome! You're playing with #{deck.count} cards."
+puts "-" * 50
+
+round.start
+
+puts "****** Game Over! ******"
