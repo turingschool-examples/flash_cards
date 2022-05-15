@@ -76,20 +76,7 @@ class Round
     (correct_cards_by_category.to_f / total_turns_by_category.to_f) * 100
   end
 
-  def start
-    card_number = 1
-    while card_number <= deck.count
-      puts "This is card number #{card_number} out of #{deck.cards.count}."
-      puts "Question: #{current_card.question}"
-      guess = gets.chomp
-      next_turn = take_turn(guess)
-      puts next_turn.feedback
-      card_number += 1
-    end
-    puts "****** Game over! ******"
-    puts "You had #{@number_correct} guesses out of #{deck.count} for a total score of #{percent_correct.to_i}%. "
 
-  end
 
 
 end
