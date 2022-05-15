@@ -6,6 +6,7 @@ class Round
     @deck = deck
     @turns = []
     @number_correct = 0
+    @correct_cards = []
   end
 
   def current_card
@@ -17,11 +18,24 @@ class Round
     @turns << turn
     if turn.correct?
       @number_correct += 1
+      @correct_cards << turn.card
     end
     turn
   end
-
+  # Do not need this method since it is also defined above in reader
   def number_correct
     @number_correct
   end
+
+  def number_correct_by_category(category)
+    category_correct = []
+      @correct_cards.each do |correct_card|
+        if correct_card.category == category
+          category_correct << correct_card.category
+        end
+    end
+    category_correct.count
+  end
+
+
 end
