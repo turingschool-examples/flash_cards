@@ -5,7 +5,7 @@ require 'rspec'
 
 
 RSpec.describe Deck do
-  it 'has an answer' do
+  it 'has an card' do
 
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
@@ -20,7 +20,7 @@ RSpec.describe Deck do
   end
 
 
-  it 'has an answer' do
+  it 'counts' do
 
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
@@ -33,7 +33,7 @@ RSpec.describe Deck do
     #require 'pry' ; binding.pry
 
   end
-  it 'has an answer' do
+  it 'New deck' do
 
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
@@ -47,7 +47,7 @@ RSpec.describe Deck do
 
   end
 
-  it 'has an answer' do
+  it 'cards_in_category' do
 
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
@@ -59,7 +59,7 @@ RSpec.describe Deck do
 
   end
 
-  it 'has an answer' do
+  it 'pop Culture' do
 
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)

@@ -6,7 +6,7 @@ require 'rspec'
 
 
 RSpec.describe Deck do
-  it 'has an answer' do
+  it 'deck is eq deck' do
 
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
@@ -17,7 +17,7 @@ RSpec.describe Deck do
     expect(round.deck).to eq(deck)
 #require 'pry' ; binding.pry
   end
-  it 'has an answer' do
+  it 'Has turns' do
 
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
@@ -28,7 +28,7 @@ RSpec.describe Deck do
     expect(round.turns).to eq([])
 
   end
-  it 'has an answer' do
+  it 'current_card card' do
 
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
@@ -52,7 +52,7 @@ RSpec.describe Deck do
 
   end
 
-  it 'has an answer' do
+  it 'correct is ture' do
 
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
@@ -131,7 +131,7 @@ RSpec.describe Deck do
     expect(round.turns.count).to be(2)
   end
 
-  it 'has an answer' do
+  it 'feedback' do
 
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
@@ -146,7 +146,7 @@ RSpec.describe Deck do
     expect(round.turns.last.feedback).to eq("Incorrect.")
   end
 
-  it 'has an answer' do
+  it 'Number correct' do
 
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
@@ -160,7 +160,7 @@ RSpec.describe Deck do
   end
 
 
-  it 'has an answer' do
+  it 'Correct by category' do
 
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
@@ -174,7 +174,7 @@ RSpec.describe Deck do
 
   end
 
-  it 'has an answer' do
+  it 'Correct cat stem' do
 
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
@@ -188,7 +188,7 @@ RSpec.describe Deck do
 
   end
 
-  it 'has an answer' do
+  it 'correct %' do
 
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
@@ -201,7 +201,7 @@ RSpec.describe Deck do
     expect(round.percent_correct).to eq(50.0)
   end
 
-  it 'has an answer' do
+  it '% Geography' do
 
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
@@ -214,7 +214,7 @@ RSpec.describe Deck do
     expect(round.percent_correct_by_category(:Geography)).to eq(100.0)
   end
 
-  it 'has an answer' do
+  it 'Current card 3' do
 
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)

@@ -29,8 +29,9 @@ attr_reader :turns, :deck, :turn, :number_correct, :take_turn, :cards, :number_c
         if turn.card.category == category && turn.correct?
           number_correct_by_category += 1
           end
-          return number_correct_by_category
         end
+          return number_correct_by_category
+
       end
 
   def percent_correct
