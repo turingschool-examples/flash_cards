@@ -53,7 +53,7 @@ class Round
     puts "  Welcome!  You're playing with #{deck.count} cards."
     puts "------------------------------------------------------"
 
-    4.times do
+    deck.count.times do
       show_card
     end
 
