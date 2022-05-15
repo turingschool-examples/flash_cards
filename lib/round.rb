@@ -42,4 +42,14 @@ class Round
     number_correct_by_category(category) / @deck.cards_in_category(category).size.to_f * 100.0
   end
 
+  def start
+
+    system("clear")
+    puts "Welcome! You're playing with 4 cards."
+    puts "-------------------------------------------------"
+    puts "This is card number 1 out of 4."
+    puts "Question: What is 5 + 5?"
+
+  end
+
 end
