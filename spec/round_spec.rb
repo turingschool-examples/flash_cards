@@ -98,8 +98,10 @@ RSpec.describe Round do
     turns = [turn]
 
     expect(round.take_turn("Venus")).to be_instance_of(Turn)
-
+    expect(round.turns.count).to eq(2)
   end
+
+  
 
 
 
