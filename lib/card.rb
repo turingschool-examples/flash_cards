@@ -1,6 +1,7 @@
 class Card
   attr_reader :question,:answer, :category, :prompt
 
+  cards = [] #not sure if to init cards here or in deck
 
   def initialize(question, answer, category) #initializes the card class with basic properties
     @question = question

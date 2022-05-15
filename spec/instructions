@@ -1,9 +1,0 @@
-Turns
-
-Create a Turn class and an accompanying test file with the following methods:
-
-
-
-
-
-feedback - This method either returns "Correct!" or "Incorrect." based on whether the guess was correct or not.
