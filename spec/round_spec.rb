@@ -68,5 +68,8 @@ RSpec.describe Round do
     expect(round.turns.count).to eq(2)
     expect(round.turns.last.feedback).to eq("Incorrect.")
     expect(round.number_correct).to eq(1)
+    expect(round.number_correct_by_category(:Geography)).to eq(1)
+    expect(round.number_correct_by_category(:STEM)).to eq(0)
   end
+
 end
