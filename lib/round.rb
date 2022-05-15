@@ -52,10 +52,10 @@ class Round
   def start
     puts "  Welcome!  You're playing with #{deck.count} cards."
     puts "------------------------------------------------------"
-    show_card
-    show_card
-    show_card
 
+    3.times do
+      show_card
+    end
 
     puts " ****** Game Over *******"
     puts " You had #{number_correct} guesses correct out of #{turns.count} for a total score of #{percent_correct}%"
