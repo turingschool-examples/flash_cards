@@ -14,10 +14,15 @@ class Turns
 
   def feedback
     if @guess == @answer
-      #"Juneau"
-      "Correct!"
-    else
-      "Incorrect!"
+      p "Correct"
+    elsif
+      p "Incorrect"
     end
+
   end
+    # if @guess == @answer
+    #   #"Juneau"
+    #   "Correct!"
+    # else
+    #   "Incorrect!"
 end

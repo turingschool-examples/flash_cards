@@ -18,7 +18,7 @@ card_2 = Card.new("What is Rachel's favorite animal?", "girrafe", :Animal)
 card_3 = Card.new("What is Mike's middle name?", "No one knows", :Turing_staff)
 card_4 = Card.new("What cardboard cutout lives at Turing?", "Justin Bieber", :Pop_culture)
 
-cards = [card_1, card_2, card_3]
+cards = [card_1, card_2, card_3, card_4]
 
 # p cards
 
@@ -33,10 +33,6 @@ end
 deck = Deck.new(cards)
 # p deck
 
-
-
-
-
 class Round
   attr_reader :deck, :turns, :turn_counter, :correct, :num, :guess
   def initialize(deck)
@@ -46,7 +42,6 @@ class Round
     @correct = 0
     @num = 0
     @guess = guess
-
   end
 
   def start
@@ -62,8 +57,26 @@ class Round
       #  return "Correct!"
       # elsif
       #  return "Incorrect"
-     end ##feedback method in place of this block
   end
+
+  def correct?
+    if @guess == @answer
+        true
+      else
+        false
+    end
+  end
+
+  def feedback
+    if @guess == @answer
+      p "Correct"
+    elsif
+      p "Incorrect"
+    end
+
+  ##feedback method in place of this block
+  end
+end
 
 
 round = Round.new(deck)
@@ -91,15 +104,17 @@ class Turns
     # if turns.correct? == true
     #How to call sister method scope for turns.correct??
     if @guess == @answer ## If the correct method isn't working this works
-      "Correct!"
-    else
-      "Incorrect!"
+      p "Correct!"
+    elsif
+      p "Incorrect!"
     end
   end
 end
 # p turns.feedback
 p round.start
 p round.feedback
+
+
 
 # turns = Turns.new("10", card_1) #This will create a new Turn.
 # return turns.correct?
