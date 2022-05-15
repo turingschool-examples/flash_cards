@@ -45,10 +45,23 @@ class Round
   def start
 
     system("clear")
-    puts "Welcome! You're playing with 4 cards."
+    puts "Welcome! You're playing with #{@deck.cards.size} cards."
     puts "-------------------------------------------------"
-    puts "This is card number 1 out of 4."
-    puts "Question: What is 5 + 5?"
+    puts "This is card number #{@turns.length + 1} out of #{@deck.cards.size}."
+    puts "#{@deck.cards.first.question}"
+    user_turn = gets.chomp
+    user_guess = take_turn(user_turn)
+    system("clear")
+    puts "That is #{user_guess.feedback}"
+
+
+    puts "-------------------------------------------------"
+    puts "This is card number #{@turns.length + 1} out of #{@deck.cards.size}."
+    puts "#{@deck.cards.first.question}"
+    user_turn = gets.chomp
+    user_guess = take_turn(user_turn)
+    system("clear")
+    puts "That is #{user_guess.feedback}"
 
   end
 
