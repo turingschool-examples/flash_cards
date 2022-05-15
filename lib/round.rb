@@ -75,4 +75,14 @@ class Round
 
     (correct_cards_by_category.to_f / total_turns_by_category.to_f) * 100
   end
+
+  def start
+    card_number = 0
+    while card_number < deck.count
+      card_number += 1
+    end
+    puts "This is card number #{card_number} out of #{deck.cards.count}."
+    puts "Question: #{current_card}"
+  end
+
 end
