@@ -53,7 +53,7 @@ class Round
     i= 0
     until i == deck.count
         i += 1
-    # puts "This is card number #{i} out of #{deck.count}"
+    puts "This is card number #{i} out of #{deck.count}"
     puts "Question: #{current_card.question}"
     user_guess = gets.chomp.capitalize
     puts take_turn(user_guess).feedback
