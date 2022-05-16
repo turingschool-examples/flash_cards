@@ -62,7 +62,7 @@ class Round
 
   def display_results
     puts "0.0 * x.x * Game Over! * x.x * 0.0"
-    puts "You had #{number_correct} correct guesses out of 4 for a total score of #{percent_correct.to_i}%."
+    puts "You had #{number_correct} correct guesses out of #{deck.count} for a total score of #{percent_correct.to_i}%."
     # sleep(0.5)
     current_category = {}
     @deck.cards.each do |card|
