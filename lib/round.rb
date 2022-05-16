@@ -43,8 +43,7 @@ class Round
   end
 
   def percent_correct_by_category(category)
-      (number_correct_by_category(category) / @deck.cards_in_category(category).count.to_f) * 100
-
+    (number_correct_by_category(category) / @deck.cards_in_category(category).count.to_f) * 100
   end
 
   def start
@@ -53,15 +52,15 @@ class Round
     i= 0
     until i == deck.count
         i += 1
-    puts "This is card number #{i} out of #{deck.count}"
-    puts "Question: #{current_card.question}"
-    user_guess = gets.chomp.capitalize
-    puts take_turn(user_guess).feedback
+      puts "This is card number #{i} out of #{deck.count}"
+      puts "Question: #{current_card.question}"
+      user_guess = gets.chomp.capitalize
+      puts take_turn(user_guess).feedback
     end
-    puts "****** Game over! ******"
-    puts "You had #{number_correct} correct guesses out of 4 for a total score of #{percent_correct.to_i}%."
-    puts "Reactive Nonmetals - #{percent_correct_by_category(:ReactiveNonmetals).to_i}% correct"
-    puts "Noble Gases - #{percent_correct_by_category(:NobleGases).to_i}% correct"
-    puts "Metalloids - #{percent_correct_by_category(:Metalloids).to_i}% correct"
+      puts "****** Game over! ******"
+      puts "You had #{number_correct} correct guesses out of 4 for a total score of #{percent_correct.to_i}%."
+      puts "Reactive Nonmetals - #{percent_correct_by_category(:ReactiveNonmetals).to_i}% correct"
+      puts "Noble Gases - #{percent_correct_by_category(:NobleGases).to_i}% correct"
+      puts "Metalloids - #{percent_correct_by_category(:Metalloids).to_i}% correct"
     end
-  end
+end 

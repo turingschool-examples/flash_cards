@@ -1,0 +1,4 @@
+Which element has the symbol 'H'?,Hydrogen,ReactiveNonmetals
+Which element has the symbol 'Ne'?,Neon,NobleGases
+Which element has the symbol 'Xe',Xenon,NobleGases
+Which element has the symbol 'B',Boron,Metalloids
