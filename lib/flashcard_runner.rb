@@ -12,6 +12,8 @@ card_4 = Card.new("Which element has the symbol 'B'?", "Boron", :Metalloids)
 cards = [card_1, card_2, card_3, card_4]
 deck = Deck.new(cards)
 round = Round.new(deck)
+round.start
+
 
 # def start
 #   round
@@ -26,13 +28,13 @@ round = Round.new(deck)
 # end
 
 
-print "Welcome! You're playing with 4 cards."
--------------------------------------------------
-round.start
-puts "This is card number 1 out of 4."
-deck = Deck.new
-puts "Question: #{card.question}"
-guess = gets.chomp.capitalize
+# print "Welcome! You're playing with 4 cards."
+# -------------------------------------------------
+# round.start
+# puts "This is card number 1 out of 4."
+# deck = Deck.new
+# puts "Question: #{card.question}"
+# guess = gets.chomp.capitalize
 
 # Then a user will be able to type in a guess, in this case 10, and hit enter to move the game play forward.
 #
