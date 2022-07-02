@@ -3,6 +3,7 @@ require './lib/deck'
 require './lib/turn'
 require './lib/round'
 
+
 RSpec.describe Round do
   before :each do
     @card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
@@ -25,35 +26,43 @@ RSpec.describe Round do
   end
 
   it "returns new_turn.class as Turn and if correct" do
-    require 'pry'; binding.pry
     @new_turn = @round.take_turn("Juneau")
     expect(@new_turn.class).to eq(Turn)
     expect(@new_turn.correct?).to eq(true)
   end
 
   it "returns the turns" do
+    @new_turn = @round.take_turn("Juneau")
     expect(@round.turns.count).to eq(1)
   end
 
   it "returns the number correct so far" do
+    @new_turn = @round.take_turn("Juneau")
     expect(@round.number_correct).to eq(1)
   end
 
   it "returns current number of turns" do
+    @round.take_turn("Juneau")
     @round.take_turn("Venus")
     expect(@round.turns.count).to eq(2)
   end
 
   it "returns last feedback" do
+    @round.take_turn("Juneau")
+    @round.take_turn("Venus")
     expect(@round.turns.last.feedback).to eq("Incorrect.")
   end
 
   it "returns number correct by category" do
+    @round.take_turn("Juneau")
+    @round.take_turn("Venus")
     expect(@round.number_correct_by_category(:Geography)).to eq(1)
     expect(@round.number_correct_by_category(:STEM)).to eq(0)
   end
 
   it "returns percentage correct" do
+    @round.take_turn("Juneau")
+    @round.take_turn("Venus")
     expect(@round.percent_correct).to eq(50.0)
     expect(@round.percent_correct_by_category(:Geography)).to eq(100.0)
   end
