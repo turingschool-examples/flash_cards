@@ -54,6 +54,7 @@ class Round
        num_cat += 1
      end
    end
+   
    if number_correct_by_category(category_choice) > 0
      number_correct_by_category(category_choice) / num_cat * 100
    else
