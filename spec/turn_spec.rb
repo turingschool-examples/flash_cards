@@ -6,6 +6,7 @@ RSpec.describe Turn do
       @card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       @turn = Turn.new("Juneau", @card)
   end
+
   it 'exists' do
     expect(@turn).to be_instance_of(Turn)
   end
@@ -31,8 +32,6 @@ RSpec.describe Turn do
   end
 
   it "will handle incorrect guesses" do
-    # require 'pry' ; binding.pry
-
     @turn = Turn.new("Saturn", @card)
     expect(@turn.guess).to eq("Saturn")
     expect(@turn.correct?).to eq(false)
