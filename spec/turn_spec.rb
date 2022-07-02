@@ -1,40 +1,41 @@
 require './lib/card'
 require './lib/turn'
-require './lib/deck'
-require './lib/round'
-require 'rspec'
-require 'pry'
 
-RSpec.describe Turn do #done
+RSpec.describe Turn do
+    before :each do
+      @card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+      @turn = Turn.new("Juneau", @card)
+  end
   it 'exists' do
-    current_turn = Turn.new("This is the answer", "This might be the question?")
-
-    expect(current_turn).to be_instance_of(Turn)
+    expect(@turn).to be_instance_of(Turn)
   end
 
-  it 'has guess' do #done
-    current_turn = Turn.new("This is the answer", "This might be the question?")
-
-    expect(current_turn.guess).to eq("This is the answer")
+  it "returns a card" do
+    expect(@turn.card).to be_instance_of(Card)
   end
 
-  it 'will return current card' do #done
-    current_turn = Turn.new("This is the answer", "This might be the question?")
-
-    expect(current_turn.card).to eq("This might be the question?")
+  it "returns an answer" do
+    expect(@turn.guess).to eq("Juneau")
   end
 
-  # it 'returns True' do
-  #   current_turn = Turn.new("This is the answer", "This might be the question?")
-  #
-  #   expect(current_turn.correct?).to eq(TRUE)
-  # end
-  #
-  # it 'returns "Correct!"' do
-  #   current_turn = Turn.new("This is the answer", "This might be the question?")
-  #
-  #   expect(current_turn.feedback).to eq("Correct!")
-  # end
+  it "returns if correct or not" do
+    @turn.card
+    @turn.guess
+    expect(@turn.correct?).to eq(true)
+  end
 
+  it "returns a string response of correct/incorrect" do
+    expect(@turn.guess).to eq("Juneau")
+    expect(@turn.correct?).to eq(true)
+    expect(@turn.feedback).to eq("Correct!")
+  end
 
+  it "will handle incorrect guesses" do
+    # require 'pry' ; binding.pry
+
+    @turn = Turn.new("Saturn", @card)
+    expect(@turn.guess).to eq("Saturn")
+    expect(@turn.correct?).to eq(false)
+    expect(@turn.feedback).to eq("Incorrect.")
+  end
 end

@@ -1,4 +1,0 @@
-"TRUE or FALSE: We share 90% of our DNA with a slug","FALSE",STEM
-"What is the longest river in the world?","The Nile",Geography
-"What is the highest mountain in the world?","Mount Everest",Geography
-"How many planets in our solar system?","8",STEM

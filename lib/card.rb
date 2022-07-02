@@ -1,13 +1,11 @@
 class Card
-  attr_reader :question,:answer, :category, :prompt
+  attr_reader :question,:answer, :category#, :cards
 
-
-
-  def initialize(question, answer, category) #initializes the card class with basic properties
-    cards = [] #not sure if to init cards here or above
+  def initialize(question, answer, category)
     @question = question
     @answer = answer
-    @category = category #looks like an attr_reader but is like a string variable sorta, would have to utilize ._s to manipulate
+    @category = category
+    # @cards = []
   end
 
 end
