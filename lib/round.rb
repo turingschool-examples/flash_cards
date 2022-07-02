@@ -44,7 +44,7 @@ class Round
  end
 
  def percent_correct
-   @number_correct.to_f / @current_turn.to_f * 100.00
+   (@number_correct.to_f / @deck.count.to_f * 100).to_i
  end
 
  def percent_correct_by_category(category_choice)
@@ -54,6 +54,10 @@ class Round
        num_cat += 1
      end
    end
-   num_cat.to_f / number_correct_by_category(category_choice).to_f * 100
- end
+   if number_correct_by_category(category_choice) > 0
+     number_correct_by_category(category_choice) / num_cat * 100
+   else
+     return 0
+   end
+  end
 end
