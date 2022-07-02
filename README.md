@@ -1,3 +1,5 @@
+Flash Cards project instructions are [here](https://backend.turing.edu/module1/projects/flashcards/requirements)
+
 # Iteration 1
 ## Cards
 
