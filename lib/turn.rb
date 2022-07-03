@@ -17,8 +17,7 @@ class Turn
   end
 
   def correct?
-    return false unless @guess == @card
-    true
+    @card.answer == @guess
   end
 
   def feedback
