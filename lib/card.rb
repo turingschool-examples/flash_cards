@@ -1,7 +1,7 @@
 require 'pry'
 
 class Card
-  attr_accessor :question, :answer, :category
+  attr_reader :question, :answer, :category
 
   def initialize(question, answer, category)
     @question = question
