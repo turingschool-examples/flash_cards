@@ -1,3 +1,5 @@
+require 'pry'
+
 class Card
   attr_accessor :question, :answer, :category
 
