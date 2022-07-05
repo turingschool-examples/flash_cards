@@ -1,3 +1,6 @@
+require './lib/card'
+require './lib/turn'
+
 class Turn
   attr_reader :guess, :card
   def initialize(guess, card)
