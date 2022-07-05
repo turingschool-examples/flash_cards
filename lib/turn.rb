@@ -1,5 +1,3 @@
-
-
 class Turn
   attr_reader :guess
   attr_reader :card
