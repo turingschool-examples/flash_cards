@@ -24,3 +24,9 @@ class Turn
     end
 end
 
+class Deck
+    attr_reader
+    def initialize(cards)
+        @cards = cards
+    end
+end
