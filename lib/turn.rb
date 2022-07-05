@@ -15,4 +15,10 @@ class Turn
     @guess.downcase == @card.answer.downcase
   end
 
+  def feedback
+    if correct? == true
+      "Correct!"
+    end
+  end
+
 end
