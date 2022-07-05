@@ -21,5 +21,9 @@ class Card
       p @category
     end
 
+    def category_quiet
+      return @category
+    end
+
 
 end
