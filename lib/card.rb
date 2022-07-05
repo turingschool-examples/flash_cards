@@ -6,3 +6,12 @@ class Card
         @category = category
     end
 end
+
+class Turn
+    attr_reader
+    def initialize(guess, current_card)
+        @guess = guess
+        @current_card = current_card
+    end
+end
+
