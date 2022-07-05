@@ -1,6 +1,5 @@
 require './lib/turn'
 require './lib/card'
-require 'rspec'
 
 RSpec.describe Turn do
   it 'exists' do
@@ -30,11 +29,17 @@ RSpec.describe Turn do
     expect(turn.correct?).to be true
   end
 
+  it 'can tell if an answer is incorrect' do
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Baton Rouge", card)
+    expect(turn.correct?).to be false
+  end
+
   it 'give feedback as a string depending on the guess' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
 
-    expect(turn.feedback).to eq("Correct!") #same thing here, can't access card objects
+    expect(turn.feedback).to eq("Correct!")
   end
 
 end
