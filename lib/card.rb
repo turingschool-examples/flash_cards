@@ -10,3 +10,6 @@ class Card
   end
 
 end
+
+card = Card.new("Question", "Answer", :Category)
+p card
