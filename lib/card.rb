@@ -9,9 +9,5 @@ class Card
       @category = category
     end
 
-    def category_quiet
-      return @category
-    end
-
 
 end

@@ -15,7 +15,7 @@ class Deck
     @category = category
     tally = []
     cards.each do |num|
-      if (num.category_quiet == @category)
+      if (num.category == @category)
         tally.push(num)
       end
     end
