@@ -11,8 +11,24 @@ deck = Deck.new(cards)
 round = Round.new(deck)
 
 
-
-puts "Welcome! You're playing with #{deck.count}"
+puts "Welcome! You're playing with #{deck.count} cards"
 puts "------------------------------------------------"
 
-puts "This is card number "
+puts "This is card number #{round.number_of_rounds + 1} out of #{deck.count}"
+puts "Question: #{round.current_card.question}"
+guess = gets.chomp
+new_turn = round.take_turn(guess)
+puts new_turn.feedback
+
+puts "This is card number #{round.number_of_rounds + 1} out of #{deck.count}"
+puts "Question: #{round.current_card.question}"
+guess = gets.chomp
+new_turn = round.take_turn(guess)
+puts new_turn.feedback
+
+puts "This is card number #{round.number_of_rounds + 1} out of #{deck.count}"
+puts "Question: #{round.current_card.question}"
+guess = gets.chomp
+new_turn = round.take_turn(guess)
+puts new_turn.feedback
+

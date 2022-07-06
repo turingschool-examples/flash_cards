@@ -36,7 +36,7 @@ class Round
             end
         end
 
-        return Turn.new(guess, answered_card)
+        return turn = Turn.new(guess, answered_card)
         
     end
 
