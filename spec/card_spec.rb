@@ -25,3 +25,8 @@ RSpec.describe Card do
     expect(card.category).to eq(:Geography)
   end
 end
+
+
+##Setting up test above- 1 describe block with multiple "it" statements
+#focus on .to be_instance_of and .to eq when setting up tests for project
+#don't put variables outside of the it block
