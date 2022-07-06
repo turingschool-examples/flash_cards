@@ -1,5 +1,6 @@
 require './lib/card'
 require './lib/deck'
+require './lib/turn'
 require 'rspec'
 
 RSpec.describe Deck do
@@ -8,7 +9,6 @@ RSpec.describe Deck do
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     cards = [card_1, card_2]
     deck = Deck.new(cards)
-
     expect(deck).to be_instance_of(Deck)
   end
 
