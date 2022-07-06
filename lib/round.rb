@@ -38,10 +38,21 @@ def number_correct_by_category(category)
 end
 
 def percent_correct
+  #I want this method to tell me the total number of correct turns divided
+  #by the total number of turns.
 end
-  # def shuffle
-  #   deck.rotate
-  # end
+
+def shuffle
+#I want this method to rotate the cards.
+#I'm not sure that I need this as a separate method. Perhaps I could
+#put array.rotate at the end of the turn method or something like that.
+end
+
+def percent_correct_by_category
+  # I want this method to tell me the number correct by category divided by the tota
+  # amount of cards in that category.
+end
+
 
 end
 
