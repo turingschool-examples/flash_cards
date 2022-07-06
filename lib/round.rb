@@ -41,11 +41,11 @@ class Round
     end
 
     def percent_correct
-        @number_correct / @number_of_rounds.to_f * 100
+        @number_correct * 100 / @number_of_rounds
     end
 
     def percent_correct_by_category(category)
-        correct_by_category[category] / (incorrect_by_category[category] + correct_by_category[category]).to_f * 100
+        correct_by_category[category] * 100 / (incorrect_by_category[category] + correct_by_category[category])
     end
 
     def populate_correct_by_category
