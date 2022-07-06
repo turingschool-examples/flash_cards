@@ -1,5 +1,5 @@
 class Round
-    attr_reader :deck, :turns, :number_of_rounds, :number_correct, :correct_by_category
+    attr_reader :deck, :turns, :number_of_rounds, :number_correct, :incorrect_by_category, :correct_by_category
     def initialize(deck)
         @deck = deck
         @turns = []
@@ -28,7 +28,12 @@ class Round
             else 
                 correct_by_category[answered_card.category] += 1
             end
-
+        else
+            if incorrect_by_category[answered_card.category] == nil
+                populate_incorrect_by_category
+            else
+                incorrect_by_category[answered_card.category] += 1
+            end
         end
 
         return Turn.new(guess, answered_card)
@@ -39,12 +44,16 @@ class Round
         @number_correct / @number_of_rounds.to_f * 100
     end
 
-    # def percent_correct_by_category(category)
-    #     correct_by_category[category] / turns.count
-    # end
+    def percent_correct_by_category(category)
+        correct_by_category[category] / (incorrect_by_category[category] + correct_by_category[category]).to_f * 100
+    end
 
     def populate_correct_by_category
         correct_by_category[answered_card.category] = 1
+    end
+
+    def populate_incorrect_by_category
+        incorrect_by_category[answered_card.category] = 1
     end
 
     def number_correct_by_category(category)
