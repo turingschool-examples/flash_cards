@@ -7,11 +7,23 @@ attr_reader :cards
   def initialize(cards)
     @cards = cards
 
-
   end
 
   def count
-    @cards.count
+     @cards.count
   end
+
+  def cards_in_category(desired_category)
+    @cards_of_category = []
+
+    @cards.each do |card|
+      if desired_category == card.category
+        @cards_of_category << card
+      end
+    end
+    @cards_of_category
+  end
+
+
 
 end
