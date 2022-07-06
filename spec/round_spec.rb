@@ -28,6 +28,60 @@ RSpec.describe Round do
         expect(@round.current_card).to eq(@card_1)
     end
 
+    it 'can take a turn and returns a Turn instance' do
+        new_turn = @round.take_turn("Juneau")
+
+        expect(new_turn).to be_instance_of(Turn)
+        expect(new_turn.correct?).to be true
+        expect(@round.turns).to eq([new_turn])
+    end
+
+    it 'can track the number of correct answers' do
+        @round.take_turn("Juneau")
+        expect(@round.number_correct).to eq(1)
+    end
+
+    it 'can flip to the next card after a turn' do
+        @round.take_turn("Juneau")
+        expect(@round.current_card).to eq(@card_2)
+    end
+
+    it 'can take another turn with an incorrect guess' do
+        @round.take_turn("Juneau")
+        @round.take_turn("Venus")
+
+        expect(@round.turns.length).to eq(2)
+        expect(@round.number_correct).to eq(1)
+        expect(@round.current_card).to eq(@card_3)
+        expect(@round.turns.last.feedback).to eq("Incorrect.")
+    end
+
+    it 'can track number of correct by category' do
+        @round.take_turn("Juneau")
+        @round.take_turn("Venus")
+        
+        expect(@round.number_correct_by_category(:Geography)).to eq(1)
+        expect(@round.number_correct_by_category(:STEM)).to eq(0)
+    end
+
+    it 'can track percent correct' do
+        @round.take_turn("Juneau")
+        @round.take_turn("Venus")
+
+        expect(@round.percent_correct).to eq(50.0)
+    end
+
+    it 'can track percent correct by category' do
+        @round.take_turn("Juneau")
+        @round.take_turn("Venus")
+
+        expect(@round.percent_correct_by_cateogry).to eq(100.0)
+    end
+
+    
+
+
+
 
 end
 
