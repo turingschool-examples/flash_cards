@@ -15,4 +15,15 @@ RSpec.describe Card do
       expect(@deck).to be_instance_of(Deck)
     end
   end
+  describe '#count' do
+    it 'it can count the number of cards' do
+      expect(@cards.count).to eq(3)
+    end
+  end
+
+  describe '#cards in category' do
+    it 'counts cards by category given' do
+      expect(@deck.cards_in_category(:STEM)).to eq([@card_2, @card_3])
+    end
+  end
 end
