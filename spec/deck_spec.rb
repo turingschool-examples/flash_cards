@@ -30,12 +30,12 @@ cards = [card_1, card_2, card_3]
       deck = Deck.new(cards)
 
     expect(deck.cards_in_category(:STEM)).to be_a(Array)
-    expect(deck.cards_in_category(:STEM).count).to eq(2)
+    expect(deck.cards_in_category(:STEM)).to eq([card_2, card_3])
 
     expect(deck.cards_in_category(:Geography)).to be_a(Array)
-    expect(deck.cards_in_category(:Geography).count).to eq(1)
+    expect(deck.cards_in_category(:Geography)).to eq([card_1])
 
     expect(deck.cards_in_category("Pop Culture")).to be_a(Array)
-    expect(deck.cards_in_category("Pop Culture").count).to eq(0)
+    expect(deck.cards_in_category("Pop Culture")).to eq([])
   end
 end
