@@ -9,7 +9,7 @@ class Round
 
     def initialize(deck)
         @deck = deck
-        @current_card = deck.first
+        @current_card = deck.cards.first
         @turns = []
     end
 

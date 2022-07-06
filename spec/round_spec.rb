@@ -1,6 +1,5 @@
 require './lib/deck'
 require './lib/turn'
-require './lib/card'
 require './lib/round'
 
 RSpec.describe Round do
@@ -32,7 +31,7 @@ RSpec.describe Round do
         deck = Deck.new([card_1, card_2, card_3])
         round = Round.new(deck)
 
-        expect(round.turn).to eq([])
+        expect(round.turns).to eq([])
     end
 
     it 'contains a current card that defaults to the first in the deck' do
@@ -44,7 +43,7 @@ RSpec.describe Round do
 
         expect(round.current_card).to eq(card_1)
     end
-    
+
 end
 
 
