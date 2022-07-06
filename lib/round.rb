@@ -30,4 +30,14 @@ class Round
         @number_correct / @number_of_rounds.to_f * 100
     end
 
+    # def percent_correct_by_category(category)
+    #     correctly_answered_turns_categories = []
+    #     turns.each do |turn|
+    #         if card.category == card.guess
+    #             correctly_answered_turns_categories << "correct #{card.category}"
+    #         else
+    #             correctly_answered_turns_categories << "correct #{card.category}"
+    #         end
+    #     end
+    # end
 end
