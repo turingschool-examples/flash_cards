@@ -75,13 +75,8 @@ RSpec.describe Round do
         @round.take_turn("Juneau")
         @round.take_turn("Venus")
 
-        expect(@round.percent_correct_by_cateogry).to eq(100.0)
+        expect(@round.percent_correct_by_category(:Geography)).to eq(100.0)
     end
-
-    
-
-
-
 
 end
 

@@ -33,4 +33,18 @@ class Round
         end
     end
 
+    def percent_correct
+        @number_correct.to_f / @turns.length * 100
+    end
+
+    def number_of_turns_by_category(category)
+        @turns.count do |turn|
+            turn.card.category == category
+        end
+    end
+    
+    def percent_correct_by_category(category)
+        self.number_correct_by_category(category).to_f / self.number_of_turns_by_category(category) * 100
+    end
+
 end
