@@ -24,4 +24,11 @@ class Round
     self.turns << new_turn
     new_turn
   end
+
+  def number_correct
+    correct_answers = 0
+    if self.turns.last.guess == self.turns.last.card.answer
+      correct_answers += 1
+    end
+  end
 end
