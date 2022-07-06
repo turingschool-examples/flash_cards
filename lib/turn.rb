@@ -1,4 +1,4 @@
-#require 'card'
+require 'card'
 
 class Turn
   attr_reader :guess, :card, :is_correct
