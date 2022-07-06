@@ -5,7 +5,7 @@ class Round
         @turns = []
         @number_of_rounds = 0
         @number_correct = 0
-        @correct_by_category = []
+        @correct_by_category = Hash.new
     end
 
     def current_card
@@ -22,7 +22,14 @@ class Round
         @number_of_rounds += 1
         if current_turn.correct? == true
             @number_correct += 1
+            if correct_by_category[answered_card.category] == nil
+                populate_correct_by_category
+            else 
+                correct_by_category[answered_card.category] += 1
+            end
+
         end
+
         return Turn.new(guess, answered_card)
         
     end
@@ -32,17 +39,12 @@ class Round
     end
 
     def populate_correct_by_category
-        correct_by_category = []
-        turns.each do |turn|
-            if turn.correct? == true
-                correct_by_category << "correct #{turn.card.category}"
-            else
-                correct_by_category << "incorrect #{turn.card.category}"
-            end
-        end
+        correct_by_category[answered_card.category] = 1
     end
 
-    def number_correct_by_category
-
+    def number_correct_by_category(category)
+        populate_correct_by_category
+        correct_by_category.count("correct #{category}")
     end
+
 end

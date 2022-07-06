@@ -33,9 +33,11 @@ require './lib/round'
             deck = Deck.new(cards)
             round = Round.new(deck)
             round.take_turn("Juneau")
-            round.take_turn("Venus")
-            round.take_turn("North North West")
             require 'pry'; binding.pry
+            round.take_turn("Venus")
+  
+            round.take_turn("North North West")
+            
 
 
         end
