@@ -8,14 +8,14 @@ class Turn
     @is_correct = guess == @card.answer
   end
 
-  def guess()
-    @guess
-  end
-
-  def card()
-    @card
-  end
-
+  # def guess()
+  #   @guess
+  # end
+  #
+  # def card()
+  #   @card
+  # end
+  #
   def correct?()
     @is_correct
   end
