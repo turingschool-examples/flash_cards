@@ -25,8 +25,12 @@ class Turn
 end
 
 class Deck
-    attr_reader
+    attr_reader :cards
     def initialize(cards)
         @cards = cards
+    end
+
+    def count
+        cards.count
     end
 end
