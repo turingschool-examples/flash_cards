@@ -1,13 +1,10 @@
 require './lib/card.rb'
 
 class Deck
+  attr_reader :cards
 
   def initialize(cards)
     @cards = cards
-  end
-
-  def cards
-    return @cards
   end
 
   def count
@@ -22,6 +19,6 @@ class Deck
         tally.push(num)
       end
     end
-    p tally
+    tally
   end
 end

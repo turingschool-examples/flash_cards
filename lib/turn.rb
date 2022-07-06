@@ -9,14 +9,6 @@ class Turn
     @card = card
   end
 
-  def guess
-    p @guess
-  end
-
-  def card
-    p @card
-  end
-
   def correct?
     if @guess == @card.answer
       return true
