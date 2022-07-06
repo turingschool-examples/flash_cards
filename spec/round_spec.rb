@@ -29,7 +29,7 @@ RSpec.describe(Round) do
     expect(@round.current_card).to(eq(@card_1))
   end
 
-  it("new turn is a Guess") do
+  it("new turn is a Turn class") do
     @new_turn = @round.take_turn("Juneau")
     expect(@new_turn).to(be_a(Turn))
   end
@@ -41,10 +41,16 @@ RSpec.describe(Round) do
 
   it("has turns") do
     @new_turn = @round.take_turn("Juneau")
-    expect(@round.turns).to(eq(@new_turn))
+    expect(@round.turns).to(eq([@new_turn]))
   end
 
-  xit("counts the turns") do
-    expect(@round.turns.count).to(eq(2))
+  it("counts the turns") do
+    @new_turn = @round.take_turn("Juneau")
+    expect(@round.turns.count).to(eq(1))
+  end
+
+  it("number correct") do
+    @new_turn = @round.take_turn("Juneau")
+    expect(@round.number_correct).to(eq(1))
   end
 end
