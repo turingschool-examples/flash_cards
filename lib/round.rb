@@ -14,7 +14,11 @@ class Round
     def take_turn(guess)
         current_turn = Turn.new(guess, current_card)
         turns << current_turn
-        
+        @number_of_rounds += 1
+        if current_turn.correct? == true
+            @number_correct += 1
+        end
+        return Turn.new(guess, current_card)
     end
 
 end
