@@ -11,6 +11,10 @@ class Round
         deck.cards.at(number_of_rounds)
     end
 
+    def answered_card
+        deck.cards.at((number_of_rounds)-1)
+    end
+
     def take_turn(guess)
         current_turn = Turn.new(guess, current_card)
         turns << current_turn
@@ -18,7 +22,12 @@ class Round
         if current_turn.correct? == true
             @number_correct += 1
         end
-        return Turn.new(guess, current_card)
+        return Turn.new(guess, answered_card)
+        
+    end
+
+    def percent_correct
+        @number_correct / @number_of_rounds.to_f * 100
     end
 
 end
