@@ -17,17 +17,17 @@ RSpec.describe Round do
   end
 
   it 'can utilize turns' do
-    round.deck
-    expect(round.turns).to eq([])
-    round.current_card
+    @round.deck
+    expect(@round.turns).to eq([])
+    @round.current_card
 
-    new_turn = round.take_turn("Juneau")
+    new_turn = @round.take_turn("Juneau")
 
     expect(new_turn.class).to be_instance_of(Turn)
     expect(new_turn.correct?).to eq(true)
-    round.turns
+    @round.turns
 
   end
 
-  
+
 end
