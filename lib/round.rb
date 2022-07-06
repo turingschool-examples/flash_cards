@@ -11,5 +11,7 @@ class Round
     @turns = turns
   end
 
-
+  def current_card
+    self.deck.cards.first
+  end
 end
