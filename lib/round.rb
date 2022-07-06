@@ -14,4 +14,14 @@ class Round
   def current_card
     self.deck.cards.first
   end
+
+  # # take_turn method
+  # Pass an answer to the round.take_turn method.
+  # This answer is fed into a new instance of Turn, along with the corresponding (first) card.
+
+  def take_turn(answer, card = self.current_card)
+    new_turn = Turn.new(answer, card)
+    self.turns << new_turn
+    new_turn
+  end
 end
