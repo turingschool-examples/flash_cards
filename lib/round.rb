@@ -6,6 +6,7 @@ class Round
         @number_of_rounds = 0
         @number_correct = 0
         @correct_by_category = Hash.new
+        @incorrect_by_category = Hash.new
     end
 
     def current_card
@@ -38,13 +39,16 @@ class Round
         @number_correct / @number_of_rounds.to_f * 100
     end
 
+    # def percent_correct_by_category(category)
+    #     correct_by_category[category] / turns.count
+    # end
+
     def populate_correct_by_category
         correct_by_category[answered_card.category] = 1
     end
 
     def number_correct_by_category(category)
-        populate_correct_by_category
-        correct_by_category.count("correct #{category}")
+        correct_by_category[category]
     end
 
 end
