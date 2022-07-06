@@ -9,4 +9,8 @@ class Deck
     @cards = cards
   end
 
+  def count
+    self.cards.count
+  end
+
 end
