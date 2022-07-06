@@ -32,11 +32,18 @@ RSpec.describe Turn do
     expect(turn.guess).to eq(card.answer)
   end
 
-  it 'provides feeback' do
+  it 'provides feedback' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
 
     expect(turn.feedback).to eq("Correct!")
+  end
+
+  it 'handles wrong answers' do
+    card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+    turn = Turn.new("Saturn", card)
+
+    expect(turn.feedback).to eq("Incorrect.")    
   end
 
 
