@@ -30,11 +30,18 @@ RSpec.describe Turn do
     expect(turn.correct?).to eq(true)
   end
 
-  it 'prints feedback based on guess' do
+  it 'prints feedback based on correct guess' do
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card_1)
 
     expect(turn.feedback).to eq("Correct!")
+  end
+
+  it 'prints feedback based on incorrect guess' do
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Dallas", card_1)
+
+    expect(turn.feedback).to eq("Incorrect.")
   end
 
 end
