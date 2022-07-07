@@ -28,9 +28,9 @@ RSpec.describe Turn do
         expect(turn.correct?).to eq(false)
     end
 
-    xit 'gives_feedback' do
+    it 'gives_feedback' do
         turn = Turn.new("Saturn", card)
 
-        expect(turn.feedback).to eq("Correct!")
+        expect(turn.feedback).to eq("Incorrect.")
     end
 end
