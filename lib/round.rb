@@ -57,7 +57,7 @@ class Round
     end
 
     def number_correct_by_category(category)
-        correct_by_category[category]
+        correct_by_category[category].to_i
     end
 
     def make_category_list
