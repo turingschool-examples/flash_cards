@@ -1,9 +1,10 @@
 class Round 
-    attr_reader :deck, :turns
+    attr_reader :deck, :turns, :correct
 
     def initialize(deck)
         @deck = deck
         @turns = []
+        @correct = 0
     end     
     
     def current_card
@@ -12,8 +13,11 @@ class Round
 
     def take_turn(guess)
         # takes a string representing the guess
-        # create a new turn object with guess and Card
-        # store new turn and return it from the method
-        # round should move to next card in deck
+        if guess == current_card.answer
+            @correct += 1
+        end 
+        new_turn = Turn.new(guess, current_card)
+        @turns << new_turn
+        deck.cards.delete_at(0)
     end 
 end 
