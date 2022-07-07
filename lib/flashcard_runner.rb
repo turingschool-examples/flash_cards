@@ -41,13 +41,8 @@ class Runner
             puts "#{cat.to_s.tr('_',' ').tr(':','')} - #{@round.percent_correct_by_category(cat).to_i}% correct"
         end
         puts "\n"
-
     end
 end
 
 game = Runner.new
 game.start
-
-
-        
-

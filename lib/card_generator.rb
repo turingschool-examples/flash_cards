@@ -21,10 +21,4 @@ class CardGenerator
         end
         return @temp_deck
     end
-
 end
-
-
-
-
-
