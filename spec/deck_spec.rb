@@ -8,10 +8,16 @@ RSpec.describe Deck do
 
     cards = [card_1, card_2, card_3]
 
-    xit 'exists' do
+    it 'exists' do
         deck = Deck.new(cards)
 
         expect(deck).to be_instance_of(Deck)
+    end
+
+    it 'has cards' do
+        deck = Deck.new(cards)
+
+        expect(deck.cards).to eq(cards)
     end
 
 end
