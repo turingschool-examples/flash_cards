@@ -86,4 +86,13 @@ RSpec.describe Round do
 
     end
   end
+
+  describe '#percent correct' do
+    it 'returns the total percent correct' do
+      @round.take_turn("Juneau")
+      @round.take_turn("Venus")
+
+      expect(@round.percent_correct).to eq(50.0)
+    end 
+  end
 end

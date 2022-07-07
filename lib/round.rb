@@ -38,5 +38,9 @@ class Round
     correct_by_category
   end
 
+  def percent_correct
+    (@number_correct / turns.length.to_f) * 100.0 
+  end
+
 
 end
