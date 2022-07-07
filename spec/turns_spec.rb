@@ -16,16 +16,16 @@ RSpec.describe Turn do
         expect(turn.card).to eq(card)
     end
 
-    xit 'returns a guess' do
+    it 'returns a guess' do
         turn = Turn.new("Saturn", card)
 
         expect(turn.guess).to eq("Saturn")
     end
 
-    xit 'is_guess_correct?' do
+    it 'is_guess_correct?' do
         turn = Turn.new("Saturn", card)
 
-        expect(turn.correct?).to eq(true)
+        expect(turn.correct?).to eq(false)
     end
 
     xit 'gives_feedback' do
