@@ -100,7 +100,7 @@ RSpec.describe Round do
     expect(round.number_correct_by_category(:STEM)).to eq(0)
   end
 
-  xit 'calculates percent correct' do
+  it 'calculates percent correct' do
     round = Round.new(deck)
     round.take_turn(card_1.answer)
     round.take_turn("Venus")
@@ -108,7 +108,7 @@ RSpec.describe Round do
     expect(round.percent_correct).to eq(50.0)
   end
 
-  xit 'calculates percent correct by category' do
+  it 'calculates percent correct by category' do
     round = Round.new(deck)
     round.take_turn(card_1.answer)
     round.take_turn("Venus")
@@ -116,12 +116,12 @@ RSpec.describe Round do
     expect(round.percent_correct_by_category(:Geography)).to eq(100.0)
   end
 
-  xit '#current_card can pull last card after two guesses' do
+  it '#current_card can pull last card after two guesses' do
     round = Round.new(deck)
     round.take_turn(card_1.answer)
     round.take_turn("Venus")
 
-    expect(round.current_card).to eq(card_2)
+    expect(round.current_card).to eq(card_3)
   end
 
 end

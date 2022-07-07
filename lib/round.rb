@@ -32,6 +32,16 @@ class Round
     def number_correct_by_category(category)
         @turns.select {|turn| turn.guess == turn.card.answer && turn.card.category == category}.count
     end
+
+    def percent_correct
+        (((@turns.select {|turn| turn.guess == turn.card.answer }.count.to_f) / (@turns.count).to_f) * 100 ).round(1)
+    end
+
+    def percent_correct_by_category(category)
+        (((@turns.select {|turn| turn.guess == turn.card.answer && turn.card.category == category}.count.to_f) / (@turns.select {|turn| turn.card.category == category }.count).to_f) * 100 ).round(1)
+    end
+
+    
 end
 
 
