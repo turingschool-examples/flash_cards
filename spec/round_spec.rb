@@ -48,10 +48,11 @@ RSpec.describe Round do
   end
 
   it 'keep track of number correct' do
-    expect()
+    expect(@round.turns).to eq(1)
   end
 
   it 'can take another turn' do
     @round.take_turn("Venus")
-    expect()
+    expect(@turn).to eq()
+  end
 end
