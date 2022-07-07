@@ -13,43 +13,31 @@ class Round
     @correct_turns = []
   end
 
-
   def take_turn(string_as_guess)
     new_turn = Turn.new(string_as_guess, current_card)
     @turns << new_turn
-    @current_card = deck.cards.rotate![0] #this is working in pry as expected but
-    # isn't changing cards when it really matters.
+    @current_card = deck.cards.rotate![0]
+    @correct_turns << new_turn if new_turn.correct?
     new_turn
   end
 
   def number_correct
-    turns.each do |turn|
-      if turn.correct?
-        correct_turns << turn
-      end
-    end
-    correct_turns.size
+    turns.select { |turn| turn.correct? }.size
   end
 
-def number_correct_by_category(category)
-  turns.each do |turn|
-    if turn.correct? && turn.card.category == category
-      correct_turns << turn
-    end
+  def number_correct_by_category(category)
+    turns.select { |turn| turn.correct? && turn.card.category == category}.size
   end
-  correct_turns.size
-end
 
-def percent_correct
-   denominator = turns.size
-   numerator = correct_turns.size
-   ((numerator.to_f/denominator).round(2)) * 100
-end
+  def percent_correct
+    ((turns.select { |turn| turn.correct? }.size).to_f / (turns.size)*100).round(1)
+  end
 
-def percent_correct_by_category(category)
-  numerator = correct_turns.size
-  denominator = turns.size
-  ((numerator.to_f/denominator).round(2)) * 100
-end
+  def percent_correct_by_category(category)
+    ((turns.select { |turn| turn.correct? && turn.card.category == category}.size).to_f /
+    (correct_turns.select { |turn| turn.card.category == category}.size)*100).round(1)
+  end
+
+
 
 end

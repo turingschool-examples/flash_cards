@@ -12,4 +12,3 @@ class Card
 end
 
 card = Card.new("Question", "Answer", :Category)
-p card
