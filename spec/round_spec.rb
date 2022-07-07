@@ -4,7 +4,6 @@ require './lib/deck'
 require './lib/round'
 
     RSpec.describe Round do
-        before(:each) do
 
         it 'exists' do
             card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
