@@ -51,5 +51,27 @@ class Round
     end
     (number_correct_by_category(category).to_f / number_in_category.to_f) * 100.0
   end
-  
+
+  def start
+    puts "Welcome to FlashCards you are playing with #{deck.cards.count} cards"
+    puts "--------------------------------------------------------------------"
+    deck.cards.count.times do
+      show_card
+    end
+
+    puts "****************************GAME OVER********************************"
+    puts "You had #{number_correct} guesses out of #{turns.count} for a total score of #{percent_correct}%"
+    puts "STEM - #{percent_correct_by_category(:STEM)}% Correct"
+    puts "Turing Staff - #{percent_correct_by_category(:Turing_staff)}% Correct"
+    puts "Pop Culture - #{percent_correct_by_category(:Pop_Culture)}% Correct"
+
+  end
+
+  def show_card
+    puts "This is card number #{turns.count + 1} out of #{deck.cards.count}"
+    puts "Question:  #{current_card.question}"
+    guess = gets.chomp
+    turn = take_turn(guess)
+    puts turn.feedback
+  end
 end
