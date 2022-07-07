@@ -3,7 +3,7 @@ require './lib/turn.rb'
 require './lib/deck.rb'
 require './lib/round.rb'
 
-RSpec.describe Turn do
+RSpec.describe Round do
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
@@ -26,7 +26,7 @@ RSpec.describe Turn do
   it 'has turns' do
     round = Round.new(deck)
 
-    expect(round.turn).to be_a(Array)
+    expect(round.turns).to be_a(Array)
   end
 
 
@@ -40,7 +40,7 @@ RSpec.describe Turn do
     round = Round.new(deck)
     new_turn = round.take_turn("Juneau")
 
-    expect(new_turn.class).to be_a(Turn)
+    expect(new_turn).to be_instance_of(Turn)
   end
   
 
@@ -64,20 +64,62 @@ RSpec.describe Turn do
 
   end
 
+  it 'stores the right # of guesses' do
+    round = Round.new(deck)
+    round.take_turn(card_1.answer)
+    round.take_turn("arbitrarily wrong")
+    round.take_turn("arbitrarily wrong")
+    
+
+    expect(round.turns.count).to eq(3)
+  end
 
   it 'counts correct guesses' do
     round = Round.new(deck)
-    turn_one = round.take_turn(card_1.answer)
-    turn_two = round.take_turn("arbitrarily wrong")
-    turn_three = round.take_turn("arbitrarily wrong")
-    rounds = [turn_one, turn_two, turn_three]
+    round.take_turn(card_1.answer)
+    round.take_turn("arbitrarily wrong")
+    round.take_turn("arbitrarily wrong")
+    
 
-    expect(rounds.number_correct).to eq(1)
+    expect(round.number_correct).to eq(1)
   end
 
   it 'advances turn' do
     round = Round.new(deck)
     turn_one = round.take_turn(card_1.answer)
+
+    expect(round.current_card).to eq(card_2)
+  end
+
+  it 'counts correct guesses by category' do
+    round = Round.new(deck)
+    round.take_turn(card_1.answer)
+    round.take_turn("Venus")
+    
+    expect(round.number_correct_by_category(:Geography)).to eq(1)
+    expect(round.number_correct_by_category(:STEM)).to eq(0)
+  end
+
+  xit 'calculates percent correct' do
+    round = Round.new(deck)
+    round.take_turn(card_1.answer)
+    round.take_turn("Venus")
+    
+    expect(round.percent_correct).to eq(50.0)
+  end
+
+  xit 'calculates percent correct by category' do
+    round = Round.new(deck)
+    round.take_turn(card_1.answer)
+    round.take_turn("Venus")
+    
+    expect(round.percent_correct_by_category(:Geography)).to eq(100.0)
+  end
+
+  xit '#current_card can pull last card after two guesses' do
+    round = Round.new(deck)
+    round.take_turn(card_1.answer)
+    round.take_turn("Venus")
 
     expect(round.current_card).to eq(card_2)
   end

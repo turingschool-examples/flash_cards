@@ -5,8 +5,8 @@ class Turn
   attr_reader :card
 
   def initialize(guess, card)
-    @guess = guess
     @card = card
+    @guess = guess
   end
 
   def correct?

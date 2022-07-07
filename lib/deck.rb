@@ -1,4 +1,4 @@
-require './lib/card.rb'
+require './lib/card'
 
 class Deck
   attr_reader :cards
@@ -7,14 +7,18 @@ class Deck
     @cards = cards
   end
 
+  def card_at(index)
+    @cards[index]
+  end
+
   def count
-    return cards.count
+    @cards.count
   end
 
   def cards_in_category(category)
     @category = category
     tally = []
-    cards.each do |num|
+    @cards.each do |num|
       if (num.category == @category)
         tally.push(num)
       end
