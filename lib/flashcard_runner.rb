@@ -38,7 +38,7 @@ class Runner
         end
 
         cats.each do |cat|
-            puts "#{cat.to_s.tr('_',' ')} - #{@round.percent_correct_by_category(cat).to_i}% correct"
+            puts "#{cat.to_s.tr('_',' ').tr(':','')} - #{@round.percent_correct_by_category(cat).to_i}% correct"
         end
         puts "\n"
 

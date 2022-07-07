@@ -16,10 +16,9 @@ class Deck
   end
 
   def cards_in_category(category)
-    @category = category
     tally = []
     @cards.each do |num|
-      if (num.category == @category)
+      if (num.category == category)
         tally.push(num)
       end
     end
