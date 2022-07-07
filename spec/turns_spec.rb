@@ -10,7 +10,7 @@ RSpec.describe Turn do
         expect(turn).to be_instance_of(Turn)
     end
 
-    xit 'returngi s a card' do
+    it 'returngis a card' do
         turn = Turn.new("Saturn", card)
 
         expect(turn.card).to eq(card)
