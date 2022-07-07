@@ -27,10 +27,12 @@ round.start
 # run through questions, providing feedback for correct or incorrect answers
 (round.total_cards).times do
     puts "This is card number #{round.turn_count} out of #{round.total_cards}."
+    puts " "
     puts "Question: #{round.current_card.question}"
     # gather and clean up user input
     answer = gets.chomp.split.map(&:capitalize).join(" ")
     round.take_turn(answer, round.current_card)
+    puts " "
     puts round.turns.last.feedback
     puts " "
 end
@@ -39,7 +41,7 @@ end
 puts "*" * 5 + "Game over!" + "*" * 5
 
 # display total percentage of correct answers
-puts "You had #{round.correct_answers} correct guesses out of #{round.total_cards} for a total score of %#{round.percent_correct}."
+puts "You had #{round.correct_answers} correct guesses out of #{round.total_cards} for a total score of %#{'%.1f' % (round.percent_correct)}."
 
 # display percent correct by categories
 round.categories.each do |category|
