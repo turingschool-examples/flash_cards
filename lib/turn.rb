@@ -9,10 +9,15 @@ attr_reader :guess, :card, :feedback
   def correct?
     if @guess == card.answer
       true
-      @feedback = "Correct!"
     else false
-      @feedback = "Incorrect."
     end
+  end 
+
+  def feedback
+    if @guess == card.answer
+      'Correct!'
+    else 'Incorrect.'
+    end 
   end
 
 end
