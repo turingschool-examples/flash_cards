@@ -21,12 +21,11 @@ class Round
   end
 
   def take_turn(answer, card = self.current_card)
-    self.deck.cards.shift
-    @turn_count += 1
+    @deck.cards.shift
+    @turn_count += 1 # do I need this? (could just use turns.count where it's needed)
     new_turn = Turn.new(answer, card)
-    self.turns << new_turn
-    # refactor this using the .correct? method from Turn class
-    if self.turns.last.guess == self.turns.last.card.answer
+    @turns << new_turn
+    if @turns.last.correct? == true
       @correct_answers += 1
     end
     new_turn
