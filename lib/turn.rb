@@ -9,11 +9,11 @@ class Turn
     end
 
     def correct?
-        @guess == @card.answer
+        @guess == @card.answer.downcase
     end
 
     def feedback
-        self.correct? ? "Correct!" : "Incorrect."
+        self.correct? ? "Correct!" : "Incorrect. The correct answer is #{@card.answer}."
     end
 
 end
