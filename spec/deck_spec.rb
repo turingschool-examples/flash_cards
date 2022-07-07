@@ -23,7 +23,14 @@ RSpec.describe Deck do
     it 'counts how many cards in deck' do
         deck = Deck.new(cards)
 
-        expect(deck.count).to eq(3)
+        expect(deck.cards_in_deck).to eq(3)
+    end
+
+    it 'counts how many cards has category' do
+        deck = Deck.new(cards)
+
+        expect(deck.cards_in_category(:STEM)).to eq(2)
+        
     end
 
 end
