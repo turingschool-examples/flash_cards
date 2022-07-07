@@ -17,7 +17,7 @@ class Round
   end
 
   def current_card
-    self.deck.cards.first
+    deck.cards.first
   end
 
   def take_turn(answer, card = self.current_card)
@@ -44,7 +44,7 @@ class Round
   # the number correct by category method needs to take a category as an argument. it should make an array of cards that include that category. it should then test that array for correct answers (answer == guess) and return the total number of correct answers.
   def number_correct_by_category(cat)
     num_by_cat = 0
-    self.turns.each do |turn|
+    turns.each do |turn|
       if turn.correct? && turn.card.category == cat
         num_by_cat =+ 1
       end
@@ -56,18 +56,18 @@ class Round
   
     def percent_correct_by_category(cat)
       total_by_cat = 0
-      self.turns.each do |turn|
+      @turns.each do |turn|
         if turn.card.category == cat
           total_by_cat += 1
         end
       end
-      (self.number_correct_by_category(cat).to_f / total_by_cat) * 100
+      (number_correct_by_category(cat).to_f / total_by_cat) * 100
     end
 
     # Add a method to start the game
     def start
-      @total_cards = self.deck.cards.count
-      self.collect_category
+      @total_cards = deck.cards.count
+      collect_category
       puts "\n\n"
       puts "Welcome! You're playing with #{@total_cards} cards."
       puts "-"*30
@@ -75,8 +75,8 @@ class Round
 
     # Add a collect category method to handle end game feedback
     def collect_category
-      self.deck.cards.each do |card|
-        if self.categories.include?(card.category) == false
+      deck.cards.each do |card|
+        if categories.include?(card.category) == false
           @categories << card.category
         end
       end
