@@ -2,7 +2,7 @@ require './lib/card'
 
 RSpec.describe Card do
   # Uses before method to repeat code below for each it method
-  before (:each) do
+  before(:each) do
     @card = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
   end
   it 'exists' do
