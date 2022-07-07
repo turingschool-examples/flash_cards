@@ -32,6 +32,11 @@ class Round
     @correct_answers
   end
 
+# The percent correct method will take in correct_answers, convert it to a float, and divide it by the number of turns taken so far
+  def percent_correct
+    (@correct_answers.to_f / self.turns.count) * 100
+  end
+
 # the number correct by category method needs to take a category as an argument. it should make an array of cards that include that category. it should then test that array for correct answers (answer == guess) and return the total number of correct answers.
   def number_correct_by_category(cat)
     num_by_cat = 0
