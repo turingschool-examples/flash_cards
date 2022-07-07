@@ -5,7 +5,6 @@ require './lib/round.rb'
 
 class Runner
 
-
     def initialize
         card_1 = Card.new("What is 5 + 5?", "10", :Math)
         card_2 = Card.new("What is Rachel's favorite animal?", "Owl", :Turing_Staff)
@@ -28,12 +27,16 @@ class Runner
         puts "\n"
         puts "****** Game over! ******"
         puts "You had #{@round.number_correct} correct guess out of #{@round.deck.count} for a total score of #{(@round.percent_correct).to_i}%"
+        
+        
         cats = []
+
         @deck.cards.each do |card|
             if (cats.include?(card.category)) != true
                 cats << card.category
             end
         end
+
         cats.each do |cat|
             puts "#{cat.to_s.tr('_',' ')} - #{@round.percent_correct_by_category(cat).to_i}% correct"
         end

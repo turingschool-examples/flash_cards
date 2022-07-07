@@ -5,8 +5,6 @@ require './lib/deck.rb'
 class Round
     attr_reader :deck, :turns, :card_index
      
-    
-
     def initialize(deck)
         @deck = deck 
         @turns = []
