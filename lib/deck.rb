@@ -13,7 +13,4 @@ class Deck
         cards.select { |card| card.category == (category) }
     end
 
-    # def card_categories_count(category)
-    #     card_categories.count(category)
-    # end
 end
