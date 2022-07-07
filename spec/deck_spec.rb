@@ -30,6 +30,8 @@ RSpec.describe Deck do
         deck = Deck.new(cards)
 
         expect(deck.cards_in_category(:STEM)).to eq(2)
+        expect(deck.cards_in_category(:Geography)).to eq(1)
+        expect(deck.cards_in_category("Pop Culture")).to eq(0)
         
     end
 
