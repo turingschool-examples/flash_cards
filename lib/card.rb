@@ -8,3 +8,6 @@ attr_reader :question, :answer, :category
     @category = category
     end 
 end 
+
+
+
