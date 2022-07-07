@@ -3,10 +3,10 @@ require './lib/card'
 
 RSpec.describe Turn do
 
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
     
     it 'exists' do
-        turn = Turn.new("Juneau", card)
+        turn = Turn.new("Saturn", card)
         expect(turn).to be_instance_of(Turn)
     end
 
@@ -30,7 +30,7 @@ RSpec.describe Turn do
 
     it 'gives_feedback' do
         turn = Turn.new("Juneau", card)
-        
+
         expect(turn.feedback).to eq("Correct!")
     end
 end
