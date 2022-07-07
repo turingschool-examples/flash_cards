@@ -74,4 +74,16 @@ RSpec.describe Round do
       expect(@round.turns.last.feedback).to eq("Incorrect.")
     end
   end
+
+  describe '#number correct by category' do
+    it 'returns the number of correct answers by category' do
+      @round.take_turn("Juneau")
+      @round.take_turn("Venus")
+
+      expect(@round.number_correct).to eq(1)
+      expect(@round.number_correct_by_category(:Geography)).to eq(1)
+      expect(@round.number_correct_by_category(:STEM)).to eq(0)
+
+    end
+  end
 end

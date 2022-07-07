@@ -25,4 +25,18 @@ class Round
     deck.cards.rotate!
     turn
   end
+
+  def number_correct_by_category(category)
+    correct_by_category = 0
+    turns.each do |turn|
+      if turn.card.category == category
+        if turn.correct?
+          correct_by_category += 1
+        end
+      end
+    end
+    correct_by_category
+  end
+
+
 end
