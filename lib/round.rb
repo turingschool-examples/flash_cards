@@ -17,6 +17,42 @@ class Round
         @number_correct = 0
     end
 
+    def start
+        puts "Welcome! You're playing with #{@deck.count} cards."
+        puts "-------------------------------------------------"
+        self.ask_question
+    end
+
+    def ask_question
+        puts "This is card number #{@current_card_index + 1} out of #{@deck.count}"
+        puts "Questions: #{@current_card.question}"
+        self.get_answer
+    end
+
+    def get_answer
+        print "Answer: "
+        guess = gets.chomp.downcase
+        puts self.take_turn(guess).feedback
+        puts ""
+        if self.round_over?
+            self.game_over
+        else
+            self.ask_question
+        end
+    end
+
+    def round_over?
+        @current_card_index == @deck.count
+    end
+
+    def game_over
+        puts "****** Game over! ******"
+        puts "You had #{@number_correct} correct guesses out of #{@deck.count} for a total score of #{self.percent_correct}%."
+        puts "Math - #{self.percent_correct_by_category("Math")}% correct."
+        puts "Geography - #{self.percent_correct_by_category("Geography")}% correct."
+        puts "STEM - #{self.percent_correct_by_category("STEM")}% correct."
+    end
+
     def take_turn(guess)
         turn = Turn.new(guess, @current_card)
         @turns << turn
