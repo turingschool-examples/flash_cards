@@ -20,4 +20,10 @@ RSpec.describe Deck do
         expect(deck.cards).to eq(cards)
     end
 
+    it 'counts how many cards in deck' do
+        deck = Deck.new(cards)
+
+        expect(deck.count).to eq(3)
+    end
+
 end
