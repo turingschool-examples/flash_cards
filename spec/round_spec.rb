@@ -34,7 +34,7 @@ require './lib/round'
             round = Round.new(deck)
             round.take_turn("Juneau")
             round.take_turn("Mars")
-            round.take_turn("North north west")
+            round.take_turn("North North west")
             require 'pry'; binding.pry
 
 

@@ -45,7 +45,7 @@ class Round
     end
 
     def percent_correct_by_category(category)
-        correct_by_category[category] * 100 / (incorrect_by_category[category] + correct_by_category[category])
+        correct_by_category[category].to_i * 100 / (incorrect_by_category[category].to_i + correct_by_category[category].to_i)
     end
 
     def populate_correct_by_category
@@ -60,5 +60,13 @@ class Round
         correct_by_category[category]
     end
 
-    
+    def make_category_list
+        categories = correct_by_category.keys + incorrect_by_category.keys
+        categories.uniq!
+        printable_categories = []
+        categories.each do |category| 
+            printable_categories << (category).to_s + " - " + (percent_correct_by_category(category)).to_s + "% correct"
+        end
+        return printable_categories
+    end
 end

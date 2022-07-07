@@ -33,5 +33,6 @@ new_turn = round.take_turn(guess)
 puts new_turn.feedback
 
 puts "****** Game over! ******"
-puts "You had #{round.number_correct} correct guess out of #{round.number_of_rounds} for a total score of #{round.percent_correct}"
-require 'pry'; binding.pry
+puts "You had #{round.number_correct} correct guesses out of #{round.number_of_rounds} for a total score of #{round.percent_correct}%"
+puts round.make_category_list
+puts "-------------------------------------------------"
