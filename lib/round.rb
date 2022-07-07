@@ -21,6 +21,7 @@ class Round
     self.deck.cards.shift
     new_turn = Turn.new(answer, card)
     self.turns << new_turn
+    # refactor this using the .correct? method from Turn class
     if self.turns.last.guess == self.turns.last.card.answer
       @correct_answers += 1
     end
@@ -30,4 +31,16 @@ class Round
   def number_correct
     @correct_answers
   end
+
+# the number correct by category method needs to take a category as an argument. it should make an array of cards that include that category. it should then test that array for correct answers (answer == guess) and return the total number of correct answers.
+  def number_correct_by_category(cat)
+    num_by_cat = 0
+    self.turns.each do |turn|
+      if turn.correct? && turn.card.category == cat
+        num_by_cat =+ 1
+      end
+    end
+    num_by_cat
+  end
+
 end
