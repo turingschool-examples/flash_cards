@@ -13,6 +13,10 @@ class Round
         deck.cards.at(number_of_rounds)
     end
 
+    def last_turn
+        turns.at((number_of_rounds)-1)
+    end
+
     def answered_card
         deck.cards.at((number_of_rounds)-1)
     end
@@ -36,16 +40,16 @@ class Round
             end
         end
 
-        return turn = Turn.new(guess, answered_card)
+        return last_turn
         
     end
 
     def percent_correct
-        @number_correct * 100 / @number_of_rounds
+        ((@number_correct * 100 / @number_of_rounds).to_s + ".0").to_f
     end
 
     def percent_correct_by_category(category)
-        correct_by_category[category].to_i * 100 / (incorrect_by_category[category].to_i + correct_by_category[category].to_i)
+        ((correct_by_category[category].to_f * 100 / (incorrect_by_category[category].to_f + correct_by_category[category].to_f)).to_s + ".0").to_f
     end
 
     def populate_correct_by_category
@@ -65,7 +69,7 @@ class Round
         categories.uniq!
         printable_categories = []
         categories.each do |category| 
-            printable_categories << (category).to_s + " - " + (percent_correct_by_category(category)).to_s + "% correct"
+            printable_categories << (category).to_s + " - " + (percent_correct_by_category(category)).to_i.to_s + "% correct"
         end
         return printable_categories
     end
