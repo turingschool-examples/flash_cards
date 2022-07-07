@@ -1,24 +1,19 @@
 require './lib/round'
 
-# make a number of cards for the game
-card_1 = Card.new("Where is Gruner Veltliner most popularly cultivated?", "Austria", :Wine)
+# collect cards from flashcards.txt
+cards = []
+File.open('lib/flashcards.txt', 'r') do |file|
+    
+    for line in file.readlines()
+        import_card = line.split("/")
+        card = Card.new(import_card[0], import_card[1], import_card[2].strip.to_sym)
+        cards << card
+    end
+    
+end
 
-card_2 = Card.new("Would you generally expect a Kabinett Riesling to be Dry, Off Dry, or Sweet?", "Off-Dry", :Wine)
-
-card_3 = Card.new("What heavily oxidized wine is a specialty of the Jura?","Vin Jaune", :Wine)
-
-card_4 = Card.new("Which regional cuisine is credited with the invention of Salt Cod, or Bacalao?", "Basque", :Food)
-
-card_5 = Card.new("What is the Latin name for the leafy edible herb often foraged in California and also known as sour grass?", "Oxalis", :Food)
-
-card_6 = Card.new("Where are Malpeque Bay oysters harvested?", "Prince Edward Island", :Food)
-
-card_7 = Card.new("What popular grape variety is known as Spatburgunder in Germany?", "Pinot Noir", :Wine)
-
-card_8 = Card.new("What region in New York is known for its high-quality Rieslings?", "Finger Lakes", :Wine)
-
-# collect all created cards in an array - is this something I could automate later?
-cards = [card_1, card_2, card_3, card_4, card_5, card_6, card_7, card_8]
+# randomize cards array
+cards = cards.sample(cards.count)
 
 # initialize a new Deck with the cards array
 deck = Deck.new(cards)
