@@ -60,5 +60,12 @@ class Round
       end
       (self.number_correct_by_category(cat).to_f / total_by_cat) * 100
     end
-  
-end
+
+    # Add a method to start the game
+    def start
+      total_cards = self.deck.cards.count
+      puts "Welcome! You're playing with #{total_cards} cards."
+      puts "-"*30
+    end
+    
+  end
