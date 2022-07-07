@@ -68,6 +68,7 @@ class Round
     # Add a method to start the game
     def start
       @total_cards = self.deck.cards.count
+      self.collect_category
       puts "\n\n"
       puts "Welcome! You're playing with #{@total_cards} cards."
       puts "-"*30
@@ -75,9 +76,9 @@ class Round
 
     # Add a collect category method to handle end game feedback
     def collect_category
-      self.turns.each do |turn|
-        if self.categories.include?(turn.card.category) == false
-          @categories << turn.card.category
+      self.deck.cards.each do |card|
+        if self.categories.include?(card.category) == false
+          @categories << card.category
         end
       end
     end

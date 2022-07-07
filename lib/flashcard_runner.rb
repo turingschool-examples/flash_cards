@@ -40,8 +40,6 @@ end
 puts "*" * 5 + "Game over!" + "*" * 5
 puts "You had #{round.correct_answers} correct guesses out of #{round.total_cards} for a total score of %#{round.percent_correct}."
 
-round.collect_category
-
 round.categories.each do |category|
     puts "#{category} - %#{'%.1f' % (round.percent_correct_by_category(category))} correct"
 end
