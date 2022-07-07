@@ -10,7 +10,7 @@ RSpec.describe Turn do
         expect(turn).to be_instance_of(Turn)
     end
 
-    it 'returngis a card' do
+    it 'returngs a card' do
         turn = Turn.new("Saturn", card)
 
         expect(turn.card).to eq(card)
@@ -19,7 +19,7 @@ RSpec.describe Turn do
     xit 'returns a guess' do
         turn = Turn.new("Saturn", card)
 
-        expect(turn.guess).to eq("Juneau")
+        expect(turn.guess).to eq("Saturn")
     end
 
     xit 'is_guess_correct?' do
