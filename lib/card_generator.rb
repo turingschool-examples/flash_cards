@@ -7,7 +7,7 @@ class CardGenerator
     def initialize(filename)
         @file_lines = File.readlines(filename).map{ |line| line.chomp }
         @cards = []
-        self.generate_cards(@file_lines)
+        generate_cards(@file_lines)
     end
 
     def generate_cards(lines)

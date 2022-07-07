@@ -13,7 +13,7 @@ class Turn
     end
 
     def feedback
-        self.correct? ? "Correct!" : "Incorrect. The correct answer is #{@card.answer}."
+        correct? ? "Correct!" : "Incorrect. The correct answer is #{@card.answer}."
     end
 
 end
