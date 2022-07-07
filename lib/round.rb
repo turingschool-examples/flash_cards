@@ -36,8 +36,9 @@ class Round
   def percent_correct
     (@correct_answers.to_f / self.turns.count) * 100
   end
-
-# the number correct by category method needs to take a category as an argument. it should make an array of cards that include that category. it should then test that array for correct answers (answer == guess) and return the total number of correct answers.
+  
+  
+  # the number correct by category method needs to take a category as an argument. it should make an array of cards that include that category. it should then test that array for correct answers (answer == guess) and return the total number of correct answers.
   def number_correct_by_category(cat)
     num_by_cat = 0
     self.turns.each do |turn|
@@ -47,5 +48,17 @@ class Round
     end
     num_by_cat
   end
-
+  
+  # The percent correct by category method will be passed a card category as an argument. It will then divide the value of the number_correct_by_category method converted to float by the total occurences of that category in the deck
+  
+    def percent_correct_by_category(cat)
+      total_by_cat = 0
+      self.turns.each do |turn|
+        if turn.card.category == cat
+          total_by_cat += 1
+        end
+      end
+      (self.number_correct_by_category(cat).to_f / total_by_cat) * 100
+    end
+  
 end
