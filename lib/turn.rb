@@ -9,11 +9,11 @@ class Turn
   end
 
   def correct?
-    @guess == guess
+    @guess == card.answer
   end
 
   def feedback
-    if @guess == guess
+    if @guess == card.answer
       "Correct!"
     end
   end
