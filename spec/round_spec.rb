@@ -47,45 +47,61 @@ RSpec.describe Round do
     expect(round.current_card).to eq(card_2)
   end
 
-#come back to this test
-  xit 'can tell us a different current card' do #This test needs some work
-    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
-    card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-    cards = [card_2, card_3, card_1]
-    deck = Deck.new(cards)
-    round = Round.new(deck)
-
-    expect(deck.current_card).to eq(card_2)
-    #not sure how to make this work yet. Need to build ruby code. Same reason as above.
-  end
-
 #this test needs some work
-  xit 'can take a turn' do #This test needs some work
+  xit 'can take a turn' do
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
     round = Round.new(deck)
+    # test_turn = Turn.new("Juneau", card_1)
+    test_turn = card_1 #possibly make the raw data test_turn OR change test.
 
-    expect(round.take_turn("Juneau")).to eq(new_turn)
+    expect(round.take_turn("Juneau")).to eq(test_turn)
     #not sure how to make this work yet. Need to build ruby code
   end
 
-#this will follow after the last method
-  xit 'can take another turn' do #This test needs some work
+
+  xit 'can take another turn' do #this test needs some work, incomplete
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
     round = Round.new(deck)
-    new_turn = round.take_turn("Juneau")
+    # test_turn = Turn.new("Juneau", card_1)
+    test_turn = card_1 #possibly make the raw data test_turn OR change test.
+    test_turn2 = card_2
 
-    expect(deck.current_card).to eq(card_2)
+    expect(round.take_turn("Mars")).to eq(test_turn)
     #not sure how to make this work yet. Need to build ruby code
   end
+
+
+    end
+    xit 'can tell us the percent correct' do #this test needs some work, incomplete
+
+    end
+
+    xit 'can tell us the percent correct by category' do #this test needs some work, incomplete
+
+    end
+
+
+
+
+
+#More tests below
+
+
+
+
+
+
+
+
+
 
   xit 'creates a turn with the correct class' do #This test needs some work
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
