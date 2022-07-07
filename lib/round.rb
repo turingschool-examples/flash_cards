@@ -6,7 +6,8 @@ class Round
     attr_reader :deck,
                 :current_card,
                 :turns,
-                :number_correct
+                :number_correct,
+                :current_card_index
 
     def initialize(deck)
         @deck = deck
@@ -34,7 +35,7 @@ class Round
     end
 
     def percent_correct
-        @number_correct.to_f / @turns.length * 100
+        (@number_correct.to_f / @turns.length * 100).to_i
     end
 
     def number_of_turns_by_category(category)
@@ -44,7 +45,7 @@ class Round
     end
     
     def percent_correct_by_category(category)
-        self.number_correct_by_category(category).to_f / self.number_of_turns_by_category(category) * 100
+        (self.number_correct_by_category(category).to_f / self.number_of_turns_by_category(category) * 100).to_i
     end
 
 end
