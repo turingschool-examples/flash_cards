@@ -13,7 +13,7 @@ RSpec.describe Turn do
         card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
         turn = Turn.new("Juneau", card)
 
-        expect(turn.guess).to eq("Juneau")
+        expect(turn.guess).to eq("juneau")
     end
 
     it 'has a card' do
@@ -42,6 +42,6 @@ RSpec.describe Turn do
 
         turn = Turn.new("Anchorage", card)
 
-        expect(turn.feedback).to eq("Incorrect.")
+        expect(turn.feedback).to eq("Incorrect. The correct answer is Juneau.")
     end
 end

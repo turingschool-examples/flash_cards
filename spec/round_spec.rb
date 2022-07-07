@@ -53,7 +53,7 @@ RSpec.describe Round do
         expect(@round.turns.length).to eq(2)
         expect(@round.number_correct).to eq(1)
         expect(@round.current_card).to eq(@card_3)
-        expect(@round.turns.last.feedback).to eq("Incorrect.")
+        expect(@round.turns.last.feedback).to eq("Incorrect. The correct answer is Mars.")
     end
 
     it 'can track number of correct by category' do

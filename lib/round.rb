@@ -31,7 +31,7 @@ class Round
 
     def get_answer
         print "Answer: "
-        guess = gets.chomp.downcase
+        guess = gets.chomp
         puts take_turn(guess).feedback
         puts ""
         if round_over?

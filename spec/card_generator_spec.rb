@@ -15,7 +15,7 @@ RSpec.describe CardGenerator do
 
         expect(card_generator.cards.first).to be_instance_of(Card)
         expect(card_generator.cards.first.question).to eq("What is 5 + 5?")
-        expect(card_generator.cards.last.answer).to eq("Justin bieber")
+        expect(card_generator.cards.last.answer).to eq("Mitochondria")
     end
 
 end

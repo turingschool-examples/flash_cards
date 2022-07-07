@@ -4,7 +4,7 @@ class Turn
                 :card
 
     def initialize(guess, card)
-        @guess = guess
+        @guess = guess.downcase
         @card = card
     end
 
