@@ -2,19 +2,19 @@ require './lib/card.rb'
 require './lib/turn.rb'
 require './lib/deck.rb'
 require './lib/round.rb'
+require './lib/card_generator.rb'
 
 class Runner
 
     def initialize
-        card_1 = Card.new("What is 5 + 5?", "10", :Math)
-        card_2 = Card.new("What is Rachel's favorite animal?", "Owl", :Turing_Staff)
-        card_3 = Card.new("What is Mike's middle name?", "nobody knows", :Turing_Staff)
-        card_4 = Card.new("What cardboard cutout lives at Turing?", "Justin Bieber", :Pop_Culture)
-        @deck = Deck.new([card_1, card_2, card_3, card_4])
-        @round = Round.new(@deck)
+        cardset = CardGenerator.new('cards.txt').temp_deck
+         @deck = Deck.new(cardset)
+         @round = Round.new(@deck)
     end
 
    def start
+        
+
         puts "\n \n"
         puts "Welcome! You're playing with #{@round.deck.count} cards."
         puts "-------------------------------------------------"
@@ -45,8 +45,8 @@ class Runner
     end
 end
 
-run = Runner.new
-run.start
+game = Runner.new
+game.start
 
 
         
