@@ -16,7 +16,7 @@ def start(round)
         puts "This is card number #{round.current_card_index + 1} out of #{round.deck.count}"
         puts "Questions: #{round.current_card.question}"
         print "Answer: "
-        guess = gets.chomp
+        guess = gets.chomp.downcase
         puts round.take_turn(guess).feedback
         puts ""
     end
