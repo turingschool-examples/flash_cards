@@ -3,8 +3,8 @@ require './lib/turn.rb'
 require './lib/deck.rb'
 
 class Round
-    attr_reader :deck 
-    attr_reader :turns 
+    attr_reader :deck, :turns, :card_index
+     
     
 
     def initialize(deck)
@@ -41,7 +41,6 @@ class Round
         (((@turns.select {|turn| turn.guess == turn.card.answer && turn.card.category == category}.count.to_f) / (@turns.select {|turn| turn.card.category == category }.count).to_f) * 100 ).round(1)
     end
 
-    
 end
 
 
