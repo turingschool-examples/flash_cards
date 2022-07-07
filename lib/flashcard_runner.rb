@@ -27,4 +27,23 @@ deck = Deck.new(cards)
 round = Round.new(deck)
 
 round.start
-require 'pry'; binding.pry
+
+(round.total_cards).times do
+    puts "This is card number #{round.turn_count} out of #{round.total_cards}."
+    puts "Question: #{round.current_card.question}"
+    answer = gets.chomp
+    round.take_turn(answer, round.current_card)
+    puts round.turns.last.feedback
+    puts " "
+end
+
+puts "*" * 5 + "Game over!" + "*" * 5
+puts "You had #{round.correct_answers} correct guesses out of #{round.total_cards} for a total score of %#{round.percent_correct}."
+
+round.collect_category
+
+round.categories.each do |category|
+    puts "#{category} - %#{'%.1f' % (round.percent_correct_by_category(category))} correct"
+end
+
+puts "\n\n"
