@@ -37,7 +37,7 @@ class Round
 
 # The percent correct method will take in correct_answers, convert it to a float, and divide it by the number of turns taken so far
   def percent_correct
-    (@correct_answers.to_f / self.turns.count) * 100
+    (@correct_answers.to_f / turns.count) * 100
   end
   
   
