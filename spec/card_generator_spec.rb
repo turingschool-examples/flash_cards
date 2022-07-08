@@ -10,6 +10,7 @@ describe CardGenerator do
       card_4 = Card.new("What is the capital of Arizona?", "Phoenix", :Geography)
       card_5 = Card.new("How much wood can a wood chuck chuck?", "Not much", :Random)
       cards = CardGenerator.new(filename).cards
-      expect(cards).to eq([card_1, card_2, card_3, card_4, card_5])
+      expect(cards).to all( be_instance_of(Card))
+      expect(cards[2].answer).to eq("north north west")
     end
 end
