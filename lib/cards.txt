@@ -1,9 +1,9 @@
 What is 5 + 5?,10,Math
 What is the capital of Sri Lanka?,Sri Jayawardenepura Kotte,Geography
 What mountain range contains Mt Everest?,The Himalayas,Geography
-What is 5!,120,Math
 What is the largest planet in our solar system?,Jupiter,STEM
+Who wrote the movie 'Mean Girls'?,Tina Fey,Entertainment
 What is the chemical symbol for Potassium?,K,STEM
 What is the world's largest freshwater lake by surface area?,Lake Superior,Geography
-What is derivative of x^2?,2x,Test
+What is derivative of x^2?,2x,Math
 What is the powerhouse of the cell?,Mitochondria,STEM
