@@ -1,7 +1,7 @@
 require './lib/card'
 require 'pry';
 
-class Turns
+class Turn
     attr_reader :string, :card, :guess
     def initialize(string, card, guess)
         @string = string
@@ -9,10 +9,8 @@ class Turns
         @guess = guess
     end
     
+ 
 
-    def correct?
-
-    end 
 
 
 end
