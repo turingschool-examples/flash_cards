@@ -6,6 +6,7 @@ class Round
         @deck = deck
         @turns = []
         @num_correct = []
+ 
 end
 
 def current_card
@@ -22,17 +23,23 @@ def take_turn(guess)
 end
 
 def number_correct
- @num_correct.count 
-    
-end
+ @num_correct.count    
 end
 
-# def number_correct_by_category(category)
-# @turns.each do |turn|
-#     if turn.correct? && turn.card.category == category
-#         @num_correct << turn
-#     end
-# end
+
+def number_correct_by_category(category)
+@turns.each do |turn|
+    if turn.correct? && turn.card.category == category
+        @num_correct_in_category << turn
+    end
+
+end
+
+@num_correct_in_category.count
+
+end
+
+end
 
 
 
@@ -44,5 +51,3 @@ end
 
 
 
-#start method for runner goees heerre, call it in runenerr
-#shovel correct turns into array
