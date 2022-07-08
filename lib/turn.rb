@@ -1,11 +1,8 @@
 class Turn 
-  attr_reader :string, :card
-  def initialize(string, card)
-    @string = string
+  attr_reader :guess, :card
+  def initialize(guess, card)
+    @guess = guess
     @card = card
-  end 
-  def guess
-    @string 
   end 
   def correct?
     return true if self.card.answer == self.guess
