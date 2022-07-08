@@ -65,7 +65,7 @@ class Round
     collect_category
     puts "\n\n"
     puts "Welcome! You're playing with #{total_cards} cards."
-    puts '-' * 30
+    puts "#{'-' * 40}\n\n"
     rounds
   end
 
@@ -77,17 +77,14 @@ class Round
       # gather and sanitize user input
       answer = gets.chomp.split.map(&:capitalize).join(' ')
       take_turn(answer, current_card)
-      puts ' '
-      puts @turns.last.feedback
-      puts ' '
+      puts "#{turns.last.feedback} \n\n"
     end
     end_game
   end
 
   def end_game
-    puts '*' * 5 + 'Game over!' + '*' * 5
-    puts "You had #{correct_answers} correct guesses out of #{total_cards} for a total score of %#{format('%.1f',
-                                                                                                          percent_correct)}."
+    puts "****** Game over! ******\n\n"
+    puts "You had #{correct_answers} correct guesses out of #{total_cards} \nfor a total score of %#{format('%.1f', percent_correct)}.\n"
     @categories.each do |category|
       puts "#{category} - %#{format('%.1f', percent_correct_by_category(category))} correct"
     end
