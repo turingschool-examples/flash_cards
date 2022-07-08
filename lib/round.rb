@@ -39,21 +39,21 @@ class Round
   end
 
   def start
-    puts "Welcome! You're playing with 3 cards.
+    puts "Welcome! You're playing with #{deck.cards.size} cards.
 -------------------------------------------------
-This is card number 1 out of 3.
-Question: What is the capital of Alaska?"
+This is card number 1 out of #{deck.cards.size}.
+puts Question: #{current_card.question}"
   end
 
   def show_card(user_guess)
       take_turn(user_guess)
       puts "#{turns[-1].feedback}"
       if turns.size < deck.cards.size
-        puts "This is card number #{(turns.size + 1)} out of 3."
+        puts "This is card number #{(turns.size + 1)} out of #{deck.cards.size}."
       end
     if turns.size == deck.cards.size
       puts "****** Game over! ******
-        You had #{correct_turns.size} correct guesses out of 3 for a total score of #{percent_correct}%.
+        You had #{correct_turns.size} correct guesses out of #{deck.cards.size} for a total score of #{percent_correct}%.
         STEM - #{percent_correct_by_category(:STEM)}% correct
         Geography - #{percent_correct_by_category(:Geography)}% correct
         Pop Culture - 0% correct"
