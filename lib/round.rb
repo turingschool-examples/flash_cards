@@ -20,7 +20,7 @@ class Round
     def start
         puts "Welcome! You're playing with #{@deck.count} cards."
         puts "-------------------------------------------------"
-        ask_question
+        round_over? ? game_over : ask_question
     end
 
     def ask_question
@@ -32,13 +32,13 @@ class Round
     def get_answer
         print "Answer: "
         guess = gets.chomp
+        while guess == ""
+            print "You did no enter an answer. Try again: "
+            guess = gets.chomp
+        end
         puts take_turn(guess).feedback
         puts ""
-        if round_over?
-            game_over
-        else
-            ask_question
-        end
+        round_over? ? game_over : ask_question
     end
 
     def round_over?
@@ -71,7 +71,11 @@ class Round
     end
 
     def percent_correct
-        (@number_correct.to_f / @turns.length * 100).to_i
+        if turns.length == 0
+            0
+        else
+            (@number_correct.to_f / @turns.length * 100).to_i
+        end
     end
 
     def number_of_turns_by_category(category)
@@ -81,7 +85,11 @@ class Round
     end
     
     def percent_correct_by_category(category)
-        (number_correct_by_category(category).to_f / number_of_turns_by_category(category) * 100).to_i
+        if number_of_turns_by_category(category) == 0
+            0
+        else
+            (number_correct_by_category(category).to_f / number_of_turns_by_category(category) * 100).to_i
+        end
     end
 
 end
