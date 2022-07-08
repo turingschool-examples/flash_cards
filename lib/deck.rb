@@ -7,12 +7,16 @@ class Deck
     cards.count
   end 
   def cards_in_category(category)
-    sorted_cards = []
-    cards.select do |card| 
-      if card.category == category
-        sorted_cards << card
-      end 
+    cards.select do |card|
+      card.category == category
     end 
-    sorted_cards  
+    
+    # sorted_cards = []
+    # cards.select do |card| 
+    #   if card.category == category
+    #     sorted_cards << card
+    #   end 
+    # end 
+    # sorted_cards  
   end 
 end 
