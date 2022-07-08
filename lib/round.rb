@@ -12,12 +12,42 @@ class Round
     end 
 
     def take_turn(guess)
-        # takes a string representing the guess
-        if guess == current_card.answer
-            @correct += 1
+        if @guess == current_card.answer
+            @correct += 1 
         end 
-        new_turn = Turn.new(guess, current_card)
-        @turns << new_turn
-        deck.cards.delete_at(0)
+        @turns << Turn.new(guess, current_card)
+        @deck.cards = @deck.cards.rotate(1)
+        @turns.last
     end 
+
+    def number_correct
+        @turns.each do |turn|
+            @correct += 1 if turn.correct? == true
+        end 
+        @correct
+    end 
+
+    def number_correct_by_category(category)
+        @correct_count = 0
+        @turns.each do |turn|
+            if turn.card.category == category
+                @correct_count += 1
+            end 
+        end 
+        @correct_count 
+    end 
+
+    def percent_correct
+        (number_correct / turns.count.to_f) * 100
+    end 
+
+    def percent_correct_by_category(category)
+        total_correct_by_category = 0
+        turns.each do |turn|
+            if turn.card.category == category 
+                total_correct_by_category +=1
+            end 
+        end 
+        (number_correct_by_category(category) / total_correct_by_category.to_f)*100 
+    end     
 end 
