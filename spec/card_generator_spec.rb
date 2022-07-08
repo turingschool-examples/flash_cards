@@ -15,7 +15,7 @@ RSpec.describe CardGenerator do
   end
 
   it 'file exists' do
-    expect(File.exists?(@filename)).to eq(true)
+    expect(File.exist?(@filename)).to eq(true)
   end
 
   it 'file is a file' do
@@ -23,7 +23,7 @@ RSpec.describe CardGenerator do
   end
 
   it 'file is txt file' do
-    expect(File.extname(@filename)).to eq(".txt")
+    expect(File.extname(@filename)).to eq('.txt')
   end
 
   it 'cards == cards' do
