@@ -7,13 +7,12 @@ class Turns
         @string = string
         @card = card
         @guess = guess
-
     end
+    
+
+    def correct?
+
+    end 
 
 
-    def guess
-            binding.pry
-
-        guess == 'Juneau'"
-    end
 end
