@@ -1,6 +1,7 @@
 require 'card'
 class Turn
-  attr_reader :guess, :card
+  attr_reader :guess,
+              :card
 
   def initialize(guess, card)
     @guess = guess
@@ -22,5 +23,4 @@ class Turn
       return "Incorrect."
     end
   end
-#
 end
