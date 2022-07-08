@@ -25,4 +25,8 @@ RSpec.describe CardGenerator do
   it 'file is txt file' do
     expect(File.extname(@filename)).to eq(".txt")
   end
+
+  it 'cards == cards' do
+    expect(@cards).to eq(@cards)
+  end
 end
