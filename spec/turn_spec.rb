@@ -2,19 +2,24 @@ require './lib/card.rb'
 require './lib/turn.rb'
 
 RSpec.describe Turn do
-  card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+  before :each do
+    @test_question = "What is the capital of Alaska?"
+    @test_ans = "Juneau"
+    @test_category = :Geography
+    @card = Card.new(@test_question, @test_ans, @test_category)
+    @guess_wrong = "arbitrarily wrong"
+    @turn_correct = Turn.new(@test_ans, @card)
+    @turn_wrong = Turn.new(@guess_wrong, @card)
+  end
 
   it 'exists' do
-    turn = Turn.new("Juneau", card)
-
-    expect(turn).to be_instance_of(Turn)
+     expect(@turn_correct).to be_instance_of(Turn)
+     expect(@turn_wrong).to be_instance_of(Turn)
   end
 
 
-  it 'has a card' do
-    turn = Turn.new("Juneau", card)
-
-    expect(turn.card).to be_instance_of(Card)
+  it 'correctly created card' do
+    expect(@card).to be_instance_of(Turn)
   end
 
 
