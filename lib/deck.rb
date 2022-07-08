@@ -1,4 +1,3 @@
-require './lib/card'
 require './lib/turn'
 
 class Deck
@@ -10,13 +9,12 @@ class Deck
   end
 
   def count
-    self.cards.count
+    cards.count
   end
 
   def cards_in_category(cat)
-    self.cards.select do |card|
+    cards.select do |card|
       card.category == cat
     end
   end
-  
 end
