@@ -18,7 +18,7 @@ class CardGenerator
     end
 
     def create_card(new_card, card_number, data_lines_array)
-        new_card = Card.new(data_lines_array[card_number][0].strip,data_lines_array[card_number][1].strip,data_lines_array[card_number][2].strip)
+        new_card = Card.new(data_lines_array[card_number][0].strip,data_lines_array[card_number][1].strip.downcase,data_lines_array[card_number][2].strip)
     end
 
     def cards
