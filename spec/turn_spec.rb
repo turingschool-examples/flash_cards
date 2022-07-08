@@ -5,7 +5,7 @@ RSpec.describe Turn do
 
   before :each do
     @card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    @turn = Turn.new("Juneau", @card)
+    @turn = Turn.new(@card, 'Juneau')
   end
 
    it 'exists' do
@@ -23,7 +23,7 @@ RSpec.describe Turn do
    it 'evaluates the answer' do
      expect(@turn.correct?).to be(true)
 
-     turn2 = Turn.new("Anchorage", @card)
+     turn2 = Turn.new(@card, "Anchorage")
 
      expect(turn2.correct?).to be(false)
    end
@@ -31,7 +31,7 @@ RSpec.describe Turn do
    it 'provides feedback' do
      expect(@turn.feedback).to eq("Correct!")
 
-     turn2 = Turn.new("Anchorage", @card)
+     turn2 = Turn.new(@card, "Anchorage")
 
      expect(turn2.feedback).to eq("Incorrect.")
    end

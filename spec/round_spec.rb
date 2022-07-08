@@ -37,49 +37,61 @@ RSpec.describe Round do
     expect(@round.current_card).to eq(@card_1)
   end
 #to be refactored
-  new_turn = round.take_turn("Juneau")
 
   it 'can take a turn' do
+    new_turn = @round.take_turn("Juneau")
 
     expect(new_turn.class).to be(Turn)
   end
 
   it 'evaluates if the turn is correct' do
+    new_turn = @round.take_turn("Juneau")
     expect(new_turn.correct?).to be(true)
   end
 
-  xit 'adds guessed cards to the turns array' do
-    expect(@round.turns).to eq([@card_1])
+  it 'adds taken turns to the turns array' do
+    new_turn = @round.take_turn("Juneau")
+    expect(@round.turns).to eq([new_turn])
   end
 
-  xit 'keeps track of the number of correct and incorrect turns' do
-    expect(round.number_correct).to eq(1)
-    expect(round.turns.count).to eq(1)
+  it 'keeps track of the number of correct and incorrect turns' do
+    new_turn = @round.take_turn("Juneau")
+
+    expect(@round.number_correct).to eq(1)
+    expect(@round.turns.count).to eq(1)
   end
 
-  xit 'moves to the next card' do
-    second_turn = round.take_turn("Venus")
-    expect(second_turn).to eq(card_2)
-    expect(rounds.turn.count).to eq(2)
-    expect(round.turns.last.feedback).to eq("Incorrect.")
-    expect(round.number_correct).to eq(1)
+  it 'moves to the next card' do
+
+    new_turn = @round.take_turn("Juneau")
+
+    expect(@round.current_card).to eq(@card_2)
+
+    second_turn = @round.take_turn("Venus")
+
+    expect(@round.turns.count).to eq(2)
+    expect(@round.turns.last.feedback).to eq("Incorrect.")
+    expect(@round.number_correct).to eq(1)
   end
 
-  xit 'can tell the number correct by category' do
-    second_turn = round.take_turn("Venus")
-    expect(round.number_correct_by_category(:Geography)).to be(1)
-    expect(round.number_correct_by_category(:STEM)).to be(0)
+  it 'can tell the number correct by category' do
+    new_turn = @round.take_turn("Juneau")
+    second_turn = @round.take_turn("Venus")
+    expect(@round.number_correct_by_category(:Geography)).to be(1)
+    expect(@round.number_correct_by_category(:STEM)).to be(0)
   end
 
-  xit 'can tell percent correct' do
-    second_turn = round.take_turn("Venus")
-    expect(round.percent_correct).to eq(50.0)
+  it 'can tell percent correct' do
+    new_turn = @round.take_turn("Juneau")
+    second_turn = @round.take_turn("Venus")
+    expect(@round.percent_correct).to eq(50.0)
   end
 
-  xit 'can tell percent correct by category' do
-    second_turn = round.take_turn("Venus")
-    expect(round.percent_correct_by_category(:STEM)).to eq(0.0)
-    expect(round.percent_correct_by_category(:Geography)).to eq(100.0)
+  it 'can tell percent correct by category' do
+    new_turn = @round.take_turn("Juneau")
+    second_turn = @round.take_turn("Venus")
+    expect(@round.percent_correct_by_category(:STEM)).to eq(0.0)
+    expect(@round.percent_correct_by_category(:Geography)).to eq(100.0)
   end
 # QUESTION: Is it OK to develop the class and the test simultaneously?
 end

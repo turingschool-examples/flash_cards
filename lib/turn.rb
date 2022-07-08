@@ -13,7 +13,7 @@ class Turn
   end
 
   def feedback
-    return "Correct!" if @guess == @card.answer
+    return "Correct!" if guess == card.answer
     "Incorrect."
   end
 end
