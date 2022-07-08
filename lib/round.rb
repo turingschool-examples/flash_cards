@@ -30,7 +30,7 @@ class Round
     def number_correct_by_category(category)
         @correct_count = 0
         @turns.each do |turn|
-            if turn.card.category == category
+            if turn.card.category == category && turn.correct? == true
                 @correct_count += 1
             end 
         end 
