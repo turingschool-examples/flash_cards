@@ -10,7 +10,6 @@ class CardGenerator
         data_lines_array.map! do |line|
             line.split(",")
         end
-        return data_lines_array
     end
 
     def open_file
@@ -31,6 +30,6 @@ class CardGenerator
             cards << create_card(new_card, card_number, data_lines_array)
             card_number += 1
         end
-        return cards
+        cards
     end
 end
