@@ -38,6 +38,28 @@ class Round
     (correct_turns.select { |turn| turn.card.category == category}.size)*100).round(1)
   end
 
+  def start
+    puts "Welcome! You're playing with 4 cards.
+-------------------------------------------------
+This is card number 1 out of 3.
+Question: What is the capital of Alaska?"
+  end
+
+  def show_card(user_guess)
+      take_turn(user_guess)
+      turns[0].feedback
+      puts "This is card number #{(turns.size + 1)} out of 3."
+    if turns.size == deck.cards.size
+      puts "****** Game over! ******
+        You had #{correct_turns.size} correct guesses out of 3 for a total score of #{percent_correct}%.
+        STEM - #{percent_correct_by_category(:STEM)}% correct
+        Geography - #{percent_correct_by_category(:Geography)}% correct
+        Pop Culture - 0% correct"
+    else
+      puts "Question: #{current_card.question}"
+    end
+  end
+
 
 
 end

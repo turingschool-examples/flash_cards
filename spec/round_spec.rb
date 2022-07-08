@@ -47,22 +47,6 @@ RSpec.describe Round do
     expect(round.current_card).to eq(card_2)
   end
 
-#this test needs some work
-  xit 'can take a turn' do
-    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
-    card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-    cards = [card_1, card_2, card_3]
-    deck = Deck.new(cards)
-    round = Round.new(deck)
-    turn1 = round.take_turn("Juneau")
-  #possibly make the raw data test_turn OR change test.
-
-    expect(round.take_turn("Juneau")).to eq(turn1)
-    #not sure how to make this work yet. Need to build ruby code
-  end
-
-
     it 'can tell us the percent correct' do
       card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
