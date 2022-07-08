@@ -70,8 +70,8 @@ RSpec.describe Round do
     @new_turn = @round.take_turn('Juneau')
     @new_turn = @round.take_turn('Venus')
 
-    expect(@round.number_correct_by_category(:Geography).to eq(1))
-    expect(@round.number_correct_by_category(:STEM).to eq(0))
+    expect(@round.number_correct_by_category(:Geography)).to eq(1)
+    expect(@round.number_correct_by_category(:STEM)).to eq(0)
     expect(@round.percent_correct).to eq(50.0)
     expect(@round.percent_correct_by_category(:Geography)).to eq(100.0)
   end
