@@ -7,12 +7,14 @@ require './lib/round'
 require './lib/card_generator'
 
 def start
+  # File begins with setting the required variables in file
   filename = 'cards.txt'
   deck = CardGenerator.new(filename).cards
   round = Round.new(deck)
   round_count = round.turns.count + 1
   total_count = deck.count
 
+  # This loop loops over the amount of cards inside the deck, which allows for less code
   total_count.times do
     multi_line = "This is card number #{round_count} out of #{total_count}
  Question: #{round.current_card.question}"
