@@ -16,12 +16,45 @@ RSpec.describe Round do
   it 'exists' do 
     expect(@round).to be_instance_of(Round)
   end 
-  it 'has a deck' do 
+  it 'has attributes' do 
     expect(@round.deck).to eq(@deck)
-  end 
-  it 'has turns' do 
     expect(@round.turns).to eq([])
-  end 
-  it 'had current card' do 
     expect(@round.current_card).to eq(@card_1)
+  end 
+  it 'has take turn method' do 
+    new_turn = @round.take_turn("Juneau")
+    expect(new_turn).to be_instance_of(Turn)
+    expect(new_turn.class).to eq(Turn)
+    expect(new_turn.correct?).to eq(true)
+    expect(@round.turns).to eq([new_turn])
+  end 
+  it 'returns number correct' do 
+    new_turn = @round.take_turn("Juneau")
+    expect(@round.number_correct).to eq(1)
+  end 
+  it 'moves to next card in deck' do 
+    new_turn = @round.take_turn("Juneau")
+    expect(@round.current_card).to eq(@card_2)
+  end 
+  it 'can take a new turn' do 
+    new_turn = @round.take_turn("Juneau")
+    next_turn = @round.take_turn("Venus")
+    expect(@round.turns.count).to eq(2)
+  end 
+  it 'returns last turn feedback' do 
+    new_turn = @round.take_turn("Juneau")
+    next_turn = @round.take_turn("Venus")
+    expect(@round.turns.last.feedback).to eq("Incorrect!")
+  end 
+  it 'returns correct number correct' do
+    new_turn = @round.take_turn("Juneau")
+    next_turn = @round.take_turn("Venus")
+    expect(@round.number_correct).to eq(1)
+  end 
+  it 'returns number correct by category' do
+    new_turn = @round.take_turn("Juneau")
+    next_turn = @round.take_turn("Venus")
+    expect(@round.number_correct_by_category(:Geography)).to eq(1)
+    expect(@round.number_correct_by_category(:STEM)).to eq(0)
+  end
 end
