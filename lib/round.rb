@@ -1,47 +1,68 @@
 class Round
-    attr_reader :deck, :turns, :number_of_rounds, :number_correct, :incorrect_by_category, :correct_by_category
+    attr_reader :deck, :turns, :number_of_rounds, :number_correct, :card_categories, :total_correct_by_category
     def initialize(deck)
         @deck = deck
         @turns = []
         @number_of_rounds = 0
         @number_correct = 0
-        @correct_by_category = Hash.new
-        @incorrect_by_category = Hash.new
+        @card_categories = []
+        @total_correct_by_category = Hash.new
+        
     end
 
     def current_card
-        deck.cards.at(number_of_rounds)
+        @deck.cards.at(number_of_rounds)
     end
 
     def last_turn
-        turns.at((number_of_rounds)-1)
+        @turns.at((number_of_rounds)-1)
     end
 
     def answered_card
-        deck.cards.at((number_of_rounds)-1)
+        @deck.cards.at((number_of_rounds)-1)
     end
 
     def take_turn(guess)
         current_turn = Turn.new(guess, current_card)
-        turns << current_turn
-        @number_of_rounds += 1
+        
+        @turns << current_turn # move current turn into turns array
+
+        if @number_of_rounds == 0
+            add_categories_to_hash
+        end
+        
+        @number_of_rounds += 1 # update rounds attribute
+
         if current_turn.correct? == true
+            # update correct answers attribute
             @number_correct += 1
-            if correct_by_category[answered_card.category] == nil
-                populate_correct_by_category
-            else 
-                correct_by_category[answered_card.category] += 1
-            end
+            add_counter_category(0)
+            add_counter_category(1)
         else
-            if incorrect_by_category[answered_card.category] == nil
-                populate_incorrect_by_category
-            else
-                incorrect_by_category[answered_card.category] += 1
-            end
+            add_counter_category(1)
         end
 
         return last_turn
-        
+    end
+
+    def add_counter_category(position)
+        @total_correct_by_category[answered_card.category][position] += 1
+    end
+
+    def listing_card_categories
+        cards_processed = 0
+        until cards_processed == @deck.count
+            @card_categories << @deck.cards[cards_processed].category
+            cards_processed += 1
+        end
+        @card_categories.uniq!
+    end
+
+    def add_categories_to_hash
+        listing_card_categories
+        @card_categories.each do |categ|
+            @total_correct_by_category[categ] = [0,0]
+        end
     end
 
     def percent_correct
@@ -49,28 +70,12 @@ class Round
     end
 
     def percent_correct_by_category(category)
-        ((correct_by_category[category].to_f * 100 / (incorrect_by_category[category].to_f + correct_by_category[category].to_f)).to_s + ".0").to_f
-    end
-
-    def populate_correct_by_category
-        correct_by_category[answered_card.category] = 1
-    end
-
-    def populate_incorrect_by_category
-        incorrect_by_category[answered_card.category] = 1
+        (@total_correct_by_category[answered_card.category][0].to_f * 100) / 
+        ((@total_correct_by_category[answered_card.category][1].to_s + ".0").to_f)
     end
 
     def number_correct_by_category(category)
-        correct_by_category[category].to_i
+        @total_correct_by_category[answered_card.category][0].to_i
     end
 
-    def make_category_list
-        categories = correct_by_category.keys + incorrect_by_category.keys
-        categories.uniq!
-        printable_categories = []
-        categories.each do |category| 
-            printable_categories << (category).to_s + " - " + (percent_correct_by_category(category)).to_i.to_s + "% correct"
-        end
-        return printable_categories
-    end
 end
