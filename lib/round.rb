@@ -1,12 +1,11 @@
 require './lib/deck'
 
 class Round
-
-  attr_reader :deck, 
+  attr_reader :deck,
               :turns
-  attr_accessor :correct_answers, 
-                :turn_count, 
-                :total_cards, 
+  attr_accessor :correct_answers,
+                :turn_count,
+                :total_cards,
                 :categories
 
   def initialize(deck)
@@ -42,7 +41,7 @@ class Round
   def number_correct_by_category(cat)
     num_by_cat = 0
     turns.each do |turn|
-      num_by_cat =+ 1 if turn.correct? && turn.card.category == cat
+      num_by_cat = + 1 if turn.correct? && turn.card.category == cat
     end
     num_by_cat
   end
@@ -66,30 +65,31 @@ class Round
     collect_category
     puts "\n\n"
     puts "Welcome! You're playing with #{total_cards} cards."
-    puts "-"*30
+    puts '-' * 30
     rounds
   end
 
   def rounds
-    (@total_cards).times do
+    @total_cards.times do
       puts "This is card number #{turn_count} out of #{total_cards}."
-      puts " "
+      puts ' '
       puts "Question: #{current_card.question}"
       # gather and sanitize user input
-      answer = gets.chomp.split.map(&:capitalize).join(" ")
+      answer = gets.chomp.split.map(&:capitalize).join(' ')
       take_turn(answer, current_card)
-      puts " "
+      puts ' '
       puts @turns.last.feedback
-      puts " "
+      puts ' '
     end
     end_game
   end
 
   def end_game
-    puts "*" * 5 + "Game over!" + "*" * 5
-    puts "You had #{correct_answers} correct guesses out of #{total_cards} for a total score of %#{'%.1f' % (percent_correct)}."
+    puts '*' * 5 + 'Game over!' + '*' * 5
+    puts "You had #{correct_answers} correct guesses out of #{total_cards} for a total score of %#{format('%.1f',
+                                                                                                          percent_correct)}."
     @categories.each do |category|
-      puts "#{category} - %#{'%.1f' % (percent_correct_by_category(category))} correct"
+      puts "#{category} - %#{format('%.1f', percent_correct_by_category(category))} correct"
     end
     puts "\n\n"
   end

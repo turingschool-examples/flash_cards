@@ -1,8 +1,7 @@
 require './lib/card'
 
 class Turn
-
-  attr_reader :guess, 
+  attr_reader :guess,
               :card
 
   def initialize(guess, card)
@@ -15,7 +14,6 @@ class Turn
   end
 
   def feedback
-    correct? ? "Correct!" : "Incorrect."
+    correct? ? 'Correct!' : 'Incorrect.'
   end
-
 end
