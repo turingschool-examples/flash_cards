@@ -10,7 +10,7 @@ attr_reader :cards
   end
 
   def count
-     @cards.count
+    return @cards.count
   end
 
   def cards_in_category(desired_category)
