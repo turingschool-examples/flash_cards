@@ -39,22 +39,16 @@ RSpec.describe Round do
 
     it 'can total correct answers' do
         new_turn = @round.take_turn("Juneau")
+        @round.take_turn("Venus")
         
         expect(@round.number_correct).to eq(1)
     end 
 
-    it 'can total the turns' do
+    it 'can total turns taken' do
         new_turn = @round.take_turn("Juneau")
         @round.take_turn("Venus")
 
         expect(@round.turns.count).to eq(2)
-    end 
-
-
-    it 'counts number correct' do
-        new_turn = @round.take_turn("Juneau")
-
-        expect(@round.number_correct).to eq(1)
     end 
 
     it 'can check last feedback' do
