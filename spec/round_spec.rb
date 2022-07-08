@@ -23,11 +23,28 @@ RSpec.describe Round do
 
     new_turn = @round.take_turn("Juneau")
 
-    expect(new_turn.class).to be_instance_of(Turn)
+    expect(new_turn.class).to eq(Turn)
     expect(new_turn.correct?).to eq(true)
     @round.turns
 
   end
 
+  it 'can count turns and access last turn' do
+    @round.deck
+    expect(@round.turns).to eq([])
+    @round.current_card
+
+    new_turn = @round.take_turn("Juneau")
+
+    expect(new_turn.class).to eq(Turn)
+    expect(new_turn.correct?).to eq(true)
+    @round.turns
+    @round.current_card
+
+    @round.take_turn("Venus")
+
+    expect(@round.turns.count).to eq(2)
+    expect(@round.turns.last.feedback).to eq("Incorrect.")
+  end
 
 end
