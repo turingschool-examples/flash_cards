@@ -19,16 +19,16 @@ round = Round.new(deck)
 
 round.start
 guess1 = gets.chomp
-round.show_card(guess1)
+round.show_next_card(guess1)
 guess2 = gets.chomp
-round.show_card(guess2)
+round.show_next_card(guess2)
 guess3 = gets.chomp
-round.show_card(guess3)
+round.show_next_card(guess3)
 guess4 = gets.chomp
-round.show_card(guess4)
+round.show_next_card(guess4)
 guess5 = gets.chomp
-round.show_card(guess5)
+round.show_next_card(guess5)
 guess6 = gets.chomp
-round.show_card(guess6)
+round.show_next_card(guess6)
 guess7 = gets.chomp
-round.show_card(guess7)
+round.show_next_card(guess7)

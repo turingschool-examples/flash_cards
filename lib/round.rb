@@ -44,7 +44,7 @@ class Round
         puts Question: #{current_card.question}"
   end
 
-  def show_card(user_guess)
+  def show_next_card(user_guess)
       take_turn(user_guess)
       puts "#{turns[-1].feedback}"
       if turns.size < deck.cards_as_array.size
