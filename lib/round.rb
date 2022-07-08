@@ -1,11 +1,12 @@
+# frozen_string_literal: true
 
 class Round
-  attr_accessor :deck, 
-                :turns, 
-                :turn, 
-                :current_card, 
-                :number_correct, 
-                :correct_by_category, 
+  attr_accessor :deck,
+                :turns,
+                :turn,
+                :current_card,
+                :number_correct,
+                :correct_by_category,
                 :percent_correct
 
   def initialize(deck)
@@ -21,7 +22,7 @@ class Round
     @turns << @turn
 
     @number_correct += 1 if @turn.correct? == true
-    @percent_correct = (number_correct.to_f/@turns.length.to_f)*100
+    @percent_correct = (number_correct.to_f / @turns.length) * 100
 
     @current_card = @deck.cards[turns.count]
 
@@ -31,11 +32,9 @@ class Round
   def number_correct_by_category(category)
     @correct_by_category = 0
     @turns.each do |turn|
-      if turn.card.category == category && turn.feedback == "Correct!"
-        @correct_by_category += 1
-      end
+      @correct_by_category += 1 if turn.card.category == category && turn.feedback == 'Correct!'
     end
-    return @correct_by_category
+    @correct_by_category
   end
 
   def percent_correct_by_category(category)
@@ -43,10 +42,8 @@ class Round
     number_of_trys_in_category = 0
 
     @turns.each do |turn|
-      if turn.card.category == category
-        number_of_trys_in_category += 1
-      end
+      number_of_trys_in_category += 1 if turn.card.category == category
     end
-    return (correct_by_category/number_of_trys_in_category)*100
+    (correct_by_category / number_of_trys_in_category) * 100
   end
 end

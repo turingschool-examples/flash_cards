@@ -1,11 +1,13 @@
-require './lib/card.rb'
+# frozen_string_literal: true
+
+require './lib/card'
 
 RSpec.describe Card do
   # Uses before method to repeat code below for each it method
   before(:each) do
     @card = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
   end
-  
+
   it 'exists' do
     expect(@card).to be_instance_of(Card)
   end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Turn
   attr_accessor :guess, :card, :feedback
 
