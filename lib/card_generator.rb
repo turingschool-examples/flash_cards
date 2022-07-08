@@ -9,7 +9,6 @@ class CardGenerator
     attr_reader :temp_deck
 
     def initialize(filename = 'cards.txt')
-        
         f_name = filename
         @temp_deck = []
         File.foreach(f_name) do |line|
