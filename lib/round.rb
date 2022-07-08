@@ -39,7 +39,7 @@ class Round
   end
 
   def start
-    puts "Welcome! You're playing with 4 cards.
+    puts "Welcome! You're playing with 3 cards.
 -------------------------------------------------
 This is card number 1 out of 3.
 Question: What is the capital of Alaska?"
@@ -47,8 +47,10 @@ Question: What is the capital of Alaska?"
 
   def show_card(user_guess)
       take_turn(user_guess)
-      turns[0].feedback
-      puts "This is card number #{(turns.size + 1)} out of 3."
+      puts "#{turns[-1].feedback}"
+      if turns.size < deck.cards.size
+        puts "This is card number #{(turns.size + 1)} out of 3."
+      end
     if turns.size == deck.cards.size
       puts "****** Game over! ******
         You had #{correct_turns.size} correct guesses out of 3 for a total score of #{percent_correct}%.
