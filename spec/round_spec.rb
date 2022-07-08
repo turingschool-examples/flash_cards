@@ -8,7 +8,9 @@ RSpec.describe Round do
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
 
-    deck = Deck.new([card_1, card_2, card_3])
+    cards = [card_1, card_2, card_3]
+
+    deck = Deck.new(cards)
 
     it 'exists' do
         round = Round.new(round)
@@ -26,5 +28,11 @@ RSpec.describe Round do
         round = Round.new(deck)
 
         expect(round.turns).to eq([])
+    end
+
+    it 'pull current card' do
+        round = Round.new(deck)
+
+        expect(round.current_card).to eq(deck.cards[0])
     end
 end
