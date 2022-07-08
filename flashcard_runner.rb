@@ -8,8 +8,7 @@ require './lib/card_generator'
 
 def start
   filename = 'cards.txt'
-  deck = Deck.new([CardGenerator.new(filename).cards])
-  p deck
+  deck = CardGenerator.new(filename).cards
   round = Round.new(deck)
   round_count = round.turns.count + 1
   total_count = deck.count
