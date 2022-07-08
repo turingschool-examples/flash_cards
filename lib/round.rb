@@ -1,7 +1,10 @@
 require './lib/turn'
 require './lib/deck'
 class Round
-    attr_reader :deck, :turns
+    attr_reader :deck,
+                :turns,
+                :number_correct
+
     def initialize(deck, turns = [])
         @deck = deck
         @turns = turns
@@ -19,4 +22,46 @@ class Round
         @turns << new_turn #stores the new Turn object and return it
         return new_turn
     end
-end   
+
+    def number_correct
+        correct = 0
+        @turns.each do |turn|
+            if turn.correct?
+                correct += 1
+            end
+        end
+        return correct
+    end
+
+    def number_correct_by_category(category)
+        correct = 0.0
+        incorrect = 0.0
+        
+        @turns.each do |turn|
+            if turn.card.category == category
+                if turn.correct?
+                    correct += 1
+                else 
+                    incorrect += 1
+                end
+            end 
+        end
+        return correct         
+    end
+
+    def percent_correct_by_category(category)
+        correct = 0.0
+        incorrect = 0.0
+        
+        @turns.each do |turn|
+            if turn.card.category == category
+                if turn.correct?
+                    correct += 1
+                else 
+                    incorrect += 1
+                end
+            end 
+        end
+        return correct / (correct + incorrect) * 100          
+    end
+end  
