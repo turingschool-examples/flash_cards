@@ -7,7 +7,6 @@ class Round
         @number_correct = 0
         @card_categories = []
         @total_correct_by_category = Hash.new
-        
     end
 
     def current_card
@@ -28,14 +27,13 @@ class Round
         @turns << current_turn # move current turn into turns array
 
         if @number_of_rounds == 0
-            add_categories_to_hash
+            add_categories_to_hash # if first turn, populates card categories with all categories in deck
         end
         
         @number_of_rounds += 1 # update rounds attribute
 
         if current_turn.correct? == true
-            # update correct answers attribute
-            @number_correct += 1
+            @number_correct += 1 # update correct answers attribute
             add_counter_category(0)
             add_counter_category(1)
         else
@@ -70,12 +68,12 @@ class Round
     end
 
     def percent_correct_by_category(category)
-        (@total_correct_by_category[answered_card.category][0].to_f * 100) / 
-        ((@total_correct_by_category[answered_card.category][1].to_s + ".0").to_f)
+        (@total_correct_by_category[category][0].to_f * 100) / 
+        ((@total_correct_by_category[category][1].to_s + ".0").to_f)
     end
 
     def number_correct_by_category(category)
-        @total_correct_by_category[answered_card.category][0].to_i
+        @total_correct_by_category[category][0].to_i
     end
 
 end

@@ -151,10 +151,10 @@ require './lib/round'
             deck = Deck.new(cards)
             round = Round.new(deck)
             new_turn = round.take_turn("Juneau")
-            expect(round.number_correct_by_category(:Geography)).to be 1
-            expect(round.number_correct_by_category(:STEM)).to be 0
+            expect(round.total_correct_by_category[:Geography][0]).to be 1
+            expect(round.total_correct_by_category[:STEM][0]).to be 0
             next_turn = round.take_turn("Venus")
-            expect(round.number_correct_by_category(:Geography)).to be 1
-            expect(round.number_correct_by_category(:STEM)).to be 0
+            expect(round.total_correct_by_category[:Geography][0]).to be 1
+            expect(round.total_correct_by_category[:STEM][0]).to be 0
         end
     end
