@@ -12,7 +12,7 @@ class Round
     @deck = deck
     @turns = []
     # returns the first element of the deck.cards array and removes it from the array
-    @current_card = @deck.cards.shift
+    @current_card = @deck.cards[turns.count]
     @number_correct = 0
   end
 
@@ -23,7 +23,7 @@ class Round
     @number_correct += 1 if @turn.correct? == true
     @percent_correct = (number_correct.to_f/@turns.length.to_f)*100
 
-    @current_card = @deck.cards.shift
+    @current_card = @deck.cards[turns.count]
 
     @turn
   end
