@@ -47,4 +47,31 @@ class Round
         end 
         (number_correct_by_category(category) / total_correct_by_category.to_f)*100 
     end     
+
+    def start
+        puts "Welcome! You're playing with #{deck.cards.count} cards.\n-------------------------------------------------"
+        tally = 0
+        card_count = deck.count 
+        until turns.count == deck.count do
+            puts "This is card number #{tally += 1} out of #{card_count}"
+            puts "Question: #{current_card.question}"
+            guess = gets.chomp
+            take_turn(guess)
+            puts turns.last.feedback
+        end 
+        
+        puts "****** Game over! ******"
+        
+        puts "You had #{number_correct} correct guesses out of #{     card_count} for a total score of #{percent_correct.to_i}%."
+        
+        turns_correct = []
+        turns.each do |turn|
+        if !turns_correct.include?(turn.card.category) 
+            turns_correct << turn.card.category
+        end
+        turns_correct.each do |category|
+        puts  "#{category}- #{percent_correct_by_category(category)}% correct"
+        end
+    end 
+    end 
 end 

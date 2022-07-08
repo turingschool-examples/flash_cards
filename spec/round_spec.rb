@@ -37,21 +37,21 @@ RSpec.describe Round do
         expect(new_turn.correct?).to be true 
     end 
 
-    it 'can total correct answers' do
+    it 'can sum correct answers' do
         new_turn = @round.take_turn("Juneau")
         @round.take_turn("Venus")
         
         expect(@round.number_correct).to eq(1)
     end 
 
-    it 'can total turns taken' do
+    it 'can sum turns taken' do
         new_turn = @round.take_turn("Juneau")
         @round.take_turn("Venus")
 
         expect(@round.turns.count).to eq(2)
     end 
 
-    it 'can check last feedback' do
+    it 'can return last feedback' do
         new_turn = @round.take_turn("Juneau")
         @round.take_turn("Venus")
 
@@ -78,6 +78,4 @@ RSpec.describe Round do
         
         expect(@round.percent_correct_by_category(:Geography)).to eq(100.0)
     end
-
-
 end 
