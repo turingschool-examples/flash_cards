@@ -19,7 +19,7 @@ class Round
   end
 
   def current_card
-    deck.cards.first
+    @deck.cards.first
   end
 
   def take_turn(answer, card = current_card)
@@ -60,42 +60,42 @@ class Round
     (number_correct_by_category(cat).to_f / total_by_cat) * 100
   end
 
-  # method to collect cards from text file
-  def collect_cards
-    @cards = []
-    File.open('flashcards.txt', 'r') do |file|
-    for line in file.readlines()
-        import_card = line.split("/")
-        card = Card.new(import_card[0], import_card[1], import_card[2].strip.to_sym)
-        @cards << card
+  def collect_category
+    deck.cards.each do |card|
+      @categories << card.category if categories.include?(card.category) == false
     end
-    @cards
   end
 
-  # shuffles deck => every game is played in diff order
-  # def shuffle
-  #   @cards = @cards.sample(@cards.count)
-  # end
-
-
-  # Add a method to start the game
   def start
-    collect_cards
-    shuffle
-    @deck = Deck.new(@cards)
     @total_cards = deck.cards.count
     collect_category
     puts "\n\n"
     puts "Welcome! You're playing with #{total_cards} cards."
     puts "-"*30
+    rounds
   end
 
-  
-
-  # Add a collect category method to handle end game feedback
-  def collect_category
-    deck.cards.each do |card|
-      @categories << card.category if categories.include?(card.category) == false
+  def rounds
+    (@total_cards).times do
+      puts "This is card number #{turn_count} out of #{total_cards}."
+      puts " "
+      puts "Question: #{current_card.question}"
+      # gather and clean up user input
+      answer = gets.chomp.split.map(&:capitalize).join(" ")
+      take_turn(answer, current_card)
+      puts " "
+      puts @turns.last.feedback
+      puts " "
     end
+    end_game
+  end
+
+  def end_game
+    puts "*" * 5 + "Game over!" + "*" * 5
+    puts "You had #{correct_answers} correct guesses out of #{total_cards} for a total score of %#{'%.1f' % (percent_correct)}."
+    @categories.each do |category|
+      puts "#{category} - %#{'%.1f' % (percent_correct_by_category(category))} correct"
+    end
+    puts "\n\n"
   end
 end
