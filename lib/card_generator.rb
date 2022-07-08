@@ -12,7 +12,7 @@ class CardGenerator
 
     def generate_cards(lines)
         lines.each do |line|
-            segments = line.split(/,/)
+            segments = line.split(",")
             @cards << Card.new(segments[0],segments[1],segments[2])
         end
     end

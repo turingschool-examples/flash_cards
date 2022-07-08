@@ -32,12 +32,20 @@ class Round
     def get_answer
         print "Answer: "
         guess = gets.chomp
+
         while guess == ""
             print "You did no enter an answer. Try again: "
             guess = gets.chomp
         end
+
+        if guess == 'exit' || guess == 'quit'
+            game_over
+            exit
+        end
+
         puts take_turn(guess).feedback
         puts ""
+        
         round_over? ? game_over : ask_question
     end
 
