@@ -20,7 +20,7 @@ class Round
   def take_turn(guess)
     turn = Turn.new(current_card, guess)
     @turns << turn
-    puts turn.feedback
+
     if turn.correct? == true
       @correct_turns << turn
     end
@@ -76,11 +76,12 @@ class Round
       puts "Question: #{current_card.question}"
 
       guess = gets.chomp
-      take_turn(guess)
+      new_turn = take_turn(guess)
+      puts new_turn.feedback
     end
 
     puts "****** Game over! ******"
-    puts "You had #{number_correct} guesses out of #{@deck.count} for at total score of #{percent_correct}%."
+    puts "You had #{number_correct} correct out of #{@deck.count} for at total score of #{percent_correct}%."
 
     unique_category.each do |c|
       puts "#{c} - #{percent_correct_by_category(c)}% correct"
