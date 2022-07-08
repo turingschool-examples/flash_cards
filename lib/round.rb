@@ -11,8 +11,6 @@ class Round
     @deck = deck
     @turns = []
     @correct_turns = []
-    # @current_card = @deck.cards[@turns.count]
-
   end
   #
   def current_card
@@ -48,10 +46,25 @@ class Round
     correct = @correct_turns.count do |turn|
                 turn.card.category == category
               end
+
     total = @turns.count do |turn|
                 turn.card.category == category
               end
+
+    correct = correct.to_f
+
     (correct/total) * 100
+  end
+
+  def unique_category
+    #returns an array of the unique categories in the deck
+    categories = []
+    @deck.cards.each do |card|
+      categories << card.category
+    end
+
+    categories.uniq
+
   end
 
   def start
@@ -64,11 +77,14 @@ class Round
 
       guess = gets.chomp
       take_turn(guess)
+    end
 
-      puts "****** Game over! ******"
-      puts "You had #{number_correct} guesses out of #{@deck.count} for at total score of #{percent_correct}%."
-      
+    puts "****** Game over! ******"
+    puts "You had #{number_correct} guesses out of #{@deck.count} for at total score of #{percent_correct}%."
+
+    unique_category.each do |c|
+      puts "#{c} - #{percent_correct_by_category(c)}% correct"
+
     end
   end
-
 end

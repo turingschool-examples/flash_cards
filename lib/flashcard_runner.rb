@@ -18,10 +18,10 @@ card_3 = Card.new(
   "Lichen",
   :Mycology)
 
-card_3 = Card.new(
-  "What is an organism that consists of a symbiotic relationship between a fungus and alga",
-  "Lichen",
-  :Mycology)
+# card_3 = Card.new(
+#   "What is an organism that consists of a symbiotic relationship between a fungus and alga",
+#   "Lichen",
+#   :Mycology)
 
 card_4 = Card.new(
   "What is the largest living organism?",
