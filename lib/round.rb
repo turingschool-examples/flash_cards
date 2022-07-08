@@ -29,6 +29,6 @@ class Round
   end
 
   def percent_correct
-    (@right_answers.count.to_f) / (@turns.count.to_f) * 100
+    (@number_correct.to_f) / (@turns.count.to_f) * 100
   end
 end
