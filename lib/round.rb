@@ -1,5 +1,5 @@
 class Round
-  attr_reader :deck, :turns, :correct
+  attr_reader :deck, :turns, :correct, :correct_by_category
 
   def initialize(deck)
     @deck = deck
@@ -24,5 +24,15 @@ class Round
 
   def number_correct
     @right_answer.count
+  end
+
+  def number_correct_by_category(category)
+    @right_answer.map { |card| card.category }.count
+  end
+
+  def percent_correct
+    require "pry"
+
+    binding.pry
   end
 end
