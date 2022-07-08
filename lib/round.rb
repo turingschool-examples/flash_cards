@@ -7,11 +7,6 @@ class Round
 
   def initialize(deck)
     @deck = deck
-    @turns = []
-  end
-
-  def turns
-    @turns += 1
   end
 
 end
