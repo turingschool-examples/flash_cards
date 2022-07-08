@@ -39,13 +39,14 @@ class Round
         end
 
         if guess == 'exit' || guess == 'quit'
+            puts ""
             game_over
             exit
         end
 
         puts take_turn(guess).feedback
         puts ""
-        
+
         round_over? ? game_over : ask_question
     end
 
