@@ -19,7 +19,9 @@ class Round
 
     def start
         puts "Welcome! You're playing with #{@deck.count} cards."
+        puts "Type 'quit' to exit the program."
         puts "-------------------------------------------------"
+            
         round_over? ? game_over : ask_question
     end
 
@@ -54,12 +56,23 @@ class Round
         @current_card_index == @deck.count
     end
 
+    def unique_categories
+        categories = []
+        @deck.cards.each do |card|
+            categories << card.category
+        end
+        categories.uniq{ |category| category }
+    end
+
     def game_over
         puts "****** Game over! ******"
         puts "You had #{@number_correct} correct guesses out of #{@deck.count} for a total score of #{percent_correct}%."
-        puts "Math - #{percent_correct_by_category("Math")}% correct."
-        puts "Geography - #{percent_correct_by_category("Geography")}% correct."
-        puts "STEM - #{percent_correct_by_category("STEM")}% correct."
+        # puts "Math - #{percent_correct_by_category("Math")}% correct."
+        # puts "Geography - #{percent_correct_by_category("Geography")}% correct."
+        # puts "STEM - #{percent_correct_by_category("STEM")}% correct."
+        unique_categories.each do |category|
+            puts "#{category} - #{percent_correct_by_category(category)}% correct."
+        end
     end
 
     def take_turn(guess)

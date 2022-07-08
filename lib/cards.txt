@@ -1,9 +1,9 @@
-What is 5 + 5?,10, Math
-What is the capital of Sri Lanka,Sri Jayawardenepura Kotte,Geography
+What is 5 + 5?,10,Math
+What is the capital of Sri Lanka?,Sri Jayawardenepura Kotte,Geography
 What mountain range contains Mt Everest?,The Himalayas,Geography
 What is 5!,120,Math
-What is the largest planet?,Jupiter,STEM
+What is the largest planet in our solar system?,Jupiter,STEM
 What is the chemical symbol for Potassium?,K,STEM
-What is the world's largest freshwater lake?,Lake Superior,Geography
-What is derivative of x^2?,2x,Math
+What is the world's largest freshwater lake by surface area?,Lake Superior,Geography
+What is derivative of x^2?,2x,Test
 What is the powerhouse of the cell?,Mitochondria,STEM
