@@ -1,5 +1,5 @@
 What is 5 + 5?,10, Math
-What is the capital of Sri Lanka,Sri Jayawardenapura Kotte,Geography
+What is the capital of Sri Lanka,Sri Jayawardenepura Kotte,Geography
 What mountain range contains Mt Everest?,The Himalayas,Geography
 What is 5!,120,Math
 What is the largest planet?,Jupiter,STEM
