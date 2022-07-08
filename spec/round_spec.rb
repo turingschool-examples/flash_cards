@@ -39,7 +39,7 @@ RSpec.describe(Round) do
     expect(@new_turn.correct?).to(eq(true))
   end
 
-  it("has turns") do
+  it("has first turn") do
     @new_turn = @round.take_turn("Juneau")
     expect(@round.turns).to(eq([@new_turn]))
   end
@@ -47,5 +47,38 @@ RSpec.describe(Round) do
   it("number correct") do
     @new_turn = @round.take_turn("Juneau")
     expect(@round.number_correct).to(eq(1))
+  end
+
+  it("second turn") do
+    @round.take_turn("Venus")
+    expect(@round.current_card).to(eq(@card_2))
+  end
+
+  it("can count second turn") do
+    @round.take_turn("Juneau")
+    @round.take_turn("Venus")
+    expect(@round.turns.count).to(eq((2)))
+  end
+
+  it("can give feedback") do
+    @round.take_turn("Juneau")
+    @round.take_turn("Venus")
+    expect(@round.turns.last.feedback).to(eq("Incorrect."))
+  end
+
+  it("can give the number of correct asnwers") do
+    @round.take_turn("Juneau")
+    @round.take_turn("Venus")
+    expect(@round.number_correct).to(eq(1))
+  end
+
+  it("can give number_correct by category") do
+    @round.take_turn("Juneau")
+    @round.take_turn("Venus")
+    expect(@round.number_correct_by_category(:Geography)).to(eq(1))
+  end
+
+  it("percent correct") do
+    expect(@round.percent_correct).to(eq(50.0))
   end
 end
