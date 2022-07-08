@@ -3,17 +3,20 @@ require './lib/card'
 
 RSpec.describe Turn do
   it 'exists' do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography) #Ask about this 2nd arg, doesn't use card.new
-    turn = Turn.new("Juneau", card)
+    card1 = Card.new("true or false? 5 < 5", false, :Math)
+    turn1 = Turn.new(false, card1)
+    card2 = Card.new("What is the capital of Louisiana?", "Baton Rouge", :Geography)
+    turn2 = Turn.new("New Orleans", card1)
 
-    expect(turn).to be_instance_of(Turn)
+    expect(turn1).to be_instance_of(Turn)
+    expect(turn2).to be_instance_of(Turn)
   end
 
   it 'has a guess' do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    turn = Turn.new("Juneau", card)
+    card = Card.new("In what state is Turing located?", "Colorado", :Geography)
+    turn = Turn.new("Colorado", card)
 
-    expect(turn.guess).to eq("Juneau")
+    expect(turn.guess).to eq("Colorado")
   end
 
   it 'has a card' do
@@ -36,10 +39,13 @@ RSpec.describe Turn do
   end
 
   it 'give feedback as a string depending on the guess' do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    turn = Turn.new("Juneau", card)
+    card1 = Card.new("true or false? 5 < 5", false, :Math)
+    turn1 = Turn.new(false, card1)
+    card2 = Card.new("What is the capital of Louisiana?", "Baton Rouge", :Geography)
+    turn2 = Turn.new("New Orleans", card1)
 
-    expect(turn.feedback).to eq("Correct!")
+    expect(turn1.feedback).to eq("Correct!")
+    expect(turn2.feedback).to eq("Incorrect.")
   end
 
 end
