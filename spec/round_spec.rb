@@ -25,5 +25,11 @@ RSpec.describe Deck do
 
     expect(round.turns).to eq([])
     end
+
+    it '3. round current card' do
+    round = Round.new(@deck)
+
+    expect(round.current_card).to eq(@card_1)
+    end
   end
 end
