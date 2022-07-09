@@ -24,7 +24,9 @@ RSpec.describe Round do
     expect(@round.deck).to eq(@deck)
   end
 
-  # it 'can count the number of cards it has' do
-  #   expect(@deck.count).to eq(3)
-  # end
+  it 'has rounds' do
+    expect(@round.turns).to eq([])
+  end
+
+  
 end
