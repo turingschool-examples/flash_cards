@@ -5,10 +5,6 @@ class Turn
         @card = card
     end
 
-    # def guess
-    #     card.answer 
-    # end
-
     def correct?
         @guess == card.answer
     end
