@@ -31,20 +31,35 @@ class Round
   end
 
   def number_correct_by_category(category)
-    correct_by_category = {}
-    @number_correct.each do |turn|
-      if correct_by_category[turn.card.category]
-        correct_by_category[turn.card.category] += 1
-      else
-        correct_by_category[turn.card.category] = 1
-      end
+    correct_by_category = turns.select do |turn|
+      turn.card.answer == turn.guess && turn.card.category == category
     end
-    correct_by_category[category]
+    correct_by_category.count
+    # correct_by_category = {}
+    # @number_correct.each do |turn|
+    #   if correct_by_category[turn.card.category]
+    #     correct_by_category[turn.card.category] += 1
+    #   else
+    #     correct_by_category[turn.card.category] = 1
+    #   end
+    # end
+    # correct_by_category[category]
   end
 
   def percent_correct
    percent = (@number_correct.count.to_f / @turns.count.to_f) * 100
-   percent.round.to_i
+   percent.round
   end
 
+  def percent_correct_by_category(category)
+    by_category = turns.select do |turn|
+    turn.card.category == category
+
+  end
+  cat_percent = (number_correct_by_category(category) / by_category.count.to_f) * 100
+  cat_percent.round
+
+  end
+  # require 'pry'
+  # binding.pry
 end
