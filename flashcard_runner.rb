@@ -22,9 +22,10 @@ if start.capitalize == "Start"
   puts "-" * 60
 
   turn_number = 0
+  starting_deck_count = deck.count
   until deck.count == 0
     turn_number += 1
-    puts "This is card number #{turn_number} out of 5 cards."
+    puts "This is card number #{turn_number} out of #{starting_deck_count} cards."
     puts "Question: #{round.current_card.question}"
     print "> "
     guess = $stdin.gets.chomp
