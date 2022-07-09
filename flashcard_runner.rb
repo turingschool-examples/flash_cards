@@ -16,25 +16,4 @@ require './lib/round'
 
 @round = Round.new(@deck_1)
 
-def start
-  puts "Welcome! You're playing with #{@round.deck.cards.length} cards."
-  puts "~~~~-------------------------------------------~~~~"
-  puts "This is card number #{@round.turns.length + 1} out of #{@round.deck.cards.length}."
-  puts "Question: #{@round.current_card.question}"
-  current_turn = @round.take_turn(gets.chomp.capitalize)
-  current_turn.feedback
-  until @round.turns.length == @round.deck.cards.length do
-    puts "-------------------------------------------------"
-    puts "This is card number #{@round.turns.length + 1} out of #{@round.deck.cards.length}."
-    puts "Question: #{@round.current_card.question}"
-    current_turn = @round.take_turn(gets.chomp.capitalize)
-    current_turn.feedback
-  end
-  puts "****** Game over! ******"
-  puts "You had #{@round.number_correct} correct guesses out of #{@round.deck.cards.length} for a total score of #{@round.percent_correct.round(0)}%."
-  puts "Biology - #{@round.percent_correct_by_category(:Biology).round(0)}% correct"
-  puts "Chemistry - #{@round.percent_correct_by_category(:Chemistry).round(0)}% correct"
-  puts "Astronomy - #{@round.percent_correct_by_category(:Astronomy).round(0)}% correct"
-end
-
-start
+@round.start

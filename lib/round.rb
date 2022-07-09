@@ -48,4 +48,25 @@ class Round
     number_correct_by_category(category).to_f / turns_in_category * 100
   end
 
+  def start
+    puts "Welcome! You're playing with #{@deck.cards.length} cards."
+    puts "~~~~-------------------------------------------~~~~"
+    puts "This is card number #{@turns.length + 1} out of #{@deck.cards.length}."
+    puts "Question: #{@current_card.question}"
+    current_turn = take_turn(gets.chomp.capitalize)
+    current_turn.feedback
+    until @turns.length == @deck.cards.length do
+      puts "-------------------------------------------------"
+      puts "This is card number #{@turns.length + 1} out of #{@deck.cards.length}."
+      puts "Question: #{@current_card.question}"
+      current_turn = take_turn(gets.chomp.capitalize)
+      current_turn.feedback
+    end
+    puts "****** Game over! ******"
+    puts "You had #{number_correct} correct guesses out of #{deck.cards.length} for a total score of #{percent_correct.round(0)}%."
+    puts "Biology - #{percent_correct_by_category(:Biology).round(0)}% correct"
+    puts "Chemistry - #{percent_correct_by_category(:Chemistry).round(0)}% correct"
+    puts "Astronomy - #{percent_correct_by_category(:Astronomy).round(0)}% correct"
+  end
+
 end
