@@ -12,9 +12,10 @@ class Round
   end
 
   def take_turn(string_as_guess)
-    new_turn = Turn.new(string_as_guess, current_card)
+    new_turn = Turn.new(string_as_guess, @current_card)
     turns << new_turn
-    current_card = deck.cards_as_array.rotate![0]
+    @current_card = deck.cards_as_array.rotate![0]
+    #the @ symbol made a difference - don't quite know why yet.
     correct_turns << new_turn if new_turn.correct?
     new_turn
   end

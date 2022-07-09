@@ -19,8 +19,5 @@ class CardGenerator
 end
 
 
-card_generator = CardGenerator.new("cards.txt").cards
-p card_generator.class
-
 #The goal of this class is to take a txt file and turn it into
 #an array of cards called cards with the approirate info in the right spots.
