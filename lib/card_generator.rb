@@ -13,20 +13,14 @@ class CardGenerator
       #need to pass in path to that file
       card = line.strip.split(",")
       @cards << Card.new(card[0],card[1],card[2])
-      puts(line)
     end
   end
-
-
-  #When I call this method I want it to take an input of the file it needs to read
-  #and then give me back an array with each line of that file as an element
-  #in the array
 
 end
 
 
-card_generator = CardGenerator.new("cards.txt")
-p card_generator.lines.size
+card_generator = CardGenerator.new("cards.txt").cards
+p card_generator
 
 #The goal of this class is to take a txt file and turn it into
 #an array of cards called cards with the approirate info in the right spots.
