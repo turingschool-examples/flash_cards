@@ -15,38 +15,43 @@ RSpec.describe Round do
         @deck = Deck.new(@cards)
         @turn = Turn.new("Juneau", @cards[0])
         @round = Round.new(@deck)
+        @turns = []
     end
 
-    it 'exists' do
+    it '1. exists' do
 
         expect(@round).to be_instance_of(Round)
     end
 
-    it 'has a deck of cards' do
+    it '2. has a deck of cards' do
 
         expect(@round.deck).to eq(@deck)
     end
 
-    it 'takes a turns' do
+    it '3. takes a turns' do
 
         expect(@round.turns).to eq([])
     end
 
-    it 'pull current card' do
+    it '4. pull current card' do
 
         expect(@round.current_card).to eq(@deck.cards[0])
     end
 
-    it 'takes a turn' do
+    it '5. takes a turn' do
+        new_turn = @round.take_turn("Juneau")
+        @turns = [new_turn]
 
+        expect(new_turn.class).to eq(Turn)
+        expect(new_turn.correct?).to eq(true)
+        expect(@round.turns).to eq(@turns)
+        expect(@round.number_correct).to eq(1)
+    end
 
-        #create a new Turn object
-        expect(@round.take_turn("Juneau").card).to eq(@turn.card)
-        #need to guess "Juneau" as argument
-        #new_turn variable
-        # expect(new_turn.class)to. be_instance_of(Turn)
-        #store new Turn and return it from the take_turn
-        #Round to next card
+    it '6. moves to the next card' do
+        new_turn = @round.take_turn("Juneau")
+        @turns = [new_turn]
 
+        expect(@round.current_card).to eq(@deck.cards[0])        
     end
 end

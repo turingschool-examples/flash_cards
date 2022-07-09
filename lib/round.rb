@@ -2,36 +2,36 @@ require './lib/turn'
 require 'pry'
 
 class Round
-    attr_reader :deck, :turns, :cards
+    attr_reader :deck, :turns, :cards, :number_correct
     
     def initialize (deck)
         @deck = deck
         @cards = cards
         @turns = []
-        # puts "Hello"
-        # input = gets.chomp
-        # puts input + "!!!"
+        @number_correct = 0
+
     end
 
     def current_card
-        deck.cards[0] #output in instructions is @answer, @question, @topic
-        # deck.cards.rotate(1) 
-
+        deck.cards[0]
     end
 
     def take_turn(guess)
-        p new_turn = Turn.new(guess, deck.cards[0])
-        # binding.pry
+        turn = Turn.new(guess, current_card)
+        @turns << turn
+        if guess == current_card.answer
+            @number_correct += 1 
+        end
+        deck.cards.rotate!
+        return turn
+
     end
-    # p new_turn = Turn.new(guess, deck.cards[0])
-
-
-    # def new_turn
-    #     @Turn
-    # end
-
 end
 
+#syntax for user input, taken from def initialize.
 
+# puts "Hello"
+    # input = gets.chomp
+    # puts input + "!!!"
 
 # Round.new(nil)
