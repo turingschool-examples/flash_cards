@@ -1,5 +1,4 @@
-require 'card'
-
+require './lib/card'
 class Deck
   attr_reader :cards, :count
   def initialize(cards)
@@ -17,9 +16,9 @@ class Deck
 
   def cards_in_category(category)
     cards_in_cat = []
-    cards.each do |card|
+    @cards.each do |card|
       if card.category == category
-        cards_in_cat.push(card)
+        cards_in_cat << card
       end
     end
     cards_in_cat

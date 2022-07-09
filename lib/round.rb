@@ -1,5 +1,5 @@
-require 'turn'
-require 'deck'
+require './lib/turn'
+require './lib/deck'
 
 class Round
   attr_reader :deck, :turns, :number_correct
@@ -12,29 +12,29 @@ class Round
   end
 
   def current_card
-    @deck[0]
+    @deck.cards[0]
   end
 
   def take_turn(guess)
-    new_turn = Turn.new(guess, @deck[0])
+    new_turn = Turn.new(guess, @deck.cards[0])
 
-    if @total_turns_by_category[@deck[0].category] == nil
-      @total_turns_by_category[@deck[0].category] = 0.0
+    if @total_turns_by_category[@deck.cards[0].category] == nil
+      @total_turns_by_category[@deck.cards[0].category] = 0.0
     else
-      @total_turns_by_category[@deck[0].category] += 1
+      @total_turns_by_category[@deck.cards[0].category] += 1
     end
 
     if new_turn.correct?
       @number_correct += 1
-      if @number_correct_by_category[@deck[0].category] == nil
-        @number_correct_by_category[@deck[0].category] = 0.0
+      if @number_correct_by_category[@deck.cards[0].category] == nil
+        @number_correct_by_category[@deck.cards[0].category] = 0.0
       else
-        @number_correct_by_category[@deck[0].category] += 1
+        @number_correct_by_category[@deck.cards[0].category] += 1
       end
     end
 
     @turns << new_turn
-    @deck.shift
+    @deck.cards.shift
     new_turn
   end
 
@@ -47,7 +47,7 @@ class Round
   end
 
   def percent_correct_by_category(category)
-    number_correct_by_category(category) / @total_turns_by_category(category)
+    number_correct_by_category(category) / @total_turns_by_category[category]
   end
 
 end

@@ -30,8 +30,8 @@ RSpec.describe Deck do
     card2 = Card.new("1 + 1", "2", :Math)
     card3 = Card.new("1 * 1", "1", :Math)
     deck = Deck.new([card1,card2,card3])
-    expect(deck.cards_in_category("Math")).to eq([card2,card2])
+    expect(deck.cards_in_category(:Math)).to eq([card2,card3])
   end
 
-  
+
 end

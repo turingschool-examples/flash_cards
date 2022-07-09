@@ -28,8 +28,8 @@ RSpec.describe Round do
     round = Round.new(deck)
     new_turn = round.take_turn("Juneau")
     expect(new_turn).to be_instance_of(Turn)
-    expect(round.correct).to eq(true)
-    
+    expect(new_turn.correct?).to eq(true)
+
   end
 
 end
