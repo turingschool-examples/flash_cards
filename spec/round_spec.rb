@@ -13,7 +13,7 @@ RSpec.describe Round do
         @cards = [@card_1, @card_2, @card_3]
 
         @deck = Deck.new(@cards)
-        @turn = Turn.new("Saturn", @card)
+        @turn = Turn.new("Juneau", @cards[0])
         @round = Round.new(@deck)
     end
 
@@ -37,11 +37,14 @@ RSpec.describe Round do
         expect(@round.current_card).to eq(@deck.cards[0])
     end
 
-    xit 'takes a turn' do
+    it 'takes a turn' do
 
-        #need to guess "Juneau" as argument
-        expect(round.take_turn(guess)).to eq(guess)
+
         #create a new Turn object
+        expect(@round.take_turn("Juneau").card).to eq(@turn.card)
+        #need to guess "Juneau" as argument
+        #new_turn variable
+        # expect(new_turn.class)to. be_instance_of(Turn)
         #store new Turn and return it from the take_turn
         #Round to next card
 
