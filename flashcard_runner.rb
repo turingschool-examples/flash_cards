@@ -20,17 +20,15 @@ if start.capitalize == "Start"
   puts " "
   puts "Welcome! You're playing with #{deck.count} cards."
   puts "-" * 60
-  puts "This is card number 1 out of 5 cards."
-  puts "Question: #{round.current_card.question}"
-  print "> "
-  guess = $stdin.gets.chomp
-  round.take_turn(guess)
-  puts round.turns.last.feedback
-  puts " "
-  puts "This is card number 2 out of 5 cards."
-  puts "Question: #{round.current_card.question}"
-  print "> "
-  guess = $stdin.gets.chomp
-  round.take_turn(guess)
-  puts round.turns.last.feedback
-  puts " "
+
+  turn_number = 0
+  until deck.count == 0
+    turn_number += 1
+    puts "This is card number #{turn_number} out of 5 cards."
+    puts "Question: #{round.current_card.question}"
+    print "> "
+    guess = $stdin.gets.chomp
+    round.take_turn(guess)
+    puts round.turns.last.feedback
+    puts " "
+  end
