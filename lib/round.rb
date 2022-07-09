@@ -28,16 +28,36 @@ end
 
 
 def number_correct_by_category(category)
+    num_correct_in_category = []
 @turns.each do |turn|
     if turn.correct? && turn.card.category == category
-        @num_correct_in_category << turn
+        num_correct_in_category << turn
     end
+end
+
+num_correct_in_category.count
 
 end
 
-@num_correct_in_category.count
+def percent_correct
+   
+    (num_correct.count.to_f / turns.count) * 100
+    
+ end
+
+ def start
+
+    p "Welcome! You're playing with #{deck.cards.count} cards"
+    p "-------------------------------------------------"
+    p "This is card number #{turns.count + 1} out of #{deck.cards.count}"
+    p current_card.question
+
+    guess = gets
+    next_turn = take_turn(guess)
+    p next_turn.feedback
 
 end
+
 
 end
 
