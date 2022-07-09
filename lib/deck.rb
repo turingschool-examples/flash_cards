@@ -10,13 +10,5 @@ class Deck
     cards.select do |card|
       card.category == category
     end 
-    
-    # sorted_cards = []
-    # cards.select do |card| 
-    #   if card.category == category
-    #     sorted_cards << card
-    #   end 
-    # end 
-    # sorted_cards  
   end 
 end 
