@@ -3,17 +3,20 @@ class Round
                 :turns, 
                 :current_card, 
                 :number_correct, 
-                :take_turn
+                :take_turn,    
+                :turn_count          
   def initialize(deck)
     @deck = deck
     @turns = []
-    @number_correct = 0 
+    @number_correct = 0
+    @turn_count = 0
   end 
   def current_card
     self.deck.cards[self.turns.count]
   end 
   def take_turn(guess)
     new_turn = Turn.new(guess, self.current_card)
+    @turn_count += 1
     @turns << new_turn
     if new_turn.correct?
       @number_correct += 1 
