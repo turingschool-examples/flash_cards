@@ -16,11 +16,19 @@ require './lib/round'
 
 def start
   puts "Welcome! You're playing with #{@round.deck.cards.length} cards."
-  puts "-------------------------------------------------"
-  puts "This is card number #{@round.deck.cards.find_index(@current_card).to_i + 1} out of #{@round.deck.cards.length}."
+  puts "~~~~-------------------------------------------~~~~"
+  puts "This is card number #{@round.turns.length + 1} out of #{@round.deck.cards.length}."
   puts "Question: #{@round.current_card.question}"
   current_turn = @round.take_turn(gets.chomp)
   current_turn.feedback
+  until @round.turns.length == @round.deck.cards.length do
+    puts "-------------------------------------------------"
+    puts "This is card number #{@round.turns.length + 1} out of #{@round.deck.cards.length}."
+    puts "Question: #{@round.current_card.question}"
+    current_turn = @round.take_turn(gets.chomp)
+    current_turn.feedback
+  end
+  puts "****** Game over! ******"
 end
 
 start
