@@ -1,5 +1,9 @@
 class Round 
-  attr_accessor :deck, :turns, :current_card, :number_correct, :take_turn
+  attr_accessor :deck, 
+                :turns, 
+                :current_card, 
+                :number_correct, 
+                :take_turn
   def initialize(deck)
     @deck = deck
     @turns = []
