@@ -38,9 +38,9 @@ class Round
     correct_by_category
   end 
   def percent_correct
-    return ((@number_correct.to_f / @turns.count) * 100).to_f
+    return ((@number_correct.to_f / @turns.count) * 100).to_f.round(2)
   end 
   def percent_correct_by_category(correct_category)
-    return (self.number_correct_by_category(correct_category) * 100).to_f
+    return (((self.number_correct_by_category(correct_category) * 100)) / (self.deck.cards_in_category(correct_category).count)).to_f.round(2)
   end 
 end 
