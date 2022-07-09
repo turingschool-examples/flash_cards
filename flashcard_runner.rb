@@ -35,6 +35,14 @@ if start.capitalize == "Start"
 
   puts "* " * 8 + " Game Over! " + " *" * 8
 
-  puts "You had #{round.number_correct} correct guesses out of 5 for a total score of #{round.percent_correct}%."
+  puts "You had #{round.number_correct} correct guesses out of 5 for a total score of #{round.percent_correct.to_i}%."
 
+  puts " "
+  card_categories = []
+  round.turns.each do |turn|
+    card_categories << turn.card.category
+  end
+  (card_categories.uniq).each do |category|
+    puts "#{category} - #{round.percent_correct_by_category(category)}% correct"
+  end
 end
