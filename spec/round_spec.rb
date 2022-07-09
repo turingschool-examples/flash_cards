@@ -1,7 +1,4 @@
-require './lib/card'
-require './lib/turn'
-require './lib/deck'
-require './lib/round'
+require_relative 'spec_helper'
 
 RSpec.describe Deck do
   before :each do
@@ -10,7 +7,6 @@ RSpec.describe Deck do
     @card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
     @cards = [@card_1, @card_2, @card_3]
     @deck = Deck.new(@cards)
-
   end
 
   describe 'Iteration 2' do
@@ -38,5 +34,14 @@ RSpec.describe Deck do
 
       expect(new_turn).to be_instance_of(Turn)
     end
+
+    it '5. is new turn correct' do
+      round = Round.new(@deck)
+      new_turn = round.take_turn("Juneau")
+
+      expect(new_turn.correct?).to eq(true)
+
+    end
+
   end
 end
