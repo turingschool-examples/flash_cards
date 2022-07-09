@@ -23,9 +23,10 @@ def start
     puts("Correct!")
     num_c += 1
   else
-    puts("no")
+    puts("Incorrect.")
   end
 
+  puts("This is card number 2 out of 4.")
   puts("Question: #{card_2.question}")
   answer = gets.chomp.downcase
   p(answer)
@@ -37,6 +38,7 @@ def start
     puts("Incorrect.")
   end
 
+  puts("This is card number 3 out of 4.")
   puts("Question: #{card_3.question}")
   answer = gets.chomp.downcase
 
@@ -47,6 +49,7 @@ def start
     puts("Incorrect.")
   end
 
+  puts("This is card number 4 out of 4.")
   puts("Question: #{card_4.question}")
   answer = gets.chomp.split(/ |\_/).map(&:capitalize).join(" ")
   p(answer)
@@ -60,6 +63,10 @@ def start
 
   puts("Game over!".center(40, "*"))
   puts("You had #{num_c} correct guesses out of #{deck.cards.count} for a total score of #{((num_c.to_f / deck.cards.count) * 100).truncate}%.")
+  beans = ((cards.map { |card| card.category })).uniq
+  puts("#{beans[0]}" + " " + "% correct")
+  puts("#{beans[1]}" + " " + "% correct")
+  puts("#{beans[2]}" + " " + "% correct")
 end
 
 start
