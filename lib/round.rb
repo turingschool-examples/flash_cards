@@ -10,4 +10,19 @@ class Round
   def current_card 
     deck.cards[0]
   end
+
+  def take_turn(prediction)
+    card = current_card
+    turn =  Turn.new(prediction, card)
+    @turns << turn
+    turn
+  end
+
+  def number_correct 
+   correct_answers = @turns.select do |turn|
+      turn.card.answer == turn.guess
+    end
+    correct_answers.count
+  end
 end
+
