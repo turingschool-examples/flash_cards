@@ -41,7 +41,8 @@ class Round
     turns_by_category = turns.select do |turn|
       turn.card.category == category 
     end
-    (number_correct_by_category(category) / turns_by_category.count.to_f) * 100
+    cat_pct = (number_correct_by_category(category) / turns_by_category.count.to_f) * 100
+    cat_pct.round
   end
 end
 
