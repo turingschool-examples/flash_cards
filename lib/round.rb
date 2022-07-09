@@ -73,11 +73,11 @@ class Round
 
   def rounds
     @total_cards.times do
-      puts "This is card number #{turn_count} out of #{total_cards}."
-      puts ' '
+      puts "This is card number #{turn_count} out of #{total_cards}.\n\n"
       puts "Question: #{current_card.question}"
-      # gather and sanitize user input
-      answer = gets.chomp.split.map(&:capitalize).join(' ')
+      print "Enter your answer: "
+      answer = gets.chomp
+      answer = answer.split.map(&:capitalize).join(' ')
       take_turn(answer, current_card)
       puts "#{turns.last.feedback} \n\n"
     end
