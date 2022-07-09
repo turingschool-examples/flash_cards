@@ -10,7 +10,6 @@ RSpec.describe Deck do
     @cards = [@card_1, @card_2, @card_3]
     @deck = Deck.new(@cards)
   end
-  
   it 'exists' do
     expect(@deck).to be_instance_of(Deck)
   end 
