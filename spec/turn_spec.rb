@@ -1,36 +1,34 @@
 require 'rspec'
-require './lib/turn'
 require './lib/card'
+require './lib/turn'
 
-RSpec.describe Turns do
+
+RSpec.describe Turn do
 
     before :each do
         @card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-        @turn = Turn.new("string", 'card', 'Juneau')
+        @turn = Turn.new("Juneau", @card)
     end
 
-    it 'class should exist' do
+    it 'class should exist' do#pass
         expect(@turn).to be_instance_of Turn
     end
 
-    it 'should return string' do #wrong
-        expect(@turn.string).to eq('string') 
-    end
-
-    it 'should return guess' do #wrong
-        expect(@turn.guess).to eq('guess') 
+    it 'should return guess' do #w
+        expect(@turn.guess).to eq('Juneau') 
     end
 
     it 'should return card' do
-        expect(@turn.card).to eq('card') 
+        expect(@turn.card).to eq(@card) 
     end
 
-    xit 'should return correct?' do
-        expect(@turn.correct?).to eq() 
+    xit 'should return correct?' do#will fail
+        expect(@turn.correct?).to eq(true)
     end
 
     xit 'should return feedback' do
         expect(@turn.feedback).to eq(card) 
     end
     
+
 end
