@@ -53,7 +53,7 @@ class Round
 
   def collect_category
     deck.cards.each do |card|
-      @categories << card.category if categories.include?(card.category) == false
+      @categories << card.category if @categories.include?(card.category)== false
     end
   end
 
