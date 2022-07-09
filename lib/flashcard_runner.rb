@@ -3,6 +3,7 @@ require './lib/turn'
 require './lib/deck'
 require './lib/round'
 require 'pry'
+filename = "cards.txt"
 
 
 
@@ -17,18 +18,18 @@ cards = [card_1, card_2, card_3, card_4,card_5, card_6, card_7]
 deck = Deck.new(cards)
 round = Round.new(deck)
 
-round.start
-guess1 = gets.chomp
-round.show_next_card(guess1)
-guess2 = gets.chomp
-round.show_next_card(guess2)
-guess3 = gets.chomp
-round.show_next_card(guess3)
-guess4 = gets.chomp
-round.show_next_card(guess4)
-guess5 = gets.chomp
-round.show_next_card(guess5)
-guess6 = gets.chomp
-round.show_next_card(guess6)
-guess7 = gets.chomp
-round.show_next_card(guess7)
+# round.start
+# guess1 = gets.chomp
+# round.show_next_card(guess1)
+# guess2 = gets.chomp
+# round.show_next_card(guess2)
+# guess3 = gets.chomp
+# round.show_next_card(guess3)
+# guess4 = gets.chomp
+# round.show_next_card(guess4)
+# guess5 = gets.chomp
+# round.show_next_card(guess5)
+# guess6 = gets.chomp
+# round.show_next_card(guess6)
+# guess7 = gets.chomp
+# round.show_next_card(guess7)
