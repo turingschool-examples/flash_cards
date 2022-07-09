@@ -79,14 +79,14 @@ class Round
       answer = gets.chomp
       answer = answer.split.map(&:capitalize).join(' ')
       take_turn(answer, current_card)
-      puts "#{turns.last.feedback} \n\n"
+      puts "\n#{turns.last.feedback} \n\n"
     end
     end_game
   end
 
   def end_game
     puts "****** Game over! ******\n\n"
-    puts "You had #{correct_answers} correct guesses out of #{total_cards} \nfor a total score of %#{format('%.1f', percent_correct)}.\n"
+    puts "You had #{correct_answers} correct guesses out of #{total_cards} \nfor a total score of %#{format('%.1f', percent_correct)}.\n\n"
     @categories.each do |category|
       puts "#{category} - %#{format('%.1f', percent_correct_by_category(category))} correct"
     end
