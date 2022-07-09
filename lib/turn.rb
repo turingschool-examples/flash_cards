@@ -15,9 +15,9 @@ class Turn
 # Prints feedback depending on whether guess was correct
   def feedback
     if @guess == @card.answer
-      p "Correct!"
+      puts "Correct!"
     else
-      p "Incorrect."
+      puts "Incorrect."
     end
   end
 end
