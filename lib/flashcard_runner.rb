@@ -2,6 +2,7 @@ require './lib/card'
 require './lib/deck'
 require './lib/turn'
 require './lib/round'
+require './lib/card_generator'
 
 card_1 = Card.new(
   "What is the fastest living creature",
@@ -17,11 +18,6 @@ card_3 = Card.new(
   "What is an organism that consists of a symbiotic relationship between a fungus and alga",
   "Lichen",
   :Mycology)
-
-# card_3 = Card.new(
-#   "What is an organism that consists of a symbiotic relationship between a fungus and alga",
-#   "Lichen",
-#   :Mycology)
 
 card_4 = Card.new(
   "What is the largest living organism?",

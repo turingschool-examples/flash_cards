@@ -1,7 +1,7 @@
 require './lib/card'
 require './lib/deck'
 require './lib/turn'
-require './lib/round.rb'
+require './lib/round'
 
 RSpec.describe Round do
   before :each do
@@ -90,8 +90,9 @@ RSpec.describe Round do
   it 'can tell percent correct by category' do
     new_turn = @round.take_turn("Juneau")
     second_turn = @round.take_turn("Venus")
+
     expect(@round.percent_correct_by_category(:STEM)).to eq(0.0)
     expect(@round.percent_correct_by_category(:Geography)).to eq(100.0)
   end
-# QUESTION: Is it OK to develop the class and the test simultaneously?
+
 end
