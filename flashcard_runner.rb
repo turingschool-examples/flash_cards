@@ -22,3 +22,8 @@ if start.capitalize == "Start"
   puts "-" * 60
   puts "This is card number 1 out of 5 cards."
   puts "Question: #{round.current_card.question}"
+  print "> "
+  guess = $stdin.gets.chomp
+  round.take_turn(guess)
+  puts round.turns.last.feedback
+  puts " "
