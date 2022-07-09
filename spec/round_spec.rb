@@ -36,7 +36,7 @@ RSpec.describe Round do
     new_turn = @round.take_turn("Juneau")
     expect(@round.current_card).to eq(@card_2)
   end 
-  it 'can take a new turn' do 
+  it 'can take next turn' do 
     new_turn = @round.take_turn("Juneau")
     next_turn = @round.take_turn("Venus")
     expect(@round.turns.count).to eq(2)
@@ -46,7 +46,7 @@ RSpec.describe Round do
     next_turn = @round.take_turn("Venus")
     expect(@round.turns.last.feedback).to eq("Incorrect!")
   end 
-  it 'returns correct number correct' do
+  it 'returns number correct' do
     new_turn = @round.take_turn("Juneau")
     next_turn = @round.take_turn("Venus")
     expect(@round.number_correct).to eq(1)
@@ -57,4 +57,20 @@ RSpec.describe Round do
     expect(@round.number_correct_by_category(:Geography)).to eq(1)
     expect(@round.number_correct_by_category(:STEM)).to eq(0)
   end
+  it 'returns percent correct' do 
+    new_turn = @round.take_turn("Juneau")
+    next_turn = @round.take_turn("Venus")
+    expect(@round.percent_correct).to eq(50.0)
+  end 
+  it 'returns percent correct by category' do 
+    new_turn = @round.take_turn("Juneau")
+    next_turn = @round.take_turn("Venus")
+    expect(@round.percent_correct_by_category(:Geography)).to eq (100.0)
+    expect(@round.percent_correct_by_category(:STEM)).to eq (0.0)
+  end 
+  it 'can take another turn' do 
+    new_turn = @round.take_turn("Juneau")
+    next_turn = @round.take_turn("Venus")
+    expect(@round.current_card).to eq(@card_3)
+  end 
 end
