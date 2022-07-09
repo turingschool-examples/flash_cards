@@ -32,3 +32,7 @@ if start.capitalize == "Start"
     puts round.turns.last.feedback
     puts " "
   end
+
+  puts "* " * 8 + " Game Over! " + " *" * 8
+
+   puts "You had #{round.number_correct} correct guesses out of 5 for a total score of #{percent_correct}%."
