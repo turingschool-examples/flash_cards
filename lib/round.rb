@@ -18,11 +18,19 @@ class Round
   def take_turn(guess)
     new_turn = Turn.new(guess, current_card)#Create new turn object with guess and card
     @turns << new_turn #Store this new turn object in @turns
-    #Change current card to next card in array - maybe push out first element?
+
     if new_turn.correct? == true
       @number_correct += 1
     end
-    new_turn
+
+    def feedback
+      if new_turn.correct? == false
+        "Incorrect."
+      end
+    end
+    @deck.cards.shift#Change current card to next card in array - push out first element
+
+    new_turn #Return it
   end
 
 end
