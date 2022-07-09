@@ -10,7 +10,7 @@ class CardGenerator
     @txt_file = txt_file
     @cards = []
     @lines = File.readlines("./lib/"+txt_file).each do |line|
-      #need to pass in path to that file
+      #need to pass in path to that txt file
       card = line.strip.split(",")
       @cards << Card.new(card[0],card[1],card[2])
     end
@@ -20,7 +20,7 @@ end
 
 
 card_generator = CardGenerator.new("cards.txt").cards
-p card_generator
+p card_generator.class
 
 #The goal of this class is to take a txt file and turn it into
 #an array of cards called cards with the approirate info in the right spots.

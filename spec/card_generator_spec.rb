@@ -13,15 +13,18 @@ RSpec.describe CardGenerator do
 
     expect(card.cards).to be_instance_of(Array)
     expect(card.cards).to all( be_an(Card) )
-
     #no way to say what will be in the array yet
     #other testing options - make sure it returns an instance of an aray
     #    expect(card.cards).to be_instance_of(Array) - placeholder
     # use an all matcher when you want to verify that an array contains a certain
     #    expect(card.cards).to all( be_an(Card) ) checks for type so insert a class
-
   end
 
+  it 'can reveal the cards to us' do
+    card_generator = CardGenerator.new("cards.txt").cards
+
+    expect(card_generator).to be_instance_of(Array)
+  end
 end
 
 
