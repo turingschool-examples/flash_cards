@@ -31,6 +31,7 @@ def start
   puts "****** Game over! ******"
   puts "You had #{@round.number_correct} correct guesses out of #{@round.deck.cards.length} for a total score of #{@round.percent_correct.round(0)}%."
   puts "Biology - #{@round.percent_correct_by_category(:Biology).round(0)}% correct"
+  puts "Chemistry - #{@round.percent_correct_by_category(:Chemistry).round(0)}% correct"
 
 end
 
