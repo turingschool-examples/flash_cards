@@ -51,6 +51,11 @@ class Round
     (number_correct_by_category(cat).to_f / total_by_cat) * 100
   end
 
+  # this seems like an ideal place to use #select, but
+  # @categories = deck.cards.select do |card|
+  #   card.category if @categories.include?(card.category)
+  # end
+  # doesn't pass tests for method
   def collect_category
     deck.cards.each do |card|
       @categories << card.category if @categories.include?(card.category)== false
