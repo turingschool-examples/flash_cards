@@ -46,8 +46,8 @@ def start
   puts "You had #{@round.number_correct} correct guesses out of #{@deck.count} for a total score of #{@round.percent_correct}"
   puts "\n"
   
-  card_categories.each do |card|
-    puts "#{card} - #{@round.percent_correct_by_category(card)}% correct"
+  card_categories.each do |category|
+    puts "#{category} - #{@round.percent_correct_by_category(category)}% correct"
     puts "\n" 
   end  
 end 
