@@ -33,6 +33,19 @@ class Round
         return correct
     end
 
+    def percent_correct
+        correct = 0.0
+        incorrect = 0.0
+        @turns.each do |turn|
+            if turn.correct?
+                correct += 1
+            else incorrect += 1
+            end
+        end
+        return correct / (correct + incorrect) * 100        
+    end
+
+
     def number_correct_by_category(category)
         correct = 0.0
         incorrect = 0.0
