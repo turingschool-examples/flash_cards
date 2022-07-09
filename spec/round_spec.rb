@@ -35,7 +35,7 @@ RSpec.describe Round do
 
     it '4. pull current card' do
 
-        expect(@round.current_card).to eq(@deck.cards[0])
+        expect(@round.current_card).to eq(@card_1)
     end
 
     it '5. takes a turn' do
@@ -52,6 +52,10 @@ RSpec.describe Round do
         new_turn = @round.take_turn("Juneau")
         @turns = [new_turn]
 
-        expect(@round.current_card).to eq(@deck.cards[0])        
+        expect(@round.current_card).to eq(@card_2)
+        expect(@round.take_turn("Venus")).to be_instance_of(Turn)
+        expect(@round.turns.count).to eq(2)
+        expect(@round.turns.last.feedback).to eq("Incorrect.")
+        expect(@round.number_correct).to eq(1)
     end
 end

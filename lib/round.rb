@@ -24,12 +24,11 @@ class Round
         end
         deck.cards.rotate!
         return turn
-
     end
 end
 
-#syntax for user input, taken from def initialize.
 
+#syntax below for user input, taken from def initialize.
 # puts "Hello"
     # input = gets.chomp
     # puts input + "!!!"
