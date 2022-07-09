@@ -45,9 +45,8 @@ class Round
   end
 
   def percent_correct_by_category(cat)
-    total_by_cat = 0
-    @turns.each do |turn|
-      total_by_cat += 1 if turn.card.category == cat
+    total_by_cat = @turns.count do |turn|
+      turn.card.category == cat
     end
     (number_correct_by_category(cat).to_f / total_by_cat) * 100
   end
