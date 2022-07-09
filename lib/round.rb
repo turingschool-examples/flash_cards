@@ -16,7 +16,7 @@ class Round
     turns << new_turn
     @current_card = deck.cards_as_array.rotate![0]
     #the @ symbol made a difference - don't quite know why yet.
-    correct_turns << new_turn if new_turn.correct?
+    @correct_turns << new_turn if new_turn.correct?
     new_turn
   end
 
@@ -54,8 +54,8 @@ class Round
     if turns.size == deck.cards_as_array.size
       puts "****** Game over! ******
         You had #{correct_turns.size} correct guesses out of #{deck.cards_as_array.size} for a total score of #{percent_correct}%.
-        Mod1 Review Questions - #{percent_correct_by_category(:CS)}% correct
-        Geography - #{percent_correct_by_category(:Geography)}% correct"
+        Mod1 Review Questions - #{percent_correct_by_category(":CS")}% correct
+        Geography - #{percent_correct_by_category(":Geography")}% correct"
     else
       puts "Question #{current_card.question}"
     end

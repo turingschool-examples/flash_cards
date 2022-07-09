@@ -1,4 +1,7 @@
-What is 5 + 5?,10,STEM
-What is Rachel's favorite animal?,red panda,Turing Staff
-What is Mike's middle name?,nobody knows,Turing Staff
-What cardboard cutout lives at Turing?,Justin bieber,PopCulture
+What is the capital of Alaska?,Juneau,:Geography
+In what state is Turing located?,Colorado,:Geography
+The extra file we can make to help us test & run code is called the ________ file. ,  runner , :CS
+What is the capital of Louisiana?,Baton Rouge,:Geography
+The four types of loops are do while time and _____,until,:CS
+What you have and where you have access to it is called the ________,scope,:CS
+The two directories you need when creating classes are spec & _____ ,lib,:CS
