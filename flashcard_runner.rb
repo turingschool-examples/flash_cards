@@ -20,3 +20,5 @@ if start.capitalize == "Start"
   puts " "
   puts "Welcome! You're playing with #{deck.count} cards."
   puts "-" * 60
+  puts "This is card number 1 out of 5 cards."
+  puts "Question: #{round.current_card.question}"
