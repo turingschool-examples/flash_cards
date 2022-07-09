@@ -9,18 +9,18 @@ RSpec.describe Turn do
     expect(turn).to be_a(Turn)
   end
 
-  xit "has readable attributes" do
+  it "has readable attributes" do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new('Juneau', card)
   end
 
-  xit "shows if the correct guess was given" do
+  it "shows if the correct guess was given" do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new('Juneau', card)
     expect(turn.correct?).to eq(true)
   end
 
-  xit "tells if the guess is incorrect" do
+  it "tells if the guess is incorrect" do
     card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
     turn = Turn.new("Saturn", card)
     expect(turn.correct?).to eq(false)
