@@ -32,9 +32,28 @@ RSpec.describe Round do
         new_turn = round.take_turn("Juneau")
 
         expect(new_turn).to be_instance_of(Turn)
-        expect(new_turn.card).to eq(card_1) 
+        expect(new_turn.card).to eq(card_1)
         expect(new_turn.guess).to eq("Juneau")
-    
+        expect(new_turn.correct?).to eq(true)
+
+        expect(round.turns).to eq([new_turn])
+        expect(round.number_correct).to eq(1)
+        expect(round.current_card).to eq(card_2)
+
+        new_turn = round.take_turn("Venus")
+        
+        expect(new_turn).to be_instance_of(Turn)
+        expect(new_turn.card).to eq(card_2)
+        expect(new_turn.guess).to eq("Venus")
+        expect(new_turn.correct?).to eq(false)
+        expect(round.turns.count).to eq(2)
+        expect(round.turns.last.feedback).to eq("Incorrect")
+        expect(round.number_correct).to eq(1)
+        expect(round.number_correct_by_category(:Geography)).to eq(1)
+        expect(round.number_correct_by_category(:STEM)).to eq(0)
+        expect(round.percent_correct).to eq(50.0)
+        expect(round.percent_correct_by_category(:Geography)).to eq(100.0)
+        expect(round.current_card).to eq(card_3)
     end
 end
 
