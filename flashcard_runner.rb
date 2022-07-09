@@ -17,3 +17,6 @@ card_12 = Card.new("What color is a giraffe's tounge?", "Blue", :Animals)
 card_13 = Card.new("Which is the world's largest lizard?", "Komodo Dragon", :Animals)
 card_14 = Card.new("In which country is Timbuktu?", "Mali", :Geography)
 card_15 = Card.new("What is the capitol of the state of Mississippi?", "Jackson", :Geography)
+
+cards = [card_1, card_2, card_3, card_4, card_5, card_6, card_7, card_8, card_9, card_10, card_11, card_12, card_13, card_14, card_15]
+deck = Deck.new(cards)
