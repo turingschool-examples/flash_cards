@@ -13,8 +13,5 @@ class Deck
     cards.find_all do |card|
       card.category == category
     end 
-
   end
-
-
 end
