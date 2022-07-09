@@ -8,7 +8,13 @@ def start
   @card_2 = Card.new("Which James Bond film was released in 1962?", "Dr. No", :Film)
   @card_3 = Card.new("Which Romani guitarist is credited with creating the musical style known as Gypsy Jazz?", "Django Reinhardt", :Music)
   @card_4 = Card.new("Which character did Gillian Anderson play on the 1990's television show The X-Files?", "Dana Scully", :Television)
-  @deck = Deck.new([@card_1, @card_2, @card_3, @card_4])
+  @card_5 = Card.new("Who played The Joker in the 1989 film Batman?", "Jack Nicholson", :Film)
+  @card_6 = Card.new("Which music group released the album Please Please Me in 1963?", "The Beatles", :Music)
+  @card_7 = Card.new("Which 1960's television show included actor Don Knotts as the character Deputy Barney Fife?", "The Andy Griffith Show", :Television)
+  @card_8 = Card.new("Who directed the 1997 film Titanic?", "James Cameron", :Film)
+  @card_9 = Card.new("What year did singer/songwriter Kate Bush release the song Running Up That Hill?", "1985", :Music)
+  @card_10 = Card.new("What is the unit of measurement used to describe the distance between the Earth and the Sun?", "astronomical unit", :Astronomy)
+  @deck = Deck.new([@card_1, @card_2, @card_3, @card_4, @card_5, @card_6, @card_7, @card_8, @card_9, @card_10])
   @round = Round.new(@deck)
 
   puts "\n"
