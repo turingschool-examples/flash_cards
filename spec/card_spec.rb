@@ -1,4 +1,4 @@
-require './lib/card'
+require_relative 'spec_helper'
 
 RSpec.describe Card do
   it 'exists' do
