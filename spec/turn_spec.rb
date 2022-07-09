@@ -1,5 +1,6 @@
 require 'rspec'
 require './lib/turn'
+# require 'pry'; binding.pry
 
 RSpec.describe Turn do
     before :each do
@@ -7,7 +8,6 @@ RSpec.describe Turn do
 #access to card via line 1 of the turn file; 
         @turn = Turn.new("Juneau", @card)
 #defining the methods here that will be used in tests below
-# require 'pry'; binding.pry
 
 end
 
