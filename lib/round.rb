@@ -8,7 +8,7 @@ class Round
   end
 
   def current_card 
-    deck.cards[0]
+    deck.cards.shift
   end
 
   def take_turn(prediction)
