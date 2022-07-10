@@ -2,14 +2,18 @@ require './lib/card'
 require './lib/deck'
 require './lib/round'
 require './lib/turn'
+require './lib/card_generator.rb'
 
 def start
-    card1 = Card.new("What is your name?", "Sir Lancelot of Camelot", :Identity)
-    card2 = Card.new("What is your quest?", "To seek the Holy Grail", :Identity)
-    card3 = Card.new("What is the capital of Assyria?", "Assur", :Geography)
-    card4 = Card.new("What is the airspeed velocity of an unladen swallow?", "24mph", :Ornithology)
+    # card1 = Card.new("What is your name?", "Sir Lancelot of Camelot", :Identity)
+    # card2 = Card.new("What is your quest?", "To seek the Holy Grail", :Identity)
+    # card3 = Card.new("What is the capital of Assyria?", "Assur", :Geography)
+    # card4 = Card.new("What is the airspeed velocity of an unladen swallow?", "24mph", :Ornithology)
+    # cards = [card1, card2, card3, card4]
 
-    deck = Deck.new([card1, card2, card3, card4])
+    cards = CardGenerator.new("cards.txt").cards
+
+    deck = Deck.new(cards)
 
     round = Round.new(deck)
 
