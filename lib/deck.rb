@@ -6,8 +6,6 @@ class Deck
   end
 
   def cards_in_category(category)
-    # @cards.find_all do |card|
-    #   card.category == category
     category_cards = []
     @cards.each do |card|
       if card.category == category

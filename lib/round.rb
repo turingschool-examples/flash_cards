@@ -35,15 +35,7 @@ class Round
       turn.card.answer == turn.guess && turn.card.category == category
     end
     correct_by_category.count
-    # correct_by_category = {}
-    # @number_correct.each do |turn|
-    #   if correct_by_category[turn.card.category]
-    #     correct_by_category[turn.card.category] += 1
-    #   else
-    #     correct_by_category[turn.card.category] = 1
-    #   end
-    # end
-    # correct_by_category[category]
+    
   end
 
   def percent_correct
