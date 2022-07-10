@@ -5,10 +5,9 @@ require './lib/turn.rb'
 
 class CardGenerator
 
-    attr_reader :filename, :cards
+    attr_reader :cards
 
     def initialize(filename)
-        @filename = filename
         lines = File.read(filename).strip.lines
         @cards = lines.map do |line|
             question, answer, category = line.strip.split(",")
