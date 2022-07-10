@@ -22,7 +22,7 @@ class Turn
       then
       "Correct!"
     else
-       "Incorrect."
+      "Incorrect."
     end
 
   end
@@ -32,3 +32,13 @@ class Turn
 
 
 end
+
+# require './card'
+
+# card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+
+# turn = Turn.new("Juneau", card)
+
+
+
+##why do p and puts output different things here?
