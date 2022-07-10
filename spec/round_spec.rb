@@ -22,6 +22,7 @@ describe Round do
         cards = [card_1, card_2, card_3]
         deck = Deck.new(cards)
         round = Round.new(deck)
+
         expect(round.current_card).to eq(cards[0])
         new_turn = round.take_turn("Juneau")
         expect(round.current_card).to eq(cards[1])
@@ -37,13 +38,12 @@ describe Round do
 
         new_turn = round.take_turn("Juneau")
 
-        
         expect(new_turn.class).to be(Turn)
         expect(new_turn.correct?).to be(true)
         expect(round.turns).to eq([new_turn])
     end
 
-    it 'keeps track of correct responses' do
+    it 'keeps track of correct and incorrect responses' do
         card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
         card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
         card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
@@ -69,13 +69,3 @@ describe Round do
         expect(round.current_card).to eq(card_3)
     end
 end
-
-
-
-
-    
-    
-        #round.turns = Array of turns
-        #round.turns.last = last turn in the array
-        #round.turns.last.feedback = turn.feedback correct or incorrect
-        #feedback is asking, is the guess == answer? yes or no 
