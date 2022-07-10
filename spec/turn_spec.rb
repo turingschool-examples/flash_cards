@@ -1,5 +1,5 @@
-require './turn'
-require './card'
+require './lib/turn'
+require './lib/card'
 require 'rspec'
 
 RSpec.describe Turn do
@@ -12,7 +12,7 @@ RSpec.describe Turn do
     expect(turn).to be_a(Turn)
   end
 
-  it 'has a guess' do
+  it 'returns the expected guess' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
 
@@ -20,14 +20,14 @@ RSpec.describe Turn do
     expect(turn.guess).to eq("Juneau")
   end
 
-  it 'has a card' do
+  it 'returns the expected instance of Card' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
 
     expect(turn.card).to eq(card)
   end
 
-describe 'is correct' do
+describe 'matches the turn guess to the card answer' do
   it 'Turn #correct?' do
       card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       turn = Turn.new("Juneau", card)
@@ -36,7 +36,7 @@ describe 'is correct' do
     end
   end
 
-  describe 'gives feedback' do
+  describe 'gives the right feedback for a correct answer' do
     it 'Turn #feedback' do
         card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
         turn = Turn.new("Juneau", card)
@@ -44,8 +44,5 @@ describe 'is correct' do
         expect(turn.feedback).to eq('Correct!')
       end
     end
-
-
- 
 
 end
