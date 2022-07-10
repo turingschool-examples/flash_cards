@@ -30,7 +30,7 @@ class Round
     end
     @deck.cards.shift#Change current card to next card in array - push out first element
 
-    new_turn #Return it
+    new_turn
   end
 
   def number_correct_by_category(category_turn)
@@ -58,6 +58,19 @@ def percent_correct_by_category(category_turn)
   end
 
   (number_correct_by_category(category_turn).to_f/ category_total) * 100
+end
+
+def start
+  puts "Welcome! You're playing with #{deck.cards.count} cards.
+  -------------------------------------------------"
+  puts "This is card number #{turns.count +1} out of #{deck.cards.count}."
+  puts current_card.question
+
+
+  guess = gets.chomp
+  new_turn = take_turn(guess)
+  puts new_turn.feedback
+
 end
 
 end

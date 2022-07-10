@@ -1,6 +1,7 @@
 require './lib/card'
 require './lib/turn'
 require './lib/deck'
+require './lib/round'
 
 card_1 = Card.new("What house is Harry Potter sorted into?", "Gryffindor", :HarryPotter)
 card_2 = Card.new("What is Harry's position on the Quidditch team?", "Seeker", :HarryPotter)
@@ -20,3 +21,6 @@ card_15 = Card.new("What is the capitol of the state of Mississippi?", "Jackson"
 
 cards = [card_1, card_2, card_3, card_4, card_5, card_6, card_7, card_8, card_9, card_10, card_11, card_12, card_13, card_14, card_15]
 deck = Deck.new(cards)
+round = Round.new(deck)
+
+round.start
