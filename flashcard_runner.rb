@@ -10,7 +10,11 @@ File.open('lib/flashcards.txt', 'r') do |file|
   end
 end
 
-cards = cards.sample(cards.count)
+# prompt user for total number of cards in the game, scaleable
+print "How many cards would you like to play with? (1-#{cards.count}): "
+custom_deck_size = gets.chomp.to_i
+cards = cards.sample(custom_deck_size)
+
 deck = Deck.new(cards)
 round = Round.new(deck)
 
