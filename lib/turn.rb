@@ -19,9 +19,9 @@ class Turn
 
     def response
         if correct? == true
-            p "You got it!"
+            "You got it!"
         else
-            p "Wrong!"
+            "Wrong!"
         end
     end
 end
