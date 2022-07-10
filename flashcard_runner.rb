@@ -23,7 +23,7 @@ new_turn= Turn.new(guess, card_1)
 new_turn.correct?
 puts new_turn.feedback
 
-puts "This is card number 2 out of 3"
+puts "This is card number 2 out of 3."
 
 puts card_2.question
 
@@ -33,7 +33,7 @@ new_turn= Turn.new(guess, card_2)
 new_turn.correct?
 puts new_turn.feedback
 
-puts "This is card number 3 out of 3"
+puts "This is card number 3 out of 3."
 
 puts card_3.question
 
@@ -43,6 +43,10 @@ new_turn= Turn.new(guess, card_3)
 new_turn.correct?
 puts new_turn.feedback
 
+puts "****** Game over! ******"
+puts "You have #{round.number_correct} correct guesses out of 3 for a total score of #{round.percent_correct}%"
+puts "Geography - #{round.percent_correct_by_category(:Geography)}%"
+puts "STEM - #{round.percent_correct_by_category(:STEM)}%"
 # puts round.number_correct
 # puts round.number_correct_by_category(:Geography)
 # puts round.number_correct_by_category(:STEM)
