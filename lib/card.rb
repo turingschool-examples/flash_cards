@@ -1,3 +1,4 @@
+#require 'pry'; binding.pry
 class Card
 
     attr_reader :question,

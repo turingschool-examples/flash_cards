@@ -1,5 +1,5 @@
-require './lib/card'
-#require 'pry';
+#require './lib/card'
+#require 'pry'; binding.pry
 
 class Turn
 
