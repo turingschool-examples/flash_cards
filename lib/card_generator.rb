@@ -7,7 +7,10 @@ class CardGenerator
     file_content = []
     File.readlines(@filename).map do |line|
       file_content << line.gsub("\n", '').split(',')
-      card_content = Card.new(file_content[0][0], file_content[0][1], file_content[0][2])
-    end   
+      file_content.map do |line|
+        @cards = Card.new(line[0], line[1], line[2])   
+      end 
+      @cards
+    end  
   end
 end 
