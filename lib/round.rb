@@ -9,6 +9,7 @@ class Round
     @deck = deck
     @turns = []
     @number_correct = 0
+    @deck_count = 0
   end
 
   def current_card
@@ -64,10 +65,11 @@ def start
   puts "Welcome! You're playing with #{deck.cards.count} cards.
   -------------------------------------------------"
 
+
 turn_number = 0
 deck_count = deck.count
-  until deck.count == 0
-    puts "This is card number #{turn_number + 1} out of 8."
+  until deck_count == turn_number
+    puts "This is card number #{turn_number + 1} out of #{deck_count}."
     puts current_card.question
     guess = gets.chomp
     new_turn = take_turn(guess)
@@ -76,6 +78,10 @@ deck_count = deck.count
   end
   puts "****** Game over! ******"
   puts "You had #{number_correct} out of 8 for a total score of #{percent_correct}%."
+
+  # @turns.each do |turn|
+  #   puts card.@category.uniq
+  # end
 end
 
 end
