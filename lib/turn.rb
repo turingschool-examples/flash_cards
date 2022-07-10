@@ -1,5 +1,5 @@
 #require './lib/card'
-#require 'pry'; binding.pry
+# require 'pry';binding.pry
 
 class Turn
 
@@ -11,8 +11,12 @@ class Turn
         @card = card  
     end
     
-    def correct?
-        @guess == @card.answer
+    def correct? 
+        if @guess == @card.answer
+          true
+        else
+            false
+        end
     end
 
     def feedback

@@ -21,11 +21,11 @@ RSpec.describe Turn do
     expect(@turn.guess).to eq("Juneau")
   end
 
-  it 'correct?' do
+  it 'evaluated if correct' do
     expect(@turn.correct?).to eq(true)
   end
 
-  it 'feedback' do
+  it 'gives feedback' do
     expect(@turn.feedback).to eq("Correct!")
   end
 end
