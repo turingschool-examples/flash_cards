@@ -1,10 +1,9 @@
 # attr_reader :round
 class Round
-  attr_reader :deck, :turns
+  attr_reader :deck, :turns, :number_correct
   def initialize(deck)
     @deck = deck
     @turns = []
-  
     #instance variable
   end
 
@@ -18,9 +17,9 @@ class Round
     new_turn
   end
 
-  # def number_correct
-  #   puts 1
-  # end
+  def number_correct
+    p 1
+  end
 
 
 

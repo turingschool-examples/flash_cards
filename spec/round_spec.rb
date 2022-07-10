@@ -42,11 +42,7 @@ RSpec.describe Round do
     expect(@round.turns).to eq([new_turn])
   end
 
-  # it 'should give current number'
-  #   expect(@round.number_correct).to eq(1)
-  # end
+  it 'should give current number'
+    expect(@round.number_correct).to eq(1)
+  end
 
-
-
-
-end
