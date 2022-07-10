@@ -69,8 +69,9 @@ RSpec.describe Round do
             round = Round.new(deck)
             round.take_turn("Juneau")
            
-
+            expect(deck.cards.count).to eq(2)
             expect(round.turns.count).to eq(1)
+            expect(round.number_correct).to eq(1)
         end
     end
 
