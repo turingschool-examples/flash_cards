@@ -9,12 +9,10 @@ class CardGenerator
 
     def initialize(filename)
         @filename = filename
-        @cards = []
         lines = File.read(filename).strip.lines
-        lines.each do |line|
+        @cards = lines.map do |line|
             question, answer, category = line.strip.split(",")
-            card = Card.new(question, answer, category)
-            @cards << card
+            Card.new(question, answer, category)
         end
     end
 
