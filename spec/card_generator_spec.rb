@@ -16,5 +16,4 @@ RSpec.describe CardGenerator do
         expect(@card_generator.cards).to eq(@cards)
     end 
 
-
 end  

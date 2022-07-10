@@ -17,5 +17,4 @@ attr_reader :filename, :cards
         end
         @cards
     end 
-
 end 

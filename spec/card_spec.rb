@@ -1,4 +1,3 @@
-require './lib/turn'
 require './lib/card'
 
 RSpec.describe Card do

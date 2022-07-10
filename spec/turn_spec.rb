@@ -15,7 +15,6 @@ RSpec.describe Turn do
     expect(@turn.card).to eq(@card)
 
     @turn = Turn.new("Saturn", @card)
-
     expect(@turn.card).to eq(@card)
   end
 
@@ -23,7 +22,6 @@ RSpec.describe Turn do
     expect(@turn.correct?).to eq(true) 
     
     @turn = Turn.new("Denver", @card)
-
     expect(@turn.correct?).to eq(false)
   end 
 
@@ -31,7 +29,6 @@ RSpec.describe Turn do
     expect(@turn.feedback).to eq('Correct!')
 
     @turn = Turn.new("Saturn", @card)
-
     expect(@turn.feedback).to eq('Incorrect.')
   end
 
