@@ -21,3 +21,12 @@ puts card_2.question
 user_guess_2 = gets.chomp
 turn_2 = Turn.new(user_guess_2, card_2)
 puts turn_2.feedback
+puts "This is card 2 out of 3"
+puts card_3.question
+user_guess_3 = gets.chomp
+turn_3 = Turn.new(user_guess_3, card_3)
+puts turn_3.feedback
+puts "****** Game over! *******" 
+# results = round.number_correct
+# results_pct = round.percent_correct
+# puts "you had #{results} out of 3 for a total score of #{results_pct}%."
