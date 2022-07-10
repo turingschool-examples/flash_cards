@@ -7,7 +7,7 @@ card_4 = Card.new("Blue Jeans were invented by Levi Strauss and Jacob Davis, in 
 card_5 = Card.new("How many teaspoons are in a tablespoon?", "3", :Cooking)
 card_6 = Card.new("Historically what color was only allowed to be worn by royalty?", "Purple", :Fashion)
 card_7 = Card.new("Every year about 160,000 people send a letter to what Colorado city just for a postmark?", "Loveland", "Colorado Facts")
-card_8 = Card.new("At what internal temperature (F) is chicken safe to consume?", "165 degrees", :Cooking)
+card_8 = Card.new("At what internal temperature (F) is chicken safe to consume?", "165", :Cooking)
 card_9 = Card.new("Paisley is a print motive that got its name from a city in what contry?", "Scotland", :Fashion)
 card_10 = Card.new("What book series did J.K. Rowling become famous for writing?", "Harry potter", "Just for Fun")
 
