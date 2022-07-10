@@ -14,16 +14,7 @@ attr_reader :cards
   end
 
   def cards_in_category(desired_category)
-    @cards_of_category = []
-
-    @cards.each do |card|
-      if desired_category == card.category
-        @cards_of_category << card
-      end
-    end
-    @cards_of_category
+    @cards.select { |card| card.category == desired_category}
   end
-
-
 
 end
