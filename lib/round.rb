@@ -9,6 +9,7 @@ class Round
         @cards = cards
         @turns = []
         @number_correct = 0
+        @correct_turns = 0
 
     end
 
@@ -24,6 +25,23 @@ class Round
         end
         deck.cards.rotate!
         return turn
+    end
+
+    def number_correct_by_category(category)
+
+        @correct_turns = turns.select do |turn|
+           turn.card.category == category && turn.correct?
+        end
+
+        return @correct_turns.count
+    end
+
+    def percent_correct
+     (@number_correct / turns.count.to_f) * 100
+    end
+
+    def percent_correct_by_category(category)
+        (@correct_turns / turns.count.to_f) * 100
     end
 end
 
