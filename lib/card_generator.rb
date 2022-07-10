@@ -5,14 +5,10 @@ require './lib/turn.rb'
 
 class CardGenerator
 
-    attr_reader :filename
+    attr_reader :filename, :cards
 
     def initialize(filename)
         @filename = filename
-
-    end
-
-    def pull_card
     end
 
 end
