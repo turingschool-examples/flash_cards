@@ -1,6 +1,6 @@
 require './lib/card.rb'
 require './lib/turn.rb'
-require './lib/Card_generator.rb'
+require './lib/card_generator.rb'
 
 RSpec.describe Turn do
   before :each do
