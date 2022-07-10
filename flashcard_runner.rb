@@ -18,6 +18,7 @@ round.start
 puts card_1.question
 
 guess = gets.chomp
+round.take_turn(guess)
 new_turn= Turn.new(guess, card_1)
 new_turn.correct?
 puts new_turn.feedback
@@ -27,6 +28,7 @@ puts "This is card number 2 out of 3"
 puts card_2.question
 
 guess = gets.chomp
+round.take_turn(guess)
 new_turn= Turn.new(guess, card_2)
 new_turn.correct?
 puts new_turn.feedback
@@ -36,8 +38,14 @@ puts "This is card number 3 out of 3"
 puts card_3.question
 
 guess = gets.chomp
+round.take_turn(guess)
 new_turn= Turn.new(guess, card_3)
 new_turn.correct?
 puts new_turn.feedback
 
-# end
+# puts round.number_correct
+# puts round.number_correct_by_category(:Geography)
+# puts round.number_correct_by_category(:STEM)
+# puts round.percent_correct
+# puts round.percent_correct_by_category(:Geography)
+# puts round.percent_correct_by_category(:STEM)
