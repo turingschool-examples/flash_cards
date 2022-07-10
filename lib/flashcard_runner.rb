@@ -6,10 +6,10 @@ require './lib/card_generator.rb'
 
 class Runner
     
-    def initialize
-        cardset = CardGenerator.new('cards.txt').temp_deck
-        @deck = Deck.new(cardset)
-        @round = Round.new(@deck)
+    def initialize(file = 'cards.txt') #creates Runner
+        cardset = CardGenerator.new(file).temp_deck #creates card set from txt file
+        @deck = Deck.new(cardset) #creates deck from card set
+        @round = Round.new(@deck) #creates round from deck
     end
 
    def start
@@ -41,5 +41,5 @@ class Runner
     end
 end
 
-game = Runner.new
+game = Runner.new()
 game.start

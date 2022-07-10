@@ -2,7 +2,7 @@ require './lib/card.rb'
 require './lib/turn.rb'
 require './lib/deck.rb'
 require './lib/round.rb'
-require './lib/Card_generator.rb'
+require './lib/card_generator.rb'
 
 RSpec.describe Round do
   before :each do
