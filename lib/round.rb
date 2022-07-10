@@ -63,14 +63,19 @@ end
 def start
   puts "Welcome! You're playing with #{deck.cards.count} cards.
   -------------------------------------------------"
-  puts "This is card number #{turns.count +1} out of #{deck.cards.count}."
-  puts current_card.question
 
-
-  guess = gets.chomp
-  new_turn = take_turn(guess)
-  puts new_turn.feedback
-
+turn_number = 0
+deck_count = deck.count
+  until deck.count == 0
+    puts "This is card number #{turn_number + 1} out of 8."
+    puts current_card.question
+    guess = gets.chomp
+    new_turn = take_turn(guess)
+    puts new_turn.feedback
+    turn_number += 1
+  end
+  puts "****** Game over! ******"
+  puts "You had #{number_correct} out of 8 for a total score of #{percent_correct}%."
 end
 
 end
