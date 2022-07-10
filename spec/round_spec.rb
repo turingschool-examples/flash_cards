@@ -12,17 +12,40 @@ RSpec.describe Round do
     @card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
     @cards = [@card_1, @card_2, @card_3]
     @deck = Deck.new(@cards) 
-    @round = Round.new(round)
+    @round = Round.new(@deck)
+    @turn = Turn.new("Juneau", @card)
     end
 
   it 'class should exist' do
     expect(@round).to be_instance_of Round
   end
 
-  it 'should return cards' do
-    expect(@deck.cards).to eq(@cards)
-    require 'pry';binding.pry
-end
+  it 'should return deck' do
+    expect(@round.deck).to eq(@deck)
+  end
+
+  it 'should take_turn' do
+    expect(@round.turns).to eq([])
+  end
+
+  it 'should return current cards' do
+    expect(@round.current_card).to eq(@card_1)
+  end
+
+  it 'should take turn' do
+    new_turn = @round.take_turn("Juneau")
+    # expect(@round.take_turn).to eq()
+  expect(new_turn.class).to eq Turn
+    # require 'pry';binding.pry
+  end
+
+
+
+
+#   it 'should return correct?' do#
+#     expect(@turn.correct?).to eq(true)
+# end
+
 
 
 
