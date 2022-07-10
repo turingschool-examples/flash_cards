@@ -79,8 +79,14 @@ deck_count = deck.count
   puts "****** Game over! ******"
   puts "You had #{number_correct} out of 8 for a total score of #{percent_correct}%."
 
-  # @turns.each do |turn|
-  #   puts card.@category.uniq
+  categories_list = []
+  @turns.each do |turn|
+     categories_list << turn.card.category
+  end
+  puts categories_list.uniq
+
+  # categories_lists.each do |categories_list|
+  #   puts "#{categories_lists} - #{percent_correct_by_category.to_i}"
   # end
 end
 
