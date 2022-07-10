@@ -9,7 +9,7 @@ class Round
   end
 
   def current_card
-    @deck.cards[turns.count]
+    @curr_card = @deck.cards[turns.count]
   end
 
   def take_turn(guess)
@@ -18,14 +18,18 @@ class Round
 
     if @new_turn.correct?
       @number_correct += 1
-      @right_answers << @new_turn.card
+      @right_answers << @curr_card
     end
 
     @new_turn
   end
 
+  def number_correct
+    @right_answers.count
+  end
+
   def number_correct_by_category(category)
-    @right_answers.select { |card| card.category }.count
+    @right_answers.select { |card| card.category == category }.count
   end
 
   def percent_correct
@@ -33,6 +37,6 @@ class Round
   end
 
   def percent_correct_by_category(category)
-    (number_correct_by_category(category) / deck.cards_in_category(category).count.to_f) * 100
+    (number_correct_by_category(category).to_f / deck.cards_in_category(category).count) * 100
   end
 end

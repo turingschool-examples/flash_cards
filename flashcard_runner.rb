@@ -5,8 +5,8 @@ require "./lib/round"
 
 
 def start
-  card_1 = Card.new("What is 5 + 5?", 10, :STEM)
-  card_2 = Card.new("What is Rachel's favorite animal?", "panda", :PopCulture)
+  card_1 = Card.new("What is 5 + 5?", "10", :STEM)
+  card_2 = Card.new("What is Rachel's favorite animal?", "poodle", :PopCulture)
   card_3 = Card.new("What is Mike's middle name?", "nobody knows", :PopCulture)
   card_4 = Card.new("What cardboard cutout lives at Turing?", "Justin Bieber", :TuringStaff)
   cards = [card_1, card_2, card_3, card_4]
@@ -14,59 +14,22 @@ def start
   round = Round.new(deck)
   puts("Welcome! You're playing with #{deck.cards.count} cards.")
   puts("-" * 40)
-  puts("This is card number 1 out of 4.")
-  puts("Question: #{card_1.question}")
-  num_c = 0
-  answer = gets.chomp.to_i
-
-  if card_1.answer == answer
-    puts("Correct!")
-    num_c += 1
-  else
-    puts("Incorrect.")
+  turns = 0
+  until turns == deck.count
+    turns += 1
+    puts("This is card number #{turns} out of #{deck.count}.")
+    puts((("Question:#{round.current_card.question}")))
+    guess = gets.chomp
+    round.take_turn(guess)
+    round.turns.last.correct?
+    puts(round.turns.last.feedback)
   end
 
-  puts("This is card number 2 out of 4.")
-  puts("Question: #{card_2.question}")
-  answer = gets.chomp.downcase
-  p(answer)
-
-  if card_2.answer == answer
-    puts("Correct!")
-    num_c += 1
-  else
-    puts("Incorrect.")
-  end
-
-  puts("This is card number 3 out of 4.")
-  puts("Question: #{card_3.question}")
-  answer = gets.chomp.downcase
-
-  if card_3.answer == answer
-    puts("Correct!")
-    num_c += 1
-  else
-    puts("Incorrect.")
-  end
-
-  puts("This is card number 4 out of 4.")
-  puts("Question: #{card_4.question}")
-  answer = gets.chomp.split(/ |\_/).map(&:capitalize).join(" ")
-  p(answer)
-
-  if card_4.answer == answer
-    puts("Correct!")
-    num_c += 1
-  else
-    puts("Incorrect.")
-  end
-
-  puts("Game over!".center(40, "*"))
-  puts("You had #{num_c} correct guesses out of #{deck.cards.count} for a total score of #{((num_c.to_f / deck.cards.count) * 100).truncate}%.")
-  beans = ((cards.map { |card| card.category })).uniq
-  puts("#{beans[0]}" + " " + "% correct")
-  puts("#{beans[1]}" + " " + "% correct")
-  puts("#{beans[2]}" + " " + "% correct")
+  puts(("Game Over!".center(40, "*")))
+  puts(("you had #{round.number_correct} out of #{deck.count} for a total #{round.percent_correct.truncate}%"))
+  puts("STEM - #{round.percent_correct_by_category(:STEM).truncate}% correct")
+  puts("PopCulture - #{round.percent_correct_by_category(:PopCulture).truncate}% correct")
+  puts("TuringStaff - #{round.percent_correct_by_category(:TuringStaff).truncate}% correct")
 end
 
 start
