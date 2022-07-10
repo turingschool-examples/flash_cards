@@ -10,39 +10,56 @@ RSpec.describe Deck do
                        'North north west', :STEM)
     @cards = [@card_1, @card_2, @card_3]
     @deck = Deck.new(@cards)
+    @round = Round.new(@deck)
   end
 
-  describe 'Iteration 2' do
-    it '1. new round' do
-      round = Round.new(@deck)
-
-      expect(round).to be_an_instance_of(Round)
+  describe 'Round' do
+    it 'can initialize a new Round' do
+      expect(@round).to be_an_instance_of(Round)
     end
 
-    it '2. round turns' do
-      round = Round.new(@deck)
+    it 'can take a turn ' do
 
-      expect(round.turns).to eq([])
+      expect(@round.turns).to eq([])
     end
 
     it '3. round current card' do
-      round = Round.new(@deck)
-
-      expect(round.current_card).to eq(@card_1)
+      expect(@round.current_card).to eq(@card_1)
     end
 
-    it '4. new_turn' do
-      round = Round.new(@deck)
-      new_turn = round.take_turn('Juneau')
-
-      expect(new_turn).to be_instance_of(Turn)
+    it 'new turn is an instance of Turn' do
+      new_turn = @round.take_turn("Juneau")
+      expect(new_turn).to be_an_instance_of(Turn)
     end
 
-    it '5. is new turn correct' do
-      round = Round.new(@deck)
-      new_turn = round.take_turn('Juneau')
-
+    it 'can return if the turn was correct' do
+      new_turn = @round.take_turn("Juneau")
       expect(new_turn.correct?).to eq(true)
     end
+
+    it 'can start a new turn' do
+      new_turn = @round.take_turn("Juneau")
+      expect(@round.turns).to eq([new_turn])
+    end
+
+    it 'can return how many turns were correct' do
+      new_turn = @round.take_turn("Juneau")
+      expect(@round.number_correct).to eq(1)
+    end
+
+
+
+
+# pry(main)> round.number_correct
+# #=> 1
+#
+# pry(main)> round.current_card
+# #=> #<Card:0x00007fa160a62e90 @answer="Mars", @question="The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", @category=:STEM>
+#
+# pry(main)> round.take_turn("Venus")
+# #=> #<Turn:0x00007f972a215b38...>
+#
+# pry(main)> round.turns.count
+# #=> 2
   end
 end
