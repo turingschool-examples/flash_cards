@@ -1,8 +1,8 @@
 require './lib/card'
-# require './flashcard_runner'
 
 class CardGenerator 
-attr_reader :filename, :cards
+attr_reader :filename, 
+            :cards
 
     def initialize(filename)
         @filename = filename 
