@@ -9,9 +9,9 @@ RSpec.describe CardGenerator do
         filename = "cards.txt"    
 
         cards = CardGenerator.new(filename).cards
-        
-        expect(cards).to be_instance_of(Array)
+
         expect(cards).to all be_instance_of(Card)
+        expect(cards).to be_instance_of(Array)
         expect(cards.count).to eq(4)
 
         expect(cards[0].question).to eq("What is 5 + 5?")
