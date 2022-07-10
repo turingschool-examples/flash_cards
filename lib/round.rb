@@ -1,8 +1,5 @@
-require'pry'
-
 class Round
   attr_reader :deck, :turns, :correct_answers
-
   def initialize(deck)
      @deck = deck
      @turns = []
@@ -49,15 +46,7 @@ class Round
 
   def start
     "Welcome! You're playing with 3 cards.
-  ------------------------------------
-  This is card number 1 out of 3."
+    ------------------------------------
+    This is card number 1 out of 3."
   end
-
-  # def game_over
-  #   results = correct_answers
-  #   results_pct = percent_correct
-    
-  #   puts "you had #{results} out of 3 for a total score of #{results_pct}%." 
-  # end
 end
-
