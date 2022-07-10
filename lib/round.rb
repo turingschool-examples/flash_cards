@@ -48,11 +48,11 @@ class Round
 
 
     def number_correct_by_category(category)
-        self.count_number_by_category(category)[0]
+        self.count_response_by_category(category)[0]
     end
 
     def percent_correct_by_category(category)
-        correct, incorrect = self.count_number_by_category(category)
+        correct, incorrect = self.count_response_by_category(category)
         return correct / (correct + incorrect) * 100
     end
 end
