@@ -1,12 +1,11 @@
 # This is a file creating the hard class
 # ITERATION 1
+require 'pry'
 
 class Card
-    attr_reader :question
-    attr_reader :answer
-    attr_reader :category
+    attr_reader :question, :answer, :category
     
-    def initialize(question,answer,category)
+    def initialize(question, answer, category)
         @question = question
         @answer = answer
         @category = category
