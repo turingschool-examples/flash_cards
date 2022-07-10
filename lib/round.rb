@@ -20,11 +20,12 @@ attr_reader :deck, :turns, :number_correct
       if new_turn.correct?
         @number_correct += 1
       end
-    @deck.cards.shift    new_turn
+    @deck.cards.shift
+    new_turn
   end
 
   def number_correct_by_category(card_category)
-    category_count = 0
+    category_count = 0.0
     @turns.each do |turn|
       if turn.card.category == card_category && turn.correct?
         category_count += 1
@@ -34,18 +35,18 @@ attr_reader :deck, :turns, :number_correct
   end
 
   def percent_correct
-    (number_correct.to_f / turns.count) * 100
+    (number_correct / turns.count) * 100
   end
 
   def percent_correct_by_category(card_category)
-    category_total = 0
+    category_total = 0.0
     @turns.each do |turn|
       if turn.card.category == card_category
         category_total += 1
       end
     end
     category_total
-    (number_correct_by_category(card_category)/category_total) * 100.0
+    (number_correct_by_category(card_category)/category_total) * 100
   end
 
 end
