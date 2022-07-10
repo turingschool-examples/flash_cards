@@ -23,7 +23,7 @@ new_turn= Turn.new(guess, card_1)
 new_turn.correct?
 puts new_turn.feedback
 
-puts "This is card number 1 out of 3."
+puts "This is card number 2 out of 3."
 
 puts card_2.question
 
