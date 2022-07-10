@@ -14,14 +14,16 @@ class Round
   def take_turn(guess)
     @turn = Turn.new(guess, current_card)
     @turns << @turn
+    @deck.cards.rotate!
     @turn
+    #change the current card to the next card in the deck
   end
 
   def number_correct
-    @number_correct = 0
-    if @turn.correct? == true
-      @number_correct += 1
+    @turns.count do |turn|
+      turn.correct?
     end
-    @number_correct
   end
+
+
 end
