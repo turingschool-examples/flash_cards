@@ -1,5 +1,7 @@
 class Round 
-    attr_reader :deck, :turns, :correct
+    attr_reader :deck, 
+                :turns, 
+                :correct
 
     def initialize(deck)
         @deck = deck
@@ -52,4 +54,24 @@ class Round
         @deck.categories        
     end 
     
+    def start
+        puts "Welcome! You're playing with #{@deck.cards.count} cards.\n-------------------------------------------------"
+        
+        tally = 0
+        card_count = @deck.count 
+        until @turns.count == @deck.count do
+            puts "This is card number #{tally += 1} out of #{card_count}"
+            puts "Question: #{current_card.question}"
+            guess = gets.chomp
+            take_turn(guess)
+            puts turns.last.feedback
+        end 
+        
+        puts "****** Game over! ******"
+        puts "You had #{number_correct} correct guesses out of #{card_count} for a total score of #{percent_correct.to_i}%."
+        
+        categories.each do |category|     
+            puts  "#{category}- #{percent_correct_by_category(category).to_i}% correct"
+        end 
+    end 
 end 

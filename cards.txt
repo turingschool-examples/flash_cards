@@ -2,3 +2,5 @@ What is 5 + 5?,10,STEM
 What is Rachel's favorite animal?,red panda,Turing Staff
 What is Mike's middle name?,nobody knows,Turing Staff
 What cardboard cutout lives at Turing?,Justin bieber,PopCulture
+What is the pleasant smell that frequently accompanies the first rain after a long period of warm dry weather called?,petrichor,Vocabulary
+How many hours did Ryan spend in week 1 on flash cards?,Infinite,Random
