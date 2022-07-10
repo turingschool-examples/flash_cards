@@ -1,9 +1,6 @@
-require './lib/card'
-require './lib/turn'
-require './lib/deck'
-
 class Round
-  attr_reader :deck, :turns
+  attr_reader :deck,
+              :turns
 
   def initialize(deck)
     @deck = deck
@@ -15,9 +12,16 @@ class Round
   end
 
   def take_turn(guess)
-    new_turn = Turn.new(guess, current_card)
-    @turns << new_turn
+    @turn = Turn.new(guess, current_card)
+    @turns << @turn
+    @turn
+  end
 
-    new_turn
+  def number_correct
+    @number_correct = 0
+    if @turn.correct? == true
+      @number_correct += 1
+    end
+    @number_correct
   end
 end
