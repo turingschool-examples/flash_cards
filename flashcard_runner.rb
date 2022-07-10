@@ -13,6 +13,11 @@ round = Round.new(deck)
 
 puts round.start
 puts card_1.question
-user_guess = gets.chomp
-turn_1 = Turn.new(user_guess, card_1)
+user_guess_1 = gets.chomp
+turn_1 = Turn.new(user_guess_1, card_1)
 puts turn_1.feedback
+puts "This is card 2 out of 3"
+puts card_2.question
+user_guess_2 = gets.chomp
+turn_2 = Turn.new(user_guess_2, card_2)
+puts turn_2.feedback
