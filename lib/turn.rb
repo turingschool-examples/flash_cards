@@ -3,6 +3,7 @@ require './lib/round'
 class Turn
     attr_reader :guess,
                 :card
+
     def initialize(guess, card)
         @guess = guess
         @card = card
@@ -13,7 +14,7 @@ class Turn
     end
 
     def feedback
-        if self.correct?
+        if correct?
             return "Correct!"
         else 
             return "Incorrect."
