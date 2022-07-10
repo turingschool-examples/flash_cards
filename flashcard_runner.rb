@@ -31,3 +31,8 @@ puts "****** Game over! *******"
 results = round.number_correct
 results_pct = round.percent_correct
 puts "you had #{results} out of 3 for a total score of #{results_pct}%."
+pcbc_stem = round.percent_correct_by_category(:STEM)
+pcbc_geography = round.percent_correct_by_category(:Geography)
+
+puts "STEM: #{pcbc_stem}% correct"
+puts "Geography #{pcbc_geography}% correct"
