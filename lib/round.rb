@@ -58,7 +58,7 @@ class Round
   # doesn't pass tests for method
   def collect_category
     deck.cards.each do |card|
-      @categories << card.category if @categories.include?(card.category)== false
+      @categories << card.category if @categories.include?(card.category) == false
     end
   end
 
@@ -75,7 +75,7 @@ class Round
     @total_cards.times do
       puts "This is card number #{turn_count} out of #{total_cards}.\n\n"
       puts "Question: #{current_card.question}"
-      print "Enter your answer: "
+      print 'Enter your answer: '
       answer = gets.chomp
       answer = answer.split.map(&:capitalize).join(' ')
       take_turn(answer, current_card)
@@ -86,7 +86,8 @@ class Round
 
   def end_game
     puts "****** Game over! ******\n\n"
-    puts "You had #{correct_answers} correct guesses out of #{total_cards} \nfor a total score of %#{format('%.1f', percent_correct)}.\n\n"
+    puts "You had #{correct_answers} correct guesses out of #{total_cards} \nfor a total score of %#{format('%.1f',
+                                                                                                            percent_correct)}.\n\n"
     @categories.each do |category|
       puts "#{category} - %#{format('%.1f', percent_correct_by_category(category))} correct"
     end
