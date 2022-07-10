@@ -23,7 +23,7 @@ RSpec.describe Deck do
       expect(@round.turns).to eq([])
     end
 
-    it '3. round current card' do
+    it 'can return round current card' do
       expect(@round.current_card).to eq(@card_1)
     end
 
@@ -38,7 +38,7 @@ RSpec.describe Deck do
     end
 
     it 'can start a new turn' do
-      @round.take_turn("Juneau")
+      new_turn = @round.take_turn("Juneau")
       expect(@round.turns).to eq([new_turn])
     end
 
@@ -54,6 +54,25 @@ RSpec.describe Deck do
       expect(@round.current_card).to eq(@card_2)
       @round.take_turn("Venus")
       expect(@round.turns.count).to eq(2)
+      expect(@round.turns.last.feedback).to eq("Incorrect.")
+      expect(@round.number_correct).to eq(1)
+    end
+
+    it 'can return number correct by category' do
+      @round.take_turn("Juneau")
+      expect(@round.number_correct_by_category(:Geography)).to eq(1)
+    end
+
+    it "can return percent correct" do
+      @round.take_turn("Juneau")
+      @round.take_turn("Venus")
+
+      expect(@round.percent_correct).to eq(50)
+    end
+
+    it "can return percent correct by category" do
+      @round.take_turn("Juneau")
+      expect(@round.percent_correct_by_category(:Geography)).to eq(100)
     end
 
   end
