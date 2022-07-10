@@ -77,7 +77,7 @@ deck_count = deck.count
     turn_number += 1
   end
   puts "****** Game over! ******"
-  puts "You had #{number_correct} out of 8 for a total score of #{percent_correct}%."
+  puts "You had #{number_correct} out of 8 for a total score of #{percent_correct.to_i}%."
 
   categories_list = []
   @turns.each do |turn|
