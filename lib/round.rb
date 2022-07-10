@@ -31,9 +31,9 @@ class Round
     def number_correct_by_category(category)
         @correct_responses.select do |correct_response|
             correct_response.card.category == category
-        end
+        end.length
         
-        @correct_responses.length
+       
     end
 
    
