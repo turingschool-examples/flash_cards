@@ -4,6 +4,7 @@ class Round
   def initialize(deck)
     @deck = deck
     @turns = []
+    # require "pry"; binding.pry
   end
 
   def current_card
@@ -13,12 +14,8 @@ class Round
 
   def take_turn(guess)
     new_turn = Turn.new(guess, current_card)
-    # new_turn = []
-    # # require "pry"; binding.pry
-    #   @cards.each do |card|
-    #   new_turn += card
-    #   end
-    # new_turn
-    require "pry"; binding.pry
+    @turns << new_turn
+    new_turn
   end
+
 end
