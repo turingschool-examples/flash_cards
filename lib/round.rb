@@ -28,11 +28,13 @@ class Round
         @correct_responses.length
     end
 
-    # def number_correct_by_category(category)
-
-
-
-    # end
+    def number_correct_by_category(category)
+        @correct_responses.select do |correct_response|
+            correct_response.card.category == category
+        end
+        
+        @correct_responses.length
+    end
 
    
 
