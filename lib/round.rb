@@ -13,7 +13,7 @@ class Round
     end
 
     def take_turn(guess)
-        card = self.current_card
+        card = current_card
         @current_card_index += 1
         new_turn = Turn.new(guess, card)
         @turns << new_turn
@@ -21,13 +21,9 @@ class Round
     end
 
     def number_correct
-        correct = 0
-        @turns.each do |turn|
-            if turn.correct?
-                correct += 1
-            end
+        @turns.count do |turn|
+            turn.correct?
         end
-        return correct
     end
 
     def percent_correct
@@ -35,17 +31,20 @@ class Round
     end
 
     def number_correct_by_category(category)
-        correct = 0.0
-        
-        @turns.each do |turn|
-            if turn.card.category == category
-                if turn.correct?
-                    correct += 1
-                end
-            end 
+        correct = 0.0     
+            @turns.each do |turn|
+                if turn.card.category == category
+                    if turn.correct?
+                        correct += 1
+                    end
+                end 
+            end
+            return correct         
         end
-        return correct         
-    end
+
+    #     deck.cards_in_category(category)#@cards.select {|card| category == card.category}
+    #     if category == card.category 
+    #         @turns.count { |turn| turn.correct? }
 
     def percent_correct_by_category(category)
         correct = 0.0
