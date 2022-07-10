@@ -1,14 +1,19 @@
-require './lib/card'
+require './lib/card_generator'
 
 RSpec.describe CardGenerator do 
 
   before :each do 
-    @card_1 = CardGenerator.new("What is 5 + 5?", "10", "STEM")
-    @card_2 = CardGenerator.new("What is Rachel's favorite animal?", "red panda", "Turing Staff")
-    @card_3 = CardGenerator.new("What is Mike's middle name?", "nobody knows", "Turing Staff")
-    @card_4 = CardGenerator.new("What cardboard cutout lives at Turing?", "Justin bieber", "PopCulture")
+    @filename = File.open("/Users/kenl/Desktop/Turing/1mod/projects/flash_cards/spec/cards.txt")
+    @file_content = []
+    File.readlines(@filename).each do |line|
+      @file_content << line.gsub("\n", '').split(',')
+    end  
+    @card_generator = CardGenerator.new(@filename)
   end 
   it "exists" do 
-    
+    expect(@card_generator).to be_instance_of(CardGenerator)
+  end 
+  it 'cards' do 
+    expect(@card_generator.cards).to eq(@file_content)
   end 
 end 
