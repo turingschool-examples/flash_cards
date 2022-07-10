@@ -14,6 +14,7 @@ round = Round.new(deck)
 
 def start
     puts "Welcome! You are playing trivia with 5 cards."
+    puts "---------------------------------------------"
 end
 puts start
 
