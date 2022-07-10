@@ -20,8 +20,7 @@ attr_reader :deck, :turns, :number_correct
       if new_turn.correct?
         @number_correct += 1
       end
-    @deck.cards.shift
-    new_turn
+    @deck.cards.shift    new_turn
   end
 
   def number_correct_by_category(card_category)

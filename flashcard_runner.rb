@@ -14,7 +14,7 @@ puts "Enter 'Start' - To Begin Flashcards"
 puts "Enter 'End' - To End Flashcards\n\n"
 
 print "> "
-start = $stdin.gets.chomp
+start = gets.chomp
 
 if start.capitalize == "Start"
   puts " "
@@ -28,7 +28,7 @@ if start.capitalize == "Start"
     puts "This is card number #{turn_number} out of #{starting_deck_count} cards."
     puts "Question: #{round.current_card.question}"
     print "> "
-    guess = $stdin.gets.chomp
+    guess = gets.chomp
     round.take_turn(guess.capitalize)
     puts round.turns.last.feedback
     puts " "
