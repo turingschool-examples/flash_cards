@@ -1,4 +1,5 @@
 require './lib/card_generator'
+require './lib/card'
 
 RSpec.describe CardGenerator do 
 
