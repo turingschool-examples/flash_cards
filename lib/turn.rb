@@ -1,5 +1,3 @@
-require './lib/card'
-#req the file to "pull" the data/code from that file into this one
 class Turn
     attr_reader :guess, :card #these will recieve input; if only output do not include
     def initialize(guess, card)#arguments 

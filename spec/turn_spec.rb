@@ -1,6 +1,7 @@
 require 'rspec'
+require './lib/card'
+#req the file to "pull" the data/code from that file into this one
 require './lib/turn'
-# require 'pry'; binding.pry
 
 RSpec.describe Turn do
     before :each do
@@ -13,12 +14,15 @@ end
 
     it 'class should exist' do#pass
         expect(@turn).to be_instance_of Turn
+
     end
 
     it 'should return guess' do #w
         expect(@turn.guess).to eq('Juneau') 
 #eq to response from L8
     end
+
+
 
     it 'should return card' do
         expect(@turn.card).to eq(@card) 

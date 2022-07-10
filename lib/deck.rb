@@ -1,16 +1,22 @@
 
 
 class Deck
-    attr_reader :cards :count
-    def initialize (cards = [])
+    attr_reader :cards 
+    def initialize (cards)
         @cards = cards
-        # @count = count
+     
     end
 
+    def count
+        @cards.length 
+    end
 
-    # def new_cards()
-    #     @cards << ([])
-    # end
+    def cards_in_category(category)
+       #need to select cards where card cateogry == category
+        @cards.select{|card| category == card.category}  
+
+
+    end
 
 
 end
