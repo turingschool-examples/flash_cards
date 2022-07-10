@@ -11,4 +11,3 @@ File.open('lib/flashcards.txt', 'a') do |file|
     category = gets.chomp.capitalize
     file << "\n#{question}/#{answer}/#{category}"
 end
-
