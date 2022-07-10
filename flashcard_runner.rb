@@ -29,7 +29,7 @@ if start.capitalize == "Start"
     puts "Question: #{round.current_card.question}"
     print "> "
     guess = $stdin.gets.chomp
-    round.take_turn(guess)
+    round.take_turn(guess.capitalize)
     puts round.turns.last.feedback
     puts " "
   end
