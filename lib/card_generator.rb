@@ -5,9 +5,9 @@ class CardGenerator
   end
   def cards
     file_content = []
-    File.readlines(@filename).each do |line|
+    File.readlines(@filename).map do |line|
       file_content << line.gsub("\n", '').split(',')
-    end  
-    file_content
+      card_content = Card.new(file_content[0][0], file_content[0][1], file_content[0][2])
+    end   
   end
 end 
