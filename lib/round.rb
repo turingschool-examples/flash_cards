@@ -1,6 +1,3 @@
-require './lib/turn'
-require 'pry'
-
 class Round
     attr_reader :deck, :turns, :cards, :number_correct
     
@@ -9,7 +6,8 @@ class Round
         @cards = cards
         @turns = []
         @number_correct = 0
-        @correct_turns = 0
+        @correct_turns = @correct_turns
+        @category_turns = @category_turns
 
     end
 
@@ -37,18 +35,18 @@ class Round
     end
 
     def percent_correct
-     (@number_correct / turns.count.to_f) * 100
+     ((@number_correct / @turns.count.to_f )* 100).round(1)
     end
 
     def percent_correct_by_category(category)
-        (@correct_turns / turns.count.to_f) * 100
+        @correct_turns = turns.select do |turn|
+            turn.card.category == category && turn.correct?
+        end
+
+        @category_turns = turns.select do |turn|
+            turn.card.category == category
+        end
+
+        ((@correct_turns.count / @category_turns.count.to_f) * 100).round(1)
     end
 end
-
-
-#syntax below for user input, taken from def initialize.
-# puts "Hello"
-    # input = gets.chomp
-    # puts input + "!!!"
-
-# Round.new(nil)

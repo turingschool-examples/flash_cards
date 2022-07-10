@@ -16,10 +16,4 @@ class Deck
         end
         card_count.count(category)
     end
-
-    # def cards_in_category(category)
-    #     @cards.find_all do |card|
-    #       card.category == category
-    #     end
-    #   end
 end
