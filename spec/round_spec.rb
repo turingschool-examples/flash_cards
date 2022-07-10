@@ -1,8 +1,7 @@
-require './card'
-require 'rspec'
-require './turn'
-require './round'
-require './deck'
+require './lib/card'
+require './lib/turn'
+require './lib/round'
+require './lib/deck'
 
 RSpec.describe Round do
 
@@ -30,7 +29,7 @@ RSpec.describe Round do
         
         end
 
-    describe 'has tur' do
+    describe 'returns the first card' do
         it 'Round #current_card' do
             card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
             card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
@@ -44,8 +43,8 @@ RSpec.describe Round do
         end
     end
 
-    describe 'has tur' do
-        it 'Round #take_turn' do
+    describe 'has a turn' do
+        it 'can #take_turn' do
             card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
             card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
             card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
