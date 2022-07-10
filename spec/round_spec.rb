@@ -63,7 +63,7 @@ RSpec.describe Round do
   it "returns percentage correct" do
     @round.take_turn("Juneau")
     @round.take_turn("Venus")
-    expect(@round.percent_correct).to eq(50.0)
+    expect(@round.percent_correct).to eq(33)
     expect(@round.percent_correct_by_category(:Geography)).to eq(100.0)
   end
 
