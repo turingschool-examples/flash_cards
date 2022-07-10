@@ -4,7 +4,7 @@ class Round
     def initialize(deck)
          @deck = deck
          @turns = []
-         @number_correct = 0
+         @correct_responses = []
     end
 
 
@@ -16,17 +16,23 @@ class Round
         turn = Turn.new(guess, current_card)
         @turns << turn
         @deck.cards.shift
-        if turn.correct?
-           @number_correct += 1
+        turn
+     end
+
+    def number_correct
+        turns.select do |turn|
+            if turn.correct? == true
+                @correct_responses << turn
+            end
         end
-         turn
+        @correct_responses.length
     end
 
-    def number_correct_by_category(category)
+    # def number_correct_by_category(category)
 
 
-        
-    end
+
+    # end
 
    
 
