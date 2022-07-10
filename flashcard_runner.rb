@@ -15,7 +15,7 @@ round = Round.new(deck)
 
 round.start
 
-puts card_1.question
+puts "Question: #{card_1.question}"
 
 guess = gets.chomp
 round.take_turn(guess)
@@ -25,7 +25,7 @@ puts new_turn.feedback
 
 puts "This is card number 2 out of 3."
 
-puts card_2.question
+puts "Question: #{card_2.question}"
 
 guess = gets.chomp
 round.take_turn(guess)
@@ -35,7 +35,7 @@ puts new_turn.feedback
 
 puts "This is card number 3 out of 3."
 
-puts card_3.question
+puts "Question: #{card_3.question}"
 
 guess = gets.chomp
 round.take_turn(guess)

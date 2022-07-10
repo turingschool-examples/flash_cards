@@ -35,7 +35,7 @@ class Round
       turn.card.answer == turn.guess && turn.card.category == category
     end
     correct_by_category.count
-    
+
   end
 
   def percent_correct
