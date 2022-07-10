@@ -1,5 +1,5 @@
-require ./lib/card
-require ./lib/turn
+require './lib/card'
+require './lib/deck'
 
 describe Deck do
     it 'contains multiple cards' do
@@ -26,8 +26,10 @@ describe Deck do
         card_2 = Card.new("Where was Shohei Ohtani born?", "Oshu", :Geography)
         card_3 = Card.new("How many digits of pi do you need to calculate the circumference of the universe to within the width of a hydrogen atom?", "40", :STEM)
         deck = Deck.new([card_1, card_2, card_3])
-        expect(deck.cards_in_category(:Stem)).to eq([card_3])
-        expect(deck.cards_in_category(:Geography)).to eq({card_2})
-        expect(deck.cards_in_category(:Pop Culture)).to eq []
+
+
+        expect(deck.cards_in_category(:STEM)).to eq([card_3])
+        expect(deck.cards_in_category(:Geography)).to eq([card_2])
+        expect(deck.cards_in_category("Pop Culture")).to eq([])
     end
 end
