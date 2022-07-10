@@ -1,5 +1,6 @@
 #This is a file creating the turn class
 #ITERATION 1
+require './lib/card'
 
 class Turn
     attr_reader :guess, :card
@@ -10,11 +11,7 @@ class Turn
     end
 
     def correct?
-        if @guess == card.answer
-            true
-        else
-            false
-        end
+        @guess == card.answer
     end
 
     def response
