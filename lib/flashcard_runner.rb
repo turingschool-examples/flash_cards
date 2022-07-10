@@ -5,9 +5,9 @@ require './lib/round.rb'
 require './lib/card_generator.rb'
 
 class Runner
-
+    
     def initialize
-        cardset = CardGenerator.new('cards.txt').temp_deck
+         cardset = CardGenerator.new('cards.txt').temp_deck
          @deck = Deck.new(cardset)
          @round = Round.new(@deck)
     end
@@ -19,7 +19,7 @@ class Runner
         puts "Welcome! You're playing with #{@round.deck.count} cards."
         puts "-------------------------------------------------"
         while (@round.card_index < @round.deck.count) do
-            puts "This is card #{(@round.card_index) + 1} out of #{@round.deck.count}."
+            puts "\nThis is card #{(@round.card_index) + 1} out of #{@round.deck.count}."
             puts "Question: #{@round.current_card.question}"
             input = gets.chomp
             (@round.take_turn(input)).feedback

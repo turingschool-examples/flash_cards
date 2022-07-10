@@ -1,27 +1,12 @@
 require './lib/card.rb'
 require './lib/deck.rb'
-require 'rspec'
+require './lib/card_generator.rb'
 
 RSpec.describe Deck do
 
   before :each do
-    @test_question1 = "What is the capital of Alaska?"
-    @test_ans1 = "Juneau"
-    @test_category1 = :Geography
-    @card1 = Card.new(@test_question1, @test_ans1, @test_category1)
-   
-    @test_question2 = "The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?"
-    @test_ans2 = "Mars"
-    @test_category2 = :STEM
-    @card2 = Card.new(@test_question3, @test_ans3, @test_category3)
-
-    @test_question3 = "Describe in words the exact direction that is 697.5° clockwise from due north?"
-    @test_ans3 = "North north west"
-    @test_category3 = :STEM
-    @card3 = Card.new(@test_question3, @test_ans3, @test_category3)
-
-    @cards = [@card1,@card2,@card3]
-    @deck = Deck.new(@cards)
+    @cardset = CardGenerator.new('cards.txt').temp_deck
+         @deck = Deck.new(@cardset)
   end
 
   it 'exists' do
@@ -30,14 +15,14 @@ RSpec.describe Deck do
 
   it 'is an array of the correct cards' do
     expect(@deck.cards).to be_a(Array)
-    expect(@deck.card_at(0)).to eq(@card1)
-    expect(@deck.card_at(1)).to eq(@card2)
-    expect(@deck.card_at(2)).to eq(@card3)
+    @deck.cards.each_with_index do |card, index|
+      expect(card).to eq(@cardset[index])
+    end
   end
 
   it 'can count elements' do
    expect(@deck.count).to be_a(Integer)
-   expect(@deck.count).to eq(@cards.count)
+   expect(@deck.count).to eq(@cardset.count)
   end
 
   it 'can count cards in category' do

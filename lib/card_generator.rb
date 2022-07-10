@@ -18,6 +18,6 @@ class CardGenerator
             card_cat = card_hash[:category].tr(' ','_').insert(0,':').to_sym
             @temp_deck << Card.new(card_question,card_answer,card_cat)
         end
-        return @temp_deck
+        
     end
 end
