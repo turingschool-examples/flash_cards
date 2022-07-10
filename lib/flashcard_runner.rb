@@ -7,14 +7,12 @@ require './lib/card_generator.rb'
 class Runner
     
     def initialize
-         cardset = CardGenerator.new('cards.txt').temp_deck
-         @deck = Deck.new(cardset)
-         @round = Round.new(@deck)
+        cardset = CardGenerator.new('cards.txt').temp_deck
+        @deck = Deck.new(cardset)
+        @round = Round.new(@deck)
     end
 
    def start
-        
-
         puts "\n \n"
         puts "Welcome! You're playing with #{@round.deck.count} cards."
         puts "-------------------------------------------------"
@@ -27,7 +25,6 @@ class Runner
         puts "\n"
         puts "****** Game over! ******"
         puts "You had #{@round.number_correct} correct guess out of #{@round.deck.count} for a total score of #{(@round.percent_correct).to_i}%"
-        
         
         cats = []
 

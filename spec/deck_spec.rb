@@ -6,7 +6,7 @@ RSpec.describe Deck do
 
   before :each do
     @cardset = CardGenerator.new('cards.txt').temp_deck
-         @deck = Deck.new(@cardset)
+    @deck = Deck.new(@cardset)
   end
 
   it 'exists' do
@@ -21,8 +21,8 @@ RSpec.describe Deck do
   end
 
   it 'can count elements' do
-   expect(@deck.count).to be_a(Integer)
-   expect(@deck.count).to eq(@cardset.count)
+    expect(@deck.count).to be_a(Integer)
+    expect(@deck.count).to eq(@cardset.count)
   end
 
   it 'can count cards in category' do
