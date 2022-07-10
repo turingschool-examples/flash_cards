@@ -7,7 +7,18 @@ class Round
   end
 
   def current_card
-    require "pry"; binding.pry
+
     deck.cards[0]
+  end
+
+  def take_turn(guess)
+    new_turn = Turn.new(guess, current_card)
+    # new_turn = []
+    # # require "pry"; binding.pry
+    #   @cards.each do |card|
+    #   new_turn += card
+    #   end
+    # new_turn
+    require "pry"; binding.pry
   end
 end
