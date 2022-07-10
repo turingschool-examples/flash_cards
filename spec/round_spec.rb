@@ -32,19 +32,19 @@ RSpec.describe Round do
     expect(@round.current_card).to eq(@card_1)
   end
 
-  it 'should take turn' do
+  it 'should take new turn' do
     new_turn = @round.take_turn("Juneau")
-    # expect(@round.take_turn).to eq()
-  expect(new_turn.class).to eq Turn
-    # require 'pry';binding.pry
+    expect(new_turn.class).to eq Turn
   end
 
+  it 'should return new turn array' do
+    new_turn = @round.take_turn("Juneau")
+    expect(@round.turns).to eq([new_turn])
+  end
 
-
-
-#   it 'should return correct?' do#
-#     expect(@turn.correct?).to eq(true)
-# end
+  # it 'should give current number'
+  #   expect(@round.number_correct).to eq(1)
+  # end
 
 
 
