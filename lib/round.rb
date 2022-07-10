@@ -1,9 +1,6 @@
-require './lib/turn'
-require './lib/deck'
 class Round
     attr_reader :deck,
-                :turns,
-                :number_correct
+                :turns
 
     def initialize(deck, turns = [])
         @deck = deck
@@ -15,11 +12,11 @@ class Round
         @deck.cards[@current_card_index]
     end
 
-    def take_turn(guess) #takes a string representing the guess
-        card = self.current_card #defining the card for this turn
-        @current_card_index += 1 #the Round should move on to the next card
-        new_turn = Turn.new(guess, card) #creates a new Turn object with the guess and card
-        @turns << new_turn #stores the new Turn object and return it
+    def take_turn(guess)
+        card = self.current_card
+        @current_card_index += 1
+        new_turn = Turn.new(guess, card)
+        @turns << new_turn
         return new_turn
     end
 
@@ -34,28 +31,16 @@ class Round
     end
 
     def percent_correct
-        correct = 0.0
-        incorrect = 0.0
-        @turns.each do |turn|
-            if turn.correct?
-                correct += 1
-            else incorrect += 1
-            end
-        end
-        return correct / (correct + incorrect) * 100        
+        number_correct.to_f / (turns.count.to_f) * 100
     end
-
 
     def number_correct_by_category(category)
         correct = 0.0
-        incorrect = 0.0
         
         @turns.each do |turn|
             if turn.card.category == category
                 if turn.correct?
                     correct += 1
-                else 
-                    incorrect += 1
                 end
             end 
         end
@@ -76,5 +61,5 @@ class Round
             end 
         end
         return correct / (correct + incorrect) * 100          
-    end
-end  
+    end  
+end
