@@ -45,8 +45,6 @@ class Round
         return [correct, incorrect]       
     end
 
-
-
     def number_correct_by_category(category)
         self.count_response_by_category(category)[0]
     end

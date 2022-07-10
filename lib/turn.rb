@@ -1,5 +1,3 @@
-require './lib/round'
-
 class Turn
     attr_reader :guess,
                 :card
