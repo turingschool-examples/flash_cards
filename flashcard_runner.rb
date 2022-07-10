@@ -2,16 +2,12 @@ require './lib/card'
 require './lib/turn'
 require './lib/deck'
 require './lib/round'
-
+require './lib/card_generator'
 
 
 def start
-    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
-    card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-    card_4 = Card.new("What U.S. state is home to no documented poisonous snakes?", "Alaska", :Geography)
-    card_5 = Card.new("How many countries are there in the United Kingdom?", "4", :Geography)
-    deck = Deck.new([card_1, card_2, card_3, card_4, card_5])
+    cards = CardGenerator.new("cards.txt").cards
+    deck = Deck.new(cards)
     round = Round.new(deck)
 
     puts "Welcome! You are playing trivia with 5 cards."
@@ -39,7 +35,7 @@ def start
     puts "Geography - #{round.percent_correct_by_category(:Geography)}% correct"
 end
     
-puts start
+start
 
 
 
