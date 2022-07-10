@@ -83,11 +83,11 @@ deck_count = deck.count
   @turns.each do |turn|
      categories_list << turn.card.category
   end
-  puts categories_list.uniq
+  categories_list.uniq
 
-  # categories_lists.each do |categories_list|
-  #   puts "#{categories_lists} - #{percent_correct_by_category.to_i}"
-  # end
+  categories_list.uniq.each do |category_list|
+    puts "#{category_list} - #{percent_correct_by_category(category_list).to_i}%"
+  end
 end
 
 end
