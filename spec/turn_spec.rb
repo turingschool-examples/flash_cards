@@ -16,7 +16,6 @@ RSpec.describe Turn do
   it 'exists' do
      expect(@turn_correct).to be_instance_of(Turn)
      expect(@turn_wrong).to be_instance_of(Turn)
-     p @card
   end
 
   it 'correctly created card within turn' do

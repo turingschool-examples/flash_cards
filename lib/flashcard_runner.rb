@@ -20,7 +20,7 @@ class Runner
             puts "\nThis is card #{(@round.card_index) + 1} out of #{@round.deck.count}."
             puts "Question: #{@round.current_card.question}"
             input = gets.chomp
-            (@round.take_turn(input)).feedback
+            puts (@round.take_turn(input)).feedback
         end
         puts "\n"
         puts "****** Game over! ******"

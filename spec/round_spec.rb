@@ -91,7 +91,6 @@ RSpec.describe Round do
   end
 
   it 'counts correct guesses by category' do
-    @round = Round.new(@deck)
     @round.take_turn(@guess_correct)
     @round.take_turn(@guess_wrong)
     if @deck.card_at(0).category == @deck.card_at(1).category
