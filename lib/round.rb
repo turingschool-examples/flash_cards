@@ -21,7 +21,7 @@ class Round
 
     def number_correct
         turns.select do |turn|
-            if turn.correct? == true
+            if turn.correct? 
                 @correct_responses << turn
             end
         end
@@ -32,10 +32,18 @@ class Round
         @correct_responses.select do |correct_response|
             correct_response.card.category == category
         end.length
+    end
+
+    def percent_correct
+        turns.select do |turn|
+            if turn.correct? 
+                @correct_responses << turn
+            end
+        end
+        @correct_responses.length.to_f / @turns.length.to_f * 100
         
        
     end
-
    
 
 end
