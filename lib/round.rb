@@ -60,6 +60,10 @@ class Round
   cat_percent.round
 
   end
-  # require 'pry'
-  # binding.pry
+  def start
+     puts "Welcome! You're playing with 3 cards"
+     puts "-------------------------------------------------"
+     puts "This is card number 1 out of 3."
+
+  end
 end

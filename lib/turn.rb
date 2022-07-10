@@ -1,4 +1,4 @@
-require 'card'
+
 class Turn
   attr_reader :guess,
               :card
@@ -18,7 +18,7 @@ class Turn
   end
 
   def feedback
-    if correct? == true
+    if self.correct? == true
       return "Correct!"
     else
       return "Incorrect."
