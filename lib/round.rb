@@ -6,7 +6,7 @@ require "pry"
 class Round
   attr_reader :deck,
               :turns,
-              :current_card
+              :correct_turns
 
   def initialize(deck)
     @deck = deck
@@ -16,18 +16,18 @@ class Round
   end
 
   def current_card
-    @deck.cards[turns.count]
+    @deck.cards[@turns.count]
   end
 
   def take_turn(input)
     guess = input
     turn_wasd = Turn.new(guess, current_card)
-    @turns << turn_wasd
 
     if turn_wasd.correct?
       @correct_turns << turn_wasd
     end
 
+    @turns << turn_wasd
     turn_wasd
   end
 
