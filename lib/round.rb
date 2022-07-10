@@ -26,7 +26,7 @@ class Round
 
   def number_correct_by_category(category)
     correct_by_category = turns.select do |turn|
-      turn.card.answer == turn.guess && turn.card.category == category
+      turn.correct? && turn.card.category == category
     end
     correct_by_category.count
   end
@@ -45,8 +45,9 @@ class Round
   end
 
   def start
-    "Welcome! You're playing with 3 cards.
+    "Welcome to Tour de Frace Trivia! 
+    You're playing with 4 cards.
     ------------------------------------
-    This is card number 1 out of 3."
+    This is card number 1 out of 4."
   end
 end

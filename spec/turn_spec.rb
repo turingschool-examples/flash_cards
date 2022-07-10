@@ -44,4 +44,11 @@ RSpec.describe Turn do
 
     expect(turn_2.feedback). to eq("Incorrect!")
   end
+
+  it 'is correct regardless of capitalization' do
+    card_2 = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+    turn_2 = Turn.new("mercury", card_2)
+
+    expect(turn_2.correct?).to be true
+  end
 end
