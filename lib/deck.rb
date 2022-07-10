@@ -1,10 +1,7 @@
-
-
 class Deck
     attr_reader :cards 
     def initialize (cards)
-        @cards = cards
-     
+        @cards = cards     
     end
 
     def count
@@ -14,9 +11,5 @@ class Deck
     def cards_in_category(category)
        #need to select cards where card cateogry == category
         @cards.select{|card| category == card.category}  
-
-
     end
-
-
 end
