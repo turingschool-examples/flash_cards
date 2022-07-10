@@ -38,28 +38,23 @@ RSpec.describe Deck do
     end
 
     it 'can start a new turn' do
-      new_turn = @round.take_turn("Juneau")
+      @round.take_turn("Juneau")
       expect(@round.turns).to eq([new_turn])
     end
 
     it 'can return how many turns were correct' do
-      new_turn = @round.take_turn("Juneau")
+      @round.take_turn("Juneau")
+
       expect(@round.number_correct).to eq(1)
     end
 
+    it 'can progress to next card after turn is complete' do
+      # i want the current_card to change after a turn is complete
+      @round.take_turn("Juneau")
+      expect(@round.current_card).to eq(@card_2)
+      @round.take_turn("Venus")
+      expect(@round.turns.count).to eq(2)
+    end
 
-
-
-# pry(main)> round.number_correct
-# #=> 1
-#
-# pry(main)> round.current_card
-# #=> #<Card:0x00007fa160a62e90 @answer="Mars", @question="The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", @category=:STEM>
-#
-# pry(main)> round.take_turn("Venus")
-# #=> #<Turn:0x00007f972a215b38...>
-#
-# pry(main)> round.turns.count
-# #=> 2
   end
 end
