@@ -23,7 +23,7 @@ class Turn
         if @guess == @card.answer
          "Correct!"
         else
-         "Incorrect!"
+         "Incorrect."
         end
     end
 end
