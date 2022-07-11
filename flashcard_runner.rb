@@ -5,7 +5,8 @@ require './lib/round'
 require './lib/card_generator'
 
 def start  
-  cards = CardGenerator.new("/Users/kenl/Desktop/Turing/1mod/projects/flash_cards/cards.txt").cards
+  filename = "cards.txt"
+  cards = CardGenerator.new(filename).cards
   @deck = Deck.new(cards)
   @round = Round.new(@deck)
 
