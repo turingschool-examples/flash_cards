@@ -16,4 +16,16 @@ RSpec.describe Deck do
             expect(@deck.cards).to eq([@card_1, @card_2, @card_3])
         end
     end
+
+    describe '#count' do
+        it 'can return the count of how many cards are in the deck' do
+            expect(@deck.count).to eq(3)
+        end
+    end
+
+    describe '#cards_in_category' do
+        it 'can return a card based on its category' do
+            
+        end
+    end
 end
