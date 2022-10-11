@@ -6,4 +6,8 @@ class Card
     def question
         "What is the capital of Alaska?"
     end
+
+    def answer
+        "Juneau"
+    end
 end
