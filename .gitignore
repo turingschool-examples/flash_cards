@@ -1,0 +1,18 @@
+# Ignore
+*.gem
+*.rbc
+
+# SimpleCov
+/coverage/
+
+# Etc..
+/InstalledFiles
+/pkg/
+/spec/reports/
+/spec/examples.txt
+/test/tmp/
+/test/version_tmp
+/tmp/
+
+# RuboCop
+.rubocop-https?--*
