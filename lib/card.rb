@@ -10,4 +10,8 @@ class Card
     def answer
         "Juneau"
     end
+
+    def category
+        :Geography
+    end
 end
