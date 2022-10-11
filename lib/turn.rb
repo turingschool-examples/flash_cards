@@ -13,4 +13,12 @@ class Turn
     return true if guess == card.answer
     false
   end
+
+  def feedback
+    if correct?
+      "Correct!"
+    else
+      "Incorrect."
+    end
+  end
 end

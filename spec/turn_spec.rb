@@ -38,9 +38,9 @@ RSpec.describe Turn do
 
     it 'returns incorrect! feedback when wrong answer' do
       card = Card.new("What is a good state?", "Alaska", :Geography)
-      turn = Turn.new("Alaska", card)   
+      turn = Turn.new("New Jersey", card)   
      
       expect(turn.feedback).to eq("Incorrect.")
     end
-      
+  end
 end
