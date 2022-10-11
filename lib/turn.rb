@@ -9,6 +9,8 @@ class Turn
     def correct?
         if @guess == card.answer
             true
+        else
+            false
         end
     end
 
@@ -16,7 +18,7 @@ class Turn
         if correct? == true
             "Correct!"
         else
-            "Try Again"
+            "Incorrect."
         end
     end
 end
