@@ -17,6 +17,9 @@ RSpec.describe Turn do
       expect(turn.guess).to be_a String
       expect(turn.card).to be_a Card
     end
+  end
+
+  describe "#correct?" do
     it 'returns true if correct' do
       card = Card.new("What is a good state?", "Alaska", :Geography)
       turn = Turn.new("Alaska", card)   
@@ -25,4 +28,19 @@ RSpec.describe Turn do
     end
   end
 
+  describe "#feedback" do
+    it 'returns correct! feedback when right answer' do
+      card = Card.new("What is a good state?", "Alaska", :Geography)
+      turn = Turn.new("Alaska", card)   
+      
+      expect(turn.feedback).to eq("Correct!")
+    end
+
+    it 'returns incorrect! feedback when wrong answer' do
+      card = Card.new("What is a good state?", "Alaska", :Geography)
+      turn = Turn.new("Alaska", card)   
+     
+      expect(turn.feedback).to eq("Incorrect.")
+    end
+      
 end
