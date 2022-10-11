@@ -5,8 +5,8 @@ RSpec.describe Turn do
     before (:each) do
         @card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
         @turn_1 = Turn.new("Juneau", @card_1)
-        @card_2 = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
-        @turn_2 = Turn.new("Saturn", @card_2)
+        @card_4 = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+        @turn_4 = Turn.new("Saturn", @card_4)
     end
 
     describe '#initialize' do
@@ -26,10 +26,10 @@ RSpec.describe Turn do
 
     describe '#next turn' do
         it 'can check a different card' do
-            expect(@turn_2.card).to eq(@card_2)
-            expect(@turn_2.guess).to eq("Saturn")
-            expect(@turn_2.correct?).to eq(false)
-            expect(@turn_2.feedback).to eq("Incorrect.")
+            expect(@turn_4.card).to eq(@card_4)
+            expect(@turn_4.guess).to eq("Saturn")
+            expect(@turn_4.correct?).to eq(false)
+            expect(@turn_4.feedback).to eq("Incorrect.")
         end
     end
     
