@@ -15,9 +15,9 @@ RSpec.describe Turn do
         end
     end
 
-    xdescribe '#correct?' do
+    describe '#correct?' do
         it 'can return a boolean for the answer' do
-            expect(@turn.correct).to eq(true)
+            expect(@turn.correct?).to eq(true)
             expect(@turn.feedback).to eq("Correct!")
         end
     end
