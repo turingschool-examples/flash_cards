@@ -1,7 +1,12 @@
 class Turn
-  attr_reader :string, :card
+  attr_reader :guess, :card
 
-  def initialize(string, card)
+  def initialize(guess, card)
+    @guess = guess
+    @card = card
   end
-
+  def card
+    @card
+  end
 end
+# require 'pry'; binding.pry
