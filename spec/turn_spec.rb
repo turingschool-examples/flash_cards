@@ -26,4 +26,11 @@ describe Turn do
      expect(turn.current_card).to eq (card)
    end
 
+   #it 'returns true for answer' do
+    # turn = Turn.new("Juneau", card)
+
+    #  def correct?
+    #      @guess == @answer
+    #  end
+    #  expect(@guess).to eq (@answer)
 end
