@@ -8,15 +8,11 @@ attr_reader :guess, :card
   end
 
   def correct?
-    if guess == @card.answer
-      true
-    else
-      false
-    end
+    guess == card.answer
   end
 
   def feedback
-    if self.correct? == true
+    if correct? == true
       'Correct!'
     else
       'Incorrect.'

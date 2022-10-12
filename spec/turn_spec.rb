@@ -46,7 +46,7 @@ describe Turn do
   end
 
   describe '#feedback' do
-    it 'shows correct or incorrect' do
+    it 'returns correct or incorrect' do
 
       card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       turn_1 = Turn.new("Juneau", card)
