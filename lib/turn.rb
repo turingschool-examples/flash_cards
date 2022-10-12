@@ -12,10 +12,10 @@ class Turn
 
   def correct?
       if guess == card.answer
-      true
+        true
 
-    else
-      false
+      else
+        false
       end
   end
 
@@ -26,7 +26,6 @@ class Turn
          "Wrong!"
       end
   end
-
 end
 
 # require 'pry'; binding.pry
