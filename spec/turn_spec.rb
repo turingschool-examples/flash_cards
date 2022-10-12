@@ -22,6 +22,14 @@ RSpec.describe Turn do
     turn = Turn.new("Juneau", card)
 
     expect(turn.card).to eq(card)
-    require "pry"; binding.pry
   end
+
+  it 'checks to see if the guess is correct' do
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Juneau", card)
+
+    expect(turn.correct?).to be true
+  end
+
+
 end
