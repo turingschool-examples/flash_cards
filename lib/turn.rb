@@ -7,19 +7,13 @@ class Turn
   end
 
   def correct?
-    if @guess == @card.answer
-      true
-    else
-      false
-    end
+    return true if @guess == @card.answer
+    false
   end
 
   def feedback 
-    if correct?
-       "Correct!"
-    else
-      "Incorrect"
-    end
+    return "Correct!" if correct?
+    "Incorrect"
   end
 
 end
