@@ -25,4 +25,12 @@ describe Turn do
             expect(turn.guess).to eq("Juneau")
         end
     end
+    describe 'correct?' do
+        it 'does guess match answer' do
+            card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+            turn = Turn.new("Juneau", card)
+
+            expect(turn.correct?).to be true
+        end
+    end
 end
