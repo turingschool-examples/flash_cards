@@ -13,17 +13,20 @@ class Turn
   def correct?
       if guess == card.answer
       true
+
     else
       false
       end
+  end
 
-  # def feedback
-  #     if correct? == true
-  #       p "Correct!"
-  #     else
-  #       p "Wrong!"
-  #     end
-  # end
+  def feedback
+      if correct? == true
+         "Correct!"
+      else
+         "Wrong!"
+      end
+  end
+
 end
-end
+
 # require 'pry'; binding.pry
