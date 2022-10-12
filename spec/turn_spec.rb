@@ -31,6 +31,9 @@ RSpec.describe Turn do
         it 'can check the answer' do
             card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
             turn = Turn.new('Juneau', card)
+            turn2 = Turn.new('Denver', card)
+
+            expect(turn2.correct?).to eq false
             expect(turn.correct?).to eq true
         end
     end
