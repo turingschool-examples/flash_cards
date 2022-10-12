@@ -43,4 +43,22 @@ RSpec.describe Turn do
 
     expect(turn.feedback).to eq("Correct!")
   end
+
+
+  # test it exists with different arguments
+    it 'exists with changes' do
+      card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+      turn = Turn.new("Saturn", card)
+
+      expect(turn).to be_instance_of(Turn)
+    end
+
+    # test it has a card with different arguments
+    it 'card exists with changes' do
+      card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+      turn = Turn.new("Saturn", card)
+
+      expect(turn.card).to be_instance_of(Card)
+    end
+
 end
