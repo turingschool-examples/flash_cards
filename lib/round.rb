@@ -14,13 +14,13 @@ class Round
   end
 
   def take_turn(guess)
-    turns << Turn.new(guess, @current_card)
-    if turns[@curr_card_idx].correct?
+    @turns << Turn.new(guess, @current_card)
+    if @turns[@curr_card_idx].correct?
       @number_correct[:total] += 1
       @number_correct[@current_card.category] += 1
     end
     update_card
-    turns[@curr_card_idx - 1]
+    @turns[@curr_card_idx - 1]
   end
 
   def update_card
@@ -48,7 +48,7 @@ class Round
   end
 
   def percent_correct_by_category(type)
-    turns_by_category = turns.count {|turn| turn.card.category == type}
+    turns_by_category = @turns.count {|turn| turn.card.category == type}
     calculate_percentage(type, turns_by_category)
   end
 
