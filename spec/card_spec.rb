@@ -24,4 +24,12 @@ RSpec.describe Card do
 
     expect(card.category).to eq(:Geography)
   end
+  
+  it 'can handle different arguments' do
+    card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+
+    expect(card.question).to eq("Which planet is closest to the sun?")
+    expect(card.answer).to eq("Mercury")
+    expect(card.category).to eq(:STEM)
+  end
 end
