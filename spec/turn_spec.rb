@@ -48,7 +48,7 @@ describe Turn do
 
   describe '#feedback' do
     it 'returns true if guess was correct' do
-#?????
+#??????? keeps returning false. fixed turn.rb, works now
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
     turn.guess
