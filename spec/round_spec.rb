@@ -19,4 +19,10 @@ RSpec.describe Round do
             expect(@round.turns).to eq([])
         end
     end
+
+    describe '#current_card' do
+        it 'can return the current card object' do
+            expect(@round.current_card).to eq(@card_1)
+        end
+    end
 end
