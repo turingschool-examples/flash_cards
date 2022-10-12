@@ -14,4 +14,14 @@ attr_reader :guess, :card
       false
     end
   end
+
+  def feedback
+    if self.correct? == true
+      'Correct!'
+    else
+      'Incorrect.'
+    end
+  end
+
+
 end
