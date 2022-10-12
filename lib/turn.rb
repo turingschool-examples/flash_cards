@@ -10,30 +10,25 @@
 #feedback() method returns either correct of incorrect
 
 
-class Turn
+class Turn < Card
   attr_reader :guess, :current_card
 
   def initialize(string, card)
     @guess = string
     @current_card = card
-    @answer = current_card.answer
+    #@answer = answer
   end
 
-  def guess
-    return guess
-  end
+  #def guess
+  #  return @guess
+  #end
 
   def card
-    return current_card
+    return @current_card
   end
 
   def correct?
-    if
       @guess == @answer
-      return true
-    elsif @guess != @answer
-      return false
-    end
   end
 
   def feedback
