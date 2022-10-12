@@ -7,6 +7,10 @@ class Round
     @turns = []
   end
 
+  def current_card
+    @deck.cards[0]
+  end
+
   def take_turn
     # might need @deck.shift to remove the current card (first element) from the deck array
   end
