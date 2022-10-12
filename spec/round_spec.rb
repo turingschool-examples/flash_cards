@@ -10,7 +10,7 @@ RSpec.describe Round do
             card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
             deck = Deck.new(card)
 
-            expect(Round.new(deck)).to be_a Deck
+            expect(Round.new(deck)).to be_a Round
         end
 
         it 'has a deck' do
@@ -23,8 +23,8 @@ RSpec.describe Round do
         it 'has empty turns array by default' do
             card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
             deck = Deck.new(card)
-            
-            expect(round.turns).to eq []
+
+            expect(Round.new(deck).turns).to eq []
         end
     end
 end
