@@ -9,17 +9,19 @@ card_3 = Card.new("Question3", "Answer3", :cat2)
 
 cards = [card_1, card_2, card_3]
 
-deck = Deck.new(cards)
+deck = Deck.new([card_1, card_2, card_3])
 
 round = Round.new(deck)
 
-require 'pry'; binding.pry
+round.current_card
+
+ require 'pry'; binding.pry
 
 # exists
 
 # contains deck
 
-# contains turn
+# contains turn counter
 
 # displays current card deck.cards[0] (clean this up)
 

@@ -18,4 +18,9 @@ class Deck
     return @sorted_cards
   end
 
+  def shift
+    @cards.shift
+
+  end
+
 end

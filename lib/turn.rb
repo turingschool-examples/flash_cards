@@ -26,4 +26,10 @@ class Turn
       return response
     end
   end
+
+  #new_turn references take_turn in round class
+  def new_turn(string)
+    @guess = string
+  end
+
 end
