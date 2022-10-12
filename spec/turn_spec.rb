@@ -1,5 +1,5 @@
 require './lib/card'
-require './lib/turns'
+require './lib/turn'
 require 'pry'
 
 RSpec.describe Turn do
