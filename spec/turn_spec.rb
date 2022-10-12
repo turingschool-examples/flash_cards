@@ -45,11 +45,16 @@ describe Turn do
       expect(turn.guess).to_not eq(turn.answer)
     end
   end
-   #it 'returns true for answer' do
-    # turn = Turn.new("Juneau", card)
 
-    #  def correct?
-    #      @guess == @answer
-    #  end
-    #  expect(@guess).to eq (@answer)
+  describe '#feedback' do
+    it 'returns true if guess was correct' do
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Juneau", card)
+    expect(turn.correct).to eq(true)
+  end
+    it ' returns false if guess was incorrect' do
+      card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+      turn = Turn.new("Junope", card)
+      expect(turn.correct).to eq(false)
+    end
 end
