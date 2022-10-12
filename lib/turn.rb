@@ -16,7 +16,7 @@ class Turn
         if correct? #checks the return from the correct? method
             "Correct!"
         else
-            "Incorrect!"
+            "Incorrect."
         end
     end
 end
