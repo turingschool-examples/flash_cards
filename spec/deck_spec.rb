@@ -50,4 +50,5 @@ describe Deck do
 
     expect(deck.cards_in_category("Pop culture")).to eq []
   end
+  ##stopped at ROUND in iteration 2
 end
