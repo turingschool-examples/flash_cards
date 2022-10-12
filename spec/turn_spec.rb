@@ -10,11 +10,20 @@ RSpec.describe Turn do
     expect(card).to be_instance_of(Card)
   end
 
-  it 'can take a guess' do
+  it 'can take a correct guess' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
 
     expect(turn.guess).to eq("Juneau")
+    expect(turn.correct?).to be true
+  end
+
+  it 'can take an incorrect guess' do
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Ottawa", card)
+
+    expect(turn.guess).to eq("Ottawa")
+    expect(turn.correct?).to be false
   end
 
   it 'can return a card' do
@@ -36,6 +45,12 @@ RSpec.describe Turn do
     turn = Turn.new("Juneau", card)
 
     expect(turn.feedback).to eq("Correct!")
-    require "pry"; binding.pry
+  end
+
+  it 'gives feedback on an incorrect guess' do
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Ottawa", card)
+
+    expect(turn.feedback).to eq("Incorrect")
   end
 end
