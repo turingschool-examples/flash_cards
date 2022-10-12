@@ -51,6 +51,12 @@ RSpec.describe Deck do
             deck = Deck.new(cards)
 
             expect(deck.cards_in_category(:Geography)).to eq [card_1]
+
+            cards = [card_1, card_2, card_3]
+
+            deck = Deck.new(cards)
+
+            expect(deck.cards_in_category(:Sports)).to eq []
         end
     end
 end
