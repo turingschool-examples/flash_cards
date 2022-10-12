@@ -1,8 +1,10 @@
 class Round
   attr_reader :deck
+  attr_accessor :turns
 
   def initialize(deck)
     @deck = deck
+    @turns = []
   end
 
   def take_turn
