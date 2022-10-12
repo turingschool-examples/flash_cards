@@ -11,4 +11,11 @@ class Turn
       p true
     end
   end
+
+  def feedback 
+    if correct? == true
+       "Correct!"
+    end
+  end
+
 end
