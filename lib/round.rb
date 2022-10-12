@@ -23,6 +23,7 @@ class Round
             @turns.card.answer == @turns.guess
             @number_correct += 1
         end
+        @deck.cards.shift
         @turns = Turn.new("#{guess}", self.current_card)
 
     end
