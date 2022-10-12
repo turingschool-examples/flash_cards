@@ -10,10 +10,18 @@ class Turn
         if 
             guess == card.answer
             return true
-            puts true
         else
             return false
-            puts false
+        end
+    end
+    def feedback
+        if 
+            self.correct? == true
+            return "Correct!"
+            puts "Correct!"
+        else
+            return "Incorrect."
+            puts "Incorrect."
         end
     end
 end
