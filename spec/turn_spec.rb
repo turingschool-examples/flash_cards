@@ -1,3 +1,4 @@
+require 'rspec'
 require './lib/turn'
 require './lib/card'
 #added this card file otherwise I get,
@@ -26,6 +27,24 @@ describe Turn do
      expect(turn.current_card).to eq (card)
    end
 
+   it 'has the cards answer'
+    turn = Turn.new("Juneau", card)
+    expect(turn.answer).to eq(current_card.answer)
+  end
+
+  describe '#correct?' do
+    it 'returns true if guess equals the answer' do
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Juneau", card)
+    expect(turn.guess).to eq(turn.answer)
+    end
+
+    it 'returns false if card does not equal answer' do
+      card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+      turn = Turn.new("Junope", card)
+      expect(turn.guess).to_not eq(turn.answer)
+    end
+  end
    #it 'returns true for answer' do
     # turn = Turn.new("Juneau", card)
 
