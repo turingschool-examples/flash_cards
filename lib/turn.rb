@@ -7,5 +7,15 @@ class Turn
         @card = card
     end
 
+    def correct?
+        @guess == card.answer ? true : false        
+    end
+
+    def feedback
+        correct? ? 'Correct!' : 'Incorrect.'
+    end
+
+
+
 end
 

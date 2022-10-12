@@ -1,4 +1,5 @@
 require './lib/turn'
+require './lib/card'
 
 RSpec.describe Turn do
     describe '#initialize' do
@@ -10,6 +11,7 @@ RSpec.describe Turn do
         end
 
         it 'has a guess' do 
+            card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
             turn = Turn.new('Denver', card)
 
             expect(turn.guess).to eq 'Denver'
@@ -24,11 +26,12 @@ RSpec.describe Turn do
     end
     
     describe '#correct?' do
+    #unnecessary test, private method?
 #I don't like that I'm sending another message to an object in this test.
         it 'can check the answer' do
             card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
             turn = Turn.new('Juneau', card)
-            expect(turn.guess_string).to eq card.answer
+            expect(turn.correct?).to eq true
         end
     end
 
@@ -38,7 +41,7 @@ RSpec.describe Turn do
             card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
             
             turn = Turn.new('Juneau', card)
-            turn2 = Turn.new('Denver')
+            turn2 = Turn.new('Denver', card)
 
             expect(turn.feedback).to eq "Correct!"
             expect(turn2.feedback).to eq "Incorrect."
