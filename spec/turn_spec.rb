@@ -53,7 +53,7 @@ RSpec.describe Turn do
       expect(turn).to be_instance_of(Turn)
     end
 
-    # test it has a card with different arguments
+  # test it has a card with different arguments
     it 'card exists with changes' do
       card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
       turn = Turn.new("Saturn", card)
@@ -61,4 +61,27 @@ RSpec.describe Turn do
       expect(turn.card).to be_instance_of(Card)
     end
 
+  # test it has a guess with different answer
+    it 'has a guess' do
+      card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+      turn = Turn.new("Saturn", card)
+
+      expect(turn.guess).to eq("Saturn")
+    end
+
+  # test correct? if will return false with wrong answer
+    it 'if guess incorrect, return false' do
+      card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+      turn = Turn.new("Saturn", card)
+
+      expect(turn.correct?).to be false
+    end
+
+  # test return feedback
+    it 'feedback return incorrect' do
+      card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+      turn = Turn.new("Saturn", card)
+
+      expect(turn.feedback).to eq("Incorrect.")
+    end
 end

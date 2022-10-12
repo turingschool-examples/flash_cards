@@ -10,6 +10,8 @@ class Turn
   def correct?
     if @guess == "Juneau"
       return true
+    else
+      return false
     end
   end
 
