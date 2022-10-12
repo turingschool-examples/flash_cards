@@ -9,6 +9,14 @@ class Turn
     end
 
     def correct?
-        @guess == @card.answer
+        @guess.downcase == @card.answer.downcase #.downcase ensure capitalization doesn't cause incorrect answer.
+    end
+
+    def feedback
+        if correct? #checks the return from the correct? method
+            "Correct!"
+        else
+            "Incorrect!"
+        end
     end
 end
