@@ -9,16 +9,19 @@
 #guess matches answer
 #feedback() method returns either correct of incorrect
 
-class Turn < Card
-  attr_reader :guess, :card_obj
+class Turn
+  attr_reader :guess, :current_card
 
-  def initialize(guess, card_obj)
-    @guess = guess
-    @card_obj = card_obj
+  def initialize(string, card)
+    @guess = string
+    @current_card = card
+  end
+
+  def guess
+    return @guess
   end
 
   def card
-    return @card_obj
+    return current_card
   end
-
 end
