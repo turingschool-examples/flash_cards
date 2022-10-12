@@ -15,6 +15,7 @@ class Round
 
   def take_turn(guess)
     @turns << Turn.new(guess, @current_card)
+    initialize_card_type(@current_card.category)
     if @turns[@curr_card_idx].correct?
       @number_correct[:total] += 1
       @number_correct[@current_card.category] += 1
@@ -28,14 +29,22 @@ class Round
     @current_card = @deck.cards[@curr_card_idx]
   end
 
+  def initialize_card_type(type)
+    if @number_correct[type].nil?
+      @number_correct[type] = 0
+    end
+  end
+
+  def categories
+    @deck.cards.map {|card| card.category}.uniq
+  end
+
   def number_correct
     @number_correct[:total]
   end
 
   def number_correct_by_category(type)
-    if @number_correct[type].nil?
-      @number_correct[type] = 0
-    end
+    initialize_card_type(type)
     @number_correct[type]
   end
 

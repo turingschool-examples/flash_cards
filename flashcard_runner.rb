@@ -26,27 +26,38 @@ def start
   deck.cards.each_with_index do |turn, idx|
     puts "This is card ##{idx + 1} out of #{deck.count}"
     puts "Question: What is #{round.current_card.question}?"
-    round.take_turn(user_answer = gets.chomp.to_i)
+    this_turn = round.take_turn(user_answer = gets.chomp.to_i)
+    puts "#{this_turn.feedback}"
   end
 
+  puts "****** Game over! ******"
+  puts %W[You had #{round.number_correct} 
+       correct guesses out of #{deck.count} 
+       for a total score of %
+       #{round.percent_correct}].join(' ')
+  round.categories.each do |category|
+    puts %W[#{category} - 
+         #{round.percent_correct_by_category(category)}% 
+         correct"].join(' ')
+  end
 end
 
 def create_card
-  type_idx = random_number(3)
+  type_idx = random_number(3) - 1
   problem_type = {
-    operators: ["+", "-", "/", "*"],
-    types:     [:add, :sub, :mult, :div]
+    operators: ["+", "-", "*"],
+    types:     [:Add, :Subtract, :Multiply]
   }
   curr_ops_type = problem_type[:operators][type_idx]
   curr_cat_type = problem_type[:types][type_idx]
   numbers = [random_number(20), random_number(20)]
   question = "#{numbers[0]} #{curr_ops_type} #{numbers[1]}"
   answer = eval question
-  Card.new(question, answer.round(2), curr_cat_type)
+  Card.new(question, answer, curr_cat_type)
 end
 
 def random_number(bound)
-  (1..bound).to_a.sample.to_f
+  (1..bound).to_a.sample
 end
 
 start
