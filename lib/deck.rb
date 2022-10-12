@@ -20,7 +20,6 @@ class Deck
 
   def shift
     @cards.shift
-
   end
 
 end
