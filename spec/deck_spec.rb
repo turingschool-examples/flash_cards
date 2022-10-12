@@ -5,6 +5,7 @@ require 'rspec'
 describe Deck do
   describe '#initialize' do
     it 'is an instance of Deck' do
+      cards = []
       deck = Deck.new(cards)
 
       expect(deck).to be_a Deck
