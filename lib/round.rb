@@ -15,6 +15,7 @@ class Round
   def take_turn(guess)
     current_turn = Turn.new(guess, @deck.cards[0])
     @deck.cards.shift
+    @turns << current_turn
     return current_turn
   end
 end
