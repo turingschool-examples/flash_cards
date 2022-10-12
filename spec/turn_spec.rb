@@ -49,7 +49,7 @@ RSpec.describe Turn do
         card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
         turn = Turn.new("Saturn", card)
 
-        expect(turn.feedback).to eq ("Incorrect!")
+        expect(turn.feedback).to eq ("Incorrect.")
     end 
 end
   
