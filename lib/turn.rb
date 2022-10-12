@@ -13,10 +13,8 @@ class Turn
 
     def feedback
         # require 'pry'; binding.pry
-       if correct? == true
-        return "Correct!"
-       else 
-        return "Incorrect."
-       end
+        correct? ? "Correct!" : "Incorrect."
+        # return "Correct!" if correct?
+        # "Incorrect."
     end
 end
