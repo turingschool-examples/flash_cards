@@ -1,3 +1,5 @@
+require './lib/card'
+
 class Turn
     attr_reader :guess, :card
 
@@ -18,11 +20,3 @@ class Turn
         end
     end
 end
-
-require 'pry'; binding.pry
-
-
-
-        
-
-

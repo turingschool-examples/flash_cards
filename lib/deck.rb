@@ -1,4 +1,5 @@
 require './lib/card'
+require 'pry'
 
 class Deck
     attr_reader :cards
@@ -13,9 +14,16 @@ class Deck
 
     def cards_in_category(category)
         card_storage = []
-        if cards.include?(@category) == true then card_storage.push(card)
-        else p card_storage
+
+        @cards.each do |card|
+            
+            if category == card.category then
+            card_storage.push(card)
+            end
         end
+
+        card_storage
     end
 end
-            
+     
+
