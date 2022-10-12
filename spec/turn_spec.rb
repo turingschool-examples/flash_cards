@@ -13,10 +13,11 @@ RSpec.describe Turn do
   end
 
 # test it has a card
-  xit 'has a card' do
+  it 'has a card' do
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
 
-    expect(turn.card).to eq(Card)
+    expect(turn.card).to be_instance_of(Card)
   end
 
 # test it has a guess
