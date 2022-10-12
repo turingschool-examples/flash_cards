@@ -12,10 +12,10 @@ class Turn
   end
 
   def feedback
-    if @guess == True
+    if correct? == true
       p "Correct!"
     else
       p "Incorrect."
   end
-
+end
 end
