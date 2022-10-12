@@ -26,6 +26,7 @@ class Turn
          "Wrong!"
       end
   end
+
 end
 
 # require 'pry'; binding.pry
