@@ -8,9 +8,11 @@ class Turn
     end
     def correct?
         if 
-            @guess == card.answer
+            guess == card.answer
+            return true
             puts true
         else
+            return false
             puts false
         end
     end
