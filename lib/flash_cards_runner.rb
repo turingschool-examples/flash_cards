@@ -14,6 +14,4 @@ card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwi
 
 cards = [card_1, card_2, card_3]
 
-turn.feedback
-
 require 'pry'; binding.pry
