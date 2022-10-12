@@ -3,50 +3,81 @@ require './lib/turn'
 require './lib/deck'
 require './lib/round'
 
-card_1 = Card.new("Question1", "Answer1", :cat1)
-card_2 = Card.new("Question2", "Answer2", :cat1)
-card_3 = Card.new("Question3", "Answer3", :cat2)
+# require 'pry'; binding.pry
 
-cards = [card_1, card_2, card_3]
+RSpec.describe Round do
+  # exists
+  it 'exists' do
+    round = Round.new(1)
 
-deck = Deck.new([card_1, card_2, card_3])
+    expect(round).to be_a Round
+  end
 
-round = Round.new(deck)
+  it 'contains a deck' do
+  # contains a deck
+    card_1 = Card.new("Question1", "Answer1", :cat1)
+    card_2 = Card.new("Question2", "Answer2", :cat1)
+    card_3 = Card.new("Question3", "Answer3", :cat2)
 
-round.current_card
+    # cards = [card_1, card_2, card_3]
 
- require 'pry'; binding.pry
+    deck = Deck.new([card_1, card_2, card_3])
 
-# exists
+    round = Round.new(deck)
 
-# contains deck
+    expect(round.deck).to eq deck
+  end
 
-# contains turn counter
+  it 'has a turn counter, empty in beginning' do
+  # contains turn counter
+    card_1 = Card.new("Question1", "Answer1", :cat1)
+    card_2 = Card.new("Question2", "Answer2", :cat1)
+    card_3 = Card.new("Question3", "Answer3", :cat2)
 
-# displays current card deck.cards[0] (clean this up)
+    deck = Deck.new([card_1, card_2, card_3])
 
-# has new_turn method which is round.take_turn("guess")
+    round = Round.new(deck)
 
-# new_turn is actually a Turn class? does that mean that occurs in turn.rb
+    expect(round.turns).to eq []
+  end
 
-# new_turn can return .correct? (makes sense why it's in the turn class now)
+  it 'pulls current card (topdeck)' do
+  # displays current card deck.cards[0] (clean this up)
+    card_1 = Card.new("Question1", "Answer1", :cat1)
+    card_2 = Card.new("Question2", "Answer2", :cat1)
+    card_3 = Card.new("Question3", "Answer3", :cat2)
 
-# logs number correct
+    deck = Deck.new([card_1, card_2, card_3])
 
-# discards card played during turn
+    round = Round.new(deck)
 
-# displays new current card
+    expect(round.current_card).to eq card_1
+  end
 
-# take turn happens
+  # has new_turn method which is round.take_turn("guess")
 
-# a second turn is logged (.count = 2)
+  # new_turn is actually a Turn class? does that mean that occurs in turn.rb
 
-# reveals correct or incorrect with round.turns.last.feedback
+  # new_turn can return .correct? (makes sense why it's in the turn class now)
 
-# stores number correct by category
+  # logs number correct
 
-# stores number correct
+  # discards card played during turn
 
-# stores number correct by category
+  # displays new current card
 
-# will display 3rd (final card) if 2 turns are taken
+  # take turn happens
+
+  # a second turn is logged (.count = 2)
+
+  # reveals correct or incorrect with round.turns.last.feedback
+
+  # stores number correct by category
+
+  # stores number correct
+
+  # stores number correct by category
+
+  # will display 3rd (final card) if 2 turns are taken
+
+end
