@@ -50,7 +50,13 @@ RSpec.describe Round do
       round = Round.new(deck)
 
       expect(round.deck).to eq(deck)
-      expect(round.deck.cards[2].category).to eq(:STEM)     
+      expect(round.deck.cards[2].category).to eq(:STEM)
+    end
+  end
+
+  describe '#turns' do
+    it 'student takes a turn' do
+
     end
   end
 
