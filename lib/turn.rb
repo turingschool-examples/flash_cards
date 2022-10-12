@@ -5,13 +5,25 @@ class Turn
     @guess = guess
     @card = card
   end
+
   def card
     @card
   end
+
   def correct?
-    if guess == card.answer
+      if guess == card.answer
       true
-    end
-  end
+    else
+      false
+      end
+
+  # def feedback
+  #     if correct? == true
+  #       p "Correct!"
+  #     else
+  #       p "Wrong!"
+  #     end
+  # end
+end
 end
 # require 'pry'; binding.pry
