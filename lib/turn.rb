@@ -28,7 +28,9 @@ class Turn < Card
   end
 
   def correct?
-      @guess == @answer
+     #@guess == @answer
+     #@guess.instance_of? Card
+     @guess == card.answer
   end
 
   def feedback
