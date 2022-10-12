@@ -1,3 +1,5 @@
+require './lib/card'
+
 class Turn
     attr_reader :guess, :card
 
@@ -13,16 +15,8 @@ class Turn
     end
 
     def feedback
-        if @guess == @card.answer then p "Correct!"
-        else p "Incorrect."
+        if correct? == true then "Correct!"
+        else "Incorrect."
         end
     end
 end
-
-require 'pry'; binding.pry
-
-
-
-        
-
-
