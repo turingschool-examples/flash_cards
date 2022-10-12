@@ -19,6 +19,8 @@ class Turn
     end
 end
 
+require 'pry'; binding.pry
+
 
 
         
