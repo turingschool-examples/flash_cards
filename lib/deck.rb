@@ -14,7 +14,7 @@ class Deck
         @cards.each do |card|
             if
                 category == card.category
-                puts card
+                
             end
         end
     end
