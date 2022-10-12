@@ -16,5 +16,12 @@ RSpec.describe Turn do
 
     expect(turn.guess).to eq("Juneau")
   end
-  
+
+  it 'can return a card' do
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Juneau", card)
+
+    expect(turn.card).to eq(card)
+    require "pry"; binding.pry
+  end
 end
