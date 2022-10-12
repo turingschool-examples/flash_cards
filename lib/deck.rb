@@ -1,9 +1,10 @@
 require './card'
 
 class Deck
-    attr_reader :cards
+    attr_reader :cards, :cards_in_category
     def initialize(cards)
         @cards = cards
+        @cards_in_category = []
     end
 
     def count
@@ -14,8 +15,9 @@ class Deck
         @cards.each do |card|
             if
                 category == card.category
-                
+                @cards_in_category << card
             end
         end
+        return @cards_in_category
     end
 end
