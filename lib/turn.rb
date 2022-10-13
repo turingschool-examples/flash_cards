@@ -1,18 +1,22 @@
+require './lib/card'
+
 class Turn
-  attr_reader :string, :card, :guess, :correct, :feedback, :anwser
+  attr_reader :string, :card, :guess
   def initialize(string, card)
     @card = card
     @guess = string
-    @correct = true
-    @feedback = "Correct!"
   end
 
 
   def correct?
-    if @correct == true
-      correct == true
-    else correct == false
-    end
+    @guess.downcase == @card.answer.downcase
   end
 
+  def feedback
+    if correct?
+      "Correct!"
+      else
+        "Incorrect."
+    end
+  end
 end
