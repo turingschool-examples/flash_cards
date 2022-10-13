@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Deck of flash cards
+# deck of flash cards
 class Deck
   attr_reader :cards
 
