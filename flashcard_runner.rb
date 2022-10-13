@@ -3,11 +3,19 @@ require './lib/card'
 require './lib/deck'
 require './lib/round'
 
-# Creates object instances
-card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-card_2 = Card.new("The Viking spacecraftsent back to Earth photographs and reportsabout the surface of which planet?","Mars", :STEM)
-card_3 = Card.new("Describe in words theexact direction that is 697.5° clockwisefrom due north?", "North north west", :STEM)
-cards = [card_1, card_2, card_3]
-deck = Deck.new(cards)
-round = Round.new(deck)
+def start
+    # Creates object instances
+    cards = []
+    
+    cards << Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    cards << Card.new("The Viking spacecraftsent back to Earth photographs and reportsabout the surface of which planet?","Mars", :STEM)
+    cards << Card.new("Describe in words theexact direction that is 697.5° clockwisefrom due north?", "North north west", :STEM)
 
+    deck = Deck.new(cards)
+    
+    Round.new(deck)
+end
+
+round = start
+
+puts "Welcome! You're playing with #{round.deck.count} cards."
