@@ -75,7 +75,6 @@ RSpec.describe Turn do
         turn = Turn.new("Denver", card)
         turn.feedback
 
-        require 'pry'; binding.pry
         expect(turn.feedback).to eq("Incorrect. :(")
     end
 
