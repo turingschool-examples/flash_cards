@@ -11,20 +11,25 @@ attr_reader :deck, :current_card, :turns
   end
 
   def take_turn(guess)
-    @turns.push(Turn.new(guess, @current_card))
-    @card_index++
-    return @turns[@card_index - 1]
+    new_turn = Turn.new(guess, @current_card)
+    @turns.push(new_turn)
+    @card_index += 1
+    @current_card = @deck.cards[@card_index]
+    new_turn
   end
 
   def number_correct()
     correct_count = 0
 
     @turns.each do |turn|
-      if (@turns[turn].correct?)
-        correct_count++
+      if (turn.correct?)
+        correct_count += 1
       end
     end
 
       return correct_count
   end
+
+
+
 end
