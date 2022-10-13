@@ -5,17 +5,11 @@ class CardGenerator
   end
 
   def cards
-    File.foreach(@filename).map do |line|
-      line.split(",").each.with_index do |item, idx|
-        case (idx % 3)
-        when 1
-          ""
-        when 2
-          ""
-        when 3
-          ""
-        end
+    list_cards = File.foreach(@filename).map do |line|
+      line.split(",").map.with_index do |item, idx|
+        [item.chomp].group_by {|item| idx / 3}[0]
       end
     end
+    list_cards.map {|set| Card.new(set[0][0], set[1][0], set[2][0])}
   end
 end

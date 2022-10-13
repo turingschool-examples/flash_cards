@@ -3,9 +3,12 @@ require './lib/turn'
 require './lib/deck'
 require './lib/round'
 require './lib/card_generator'
+require 'pry'
 
 def start
-  card_generator = CardGenerator.new('card.txt')
+  file_path = File.expand_path('../m1_flash_cards/cards.txt', __dir__)
+  p """#{file_path}"""
+  card_generator = CardGenerator.new("#{file_path}")
   list_cards = card_generator.cards
 
   puts "Welcome to the Math Flash Card Game!"
@@ -31,6 +34,7 @@ def start
   puts "You'll be playing with #{num_cards} cards"
   puts "****************************************"
   
+  binding.pry
   round = Round.new(deck)
   deck.cards.each_with_index do |turn, idx|
     puts "This is card ##{idx + 1} out of #{deck.count}"
