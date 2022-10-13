@@ -13,7 +13,7 @@ class Round
 
     def current_card
         current_card = @deck.cards
-        current_card[0]
+        current_card[turns.count]
     end
 
     def take_turn(answer)
