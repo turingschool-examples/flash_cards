@@ -1,7 +1,7 @@
 require './lib/card'
 require './lib/turn'
 require './lib/deck'
-# require 'pry'; binding.pry
+
 
 
 class Round
@@ -40,6 +40,10 @@ class Round
             end
         end
         category_correct
+    end
+
+    def percent_correct
+        (number_correct.to_f / @turns.length)*100
     end
 
 
