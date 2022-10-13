@@ -79,26 +79,41 @@ RSpec.describe Round do
 
   end
 
-  xit 'will pull the next card when take_turn is called again'
+
+  xit 'can turn that number into a percent' do
+    # divides number correct by total cards
+    # careful this number stored total cards at beginning, in case shrinkage
+  end
+
+  xit 'will pull the next card when take_turn is called again' do
   # discards card played during turn
   # not necessarily, but .shift should still work here, because cards_remaining
   # displays new current card
   # take turn happens
   end
 
-  xit 'will display 2 turns have happened after two turns' do
+  xit 'will display x turns have happened after x turns' do
   # a second turn is logged (.count = 2)
 
   end
 
+  xit 'can access the last turn feedback' do
   # reveals correct or incorrect with round.turns.last.feedback
 
+  end
+
+  xit 'can access the category of a correct answer, returns length?' do
   # stores number correct by category
 
-  # stores number correct
+  end
 
-  # stores number correct by category
+  xit 'can turn that number into a percent' do
+    # divides number correct by total cards
+    # careful this number stored total cards at beginning, in case shrinkage
+  end
 
-  # will display 3rd (final card) if 2 turns are taken
+  xit 'keeps going' do
+  # will display next card until there are no cards left
 
+  end
 end
