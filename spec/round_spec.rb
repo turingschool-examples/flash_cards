@@ -36,4 +36,14 @@ RSpec.describe Round do
       expect(round.current_card).to eq(card_1)
     end
   end  
+
+  describe '#take_turn' do
+    it 'creates a new instance of turn class' do
+      cards = [card_1, card_2, card_3]
+      deck = Deck.new(cards)
+      round = Round.new(deck)
+    
+      expect(round.take_turn("Color")).to be_a Turn
+    end
+  end
 end
