@@ -1,11 +1,11 @@
-require '../lib/turn'
-require '../lib/card'
+require './lib/turn'
+require './lib/card'
 require 'rspec'
 
 describe Turn do
   it 'creates card' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-
+   
     expect(card).to be_instance_of(Card)
   end
 
