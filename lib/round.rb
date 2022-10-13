@@ -12,7 +12,6 @@ class Round
         @number_correct = 0.0
         @turns_taken = 0.0
         @correct_cards = []
-        @catogory_correct_amount = 0.0
     end
 
     def current_card
@@ -53,6 +52,30 @@ class Round
 
     def percent_correct
 
-        @number_correct / @turns_taken * 100
+        @number_correct / @turns_taken * 100.0
     end
+
+    def percent_correct_by_category(category)
+
+        @category_asked_amount = 0.0
+        @category_correct_amount = 0.0
+
+        @correct_cards.each do |correct_card|
+            if
+                correct_card.card.category == category
+                @category_correct_amount += 1.0
+            end
+        end
+
+        @turns.each do |turn|
+            if 
+                turn.card.category == category
+                @category_asked_amount += 1.0
+            end
+        end
+
+        @category_correct_amount / category_asked_amount * 100.0
+    end
+
+
 end
