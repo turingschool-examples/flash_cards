@@ -6,19 +6,25 @@ require './deck'
 
 require './round'
 
-card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+card_1 = Card.new("Who created VW Beetle?", "Ferdinand Porsche", :History)
 
-card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+card_2 = Card.new("What is 6x8?", 48, :Math)
 
-card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+card_3 = Card.new("What is the capital of Sweden?", "Stockholm", :Geography)
 
-cards = [card_1, card_2, card_3]
+card_4 = Card.new("Who was the first European to set foot in North America?", "Lief Ericsson", :History)
 
-deck = Deck.new(cards)
+card_5 = Card.new("Who has won the most Formula 1 Grands Prix?", "Lewis Hamilton", :Sports)
 
-round = Round.new(deck)
+deck = Deck.new([card_1, card_2, card_3])
+
+$round = Round.new(deck)
+
+def start
+    puts "Welcome! You are playing with #{$round.deck.count} cards."
+    puts "--------------------------------------------------"
+    puts "This is card number #{$round.card_number} out of #{$round.deck.count}."
+end
 
 
-
-
-require 'pry'; binding.pry
+start

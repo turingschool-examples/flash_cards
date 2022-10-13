@@ -77,5 +77,10 @@ class Round
         @category_correct_amount / @category_asked_amount * 100.0
     end
 
+    def card_number
+        @turns_taken += 1
+        @turns_taken.round
+    end
+
 
 end
