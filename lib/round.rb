@@ -6,10 +6,12 @@ class Round
   # , :current_turn
 
   def initialize(deck)
+
     @deck = deck
     @turns = []
     @number_correct = 0
-    # @correct_by_category = []
+    @correct_by_category = []
+
   end
 
   def current_card
@@ -21,13 +23,7 @@ class Round
     if guess == @deck.cards[0].answer
       @number_correct += 1
     end
-    #put correct in an array
 
-    # if guess == @deck.cards[0].answer
-    #   @correct_by_category.each do |category|
-    #     if
-    #   end
-    # end
     @deck.cards.shift
     @turns << current_turn
 
@@ -35,19 +31,28 @@ class Round
   end
 
   def number_correct_by_category(category_correct)
-    this_category = []
     @turns.each do |turn|
-      if turn.card.category == category_correct
-        if turn.guess == turn.card.answer
-          this_category << turn
-        end
+      if (turn.card.category == category_correct) &&
+        (turn.guess == turn.card.answer)
+          @correct_by_category << turn
       end
     end
-    this_category.length
+    @correct_by_category.length
   end
 
   def percent_correct
     100.0 * @number_correct / @turns.length
+  end
+
+  def percent_correct_by_category(cat_correct)
+    number_correct_by_category(cat_correct)
+    number_cards_in_cat_so_far = 0
+    @turns.each do |turn|
+      if turn.card.category == cat_correct
+        number_cards_in_cat_so_far += 1
+      end
+    end
+    100.0 * @correct_by_category.length / number_cards_in_cat_so_far
   end
 end
 
