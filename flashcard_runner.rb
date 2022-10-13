@@ -17,3 +17,9 @@ puts "Welcome! You're playing with #{round.deck.count} cards."
 puts "-------------------------------------------------"
 puts "This is card number #{round.turns.length + 1} out of #{round.deck.count}"
 puts "#{round.current_card.question}"
+
+guess = gets.chomp
+
+round.take_turn(guess)
+
+puts "#{round.feedback}"
