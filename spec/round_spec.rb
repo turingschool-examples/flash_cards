@@ -75,7 +75,6 @@ describe Round do
             deck = Deck.new(cards)
 
             round = Round.new(deck)
-            turn = Turn.new("Juneau", card_1)
 
             expect(round.take_turn("Juneau")).to be_instance_of(Turn)
         end
