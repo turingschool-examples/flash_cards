@@ -86,9 +86,9 @@ RSpec.describe Deck do
         deck = Deck.new(cards_1)
 
         deck.count
-
+require 'pry'; binding.pry
         expect(deck.count).to equal(3)
-        
+
     end
 
 
