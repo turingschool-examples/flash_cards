@@ -50,14 +50,14 @@ RSpec.describe Deck do
     card_2 = Card.new("Question2", "Answer2", :cat1)
     card_3 = Card.new("Question3", "Answer3", :cat2)
 
-    cards = [card_1, card_2, card_3]
+  #  cards = [card_1, card_2, card_3]
 
-    deck = Deck.new(cards)
+    deck = Deck.new([card_1, card_2, card_3])
 
-# require 'pry'; binding.pry
+ require 'pry'; binding.pry
 
     deck.cards_in_category(:cat1)
-    expect(deck.sorted_cards).to eq [card_1, card_2]
+    expect(deck.cards_in_category(:cat1)).to eq [card_1, card_2]
   end
 
   it 'returns a new sort by category' do

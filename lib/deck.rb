@@ -1,21 +1,26 @@
 class Deck
 
-  attr_reader :cards, :count, :sorted_cards
+  attr_reader :cards
 
   def initialize(cards)
     @cards = cards
-    @count = cards.length
-    @sorted_cards = []
   end
 
   def cards_in_category(cat)
-    @sorted_cards.clear
-    cards.each do |card|
-      if card.category == cat
-        @sorted_cards << card
-      end
+
+    @cards.each do |deck_card|
+      deck_card.compare(false)
     end
-    return @sorted_cards
+
+  end
+
+##### TRY AGAIN
+  def cards_cat(ask)
+    ask == :cat1
+  end
+
+  def count
+    @cards.length
   end
 
   def shift

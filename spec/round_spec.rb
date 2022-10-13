@@ -149,8 +149,10 @@ RSpec.describe Round do
 
   end
 
-  xit 'has a counter that increases per number correct' do
+  it 'has a counter that increases per number correct' do
     # logs number correct
+
+########### Initial Setup
     card_1 = Card.new("Question1", "Answer1", :cat1)
     card_2 = Card.new("Question2", "Answer2", :cat1)
     card_3 = Card.new("Question3", "Answer3", :cat2)
@@ -160,6 +162,8 @@ RSpec.describe Round do
     deck = Deck.new(cards)
 
     round = Round.new(deck)
+###########
+########### Turn sequence
     round.current_card
 
     new_turn = round.take_turn("Answer1")
@@ -169,6 +173,8 @@ RSpec.describe Round do
     new_turn.feedback
 
     round.turns_array.push(new_turn)
+###########
+########### Store and analyse
 
 ### I'm getting blocked here thinking of where this method should get stored...
 
@@ -191,35 +197,35 @@ RSpec.describe Round do
   end
 
   it 'will pull the next card when take_turn is called again' do
-  # discards card played during turn
-  # not necessarily, but .shift should still work here, because cards_remaining
-  # displays new current card
-  # take turn happens
-  card_1 = Card.new("Question1", "Answer1", :cat1)
-  card_2 = Card.new("Question2", "Answer2", :cat1)
-  card_3 = Card.new("Question3", "Answer3", :cat2)
+    # discards card played during turn
+    # not necessarily, but .shift should still work here, because cards_remaining
+    # displays new current card
+    # take turn happens
+    card_1 = Card.new("Question1", "Answer1", :cat1)
+    card_2 = Card.new("Question2", "Answer2", :cat1)
+    card_3 = Card.new("Question3", "Answer3", :cat2)
 
-  cards = [card_1, card_2, card_3]
+    cards = [card_1, card_2, card_3]
 
-  deck = Deck.new(cards)
+    deck = Deck.new(cards)
 
-  round = Round.new(deck)
-  round.current_card
+    round = Round.new(deck)
+    round.current_card
 
-  new_turn = round.take_turn("Answer1")
+    new_turn = round.take_turn("Answer1")
 
-  new_turn.correct?
+    new_turn.correct?
 
-  new_turn.feedback
+    new_turn.feedback
 
-  round.turns_array.push(new_turn)
+    round.turns_array.push(new_turn)
 
-  # NOW WE DO "ANOTHER NEW_TURN"
-  new_turn2 = round.take_turn("Wrong Answer")
-  new_turn2.correct?
-  new_turn2.feedback
+    # NOW WE DO "ANOTHER NEW_TURN"
+    new_turn2 = round.take_turn("Wrong Answer")
+    new_turn2.correct?
+    new_turn2.feedback
 
-  expect(new_turn2.correct?).to be false
+    expect(new_turn2.correct?).to be false
 
   end
 

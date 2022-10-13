@@ -28,7 +28,7 @@ RSpec.describe Turn do
     card = Card.new("Question1", "Answer1", :misc)
     turn = Turn.new("I don't know", card)
 
-    expect(turn.card).to eq("I don't know")
+    expect(turn.guess).to eq("I don't know")
   end
   # recognizes "string" and "card.question" and compares they are the same
   it 'can have a right answer' do
@@ -36,7 +36,7 @@ RSpec.describe Turn do
     turn = Turn.new("Answer1", card)
 
     turn.correct?
-    expect(turn.correct).to be true
+    expect(turn.correct?).to be true
   end
   # recognizes "string and "card.question" and compares they are different
   it 'can have a wrong answer' do
@@ -44,7 +44,7 @@ RSpec.describe Turn do
     turn = Turn.new("I don't know", card)
 
     turn.correct?
-    expect(turn.correct).to be false
+    expect(turn.correct?).to be false
   end
 
   # turn.feedback returns correct response for right & wrong answers
@@ -55,10 +55,8 @@ RSpec.describe Turn do
 
 # require 'pry'; binding.pry
     turn1.correct?
-    turn1.feedback
-    expect(turn1.response).to include "That's correct"
+    expect(turn1.feedback).to eq "That's correct!"
     turn2.correct?
-    turn2.feedback
-    expect(turn2.response).to include "Sorry, but no..."
+    expect(turn2.feedback).to eq "Sorry, but no..."
   end
 end

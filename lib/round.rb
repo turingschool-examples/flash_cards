@@ -5,24 +5,20 @@ class Round
   def initialize(deck)
     @deck = deck
     @turns_array = []
-    @cur_turn = nil
-    @cur_card = nil
-    @turns_taken = 0
   end
 
   def count
+    puts @turns_array.length
   end
 
   def current_card
-    @cur_card = @deck.shift
-    return @cur_card
+    @deck.shift
   end
 
   def take_turn(guess)
 
-    @cur_turn = Turn.new(guess, @cur_card)
-    @turns_taken += 1
-    return @cur_turn
+    Turn.new(guess, @cur_card)
+
   end
 
   # def number_correct
@@ -32,6 +28,7 @@ class Round
   #     end
   #   return correct_counter
   # end
+
 
 ####  WHERE IS THE BEST PLACE TO HOLD A METHOD TO << TURN INFO
   # def store_turn
