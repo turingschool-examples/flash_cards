@@ -31,4 +31,8 @@ class Round
         end
         category_score
     end
+
+    def percent_correct
+        @number_correct.fdiv(@turns.length) * 100.0
+    end
 end
