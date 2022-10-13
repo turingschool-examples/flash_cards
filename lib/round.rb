@@ -9,4 +9,9 @@ class Round
         @deck = deck
         @turns = []
     end
+
+    def current_card
+        current_card = @deck.cards
+        current_card[0]
+    end
 end
