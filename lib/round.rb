@@ -47,7 +47,7 @@ attr_reader :deck, :current_card, :turns
 
 
   def percent_correct()
-    number_correct() / @turns.length * 100.0
+    return ((self.number_correct().to_f / @turns.count) * 100.0)
   end
 
 
@@ -59,9 +59,7 @@ attr_reader :deck, :current_card, :turns
         categorized_turns.push(turn)
       end
     end
-    number_correct_by_category(category) / categorized_turns.length * 100.0
+    self.number_correct_by_category(category).to_f / categorized_turns.length * 100.0
   end
-
-
 
 end
