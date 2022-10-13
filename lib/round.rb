@@ -1,9 +1,10 @@
 class Round
-    attr_reader :deck, :turns
+    attr_reader :deck, :turns, :number_correct
 
     def initialize(deck)
         @deck = deck
         @turns = []
+        @number_correct = 0
     end
 
     def current_card
@@ -14,6 +15,7 @@ class Round
         turn = Turn.new(guess, card)
         @turns << turn
         @deck.cards.shift
+        #refactor. let the object deck manipulate its own data,
         turn
     end
 
