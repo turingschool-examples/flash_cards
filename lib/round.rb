@@ -1,30 +1,34 @@
 class Round
 
   attr_reader         :card,
-                      :turns,
                       :deck,
-                      :number_correct,
-                      :total_cards,
-                      :number_guesses
+                      :turns
 
- def initialize(deck)
-  @deck             = deck
-  @turns            = []
-  @current_card     = 0
-  # @number_correct   = 0.0
-  # @number_guesses   = 0.0
-  # @total_cards      = deck.cards.count
-  # @current_guess    = 0
- end
 
- def current_card
+  def initialize(deck)
+   @deck             = deck
+   @turns            = []
+   @current_card     = 0
+   @number_correct   = 0
+   @number_guesses   = 0
+  end
+
+
+  def current_card
     deck.cards[@current_card]
   end
 
- def record_turn(turn)
+  def turns (turn)
     @new_turn = Turn.new(guess, current_card)
     @turns << @new_turn
     @new_turn
+  end
+
+  def take_turn
+    @new_turn.correct? @number_correct += 1
+    deck.cards << deck.cards[@current_card] && @total_cards += 1
+    @current_card    += 1
+    @number_guesses  += 1
   end
 
 end
