@@ -3,13 +3,14 @@ require './card'
 class Turn
     attr_reader :guess, :card
     def initialize(guess, card)
-        @guess = guess.downcase
+        @guess = guess
         @card = card
     end
-    # change so comparison operators are downcased
+
     def correct?
-            guess == card.answer
+            guess.downcase == card.answer.downcase
     end
+
     def feedback
         if 
             self.correct? == true

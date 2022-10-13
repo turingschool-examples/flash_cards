@@ -23,7 +23,7 @@ class Round
         @guess = guess
         @turns.push Turn.new("#{guess}", self.current_card)
         if
-            @turns.last.card.answer == @turns.last.guess
+            @turns.last.card.answer.downcase == @turns.last.guess.downcase
             @number_correct += 1.0
             @correct_cards.push self.turns.last
         end
@@ -43,7 +43,7 @@ class Round
 
         @correct_cards.each do |correct_card|
             if
-                correct_card.card.category == category.downcase
+                correct_card.card.category.downcase == category.downcase
                 @category_correct_amount += 1.0
             end
         end
@@ -62,14 +62,14 @@ class Round
 
         @correct_cards.each do |correct_card|
             if
-                correct_card.card.category == category.downcase
+                correct_card.card.category.downcase == category.downcase
                 @category_correct_amount += 1.0
             end
         end
 
         @turns.each do |turn|
             if 
-                turn.card.category == category.downcase
+                turn.card.category.downcase == category.downcase
                 @category_asked_amount += 1.0
             end
         end

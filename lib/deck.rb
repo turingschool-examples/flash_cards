@@ -14,7 +14,7 @@ class Deck
     def cards_in_category(category)
         @cards.each do |card|
             if
-                category.downcase == card.category
+                category.downcase == card.category.downcase
                 @cards_in_category << card
             end
         end
