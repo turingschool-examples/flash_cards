@@ -1,6 +1,7 @@
 require './lib/card'
 require './lib/turn'
 require './lib/deck'
+# require 'pry'; binding.pry
 
 
 class Round
@@ -16,7 +17,7 @@ class Round
     end
 
     def take_turn(guess)
-        Turn.new(@guess, @deck.cards[0])
+        Turn.new(guess, @deck.cards[0])
     end
 
 
