@@ -1,10 +1,11 @@
 class Round
 
-  attr_reader :deck, :turns, :cur_card, :turn_taken
+  attr_reader :deck, :turns_array, :cur_turn, :cur_card, :turns_taken
 
   def initialize(deck)
     @deck = deck
-    @turns = []
+    @turns_array = []
+    @cur_turn = nil
     @cur_card = nil
     @turns_taken = 0
   end
@@ -18,9 +19,15 @@ class Round
   end
 
   def take_turn(guess)
-    @turns = Turn.new(guess, @cur_card)
+
+    @cur_turn = Turn.new(guess, @cur_card)
     @turns_taken += 1
-    return @turns
+    return @cur_turn
   end
+
+####  WHERE IS THE BEST PLACE TO HOLD A METHOD TO << TURN INFO
+  # def store_turn
+  #   round.turns_array.push(new_turn)
+  # end
 
 end

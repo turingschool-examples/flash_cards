@@ -27,7 +27,7 @@ class Turn
     end
   end
 
-  #new_turn references take_turn in round class
+  #create method that takes turn instance and puts into round
   # def new_turn(string)
   #   @guess = string
   # end

@@ -3,7 +3,8 @@ require './lib/turn'
 require './lib/deck'
 require './lib/round'
 
-# require 'pry'; binding.pry
+ require 'pry';
+ #binding.pry
 
 RSpec.describe Round do
   # exists
@@ -38,7 +39,7 @@ RSpec.describe Round do
 
     round = Round.new(deck)
 
-    expect(round.turns).to eq []
+    expect(round.turns_array).to eq []
   end
 
   it 'pulls current card (topdeck)' do
@@ -54,7 +55,7 @@ RSpec.describe Round do
     expect(round.current_card).to eq card_1
   end
 
-  xit 'can create a take_turn method' do
+  it 'can create a take_turn method' do
   # has new_turn method which is round.take_turn("guess")
     card_1 = Card.new("Question1", "Answer1", :cat1)
     card_2 = Card.new("Question2", "Answer2", :cat1)
@@ -68,7 +69,7 @@ RSpec.describe Round do
 
   end
 
-  xit 'can create a new Turn class with round.take_turn' do
+  it 'can create a new Turn class with round.take_turn' do
     # new_turn is actually a Turn class? does that mean that occurs in turn.rb
     card_1 = Card.new("Question1", "Answer1", :cat1)
     card_2 = Card.new("Question2", "Answer2", :cat1)
@@ -78,17 +79,73 @@ RSpec.describe Round do
 
     round = Round.new(deck)
 
-    expect(round.current_card).to eq card_1
+    new_turn = round.take_turn("Answer1")
+
+    expect(new_turn).to be_a Turn
 
   end
 
-  xit 'can access .correct? with right answer' do
+  it 'holds the current_card in the new_turn' do
     # new_turn can return .correct? (makes sense why it's in the turn class now)
+    card_1 = Card.new("Question1", "Answer1", :cat1)
+    card_2 = Card.new("Question2", "Answer2", :cat1)
+    card_3 = Card.new("Question3", "Answer3", :cat2)
+
+    cards = [card_1, card_2, card_3]
+
+    deck = Deck.new(cards)
+
+    round = Round.new(deck)
+    round.current_card
+
+
+    new_turn = round.take_turn("Answer1")
+
+    expect(new_turn.card).to be card_1
 
   end
 
-  xit 'stores the turn information that was used' do
-    # this is likely an array, that holds turns class. use .push
+  it 'can access .correct? with right answer' do
+    # new_turn can return .correct? (makes sense why it's in the turn class now)
+    card_1 = Card.new("Question1", "Answer1", :cat1)
+    card_2 = Card.new("Question2", "Answer2", :cat1)
+    card_3 = Card.new("Question3", "Answer3", :cat2)
+
+    cards = [card_1, card_2, card_3]
+
+    deck = Deck.new(cards)
+
+    round = Round.new(deck)
+    round.current_card
+
+    new_turn = round.take_turn("Answer1")
+
+    expect(new_turn.correct?).to be true
+
+  end
+
+  it 'stores the turn information that was used' do
+    # entire turn information gets stored into round's turns_array array
+    card_1 = Card.new("Question1", "Answer1", :cat1)
+    card_2 = Card.new("Question2", "Answer2", :cat1)
+    card_3 = Card.new("Question3", "Answer3", :cat2)
+
+    cards = [card_1, card_2, card_3]
+
+    deck = Deck.new(cards)
+
+    round = Round.new(deck)
+    round.current_card
+
+    new_turn = round.take_turn("Answer1")
+
+    new_turn.correct?
+
+    new_turn.feedback
+
+    round.turns_array.push(new_turn)
+
+    expect(round.turns_array).to eq [new_turn]
 
   end
 
