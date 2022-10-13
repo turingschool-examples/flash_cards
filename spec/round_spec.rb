@@ -210,7 +210,7 @@ describe Round do
             turn_2 = round.take_turn("Venus")
             turn_3 = round.take_turn("North north west")
 
-            expect(round.percent_correct).to eq("66%")
+            expect(round.percent_correct).to eq(67.0)
         end
     end
 end
