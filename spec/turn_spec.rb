@@ -46,8 +46,16 @@ RSpec.describe Turn do
 require 'pry'; binding.pry
     end
 
-
-
+#Test 5
 #feedback for the correct guess is Correct!
+    it "feedback for a correct answer is 'correct'" do
+        card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        turn = Turn.new("Juneau", card)
+        turn.correct?
+        turn.feedback
+
+        expect(turn.feedback)to eq("Correct!")
+    
+    end
 
 end
