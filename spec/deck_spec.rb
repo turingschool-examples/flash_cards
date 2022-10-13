@@ -60,14 +60,15 @@ RSpec.describe Deck do
 
         card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
     
-        cards = []
-        cards.push card_1, card_2, card_3
+        cards_1 = []
+        cards_1.push card_1, card_2, card_3
 
-        deck = Deck.new(cards)
+        deck = Deck.new(cards_1)
 
         deck.cards
 
-        expect(deck.cards).to equal(card_1, card_2, card_3)
+        expect(deck.cards).to equal cards_1
+        
     end
 
 
