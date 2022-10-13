@@ -10,7 +10,7 @@
 #feedback() method returns either correct of incorrect
 
 
-class Turn < Card
+class Turn 
   attr_reader :guess, :current_card
 
   def initialize(string, card)
