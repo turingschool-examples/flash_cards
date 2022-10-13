@@ -16,4 +16,18 @@ RSpec.describe Turn do
         expect(turn.guess).to eq("Juneau")
     end
 
+    it 'returns true indicating the guess matches the answer on the card' do
+        card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        turn = Turn.new("Juneau", card)
+
+        expect(turn.correct?).to eq(true)
+    end
+
+    it 'returns false indicating the guess does not match the answer on the card' do
+        card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        turn = Turn.new("Anchorage", card)
+
+        expect(turn.correct?).to eq(false)
+    end
+
 end

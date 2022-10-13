@@ -11,4 +11,9 @@ class Turn
         @string
     end
 
+    def correct?
+        @string == card.answer
+    end
+
+
 end
