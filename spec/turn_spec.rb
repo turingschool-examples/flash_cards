@@ -27,8 +27,10 @@ RSpec.describe Turn do
 
   it 'has correct feedback' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    turn = Turn.new("Juneau", card)
+    turn_1 = Turn.new("Juneau", card)
+    turn_2 = Turn.new("Bob", card)
 
-    expect(turn.feedback).to eq("Correct!")
+    expect(turn_1.feedback).to eq("Correct!")
+    expect(turn_2.feedback).to eq("Incorrect.")
   end
 end
