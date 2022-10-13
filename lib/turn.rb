@@ -6,12 +6,13 @@ def initialize (string, card)
   @card = card
 end
 
+
 def guess
   @guess
 end
 
 def correct?
-  if @guess == "Juneau"
+  if @guess == @answer
     return true
   else return false
   end
