@@ -57,7 +57,7 @@ describe Turn do
   end
 
     it ' returns false if guess was incorrect' do
-      skip
+      
       card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       turn = Turn.new("Junope", card)
       expect(turn.correct?).to eq(false)
