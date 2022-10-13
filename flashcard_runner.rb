@@ -28,3 +28,10 @@ round.take_turn(answer_1)
 
 p round.turns[-1].feedback
 end
+
+p "***** Game Over! ******"
+p "You had #{round.number_correct} out of #{round.turns.count} for a total score of #{round.percent_correct}%."
+
+round.categories_present.each do |category|
+  p "#{category} - #{round.percent_correct_by_category(category)}% correct"
+end
