@@ -1,6 +1,6 @@
 class Deck
 
-attr_reader :cards
+attr_reader :deck
 
   def initialize(cards)
     @deck = cards
@@ -8,10 +8,11 @@ attr_reader :cards
 
 
   def count
-    cards.length
+    deck.length
   end
 
   def cards_in_category(category)
-    cards.slice(category)
+    deck.each do |category|
+         
   end
 end
