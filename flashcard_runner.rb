@@ -14,3 +14,6 @@ deck_1 = [card_1, card_2, card_3, card_4, card_5, card_6]
 
 round = Round.new(deck_1)
 
+p "Welcome! You're playing with #{round.deck.count} cards."
+p "-------------------------------------------------------"
+p "This is card number #{(round.turns.length) + 1} out of #{round.deck.count}."
