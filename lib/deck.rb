@@ -13,12 +13,11 @@ class Deck
   def cards_in_category(cat)
       cat_count = []
 
-     cards.each do |card|
-       if cat == card.category then
+      cards.each do |card|
+        if cat == card.category then
          cat_count << card
-       end
-     end
+        end
+      end
       cat_count
   end
-
 end
