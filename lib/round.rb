@@ -74,7 +74,7 @@ class Round
             end
         end
 
-        @category_correct_amount / category_asked_amount * 100.0
+        @category_correct_amount / @category_asked_amount * 100.0
     end
 
 
