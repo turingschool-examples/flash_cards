@@ -3,28 +3,24 @@
 
 class Deck
 
-  attr_reader :card_obj
+  attr_reader :cards
 
-  def initialize(card_objects)
-    @card_obj = card_objects
+  def initialize(cards)
+    @cards = cards
   end
 
   def count
-    @card_obj.count
+    @cards.count
   end
 
   def cards_in_category(category)
-    if category == @question
-      cards
-    elsif category == @answer
-      cards
-    elsif category == @category
-      cards
+    category_cards = []
+    @cards.each do |card|
+      if category == card.category
+        category_cards << card
+      end
     end
+    return category_cards
   end
-  #rspec
-  #expected: #<Card:0x00007fd51b8cbe58
-  #@question="What is the capital of Alaska?", @answer="Juneau",
-  # @category=:Geography>
-  #got: nil
+
 end

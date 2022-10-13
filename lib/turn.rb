@@ -10,13 +10,12 @@
 #feedback() method returns either correct of incorrect
 
 
-class Turn 
-  attr_reader :guess, :current_card
+class Turn
+  attr_reader :guess, :card
 
   def initialize(string, card)
     @guess = string
-    @current_card = card
-    #@answer = answer
+    @card = card
   end
 
   #def guess
@@ -24,12 +23,10 @@ class Turn
   #end
 
   def card
-    return @current_card
+    return @card
   end
 
   def correct?
-     #@guess == @answer
-     #@guess.instance_of? Card
      @guess == card.answer
   end
 

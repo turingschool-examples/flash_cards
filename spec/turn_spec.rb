@@ -22,7 +22,7 @@ describe Turn do
    it 'has a card' do
 
      turn = Turn.new("Juneau", card)
-     expect(turn.current_card).to eq (card)
+     expect(turn.card).to eq (card)
    end
 
    #it 'has the cards answer' do
@@ -57,7 +57,7 @@ describe Turn do
   end
 
     it ' returns false if guess was incorrect' do
-      
+
       card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       turn = Turn.new("Junope", card)
       expect(turn.correct?).to eq(false)
