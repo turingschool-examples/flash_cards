@@ -56,16 +56,34 @@ RSpec.describe Round do
 
   xit 'can create a take_turn method' do
   # has new_turn method which is round.take_turn("guess")
+    card_1 = Card.new("Question1", "Answer1", :cat1)
+    card_2 = Card.new("Question2", "Answer2", :cat1)
+    card_3 = Card.new("Question3", "Answer3", :cat2)
+
+    deck = Deck.new([card_1, card_2, card_3])
+
+    round = Round.new(deck)
+
+    expect(round.current_card).to eq card_1
 
   end
 
   xit 'can create a new Turn class with round.take_turn' do
-  # new_turn is actually a Turn class? does that mean that occurs in turn.rb
+    # new_turn is actually a Turn class? does that mean that occurs in turn.rb
+    card_1 = Card.new("Question1", "Answer1", :cat1)
+    card_2 = Card.new("Question2", "Answer2", :cat1)
+    card_3 = Card.new("Question3", "Answer3", :cat2)
+
+    deck = Deck.new([card_1, card_2, card_3])
+
+    round = Round.new(deck)
+
+    expect(round.current_card).to eq card_1
 
   end
 
   xit 'can access .correct? with right answer' do
-  # new_turn can return .correct? (makes sense why it's in the turn class now)
+    # new_turn can return .correct? (makes sense why it's in the turn class now)
 
   end
 
