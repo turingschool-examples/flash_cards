@@ -14,4 +14,8 @@ class Round
         current_card = @deck.cards
         current_card[0]
     end
+
+    def take_turn(answer)
+        Turn.new(answer, current_card)
+    end
 end
