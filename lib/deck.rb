@@ -1,11 +1,8 @@
 class Deck
-    attr_reader :cards_collection
+    attr_reader :cards
 
     def initialize (cards)
-        @cards_collection = cards
+        @cards = cards
     end
 
-    # def add_cards_to_cards_collection (card)
-    #     @add_cards_to_cards_collection.push(card)
-    # end
 end
