@@ -43,7 +43,7 @@ class Round
 
         @correct_cards.each do |correct_card|
             if
-                correct_card.card.category == category
+                correct_card.card.category == category.downcase
                 @category_correct_amount += 1.0
             end
         end
@@ -62,14 +62,14 @@ class Round
 
         @correct_cards.each do |correct_card|
             if
-                correct_card.card.category == category
+                correct_card.card.category == category.downcase
                 @category_correct_amount += 1.0
             end
         end
 
         @turns.each do |turn|
             if 
-                turn.card.category == category
+                turn.card.category == category.downcase
                 @category_asked_amount += 1.0
             end
         end
