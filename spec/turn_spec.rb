@@ -43,7 +43,7 @@ RSpec.describe Turn do
         turn.correct?
 
         expect(turn.correct?).to be true
-  end
+    end
 #Test 5
 #feedback for the correct guess is Correct!
     it "feedback for a correct answer is 'correct'" do
@@ -55,5 +55,22 @@ RSpec.describe Turn do
         expect(turn.feedback).to eq("Correct!")
     
     end
+
+#Test 6
+#The guess is incorrect
+    it "the guess is wrong" do
+        card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        turn = Turn.new("Juneau", card)
+        turn.correct?
+
+    expect(turn.correct?)to be false
+    end
+
+
+
+
+
+#Test 7
+#feedback for the wrong gues is Incorrect
 
 end
