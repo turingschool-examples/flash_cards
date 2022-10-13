@@ -1,11 +1,12 @@
 require './lib/deck'
 
 class Round
-  attr_reader :deck, :turns, :correct
+  attr_reader :deck, :turns, :correct, :incorrect
   def initialize(deck)
     @deck = deck
     @turns = []
     @correct= []
+    @incorrect = []
   end
 
   def current_card
@@ -17,6 +18,8 @@ class Round
     @turns << turn
     if turn.correct?
       @correct << turn
+    else
+      @incorrect << turn
     end
     turn
   end
