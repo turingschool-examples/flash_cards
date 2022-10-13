@@ -1,7 +1,7 @@
 require './lib/card'
 
 class Deck
-  attr_reader :cards, :category_groups
+  attr_reader :category_groups, :cards
   def initialize(cards)
     @cards = cards
     @category_groups = cards.group_by do |card|
@@ -21,5 +21,5 @@ class Deck
     end
   end
 
-  
+
 end

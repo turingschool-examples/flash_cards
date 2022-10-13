@@ -21,6 +21,7 @@ class Round
     else
       @incorrect << turn
     end
+    deck.cards.rotate!
     turn
   end
 
