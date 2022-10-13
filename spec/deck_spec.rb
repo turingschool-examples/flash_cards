@@ -6,8 +6,8 @@ require './lib/deck'
 describe Deck do
     describe '#initialize' do
         it 'is an instance of deck' do
-        
-            deck = Deck.new
+            cards = []
+            deck = Deck.new(cards)
             expect(deck).to be_instance_of(Deck)
         end
         it 'has cards' do
