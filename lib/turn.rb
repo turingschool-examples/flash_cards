@@ -18,10 +18,10 @@ def correct?
 end
 
   def feedback
-    if @guess == true
-      p "correct!"
-    elsif @guess == false
-      p "incorrect"
+    if correct? == true
+      return  "correct!"
+    elsif correct? == false
+    return  "incorrect"
     end
 end
 end
