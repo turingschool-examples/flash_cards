@@ -15,20 +15,19 @@ class Round
     end
 
     def current_card
-        @deck.cards[0]
-
+        current_card = @deck.cards
+        current_card[turns.count]
     end
 
     def take_turn(guess)
-        @guess = guess
-        @turns.push Turn.new("#{guess}", self.current_card)
+
+        @turns.push Turn.new(guess, current_card)
         if
             @turns.last.card.answer.downcase == @turns.last.guess.downcase
             @number_correct += 1.0
             @correct_cards.push self.turns.last
         end
         @turns_taken += 1.0
-        @deck.cards.shift
         return @turns.last
 
     end
@@ -78,8 +77,7 @@ class Round
     end
 
     def card_number
-        @turns_taken += 1
-        @turns_taken.round
+        @turns_taken.round + 1
     end
 
 
