@@ -7,7 +7,7 @@ attr_reader :card, :string
   end
 
   def guess
-     @guess
+    @guess
   end
 
   def correct?
