@@ -12,7 +12,7 @@ def guess
 end
 
 def correct?
-  if @guess == @answer
+  if @guess == card.answer
     return true
   else return false
   end
