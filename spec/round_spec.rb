@@ -54,21 +54,42 @@ RSpec.describe Round do
     expect(round.current_card).to eq card_1
   end
 
+  xit 'can create a take_turn method' do
   # has new_turn method which is round.take_turn("guess")
 
+  end
+
+  xit 'can create a new Turn class with round.take_turn' do
   # new_turn is actually a Turn class? does that mean that occurs in turn.rb
 
+  end
+
+  xit 'can access .correct? with right answer' do
   # new_turn can return .correct? (makes sense why it's in the turn class now)
 
+  end
+
+  xit 'stores the turn information that was used' do
+    # this is likely an array, that holds turns class. use .push
+
+  end
+
+  xit 'has a counter that increases per number correct' do
   # logs number correct
 
+  end
+
+  xit 'will pull the next card when take_turn is called again'
   # discards card played during turn
-
+  # not necessarily, but .shift should still work here, because cards_remaining
   # displays new current card
-
   # take turn happens
+  end
 
+  xit 'will display 2 turns have happened after two turns' do
   # a second turn is logged (.count = 2)
+
+  end
 
   # reveals correct or incorrect with round.turns.last.feedback
 
