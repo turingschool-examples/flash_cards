@@ -60,10 +60,10 @@ RSpec.describe Turn do
 #The guess is incorrect
     it "the guess is wrong" do
         card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-        turn = Turn.new("Juneau", card)
+        turn = Turn.new("Denver", card)
         turn.correct?
 
-    expect(turn.correct?)to be false
+    expect(turn.correct?).to be false
     end
 
 
