@@ -25,6 +25,14 @@ class Round
     return @cur_turn
   end
 
+  # def number_correct
+  #   correct_counter = 0
+  #     if @turns_array.correct == true
+  #     correct_counter += 1
+  #     end
+  #   return correct_counter
+  # end
+
 ####  WHERE IS THE BEST PLACE TO HOLD A METHOD TO << TURN INFO
   # def store_turn
   #   round.turns_array.push(new_turn)

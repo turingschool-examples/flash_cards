@@ -150,21 +150,77 @@ RSpec.describe Round do
   end
 
   xit 'has a counter that increases per number correct' do
-  # logs number correct
+    # logs number correct
+    card_1 = Card.new("Question1", "Answer1", :cat1)
+    card_2 = Card.new("Question2", "Answer2", :cat1)
+    card_3 = Card.new("Question3", "Answer3", :cat2)
+
+    cards = [card_1, card_2, card_3]
+
+    deck = Deck.new(cards)
+
+    round = Round.new(deck)
+    round.current_card
+
+    new_turn = round.take_turn("Answer1")
+
+    new_turn.correct?
+
+    new_turn.feedback
+
+    round.turns_array.push(new_turn)
+
+### I'm getting blocked here thinking of where this method should get stored...
+
+    # def number_correct
+    #   correct_counter = 0
+    #     if @turns_array.correct == true
+    #     correct_counter += 1
+    #     end
+    #   return correct_counter
+    # end
+
+#  binding.pry
 
   end
 
-
+### THIS TEST DEPENDS ON PASSING THE TEST ABOVE, NOT TOUCHING UNTIL THAT'S DONE
   xit 'can turn that number into a percent' do
     # divides number correct by total cards
     # careful this number stored total cards at beginning, in case shrinkage
   end
 
-  xit 'will pull the next card when take_turn is called again' do
+  it 'will pull the next card when take_turn is called again' do
   # discards card played during turn
   # not necessarily, but .shift should still work here, because cards_remaining
   # displays new current card
   # take turn happens
+  card_1 = Card.new("Question1", "Answer1", :cat1)
+  card_2 = Card.new("Question2", "Answer2", :cat1)
+  card_3 = Card.new("Question3", "Answer3", :cat2)
+
+  cards = [card_1, card_2, card_3]
+
+  deck = Deck.new(cards)
+
+  round = Round.new(deck)
+  round.current_card
+
+  new_turn = round.take_turn("Answer1")
+
+  new_turn.correct?
+
+  new_turn.feedback
+
+  round.turns_array.push(new_turn)
+
+  # NOW WE DO "ANOTHER NEW_TURN"
+  new_turn2 = round.take_turn("Wrong Answer")
+  new_turn2.correct?
+  new_turn2.feedback
+
+  expect(new_turn2.correct?).to be false
+
   end
 
   xit 'will display x turns have happened after x turns' do
