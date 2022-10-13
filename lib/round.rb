@@ -31,4 +31,12 @@ class Round
     correct.length
   end
 
+  def number_correct_by_category(category)
+    correct_by_category = deck.cards_in_category(category).select do |card|
+      correct.each do |turn|
+        turn.card == card
+      end
+    end
+    correct_by_category.length
+  end
 end
