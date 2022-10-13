@@ -40,4 +40,8 @@ class Round
         end
         correct_in_category
     end
+
+    def percent_correct
+        ((number_correct.to_f / turns.count).round(2)) * 100
+    end
 end
