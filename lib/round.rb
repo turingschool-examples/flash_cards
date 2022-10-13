@@ -35,4 +35,9 @@ class Round
     def percent_correct
         @number_correct.fdiv(@turns.length) * 100.0
     end
+
+    def percent_correct_by_category(category)
+        number_correct_by_category(category).fdiv(@turns.count{|turn| turn.card.category == category}) * 100.0
+    end
+
 end
