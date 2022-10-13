@@ -165,10 +165,14 @@ describe Round do
 
             round = Round.new(deck)
             turn_1 = round.take_turn("Juneau")
+
+            expect(round.turns.count).to eq(1)
+            expect(round.current_card).to eq(card_2)
+            
             turn_2 = round.take_turn("Venus")
 
             expect(round.turns.count).to eq(2)
-            expect(round.current_card).to eq(card_2)
+            expect(round.current_card).to eq(card_3)
         end
     end
 end
