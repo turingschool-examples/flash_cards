@@ -6,6 +6,7 @@ class Turn
         @guess = guess.downcase
         @card = card
     end
+    # change so comparison operators are downcased
     def correct?
             guess == card.answer
     end
