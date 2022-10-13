@@ -1,5 +1,5 @@
 require './lib/card'
-require './lib/deck.rb'
+require './lib/deck'
 
 RSpec.describe Deck do
 
@@ -34,7 +34,7 @@ RSpec.describe Deck do
     end
 
 #Test 3
-#Deck, cards exists
+#Deck exists
     it "Deck exists" do
         card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
@@ -48,6 +48,7 @@ RSpec.describe Deck do
         deck = Deck.new(cards)
 
         expect(deck).to be_instance_of(Deck)
+        require 'pry'; binding.pry
     end
 
 
