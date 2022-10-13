@@ -1,13 +1,9 @@
 class Turn
-attr_reader :card, :string
+attr_reader :card, :guess
 
   def initialize(string, card)
     @guess = string
     @card = card
-  end
-
-  def guess
-    @guess
   end
 
   def correct?
@@ -16,8 +12,8 @@ attr_reader :card, :string
 
   def feedback
     if correct? == true
-      p "Correct!"
-    else p "Incorrect."
+       "Correct!"
+    else "Incorrect."
     end
   end
 end

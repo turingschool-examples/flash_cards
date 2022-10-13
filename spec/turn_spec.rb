@@ -17,7 +17,7 @@ RSpec.describe Turn do
   end
 
   it 'has a card' do
-card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau",card)
 
     expect(turn.card).to eq(card)
