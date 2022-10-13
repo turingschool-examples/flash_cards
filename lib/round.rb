@@ -19,8 +19,16 @@ class Round
     def take_turn(guess)
         new_turn = Turn.new(guess, @deck.cards[0])
         @turns.push(new_turn)
-        return new_turn
-        
+        return new_turn 
+    end
+
+    def number_correct
+        correct_answers = 0
+        @turns.each do |turn|
+            if turn.correct? == true then correct_answers += 1
+            end
+        end
+        correct_answers
     end
 
 
