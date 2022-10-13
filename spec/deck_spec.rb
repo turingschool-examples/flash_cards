@@ -1,6 +1,7 @@
 require 'rspec'
 require './lib/turn'
 require './lib/card'
+require './lib/deck'
 
 describe Deck do
     describe '#initialize' do
