@@ -1,4 +1,3 @@
-
 require './lib/deck'
 require 'rspec'
 

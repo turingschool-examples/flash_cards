@@ -1,4 +1,5 @@
 require './lib/deck'
+require './lib/card'
 require './lib/turn'
 
 class Round
