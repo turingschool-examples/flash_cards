@@ -10,6 +10,7 @@ class Turn
   end
   #def correct?
   def correct?
+    ######### DON'T NEED IF BECAUSE COMPARISON == GIVES BOOLEAN
     #@guess and card.answer are the two items being compare
     #if matching, guess is correct
     if @guess == card.answer

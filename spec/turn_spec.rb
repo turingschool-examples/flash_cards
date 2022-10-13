@@ -15,6 +15,21 @@ RSpec.describe Turn do
 
     expect(turn).to be_a Turn
   end
+
+  # write a test that makes sure intended card is within Turn
+  it 'holds intended card' do
+    card = Card.new("Question1", "Answer1", :misc)
+    turn = Turn.new("I don't know", card)
+
+    expect(turn.card).to eq(card)
+  end
+  # write a test that makes sure intended guess is within Turn
+  it 'holds intended guess' do
+    card = Card.new("Question1", "Answer1", :misc)
+    turn = Turn.new("I don't know", card)
+
+    expect(turn.card).to eq("I don't know")
+  end
   # recognizes "string" and "card.question" and compares they are the same
   it 'can have a right answer' do
     card = Card.new("Question1", "Answer1", :misc)
