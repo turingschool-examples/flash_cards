@@ -3,7 +3,7 @@ class Round
     :turns,
     :number_correct,
     :correct_by_category
-  # , :current_turn
+
 
   def initialize(deck)
 
@@ -31,6 +31,8 @@ class Round
   end
 
   def number_correct_by_category(category_correct)
+#not sure about that vvv
+    @correct_by_category = []
     @turns.each do |turn|
       if (turn.card.category == category_correct) &&
         (turn.guess == turn.card.answer)
@@ -55,6 +57,3 @@ class Round
     100.0 * @correct_by_category.length / number_cards_in_cat_so_far
   end
 end
-
-
-# require "pry"; binding.pry
