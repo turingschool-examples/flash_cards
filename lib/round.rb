@@ -24,7 +24,9 @@ class Round
     return current_turn
   end
 
-
+  def percent_correct
+    100.0 * @number_correct / @turns.length
+  end
 end
 
 # require "pry"; binding.pry

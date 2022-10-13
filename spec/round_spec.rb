@@ -118,6 +118,12 @@ describe Round do
     end
   end
 
+  describe 'number_correct_by_category' do
+    xit 'tracks number correct in a given category' do
+
+    end
+  end
+
   describe '#percent_correct' do
     it 'keeps track of the percent of correct answers' do
       card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
