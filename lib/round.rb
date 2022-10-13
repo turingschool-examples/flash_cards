@@ -18,8 +18,12 @@ class Round
 
     def take_turn(guess)
         new_turn = Turn.new(guess, @deck.cards[0])
-        @turns.push(new_turn)
-        return new_turn 
+        @turns.push(new_turn) 
+        @deck.cards.shift
+        new_turn
+        
+       
+        
     end
 
     def number_correct
