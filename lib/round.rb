@@ -20,14 +20,14 @@ class Round
 
     def take_turn(guess)
         @guess = guess
-        @turns.unshift Turn.new("#{guess}", self.current_card)
+        @turns.push Turn.new("#{guess}", self.current_card)
         if
-            @turns[0].card.answer == @turns[0].guess
+            @turns.last.card.answer == @turns.last.guess
             @number_correct += 1
         end
         @turns_taken += 1
         @deck.cards.shift
-        return @turns[0]
+        return @turns.last
 
     end
 
@@ -35,6 +35,6 @@ class Round
         @number_correct
     end
 
-    
+
 
 end
