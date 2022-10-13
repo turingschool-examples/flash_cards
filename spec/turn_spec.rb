@@ -17,7 +17,7 @@ RSpec.describe Turn do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
 
-    expect(turn.card).to be_instance_of(Card)
+    expect(turn.card).to eq(card)
   end
 
 # test it has a guess
@@ -50,7 +50,7 @@ RSpec.describe Turn do
       card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
       turn = Turn.new("Saturn", card)
 
-      expect(turn).to be_instance_of(Turn)
+      expect(turn).to eq(turn)
     end
 
   # test it has a card with different arguments
@@ -58,7 +58,7 @@ RSpec.describe Turn do
       card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
       turn = Turn.new("Saturn", card)
 
-      expect(turn.card).to be_instance_of(Card)
+      expect(turn.card).to eq(card)
     end
 
   # test it has a guess with different answer
