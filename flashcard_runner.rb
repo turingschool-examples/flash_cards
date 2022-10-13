@@ -28,58 +28,42 @@ def start
   puts "Welcome! You're playing with #{cards.length} cards."
   puts "-------------------------------------------------"
   puts "This is card number 1 out of #{cards.length}."
-  # How to get it to return a number and not the instance?
-  # Does the card number that we are starting on need to be more dynamic?
+  # Does the card number that we are starting on need to be more dynamic? How?
   puts "Question: #{round.current_card.question}"
-  # Need to call on the question attribute of a card instance
 
   answer_1 = gets.chomp
   turn_1 = round.take_turn(answer_1)
 
   puts turn_1.feedback
 
-  # if answer_1 == correct?
-  # puts turn.feedback
-  # call on the round.deck.length?? if == 0 game end if not continue to next turn
-
   puts "This is card number 2 out of #{cards.length}."
-  # How to get it to return a number and not the instance?
-  puts "Question: #{cards.??}"
+  puts "Question: #{round.current_card.question}"
 
   answer_2 = gets.chomp
-  # Should I call on the take_turn method here?
-  puts answer_2
+  turn_2 = round.take_turn(answer_2)
 
-  # if answer_2 == correct?
-  # puts turn.feedback
-  # call on the round.deck.length?? if == 0 game end if not continue to next turn
+  puts turn_2.feedback
 
   puts "This is card number 3 out of #{cards.length}."
-  # How to get it to return a number and not the instance?
-  puts "Question: #{cards.??}"
+  puts "Question: #{round.current_card.question}"
 
   answer_3 = gets.chomp
-  # Should I call on the take_turn method here?
-  puts answer_3
+  turn_3 = round.take_turn(answer_3)
 
-  # if answer_3 == correct?
-  # puts turn.feedback
-  # call on the round.deck.length?? if == 0 game end if not continue to next turn
+  puts turn_3.feedback
 
   if round.deck.length == 0
+  # can this whole thing be a while loop? That runs until round.deck.length == 0
 
     puts "****** Game over! ******"
-    puts "You had #{number_correct} correct guesses out of #{cards.length} for a total score of #{percent_correct}."
-  # fix the above methods to call on them correctly
+    puts "You had #{round.number_correct} correct guesses out of #{cards.length} for a total score of #{percent_correct}."
+  # is round.number_correct teh correct method?
 
     puts "#{category} - #{percent_correct_by_category}% correct"
     puts "#{category} - #{percent_correct_by_category}% correct"
     puts "#{category} - #{percent_correct_by_category}% correct"
   # fix the above methods to call on them correctly
   end
-
-  # can this whole thing be a while loop?
-
 
 end
 
