@@ -16,8 +16,12 @@ def start
   Round.new(deck)
 end
 
-round = start
-    
-puts "Welcome! You're playing with #{round.deck.count} cards."
-puts "-------------------------------------------------"
-puts "This is card number #{1 + round.turns.count} out of #{round.deck.count}"
+def play_round
+  round = start
+
+  puts "Welcome! You're playing with #{round.deck.count} cards."
+  puts "-------------------------------------------------"
+  puts "This is card number #{1 + round.turns.count} out of #{round.deck.count}"
+  puts "Question: #{round.current_card.question}"
+end
+play_round
