@@ -1,10 +1,11 @@
 require 'rspec'
 require './lib/card'
 require './lib/deck'
+require './lib/round'
 
-RSpec.describe Deck do
+RSpec.describe Round do
 
-# test it can create new cards
+  # test it can create new cards
   it 'exists' do
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
@@ -15,54 +16,58 @@ RSpec.describe Deck do
     expect(card_3).to be_instance_of(Card)
   end
 
-# test the Deck exists
+  # test the Deck exists
   it 'exists' do
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
 
-    cards = [card_1, card_2, card_3]
-    deck = Deck.new(cards)
+    deck = Deck.new([card_1, card_2, card_3])
 
     expect(deck).to eq(deck)
   end
 
-  # test it has the cards
-  it 'has the cards and return array of those cards' do
+  # test the Round exists and includes deck and turns
+  it 'exists' do
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
 
-    cards = [card_1, card_2, card_3]
-    deck = Deck.new(cards)
+    deck = Deck.new([card_1, card_2, card_3])
+    round = Round.new(deck)
 
-    expect(deck.cards).to eq([card_1, card_2, card_3])
+    expect(round).to eq(round)
+    expect(round.deck).to eq(deck)
   end
 
-  # test can count the amount of cards
-  it 'will count the cards, and return the number of cards' do
+  # test turns method defaults to empty
+  it 'turns method defaults to empty' do
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
 
-    cards = [card_1, card_2, card_3]
-    deck = Deck.new(cards)
+    deck = Deck.new([card_1, card_2, card_3])
+    round = Round.new(deck)
 
-    expect(deck.count).to eq(3)
+    expect(round.turns).to eq []
   end
 
-  # test it has categories and return card with that category
-  it 'will return the correct category per card' do
+  # test return current card
+  it 'shows the current card of the round' do
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
 
-    cards = [card_1, card_2, card_3]
-    deck = Deck.new(cards)
+    deck = Deck.new([card_1, card_2, card_3])
+    round = Round.new(deck)
 
-    expect(deck.cards_in_category(:STEM)).to eq([card_2, card_3])
-    expect(deck.cards_in_category(:Geography)).to eq([card_1])
-    expect(deck.cards_in_category("Pop Culture")).to eq([])
-
+    expect(round.current_card).to eq(card_1)
   end
+
+  # test take_turn method works
+
+  # test first round?
+
+  # test second round?
+
 end
