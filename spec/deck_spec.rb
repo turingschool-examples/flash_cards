@@ -32,7 +32,7 @@ describe Deck do
             card_4 = Card.new("test", "test", :test)
             
             cards_1 = [card_1, card_2, card_3]
-            cards_2 = [card_1, card_2, card_3, card_3]
+            cards_2 = [card_1, card_2, card_3, card_4]
             deck_1 = Deck.new(cards_1)
             deck_2 = Deck.new(cards_2)
 
