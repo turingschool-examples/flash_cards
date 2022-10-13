@@ -1,4 +1,11 @@
-require_relative 'card'
+# require_relative 'card' 
+# lib/card.rb
+# pry into the code
+# instantiate card
+# do research on coding directories and how to interact 
+# with the terminal
+# what is the difference between . and .. , why do i need
+# /
 
 class Turn
     attr_reader :guess
@@ -15,7 +22,12 @@ class Turn
 
     def correct?
         #returns boolean if guess matches answer on card
-        @guess == @answer 
+        # require 'pry'; binding.pry
+        # @card == @answer
+        @guess == card.answer 
+    end
+
+    def feedback
     end
 end
 
