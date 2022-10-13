@@ -1,21 +1,59 @@
 require './lib/turn'
 
 describe Turn do
-  it 'exists' do
-    turn = Turn.new("Juneau",current_card)
 
-    expect(turn).to be_a Turn
-  end
+    it 'exists' do
+      turn = Turn.new("Juneau",current_card)
 
-  it 'has an answer' do
-    turn = Turn.new("Juneau",current_card)
+      expect(turn).to be_a Turn
+    end
 
-    expect(turn.guess).to eq "Juneau"
-  end
+    it 'has a guess' do
+      turn = Turn.new("Juneau",current_card)
 
-  it 'corresponds to a card' do
-    turn = Turn.new("Juneau",current_card)
+      expect(turn.guess).to eq "Juneau"
+    end
 
-    expect(turn.card).to eq current_card
-  end
+    it 'has a question card' do
+      turn = Turn.new("Juneau",current_card)
+
+      expect(turn.card).to eq current_card
+    end
+
+    describe '#correct?' do
+
+      it 'returns true if guess is correct' do
+        card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        turn = Turn.new("Juneau",card)
+
+        expect(turn.correct?).to be true
+      end
+
+      it 'returns false if guess is incorrect' do
+        card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        turn = Turn.new("Alaska City",card)
+
+        expect(turn.correct?).to be false
+      end
+
+    end
+
+    describe '#feedback' do
+
+      it 'returns "Correct!" for a correct guess' do
+        card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        turn = Turn.new("Juneau",card)
+
+        expect(turn.feedback).to be "Correct!"
+      end
+
+      it 'returns "Incorrect." for an incorrect guess' do
+        card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        turn = Turn.new("Alaska City",card)
+
+        expect(turn.feedback).to be "Incorrect."
+      end
+
+    end
+
 end
