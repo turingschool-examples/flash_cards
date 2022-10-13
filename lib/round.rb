@@ -43,7 +43,7 @@ class Round
     end
 
     def percent_correct
-        (number_correct.to_f / @turns.length)*100
+        ((number_correct.to_f / @turns.length)*100).round(1)
     end
 
     def number_of_turns_by_category(category)
@@ -57,7 +57,15 @@ class Round
     end
 
     def percent_correct_by_category(category)
-        (number_correct_by_category(category)/number_of_turns_by_category(category))*100
+        ((number_correct_by_category(category)/number_of_turns_by_category(category))*100).round(1)
+    end
+
+    def categories_present
+        categories_in_round = []
+        turns.each do |turn|
+            categories_in_round.push(turn.card.category)
+        end
+        categories_in_round.uniq
     end
 
 
