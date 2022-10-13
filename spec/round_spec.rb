@@ -236,7 +236,7 @@ RSpec.describe Round do
       round.take_turn("Juneau")
       round.take_turn("Venus")
 
-      expect(round.percent_correct_by_category).to eq(100.0)
+      expect(round.percent_correct_by_category(:Geography)).to eq(100.0)
       expect(round.current_card).to eq(card_3)
     end
   end
