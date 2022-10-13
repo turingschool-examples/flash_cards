@@ -45,4 +45,14 @@ it 'exists' do
 
   expect(turn).to be_instance_of(Turn)
 end
+it 'is incorrect' do
+  card = Card.new("What planet is closest to the sun?", "Mercury", :STEM)
+  turn = Turn.new("Saturn",card)
+expect(turn.correct?).to eq(false)
+end
+it 'provides feedback' do
+  card = Card.new("What planet is closest to the sun?", "Mercury", :STEM)
+  turn = Turn.new("Saturn",card)
+  expect(turn.feedback).to eq("incorrect")
+end
 end
