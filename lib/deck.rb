@@ -8,8 +8,8 @@ class Deck
         @cards = cards
     end
 
-    def count
-        cards.count
+    def count #used to access ruby's built in #count method on the cards instance variable
+        cards.count 
     end
 
     def cards_in_category(category)
