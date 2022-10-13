@@ -2,7 +2,7 @@
 
 # a round of multiple turns, one for each card in deck
 class Round
-  attr_reader :turns
+  attr_reader :turns, :deck
 
   def initialize(deck)
     @deck = deck 

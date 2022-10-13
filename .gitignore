@@ -1,6 +1,7 @@
 # Ignore
 *.gem
 *.rbc
+.DS_Store
 
 # SimpleCov
 /coverage/
