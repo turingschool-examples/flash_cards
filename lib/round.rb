@@ -31,6 +31,10 @@ class Round
     correct.length
   end
 
+  def percent_correct
+    number_correct / turns.length.to_f * 100
+  end
+
   def number_correct_by_category(category)
     correct_by_category = deck.cards_in_category(category).select do |card|
       correct.each do |turn|
