@@ -37,6 +37,22 @@ RSpec.describe Round do
     end
   end
 
+  describe '#number_correct' do
+    it 'correctly counts number of correct guesses in @turns' do
+      card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+      card_2 = Card.new("What is the capital of Colorado?", "Denver", :Geography)
+      card_3 = Card.new("Which German philosopher greatly influenced Karl Marx?", "Hegel", :Philosophy)
+      cards = [card_1, card_2, card_3]
+      deck = Deck.new(cards)
+      round = Round.new(deck)
+      round.take_turn("jelly")
+      round.take_turn("Denver")
+      round.take_turn("Hegel")
+
+      expect(round.number_correct).to eq(2)
+    end
+  end
+
 
 
 

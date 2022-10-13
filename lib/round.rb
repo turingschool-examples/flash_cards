@@ -13,7 +13,9 @@ attr_reader :deck, :current_card, :turns
   def take_turn(guess)
     new_turn = Turn.new(guess, @current_card)
     @turns.push(new_turn)
-    @card_index += 1
+    if (@card_index < @deck.cards.length)
+      @card_index += 1
+    end
     @current_card = @deck.cards[@card_index]
     new_turn
   end
