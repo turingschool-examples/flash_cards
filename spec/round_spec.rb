@@ -139,9 +139,11 @@ RSpec.describe Round do
       round.take_turn("Juneau")
 
       expect(round.number_correct).to eq(1)
+      expect(round.current_card).to eq(card_2)
 
       round.take_turn("Homer")
-
+      expect(round.turns.count).to eq(2)
+      expect(round.turns.last.feedback).to eq("Incorrect.")
       expect(round.number_correct).to eq(1)
 
       round.take_turn("North north west")
