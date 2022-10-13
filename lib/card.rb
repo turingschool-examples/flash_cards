@@ -9,8 +9,8 @@ class Card
     @category = category
   end
 
-  def compare(cat)
-    @category == cat
+  def compare
+    return @category
   end
 
 end
