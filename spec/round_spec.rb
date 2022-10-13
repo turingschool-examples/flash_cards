@@ -61,9 +61,9 @@ RSpec.describe Round do
             cards = [card_1, card_2, card_3]
             deck = Deck.new(cards)
             round = Round.new(deck)
-            round.take_turn("Juneau")
+            turn = round.take_turn("Juneau")
 
-            expect(round.turns).to eq [card_1]
+            expect(round.turns).to eq [turn]
         end
 
 
@@ -76,7 +76,7 @@ RSpec.describe Round do
             round = Round.new(deck)
             turn = round.take_turn("Juneau")
 
-            expect(turn.card).to eq round.deck[0]
+            expect(turn.card).to eq card_1
         end
 
 
@@ -91,7 +91,7 @@ RSpec.describe Round do
             turn = round.take_turn('Juneau')
 
             expect(turn.guess).to eq 'Juneau'
-            expect(turn).to receive(:guess)
+            
         end
 
         it 'moves on to the next card in the deck' do
@@ -103,7 +103,7 @@ RSpec.describe Round do
             round = Round.new(deck)
             turn = round.take_turn('Juneau')
 
-            expect(round.deck[0]).to be card_2
+            expect(round.current_card).to be card_2
         end
     end
 
