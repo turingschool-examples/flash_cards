@@ -19,4 +19,16 @@ class Round
     @deck.cards.shift 
     return new_turn
   end 
+
+  def number_correct
+    @turns.select { |turn| turn.card.answer == turn.guess }.count 
+
+    # correct_count = 0
+    # @turns.each do |turn|
+    #   if turn.card.answer == turn.guess
+    #     correct_count += 1
+    #   end
+    # end
+    # correct_count
+  end
 end

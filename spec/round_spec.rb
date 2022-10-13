@@ -68,4 +68,42 @@ RSpec.describe Round do
       expect(deck.cards.count).to eq(2)
     end
   end
+
+  describe '#number_correct' do
+    it 'returns the number of correct guesses thus far' do
+      cards = [card_1, card_2, card_3]
+      deck = Deck.new(cards)
+      round = Round.new(deck)
+      
+      expect(round.number_correct).to eq(0)
+      new_turn = round.take_turn("Color")
+      expect(round.number_correct).to eq(1)
+    end
+   
+    it 'can accurately count multiple correct answers' do
+      cards = [card_1, card_2, card_3]
+      deck = Deck.new(cards)
+      round = Round.new(deck)
+      
+      expect(round.number_correct).to eq(0)
+      new_turn = round.take_turn("Color")
+      expect(round.number_correct).to eq(1)
+      another_turn = round.take_turn("Liquid") 
+      expect(round.number_correct).to eq(2)
+    end
+    
+    it 'does not count incorrect answers' do
+      cards = [card_1, card_2, card_3]
+      deck = Deck.new(cards)
+      round = Round.new(deck)
+      
+      expect(round.number_correct).to eq(0)
+      new_turn = round.take_turn("Color")
+      expect(round.number_correct).to eq(1)
+      another_turn = round.take_turn("Liquid") 
+      expect(round.number_correct).to eq(2)
+      yet_another_turn = round.take_turn("Bad Answer")
+      expect(round.number_correct).to eq(2)
+    end
+  end
 end
