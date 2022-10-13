@@ -12,7 +12,9 @@ class Round
     end
 
     def take_turn(guess, card = current_card)
+        #this method does too many things
         turn = Turn.new(guess, card)
+        @number_correct += 1 if turn.correct?
         @turns << turn
         @deck.cards.shift
         #refactor. let the object deck manipulate its own data,

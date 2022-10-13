@@ -8,6 +8,7 @@ class Turn
     end
 
     def correct?
+        #refactor
         @guess == card.answer ? true : false        
     end
 
