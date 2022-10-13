@@ -43,9 +43,7 @@ RSpec.describe Turn do
         turn.correct?
 
         expect(turn.correct?).to be true
-require 'pry'; binding.pry
-    end
-
+  end
 #Test 5
 #feedback for the correct guess is Correct!
     it "feedback for a correct answer is 'correct'" do
@@ -54,7 +52,7 @@ require 'pry'; binding.pry
         turn.correct?
         turn.feedback
 
-        expect(turn.feedback)to eq("Correct!")
+        expect(turn.feedback).to eq("Correct!")
     
     end
 
