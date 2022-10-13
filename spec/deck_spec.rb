@@ -11,10 +11,36 @@ RSpec.describe Deck do
 
   describe '#initialize' do
     it 'is a Deck' do
-      cards = [card1, card2, card3]
+      cards = [card_1, card_2, card_3]
       deck = Deck.new(cards)
 
       expect(deck).to be_a Deck
+    end
+  
+    it 'takes an array of cards' do
+      cards = [card_1, card_2, card_3]
+      deck = Deck.new(cards)
+
+      expect(deck.cards).to be_a Array
+      expect(deck.cards[0]).to be_a Card
+    end
+  end
+
+  describe '#count' do
+    it 'returns number of cards in deck as integer' do
+      cards = [card_1, card_2, card_3]
+      deck = Deck.new(cards)
+    
+      expect(deck.count).to eq(3)
+    end
+  end
+
+  describe '#cards_in_category' do
+    it 'returns all card instances of passed in category' do
+      cards = [card_1, card_2, card_3]
+      deck = Deck.new(cards)
+
+      expect(deck.cards_in_category(:Basics)).to eq([card_1, card_3])
     end
   end
 end
