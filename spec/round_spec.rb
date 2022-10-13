@@ -52,7 +52,7 @@ RSpec.describe Round do
     round = Round.new(deck)
     new_turn = round.take_turn("Juneau")
 
-    expect(round.take_turn("Juneau")).to be_a(Turn)
+    expect(round.take_turn("Juneau")).to eq(new_turn)
     end
 
 end
