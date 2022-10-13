@@ -2,8 +2,12 @@
 #should also return cards based on given category
 
 class Deck
-  attr_reader :card_deck
+  attr_reader :cards
   def initialize(card_objects)
-    @card_deck = card_objects
+    @cards = card_objects
+  end
+
+  def count
+    @cards.count
   end
 end
