@@ -18,8 +18,7 @@ deck = Deck.new(cards)
 
 round = Round.new(deck)
 
-new_turn = round.take_turn("Juneau")
 
-new_turn = round.take_turn("Uranus")
+
 
 require 'pry'; binding.pry

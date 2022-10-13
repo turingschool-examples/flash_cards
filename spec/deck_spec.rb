@@ -46,15 +46,7 @@ RSpec.describe Deck do
 
             expect(deck.cards_in_category(:STEM)).to eq [card_2, card_3]
 
-            cards = [card_1, card_2, card_3]
-
-            deck = Deck.new(cards)
-
             expect(deck.cards_in_category(:Geography)).to eq [card_1]
-
-            cards = [card_1, card_2, card_3]
-
-            deck = Deck.new(cards)
 
             expect(deck.cards_in_category(:Sports)).to eq []
         end
