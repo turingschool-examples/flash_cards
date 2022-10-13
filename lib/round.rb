@@ -21,19 +21,9 @@ class Round
   end
 
   def number_correct
-    @turns.count {|turn| turn.correct?}
-
-    # @turns.count do |turn|
-    #   turn.correct?
-    # end
-
-    # correct_count = 0
-    # @turns.each do |turn|
-    #   if turn.correct?
-    #     correct_count += 1
-    #   end
-    # end
-    # correct_count
+    @turns.count do |turn|
+      turn.correct?
+    end
   end
 
 end
