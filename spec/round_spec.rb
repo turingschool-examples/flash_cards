@@ -15,8 +15,32 @@ RSpec.describe Round do
   let (:deck) {Deck.new(cards)}
   let (:round) {Round.new(deck)}
   
-  it 'exists' do
-    expect(round).to be_a(Round)
+  describe 'Initialize' do
+    it 'exists' do
+      expect(round).to be_a(Round)
+    end
+    
+    it 'has a deck' do
+      expect(round.deck).to eq(deck)
+    end
+    
+    it 'returns an array of turns' do
+      expect(round.turns).to eq([])
+    end
+  end
+  
+  describe 'runs a round' do
+    it 'lists the next card' do
+      expect(round.current_card).to eq(card_1)
+    end
+    
+    it 'takes an answer to a card' do
+      new_turn = round.take_turn("Juneau")
+      expect(new_turn.class).to eq(Turn)
+      expect(new_turn.correct?).to eq(true)
+      expect(round.turns).to eq([new_turn])
+    end
+    
   end
 
 end
