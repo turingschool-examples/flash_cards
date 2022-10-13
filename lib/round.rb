@@ -20,10 +20,7 @@ class Round
         new_turn = Turn.new(guess, @deck.cards[0])
         @turns.push(new_turn) 
         @deck.cards.shift
-        new_turn
-        
-       
-        
+        new_turn    
     end
 
     def number_correct
@@ -34,6 +31,17 @@ class Round
         end
         correct_answers
     end
+
+    def number_correct_by_category(category)
+        category_correct = 0
+        @turns.each do |turn|
+            if turn.correct? == true && turn.card.category == category
+                then category_correct += 1
+            end
+        end
+        category_correct
+    end
+
 
 
 
