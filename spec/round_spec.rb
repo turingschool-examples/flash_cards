@@ -43,7 +43,26 @@ RSpec.describe Round do
       deck = Deck.new(cards)
       round = Round.new(deck)
     
-      expect(round.take_turn("Color")).to be_a Turn
+      new_turn = round.take_turn("Color")
+      expect(new_turn).to be_a Turn
+    end
+
+    it 'adds the new instance of turn to round.turns' do
+      cards = [card_1, card_2, card_3]
+      deck = Deck.new(cards)
+      round = Round.new(deck)
+
+      new_turn = round.take_turn("Color")
+      expect(round.turns.first).to eq(new_turn)
+    end
+
+    it 'removes the card from the deck' do
+      cards = [card_1, card_2, card_3]
+      deck = Deck.new(cards)
+      round = Round.new(deck)
+
+      new_turn = round.take_turn("Color")
+      expect(deck.cards.count).to eq(2)
     end
   end
 end
