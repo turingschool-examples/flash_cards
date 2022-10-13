@@ -11,4 +11,12 @@ RSpec.describe Deck do
     deck = Deck.new(cards)
     expect(deck).to be_instance_of(Deck)
   end
+  
+  it 'has an array of cards' do
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+    cards = [card_1, card_2]
+    deck = Deck.new(cards)
+    expect(deck.card_deck).to eq(cards)
+  end
 end
