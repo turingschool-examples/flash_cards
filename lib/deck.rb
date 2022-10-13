@@ -9,13 +9,13 @@ class Deck
     @cards.count
   end
 
-  def cards_in_category(category)
-    shelf = []
+  def cards_in_category(cat)
+    group = []
     cards.each do |card|
-      if card.category == category
-        shelf << card
+      if card.category == cat
+        group << card
       end
     end
-    shelf
+    group
   end
 end
