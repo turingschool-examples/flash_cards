@@ -25,7 +25,7 @@ def start
   if num_cards == 0
     num_cards = random_number(10)
   elsif num_cards < 0
-    deck = list_cards
+    deck = Deck.new(list_cards)
     num_cards = deck.count
   else
     deck = Deck.new(num_cards.times.map {create_card})
