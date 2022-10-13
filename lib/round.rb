@@ -1,3 +1,5 @@
+require './lib/turn'
+
 class Round
   attr_reader :deck
   attr_accessor :turns
@@ -12,12 +14,26 @@ class Round
   end
 
   def take_turn(guess)
-    turn_2 = Turn.new(guess, card)
-    return turn_2
-    # might need @deck.shift to remove the current card (first element) from the deck array
+    turn = Turn.new(guess, current_card)
+    @turns << turn
+    @deck.cards.shift
+    turn
   end
 
-  # def class
-  #   @turns
-  # end
+  def number_correct
+    @turns.count {|turn| turn.correct?}
+
+    # @turns.count do |turn|
+    #   turn.correct?
+    # end
+
+    # correct_count = 0
+    # @turns.each do |turn|
+    #   if turn.correct?
+    #     correct_count += 1
+    #   end
+    # end
+    # correct_count
+  end
+
 end

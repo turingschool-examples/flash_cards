@@ -82,31 +82,71 @@ RSpec.describe Round do
 
   describe '#take_turn' do
     it 'student takes a turn by guessing the question' do
-      it 'student takes a turn' do
-        card_1 = Card.new(
-          "What is the capital of Alaska?",
-          "Juneau",
-          :Geography
-        )
-        card_2 = Card.new(
-          "The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?",
-          "Mars",
-          :STEM
-        )
-        card_3 = Card.new(
-          "Describe in words the exact direction that is 697.5° clockwise from due north?",
-          "North north west",
-          :STEM
-        )
-        cards = [card_1, card_2, card_3]
-        deck = Deck.new(cards)
-        round = Round.new(deck)
-        new_turn = round.take_turn("Juneau")
+      card_1 = Card.new(
+        "What is the capital of Alaska?",
+        "Juneau",
+        :Geography
+      )
+      card_2 = Card.new(
+        "The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?",
+        "Mars",
+        :STEM
+      )
+      card_3 = Card.new(
+        "Describe in words the exact direction that is 697.5° clockwise from due north?",
+        "North north west",
+        :STEM
+      )
+      cards = [card_1, card_2, card_3]
+      deck = Deck.new(cards)
+      round = Round.new(deck)
 
-        expect(new_turn.class).to eq(Turn)
-        expect(new_turn.correct?).to eq True
+      expect(round.turns).to eq([])
+      expect(round.current_card).to eq(card_1)
+
+      new_turn = round.take_turn("Juneau")
+
+      expect(new_turn.class).to eq(Turn)
+      expect(new_turn.correct?).to be true
+      expect(round.turns).to eq([new_turn])
+      expect(round.current_card).to eq(card_2)
     end
   end
 
+  describe '#number_correct' do
+    it 'tracks number of correct turns' do
+      card_1 = Card.new(
+        "What is the capital of Alaska?",
+        "Juneau",
+        :Geography
+      )
+      card_2 = Card.new(
+        "The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?",
+        "Mars",
+        :STEM
+      )
+      card_3 = Card.new(
+        "Describe in words the exact direction that is 697.5° clockwise from due north?",
+        "North north west",
+        :STEM
+      )
+      cards = [card_1, card_2, card_3]
+      deck = Deck.new(cards)
+      round = Round.new(deck)
 
+      expect(round.number_correct).to eq(0)
+
+      round.take_turn("Juneau")
+
+      expect(round.number_correct).to eq(1)
+
+      round.take_turn("Homer")
+
+      expect(round.number_correct).to eq(1)
+
+      round.take_turn("North north west")
+
+      expect(round.number_correct).to eq(2)
+    end
+  end
 end
