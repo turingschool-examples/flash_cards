@@ -26,4 +26,11 @@ class Round
     end
   end
 
+  def number_correct_by_category(category)
+    turns_by_cat = @turns.select do |turn|
+      turn.card.category == category && turn.correct?
+    end
+    turns_by_cat.length
+  end
+
 end
