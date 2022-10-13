@@ -9,13 +9,13 @@ class Deck
     end
 
     def count
-        @cards.length
+        cards.count
     end
 
     def cards_in_category(category)
         card_storage = []
 
-        @cards.each do |card|
+        cards.each do |card|
             
             if category == card.category then
             card_storage.push(card)

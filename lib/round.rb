@@ -13,19 +13,19 @@ class Round
     end
 
     def current_card
-        @deck.cards[0]
+        deck.cards[0]
     end
 
     def take_turn(guess)
-        new_turn = Turn.new(guess, @deck.cards[0])
-        @turns.push(new_turn) 
-        @deck.cards.shift
+        new_turn = Turn.new(guess, current_card)
+        turns.push(new_turn) 
+        deck.cards.shift
         new_turn    
     end
 
     def number_correct
         correct_answers = 0
-        @turns.each do |turn|
+        turns.each do |turn|
             if turn.correct? == true then correct_answers += 1
             end
         end
@@ -34,7 +34,7 @@ class Round
 
     def number_correct_by_category(category)
         category_correct = 0
-        @turns.each do |turn|
+        turns.each do |turn|
             if turn.correct? == true && turn.card.category == category
                 then category_correct += 1
             end
@@ -48,7 +48,7 @@ class Round
 
     def number_of_turns_by_category(category)
         turns_by_category = 0
-        @turns.each do |turn|
+        turns.each do |turn|
             if turn.card.category == category
                 then turns_by_category += 1
             end
