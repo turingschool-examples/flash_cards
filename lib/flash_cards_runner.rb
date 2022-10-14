@@ -6,17 +6,11 @@ require './deck'
 
 require './round'
 
-card_1 = Card.new('Who created VW Beetle?', 'Ferdinand Porsche', :History)
+require './card_generator'
 
-card_2 = Card.new('What is 6x8?', '48', :Math)
+input_file = "./cards.txt"
 
-card_3 = Card.new('What is the capital of Sweden?', 'Stockholm', :Geography)
-
-card_4 = Card.new('Who was the first European to set foot in North America?', 'Lief Ericsson', :History)
-
-card_5 = Card.new('Who has won the most Formula 1 Grands Prix?', 'Lewis Hamilton', :Sports)
-
-cards = [card_1, card_2, card_3, card_4, card_5]
+cards = CardGenerator.new(input_file).cards_inputted
 
 deck = Deck.new(cards)
 
