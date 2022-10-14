@@ -6,8 +6,9 @@ require './lib/turn'
 card_1 = Card.new("What is 1+0?", "1", :Math)
 card_2 = Card.new("How many scoops of ice cream?", "2", :Food)
 card_3 = Card.new("How many is a crowd?", "3", :CommonSense)
+card_4 = Card.new("What is the cube root of 64", "4", :Math)
 
-cards = [card_1, card_2, card_3]
+cards = [card_1, card_2, card_3, card_4]
 deck = Deck.new(cards)
 round = Round.new(deck)
 
@@ -36,7 +37,9 @@ def start(cards, deck, round)
   end
 
   puts "****** Game over! ******"
-  puts "You had #{round.number_correct} correct guesses out of #{deck.count + round.turns.length} for a total score of #{round.percent_correct}"
+  puts "You had #{round.number_correct} correct guesses out of #{deck.count + round.turns.length} for a total score of #{round.percent_correct.to_i}%"
+  cat = "Math"
+  puts "#{cat} - #{round.percent_correct_by_category(:Math).to_i}% correct"
   # iterate through each of the categories to print below
   # puts "#{Category} - #{round.percent_correct_by_category(Category)} correct"
   # repeat this for each category
