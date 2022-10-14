@@ -1,4 +1,4 @@
-require './turn'
+require './lib/turn'
 
 class Round
   attr_reader :deck, :turns, :correct_turns
@@ -23,7 +23,7 @@ class Round
   end
 
   def number_correct
-    @turns.length
+    @correct_turns.length
   end
 
   def number_correct_by_category(category_input)

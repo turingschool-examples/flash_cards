@@ -1,8 +1,8 @@
-require './deck'
+require './lib/deck'
 
-require './round'
+require './lib/round'
 
-require './card_generator'
+require './lib/card_generator'
 
 class Game
   attr_reader :cards, :deck, :round, :round_count, :categories_played

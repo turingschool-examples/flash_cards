@@ -1,10 +1,10 @@
-require './card'
+require './lib/card'
 
-require './turn'
+require './lib/turn'
 
-require './deck'
+require './lib/deck'
 
-require './round'
+require './lib/round'
 
 class CardGenerator
   attr_reader :filename, :card_data, :cards_inputted
@@ -19,9 +19,6 @@ class CardGenerator
       card_input = card.split(',')
 
       @cards_inputted << Card.new(card_input[0], card_input[1], card_input[2])
-
     end
-      
-
   end
 end
