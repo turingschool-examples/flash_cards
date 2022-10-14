@@ -7,7 +7,7 @@ class Round
   end
 
   def current_card
-    @deck.cards.first  
+    @deck.cards.first
   end
 
   def take_turn(guess)
@@ -26,5 +26,6 @@ class Round
     end
     correct_answer_count
   end
+
 
 end

@@ -3,7 +3,7 @@ require './lib/turn'
 require './lib/deck'
 require './lib/round'
 
-RSpec.describe Round do 
+RSpec.describe Round do
   it 'exists' do
     card_1 = Card.new(
       'What is the capital of Alaska?',
@@ -76,7 +76,6 @@ RSpec.describe Round do
     round = Round.new(deck)
 
     expect(round.turns).to eq([])
-    
   end
 
   it 'has a current card' do
@@ -124,13 +123,12 @@ RSpec.describe Round do
 
     expect(round.current_card).to eq(card_1)
 
-    new_turn = round.take_turn("Juneau")
+    new_turn = round.take_turn('Juneau')
 
     expect(new_turn.class).to eq(Turn)
     expect(new_turn.correct?).to be true
     expect(round.turns).to eq([new_turn])
     expect(round.current_card).to eq(card_2)
-    
   end
 
   it 'has a correct number of guesses' do
@@ -152,7 +150,7 @@ RSpec.describe Round do
 
     deck = Deck.new([card_1, card_2, card_3])
     round = Round.new(deck)
-    new_turn = round.take_turn("Juneau")
+    new_turn = round.take_turn('Juneau')
 
     expect(round.number_correct).to eq(1)
   end
@@ -178,16 +176,68 @@ RSpec.describe Round do
     round = Round.new(deck)
 
     expect(round.current_card).to eq(card_1)
-    new_turn = round.take_turn("Juneau")
+    new_turn = round.take_turn('Juneau')
 
     expect(round.current_card).to eq(card_2)
   end
+
+  it 'can start an new turn' do
+    card_1 = Card.new(
+      'What is the capital of Alaska?',
+      'Juneau',
+      :Geography
+    )
+    card_2 = Card.new(
+      'The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?',
+      'Mars',
+      :STEM
+    )
+    card_3 = Card.new(
+      'Describe in words the exact direction that is 697.5° clockwise from due north?',
+      'North north west',
+      :STEM
+    )
+
+    deck = Deck.new([card_1, card_2, card_3])
+    round = Round.new(deck)
+
+    expect(round.current_card).to eq(card_1)
+    new_turn = round.take_turn('Juneau')
+
+    expect(round.current_card).to eq(card_2)
+    new_turn = round.take_turn('Venus')
+  end
+
+  it 'can count the number of turns' do
+    card_1 = Card.new(
+      'What is the capital of Alaska?',
+      'Juneau',
+      :Geography
+    )
+    card_2 = Card.new(
+      'The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?',
+      'Mars',
+      :STEM
+    )
+    card_3 = Card.new(
+      'Describe in words the exact direction that is 697.5° clockwise from due north?',
+      'North north west',
+      :STEM
+    )
+
+    deck = Deck.new([card_1, card_2, card_3])
+    round = Round.new(deck)
+
+    expect(round.current_card).to eq(card_1)
+    new_turn = round.take_turn('Juneau')
+    expect(round.turns.count).to eq(1)
+
+    expect(round.current_card).to eq(card_2)
+    new_turn = round.take_turn('Venus')
+    expect(round.turns.count).to eq(2)
+  end
+
 end
-
-
-
-# round.current_card
-# #=> #<Card:0x00007fa160a62e90 @answer="Mars", @question="The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", @category=:STEM>
 
 # round.take_turn('Venus')
 # #=> #<Turn:0x00007f972a215b38...>
