@@ -9,8 +9,4 @@ class Card
     @category = category
   end
 
-  def compare
-    return @category
-  end
-
 end

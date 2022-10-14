@@ -5,6 +5,7 @@ class Round
   def initialize(deck)
     @deck = deck
     @turns_array = []
+    @cur_card = nil
   end
 
   def count
@@ -12,7 +13,7 @@ class Round
   end
 
   def current_card
-    @deck.shift
+    @cur_card = @deck.shift
   end
 
   def take_turn(guess)
