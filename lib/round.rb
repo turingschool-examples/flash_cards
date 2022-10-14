@@ -26,12 +26,5 @@ class Round
 
   end
 
-  #def take_turns(guess)
-  #  turn = Turn.new(guess)
-
-  #end
-
-  #def correct?
-  #end
 
 end
