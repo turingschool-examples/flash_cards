@@ -12,5 +12,11 @@ def cards_category(category)
       category_collection << card
     end
   end
+
 end
+
+def count
+    card.length
+end
+
 end
