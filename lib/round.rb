@@ -34,6 +34,7 @@ class Round
   end
 
   def percent_correct
+    percent_correct = (@turns.count / @number_correct) * 100.00
   end
-  
+
 end
