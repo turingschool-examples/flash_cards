@@ -9,14 +9,16 @@ RSpec.describe CardGenerator do
     expect(card_generator).to be_a CardGenerator
   end
 
-  it 'can return an array of cards' do 
+  it 'can return an array of cards with appropriate attributes' do 
     
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-    cards = [card_1, card_2, card_3]
+    cards1 = [card_1, card_2, card_3]
 
-    expect(CardGenerator.new("cards.txt").cards).to eq cards
+    generated_cards = CardGenerator.new("cards.txt")
+
+    expect(generated_cards.cards[0].question).to eq card_1.question
 
   end
 
