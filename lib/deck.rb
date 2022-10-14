@@ -25,5 +25,3 @@ class Deck
         card_storage
     end
 end
-     
-

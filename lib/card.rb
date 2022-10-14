@@ -8,4 +8,3 @@ class Card
     end
 
 end
-

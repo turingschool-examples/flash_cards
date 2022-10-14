@@ -67,9 +67,4 @@ class Round
         end
         categories_in_round.uniq
     end
-
-
-
-
-
 end
