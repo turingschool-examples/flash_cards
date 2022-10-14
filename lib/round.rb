@@ -13,13 +13,13 @@ class Round
     end
 
     def take_turn(guess, card = current_card)
-        #this method does too many things
+        #this method does too many things, create helper methods
         turn = Turn.new(guess, card)
         @number_correct += 1 if turn.correct?
         @feedback = turn.feedback
         @turns << turn
+        #refactor. let the object deck manipulate its own data, just send it a message
         @deck.cards.shift
-        #refactor. let the object deck manipulate its own data,
         turn
     end
 
@@ -39,6 +39,7 @@ class Round
     end
 
     def percent_correct_by_category(category)
+        #refactor (look at deck method)
         number_correct_by_category(category).fdiv(@turns.count{|turn| turn.card.category == category}) * 100.0
     end
 

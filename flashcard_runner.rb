@@ -4,6 +4,7 @@ require './lib/card'
 require './lib/turn'
 require './lib/card_generator'
 
+#refactor, add methods for this interface, maybe make a class to hold them
 
 cards = CardGenerator.new("cards.txt").cards
 deck = Deck.new(cards)
@@ -11,7 +12,6 @@ round = Round.new(deck)
 initial_deck_size = round.deck.count
 #move method to round/deck class / refactor whole process
 categories = deck.cards.map {|card| card.category}.uniq
-p categories
 
 puts "Welcome! You're playing with #{initial_deck_size} cards."
 puts "-------------------------------------------------"
