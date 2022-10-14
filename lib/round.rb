@@ -5,13 +5,12 @@ require './turn'
 require './deck'
 
 class Round
-  attr_reader :deck, :turns, :number_correct, :correct_cards
+  attr_reader :deck, :turns, :correct_turns
 
   def initialize(deck)
     @deck = deck
     @turns = []
-    @number_correct = 0.0
-    @correct_cards = []
+    @correct_turns = []
   end
 
   def current_card
@@ -22,30 +21,31 @@ class Round
   def take_turn(guess)
     @turns.push Turn.new(guess, current_card)
     if @turns.last.card.answer.downcase == @turns.last.guess.downcase
-      @number_correct += 1.0
-      @correct_cards.push turns.last
+      @correct_turns.push turns.last
     end
     @turns.last
   end
 
-  def number_correct_by_category(category)
-    @category_correct_amount = 0.0
+  def number_correct
+    @turns.length
+  end
 
-    @correct_cards.each do |correct_card|
-      @category_correct_amount += 1.0 if correct_card.card.category.downcase == category.downcase
+  def number_correct_by_category(category_input)
+
+    @correct_turns.count do |correct_card|
+      correct_card.card.category.downcase == category_input.downcase
     end
-    @category_correct_amount
   end
 
   def percent_correct
-    @correct_cards.length.to_f / @turns.length.to_f * 100.0
+    @correct_turns.length.to_f / @turns.length.to_f * 100.0
   end
 
   def percent_correct_by_category(category)
     @category_asked_amount = 0.0
     @category_correct_amount = 0.0
 
-    @correct_cards.each do |correct_card|
+    @correct_turns.each do |correct_card|
       @category_correct_amount += 1.0 if correct_card.card.category.downcase == category.downcase
     end
 
