@@ -1,6 +1,6 @@
 class Round
 
-  attr_reader :deck, :turns_array, :cur_turn, :cur_card, :turns_taken
+  attr_reader :deck, :turns_array, :cur_card
 
   def initialize(deck)
     @deck = deck
@@ -62,7 +62,9 @@ class Round
     return ((correct_and_cat.length * 1.0) / (@turns_array.length * 1.0)) * 100.0
   end
 
-
+  def turn_number
+    @turns_array.length + 1
+  end
 
 ####  WHERE IS THE BEST PLACE TO HOLD A METHOD TO << TURN INFO
   # def store_turn
