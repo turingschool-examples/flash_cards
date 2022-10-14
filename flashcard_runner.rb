@@ -3,9 +3,9 @@ require './lib/deck'
 require './lib/round'
 require './lib/turn'
 
-card_1 = Card.new("What was the capital of Assyria in 700BC?", "Ninevah", :AncientGeography)
-card_2 = Card.new("Nic Cage made his film debut in what movie?", "Fast Times at Ridgemont High", :Film)
-card_3 = Card.new("What TV show has won the most Emmy's of all time?", "SNL", :TV)
+card_1 = Card.new("What is 1+0?", "1", :Math)
+card_2 = Card.new("How many scoops of ice cream?", "2", :Food)
+card_3 = Card.new("How many is a crowd?", "3", :CommonSense)
 
 cards = [card_1, card_2, card_3]
 deck = Deck.new(cards)
@@ -24,21 +24,19 @@ def start(cards, deck, round)
   puts "-------------------------------------------------"
   # Insert each or other enumerator to iterate each of the cards in deck
 
-  # deck.cards.each do |card|
-    puts "This is card number #{card_number} out of #{deck.count}"
+  deck.count.times do
+    puts "This is card number #{card_number} out of #{deck.count + round.turns.length}"
     card_number += 1
 
     puts "Question: #{deck.cards[0].question}"
     player_guess = gets.chomp
     new_turn = round.take_turn(player_guess)
     puts "#{new_turn.feedback}"
-  # end
 
+  end
 
-  # Once all cards have a <guess> end the enumerator
-
-  # puts "****** Game over! ******"
-  # puts "You had #{round.number_correct} correct guesses out of #{deck.count} for a total score of #{round.percent_correct}"
+  puts "****** Game over! ******"
+  puts "You had #{round.number_correct} correct guesses out of #{deck.count + round.turns.length} for a total score of #{round.percent_correct}"
   # iterate through each of the categories to print below
   # puts "#{Category} - #{round.percent_correct_by_category(Category)} correct"
   # repeat this for each category
