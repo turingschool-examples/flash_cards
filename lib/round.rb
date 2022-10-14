@@ -9,18 +9,22 @@ class Round
       @deck = deck
       @turns = []
       @number_correct = 0
+      @card_index = 0
+      @current_card = @deck.cards[@card_index]
     end
 
-    def current_card
-      @deck.cards.shift
-    end
+    # def current_card
+    #   @deck.cards.shift
+    # end
 
     def take_turn(guess)
-      @turn = Turn.new(guess, current_card)
+      @turn = Turn.new(guess, @current_card)
       @turns << @turn
         if @turn.correct? == true
             @number_correct += 1
         end
+        @card_index += 1
+        @current_card = @deck.cards[@card_index]
         @turn
       end
 
