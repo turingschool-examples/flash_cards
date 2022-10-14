@@ -33,4 +33,7 @@ class Round
     @number_correct
   end
 
+  def percent_correct
+  end
+  
 end
