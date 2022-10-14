@@ -22,6 +22,16 @@ class Round
 
   end
 
+  def number_correct
+    correct_turns = []
+
+  end
+
+  def number_correct_by_category(cat)
+    #this will be similar to number_correct but && will be used to get
+    #correct && same_cat :)
+  end
+
   # def number_correct
   #   correct_counter = 0
   #     if @turns_array.correct == true
