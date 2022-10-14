@@ -149,7 +149,6 @@ RSpec.describe Deck do
 
 
         deck.cards_in_category("Pop Culture")
-      
         expect(deck.cards_in_category("Pop Culture")).to eq([])
 
     end
