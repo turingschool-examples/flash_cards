@@ -20,7 +20,12 @@ def start
     "North north west",
     :STEM
   )
-  cards = [card_1, card_2, card_3]
+  card_4 = Card.new(
+    "What is Kelsie's favorite place to eat?",
+    "Sherpa Cafe",
+    :Pop_culture
+  )
+  cards = [card_1, card_2, card_3, card_4]
   deck = Deck.new(cards)
   round = Round.new(deck)
 
