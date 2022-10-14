@@ -16,7 +16,14 @@ class Round
       new_turn
     end
 
-    # def class
-    # end
+    def number_correct
+      correct = []
+      turns.each do |turn|
+        if turn.correct? == true
+          correct << turn
+        end
+      end
+      correct.count
+    end
 
 end
