@@ -120,11 +120,48 @@ RSpec.describe Round do
       round = Round.new(deck)
 
       expect(round.number_correct_by_category(:Basics)).to eq(0)
+
       new_turn = round.take_turn("Color")
       expect(round.number_correct_by_category(:Basics)).to eq(1)
     end
+    
+    it 'does not count wrong guesses in category' do
+      cards = [card_1, card_2, card_3]
+      deck = Deck.new(cards)
+      round = Round.new(deck)
+
+      expect(round.number_correct_by_category(:Basics)).to eq(0)
+      new_turn = round.take_turn("Color")
+      expect(round.number_correct_by_category(:Basics)).to eq(1)
+      yet_another_turn = round.take_turn("Bad Answer")
+      expect(round.number_correct_by_category(:Basics)).to eq(1) 
+
+    end
   end
 
+  describe '#percent_correct' do
+    it 'returns 100.0 for a correct guess on first card' do
+      cards = [card_1, card_2, card_3]
+      deck = Deck.new(cards)
+      round = Round.new(deck)
+
+      expect(round.percent_correct).to eq(0)
+      new_turn = round.take_turn("Color")
+      expect(round.percent_correct).to eq(100.0)  
+    end
+
+    it 'returns 50.0 with one correct out of two turns' do
+      cards = [card_1, card_2, card_3]
+      deck = Deck.new(cards)
+      round = Round.new(deck)
+
+      expect(round.percent_correct).to eq(0)
+      new_turn = round.take_turn("Color")
+      new_turn = round.take_turn("Wrong Answer")
+      expect(round.percent_correct).to eq(50.0)  
+    end      
+  end 
+  
   describe '#finished?' do
     it 'returns true when all cards have been played' do
       cards = [card_1, card_2, card_3]

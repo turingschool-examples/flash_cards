@@ -35,6 +35,12 @@ class Round
     correct_answers.select { |turn| turn.card.category == category }.count
   end
 
+  def percent_correct
+    return 0 if number_correct == 0
+    number_correct / @turns.count.to_f * 100 
+  end
+
+
   def finished?
     deck.cards.count == turn_count 
   end
