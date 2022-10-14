@@ -56,7 +56,11 @@ class Round
   end
 
   def categories_list
-
+    @turns.each do |turn|
+      unless @array_of_categories.include? turn.card.category
+        @array_of_categories << turn.card.category
+      end
+    end
+    @array_of_categories
   end
-
 end
