@@ -125,7 +125,7 @@ RSpec.describe Round do
         round.current_card
 
         expect(round.current_card).to eq(card_1)
-        require 'pry'; binding.pry
+
     end
 
 #Test 7

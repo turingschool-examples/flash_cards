@@ -7,5 +7,8 @@ class Round
         @turns = []
     end
 
+    def current_card
+        active_deck.cards[0]
+    end
 
 end
