@@ -10,17 +10,30 @@ card_2 = Card.new("Which character shouts 'It's a trap!' in Star Wars: Return of
 card_3 = Card.new("Who won the Nobel Prize for physics in 1932 for their theory of quantum mechanics?", "Werner Heisenberg", :History)
 card_4 = Card.new("What is the scientific requirement for life defined as the maintenance of a stable internal environment?", "Homeostasis", :STEM)
 card_5 = Card.new("What is the only number that has letters in alphabetical order?", "Forty", :STEM)
-card_6 = Card.new("What is the highest grossing movie of all time with a lifetime gross of 	$2,921,872,141?", "Avatar", :"Pop Culture")
+card_6 = Card.new("What is currently the highest grossing movie of all time $2,921,872,141?", "Avatar", :"Pop Culture")
 
 
 deck = Deck.new([card_1, card_2, card_3, card_4, card_5, card_6])
 round = Round.new(deck)
 
-start(round)
-
-
 
 def start(round)
+  puts "Welcome! You're playing with #{round.deck.cards.count} cards."
+  puts "-------------------------------------------------"
+  card_num = 1
+
+  round.deck.cards.each do |card|
+    puts "This is card number #{card_num} out of #{round.deck.cards.count}"
+    puts "Question: #{card.question}"
+    guess = gets.chomp
+    round.take_turn(guess)
+    puts round.turns.last.feedback
+    card_num += 1
+  end
+
+  
 
 
 end
+
+start(round)
