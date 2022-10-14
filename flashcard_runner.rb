@@ -11,7 +11,7 @@ def start
   cards << Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?","Mars", :STEM)
   cards << Card.new("Describe in words the exact direction that is 697.5° clockwisefrom due north?", "North north west", :STEM)
   cards << Card.new("Who won the 2021 F1 Drivers Championship?", "Max Verstappen", :Sports)
-  cards << Card.new("What is a group of owls called", "A Parlement", :Animals)
+  cards << Card.new("A group of owls are called...", "A Parlement", :Animals)
 
   deck = Deck.new(cards)
     
