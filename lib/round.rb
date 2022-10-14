@@ -40,9 +40,9 @@ class Round
 
 
   def percent_correct_by_category(category)
-    100.0 *
+    (100.0 *
     number_correct_by_category(category) /
-    deck.cards_in_category(category).length
+    deck.cards_in_category(category).length).round
 
 
   end

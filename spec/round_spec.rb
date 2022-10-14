@@ -288,6 +288,21 @@ describe Round do
 
     end
 
+    it "rounds up floats to the nearest whole number" do
+      card_1 = Card.new("What element does H on the periodic table represent?", "Hydrogen", :STEM)
+      card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+      card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+      deck = Deck.new([card_1, card_2, card_3])
+      round = Round.new(deck)
+
+      new_turn_1 = round.take_turn("Oxygen")
+      new_turn_2 = round.take_turn("Mars")
+      new_turn_3 = round.take_turn("South")
+
+      expect(deck.cards_in_category(:STEM).length).to eq 3
+      expect(round.number_correct_by_category(:STEM)).to eq 1
+      expect(round.percent_correct_by_category(:STEM)).to eq 33
+    end
   end
 
 end
