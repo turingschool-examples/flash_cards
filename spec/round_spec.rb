@@ -148,12 +148,9 @@ RSpec.describe Round do
     it 'returns the amount of questions answered correctly in a specific category' do
       card_1 = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
 
-      card_2 = Card.new(
-        'The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?', 'Mars', :STEM
-      )
+      card_2 = Card.new('The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?', 'Mars', :STEM)
 
-      card_3 = Card.new('Describe in words the exact direction that is 697.5° clockwise from due north?',
-                        'North north west', :STEM)
+      card_3 = Card.new('Describe in words the exact direction that is 697.5° clockwise from due north?','North north west', :STEM)
 
       deck = Deck.new([card_1, card_2, card_3])
 
@@ -189,6 +186,7 @@ RSpec.describe Round do
       new_turn = round.take_turn('Juneau')
 
       new_turn = round.take_turn('Uranus')
+      
 
       expect(round.percent_correct).to eq 50.0
     end
@@ -198,12 +196,9 @@ RSpec.describe Round do
     it 'returns the percentage of questions answered correctly in a specific category' do
       card_1 = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
 
-      card_2 = Card.new(
-        'The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?', 'Mars', :STEM
-      )
+      card_2 = Card.new('The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?', 'Mars', :STEM)
 
-      card_3 = Card.new('Describe in words the exact direction that is 697.5° clockwise from due north?',
-                        'North north west', :STEM)
+      card_3 = Card.new('Describe in words the exact direction that is 697.5° clockwise from due north?','North north west', :STEM)
 
       deck = Deck.new([card_1, card_2, card_3])
 
@@ -214,6 +209,36 @@ RSpec.describe Round do
       new_turn = round.take_turn('Uranus')
 
       expect(round.percent_correct_by_category(:Geography)).to eq 100.0
+
+      expect(round.percent_correct_by_category(:STEM)).to eq 0
+
+      new_turn = round.take_turn('North north west')
+
+      expect(round.percent_correct_by_category(:STEM)).to eq 50
+    end
+  end
+
+  describe '#card_number' do
+    it 'returns the current card number' do
+      card_1 = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
+
+      card_2 = Card.new('The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?', 'Mars', :STEM)
+
+      card_3 = Card.new('Describe in words the exact direction that is 697.5° clockwise from due north?','North north west', :STEM)
+
+      deck = Deck.new([card_1, card_2, card_3])
+
+      round = Round.new(deck)
+
+      expect(round.card_number).to eq 1
+
+      new_turn = round.take_turn('Juneau')
+
+      expect(round.card_number).to eq 2
+
+      new_turn = round.take_turn('Uranus')
+
+      expect(round.card_number).to eq 3
     end
   end
 end
