@@ -26,6 +26,10 @@ class Round
       correct.count
     end
 
+    def percent_correct
+      (number_correct.to_f / turns.count) * 100
+    end
+
     def number_correct_by_category(category)
       correct_cat = 0
       turns.each do |turn|
