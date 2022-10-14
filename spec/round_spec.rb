@@ -267,15 +267,40 @@ RSpec.describe Round do
         new_turn = round.take_turn("Juneau")
 
         round.number_correct
-        require 'pry'. binding.pry
+
         expect(round.number_correct).to eq(1)
 
     end
 
-
-
 #Test 12
- 
+#Checks that the current card has changed to the next one"
+
+#Test 13
+#Takes another turn and guesses venus"
+
+#Test 14
+#Counts the number of turns in the round taken
+
+#Test 15
+#Requests feedback method on the last turn taken
+
+#Test 16
+#Checks the number of correct answers in the round
+
+#Test 17
+#Checks the number of correct answers in the round by category, Geography"
+
+#Test 18
+#Checks the number of correct answers in the round by category, STEM"
+
+#Test 19
+#Checks the percentage of correct answers
+
+#Test 20
+#Checks the percentage of correct answers within the geography category"
+
+#Test 21
+#Checks the current card
 
 
 end
