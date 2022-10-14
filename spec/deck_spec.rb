@@ -129,7 +129,7 @@ RSpec.describe Deck do
 
         deck.cards_in_category(:Geography)
       
-        expect(deck.cards_in_category(:STEM)).to eq([card_1])
+        expect(deck.cards_in_category(:Geography)).to eq([card_1])
 
     end
 
