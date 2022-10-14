@@ -22,26 +22,15 @@ class Round
         @number_correct += 1
       end
     return turn
-
-    def number_correct_by_category(category)
-      @turns.each do |card_turn|
-        if category == card_turn.category
-          @number_correct
-        end
-      end
-      @number_correct
-    end
   end
 
-  #def number_correct_by_category(category)
-    #correct_in_category = 0
-  #  @turns.each do |card_turn|
-  #    if category == card_turn.category
-        #correct_in_category += 1
-  #      @number_correct
-  #    end
-  #  end
-    #return correct_in_category
-  #end
+  def number_correct_by_category(category)
+      @turns.each do |card_turn|
+      if category == card_turn.guess
+        @number_correct
+      end
+    end
+    @number_correct
+  end
 
 end
