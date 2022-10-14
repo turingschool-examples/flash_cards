@@ -31,8 +31,13 @@ class Round
     correct_answers.count
   end
 
+  # percent_correct helper method
+  def cards_in_category(target, category)
+    target.select { |turn| turn.card.category == category }
+  end
+  
   def number_correct_by_category(category)
-    correct_answers.select { |turn| turn.card.category == category }.count
+    cards_in_category(correct_answers, category).count
   end
 
   def percent_correct
@@ -40,8 +45,12 @@ class Round
     number_correct / @turns.count.to_f * 100 
   end
 
+  def percent_correct_by_category(category)
+    return 0 if number_correct_by_category(category) == 0
+    number_correct_by_category(category) / cards_in_category(@turns, category).count.to_f * 100
+  end
 
   def finished?
-    deck.cards.count == turn_count 
+    deck.cards.count == turn_count
   end
 end

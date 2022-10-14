@@ -135,7 +135,6 @@ RSpec.describe Round do
       expect(round.number_correct_by_category(:Basics)).to eq(1)
       yet_another_turn = round.take_turn("Bad Answer")
       expect(round.number_correct_by_category(:Basics)).to eq(1) 
-
     end
   end
 
@@ -161,7 +160,22 @@ RSpec.describe Round do
       expect(round.percent_correct).to eq(50.0)  
     end      
   end 
-  
+
+  describe '#percent_correct_by_category' do
+    it 'returns 50.0 for one correct answer out of two in categry' do
+      cards = [card_1, card_2, card_3]
+      deck = Deck.new(cards)
+      round = Round.new(deck)
+
+      expect(round.percent_correct_by_category(:Basics)).to eq(0)
+      new_turn = round.take_turn("Color")
+      new_turn = round.take_turn("Wrong Answer")
+      new_turn = round.take_turn("Another Wrong Answer")
+      
+      expect(round.percent_correct_by_category(:Basics)).to eq(50.0)  
+    end
+  end
+
   describe '#finished?' do
     it 'returns true when all cards have been played' do
       cards = [card_1, card_2, card_3]
