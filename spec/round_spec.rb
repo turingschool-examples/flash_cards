@@ -124,7 +124,6 @@ RSpec.describe Round do
 
         round.current_card
         
-
         expect(round.current_card).to eq(card_1)
 
     end
@@ -152,7 +151,7 @@ RSpec.describe Round do
 
         new_turn = round.take_turn("Juneau")
 
-        expect(round.take_turn).to eq(new_turn)
+        expect(new_turn).to be_instance_of(Turn)
 
     end
 

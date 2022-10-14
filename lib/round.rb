@@ -11,4 +11,8 @@ class Round
         active_deck.cards[0]
     end
 
+    def take_turn(guess)
+        Turn.new(guess, active_deck.cards[0])
+    end
+
 end
