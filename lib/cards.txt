@@ -1,1 +1,3 @@
-card information will be added here, placeholders used until this stage!
+Question1,Answer1,cat1
+Question2,Answer2,cat1
+Question3,Answer3,cat2

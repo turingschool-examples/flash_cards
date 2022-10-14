@@ -8,16 +8,16 @@ require 'pry';
 
 filename = "cards.txt"
 
-cards = CardGenerator.new(filename).cards
+cards = CardGenerator.new(filename).cards_init
 # binding.pry
 
 # Initial Setup
 ## All cards will be replaced with cards.txt
-card_1 = Card.new("Question1", "Answer1", :cat1)
-card_2 = Card.new("Question2", "Answer2", :cat1)
-card_3 = Card.new("Question3", "Answer3", :cat2)
+    # card_1 = Card.new("Question1", "Answer1", :cat1)
+    # card_2 = Card.new("Question2", "Answer2", :cat1)
+    # card_3 = Card.new("Question3", "Answer3", :cat2)
 
-cards = [card_1, card_2, card_3]
+    # cards = [card_1, card_2, card_3]
 
 total_cards = cards.length
 
