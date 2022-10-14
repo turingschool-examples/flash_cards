@@ -3,6 +3,7 @@ class Turn
              :card
                
   def initialize(guess, card)
+    # require 'pry'; binding.pry
       @guess = guess
       @card = card
   end
