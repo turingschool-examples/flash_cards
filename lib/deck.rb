@@ -9,4 +9,15 @@ class Deck
         @cards.length
     end
 
+    def cards_in_category (category_entry)
+        category_house = []
+        @cards.each do |card|
+        if card.category == category_entry
+            category_house << card
+            end
+        end
+        category_house
+    
+    end
+
 end

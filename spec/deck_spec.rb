@@ -86,7 +86,7 @@ RSpec.describe Deck do
         deck = Deck.new(cards_1)
 
         deck.count
-require 'pry'; binding.pry
+
         expect(deck.count).to equal(3)
 
     end
@@ -105,9 +105,10 @@ require 'pry'; binding.pry
 
         deck = Deck.new(cards_1)
 
-        deck.cards_in_category(:STEM)
 
-        expect(deck.cards_in_category(:STEM)).to equal(card_2, card_3)
+        deck.cards_in_category(:STEM)
+      
+        expect(deck.cards_in_category(:STEM)).to eq([card_2, card_3])
 
 
     end
