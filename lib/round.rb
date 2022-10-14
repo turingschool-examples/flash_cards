@@ -10,7 +10,6 @@ class Round
     @current_card = @deck.cards[@curr_card_idx]
     @turns = []
     @number_correct = {total: 0, @current_card.category => 0}
-    @number_incorrect = 0
   end
 
   def take_turn(guess)
@@ -42,10 +41,6 @@ class Round
   def number_correct_by_category(type)
     initialize_card_type(type)
     @number_correct[type]
-  end
-
-  def number_incorrect
-    @turns.length - @number_correct
   end
 
   def percent_correct

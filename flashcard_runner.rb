@@ -7,8 +7,7 @@ require 'pry'
 
 def start
   file_path = File.expand_path('../m1_flash_cards/cards.txt', __dir__)
-  card_generator = CardGenerator.new("#{file_path}")
-  list_cards = card_generator.cards
+  list_cards = CardGenerator.new("#{file_path}").cards
 
   puts "Welcome to the Flash Card Game!"
   puts "Please enter your name to start"
@@ -48,8 +47,8 @@ def start
        for a total score of %
        #{round.percent_correct}].join(' ')
   round.categories.each do |category|
-    puts %W[#{category} - 
-         #{round.percent_correct_by_category(category)}% 
+    puts %W[#{category} - %
+         #{round.percent_correct_by_category(category)} 
          correct"].join(' ')
   end
 end
