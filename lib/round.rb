@@ -1,3 +1,7 @@
+require './lib/card'
+require './lib/turn'
+require './lib/deck'
+
 class Round
   attr_reader :deck, :turns
 
@@ -8,6 +12,12 @@ class Round
 
   def current_card
     deck.cards[0]
+  end
+
+  def take_turn(guess)
+    new_turn = Turn.new(guess, deck.cards[0])
+    return new_turn
+
   end
 
 
