@@ -26,8 +26,6 @@ RSpec.describe Turn do
     end
     
     describe '#correct?' do
-    #unnecessary test, private method?
-#I don't like that I'm sending another message to an object in this test.
         it 'can check the answer' do
             card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
             turn = Turn.new('Juneau', card)
