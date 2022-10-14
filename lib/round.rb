@@ -12,7 +12,9 @@ class Round
     end
 
     def take_turn(guess)
-        Turn.new(guess, active_deck.cards[0])
+        new_turn_instance = Turn.new(guess, active_deck.cards[0])
+        turns << new_turn_instance
+        new_turn_instance
     end
 
 end

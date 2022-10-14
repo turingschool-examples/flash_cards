@@ -211,7 +211,6 @@ RSpec.describe Round do
         new_turn.correct?
 
         expect(new_turn.correct?).to eq(true)
-
     end
 
 #Test 10
@@ -240,7 +239,7 @@ RSpec.describe Round do
 require 'pry'; binding.pry
         round.turns
 
-        expect(round.turns).to eq(new_turn)
+        expect(round.turns).to eq([new_turn])
 
     end
 
