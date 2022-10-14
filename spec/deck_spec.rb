@@ -54,9 +54,8 @@ RSpec.describe Deck do
 
     deck = Deck.new([card_1, card_2, card_3])
 
- require 'pry'; binding.pry
 
-    deck.cards_in_category(:cat1)
+    # deck.cards_in_category(:cat1)
     expect(deck.cards_in_category(:cat1)).to eq [card_1, card_2]
   end
 
@@ -70,10 +69,25 @@ RSpec.describe Deck do
 
     deck = Deck.new(cards)
 
-    deck.cards_in_category(:cat1)
-    expect(deck.sorted_cards).to eq [card_1, card_2]
+    # deck.cards_in_category(:cat1)
+    expect(deck.cards_in_category(:cat1)).to eq [card_1, card_2]
 
     deck.cards_in_category(:cat2)
-    expect(deck.sorted_cards).to eq [card_3]
+    expect(deck.cards_in_category(:cat2)).to eq [card_3]
   end
+
+  it 'returns an empty array if there are no cards of prompted category' do
+    # make sure @sorted_cards aren't stacking / adding
+    card_1 = Card.new("Question1", "Answer1", :cat1)
+    card_2 = Card.new("Question2", "Answer2", :cat1)
+    card_3 = Card.new("Question3", "Answer3", :cat2)
+
+    cards = [card_1, card_2, card_3]
+
+    deck = Deck.new(cards)
+
+    expect(deck.cards_in_category(:cat3)).to eq []
+  end
+
+
 end
