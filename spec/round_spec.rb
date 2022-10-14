@@ -13,5 +13,7 @@ RSpec.describe do
 
     deck = Deck.new([card_1, card_2, card_3])
 
+    round = Round.new(deck)
+
   end
 end
