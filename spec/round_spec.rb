@@ -59,6 +59,7 @@ RSpec.describe Round do
        deck = Deck.new(cards)
        round = Round.new(deck)
        new_turn = round.take_turn("Juneau")
+       new_turn2 = round.take_turn("Venus")
        expect(round.take_turn("Juneau")).to be_instance_of(Turn)
      end
     it 'checks if guess is correct' do
@@ -70,22 +71,37 @@ RSpec.describe Round do
       round = Round.new(deck)
       new_turn = round.take_turn("Juneau")
       expect(new_turn.correct?).to eq(true)
+      new_turn2 = round.take_turn("Venus")
+      expect(new_turn2.correct?).to eq(false)
     end
-
-  end
-  describe '#number_correct_by_category'do
-    it 'checks which are correct per category' do
-      card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-      card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
-      card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-      cards = [card_1, card_2, card_3]
-      deck = Deck.new(cards)
-      round = Round.new(deck)
-      new_turn = round.take_turn("Juneau")
-      expect(new_turn.correct?).to eq(true)
-      expect(round.number_correct_by_category(:Geography)).to eq(1)
+      describe '#number_correct_by_category' do
+        it 'checks which are correct per category' do
+          card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+          card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+          card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+          cards = [card_1, card_2, card_3]
+          deck = Deck.new(cards)
+          round = Round.new(deck)
+          new_turn = round.take_turn("Juneau")
+          expect(new_turn.correct?).to eq(true)
+          expect(round.number_correct).to eq(1)
+        end
+      end
     end
-
   end
 
-end
+  #describe '#number_correct_by_category'do
+  #  it 'checks which are correct per category' do
+  #    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+  #    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+  #    card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+  #    cards = [card_1, card_2, card_3]
+  #    deck = Deck.new(cards)
+  #    round = Round.new(deck)
+  #    new_turn = round.take_turn("Juneau")
+  #    new_turn2 = round.take_turn("Venus")
+  #    expect(new_turn.correct?).to eq(true)
+  #    expect(round.number_correct_by_category(:Geography)).to eq(1)
+  #  end
+
+  #end
