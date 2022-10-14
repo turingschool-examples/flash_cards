@@ -3,7 +3,13 @@ require './lib/turn'
 require './lib/deck'
 require './lib/round'
 require './lib/CardGenerator'
-card_set = CardGenerator.new('./lib/cards.txt')
+
+
+p 'Welcome to Flash Cards! If you have a properly formatted file to use'
+p 'enter that now, or press Enter to use the default cards!'
+flash_card_input = gets.chomp
+card_set = CardGenerator.new(flash_card_input)
+card_set = CardGenerator.new(default = './lib/cards.txt')
 card_set.make_cards
 deck_1 = Deck.new(card_set.cards)
 round = Round.new(deck_1)
