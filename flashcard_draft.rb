@@ -6,7 +6,34 @@ require './lib/round'
 require 'pry';
 # binding.pry
 #
+########### Initial Setup
+card_1 = Card.new("Question1", "Answer1", :cat1)
+card_2 = Card.new("Question2", "Answer2", :cat1)
+card_3 = Card.new("Question3", "Answer3", :cat2)
 
+cards = [card_1, card_2, card_3]
+
+deck = Deck.new(cards)
+
+round = Round.new(deck)
+########### Turn sequence
+round.current_card
+
+new_turn = round.take_turn("Answer1")
+
+new_turn.correct?
+
+new_turn.feedback
+
+round.turns_array.push(new_turn)
+########### Store and analyse
+
+# NOW WE DO "ANOTHER NEW_TURN"
+round.current_card
+new_turn2 = round.take_turn("Wrong Answer")
+new_turn2.correct?
+new_turn2.feedback
+round.turns_array.push(new_turn2)
 ############## BIG IDEAS ###################
 
 # MOVE CARDS INTO AN ARRAY FOR CORRECT_CARDS
