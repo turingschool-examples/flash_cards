@@ -8,9 +8,15 @@ class Round
     def current_card
        @deck.cards.first
     end
+
     def take_turn(guess)
-      @turns << Turn.new(guess, current_card)
+      new_turn = Turn.new(guess, current_card)
+      @turns << new_turn
+      deck.cards.rotate
+      new_turn
     end
 
+    # def class
+    # end
 
 end
