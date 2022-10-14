@@ -42,6 +42,16 @@ describe Turn do
       expect(turn_2.correct?).to be false
 
     end
+
+    it 'returns correct regardless of capitalization' do
+      card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+      turn_1 = Turn.new("Juneau", card)
+      turn_2 = Turn.new("juneau", card)
+
+      expect(turn_1.correct?).to be true
+      expect(turn_2.correct?).to be true
+
+    end
   end
 
   describe '#feedback' do
