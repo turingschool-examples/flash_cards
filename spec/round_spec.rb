@@ -58,14 +58,14 @@ RSpec.describe Round do
       expect(round.turns.first).to eq(new_turn)
     end
 
-    it 'removes the card from the deck' do
+    it 'counts each guess made' do
       cards = [card_1, card_2, card_3]
       deck = Deck.new(cards)
       round = Round.new(deck)
 
+      expect(round.turn_count).to eq(0)
       new_turn = round.take_turn("Color")
-
-      expect(deck.cards.count).to eq(2)
+      expect(round.turn_count).to eq(1)
     end
   end
 
@@ -76,6 +76,7 @@ RSpec.describe Round do
       round = Round.new(deck)
       
       expect(round.number_correct).to eq(0)
+
       new_turn = round.take_turn("Color")
       expect(round.number_correct).to eq(1)
     end
@@ -86,8 +87,10 @@ RSpec.describe Round do
       round = Round.new(deck)
       
       expect(round.number_correct).to eq(0)
+
       new_turn = round.take_turn("Color")
       expect(round.number_correct).to eq(1)
+
       another_turn = round.take_turn("Liquid") 
       expect(round.number_correct).to eq(2)
     end
@@ -98,12 +101,35 @@ RSpec.describe Round do
       round = Round.new(deck)
       
       expect(round.number_correct).to eq(0)
+
       new_turn = round.take_turn("Color")
       expect(round.number_correct).to eq(1)
+
       another_turn = round.take_turn("Liquid") 
       expect(round.number_correct).to eq(2)
+
       yet_another_turn = round.take_turn("Bad Answer")
       expect(round.number_correct).to eq(2)
     end
   end
+
+  describe '#round_finished?' do
+    it 'returns true when all cards have been played' do
+      cards = [card_1, card_2, card_3]
+      deck = Deck.new(cards)
+      round = Round.new(deck)
+
+      expect(round.round_finished?).to be false        
+
+      new_turn = round.take_turn("Color")
+      another_turn = round.take_turn("Liquid") 
+      yet_another_turn = round.take_turn("Bad Answer")
+
+      expect(round.round_finished?).to be true
+    end
+  end
+
+
+
 end
+
