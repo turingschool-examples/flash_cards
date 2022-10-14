@@ -7,5 +7,4 @@ attr_reader :question, :answer, :category
     @answer = answer
     @category = category
   end
-
 end

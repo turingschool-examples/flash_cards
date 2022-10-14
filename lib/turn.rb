@@ -11,9 +11,11 @@ attr_reader :card, :guess
   end
 
   def feedback
-    if correct? == true
+    #require 'pry'; binding.pry
+    if correct?
        "Correct!"
-    else "Incorrect."
+    else
+       "Incorrect."
     end
   end
 end

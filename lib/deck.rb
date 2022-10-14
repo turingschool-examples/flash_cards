@@ -8,20 +8,15 @@ attr_reader :cards
 
 
   def count
-    deck.length
+    cards.length
   end
 
   def cards_in_category(category)
-
-  category_cards = []
-
-  @deck.each do |card|
-    if category == card.category
-      category_cards << card
-    end
+    @cards.find_all {|card| card.category == category}
   end
-
-  return category_cards
-
-  end
+  # @cards.each do |card|
+  #   if category == card.category
+  #     category_cards << card
+  #   end
+  # end
 end
