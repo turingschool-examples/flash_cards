@@ -11,64 +11,55 @@ describe Turn do
       expect(turn).to be_instance_of(Turn)
     end
 
-    it 'has a card' do
-      card = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
-      turn = Turn.new('Juneau', card)
+    it 'has cards' do
+      card_1 = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
+      card_2 = Card.new('Which planet is closest to the sun?', 'Mercury', :STEM)
+      turn_1 = Turn.new('Juneau', card_1)
+      turn_2 = Turn.new('Mercury', card_2)
 
-      expect(turn.card).to eq(card)
+      expect(turn_1.card).to eq(card_1)
+      expect(turn_2.card).to eq(card_2)
     end
 
-    it 'has a different card' do
-      card = Card.new('Which planet is closest to the sun?', 'Mercury', :STEM)
-      turn = Turn.new('Saturn', card)
+    it 'has guesses' do
+      card_1 = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
+      card_2 = Card.new('Which planet is closest to the sun?', 'Mercury', :STEM)
+      turn_1 = Turn.new('Juneau', card_1)
+      turn_2 = Turn.new('Saturn', card_2)
 
-      expect(turn.card).to eq(card)
-    end
-
-    it 'has a guess' do
-      card = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
-      turn = Turn.new('Juneau', card)
-
-      expect(turn.guess).to eq('Juneau')
-    end
-
-    it 'has a different guess' do
-      card = Card.new('Which planet is closest to the sun?', 'Mercury', :STEM)
-      turn = Turn.new('Saturn', card)
-
-      expect(turn.guess).to eq('Saturn')
+      expect(turn_1.guess).to eq('Juneau')
+      expect(turn_2.guess).to eq('Saturn')
     end
   end
 
   describe '#correct?' do
-    it 'checks if correct guess matches answer' do
+    it 'compares guess and answer and returns appropriate boolean' do
       card = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
-      turn = Turn.new('Juneau', card)
+      turn_1 = Turn.new('Juneau', card)
+      turn_2 = Turn.new('Voyageur', card)
 
-      expect(turn.correct?).to be true
+      expect(turn_1.correct?).to be true
+      expect(turn_2.correct?).to be false
     end
 
-    it 'checks if incorrect guess matches answer' do
-      card = Card.new('Which planet is closest to the sun?', 'Mercury', :STEM)
-      turn = Turn.new('Saturn', card)
+    it 'sanitizes guess to accept minor variation' do
+      card = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
+      turn_1 = Turn.new('juneau', card)
+      turn_2 = Turn.new(' juneau ', card)
 
-      expect(turn.correct?).to be false
+      expect(turn_1.correct?).to be true
+      expect(turn_2.correct?).to be true
     end
   end
 
   describe '#feedback' do
     it 'provides feedback to reflect correct answer' do
       card = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
-      turn = Turn.new('Juneau', card)
+      turn_1 = Turn.new('Juneau', card)
+      turn_2 = Turn.new('Anchorhead', card)
 
-      expect(turn.feedback).to eq('Correct!')
-    end
-
-    it 'provides feedback to reflect incorrect answer' do
-      card = Card.new('Which planet is closest to the sun?', 'Mercury', :STEM)
-      turn = Turn.new('Saturn', card)
-
-      expect(turn.feedback).to eq('Incorrect.')
+      expect(turn_1.feedback).to eq('Correct!')
+      expect(turn_2.feedback).to eq('Incorrect.')
     end
   end
 end
