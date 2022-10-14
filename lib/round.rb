@@ -24,9 +24,10 @@ class Round
             end
         turn
     end
-
+#iterate over @turns
+#count if the turn guess and turn category are both the same as (category) argument. 
     def number_correct_by_category(category)
-        
+        @turns.find_all { |turn| turn.guess && turn.card.category == category}.count
     end
 
     def percent_correct
