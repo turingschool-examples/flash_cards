@@ -75,7 +75,7 @@ end
     expect(cards.sorted_cards).to eq [["Question1", "Answer1", :cat1], ["Question2", "Answer2", :cat1], ["Question3", "Answer3", :cat2]]
   end
 
-  it 'puts each array grouping into a card class' do
+  xit 'puts each array grouping into a card class' do
 
     cards = CardGenerator.new('./lib/cards.txt').cards_init
   # how to take each array element and make them card classes
