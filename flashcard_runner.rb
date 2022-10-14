@@ -3,7 +3,7 @@ require './lib/deck'
 require './lib/round'
 require './lib/turn'
 #Create some cards
-card_1 = Card.new("What was the capital of Assyria in 700BC?", "Ninevah", :AncientGeography)
+card_1 = Card.new("What was the capital of Assyria in 700BC?", "A", :AncientGeography)
 card_2 = Card.new("Nic Cage made his film debut in what movie?", "Fast Times at Ridgemont High", :Film)
 card_3 = Card.new("What TV show has won the most Emmy's of all time?", "SNL", :TV)
 
@@ -29,11 +29,9 @@ def start(cards, deck, round)
   puts "Question: #{deck.cards[0].question}"
   puts deck.cards[0].answer
 
-  guess = gets
-  new_turn = round.take_turn("#{guess}")
-  puts new_turn.correct?
-  puts guess
-  puts "#{new_turn.feedback}"
+  player_guess = gets
+  # round.take_turn("#{guess}")
+  puts "#{round.take_turn(player_guess).feedback}"
 
   # puts "This is card number <current_card#> out of <deck size>"
   # puts "Question <nth question>"
