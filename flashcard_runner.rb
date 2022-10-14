@@ -23,7 +23,7 @@ until round.turns.length == round.deck.count
 
   guess = gets.chomp
   round.take_turn(guess)
-  puts round.turns.last.feedback
+  puts round.turn_feedback
   puts '------------------------------------------------------------'
 
 end
