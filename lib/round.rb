@@ -17,7 +17,6 @@ class Round
     @turns << n_turn
     @deck.cards.shift
     n_turn
-    # require 'pry';binding.pry
   end
   
   def number_correct
@@ -30,15 +29,35 @@ class Round
   end
   
   def number_correct_by_category(category)
-    require 'pry';binding.pry
+    correct_cat = []
+    @turns.each do |turn|
+      correct_cat << turn if turn.correct? && turn.card.category == category
+    end
+    correct_cat.count
   end
-  # 
-  # def percent_correct
-  # end
-  # 
-  # def percent_correct_by_category(category)
-  # end
+
+  def percent_correct
+    correct = self.number_correct.to_f
+    total = self.turns.count.to_f
+    (correct / total) * 100.round(1)
+  end
+   
+  def percent_correct_by_category(category)
+    category_correct = self.number_correct_by_category(category)
+    # require 'pry';binding.pry
+    total = self.cards_in_category(category)
+    (category_correct / total) * 100.round(1)
+  end
   
+  def cards_in_category(category)
+    cards_in_cat = []
+    @turns.each do |turn|
+      if turn.card.category == category
+        cards_in_cat << turn
+      end
+    end
+    cards_in_cat.count
+  end
 end
 
 # require 'pry';binding.pry
