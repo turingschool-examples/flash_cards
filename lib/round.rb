@@ -1,8 +1,7 @@
-attr_reader :deck
-
 class Round
-    def initialize(deck_instance)
-        @deck = @deck_instance
+    attr_reader :deck
+    def initialize(deck)
+        @deck = deck
     end
 
     def take_turn(guess_string)
