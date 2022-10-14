@@ -1,8 +1,9 @@
 class Deck
-    attr_reader :cards
+    attr_reader :cards, :initial_size
 
     def initialize(cards)
         @cards = cards
+        @initial_size = count
     end
 
     def count
