@@ -9,6 +9,8 @@ class Turn
   def correct?
     if card.answer == self.guess
       return true
+    elsif self.answer == self.guess
+      return true
     else false
     end
   end

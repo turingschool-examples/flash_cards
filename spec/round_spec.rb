@@ -39,6 +39,7 @@ RSpec.describe Round do
       expect(new_turn.class).to eq(Turn)
       expect(new_turn.correct?).to eq(true)
       expect(round.turns).to eq([new_turn])
+      expect(round.number_correct).to eq(1)
     end
     
   end
