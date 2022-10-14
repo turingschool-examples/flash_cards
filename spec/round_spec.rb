@@ -130,6 +130,7 @@ RSpec.describe Round do
     expect(new_turn.correct?).to be true
     expect(round.turns).to eq([new_turn])
     expect(round.current_card).to eq(card_2)
+    
   end
 
   it 'has a correct number of guesses' do
@@ -156,7 +157,7 @@ RSpec.describe Round do
     expect(round.number_correct).to eq(1)
   end
 
-  it 'can be the next turn and have a new card' do
+  it 'can be a new card' do
     card_1 = Card.new(
       'What is the capital of Alaska?',
       'Juneau',
@@ -175,8 +176,9 @@ RSpec.describe Round do
 
     deck = Deck.new([card_1, card_2, card_3])
     round = Round.new(deck)
-    
-    new_turn_2 = round.take_turn("Venus")
+
+    expect(round.current_card).to eq(card_1)
+    new_turn = round.take_turn("Juneau")
 
     expect(round.current_card).to eq(card_2)
   end
