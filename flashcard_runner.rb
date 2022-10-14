@@ -7,7 +7,6 @@ require 'pry'
 
 def start
   file_path = File.expand_path('../m1_flash_cards/cards.txt', __dir__)
-  p """#{file_path}"""
   card_generator = CardGenerator.new("#{file_path}")
   list_cards = card_generator.cards
 
@@ -24,6 +23,7 @@ def start
   num_cards = gets.chomp.to_i
   if num_cards == 0
     num_cards = random_number(10)
+    deck = Deck.new(num_cards.times.map {create_card})
   elsif num_cards < 0
     deck = Deck.new(list_cards)
     num_cards = deck.count
@@ -34,12 +34,11 @@ def start
   puts "You'll be playing with #{num_cards} cards"
   puts "****************************************"
   
-  binding.pry
   round = Round.new(deck)
   deck.cards.each_with_index do |turn, idx|
     puts "This is card ##{idx + 1} out of #{deck.count}"
     puts "Question: What is #{round.current_card.question}?"
-    this_turn = round.take_turn(user_answer = gets.chomp.to_i)
+    this_turn = round.take_turn(gets.chomp)
     puts "#{this_turn.feedback}"
   end
 

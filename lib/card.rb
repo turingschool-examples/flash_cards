@@ -4,7 +4,12 @@ class Card
 
   def initialize(question, answer, category)
     @question = question
-    @answer = answer
-    @category = category
+    @answer = process_list_int(answer)
+    @category = category.to_sym
+  end
+
+  def process_list_int(str)
+    (str =~ /\d$/) ? (return str.to_i) : nil
+    str.downcase
   end
 end

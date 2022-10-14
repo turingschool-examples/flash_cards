@@ -2,7 +2,7 @@ require './lib/card'
 
 class Turn
   def initialize(string, card)
-    @guess = string
+    @guess = process_guess(string)
     @card = card
   end
 
@@ -20,5 +20,10 @@ class Turn
 
   def feedback
     correct? ? "Correct!" : "Incorrect"
+  end
+
+  def process_guess(str)
+    (str =~ /\d$/) ? (return str.to_i) : nil
+    str.downcase
   end
 end

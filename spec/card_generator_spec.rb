@@ -1,6 +1,7 @@
 require './lib/card_generator'
 require './lib/card'
 require 'rspec'
+require 'pry' 
 
 describe CardGenerator do
   it 'exists' do
@@ -15,6 +16,7 @@ describe CardGenerator do
 
     expect(list_cards).to be_instance_of(Array)
     expect(list_cards[0]).to be_instance_of(Card)
-    expect(list_cards[0].answer).to be_instance_of(String)
+    expect(list_cards[0].answer).to be_instance_of(Integer)
+    expect(list_cards[1].answer).to be_instance_of(String)
   end
 end

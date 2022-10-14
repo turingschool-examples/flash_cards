@@ -62,6 +62,6 @@ class Round
   end
 
   def calculate_percentage(type, num_turns)
-    (@number_correct[type] / num_turns.to_f * 100).to_i
+    (@number_correct[type] / num_turns.to_f * 100).round(2)
   end
 end
