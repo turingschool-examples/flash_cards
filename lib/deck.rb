@@ -13,12 +13,8 @@ class Deck
   end
 
   def cards_in_category(cat_id)
-    filtered_cards = [] # holds cards that meet filter criteria
-    @cards.each do |card| # iterates through array of card instances held in @cards
-      if card.category == cat_id # checks if the category of each card matches the cat_id parameter
-        filtered_cards << card
-      end
+    @cards.select do |card|
+      card.category == cat_id
     end
-    filtered_cards
   end
 end
