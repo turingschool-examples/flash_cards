@@ -27,40 +27,26 @@ def start
 
   puts "Welcome! You're playing with #{cards.length} cards."
   puts "-------------------------------------------------"
-  puts "This is card number #{round.cards_already_played.length + 1} out of #{cards.length}."
-  puts "Question: #{round.current_card.question}"
 
-  answer_1 = gets.chomp
-  turn_1 = round.take_turn(answer_1)
-
-  puts turn_1.feedback
+until round.cards_already_played.size == round.deck.cards.size
 
   puts "This is card number #{round.cards_already_played.length + 1} out of #{cards.length}."
   puts "Question: #{round.current_card.question}"
 
-  answer_2 = gets.chomp
-  turn_2 = round.take_turn(answer_2)
+  answer = gets.chomp
+  turn = round.take_turn(answer)
 
-  puts turn_2.feedback
+  puts turn.feedback
 
-  puts "This is card number #{round.cards_already_played.length + 1} out of #{cards.length}."
-  puts "Question: #{round.current_card.question}"
-
-  answer_3 = gets.chomp
-  turn_3 = round.take_turn(answer_3)
-
-  puts turn_3.feedback
-
-  if round.cards_already_played.size == round.deck.cards.size
+end
     puts "****** Game over! ******"
-    puts "You had #{round.number_correct} correct guesses out of #{cards.length} for a total score of #{round.percent_correct}."
+    puts "You had #{round.number_correct} correct guesses out of #{cards.length} for a total score of #{round.percent_correct}%."
 
 
     puts "STEM - #{round.percent_correct_by_category(:STEM)}% correct"
     puts "Geography - #{round.percent_correct_by_category(:Geography)}% correct"
     # refactor to make the categories above variables(dynamic)
-    # refactor idea: how can I make this whole thing a while (or until) loop
-  end
+#   end
 
 end
 
