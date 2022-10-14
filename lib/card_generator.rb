@@ -13,11 +13,14 @@ class CardGenerator
       file_read = file.read
       file_read.chomp!
       file_gsub = file_read.gsub("\n", ",")
-      file_split = file_gsub.split(',')
-      file_to_sym = file_split.select.with_index {|_,x| x % 3 == 0}
 
-      binding.pry
-      @sorted_cards = file_split.each_slice(3).to_a
+      file_split = file_gsub.split(',')
+      file_fancy = file_split.map.with_index {|v,i|
+        if (i+1) % 3 == 0
+        then v.to_sym
+      else v.to_s
+      end}
+      @sorted_cards = file_fancy.each_slice(3).to_a
   end
 
 end
