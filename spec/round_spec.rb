@@ -55,7 +55,7 @@ RSpec.describe Round do
 
         round = round.new(deck)
 
-        expect(round)to be_instance_of(Round)
+        expect(round).to be_instance_of(Round)
     end
 
 #Test 4
