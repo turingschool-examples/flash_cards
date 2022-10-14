@@ -7,21 +7,24 @@ require './lib/turn'
 RSpec.describe Round do
     describe '#initialize' do
         it 'exists' do 
-            card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+            card = []
+            card << Card.new("What is the capital of Alaska?", "Juneau", :Geography)
             deck = Deck.new(card)
 
             expect(Round.new(deck)).to be_a Round
         end
 
         it 'has a deck' do
-            card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+            card = []
+            card << Card.new("What is the capital of Alaska?", "Juneau", :Geography)
             deck = Deck.new(card)
 
             expect(Round.new(deck).deck).to eq deck
         end
 
         it 'has empty turns array by default' do
-            card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+            card = []
+            card << Card.new("What is the capital of Alaska?", "Juneau", :Geography)
             deck = Deck.new(card)
 
             expect(Round.new(deck).turns).to eq []
