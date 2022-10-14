@@ -15,6 +15,7 @@ class Round
     deck.cards.first
   end
 
+
   def take_turn(guess)
     turn = Turn.new(guess, current_card)
     @turns << turn
@@ -27,13 +28,25 @@ class Round
     turn
   end
 
+
   def number_correct
     correct.length
   end
 
+
   def percent_correct
-    number_correct / turns.length.to_f * 100
+    100.0 * number_correct / turns.length
   end
+
+
+  def percent_correct_by_category(category)
+    100.0 *
+    number_correct_by_category(category) /
+    deck.cards_in_category(category).length
+
+
+  end
+
 
   def correct_by_category(category)
     correct_cards = correct.map do |turn|
@@ -42,10 +55,11 @@ class Round
     correct_by_category = deck.cards_in_category(category).select do |card|
       correct_cards.include?(card)
     end
-
   end
+
 
   def number_correct_by_category(category)
     correct_by_category(category).length
   end
+
 end

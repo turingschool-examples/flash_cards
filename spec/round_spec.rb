@@ -276,15 +276,15 @@ describe Round do
 
       expect(deck.cards_in_category(:Geography).length).to eq 1
       expect(round.number_correct_by_category(:Geography)).to eq 1
-      expect(percent_correct_by_category(:Geography)).to eq 100.0
+      expect(round.percent_correct_by_category(:Geography)).to eq 100.0
 
       expect(deck.cards_in_category(:STEM).length).to eq 2
       expect(round.number_correct_by_category(:STEM)).to eq 1
-      expect(percent_correct_by_category(:STEM)).to eq 50.0
+      expect(round.percent_correct_by_category(:STEM)).to eq 50.0
 
       expect(deck.cards_in_category(:Music).length).to eq 1
       expect(round.number_correct_by_category(:Music)).to eq 0
-      expect(percent_correct_by_category(:Music)).to eq 0.0
+      expect(round.percent_correct_by_category(:Music)).to eq 0.0
 
     end
 
