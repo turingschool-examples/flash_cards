@@ -22,8 +22,17 @@ class Round
     new_turn
   end 
 
+  # number_correct helper method
+  def correct_answers 
+    @turns.select { |turn| turn.card.answer == turn.guess }
+  end
+
   def number_correct
-    @turns.select { |turn| turn.card.answer == turn.guess }.count 
+    correct_answers.count
+  end
+
+  def number_correct_by_category(category)
+    correct_answers.select { |turn| turn.card.category == category }.count
   end
 
   def finished?

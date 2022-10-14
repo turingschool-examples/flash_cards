@@ -113,23 +113,32 @@ RSpec.describe Round do
     end
   end
 
-  describe '#round_finished?' do
+  describe '#number_correct_by_category' do
+    it 'returns the number of correct guesses by category' do
+      cards = [card_1, card_2, card_3]
+      deck = Deck.new(cards)
+      round = Round.new(deck)
+
+      expect(round.number_correct_by_category(:Basics)).to eq(0)
+      new_turn = round.take_turn("Color")
+      expect(round.number_correct_by_category(:Basics)).to eq(1)
+    end
+  end
+
+  describe '#finished?' do
     it 'returns true when all cards have been played' do
       cards = [card_1, card_2, card_3]
       deck = Deck.new(cards)
       round = Round.new(deck)
 
-      expect(round.round_finished?).to be false        
+      expect(round.finished?).to be false        
 
       new_turn = round.take_turn("Color")
       another_turn = round.take_turn("Liquid") 
       yet_another_turn = round.take_turn("Bad Answer")
 
-      expect(round.round_finished?).to be true
+      expect(round.finished?).to be true
     end
   end
-
-
-
 end
 
