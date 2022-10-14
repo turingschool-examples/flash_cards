@@ -10,16 +10,23 @@ card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwi
 cards = [card_1, card_2, card_3]
 deck = Deck.new(cards)
 round = Round.new(deck)
+initial_deck_size = round.deck.count
+#move method to round/deck class / refactor whole process
+categories = deck.cards.map {|card| card.category}.uniq
+p categories
 
-
-
-puts "Welcome! You're playing with #{round.deck.count} cards."
+puts "Welcome! You're playing with #{initial_deck_size} cards."
 puts "-------------------------------------------------"
-puts "This is card number #{round.turns.length + 1} out of #{round.deck.count}"
-puts "#{round.current_card.question}"
 
-guess = gets.chomp
 
-round.take_turn(guess)
+until round.deck.count == 0 do
+  puts "This is card number #{round.turns.length + 1} out of #{initial_deck_size}."
+  puts "Question: #{round.current_card.question}"
+  guess = gets.chomp
+  round.take_turn(guess)
+  puts "#{round.feedback}\n"
+end
 
-puts "#{round.feedback}"
+puts "****** Game over! ******"
+puts "You had #{round.number_correct} correct guesses out of #{initial_deck_size} for a total score of #{round.percent_correct}."
+categories.each{|category| puts "#{category.to_s} - #{round.percent_correct_by_category(category)}% correct"}
