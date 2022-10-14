@@ -42,4 +42,9 @@ class Round
     end
       correct_by_category
   end
+
+  def percent_correct
+    (number_correct.to_f / @turns.count * 100)
+  end
+
 end
