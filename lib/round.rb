@@ -35,12 +35,17 @@ class Round
     number_correct / turns.length.to_f * 100
   end
 
-  def number_correct_by_category(category)
-    correct_by_category = deck.cards_in_category(category).select do |card|
-      correct.each do |turn|
-        turn.card == card
-      end
+  def correct_by_category(category)
+    correct_cards = correct.map do |turn|
+      turn.card
     end
-    correct_by_category.length
+    correct_by_category = deck.cards_in_category(category).select do |card|
+      correct_cards.include?(card)
+    end
+
+  end
+
+  def number_correct_by_category(category)
+    correct_by_category(category).length
   end
 end

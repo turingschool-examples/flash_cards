@@ -45,6 +45,7 @@ describe Round do
 
       expect(round.current_card).to eq card_1
     end
+
   end
 
   describe '#take_turn' do
@@ -194,48 +195,96 @@ describe Round do
 
   end
 
+  describe '#correct_by_category' do
+    it 'returns an array of all correct turns in a category' do
+      card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+      card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+      card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+      card_4 = Card.new("Presto, largo, allegro relate to what property of music?" , "Tempo", :Music)
+      deck = Deck.new([card_1, card_2, card_3, card_4])
+      round = Round.new(deck)
+
+      new_turn_1 = round.take_turn("Juneau")
+      new_turn_2 = round.take_turn("Mars")
+      new_turn_3 = round.take_turn("South")
+      new_turn_4 = round.take_turn("Timbre")
+
+      expect(round.correct_by_category(:Geography)).to eq [card_1]
+      expect(round.correct_by_category(:STEM)).to eq [card_2]
+      expect(round.correct_by_category(:Music)).to eq []
+    end
+
+  end
+
   describe '#number_correct_by_category' do
     it 'return the number of correct guesses of a particular category' do
       card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
       card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
       card_4 = Card.new("Presto, largo, allegro relate to what property of music?" , "Tempo", :Music)
-      deck = Deck.new([card_1, card_2, card_3])
+      deck = Deck.new([card_1, card_2, card_3, card_4])
       round = Round.new(deck)
 
       new_turn_1 = round.take_turn("Juneau")
       new_turn_2 = round.take_turn("Mars")
-      new_turn_3 = round.take_turn("North north west")
+      new_turn_3 = round.take_turn("South")
       new_turn_4 = round.take_turn("Timbre")
 
       expect(round.number_correct_by_category(:Geography)).to eq 1
-      expect(round.number_correct_by_category(:STEM)).to eq 2
+      expect(round.number_correct_by_category(:STEM)).to eq 1
       expect(round.number_correct_by_category(:Music)).to eq 0
 
     end
+
   end
 
   describe '#percent_correct' do
-    it "returns the percent correct out of how many turns taken " do
+    it "returns the percent correct out of total turns taken " do
       card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
       card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
       card_4 = Card.new("Presto, largo, allegro relate to what property of music?" , "Tempo", :Music)
-      deck = Deck.new([card_1, card_2, card_3])
+      deck = Deck.new([card_1, card_2, card_3, card_4])
       round = Round.new(deck)
 
       new_turn_1 = round.take_turn("Juneau")
       new_turn_2 = round.take_turn("Mars")
-      new_turn_3 = round.take_turn("North north west")
+      new_turn_3 = round.take_turn("South")
       new_turn_4 = round.take_turn("Timbre")
 
       expect(round.turns.length).to eq 4
-      expect(round.number_correct).to eq 3
+      expect(round.number_correct).to eq 2
 
-      expect(round.percent_correct).to eq 75.0
+      expect(round.percent_correct).to eq 50.0
     end
+
   end
 
+  describe '#percent_correct_by_category' do
+    xit 'returns the percent correct in a category' do
+      card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+      card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+      card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+      card_4 = Card.new("Presto, largo, allegro relate to what property of music?" , "Tempo", :Music)
+      deck = Deck.new([card_1, card_2, card_3, card_4])
+      round = Round.new(deck)
 
+      new_turn_1 = round.take_turn("Juneau")
+      new_turn_2 = round.take_turn("Mars")
+      new_turn_3 = round.take_turn("South")
+      new_turn_4 = round.take_turn("Timbre")
+
+      expect(deck.cards_in_category(:Geography).length).to eq 1
+      expect(round.number_correct_by_category(:Geography)).to eq 1
+
+      expect(deck.cards_in_category(:STEM).length).to eq 2
+      expect(round.number_correct_by_category(:STEM)).to eq 1
+
+      expect(deck.cards_in_category(:Music).length).to eq 1
+      expect(round.number_correct_by_category(:Music)).to eq 0
+
+    end
+
+  end
 
 end
