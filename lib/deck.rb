@@ -13,7 +13,7 @@ class Deck
   end
 
   def cards_in_category(cat_id)
-    @cards.select do |card|
+    @cards.select do |card| # returns a new array with only selected cards based on the cat_id parameter
       card.category == cat_id
     end
   end
