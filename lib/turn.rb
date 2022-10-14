@@ -23,7 +23,8 @@ class Turn
   end
 
   def process_guess(str)
-    (str =~ /\d$/) ? (return str.to_i) : nil
+    str =~ /\d$/ ? (return str.to_i) : nil
+    str.is_a?(Numeric) ? (return str) : nil
     str.downcase
   end
 end

@@ -10,7 +10,7 @@ def start
   card_generator = CardGenerator.new("#{file_path}")
   list_cards = card_generator.cards
 
-  puts "Welcome to the Math Flash Card Game!"
+  puts "Welcome to the Flash Card Game!"
   puts "Please enter your name to start"
   
   user_name = gets.chomp
@@ -37,7 +37,7 @@ def start
   round = Round.new(deck)
   deck.cards.each_with_index do |turn, idx|
     puts "This is card ##{idx + 1} out of #{deck.count}"
-    puts "Question: What is #{round.current_card.question}?"
+    puts "Question: #{round.current_card.question}"
     this_turn = round.take_turn(gets.chomp)
     puts "#{this_turn.feedback}"
   end
@@ -65,6 +65,7 @@ def create_card
   numbers = [random_number(20), random_number(20)]
   question = "#{numbers[0]} #{curr_ops_type} #{numbers[1]}"
   answer = eval question
+  question = "What is #{numbers[0]} #{curr_ops_type} #{numbers[1]}?"
   Card.new(question, answer, curr_cat_type)
 end
 
