@@ -31,25 +31,25 @@ def start
   end
   
   puts "You'll be playing with #{num_cards} cards"
-  puts "****************************************"
+  puts "#{("*" * 30)}"
   
   round = Round.new(deck)
   deck.cards.each_with_index do |turn, idx|
-    puts "This is card ##{idx + 1} out of #{deck.count}"
+    puts "This is card ##{idx + 1} out of #{deck.count}."
     puts "Question: #{round.current_card.question}"
     this_turn = round.take_turn(gets.chomp)
     puts "#{this_turn.feedback}"
   end
 
-  puts "****** Game over! ******"
+  puts "#{("*" * 9)} Game over! #{("*" * 9)}"
   puts %W[You had #{round.number_correct} 
        correct guesses out of #{deck.count} 
-       for a total score of %
-       #{round.percent_correct}].join(' ')
+       for a total score of 
+       #{round.percent_correct}%.].join(' ')
   round.categories.each do |category|
-    puts %W[#{category} - %
+    puts %W[#{category} -
          #{round.percent_correct_by_category(category)} 
-         correct"].join(' ')
+         % correct"].join(' ')
   end
 end
 

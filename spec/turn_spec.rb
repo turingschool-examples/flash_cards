@@ -50,7 +50,7 @@ describe Turn do
 
     expect(turn.guess).to eq("Saturn")
     expect(turn.correct?).to eq(false)
-    expect(turn.feedback).to eq("Incorrect")
+    expect(turn.feedback).to eq("Incorrect.")
   end
 
   it 'can process an unusual answer' do

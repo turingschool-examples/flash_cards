@@ -14,7 +14,7 @@ class Turn
   end
 
   def feedback
-    correct? ? "Correct!" : "Incorrect"
+    correct? ? "Correct!" : "Incorrect."
   end
 
   def process_turn_input(str)
