@@ -1,3 +1,5 @@
+attr_reader :deck
+
 class Round
     def initialize(deck_instance)
         @deck = @deck_instance

@@ -13,4 +13,20 @@ RSpec.describe Round do
 
         expect(round).to be_instance_of(Round)
     end
+
+    # it can call the deck
+    # it can store and call turns
+    # it can store the current card
+    # it can accept an answer and go to the next card
+    # it is an instance of the Turn class
+    # it can store if correct
+    # it can recall turns
+    # it can return the amount of correct guesses
+    # it can identify the current card
+    # it can take a new turn
+    # it can count how many turns have been taken
+    # it can recall feedback from the last card
+    # it can count how many turns guessed the correct answer
+    # it can identify the amount of correct guesses by category
+    # it can load the current card
 end
