@@ -45,13 +45,4 @@ RSpec.describe Deck do
       expect(deck.cards_in_category(:Sports)).to eq([])
     end
   end
-  #how will I do this when pry expected result is something
-  #like pry(main)> deck.cards_in_category(:STEM)
-  #=> [#<Card:0x00007fa160a62e90...>, #<Card:0x00007fa161a136f0...>]
-
-  #rspec
-  #expected: #<Card:0x00007fd51b8cbe58
-  #@question="What is the capital of Alaska?", @answer="Juneau",
-  # @category=:Geography>
-  #got: nil
 end
