@@ -1,8 +1,4 @@
-require './card'
-
 require './turn'
-
-require './deck'
 
 class Round
   attr_reader :deck, :turns, :correct_turns
