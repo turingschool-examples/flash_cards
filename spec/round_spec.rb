@@ -186,7 +186,7 @@ RSpec.describe Round do
   it 'has a counter that increases per number correct' do
     # logs number correct
 
-########### Initial Setup
+    ########### Initial Setup
     card_1 = Card.new("Question1", "Answer1", :cat1)
     card_2 = Card.new("Question2", "Answer2", :cat1)
     card_3 = Card.new("Question3", "Answer3", :cat2)
@@ -196,9 +196,7 @@ RSpec.describe Round do
     deck = Deck.new(cards)
 
     round = Round.new(deck)
-###########
-
-########### Turn sequence
+    ########### Turn sequence
     round.current_card
 
     new_turn = round.take_turn("Answer1")
@@ -208,9 +206,7 @@ RSpec.describe Round do
     new_turn.feedback
 
     round.turns_array.push(new_turn)
-###########
-
-########### Store and analyse
+    ########### Store and analyse
     expect(round.number_correct).to eq 1
 
     # NOW WE DO "ANOTHER NEW_TURN"
@@ -218,6 +214,7 @@ RSpec.describe Round do
     new_turn2 = round.take_turn("Wrong Answer")
     new_turn2.correct?
     new_turn2.feedback
+    round.turns_array.push(new_turn2)
 
     expect(round.number_correct).to eq 1
   end
@@ -225,7 +222,6 @@ RSpec.describe Round do
 ### THIS TEST DEPENDS ON PASSING THE TEST ABOVE, NOT TOUCHING UNTIL THAT'S DONE
   it 'can turn that number into a percent' do
     # divides number correct by total cards
-########### Initial Setup
     card_1 = Card.new("Question1", "Answer1", :cat1)
     card_2 = Card.new("Question2", "Answer2", :cat1)
     card_3 = Card.new("Question3", "Answer3", :cat2)
@@ -235,9 +231,7 @@ RSpec.describe Round do
     deck = Deck.new(cards)
 
     round = Round.new(deck)
-###########
 
-########### Turn sequence
     round.current_card
 
     new_turn = round.take_turn("Answer1")
@@ -247,18 +241,18 @@ RSpec.describe Round do
     new_turn.feedback
 
     round.turns_array.push(new_turn)
-###########
 
-########### Store and analyse
-    expect(round.percent_correct).to eq 100
+    expect(round.percent_correct).to eq 100.0
+
 
     # NOW WE DO "ANOTHER NEW_TURN"
     round.current_card
     new_turn2 = round.take_turn("Wrong Answer")
     new_turn2.correct?
     new_turn2.feedback
+    round.turns_array.push(new_turn2)
 
-    expect(round.percent_correct).to eq 50
+    expect(round.percent_correct).to eq 50.0
     # vv I think I can disregard below, because we are comparing to the turns taken.
     # careful this number stored total cards at beginning, in case shrinkage
   end
@@ -328,14 +322,77 @@ RSpec.describe Round do
     expect(round.turns_array.last.feedback).to eq "Sorry, but no..."
   end
 
-  xit 'can access the category of a correct answer, returns length?' do
-  # stores number correct by category
+  it 'can access the category of a correct answer, returns length?' do
+    # stores number correct by category
+    ########### Initial Setup
+    card_1 = Card.new("Question1", "Answer1", :cat1)
+    card_2 = Card.new("Question2", "Answer2", :cat1)
+    card_3 = Card.new("Question3", "Answer3", :cat2)
+
+    cards = [card_1, card_2, card_3]
+
+    deck = Deck.new(cards)
+
+    round = Round.new(deck)
+    ########### Turn sequence
+    round.current_card
+
+    new_turn = round.take_turn("Answer1")
+
+    new_turn.correct?
+
+    new_turn.feedback
+
+    round.turns_array.push(new_turn)
+    ########### Store and analyse
+    expect(round.number_correct_by_category(:cat1)).to eq 1
+
+    # NOW WE DO "ANOTHER NEW_TURN"
+    round.current_card
+    new_turn2 = round.take_turn("Wrong Answer")
+    new_turn2.correct?
+    new_turn2.feedback
+    round.turns_array.push(new_turn2)
+
+    expect(round.number_correct_by_category(:cat2)).to eq 0
 
   end
 
-  xit 'can turn that number into a percent' do
+  it 'can turn that number into a percent' do
     # divides number correct by total cards
     # careful this number stored total cards at beginning, in case shrinkage
+    ########### Initial Setup
+    card_1 = Card.new("Question1", "Answer1", :cat1)
+    card_2 = Card.new("Question2", "Answer2", :cat1)
+    card_3 = Card.new("Question3", "Answer3", :cat2)
+
+    cards = [card_1, card_2, card_3]
+
+    deck = Deck.new(cards)
+
+    round = Round.new(deck)
+    ########### Turn sequence
+    round.current_card
+
+    new_turn = round.take_turn("Answer1")
+
+    new_turn.correct?
+
+    new_turn.feedback
+
+    round.turns_array.push(new_turn)
+    ########### Store and analyse
+    expect(round.percent_correct_by_category(:cat1)).to eq 100.0
+
+    # NOW WE DO "ANOTHER NEW_TURN"
+    round.current_card
+    new_turn2 = round.take_turn("Wrong Answer")
+    new_turn2.correct?
+    new_turn2.feedback
+    round.turns_array.push(new_turn2)
+
+    expect(round.percent_correct_by_category(:cat2)).to eq 0.0
+
   end
 
   xit 'keeps going' do
