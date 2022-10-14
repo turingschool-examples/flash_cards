@@ -24,29 +24,27 @@ def start
   deck = Deck.new(cards)
   round = Round.new(deck)
 
+  categories = cards.map {|card| card.category}
+
+  unique_categories = categories.uniq
 
   puts "Welcome! You're playing with #{cards.length} cards."
   puts "-------------------------------------------------"
 
-until round.cards_already_played.size == round.deck.cards.size
+  until round.cards_already_played.size == round.deck.cards.size
+    puts "This is card number #{round.cards_already_played.length + 1} out of #{cards.length}."
+    puts "Question: #{round.current_card.question}"
 
-  puts "This is card number #{round.cards_already_played.length + 1} out of #{cards.length}."
-  puts "Question: #{round.current_card.question}"
+    answer = gets.chomp
+    turn = round.take_turn(answer)
 
-  answer = gets.chomp
-  turn = round.take_turn(answer)
+    puts turn.feedback
+  end
 
-  puts turn.feedback
-
-end
-    puts "****** Game over! ******"
-    puts "You had #{round.number_correct} correct guesses out of #{cards.length} for a total score of #{round.percent_correct}%."
-
-
-    puts "STEM - #{round.percent_correct_by_category(:STEM)}% correct"
-    puts "Geography - #{round.percent_correct_by_category(:Geography)}% correct"
-    # refactor to make the categories above variables(dynamic)
-#   end
+  puts "****** Game over! ******"
+  unique_categories.each do |card|
+    puts "#{card} - #{round.percent_correct_by_category(card)}% correct"
+  end
 
 end
 
