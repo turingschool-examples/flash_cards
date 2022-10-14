@@ -19,4 +19,8 @@ class Round
         @turns << turn
         turn
     end
+
+    def number_correct
+        @turns.count
+    end
 end
