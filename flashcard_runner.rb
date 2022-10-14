@@ -27,8 +27,7 @@ def start
 
   puts "Welcome! You're playing with #{cards.length} cards."
   puts "-------------------------------------------------"
-  puts "This is card number 1 out of #{cards.length}."
-  # Does the card number that we are starting on need to be more dynamic? How?
+  puts "This is card number #{round.cards_already_played.length + 1} out of #{cards.length}."
   puts "Question: #{round.current_card.question}"
 
   answer_1 = gets.chomp
@@ -36,7 +35,7 @@ def start
 
   puts turn_1.feedback
 
-  puts "This is card number 2 out of #{cards.length}."
+  puts "This is card number #{round.cards_already_played.length + 1} out of #{cards.length}."
   puts "Question: #{round.current_card.question}"
 
   answer_2 = gets.chomp
@@ -44,7 +43,7 @@ def start
 
   puts turn_2.feedback
 
-  puts "This is card number 3 out of #{cards.length}."
+  puts "This is card number #{round.cards_already_played.length + 1} out of #{cards.length}."
   puts "Question: #{round.current_card.question}"
 
   answer_3 = gets.chomp
@@ -52,17 +51,15 @@ def start
 
   puts turn_3.feedback
 
-  if round.deck.length == 0
-  # can this whole thing be a while loop? That runs until round.deck.length == 0
-
+  if round.cards_already_played.size == round.deck.cards.size
     puts "****** Game over! ******"
-    puts "You had #{round.number_correct} correct guesses out of #{cards.length} for a total score of #{percent_correct}."
-  # is round.number_correct teh correct method?
+    puts "You had #{round.number_correct} correct guesses out of #{cards.length} for a total score of #{round.percent_correct}."
 
-    puts "#{category} - #{percent_correct_by_category}% correct"
-    puts "#{category} - #{percent_correct_by_category}% correct"
-    puts "#{category} - #{percent_correct_by_category}% correct"
-  # fix the above methods to call on them correctly
+
+    puts "STEM - #{round.percent_correct_by_category(:STEM)}% correct"
+    puts "Geography - #{round.percent_correct_by_category(:Geography)}% correct"
+    # refactor to make the categories above variables(dynamic)
+    # refactor idea: how can I make this whole thing a while (or until) loop
   end
 
 end
