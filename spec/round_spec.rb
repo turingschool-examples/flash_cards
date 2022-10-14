@@ -99,8 +99,8 @@ RSpec.describe Round do
 
         round.turns
 
-        expect(round.turns)to eq([])
-        
+        expect(round.turns).to eq([])
+
     end
 
 
