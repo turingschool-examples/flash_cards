@@ -1,12 +1,14 @@
 require './lib/turn'
 
 class Round
-  attr_reader :deck
-  attr_accessor :turns
+  attr_reader :deck,
+              :cards_already_played,
+              :turns
 
   def initialize(deck)
     @deck = deck
     @turns = []
+    @cards_already_played = []
   end
 
   def current_card
@@ -16,7 +18,8 @@ class Round
   def take_turn(guess)
     turn = Turn.new(guess, current_card)
     @turns << turn
-    @deck.cards.shift
+    @cards_already_played << current_card
+    @deck.cards.rotate!
     turn
   end
 
@@ -34,7 +37,7 @@ class Round
   end
 
   def percent_correct
-    number_correct / @turns.length.to_f * 100
+    (number_correct / @turns.length.to_f * 100).round(1) 
   end
 
   def percent_correct_by_category(category)
