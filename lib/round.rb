@@ -31,6 +31,7 @@ class Round
   end
 
   def number_correct_by_category(category_correct)
+    @correct_by_category = []
     @turns.each do |turn|
       if (turn.card.category == category_correct) &&
         (turn.guess == turn.card.answer)
