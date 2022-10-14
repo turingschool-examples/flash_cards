@@ -2,8 +2,8 @@ require './lib/card'
 require './lib/deck'
 require './lib/round'
 require './lib/turn'
-#Create some cards
-card_1 = Card.new("What was the capital of Assyria in 700BC?", "A", :AncientGeography)
+
+card_1 = Card.new("What was the capital of Assyria in 700BC?", "Ninevah", :AncientGeography)
 card_2 = Card.new("Nic Cage made his film debut in what movie?", "Fast Times at Ridgemont High", :Film)
 card_3 = Card.new("What TV show has won the most Emmy's of all time?", "SNL", :TV)
 
@@ -17,31 +17,26 @@ round = Round.new(deck)
                                     # puts "Hi #{name}"
                                     # create a new method called `start`
 
-  # Greet the player when started
 def start(cards, deck, round)
   card_number = 1
 
   puts "Welcome! You're playing with #{deck.count} cards"
   puts "-------------------------------------------------"
+  # Insert each or other enumerator to iterate each of the cards in deck
   puts "This is card number #{card_number} out of #{deck.count}"
   card_number += 1
 
   puts "Question: #{deck.cards[0].question}"
-  puts deck.cards[0].answer
+  player_guess = gets.chomp
+  new_turn = round.take_turn(player_guess)
+  puts "#{new_turn.feedback}"
 
-  player_guess = gets
-  # round.take_turn("#{guess}")
-  puts "#{round.take_turn(player_guess).feedback}"
+  # Once all cards have a <guess> end the enumerator
 
-  # puts "This is card number <current_card#> out of <deck size>"
-  # puts "Question <nth question>"
-
-  # continue through each card in the Deck
-
-  # Once all cards have a <guess>
   # puts "****** Game over! ******"
-  # puts "You had <num_correct> correct guesses out of <deck size> for a total score of <percent correct>"
-  # puts "<Category> - <percent_correct_by_category> correct"
+  # puts "You had #{round.number_correct} correct guesses out of #{deck.count} for a total score of #{round.percent_correct}"
+  # iterate through each of the categories to print below
+  # puts "#{Category} - #{round.percent_correct_by_category(Category)} correct"
   # repeat this for each category
 end
 
