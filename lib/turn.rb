@@ -1,6 +1,8 @@
 class Turn
   attr_reader :guess,
-              :card
+              :card,
+              :answer,
+              :category
   def initialize(guess, card)
     @guess = guess
     @card = card
@@ -9,6 +11,9 @@ class Turn
   def correct?
     if card.answer == self.guess
       return true
+    elsif self.answer == self.guess
+      return true
+      
     else false
     end
   end
