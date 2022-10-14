@@ -20,13 +20,9 @@ class Round
       @number_correct[:total] += 1
       @number_correct[@current_card.category] += 1
     end
-    update_card
-    @turns[@curr_card_idx - 1]
-  end
-
-  def update_card
     @curr_card_idx += 1
     @current_card = @deck.cards[@curr_card_idx]
+    @turns[@curr_card_idx - 1]
   end
 
   def initialize_card_type(type)

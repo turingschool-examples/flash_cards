@@ -24,7 +24,7 @@ class Turn
 
   def process_guess(str)
     str =~ /\d$/ ? (return str.to_i) : nil
-    str.is_a?(Numeric) ? (return str) : nil
+    str.kind_of?(Numeric) ? (return str) : nil
     str.downcase
   end
 end

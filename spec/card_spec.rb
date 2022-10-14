@@ -17,12 +17,18 @@ describe Card do
   it 'has an answer' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
-    expect(card.answer).to eq("Juneau")
+    expect(card.answer).to eq("juneau")
   end
 
   it 'has a category' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
     expect(card.category).to eq(:Geography)
+  end
+
+  it 'can process an unusual answer' do
+    card = Card.new("What is the capital of Alaska?", 52.05, :Geography)
+
+    expect(card.answer).to be_instance_of(Float)
   end
 end

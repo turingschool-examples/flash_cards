@@ -4,7 +4,6 @@ require './lib/deck'
 require './lib/round'
 require 'rspec'
 require 'pry'
-binding.pry
 
 describe Round do
   it 'has card instances and variables available' do
