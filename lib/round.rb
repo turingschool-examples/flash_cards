@@ -11,13 +11,13 @@ class Round
   end
 
   def current_card
-    @deck.cards.shift
+    @deck.cards.first
   end
 
   def take_turn(guess)
-    #turn = Turn.new(guess, current_card)
-    turn = Turn.new(guess, deck.cards[0])
+    turn = Turn.new(guess, current_card)
     @turns << turn
+    @deck.cards.shift
       if turn.correct? == true
         @number_correct += 1
       end
