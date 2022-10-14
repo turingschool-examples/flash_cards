@@ -209,6 +209,10 @@ RSpec.describe Round do
       round.take_turn("Venus")
 
       expect(round.percent_correct).to eq(50.0)
+
+      round.take_turn("North north west")
+
+      expect(round.percent_correct).to eq(66.7)
     end
   end
 
