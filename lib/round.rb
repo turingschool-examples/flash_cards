@@ -31,40 +31,19 @@ class Round
     end
   end
 
-  def number_correct_by_category(category)
-    match_category = [] # temp storage for filtered cards
-    correct_in_category = 0
-    turns.each do |turn|
-      if turn.card.category == category # filters each card based on category
-        match_category << turn 
-      end
+  def number_correct_by_category(cat_id) # returns a new array of cards if the guess is correct and they're of a category defined by cat_id
+    @turns.count do |turn|
+      turn.correct? && turn.card.category == cat_id
     end
-    match_category.each do |card| 
-      if card.correct? # calls the correct? method on each card that was filtered into match_category
-        correct_in_category += 1 # adds 1 to counter if correct? is true
-      end
-    end
-    correct_in_category
   end
 
-  def percent_correct # converts number_correct into a percentage of turns
+  def percent_correct # converts number_correct into a percentage of total number of turns
     ((number_correct.to_f / turns.count).round(2)) * 100 
   end
 
-  def percent_correct_by_category(category)
-    match_category = [] # temp storage for filtered cards
-    correct_in_category = 0
-    turns.each do |turn| 
-      if turn.card.category == category # filters each card based on category
-        match_category << turn 
-      end
-    end
-    match_category.each do |card|
-      if card.correct? # calls the correct? method on each card that was filtered into match_category
-        correct_in_category += 1 # adds 1 to counter if correct? is true
-      end
-    end
-    ((correct_in_category.to_f / match_category.count).round(2)) * 100 # converts correct_in_category into a percentage based on amount of cards with certain category
+  def percent_correct_by_category(cat_id)
+    correct_in_category = @turns.count { |turn| turn.correct? && turn.card.category == cat_id }
+    number_in_category = @turns.count { |turn| turn.card.category == cat_id }
+    ((correct_in_category.to_f / number_in_category).round(2)) * 100 # converts correct_in_category into a percentage based on amount of cards with certain category
   end
-
 end
