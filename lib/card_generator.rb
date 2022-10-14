@@ -9,6 +9,7 @@ class CardGenerator
   end
 
   def cards_init
+    # I can totally refactor this now that I know it works, does not need all the vars
       file = File.open(@filename)
       file_read = file.read
       file_read.chomp!
