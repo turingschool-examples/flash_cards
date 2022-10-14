@@ -10,16 +10,40 @@ class Turn
   end
 
   def correct?
-    process_turn_input(@guess) == process_turn_input(@card.answer)
+    process_turn_input
   end
 
   def feedback
     correct? ? "Correct!" : "Incorrect."
   end
 
-  def process_turn_input(str)
-    str =~ /\d$/ ? (return str.to_i) : nil
-    str.kind_of?(Numeric) ? (return str) : nil
-    str.downcase
+  def process_turn_input
+    guess_str = @guess.to_s.downcase
+    answ_str = @card.answer.to_s.downcase
+    guess_str.empty? ? (return false) : nil
+    guess_str = check_numeric(guess_str)
+    answ_str = check_numeric(answ_str)
+    if guess_str.kind_of?(String) && answ_str.kind_of?(String)
+      big_word = answ_str.split
+                      .map {|word| word.delete('?!.*&#')}
+                      .max_by(&:length)
+      match = guess_str.split.select {|word| word == big_word}
+      match.length > 0 ? guess_str = answ_str : nil
+    end
+    # if @card.answer.length > @guess.length
+    #   ans_size_diff = @card.answer.length - @guess.length.to_f
+    #   ans_size_diff_perc = (ans_size_diff / @card.answer.length * 100)
+    #   if ans_size_diff_perc.to_i < 30
+    #     if @card.answer.downcase.include?(str.downcase)
+    #       (return @card.answer.downcase)
+    #     end
+    #   end
+    # end
+    guess_str == answ_str
+  end
+
+  def check_numeric(str)
+    str =~ /.\d/ ? (return str.to_f) : nil
+    str =~ /\d$/ ? (return str.to_i) : str
   end
 end

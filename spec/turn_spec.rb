@@ -55,7 +55,18 @@ describe Turn do
 
   it 'can process an unusual answer' do
     card = Card.new("What is the capital of Alaska?", 52.05, :Geography)
+    card = Card.new("What is the capital of Alaska?", "52.05?", :Geography)
+    turn = Turn.new("52.05", card)
 
-    expect(card.answer).to be_instance_of(Float)
+    expect(turn.correct?).to be true
+  end
+
+  it 'can process an partial answers' do
+    card = Card.new("Best movie of all time?", "Who Framed Roger Rabbit?", "Pop Culture")
+    turn = Turn.new("Framed Roger Rabbit", card)
+
+    expect(turn.guess).to eq("Framed Roger Rabbit")
+    expect(turn.correct?).to eq(true)
+    expect(turn.feedback).to eq("Correct!")
   end
 end

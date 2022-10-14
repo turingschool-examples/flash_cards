@@ -49,7 +49,7 @@ def start
   round.categories.each do |category|
     puts %W[#{category} -
          #{round.percent_correct_by_category(category)} 
-         % correct"].join(' ')
+         % correct].join(' ')
   end
 end
 
