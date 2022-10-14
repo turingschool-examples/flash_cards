@@ -11,7 +11,7 @@ class Round
     @turns = []
     @number_correct = 0
     @correct_by_category = []
-
+    @array_of_categories = []
   end
 
   def current_card
@@ -31,7 +31,6 @@ class Round
   end
 
   def number_correct_by_category(category_correct)
-#not sure about that vvv
     @correct_by_category = []
     @turns.each do |turn|
       if (turn.card.category == category_correct) &&
@@ -55,5 +54,14 @@ class Round
       end
     end
     100.0 * @correct_by_category.length / number_cards_in_cat_so_far
+  end
+
+  def categories_list
+    @turns.each do |turn|
+      unless @array_of_categories.include? turn.card.category
+        @array_of_categories << turn.card.category
+      end
+    end
+    @array_of_categories
   end
 end

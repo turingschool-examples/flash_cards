@@ -6,11 +6,11 @@ class Turn
   end
 
   def correct?
-    @guess == card.answer
+    @guess.downcase == card.answer.downcase
   end
 
   def feedback
-    if @guess == card.answer
+    if @guess.downcase == card.answer.downcase
       return "Correct!"
     else
       return "Incorrect."
