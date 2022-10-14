@@ -21,8 +21,8 @@ class Turn
     guess_str = @guess.to_s.downcase
     answ_str = @card.answer.to_s.downcase
     guess_str.empty? ? (return false) : nil
-    guess_str = check_numeric(guess_str)
-    answ_str = check_numeric(answ_str)
+    guess_str = convert_numeric(guess_str)
+    answ_str = convert_numeric(answ_str)
     if guess_str.kind_of?(String) && answ_str.kind_of?(String)
       big_word = answ_str.split
                       .map {|word| word.delete('?!.*&#')}
@@ -42,7 +42,7 @@ class Turn
     guess_str == answ_str
   end
 
-  def check_numeric(str)
+  def convert_numeric(str)
     str =~ /.\d/ ? (return str.to_f) : nil
     str =~ /\d$/ ? (return str.to_i) : str
   end
