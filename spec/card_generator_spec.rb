@@ -14,14 +14,13 @@ RSpec.describe CardGenerator do
       cards = CardGenerator.new(filename)
     
 
-      expect(cards.card_data).to eq ["Where is the house from the painting American Gothic located?, Eldon IA, Art History", 
-      "What two drivers jointly hold the record for most Formula One World Championships?, Michael Schumacher and Lewis Hamilton, Sports"]
+      expect(cards.card_data).to eq ["Where is the house from the painting American Gothic located?,Eldon IA,Art History", 
+      "What two drivers jointly hold the record for most Formula One World Championships?,Michael Schumacher and Lewis Hamilton,Sports"]
     end
 
-    it 'can convert the text file into a deck' do
+    it 'can convert the text file into cards' do
       cards = CardGenerator.new(filename).cards
-      require 'pry'; binding.pry
-      expect(cards).to eq
+      expect(cards).to be 
     end
   end
 end
