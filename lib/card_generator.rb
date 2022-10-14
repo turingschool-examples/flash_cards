@@ -3,7 +3,6 @@ require 'pry'
 class CardGenerator
   def initialize(filename)
     @filename = filename
-    @list_cards = []
   end
 
   def cards
