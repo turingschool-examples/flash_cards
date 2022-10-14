@@ -10,67 +10,54 @@ describe Round do
       card_1 = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
       card_2 = Card.new('The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?', 'Mars', :STEM)
       card_3 = Card.new('Describe in words the exact direction that is 697.5° clockwise from due north?', 'North north west', :STEM)
-
       cards = [card_1, card_2, card_3]
       deck = Deck.new(cards)
-
       round = Round.new(deck)
 
       expect(round).to be_instance_of(Round)
     end
 
-    it 'has a Deck' do
+    it 'has Decks' do
       card_1 = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
       card_2 = Card.new('The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?', 'Mars', :STEM)
       card_3 = Card.new('Describe in words the exact direction that is 697.5° clockwise from due north?', 'North north west', :STEM)
+      cards_1 = [card_1, card_2, card_3]
+      cards_2 = [card_3, card_1]
+      deck_1 = Deck.new(cards_1)
+      deck_2 = Deck.new(cards_2)
+      round_1 = Round.new(deck_1)
+      round_2 = Round.new(deck_2)
 
-      cards = [card_1, card_2, card_3]
-      deck = Deck.new(cards)
-
-      round = Round.new(deck)
-
-      expect(round.deck).to eq(deck)
+      expect(round_1.deck).to eq(deck_1)
+      expect(round_2.deck).to eq(deck_2)
     end
 
-    it 'has turns' do
+    it 'can have turns' do
       card_1 = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
       card_2 = Card.new('The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?', 'Mars', :STEM)
       card_3 = Card.new('Describe in words the exact direction that is 697.5° clockwise from due north?', 'North north west', :STEM)
-
       cards = [card_1, card_2, card_3]
       deck = Deck.new(cards)
-
       round = Round.new(deck)
 
       expect(round.turns).to eq([])
     end
-
-    it 'can count number of correct answers' do
-      card_1 = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
-      card_2 = Card.new('The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?', 'Mars', :STEM)
-      card_3 = Card.new('Describe in words the exact direction that is 697.5° clockwise from due north?', 'North north west', :STEM)
-
-      cards = [card_1, card_2, card_3]
-      deck = Deck.new(cards)
-
-      round = Round.new(deck)
-
-      expect(round.number_correct).to eq(0)
-    end
   end
 
   describe '#current_card' do
-    it 'returns the first card in the deck' do
+    it 'returns the current card based on turns completed' do
       card_1 = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
       card_2 = Card.new('The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?', 'Mars', :STEM)
       card_3 = Card.new('Describe in words the exact direction that is 697.5° clockwise from due north?', 'North north west', :STEM)
+      cards_1 = [card_1, card_2, card_3]
+      cards_2 = [card_2, card_3, card_1]
+      deck_1 = Deck.new(cards_1)
+      deck_2 = Deck.new(cards_2)
+      round_1 = Round.new(deck_1)
+      round_2 = Round.new(deck_2)
 
-      cards = [card_1, card_2, card_3]
-      deck = Deck.new(cards)
-
-      round = Round.new(deck)
-
-      expect(round.current_card).to eq(card_1)
+      expect(round_1.current_card).to eq(card_1)
+      expect(round_2.current_card).to eq(card_2)
     end
   end
 
@@ -79,23 +66,19 @@ describe Round do
       card_1 = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
       card_2 = Card.new('The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?', 'Mars', :STEM)
       card_3 = Card.new('Describe in words the exact direction that is 697.5° clockwise from due north?', 'North north west', :STEM)
-
       cards = [card_1, card_2, card_3]
       deck = Deck.new(cards)
-
       round = Round.new(deck)
 
       expect(round.take_turn('Juneau')).to be_instance_of(Turn)
     end
 
-    it 'is a class' do
+    it 'creates a new turn object' do
       card_1 = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
       card_2 = Card.new('The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?', 'Mars', :STEM)
       card_3 = Card.new('Describe in words the exact direction that is 697.5° clockwise from due north?', 'North north west', :STEM)
-
       cards = [card_1, card_2, card_3]
       deck = Deck.new(cards)
-
       round = Round.new(deck)
       new_turn = round.take_turn('Juneau')
 
@@ -104,13 +87,10 @@ describe Round do
 
     it 'can call turn methods' do
       card_1 = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
-      card_2 = Card.new(
-        'The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?', 'Mars', :STEM)
+      card_2 = Card.new('The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?', 'Mars', :STEM)
       card_3 = Card.new('Describe in words the exact direction that is 697.5° clockwise from due north?', 'North north west', :STEM)
-
       cards = [card_1, card_2, card_3]
       deck = Deck.new(cards)
-
       round = Round.new(deck)
       new_turn = round.take_turn('Juneau')
 
@@ -121,10 +101,8 @@ describe Round do
       card_1 = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
       card_2 = Card.new('The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?', 'Mars', :STEM)
       card_3 = Card.new('Describe in words the exact direction that is 697.5° clockwise from due north?', 'North north west', :STEM)
-
       cards = [card_1, card_2, card_3]
       deck = Deck.new(cards)
-
       round = Round.new(deck)
       new_turn = round.take_turn('Juneau')
 
@@ -135,18 +113,12 @@ describe Round do
       card_1 = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
       card_2 = Card.new('The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?', 'Mars', :STEM)
       card_3 = Card.new('Describe in words the exact direction that is 697.5° clockwise from due north?', 'North north west', :STEM)
-
       cards = [card_1, card_2, card_3]
       deck = Deck.new(cards)
-
       round = Round.new(deck)
       turn_1 = round.take_turn('Juneau')
-
-      expect(round.turns.count).to eq(1)
-      expect(round.current_card).to eq(card_2)
-
       turn_2 = round.take_turn('Venus')
-
+      
       expect(round.turns.count).to eq(2)
       expect(round.current_card).to eq(card_3)
     end
@@ -157,14 +129,14 @@ describe Round do
       card_1 = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
       card_2 = Card.new('The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?', 'Mars', :STEM)
       card_3 = Card.new('Describe in words the exact direction that is 697.5° clockwise from due north?', 'North north west', :STEM)
-
       cards = [card_1, card_2, card_3]
       deck = Deck.new(cards)
-
       round = Round.new(deck)
-      new_turn = round.take_turn('Juneau')
+      new_turn_1 = round.take_turn('Juneau')
+      new_turn_2 = round.take_turn('Venus')
+      new_turn_3 = round.take_turn('North north west')
 
-      expect(round.number_correct).to eq(1)
+      expect(round.number_correct).to eq(2)
     end
   end
 
@@ -173,10 +145,8 @@ describe Round do
       card_1 = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
       card_2 = Card.new('The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?', 'Mars', :STEM)
       card_3 = Card.new('Describe in words the exact direction that is 697.5° clockwise from due north?', 'North north west', :STEM)
-
       cards = [card_1, card_2, card_3]
       deck = Deck.new(cards)
-
       round = Round.new(deck)
       turn_1 = round.take_turn('Juneau')
       turn_2 = round.take_turn('Mars')
@@ -191,10 +161,8 @@ describe Round do
       card_1 = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
       card_2 = Card.new('The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?', 'Mars', :STEM)
       card_3 = Card.new('Describe in words the exact direction that is 697.5° clockwise from due north?', 'North north west', :STEM)
-
       cards = [card_1, card_2, card_3]
       deck = Deck.new(cards)
-
       round = Round.new(deck)
       turn_1 = round.take_turn('Juneau')
       turn_2 = round.take_turn('Venus')
@@ -209,10 +177,8 @@ describe Round do
       card_1 = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
       card_2 = Card.new('The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?', 'Mars', :STEM)
       card_3 = Card.new('Describe in words the exact direction that is 697.5° clockwise from due north?', 'North north west', :STEM)
-
       cards = [card_1, card_2, card_3]
       deck = Deck.new(cards)
-
       round = Round.new(deck)
       turn_1 = round.take_turn('Juneau')
       turn_2 = round.take_turn('Venus')
