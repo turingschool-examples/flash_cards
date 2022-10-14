@@ -15,10 +15,9 @@ describe Round do
     deck = Deck.new([card_1, card_2, card_3])
     round = Round.new(deck)
 
-    expect(card_1).to be_instance_of(Card)
+    expect(round.deck.cards[0]).to be_instance_of(Card)
     expect(round.deck).to be_instance_of(Deck)
     expect(round).to be_instance_of(Round)
-    expect(round.deck.cards[0]).to be_instance_of(Card)
     expect(round.turns).to eq([])
     expect(round.current_card.answer).to eq("Juneau")
   end

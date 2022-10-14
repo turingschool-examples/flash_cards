@@ -19,6 +19,7 @@ describe Deck do
 
     expect(deck).to be_instance_of(Deck)
     expect(deck.cards[0]).to be_instance_of(Card)
+    expect(deck.cards).to be_instance_of(Array)
   end
 
   it 'knows card count' do
@@ -30,6 +31,7 @@ describe Deck do
     deck = Deck.new([card_1, card_2, card_3])
 
     expect(deck.count).to eq(3)
+    expect(deck.count).to eq([card_1, card_2, card_3].length)
   end
 
   it 'can group based on category' do

@@ -1,21 +1,16 @@
 require './lib/card'
 
 class Turn
+
+  attr_reader :card, :guess
+  
   def initialize(string, card)
-    @guess = process_turn_input(string)
+    @guess = string
     @card = card
   end
 
-  def guess
-    @guess
-  end
-
-  def card
-    @card
-  end
-
   def correct?
-    @guess == process_turn_input(@card.answer)
+    process_turn_input(@guess) == process_turn_input(@card.answer)
   end
 
   def feedback
