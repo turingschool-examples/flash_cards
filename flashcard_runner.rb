@@ -6,7 +6,7 @@ require './lib/card_generator'
 
 require 'pry';
 
-filename = "cards.txt"
+filename = "./lib/cards.txt"
 
 cards = CardGenerator.new(filename).cards_init
 # binding.pry

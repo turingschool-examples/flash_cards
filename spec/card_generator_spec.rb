@@ -52,27 +52,39 @@ end
     # testing how files open and print
     file = File.open("./lib/cards.txt")
     file_data = file.read
-    file_each = file_data.split.join(",")
-    binding.pry
-    file_each.each_slice(3).to_a
-    # def remove_n
-    #   @file_each.each_slice(3).to_a
-    # end
+    file_data.chomp!
+    file_sort = file_data.gsub("\n", ",")
+    file_each = file_sort.split(',')
 
-    # file_cards = file_chomp.sub(/,/, '", "')
-    # binding.pry
-    # we need do an iteration to divide the lines into individual cards
-    f1 = [file_cards[0]]
-    f2 = [file_cards[1]]
-    f3 = [file_cards[2]]
-    f_all = [f1, f2, f3]
-    expect(f_all[0]).to eq ["Question1", "Answer1", "cat1"]
+    file_done = file_each.each_slice(3).to_a
+
+    expect(file_done[0]).to eq ["Question1", "Answer1", "cat1"]
   end
+
+  it 'does all this in a single method' do
 
   # has a .cards_init method that does this. Might be recursion...
     # something to do with |lines|
   # it sorts these into each card
 
+    cards = CardGenerator.new("./lib/cards.txt")
+
+    cards.cards_init
+
   # creates an array
+    expect(cards.sorted_cards).to eq [["Question1", "Answer1", "cat1"], ["Question2", "Answer2", "cat1"], ["Question3", "Answer3", "cat2"]]
+  end
+
+  it 'puts each array grouping into a card class' do
+
+    cards = CardGenerator.new('./lib/cards.txt').cards_init
+  # how to take each index and make them card classes
+    cards_test = File.open("./lib/cards.txt")
+    cards_test_read = cards_test.read
+    cards_test_read.chomp!
+    cards_test_read.gsub
+
+  binding.pry
+  end
 
 end
