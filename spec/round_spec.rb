@@ -237,10 +237,10 @@ RSpec.describe Round do
         round.current_card
 
         new_turn = round.take_turn("Juneau")
-
+require 'pry'; binding.pry
         round.turns
 
-        expect(round.turns).to eq(turns)
+        expect(round.turns).to eq(new_turn)
 
     end
 
