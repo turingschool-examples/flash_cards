@@ -1,7 +1,5 @@
-# require './lib/turn'
 require './lib/card'
 require './lib/deck'
-
 
 RSpec.describe Deck do
 
@@ -41,6 +39,7 @@ RSpec.describe Deck do
       deck = Deck.new(cards)
 
       expect(deck.cards_in_category(:Basics)).to eq([card_1, card_3])
+      expect(deck.cards_in_category(:STEM)).to eq([card_2])
     end
   end
 end
