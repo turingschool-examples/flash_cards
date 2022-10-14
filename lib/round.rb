@@ -17,4 +17,12 @@ class Round
         new_turn_instance
     end
 
+    def number_correct
+        correct_answers = []
+        turns.each do |turn|
+            correct_answers << turn.correct?
+        end
+        correct_answers.count
+    end
+
 end
