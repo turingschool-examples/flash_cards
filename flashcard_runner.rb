@@ -23,13 +23,17 @@ def start(cards, deck, round)
   puts "Welcome! You're playing with #{deck.count} cards"
   puts "-------------------------------------------------"
   # Insert each or other enumerator to iterate each of the cards in deck
-  puts "This is card number #{card_number} out of #{deck.count}"
-  card_number += 1
 
-  puts "Question: #{deck.cards[0].question}"
-  player_guess = gets.chomp
-  new_turn = round.take_turn(player_guess)
-  puts "#{new_turn.feedback}"
+  # deck.cards.each do |card|
+    puts "This is card number #{card_number} out of #{deck.count}"
+    card_number += 1
+
+    puts "Question: #{deck.cards[0].question}"
+    player_guess = gets.chomp
+    new_turn = round.take_turn(player_guess)
+    puts "#{new_turn.feedback}"
+  # end
+
 
   # Once all cards have a <guess> end the enumerator
 
