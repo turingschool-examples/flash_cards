@@ -271,7 +271,6 @@ RSpec.describe Round do
         expect(round.number_correct).to eq(1)
 
     end
-
 #Test 12
 #Checks that the current card has changed to the next one"
 
@@ -294,7 +293,9 @@ RSpec.describe Round do
         round.current_card
 
         new_turn = round.take_turn("Juneau")
-
+        require 'pry'; binding.pry
+        
+        
         round.current_card
 
         expect(round.current_card).to eq(card_2)

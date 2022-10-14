@@ -14,7 +14,9 @@ class Round
     def take_turn(guess)
         new_turn_instance = Turn.new(guess, active_deck.cards[0])
         turns << new_turn_instance
-        new_turn_instance
+        
+        return new_turn_instance
+        
     end
 
     def number_correct
