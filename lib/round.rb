@@ -25,14 +25,10 @@ class Round
     return new_turn
   end
 
-  def number_correct
-    correct_count = 0 
-    turns.each do |turn|
-      if turn.correct? # calls the correct? method from the turn class and if true adds one to the counter
-        correct_count += 1
-      end
+  def number_correct # uses .count to return total of turns with correct guesses
+    correct = turns.count do |turn|
+      turn.correct?
     end
-    correct_count
   end
 
   def number_correct_by_category(category)
