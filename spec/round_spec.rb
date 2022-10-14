@@ -103,10 +103,30 @@ RSpec.describe Round do
 
     end
 
-
-
 #Test 6
 #Checks that method current card pulls up the first card we make
+    it "The current card is card_1" do
+        
+        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+
+        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+
+        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+
+        cards = []
+        cards.push card_1, card_2, card_3
+
+        deck = Deck.new(cards)
+
+        round = Round.new(deck)
+
+        round.turns
+
+        round.current_card
+
+        expect(round.current_card).to eq(card_1)
+        require 'pry'; binding.pry
+    end
 
 #Test 7
 #Checks that method take turn enters a guess into a new turn
