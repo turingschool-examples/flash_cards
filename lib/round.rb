@@ -3,7 +3,7 @@ class Round
 
   def initialize(deck)
     @deck = deck
-    @turns = [] 
+    @turns = []
   end
 
   def current_card
@@ -27,5 +27,19 @@ class Round
     correct_answer_count
   end
 
-
+  def number_correct_by_category(turn_category) 
+    turns_in_category = []
+    @turns.each do |turn|
+      if turn.card.category == turn_category
+        turns_in_category << turn
+      end
+    end
+    correct_by_category = 0
+    turns_in_category.each do |turn|
+      if turn.feedback == "Correct!"
+        correct_by_category += 1
+      end
+    end
+      correct_by_category
+  end
 end
