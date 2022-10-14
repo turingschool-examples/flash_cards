@@ -1,4 +1,5 @@
 require './lib/turn'
+require './lib/deck'
 
 class Round
   attr_reader :deck,
@@ -42,12 +43,11 @@ class Round
   end
 
   def percent_correct
-    correct_answer = (@number_correct.to_f / turns.count * 100)
+    correct_answer = (@number_correct.to_f / @turns.count * 100)
   end
 
-  def percent_correct_by_category(turn_category)
-
-
+  def percent_correct_by_category(current_category)
+    (number_correct_by_category(current_category).to_f / (@deck.cards_in_category(current_category).count) * 100)
   end
-  
+
 end
