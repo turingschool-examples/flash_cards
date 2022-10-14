@@ -35,7 +35,7 @@ class Round
 
 
   def percent_correct
-    100.0 * number_correct / turns.length
+    (100.0 * number_correct / turns.length).round
   end
 
 
