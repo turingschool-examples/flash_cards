@@ -55,6 +55,8 @@ class Game
 
     # game over sequence
     puts " Game over! ".center(25, "*")
+    puts "You had #{} correct guesses out of #{} for a total score of #{}%"
+    
   end
 end
 

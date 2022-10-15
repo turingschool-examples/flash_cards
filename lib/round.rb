@@ -2,12 +2,22 @@
 
 # a round of multiple turns, one for each card in deck
 class Round
-  attr_reader :turns, :deck, :turn_count
+  attr_reader :turns, :deck, :turn_count, :categories
 
   def initialize(deck)
     @deck = deck 
     @turns = [] 
+    @categories = []
+    build_category_list
     @turn_count = 0
+  end
+
+  def build_category_list
+    @deck.cards.each do |card|
+      if !@categories.include? card.category
+        @categories << card.category
+      end
+    end
   end
 
   def current_card

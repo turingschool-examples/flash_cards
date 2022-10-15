@@ -25,6 +25,22 @@ RSpec.describe Round do
 
       expect(round.turns).to eq([])
     end
+
+    it 'creates an array of categories' do
+      cards = [card_1, card_2, card_3]
+      deck = Deck.new(cards)
+      round = Round.new(deck)
+
+      expect(round.categories).to eq([:Basics, :STEM])
+    end
+
+    it 'starts with a turn_count of 0' do
+      cards = [card_1, card_2, card_3]
+      deck = Deck.new(cards)
+      round = Round.new(deck)
+
+      expect(round.turn_count).to eq(0)
+    end
   end
 
   describe '#current_card' do
