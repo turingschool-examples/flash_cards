@@ -3,10 +3,10 @@ require './lib/deck'
 require './lib/round'
 require './lib/turn'
 
-card_1 = Card.new("What is 1+0?", "1", :Math)
-card_2 = Card.new("How many scoops of ice cream?", "2", :Food)
-card_3 = Card.new("How many is a crowd?", "3", :CommonSense)
-card_4 = Card.new("What is the cube root of 64", "4", :Math)
+card_1 = Card.new("Who is Joe's fave?", "Hanna", :Joe)
+card_2 = Card.new("What is sylvie's nickname?", "egg", :Sylvie)
+card_3 = Card.new("What does Loki like best?", "food", :Loki)
+card_4 = Card.new("In 700 BC what was the capital of Assyria ", "Ninevah", :AncientGeography)
 
 cards = [card_1, card_2, card_3, card_4]
 deck = Deck.new(cards)

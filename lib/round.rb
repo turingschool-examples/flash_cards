@@ -20,7 +20,7 @@ class Round
 
   def take_turn(guess)
     current_turn = Turn.new(guess, @deck.cards[0])
-    if guess == @deck.cards[0].answer
+    if guess.downcase == @deck.cards[0].answer.downcase
       @number_correct += 1
     end
 
@@ -34,7 +34,7 @@ class Round
     @correct_by_category = []
     @turns.each do |turn|
       if (turn.card.category == category_correct) &&
-        (turn.guess == turn.card.answer)
+        (turn.guess.downcase == turn.card.answer.downcase)
           @correct_by_category << turn
       end
     end
