@@ -39,12 +39,13 @@ class Round
 
     def take_turn(guess)
       @turns << Turn.new(guess, current_card)
-      if @turns[0].correct?
+      if @turns.last.correct?
         @number_correct += 1
         @cat_score[@num_correct_cat.index(current_card.category)] += 1
       end
-        deck.cards.rotate(1)
-        current_card
+        @deck = Deck.new(@deck.cards.rotate(1))
+        @turns.last
+
         #binding.pry
+      end
     end
-end
