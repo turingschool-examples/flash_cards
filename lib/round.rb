@@ -70,4 +70,13 @@ class Round
     
     end
 
+    def start_round_intro
+    
+    welcome = ["Welcome! You're playing with 4 cards.","-------------------------------------------------
+    ", "This is card number "  ]
+
+    puts 
+
+    end
+
 end
