@@ -1,7 +1,5 @@
 require './lib/card_generator'
-require './lib/card'
 require 'rspec'
-require 'pry' 
 
 describe CardGenerator do
   it 'exists' do
