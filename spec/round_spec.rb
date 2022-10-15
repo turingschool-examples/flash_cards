@@ -55,7 +55,7 @@ RSpec.describe Round do
       deck = Deck.new([card_1, card_2, card_3])
       round = Round.new(deck)
 
-      expect(round.take_turn("Juneau")).to eq(round.turns[0])
+      expect(round.take_turn("Juneau")).to eq(card_1)
 
     #xit 'can go to next card' do
 

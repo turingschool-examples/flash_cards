@@ -24,17 +24,16 @@ class Round
     end
 
     def percent_correct
-      @number_correct.to_f / @turns.length.to_f * 100.00
+      (@number_correct.to_f / @turns.length.to_f * 100).round(1)
     end
 
     def percent_correct_category(category)
       corr_category = 0
-      #@turns.each do |turn|
       corr_category = @turns.find_all do |turn|
         turn.card.category == category
       end.length
-      number_correct_by_category(category) / corr_category * 100.00
-    end
+      (number_correct_by_category(category) / corr_category.to_f * 100).round(1)
+
 
 
     def take_turn(guess)
@@ -48,4 +47,5 @@ class Round
 
         #binding.pry
       end
-    end
+  end
+end

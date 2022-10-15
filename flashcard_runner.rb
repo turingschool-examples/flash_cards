@@ -26,11 +26,17 @@ def start
     if round.turns.length == deck.count
 
       puts "****** Game Over! ******"
+
       puts "you had #{round.number_correct} out of #{deck.count} for a total score of #{round.percent_correct}%."
-      puts "STEM - #{round.number_correct_by_category(:STEM)}"
-      puts "Geography - #{round.number_correct_by_category(:Geography)}"
-      puts "Pop Culture - #{round.number_correct_by_category(:Pop_Culture)}"
+
+      puts "STEM - #{round.percent_correct_category(:STEM)}% correct"
+
+      puts "Geography - #{round.percent_correct_category(:Geography)}% correct"
+
+      puts "Pop Culture - #{round.percent_correct_category(:Pop_Culture)}% correct"
+
     end
+
   end
   #binding.pry
 end
