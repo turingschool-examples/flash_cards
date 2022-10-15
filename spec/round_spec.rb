@@ -72,6 +72,4 @@ RSpec.describe Round do
 
     expect(round.percent_correct_by_category(:Geography)).to eq(100.0)
   end
-
-
 end

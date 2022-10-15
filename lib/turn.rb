@@ -16,6 +16,6 @@ class Turn
       p "Correct!"
     else
       p "Incorrect."
+    end
   end
-end
 end

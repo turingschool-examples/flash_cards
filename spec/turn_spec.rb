@@ -19,6 +19,7 @@ describe 'guess' do
 
     expect(turn.guess).to eq("Juneau")
   end
+end
 
 describe '#correct?' do
   it 'has the correct answer' do
@@ -27,6 +28,7 @@ describe '#correct?' do
 
     expect(turn.correct?).to eq(true)
   end
+end
 
 describe 'feedback' do
   it 'has feedback to the answer' do
@@ -37,7 +39,5 @@ describe 'feedback' do
     expect(turn_1.correct?).to eq(true)
     expect(turn_2.correct?).to eq(false)
   end
-end
-end
-end
+  end
 end
