@@ -25,7 +25,9 @@ class Round
     def number_correct
         correct_answers = []
         turns.each do |turn|
+        if turn.correct? == true
             correct_answers << turn.correct?
+        end
     end
         correct_answers.count
     end
