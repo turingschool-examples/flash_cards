@@ -1,11 +1,3 @@
-require './lib/card'
-
-require './lib/turn'
-
-require './lib/deck'
-
-require './lib/round'
-
 class CardGenerator
   attr_reader :filename, :card_data, :cards_inputted
   def initialize(filename)

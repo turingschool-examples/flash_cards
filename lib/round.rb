@@ -1,5 +1,3 @@
-require './lib/turn'
-
 class Round
   attr_reader :deck, :turns, :correct_turns
   def initialize(deck)

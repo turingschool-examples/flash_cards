@@ -1,11 +1,3 @@
-require './card'
-
-require './turn'
-
-require './deck'
-
-require './round'
-
 require './lib/card_generator'
 
 filename = "./cards.txt"
