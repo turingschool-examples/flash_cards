@@ -29,7 +29,8 @@ puts "Welcome! You're playing with #{total_cards} cards.\n"
 puts '------------------------------------'
 
 # This is the turn loop
-round.current_card
+until round.turns_array.length == total_cards do
+  round.current_card
 puts "This is card number #{round.turn_number} out of #{total_cards}.\n"
 puts "Question: #{round.cur_card.question}"
 print "Your guess => "
@@ -40,19 +41,19 @@ new_turn = round.take_turn(guess)
 new_turn.correct?
 puts new_turn.feedback
 round.turns_array.push(new_turn)
-
-# Here is a second turn instance, for testing
-round.current_card
-puts "This is card number #{round.turn_number} out of #{total_cards}.\n"
-puts "Question: #{round.cur_card.question}"
-print "Your guess => "
-guess = gets.to_s
-guess.chomp!
-new_turn2 = round.take_turn(guess)
-
-new_turn2.correct?
-puts new_turn2.feedback
-round.turns_array.push(new_turn2)
+end
+# # Here is a second turn instance, for testing
+# round.current_card
+# puts "This is card number #{round.turn_number} out of #{total_cards}.\n"
+# puts "Question: #{round.cur_card.question}"
+# print "Your guess => "
+# guess = gets.to_s
+# guess.chomp!
+# new_turn2 = round.take_turn(guess)
+#
+# new_turn2.correct?
+# puts new_turn2.feedback
+# round.turns_array.push(new_turn2)
 
 # This will loop -> until deck = [] <-
 
