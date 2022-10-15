@@ -26,5 +26,13 @@ class Turn
     @guess == card.answer
   end
 
-  def feedback; end
+  def feedback
+    # require 'pry'; binding.pry
+    if correct?
+      'Correct!'
+    else
+      'Incorrect.'
+    end
+      
+  end
 end
