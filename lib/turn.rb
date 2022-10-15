@@ -4,24 +4,20 @@ class Turn
   def initialize(card, guess)
     @card = card
     @guess = guess
-  
   end
 
   def correct?
-    # require 'pry'; binding.pry
-    
-    if guess.class == card.answer.class
-      if guess.class == String
+    if guess.instance_of?(card.answer.class)
+      if guess.instance_of?(String)
         @guess.downcase.strip == card.answer.downcase
       else
         guess == card.answer
       end
-    elsif card.answer.class == Integer && guess.class == Float
+    elsif card.answer.instance_of?(Integer) && guess.instance_of?(Float)
       guess.to_i == card.answer
     else
       false
     end
-    
   end
 
   def feedback

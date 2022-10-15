@@ -1,10 +1,9 @@
 class Round
-  attr_reader :deck, :turns, :current_card
+  attr_reader :deck, :turns
 
   def initialize(deck)
     @deck = deck
     @turns = []
-    @current_card = []
     @deck_size = deck.cards.length
   end
 
@@ -50,17 +49,13 @@ class Round
   def start
     puts " Welcome! You're playing with #{@deck_size} cards."
     puts '-------------------------------------------------'
-    # require 'pry'; binding.pry
     count = 0
-    while deck.cards.length > 0
-      # code to execute as long as condition evaluates to true
+    while deck.cards.length.positive?
       puts "This is card number #{count += 1} out of #{@deck_size}."
       puts "#{deck.cards[0].question}"
       new_turn = take_turn(gets)
-      # require 'pry'; binding.pry
       puts new_turn.feedback
-     end
-
+    end
   end
 
   def complete
