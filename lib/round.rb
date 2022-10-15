@@ -1,27 +1,59 @@
 class Round
-    attr_reader :deck
+    attr_reader :deck, :current_card, :turns 
+
     def initialize(deck)
         @deck = deck
+        @turns = []
+        # @current_card = deck.cards[0]
+        @current_card = []
     end
+
+    def current_card
+        @current_card = deck.cards[0]
+    end
+
+
+    # method is a behaviour
 
     # def take_turn(guess_string)
     #     @turn = Turn.new(guess_string, card)
     # end
 
-    def turns
-        turns = []
-    end
+    # def turns
+    #     turns = []
+    # end
 
-    def current_card
-        deck.cards[0]
-    end
+    # def current_card
+    #     deck.cards[0]
+    # end
 
     def take_turn(guess)
         # require 'pry'; binding.pry
-        turn = Turn.new(deck.cards[0], guess)
-        turns << turn
+        turn = Turn.new(current_card, guess)
+        @turns << turn
+        # require 'pry'; binding.pry
+        deck.cards.shift
+        return turn
     
     end
+
+    def number_correct
+        score = 0
+        turns.each do |turn|
+            if turn.correct?
+                score += 1
+            end
+            # require 'pry'; binding.pry
+        end
+        score
+    end
+
+
+    
+
+    
+
+   
 
 
 
