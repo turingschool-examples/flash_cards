@@ -29,4 +29,5 @@ deck = Deck.new(cards)
 round = Round.new(deck)
 
 round.start
-round.ask_question
+round.ask_questions
+round.game_over
