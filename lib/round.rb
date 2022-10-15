@@ -33,13 +33,18 @@ class Round
     end
 
     def number_correct_by_category(category_entry_check)
-        correct_answers_cat = []
+        matching_category_turn = []
         turns.each do |turn|
             if turn.card.category == category_entry_check
-                correct_answers_cat << turn.card.category
+                matching_category_turn << turn.correct?
             end
         end
-        correct_answers_cat.count
+        matching_category_turn.count
+        # correct_answers_cat = []
+        #     if matching_category_turn.correct? == true
+        #         correct_answers_cat << matching_category_turn.correct?
+        #     end
+        # correct_answers_cat
     end
 
 end

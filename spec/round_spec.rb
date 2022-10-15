@@ -485,7 +485,7 @@ RSpec.describe Round do
         new_turn2 = round.take_turn("Venus")
 
         round.number_correct_by_category(:STEM)
-
+require 'pry'; binding.pry
         expect(round.number_correct_by_category(:STEM)).to eq(0)
 
     end
