@@ -32,14 +32,19 @@ class Round
         correct_answers.count
     end
 
-    def number_correct_by_category(category)
-        correct_answers_by_category = []
-        turns.category.each do |turn|
+    def number_correct_by_category(category_entry_check)
+        correct_answers_cat = []
+        turns.each do |turn|
             if turn.correct? == true
-                correct_answers_by_category << turn.correct?
+                correct_answers_cat << turn.correct?
             end
         end
-        correct_answers_by_category.count
+        correct_turn_category = []
+        correct_answers_by_category.each do |turn_correct|
+                if turn_correct.active_deck.cards.card.category == category_entry_check
+                    correct_turn_category << turn_correct
+                end
+            end
     end
 
 end
