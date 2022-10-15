@@ -13,7 +13,14 @@ class Start
   deck = Deck.new([card_1, card_2, card_3, card_4])
   round = Round.new(deck)
 
-  p "Welcome to Flashcards!"
+  p "Welcome to"
+  puts "    _/_/_/_/  _/          _/_/      _/_/_/  _/    _/    _/_/_/    _/_/    _/_/_/    _/_/_/      _/_/_/   "
+  puts "   _/        _/        _/    _/  _/        _/    _/  _/        _/    _/  _/    _/  _/    _/  _/          "
+  puts "  _/_/_/    _/        _/_/_/_/    _/_/    _/_/_/_/  _/        _/_/_/_/  _/_/_/    _/    _/    _/_/       "
+  puts " _/        _/        _/    _/        _/  _/    _/  _/        _/    _/  _/    _/  _/    _/        _/      "
+  puts "_/        _/_/_/_/  _/    _/  _/_/_/    _/    _/    _/_/_/  _/    _/  _/    _/  _/_/_/    _/_/_/         "
+                                                             
+                                                                       
   p "Please enter your name"
   name = gets.chomp
 
@@ -21,14 +28,16 @@ class Start
   p "-------------------------------------------------"
   p "This is card number #{round.turns.size + 1} out of #{round.deck.cards.length}."
   #Start game, round one. Print card_1(1) to terminal
-  puts "Question:" 
-
+  puts "Question:" #add card question => deck first position card first position in card
   guess = gets.chomp
-
+  #Check guess - if guess == answer, return correct. else return incorrect
+  p "Next round"
+  #loop back to line 22
+  #once deck is empty
   p "****** Game over! ******"
   p "You had #{round.number_correct} correct guesses out of #{round.turns.length} for a total score of #{round.percent_correct}."
   p "STEM - #{round.percent_correct_by_category(:STEM)}% correct"
   p "Turing Staff - #{round.percent_correct_by_category(:TuringStaff)}% correct"
   p "Pop Culture - #{round.percent_correct_by_category(:PopCulture)}% correct"
-  
+  #would you like to play again? if yes, return to line 16, else quit
 end
