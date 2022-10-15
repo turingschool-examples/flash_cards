@@ -429,7 +429,7 @@ RSpec.describe Round do
 #Test 17
 #Checks the number of correct answers in the round by category, Geography"
 
-    xit "What are the number of correct answers in category Geography for round?" do
+    it "What are the number of correct answers in category Geography for round?" do
 
         card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
@@ -454,7 +454,7 @@ RSpec.describe Round do
 
         round.number_correct_by_category(:Geography)
 
-        expect(round.number_correct_by_category).to eq(1)
+        expect(round.number_correct_by_category(:Geography)).to eq(1)
 
     end
 
