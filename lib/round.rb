@@ -1,5 +1,5 @@
 class Round
-  attr_reader :deck, :current_card, :turns
+  attr_reader :deck, :turns, :current_card
 
   def initialize(deck)
     @deck = deck
@@ -50,8 +50,15 @@ class Round
   def start
     puts " Welcome! You're playing with #{@deck_size} cards."
     puts '-------------------------------------------------'
-    puts "This is card number 1 out of #{@deck_size}."
-    puts "#{deck.cards[0].question}"
+    # require 'pry'; binding.pry
+    while deck.cards.length > 0
+      # code to execute as long as condition evaluates to true
+      puts "This is card number 1 out of #{@deck_size}."
+      puts "#{deck.cards[0].question}"
+      new_turn = take_turn(gets.strip.downcase)
+      puts new_turn.feedback
+     end
+
   end
 
   def complete
