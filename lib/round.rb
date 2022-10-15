@@ -15,11 +15,17 @@ class Round
         new_turn_instance = Turn.new(guess, active_deck.cards[0])
         turns << new_turn_instance
         
+        new_turn_order = active_deck.cards.rotate(1)
+        active_deck.cards.replace(new_turn_order)
+        
         return new_turn_instance
+        
+
         
     end
 
-    def number_correct
+   
+        def number_correct
         correct_answers = []
         turns.each do |turn|
             correct_answers << turn.correct?

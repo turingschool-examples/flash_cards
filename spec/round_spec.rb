@@ -292,9 +292,7 @@ RSpec.describe Round do
 
         round.current_card
 
-        new_turn = round.take_turn("Juneau")
-        require 'pry'; binding.pry
-        
+        new_turn = round.take_turn("Juneau")      
         
         round.current_card
 
