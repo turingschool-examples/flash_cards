@@ -11,13 +11,4 @@ RSpec.describe Turn do
       require 'pry'; binding.pry
     end
 
-    # test it returns guess
-    # test it returns card
-    # test it resturns boolean?
-    # test it returns "Correct!" or "Incorrect." based on
-    # whether the guess was correct or not.
-    # test it provides feedback
-
-    
-
   end
