@@ -10,6 +10,10 @@ class Deck
         @cards.length
     end
 
+    def current_card
+        @cards[0]
+    end
+
     def cards_in_category(category)
         @cards.select{|card| card.category == category}
     end
