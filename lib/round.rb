@@ -39,11 +39,16 @@ class Round
                 matching_category_turn << turn
             end
         end
-        # correct_category_answers = []
-        #     if matching_category_turn.correct? == true
-        #         correct_category_answers << matching_category_turn.correct?
-        #     end
-        # correct_category_answers
+        matching_category_turn
+        correct_category_cards = []
+            matching_category_turn.each do |match_cat_turn|
+                if match_cat_turn.correct? == true
+                    correct_category_cards << match_cat_turn.correct?
+                end
+            end
+        correct_category_cards.count
+
+      
         
     end
 
