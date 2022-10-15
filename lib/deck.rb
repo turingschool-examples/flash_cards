@@ -1,22 +1,24 @@
 class Deck
-    attr_reader :guess, :card
-    def initialize (cards)
-  @card = cards
-  @count = cards.length
-end
-
-def cards_category(category)
-  category_collection = []
-  @cards.each do |card|
-    if card.category == category
-      category_collection << card
-    end
+  attr_reader :guess, :card
+  def initialize (cards)
+    @card = cards
   end
 
-end
-
-def count
+  def count
     card.length
-end
+  end
 
+
+  def cards_category(category)
+
+
+    category_collection = []
+    @card.each do |card1|
+
+      if card1.category == category
+        category_collection << card1
+      end
+    end
+    return category_collection
+  end
 end
