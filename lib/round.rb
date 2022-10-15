@@ -37,23 +37,17 @@ class Round
 
   end
 
-
   def percent_correct
     percent_correct = ((@number_correct.to_f / turns.count)) * 100.00
   end
 
-
-
-
-
-
   def percent_correct_by_category(category)
-    #just returns the whole card
-    @turns.each do |card_turn|
-      if category == card_turn.guess
-       return percent_correct = (@number_correct / @turns.count) * 100.00
+    correct_in_category.each do |turn|
+      if turn.card.category == category
+       percent_correct = (@correct_in_category.count / @turns.count) * 100.00
       end
     end
+    return percent_correct
   end
 
 end
