@@ -15,7 +15,7 @@ class Round
 
   def take_turn(guess)
     @turns.push Turn.new(guess, current_card)
-    if @turns.last.card.answer.downcase == @turns.last.guess.downcase
+    if @turns.last.correct?
       @correct_turns.push turns.last
     end
     @turns.last
