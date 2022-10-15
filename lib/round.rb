@@ -25,6 +25,25 @@ class Round
     return new_turn
   end
 
+  def number_correct_by_category(category)
+      turns.find_all do |turn|
+        turn.card.category == category &&
+        turn.guess == turn.card.answer
+        turns << turn
+      end
+    return turns.count
+  end
+
+  def percent_correct
+    number_correct.to_f / turns.count.to_f * 50.00
+  end
+
+  def percent_correct_by_category
+    number_correct.to_f /
+    number_correct_by_category(:Geography).to_f * 100
+  end
+
+
 
 
 end
