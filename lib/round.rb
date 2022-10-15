@@ -13,11 +13,7 @@ class Round
   end
 
   def build_category_list
-    @deck.cards.each do |card|
-      if !@categories.include? card.category
-        @categories << card.category
-      end
-    end
+    @categories = deck.cards.map { |card| card.category }.uniq    
   end
 
   def current_card
