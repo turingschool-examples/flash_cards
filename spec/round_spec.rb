@@ -453,7 +453,7 @@ RSpec.describe Round do
         new_turn2 = round.take_turn("Venus")
 
         round.number_correct_by_category(:Geography)
-require 'pry'; binding.pry
+
         expect(round.number_correct_by_category(:Geography)).to eq(1)
 
     end
@@ -461,7 +461,7 @@ require 'pry'; binding.pry
 #Test 18
 #Checks the number of correct answers in the round by category, STEM"
 
-    xit "what are the number of correct answers in the round by category STEM" do
+    it "what are the number of correct answers in the round by category STEM" do
 
         card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
@@ -485,7 +485,7 @@ require 'pry'; binding.pry
         new_turn2 = round.take_turn("Venus")
 
         round.number_correct_by_category(:STEM)
-require 'pry'; binding.pry
+
         expect(round.number_correct_by_category(:STEM)).to eq(0)
 
     end
