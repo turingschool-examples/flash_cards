@@ -1,5 +1,4 @@
-#initialized w/ array of Card objects.
-#should also return cards based on given category
+
 
 class Deck
 
