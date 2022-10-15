@@ -51,11 +51,13 @@ class Round
     puts " Welcome! You're playing with #{@deck_size} cards."
     puts '-------------------------------------------------'
     # require 'pry'; binding.pry
+    count = 0
     while deck.cards.length > 0
       # code to execute as long as condition evaluates to true
-      puts "This is card number 1 out of #{@deck_size}."
+      puts "This is card number #{count += 1} out of #{@deck_size}."
       puts "#{deck.cards[0].question}"
-      new_turn = take_turn(gets.strip.downcase)
+      new_turn = take_turn(gets)
+      # require 'pry'; binding.pry
       puts new_turn.feedback
      end
 
