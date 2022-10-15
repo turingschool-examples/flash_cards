@@ -9,7 +9,7 @@ class Round
     end
 
     def current_card
-        @deck.cards[0]
+        @deck.current_card
     end
 
     def take_turn(guess, card = current_card)
@@ -34,12 +34,11 @@ class Round
     end
 
     def percent_correct
-        @number_correct.fdiv(@turns.length) * 100.0
+        @number_correct.fdiv(@turns.length).round(3) * 100.0
     end
 
     def percent_correct_by_category(category)
-        #refactor (look at deck method)
-        number_correct_by_category(category).fdiv(@turns.count{|turn| turn.card.category == category}) * 100.0
+        number_correct_by_category(category).fdiv(@deck.category_data[category].length).round(3) * 100.0
     end
 
 end
