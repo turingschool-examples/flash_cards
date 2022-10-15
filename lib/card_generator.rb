@@ -3,21 +3,21 @@ class CardGenerator
   def initialize(filename)
     # require 'pry'; binding.pry
     @text = File.read(filename)
-    # def cards(text.split(','))
-    #     require 'pry'; binding.pry
-    # end
-    # require 'pry'; binding.pry
+ 
 
   end
 
   def cards
-    # (@text.split(',').card)
-    #     @question = question
-    #     @answer = answer
-    #     @category = category
+    deck = []
+    text.each_line do |card| 
+        deck << Card.new(card.chomp.split(',')[0],card.chomp.split(',')[1],card.chomp.split(',')[2])
+        # require 'pry'; binding.pry
+    end
 
-    # end
 
-    Card.new(text.split(',')[0],text.split(',')[1],text.split(',')[2])
+
+    # Card.new(text.split(',')[0],text.split(',')[1],text.split(',')[2])
+    # require 'pry'; binding.pry
+    Deck.new(deck)
   end
 end
