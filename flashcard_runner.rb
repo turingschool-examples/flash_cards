@@ -5,11 +5,10 @@ require './lib/round'
 require './lib/card_generator'
 
 require 'pry';
+# v Don't need this variable, can place file directly in argument v
+# filename = "./lib/cards.txt"
 
-filename = "./lib/cards.txt"
-
-cards = CardGenerator.new(filename).cards_init
-# binding.pry
+cards_gen = CardGenerator.new('./lib/cards.txt').cards_init
 
 # Initial Setup
 ## All cards will be replaced with cards.txt
@@ -18,8 +17,8 @@ cards = CardGenerator.new(filename).cards_init
     # card_3 = Card.new("Question3", "Answer3", :cat2)
 
     # cards = [card_1, card_2, card_3]
-
-total_cards = cards.length
+cards = cards_gen.map{|c| c = Card.new(c)}
+total_cards = cards_gen.length
 
 deck = Deck.new(cards)
 

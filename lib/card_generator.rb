@@ -8,14 +8,15 @@ class CardGenerator
     @sorted_cards = []
   end
 
-  def cards_init
+  def cards_init #v1
     # I can totally refactor this now that I know it works, does not need all the vars
+      # Actually I don't know if there's a way to use less variables.
       file = File.open(@filename)
       file_read = file.read
       file_read.chomp!
-      file_gsub = file_read.gsub("\n", ",")
+      file_read.gsub!("\n", ",")
 
-      file_split = file_gsub.split(',')
+      file_split = file_read.split(',')
       file_fancy = file_split.map.with_index {|v,i|
         if (i+1) % 3 == 0
         then v.to_sym
