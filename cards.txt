@@ -1,4 +1,10 @@
+# follow format exactly to add your own questions and answers!
+# question,answer,category
 What is 5 + 5?,10,STEM
 What is Rachel's favorite animal?,red panda,Turing Staff
 What is Mike's middle name?,nobody knows,Turing Staff
 What cardboard cutout lives at Turing?,Justin bieber,PopCulture
+Who won the 2021 F1 Drivers Chanpionship?,Max Verstappen,Sports
+Who was eliminated in the 2022 Wilcard Round of MLB Playoffs: Seattle or Toronto?,Toronto,Sports
+What city in Ontario is the capital of Canada?,Ottawa,Geography
+What city is the capital of Ontario?,Toronto,Geography
