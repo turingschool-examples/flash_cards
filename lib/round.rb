@@ -34,22 +34,22 @@ class Round
   end
 
   def percent_correct
-    @correct_turns.length.to_f / @turns.length.to_f * 100.0
+    @correct_turns.length.to_f / @turns.length * 100.0
   end
 
   def percent_correct_by_category(category)
-    @category_asked_amount = 0.0
-    @category_correct_amount = 0.0
+    
 
-    @correct_turns.each do |correct_card|
-      @category_correct_amount += 1.0 if correct_card.card.category.downcase == category.downcase
+    category_correct_amount = @correct_turns.count do |correct_card|
+      correct_card.card.category.downcase == category.downcase
     end
 
-    @turns.each do |turn|
-      @category_asked_amount += 1.0 if turn.card.category.downcase == category.downcase
+    
+    category_asked_amount = @turns.count do |turn|
+      turn.card.category.downcase == category.downcase
     end
 
-    @category_correct_amount / @category_asked_amount * 100.0
+    category_correct_amount.to_f / category_asked_amount * 100.0
   end
 
   def card_number

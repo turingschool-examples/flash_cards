@@ -8,7 +8,7 @@ require './round'
 
 require './lib/card_generator'
 
-filename = "./lib/cards.txt"
+filename = "./cards.txt"
 
 RSpec.describe CardGenerator do
   describe '#initialize' do
