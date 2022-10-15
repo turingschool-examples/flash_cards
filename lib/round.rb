@@ -18,8 +18,7 @@ class Round
         @number_correct += 1 if turn.correct?
         @feedback = turn.feedback
         @turns << turn
-        #refactor. let the object deck manipulate its own data, just send it a message
-        @deck.cards.shift
+        deck.change_card
         turn
     end
 
