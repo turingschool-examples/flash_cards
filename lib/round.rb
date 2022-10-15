@@ -32,6 +32,10 @@ class Round
     target.select { |turn| turn.card.category == category }
   end
   
+  def cards_in_round
+    @deck.cards.count
+  end
+  
   def number_correct
     correct_answers.count
   end
