@@ -17,21 +17,21 @@ RSpec.describe CardGenerator do
 
   # contains cards.txt as filename
   it 'stores filename' do
-    filename = "cards.txt"
+    filename = "cards_for_spec.txt"
 
     cards = CardGenerator.new(filename)
 
-    expect(cards.filename).to eq "cards.txt"
+    expect(cards.filename).to eq "cards_for_spec.txt"
   end
 
   # cards.txt is able to print as pure text
   it 'can print cards.txt' do
-    filename = "./lib/cards.txt"
+    filename = "./lib/cards_for_spec.txt"
 
     cards = CardGenerator.new(filename)
 
     # testing how files open and print
-    file = File.open("./lib/cards.txt")
+    file = File.open("./lib/cards_for_spec.txt")
     file_data = file.read
 
     expect(file_data).to eq "Question1,Answer1,cat1\nQuestion2,Answer2,cat1\nQuestion3,Answer3,cat2\n"
@@ -40,7 +40,7 @@ end
   # it recognizes each line as a separate card instance
   it 'can split the text into an array' do
     # testing how files open and print
-    file = File.open("./lib/cards.txt")
+    file = File.open("./lib/cards_for_spec.txt")
     file_data = file.read
     file_cards = file_data.lines(chomp: true)
 
@@ -50,7 +50,7 @@ end
   # it recognizes each comma as question, answer, category
   it 'keeps splitting the text into multiple arrays' do
     # testing how files open and print
-    file = File.open("./lib/cards.txt")
+    file = File.open("./lib/cards_for_spec.txt")
     file_data = file.read
     file_data.chomp!
     file_sort = file_data.gsub("\n", ",")
@@ -63,7 +63,7 @@ end
 
   it 'does all this in a single method' do
     # here's the single method, .cards_init
-    cards = CardGenerator.new("./lib/cards.txt")
+    cards = CardGenerator.new("./lib/cards_for_spec.txt")
 
     cards.cards_init
 
@@ -73,7 +73,7 @@ end
 
   it 'puts each array grouping into a card class' do
 
-    cards_gen = CardGenerator.new('./lib/cards.txt').cards_init
+    cards_gen = CardGenerator.new('./lib/cards_for_spec.txt').cards_init
     # how to take each array element and make them card classes
 
     deck = cards_gen.map{|c| c = Card.new(c)}

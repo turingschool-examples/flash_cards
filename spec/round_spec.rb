@@ -4,7 +4,6 @@ require './lib/deck'
 require './lib/round'
 
  require 'pry';
- #binding.pry
 
 RSpec.describe Round do
   # exists
@@ -15,10 +14,10 @@ RSpec.describe Round do
   end
 
   it 'contains a deck' do
-  # contains a deck
-    card_1 = Card.new("Question1", "Answer1", :cat1)
-    card_2 = Card.new("Question2", "Answer2", :cat1)
-    card_3 = Card.new("Question3", "Answer3", :cat2)
+    # contains a deck
+    card_1 = Card.new(card_array = ["Question1", "Answer1", :cat1])
+    card_2 = Card.new(card_array = ["Question2", "Answer2", :cat1])
+    card_3 = Card.new(card_array = ["Question3", "Answer3", :cat2])
 
     deck = Deck.new([card_1, card_2, card_3])
 
@@ -28,10 +27,10 @@ RSpec.describe Round do
   end
 
   it 'has a turn counter, empty in beginning' do
-  # contains turn counter
-    card_1 = Card.new("Question1", "Answer1", :cat1)
-    card_2 = Card.new("Question2", "Answer2", :cat1)
-    card_3 = Card.new("Question3", "Answer3", :cat2)
+    # contains turn counter
+    card_1 = Card.new(card_array = ["Question1", "Answer1", :cat1])
+    card_2 = Card.new(card_array = ["Question2", "Answer2", :cat1])
+    card_3 = Card.new(card_array = ["Question3", "Answer3", :cat2])
 
     deck = Deck.new([card_1, card_2, card_3])
 
@@ -41,10 +40,10 @@ RSpec.describe Round do
   end
 
   it 'pulls current card (topdeck)' do
-  # displays current card deck.cards[0] (clean this up)
-    card_1 = Card.new("Question1", "Answer1", :cat1)
-    card_2 = Card.new("Question2", "Answer2", :cat1)
-    card_3 = Card.new("Question3", "Answer3", :cat2)
+    # displays current card deck.cards[0] (clean this up)
+    card_1 = Card.new(card_array = ["Question1", "Answer1", :cat1])
+    card_2 = Card.new(card_array = ["Question2", "Answer2", :cat1])
+    card_3 = Card.new(card_array = ["Question3", "Answer3", :cat2])
 
     deck = Deck.new([card_1, card_2, card_3])
 
@@ -54,10 +53,10 @@ RSpec.describe Round do
   end
 
   it 'can create a take_turn method' do
-  # has new_turn method which is round.take_turn("guess")
-    card_1 = Card.new("Question1", "Answer1", :cat1)
-    card_2 = Card.new("Question2", "Answer2", :cat1)
-    card_3 = Card.new("Question3", "Answer3", :cat2)
+    # has new_turn method which is round.take_turn("guess")
+    card_1 = Card.new(card_array = ["Question1", "Answer1", :cat1])
+    card_2 = Card.new(card_array = ["Question2", "Answer2", :cat1])
+    card_3 = Card.new(card_array = ["Question3", "Answer3", :cat2])
 
     deck = Deck.new([card_1, card_2, card_3])
 
@@ -68,9 +67,9 @@ RSpec.describe Round do
 
   it 'can create a new Turn class with round.take_turn' do
     # new_turn is actually a Turn class? does that mean that occurs in turn.rb
-    card_1 = Card.new("Question1", "Answer1", :cat1)
-    card_2 = Card.new("Question2", "Answer2", :cat1)
-    card_3 = Card.new("Question3", "Answer3", :cat2)
+    card_1 = Card.new(card_array = ["Question1", "Answer1", :cat1])
+    card_2 = Card.new(card_array = ["Question2", "Answer2", :cat1])
+    card_3 = Card.new(card_array = ["Question3", "Answer3", :cat2])
 
     deck = Deck.new([card_1, card_2, card_3])
 
@@ -83,9 +82,9 @@ RSpec.describe Round do
 
   it 'holds the current_card in the new_turn' do
     # new_turn can return .correct? (makes sense why it's in the turn class now)
-    card_1 = Card.new("Question1", "Answer1", :cat1)
-    card_2 = Card.new("Question2", "Answer2", :cat1)
-    card_3 = Card.new("Question3", "Answer3", :cat2)
+    card_1 = Card.new(card_array = ["Question1", "Answer1", :cat1])
+    card_2 = Card.new(card_array = ["Question2", "Answer2", :cat1])
+    card_3 = Card.new(card_array = ["Question3", "Answer3", :cat2])
 
     cards = [card_1, card_2, card_3]
 
@@ -101,9 +100,9 @@ RSpec.describe Round do
 
   it 'can access .correct? with right answer' do
     # new_turn can return .correct? (makes sense why it's in the turn class now)
-    card_1 = Card.new("Question1", "Answer1", :cat1)
-    card_2 = Card.new("Question2", "Answer2", :cat1)
-    card_3 = Card.new("Question3", "Answer3", :cat2)
+    card_1 = Card.new(card_array = ["Question1", "Answer1", :cat1])
+    card_2 = Card.new(card_array = ["Question2", "Answer2", :cat1])
+    card_3 = Card.new(card_array = ["Question3", "Answer3", :cat2])
 
     cards = [card_1, card_2, card_3]
 
@@ -119,9 +118,9 @@ RSpec.describe Round do
 
   it 'stores the turn information that was used' do
     # entire turn information gets stored into round's turns_array array
-    card_1 = Card.new("Question1", "Answer1", :cat1)
-    card_2 = Card.new("Question2", "Answer2", :cat1)
-    card_3 = Card.new("Question3", "Answer3", :cat2)
+    card_1 = Card.new(card_array = ["Question1", "Answer1", :cat1])
+    card_2 = Card.new(card_array = ["Question2", "Answer2", :cat1])
+    card_3 = Card.new(card_array = ["Question3", "Answer3", :cat2])
 
     cards = [card_1, card_2, card_3]
 
@@ -143,9 +142,9 @@ RSpec.describe Round do
 
   it 'can display the number of turns in array' do
   ####### Initial Setup
-        card_1 = Card.new("Question1", "Answer1", :cat1)
-        card_2 = Card.new("Question2", "Answer2", :cat1)
-        card_3 = Card.new("Question3", "Answer3", :cat2)
+        card_1 = Card.new(card_array = ["Question1", "Answer1", :cat1])
+        card_2 = Card.new(card_array = ["Question2", "Answer2", :cat1])
+        card_3 = Card.new(card_array = ["Question3", "Answer3", :cat2])
 
         cards = [card_1, card_2, card_3]
 
@@ -179,9 +178,9 @@ RSpec.describe Round do
     # logs number correct
 
     ########### Initial Setup
-    card_1 = Card.new("Question1", "Answer1", :cat1)
-    card_2 = Card.new("Question2", "Answer2", :cat1)
-    card_3 = Card.new("Question3", "Answer3", :cat2)
+    card_1 = Card.new(card_array = ["Question1", "Answer1", :cat1])
+    card_2 = Card.new(card_array = ["Question2", "Answer2", :cat1])
+    card_3 = Card.new(card_array = ["Question3", "Answer3", :cat2])
 
     cards = [card_1, card_2, card_3]
 
@@ -213,9 +212,9 @@ RSpec.describe Round do
 
   it 'can turn that number into a percent' do
     # divides number correct by total cards
-    card_1 = Card.new("Question1", "Answer1", :cat1)
-    card_2 = Card.new("Question2", "Answer2", :cat1)
-    card_3 = Card.new("Question3", "Answer3", :cat2)
+    card_1 = Card.new(card_array = ["Question1", "Answer1", :cat1])
+    card_2 = Card.new(card_array = ["Question2", "Answer2", :cat1])
+    card_3 = Card.new(card_array = ["Question3", "Answer3", :cat2])
 
     cards = [card_1, card_2, card_3]
 
@@ -250,9 +249,9 @@ RSpec.describe Round do
     # not necessarily, but .shift should still work here, because cards_remaining
     # displays new current card
     # take turn happens
-    card_1 = Card.new("Question1", "Answer1", :cat1)
-    card_2 = Card.new("Question2", "Answer2", :cat1)
-    card_3 = Card.new("Question3", "Answer3", :cat2)
+    card_1 = Card.new(card_array = ["Question1", "Answer1", :cat1])
+    card_2 = Card.new(card_array = ["Question2", "Answer2", :cat1])
+    card_3 = Card.new(card_array = ["Question3", "Answer3", :cat2])
 
     cards = [card_1, card_2, card_3]
 
@@ -280,9 +279,9 @@ RSpec.describe Round do
 
   it 'can access the last turn feedback' do
     # reveals correct or incorrect with round.turns.last.feedback
-    card_1 = Card.new("Question1", "Answer1", :cat1)
-    card_2 = Card.new("Question2", "Answer2", :cat1)
-    card_3 = Card.new("Question3", "Answer3", :cat2)
+    card_1 = Card.new(card_array = ["Question1", "Answer1", :cat1])
+    card_2 = Card.new(card_array = ["Question2", "Answer2", :cat1])
+    card_3 = Card.new(card_array = ["Question3", "Answer3", :cat2])
 
     cards = [card_1, card_2, card_3]
 
@@ -312,9 +311,9 @@ RSpec.describe Round do
   it 'can access the category of a correct answer, returns length?' do
     # stores number correct by category
     ########### Initial Setup
-    card_1 = Card.new("Question1", "Answer1", :cat1)
-    card_2 = Card.new("Question2", "Answer2", :cat1)
-    card_3 = Card.new("Question3", "Answer3", :cat2)
+    card_1 = Card.new(card_array = ["Question1", "Answer1", :cat1])
+    card_2 = Card.new(card_array = ["Question2", "Answer2", :cat1])
+    card_3 = Card.new(card_array = ["Question3", "Answer3", :cat2])
 
     cards = [card_1, card_2, card_3]
 
@@ -347,9 +346,9 @@ RSpec.describe Round do
   it 'can turn that number into a percent' do
     # divides number correct by total cards IN THAT CATEGORY
     ########### Initial Setup
-    card_1 = Card.new("Question1", "Answer1", :cat1)
-    card_2 = Card.new("Question2", "Answer2", :cat1)
-    card_3 = Card.new("Question3", "Answer3", :cat2)
+    card_1 = Card.new(card_array = ["Question1", "Answer1", :cat1])
+    card_2 = Card.new(card_array = ["Question2", "Answer2", :cat1])
+    card_3 = Card.new(card_array = ["Question3", "Answer3", :cat2])
 
     cards = [card_1, card_2, card_3]
 
@@ -376,7 +375,7 @@ RSpec.describe Round do
     new_turn2.feedback
     round.turns_array.push(new_turn2)
 
-    expect(round.percent_correct_by_category(:cat2)).to eq 0.0
+    expect(round.percent_correct_by_category(:cat1)).to eq 50.0
 
   end
 
