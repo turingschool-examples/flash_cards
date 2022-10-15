@@ -1,3 +1,10 @@
-Question1,Answer1,cat1
-Question2,Answer2,cat1
-Question3,Answer3,cat2
+Who is the 6-time disc golf world champion?,Paul McBeth,Disc golf
+Which touring pro sponsored by MVP has incredible hair?,James Conrad,Disc golf
+What is the best disc known to mankind?,Berg,Disc golf
+Which team won the 2022 Stanley Cup?,Colorado Avalanche,Hockey
+What is the name of the Philadelphia Flyers mascot?,Gritty,Hockey
+What is the name of the Seattle Kraken mascot?,Buoy,Hockey
+In the skateboarding world who is the Birdman?,Tony Hawk,Skateboarding
+Where is the best place to skateboard?,Anywhere,Skateboarding
+Do I like skateboarding?,Yeah....a lot.,Skateboarding
+Bonus: What is the best movie involving airplanes?,Top Gun,Bonus

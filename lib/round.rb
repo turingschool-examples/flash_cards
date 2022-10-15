@@ -1,3 +1,4 @@
+require 'pry'
 class Round
 
   attr_reader :deck, :turns_array, :cur_card
@@ -53,13 +54,17 @@ class Round
   end
 
   def percent_correct_by_category(cat)
+    single_cat = []
     correct_and_cat = []
     @turns_array.each do |turn|
-      if ((turn.correct? == true) && (turn.card.category == cat))
+      if turn.card.category == cat
+        single_cat << turn
+      end
+      if((turn.correct? == true) && (turn.card.category == cat))
         correct_and_cat << turn
       end
       end
-    return ((correct_and_cat.length * 1.0) / (@turns_array.length * 1.0)) * 100.0
+    return ((correct_and_cat.length * 1.0) / (single_cat.length * 1.0)) * 100.0
   end
 
   def turn_number

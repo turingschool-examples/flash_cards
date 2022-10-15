@@ -37,10 +37,11 @@ print "Your guess => "
 guess = gets.to_s
 guess.chomp!
 new_turn = round.take_turn(guess)
-
+puts 'v v v v v v v v'
 new_turn.correct?
 puts new_turn.feedback
 round.turns_array.push(new_turn)
+puts '------------------------------------'
 end
 # # Here is a second turn instance, for testing
 # round.current_card
@@ -58,7 +59,11 @@ end
 # This will loop -> until deck = [] <-
 
 # Feedback & Breakdown
+puts '------------------------------------'
 puts "****** Game over! ******"
-puts "You had #{round.number_correct} correct guesses out of #{round.turns_array.length} for a total score of #{round.percent_correct}"
+puts "You had #{round.number_correct} correct guesses out of #{round.turns_array.length} for a total score of #{round.percent_correct.round(2)}%!"
 ## pull out this section and loop using an array of all categories, for flexibility
-puts "#{:cat1} - #{round.percent_correct_by_category(:cat1)}% correct"
+round.turns_array.each {|turn|
+puts "#{turn.card.category} - #{round.percent_correct_by_category(turn.card.category).round(2)}% correct"}
+puts '------------------------------------'
+puts '** 🐸 Thanks for playing 🐸 **'

@@ -81,6 +81,7 @@ end
     # how to take each array element and make them card classes
 
     deck = cards_gen.map{|c| c = Card.new(c)}
-binding.pry
+
+    expect(deck[0]).to be_a Card
   end
 end
