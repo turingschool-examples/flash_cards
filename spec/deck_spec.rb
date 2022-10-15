@@ -31,6 +31,8 @@ describe Deck do
       cards = [card_1, card_2, card_3]
       deck = Deck.new(cards)
 
+      require 'pry'; binding.pry
+
       expect(deck.count).to eq cards.length
     end
   end
@@ -43,9 +45,9 @@ describe Deck do
       cards = [card_1, card_2, card_3]
       deck = Deck.new(cards)
 
-      expect(deck.cards_in_category(:STEM)).to be [card_2, card_3]
-      expect(deck.cards_in_category(:Geography)).to be [card_1]
-      expect(deck.cards_in_category("Pop Culture")).to be []
+      expect(deck.cards_in_category(:STEM)).to eq [card_2, card_3]
+      expect(deck.cards_in_category(:Geography)).to eq [card_1]
+      expect(deck.cards_in_category("Pop Culture")).to eq []
     end
   end
 end
