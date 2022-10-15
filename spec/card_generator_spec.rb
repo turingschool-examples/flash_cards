@@ -16,7 +16,6 @@ describe CardGenerator do
     it 'builds an array of cards based on input from a text file. requires test_cards.txt' do
       filename = "test_cards.txt"
       reader = CardGenerator.new(filename)
-      reader.build_cards
 
       expect(reader.cards[0].question).to eq("What is 5 + 5?")
       expect(reader.cards[0].answer).to eq("10")
