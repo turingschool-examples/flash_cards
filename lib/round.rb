@@ -6,6 +6,7 @@ class Round
         @turns = []
         # @current_card = deck.cards[0]
         @current_card = []
+        @deck_size = deck.cards.length
     end
 
     def current_card
@@ -111,6 +112,22 @@ class Round
 
 
     
+    def start
+
+        # deck_size = deck.cards.length
+
+        
+        # puts "Welcome!"
+        puts " Welcome! You're playing with #{@deck_size} cards."
+        puts "-------------------------------------------------"
+        puts "This is card number 1 out of 4."
+        puts "#{deck.cards[0].question}"
+        
+        # require 'pry'; binding.pry
+    end
+
+
+
 
     
 
@@ -119,7 +136,7 @@ class Round
 
 
     # The take_turn method takes a string representing the guess. 
-    # take_turn method should create a new Turn object with the appropriate guess and Card. 
+    # take_turn method should create a new Turn object with the apropriate guess and Card. 
     # take_turn method should store this new Turn, as well as return the new Turn from the take_turn method. 
     # When the take_turn method is called, the Round should move on to the next card in the deck.
 end
