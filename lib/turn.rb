@@ -8,7 +8,8 @@ class Turn
   end
 
   def correct?
-    @guess == card.answer
+    # require 'pry'; binding.pry
+    @guess.downcase.strip == card.answer.downcase
   end
 
   def feedback

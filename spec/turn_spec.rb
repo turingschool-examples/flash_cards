@@ -24,6 +24,8 @@ RSpec.describe Turn do
     new_turn = Turn.new(card_1, "Juneau")
 
     expect(new_turn.guess).to eq("Juneau")
+    # new_turn = Turn.new(card_1, )
+    # expect(new_turn.guess).to eq(nil)
   end
   # it checks if correct
   it 'checks if correct' do
@@ -33,6 +35,19 @@ RSpec.describe Turn do
     # require 'pry'; binding.pry
 
     expect(new_turn.correct?).to eq(true)
+
+    new_turn = Turn.new(card_1, "juneau")
+    # require 'pry'; binding.pry
+    expect(new_turn.correct?).to eq(true)
+
+    new_turn = Turn.new(card_1, "juneau   ")
+    # require 'pry'; binding.pry
+    expect(new_turn.correct?).to eq(true)
+
+    new_turn = Turn.new(card_1, "    juneau   ")
+    # require 'pry'; binding.pry
+    expect(new_turn.correct?).to eq(true)
+
     new_turn = Turn.new(card_1, "Sitka")
     expect(new_turn.correct?).to eq(false)
 
