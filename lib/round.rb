@@ -36,7 +36,7 @@ class Round
   end
 
   def percent_correct_by_category(category_input)
-    self.number_correct_by_category(category_input).to_f / @deck.cards_in_category(category_input).count * 100.0
+    number_correct_by_category(category_input).to_f / @deck.cards_in_category(category_input).count * 100.0
   end
 
   def card_number
