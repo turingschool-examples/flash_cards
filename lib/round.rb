@@ -7,13 +7,8 @@ class Round
   def initialize(deck)
     @deck = deck 
     @turns = [] 
-    @categories = []
-    build_category_list
+    @categories = deck.cards.map(&:category).uniq
     @turn_count = 0
-  end
-
-  def build_category_list
-    @categories = deck.cards.map { |card| card.category }.uniq    
   end
 
   def current_card
@@ -53,13 +48,13 @@ class Round
   def percent_correct
     return 0 if number_correct == 0
 
-    number_correct / @turns.count.to_f * 100 
+    (number_correct / @turns.count.to_f * 100).round(2) 
   end
 
   def percent_correct_by_category(category)
     return 0 if number_correct_by_category(category) == 0
 
-    number_correct_by_category(category) / cards_in_category(@turns, category).count.to_f * 100
+    (number_correct_by_category(category) / cards_in_category(@turns, category).count.to_f * 100).round(2)
   end
 
   def finished?

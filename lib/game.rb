@@ -55,8 +55,11 @@ class Game
 
     # game over sequence
     puts " Game over! ".center(25, "*")
-    puts "You had #{} correct guesses out of #{} for a total score of #{}%"
-    
+    puts "You had #{@round.number_correct} correct guesses out of #{@round.turn_count + 1} for a total score of #{@round.percent_correct}%"
+    @round.categories.each do |category|
+      puts "#{category} - #{@round.percent_correct_by_category(category)}% correct"
+    end
+    puts @round.percent_correct >= 90 ? "You're a pro, have a nap!" : "Maybe keep practicing..."
   end
 end
 

@@ -178,7 +178,7 @@ RSpec.describe Round do
   end 
 
   describe '#percent_correct_by_category' do
-    it 'returns 50.0 for one correct answer out of two in categry' do
+    it 'returns 50.0 for one correct answer out of two in category' do
       cards = [card_1, card_2, card_3]
       deck = Deck.new(cards)
       round = Round.new(deck)
