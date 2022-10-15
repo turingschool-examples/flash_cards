@@ -1,9 +1,10 @@
 class Turn
-  attr_reader :guess, :card
+  attr_reader :card, :guess
 
   def initialize(card, guess)
-    @guess = guess
     @card = card
+    @guess = guess.downcase
+  
   end
 
   def correct?

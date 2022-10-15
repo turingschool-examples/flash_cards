@@ -15,7 +15,7 @@ RSpec.describe Round do
     end
 
     # it can call the deck
-    it 'calls the deck' do
+    it 'has a deck' do
         card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
         card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
         card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
@@ -25,8 +25,9 @@ RSpec.describe Round do
         expect(round.deck).to eq(deck)
     end
 
+
     # it can store and call turns
-    it 'stores and calls turns' do
+    it 'has turns' do
         card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
         card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
         card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
@@ -37,7 +38,7 @@ RSpec.describe Round do
     end
 
     # it can store the current card
-    it 'stores the current card' do
+    it 'has a current card' do
         card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
         card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
         card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
@@ -47,16 +48,7 @@ RSpec.describe Round do
         expect(round.current_card).to eq(card_1)
     end
     
-    it 'exists' do
-        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
-        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-        deck = Deck.new([card_1, card_2, card_3])
-        round = Round.new(deck)
-        new_turn = round.take_turn("Juneau")
-        
-        expect(new_turn).to be_instance_of(Turn)
-    end
+  
    
     # it can store if correct
     it 'can return if correct' do
