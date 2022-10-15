@@ -12,10 +12,6 @@ class Deck
   end
 
   def cards_in_category(category)
-    card_storage = []
-    cards.map do |card|
-      card_storage.push(card) if category == card.category
-    end
-    card_storage
+    cards.select {|card| card.category == category}
   end
 end

@@ -22,19 +22,15 @@ class Round
   end
 
   def number_correct
-    correct_answers = 0
-    turns.each do |turn|
-      correct_answers += 1 if turn.correct? == true
+    turns.count do |turn|
+      turn.correct? == true
     end
-    correct_answers
   end
 
   def number_correct_by_category(category)
-    category_correct = 0
-    turns.each do |turn|
-      category_correct += 1 if turn.correct? == true && turn.card.category == category
+    turns.count do |turn|
+      turn.correct? && turn.card.category == category
     end
-    category_correct
   end
 
   def percent_correct
@@ -42,11 +38,9 @@ class Round
   end
 
   def number_of_turns_by_category(category)
-    turns_by_category = 0
-    turns.each do |turn|
-      turns_by_category += 1 if turn.card.category == category
+    turns.count do |turn|
+      turn.card.category == category
     end
-    turns_by_category.to_f
   end
 
   def percent_correct_by_category(category)
@@ -54,10 +48,8 @@ class Round
   end
 
   def categories_present
-    categories_in_round = []
-    turns.each do |turn|
-      categories_in_round.push(turn.card.category)
+    turns.map do |turn|
+      turn.card.category.uniq
     end
-    categories_in_round.uniq
   end
 end
