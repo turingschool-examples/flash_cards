@@ -1,43 +1,30 @@
-# require_relative 'card'
-# lib/card.rb
-# pry into the code
-# instantiate card
-# do research on coding directories and how to interact
-# with the terminal
-# what is the difference between . and .. , why do i need
-# /
-
 class Turn
-  attr_reader :guess, :card
+  attr_reader :card, :guess
 
   def initialize(card, guess)
-    @guess = guess
     @card = card
+    @guess = guess
   end
 
-  # def guess
-  #     @guess
-  # end
-
   def correct?
-    # returns boolean if guess matches answer on card
-    # require 'pry'; binding.pry
-    # @card == @answer
-    @guess == card.answer
+    if guess.instance_of?(card.answer.class)
+      if guess.instance_of?(String)
+        @guess.downcase.strip == card.answer.downcase
+      else
+        guess == card.answer
+      end
+    elsif card.answer.instance_of?(Integer) && guess.instance_of?(Float)
+      guess.to_i == card.answer
+    else
+      false
+    end
   end
 
   def feedback
-    # require 'pry'; binding.pry
     if correct?
       'Correct!'
     else
       'Incorrect.'
     end
   end
-
-  # def number_correct_by_category
-  #   require 'pry'; binding.pry
-  # end
-
-
 end

@@ -1,142 +1,72 @@
 class Round
-    attr_reader :deck, :current_card, :turns 
+  attr_reader :deck, :turns
 
-    def initialize(deck)
-        @deck = deck
-        @turns = []
-        # @current_card = deck.cards[0]
-        @current_card = []
-        @deck_size = deck.cards.length
+  def initialize(deck)
+    @deck = deck
+    @turns = []
+    @deck_size = deck.cards.length
+  end
+
+  def current_card
+    @current_card = deck.cards[0]
+  end
+
+  def take_turn(guess)
+    turn = Turn.new(current_card, guess)
+    @turns << turn
+    deck.cards.shift
+    turn
+  end
+
+  def number_correct
+    score = 0
+    turns.each do |turn|
+      score += 1 if turn.correct?
     end
+    score
+  end
 
-    def current_card
-        @current_card = deck.cards[0]
+  def number_correct_by_category(category_feedback)
+    score_by_category = 0
+    turns.each do |turn|
+      score_by_category += 1 if turn.card.category == category_feedback && turn.correct?
     end
+    score_by_category
+  end
 
+  def percent_correct
+    (number_correct / turns.length.to_f) * 100
+  end
 
-    # method is a behaviour
-
-    # def take_turn(guess_string)
-    #     @turn = Turn.new(guess_string, card)
-    # end
-
-    # def turns
-    #     turns = []
-    # end
-
-    # def current_card
-    #     deck.cards[0]
-    # end
-
-    def take_turn(guess)
-        # require 'pry'; binding.pry
-        turn = Turn.new(current_card, guess)
-        @turns << turn
-        # require 'pry'; binding.pry
-        deck.cards.shift
-        return turn
-    
+  def percent_correct_by_category(category_feedback)
+    score_by_category_percent = 0
+    turns.each do |turn|
+      score_by_category_percent += 1 if turn.card.category == category_feedback
     end
+    (number_correct_by_category(category_feedback).to_f / score_by_category_percent) * 100
+  end
 
-    def number_correct
-        score = 0
-        turns.each do |turn|
-            if turn.correct?
-                score += 1
-            end
-            # require 'pry'; binding.pry
-        end
-        score
+  def start
+    puts " Welcome! You're playing with #{@deck_size} cards."
+    puts '-------------------------------------------------'
+    count = 0
+    while deck.cards.length.positive?
+      puts "This is card number #{count += 1} out of #{@deck_size}."
+      puts "#{deck.cards[0].question}"
+      new_turn = take_turn(gets)
+      puts new_turn.feedback
     end
+  end
 
-
-
-    def number_correct_by_category(category_feedback)
-        score_by_category = 0
-        turns.each do |turn|
-            # require 'pry'; binding.pry
-            if turn.card.category == category_feedback && turn.correct?
-                score_by_category += 1
-            end
-
-
-        end
-        score_by_category
-
+  def complete
+    puts '****** Game over! ******'
+    puts "You had #{number_correct} correct guesses out of #{@deck_size} for a total score of #{percent_correct.to_i}%."
+    final_score_categories = []
+    turns.each do |turn|
+      final_score_categories << turn.card.category
     end
-
-    def percent_correct
-        # number_correct divided by @turns
-        (number_correct / turns.length.to_f) * 100
-        # require 'pry'; binding.pry
-        # require 'pry'; binding.pry
+    final_score_categories.uniq.each do |ctgrs|
+      puts "#{ctgrs} - #{percent_correct_by_category(ctgrs).to_i}% correct"
     end
-
-    def percent_correct_by_category(category_feedback)
-
-
-        # require 'pry'; binding.pry
-        # number_correct_by_category(category_feedback) / 
-        score_by_category_percent = 0
-        turns.each do |turn|
-            # require 'pry'; binding.pry
-            if turn.card.category == category_feedback
-                score_by_category_percent += 1
-            end
-
-
-        end
-        # score_by_category
-        (number_correct_by_category(category_feedback).to_f / score_by_category_percent) * 100
-
-
-
-
-
-
-        # score_percent_by_category = 0
-        # turns.each do |turn|
-
-        #     require 'pry'; binding.pry
-        # what is this doing
-        # if turn.card.category == category_feedback
-        # sees how many turn categories match category_feedback
-        # calls.percent correct on 
-        # number_correct_by_category(category_feedback)
-        # end
-
-    end
-
-
-      
-
-
-    
-    def start
-
-        # deck_size = deck.cards.length
-
-        
-        # puts "Welcome!"
-        puts " Welcome! You're playing with #{@deck_size} cards."
-        puts "-------------------------------------------------"
-        puts "This is card number 1 out of 4."
-        puts "#{deck.cards[0].question}"
-        
-        # require 'pry'; binding.pry
-    end
-
-
-
-
-    
-
-   
-
-
-
-    # The take_turn method takes a string representing the guess. 
-    # take_turn method should create a new Turn object with the apropriate guess and Card. 
-    # take_turn method should store this new Turn, as well as return the new Turn from the take_turn method. 
-    # When the take_turn method is called, the Round should move on to the next card in the deck.
+  end
 end
