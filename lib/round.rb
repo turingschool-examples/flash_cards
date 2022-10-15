@@ -50,13 +50,13 @@ class Round
   def start
     puts " Welcome! You're playing with #{@deck_size} cards."
     puts '-------------------------------------------------'
-    puts 'This is card number 1 out of 4.'
+    puts "This is card number 1 out of #{@deck_size}."
     puts "#{deck.cards[0].question}"
   end
 
   def complete
     puts '****** Game over! ******'
-    puts 'You had 3 correct guesses out of 4 for a total score of 75%.'
+    puts "You had #{number_correct} correct guesses out of #{@deck_size} for a total score of #{percent_correct.to_i}%."
     final_score_categories = []
     turns.each do |turn|
       final_score_categories << turn.card.category
