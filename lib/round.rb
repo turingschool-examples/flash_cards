@@ -34,7 +34,8 @@ class Round
 
     def percent_correct
        
-    percentage = number_correct.to_f / turns.count.to_f
+    percentage = number_correct.to_f / turns.count.to_f * 100
+    return "%#{percentage}"
         
     end
 
