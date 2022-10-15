@@ -18,6 +18,8 @@ RSpec.describe CardGenerator do
     new_cards = CardGenerator.new(file)
     new_cards.make_cards
 
-    expect(new_cards.cards[0]).to be_a(Card) 
+    new_cards.cards.each do |card|
+    expect(card).to be_a(Card) 
+    end
   end
 end
