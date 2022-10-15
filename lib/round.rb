@@ -6,6 +6,7 @@ class Round
   attr_reader :deck, :turns, :number_correct, :correct_in_category
 
   def initialize(deck)
+
     @deck = deck
     @turns = []
     @number_correct = 0
@@ -20,11 +21,11 @@ class Round
   def take_turn(guess)
     new_turn = Turn.new(guess, current_card)
     turns << new_turn
-    deck.cards.rotate(1)
     if new_turn.correct?
       @number_correct += 1
       correct_in_category << new_turn#When modifying, you must have an @
     end
+    @deck = Deck.new(@deck.cards.rotate(1))
     return new_turn
 
 
