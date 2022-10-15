@@ -3,12 +3,12 @@ class Turn
 
   def initialize(card, guess)
     @card = card
-    @guess = guess.downcase
+    @guess = guess
   
   end
 
   def correct?
-    @guess == card.answer.downcase
+    @guess == card.answer
   end
 
   def feedback
