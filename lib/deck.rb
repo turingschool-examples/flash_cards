@@ -1,5 +1,4 @@
 require './lib/card'
-require 'pry'
 
 class Deck
   attr_reader :cards
