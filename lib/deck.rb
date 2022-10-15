@@ -4,7 +4,7 @@ class Deck
     def initialize(cards)
         @cards = cards
         @initial_size = count
-        @category_data = {}
+        @category_data = Hash[categories.map {|category| [category, cards_in_category(category)]}]
     end
 
     def count
