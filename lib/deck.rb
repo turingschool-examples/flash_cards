@@ -16,5 +16,3 @@ class Deck
   cat
   end
 end
-
-# require "pry";binding.pry

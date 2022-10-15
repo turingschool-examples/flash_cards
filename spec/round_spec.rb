@@ -73,7 +73,6 @@ RSpec.describe Round do
     it 'can determine the turns in a given category' do
       round.take_turn("Juneau")
       round.take_turn("Venus")
-      # binding.pry
       expect(round.cards_in_category(:Geography)).to eq(1)
     end
     
