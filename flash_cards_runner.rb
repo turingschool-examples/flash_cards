@@ -5,12 +5,10 @@ require './lib/round'
 require './lib/card_generator'
 
 class Game
-  attr_reader :cards, :deck, :round, :round_count, :categories_played
+  attr_reader :round, :categories_played
   def initialize(input_file)
     @input_file = input_file
-    @cards = CardGenerator.new(@input_file).cards_inputted
-    @deck = Deck.new(@cards)
-    @round = Round.new(@deck)
+    @round = Round.new(Deck.new(CardGenerator.new(@input_file).cards_inputted))
     @categories_played = []
   end
 
