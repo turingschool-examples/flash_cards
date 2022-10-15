@@ -1,21 +1,18 @@
 class Turn
-attr_reader :card, :guess
+attr_reader :card, :string
 
   def initialize(string, card)
-    @guess = string
+    @string = string
     @card = card
   end
 
   def correct?
-    @guess == card.answer
+    @string == @card.answer
   end
 
   def feedback
     #require 'pry'; binding.pry
-    if correct?
-       "Correct!"
-    else
-       "Incorrect."
-    end
+    correct? ? "Correct!" : "Incorrect."
+
   end
 end

@@ -11,7 +11,7 @@ class Round
     end
 
     def current_card
-      @deck.cards
+      @deck.cards[0]
     end
 
 
@@ -29,23 +29,22 @@ class Round
 
     def percent_correct_category(category)
       corr_category = 0
-      @turns.each do |turn|
-        if turn.card.category == category
-          corr_category += 1
-        end
-        end
+      #@turns.each do |turn|
+      corr_category = @turns.find_all do |turn|
+        turn.card.category == category
+      end.length
       number_correct_by_category(category) / corr_category * 100
     end
 
 
     def take_turn(guess)
       @turns << Turn.new(guess, current_card)
-      if @turns[@cur_card_index].correct?
+      if @turns[0].correct?
         @number_correct += 1
         @cat_score[@num_correct_cat.index(current_card.category)] += 1
       end
-        current_card
         deck.cards.rotate(1)
-        binding.pry
+        current_card
+        #binding.pry
     end
 end

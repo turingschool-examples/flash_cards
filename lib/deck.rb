@@ -6,7 +6,6 @@ attr_reader :cards
     @cards = cards
   end
 
-
   def count
     cards.length
   end
