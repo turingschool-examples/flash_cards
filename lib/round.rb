@@ -20,7 +20,7 @@ class Round
   def take_turn(guess)
     new_turn = Turn.new(guess, current_card)
     turns << new_turn
-    deck.cards.shift
+    deck.cards.rotate(1)
     if new_turn.correct?
       @number_correct += 1
       correct_in_category << new_turn#When modifying, you must have an @
@@ -40,6 +40,15 @@ class Round
   end
 
   collector.count
+
+  end
+
+  def percent_correct
+    (@number_correct.to_f / @turns.count.to_f * 100).round(1)
+  end
+
+  def percent_correct_by_category(category)
+    (number_correct_by_category(category).to_f / deck.cards_in_category(category).count.to_f * 100).round(1)
 
   end
 
