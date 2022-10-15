@@ -7,7 +7,7 @@ class Turn
   end
 
   def correct?
-    guess.downcase == card.answer.downcase
+    card.answer.downcase.split(" ")[1] == guess.downcase || card.answer.downcase.split(" ")[0] == guess.downcase || card.answer.downcase == guess.downcase
   end
 
   def feedback
