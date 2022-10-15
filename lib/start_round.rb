@@ -25,7 +25,5 @@ def start(input)
     @round.deck.category_groups.each do |category, card|
       puts "#{category} - #{@round.percent_correct_by_category(category)}% correct"
     end
-
-
   end
 end
