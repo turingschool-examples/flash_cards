@@ -32,6 +32,13 @@ class Round
         correct_answers.count
     end
 
+    def percent_correct
+       
+    percentage = number_correct.to_f / turns.count.to_f
+        
+    end
+
+
     def number_correct_by_category(category_entry_check)
         matching_category_turn = []
         turns.each do |turn|

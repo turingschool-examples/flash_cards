@@ -515,10 +515,11 @@ RSpec.describe Round do
         new_turn = round.take_turn("Juneau")
 
         new_turn2 = round.take_turn("Venus")
+        require 'pry'; binding.pry
 
         round.percent_correct
-
-        expect(round.percent_correct).to eq(%50)
+require 'pry'; binding.pry
+        expect(round.percent_correct).to eq("%50")
 
     end
 
