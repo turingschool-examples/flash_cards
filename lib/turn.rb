@@ -10,7 +10,7 @@
 class Turn
   attr_reader :guess, :card
 
-  def initialize(guess, card)
+  def initialize(card, guess)
     @guess = guess
     @card = card
   end
@@ -26,5 +26,18 @@ class Turn
     @guess == card.answer
   end
 
-  def feedback; end
+  def feedback
+    # require 'pry'; binding.pry
+    if correct?
+      'Correct!'
+    else
+      'Incorrect.'
+    end
+  end
+
+  # def number_correct_by_category
+  #   require 'pry'; binding.pry
+  # end
+
+
 end
