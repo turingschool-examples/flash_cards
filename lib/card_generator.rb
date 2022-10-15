@@ -6,7 +6,7 @@ class CardGenerator
   def build_cards
     file = File.read(filename) 
     raw_cards = file.split(/\n+/)
-    raw_cards.each do |raw_card|
+    raw_cards.reject{ |raw_card| raw_card.start_with?("#") }.each do |raw_card|
       raw_card = raw_card.split(',')
       @cards << Card.new(raw_card[0], raw_card[1], raw_card[2].delete(' ').to_sym)
     end
