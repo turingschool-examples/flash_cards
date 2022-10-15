@@ -129,7 +129,29 @@ class Round
 
 
 
-    
+    def complete
+        puts "****** Game over! ******"
+        puts "You had 3 correct guesses out of 4 for a total score of 75%."
+        # require 'pry'; binding.pry
+        final_score_categories = []
+        turns.each do |turn|
+            # require 'pry'; binding.pry
+            final_score_categories << turn.card.category
+            # require 'pry'; binding.pry
+            # puts "#{turn.card.category} - #{percent_correct_by_category.to_i} correct"
+        end
+        # require 'pry'; binding.pry
+        final_score_categories.uniq.each do |ctgrs|
+            # require 'pry'; binding.pry
+            puts "#{ctgrs} - #{percent_correct_by_category(ctgrs).to_i}% correct"
+        end
+        
+
+        
+
+        # puts "#{final_score_categories.uniq[0]} - #{percent_correct_by_category(final_score_categories.uniq[0]).to_i}% correct"
+
+    end
 
    
 
