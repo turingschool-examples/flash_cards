@@ -66,6 +66,14 @@ describe Turn do
 
     end
 
+    it 'returns incorrect if answer words are out of order' do
+      card = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+
+      turn = Turn.new("north west north", card)
+
+      expect(turn.correct?).to be false
+    end
+
   end
 
   describe '#feedback' do
