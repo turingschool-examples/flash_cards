@@ -83,7 +83,7 @@ RSpec.describe Round do
                       'North north west', :STEM)
     deck = Deck.new([card_1, card_2, card_3])
     round = Round.new(deck)
-    new_turn = round.take_turn('Juneau')
+    round.take_turn('Juneau')
 
     expect(round.turns.length).to eq(1)
   end
@@ -97,11 +97,11 @@ RSpec.describe Round do
                       'North north west', :STEM)
     deck = Deck.new([card_1, card_2, card_3])
     round = Round.new(deck)
-    new_turn = round.take_turn('Juneau')
+    round.take_turn('Juneau')
 
     expect(round.number_correct).to eq(1)
 
-    new_turn = round.take_turn('Venus')
+    round.take_turn('Venus')
 
     expect(round.number_correct).to eq(1)
   end
@@ -116,7 +116,7 @@ RSpec.describe Round do
                       'North north west', :STEM)
     deck = Deck.new([card_1, card_2, card_3])
     round = Round.new(deck)
-    new_turn = round.take_turn('Juneau')
+    round.take_turn('Juneau')
 
     expect(round.current_card).to eq(card_2)
     round.take_turn('Venus')
@@ -132,8 +132,8 @@ RSpec.describe Round do
                       'North north west', :STEM)
     deck = Deck.new([card_1, card_2, card_3])
     round = Round.new(deck)
-    new_turn = round.take_turn('Juneau')
-    new_turn = round.take_turn('Venus')
+    round.take_turn('Juneau')
+    round.take_turn('Venus')
 
     expect(round.turns.count).to eq(2)
   end
@@ -147,8 +147,8 @@ RSpec.describe Round do
                       'North north west', :STEM)
     deck = Deck.new([card_1, card_2, card_3])
     round = Round.new(deck)
-    new_turn = round.take_turn('Juneau')
-    new_turn = round.take_turn('Venus')
+    round.take_turn('Juneau')
+    round.take_turn('Venus')
 
     expect(round.turns.last.feedback).to eq('Incorrect.')
   end
@@ -162,8 +162,8 @@ RSpec.describe Round do
                       'North north west', :STEM)
     deck = Deck.new([card_1, card_2, card_3])
     round = Round.new(deck)
-    new_turn = round.take_turn('Juneau')
-    new_turn = round.take_turn('Venus')
+    round.take_turn('Juneau')
+    round.take_turn('Venus')
 
     expect(round.number_correct_by_category(:Geography)).to eq(1)
     expect(round.number_correct_by_category(:STEM)).to eq(0)
@@ -178,8 +178,8 @@ RSpec.describe Round do
                       'North north west', :STEM)
     deck = Deck.new([card_1, card_2, card_3])
     round = Round.new(deck)
-    new_turn = round.take_turn('Juneau')
-    new_turn = round.take_turn('Venus')
+    round.take_turn('Juneau')
+    round.take_turn('Venus')
 
     expect(round.percent_correct).to eq(50.0)
   end
@@ -193,8 +193,8 @@ RSpec.describe Round do
                       'North north west', :STEM)
     deck = Deck.new([card_1, card_2, card_3])
     round = Round.new(deck)
-    new_turn = round.take_turn('Juneau')
-    new_turn = round.take_turn('Venus')
+    round.take_turn('Juneau')
+    round.take_turn('Venus')
 
     expect(round.percent_correct_by_category(:Geography)).to eq(100.0)
   end
