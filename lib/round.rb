@@ -46,10 +46,7 @@ class Round
                     correct_category_cards << match_cat_turn.correct?
                 end
             end
-        correct_category_cards.count
-
-      
-        
+        correct_category_cards.count  
     end
 
 end
