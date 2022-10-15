@@ -13,15 +13,15 @@ deck_size = deck.cards.length
 
 round.start
 
-new_turn = round.take_turn(gets.strip)
+new_turn = round.take_turn(gets.strip.downcase)
 puts new_turn.feedback
 puts "This is card number 2 out of #{deck_size}."
 puts "#{deck.cards[0].question}"
-new_turn = round.take_turn(gets.strip)
+new_turn = round.take_turn(gets.strip.downcase)
 puts new_turn.feedback
 puts "This is card number 3 out of #{deck_size}."
 puts "#{deck.cards[0].question}"
-new_turn = round.take_turn(gets.strip)
+new_turn = round.take_turn(gets.strip.downcase)
 puts new_turn.feedback
 
 round.complete
