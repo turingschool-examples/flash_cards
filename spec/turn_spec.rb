@@ -109,6 +109,12 @@ RSpec.describe Turn do
     expect(new_turn.feedback).to eq("Correct!")
     new_turn = Turn.new(card_1, "Sitka")
     expect(new_turn.feedback).to eq("Incorrect.")
+    new_turn = Turn.new(card_1, "    juneau")
+    expect(new_turn.feedback).to eq("Correct!")
+
+    card_1 = Card.new("What is 5 + 5?", 10, :STEM)
+    new_turn = Turn.new(card_1, 10)
+    expect(new_turn.feedback).to eq("Correct!")
 
 
 
