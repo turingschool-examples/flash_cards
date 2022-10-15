@@ -1,4 +1,4 @@
-# require './lib/deck'
+require './lib/deck'
 
 class CardGenerator
 
@@ -6,7 +6,7 @@ class CardGenerator
     @filename = filename
   end
 
-  def cards
-
-  end
+  # def cards
+  #
+  # end
 end
