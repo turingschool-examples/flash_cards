@@ -579,7 +579,7 @@ RSpec.describe Round do
         new_turn2 = round.take_turn("Venus")
 
         round.current_card
-        
+
         expect(round.current_card).to eq(card_3)
 
     end
