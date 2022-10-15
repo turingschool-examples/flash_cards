@@ -14,6 +14,10 @@ class Deck
         @cards[0]
     end
 
+    def change_card
+        cards.shift
+    end
+
     def cards_in_category(category)
         @cards.select{|card| card.category == category}
     end
