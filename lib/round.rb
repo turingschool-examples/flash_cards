@@ -10,7 +10,6 @@ class Round
     @deck = deck
     @turns = []
     @number_correct = 0
-
   end
 
   def current_card
