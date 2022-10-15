@@ -52,6 +52,20 @@ describe Turn do
       expect(turn_2.correct?).to be true
 
     end
+
+    it 'returns correct regardless of spaces between answer words' do
+      card = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+
+      turn_1 = Turn.new("north north west", card)
+      turn_2 = Turn.new("northnorthwest", card)
+      turn_3 = Turn.new("north northwest", card)
+
+      expect(turn_1.correct?).to be true
+      expect(turn_2.correct?).to be true
+      expect(turn_3.correct?).to be true
+
+    end
+
   end
 
   describe '#feedback' do
