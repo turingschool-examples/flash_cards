@@ -1,4 +1,3 @@
-require 'pry'
 class Round
 
   attr_reader :deck, :turns_array, :cur_card
@@ -18,9 +17,7 @@ class Round
   end
 
   def take_turn(guess)
-
     Turn.new(guess, @cur_card)
-
   end
 
   def number_correct
@@ -34,13 +31,13 @@ class Round
   def number_correct_by_category(cat)
     #this will be similar to number_correct but && will be used to get
     #correct && same_cat :)
-   correct_and_cat = []
-   @turns_array.each do |turn|
-     if ((turn.correct? == true) && (turn.card.category == cat))
-       correct_and_cat << turn
-     end
-     end
-   return correct_and_cat.length
+    correct_and_cat = []
+    @turns_array.each do |turn|
+      if ((turn.correct? == true) && (turn.card.category == cat))
+        correct_and_cat << turn
+      end
+    end
+    return correct_and_cat.length
   end
 
   def percent_correct
@@ -48,6 +45,7 @@ class Round
     #display as xx% (multiply by 100.0 to keep float)
     correct_turns = []
     @turns_array.each do |turn|
+      # could rephrase this line, might be redundant, but I'm scared to touch it.
       correct_turns << turn if (turn.correct? == true)
     end
     return ((correct_turns.length * 1.0) / (@turns_array.length * 1.0)) * 100.0
@@ -60,20 +58,16 @@ class Round
       if turn.card.category == cat
         single_cat << turn
       end
+      # same here with the turn.correct? likely returning true anyway? idk if == true is needed.
       if((turn.correct? == true) && (turn.card.category == cat))
         correct_and_cat << turn
       end
-      end
+    end
     return ((correct_and_cat.length * 1.0) / (single_cat.length * 1.0)) * 100.0
   end
 
   def turn_number
     @turns_array.length + 1
   end
-
-####  WHERE IS THE BEST PLACE TO HOLD A METHOD TO << TURN INFO
-  # def store_turn
-  #   round.turns_array.push(new_turn)
-  # end
 
 end

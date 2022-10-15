@@ -62,11 +62,7 @@ end
   end
 
   it 'does all this in a single method' do
-
-  # has a .cards_init method that does this. Might be recursion...
-    # something to do with |lines|
-  # it sorts these into each card
-
+    # here's the single method, .cards_init
     cards = CardGenerator.new("./lib/cards.txt")
 
     cards.cards_init

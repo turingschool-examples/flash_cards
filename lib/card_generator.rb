@@ -1,4 +1,3 @@
-require 'pry'
 class CardGenerator
 
   attr_reader :filename, :sorted_cards
@@ -8,9 +7,9 @@ class CardGenerator
     @sorted_cards = []
   end
 
-  def cards_init #v1
+  def cards_init
     # I can totally refactor this now that I know it works, does not need all the vars
-      # Actually I don't know if there's a way to use less variables.
+      # ^ Actually I don't know if there's a way to use less variables.
       file = File.open(@filename)
       file_read = file.read
       file_read.chomp!

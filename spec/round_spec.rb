@@ -20,8 +20,6 @@ RSpec.describe Round do
     card_2 = Card.new("Question2", "Answer2", :cat1)
     card_3 = Card.new("Question3", "Answer3", :cat2)
 
-    # cards = [card_1, card_2, card_3]
-
     deck = Deck.new([card_1, card_2, card_3])
 
     round = Round.new(deck)
@@ -66,7 +64,6 @@ RSpec.describe Round do
     round = Round.new(deck)
 
     expect(round.current_card).to eq card_1
-
   end
 
   it 'can create a new Turn class with round.take_turn' do
@@ -82,7 +79,6 @@ RSpec.describe Round do
     new_turn = round.take_turn("Answer1")
 
     expect(new_turn).to be_a Turn
-
   end
 
   it 'holds the current_card in the new_turn' do
@@ -98,11 +94,9 @@ RSpec.describe Round do
     round = Round.new(deck)
     round.current_card
 
-
     new_turn = round.take_turn("Answer1")
 
     expect(new_turn.card).to be card_1
-
   end
 
   it 'can access .correct? with right answer' do
@@ -121,7 +115,6 @@ RSpec.describe Round do
     new_turn = round.take_turn("Answer1")
 
     expect(new_turn.correct?).to be true
-
   end
 
   it 'stores the turn information that was used' do
@@ -146,7 +139,6 @@ RSpec.describe Round do
     round.turns_array.push(new_turn)
 
     expect(round.turns_array).to eq [new_turn]
-
   end
 
   it 'can display the number of turns in array' do
@@ -219,7 +211,6 @@ RSpec.describe Round do
     expect(round.number_correct).to eq 1
   end
 
-### THIS TEST DEPENDS ON PASSING THE TEST ABOVE, NOT TOUCHING UNTIL THAT'S DONE
   it 'can turn that number into a percent' do
     # divides number correct by total cards
     card_1 = Card.new("Question1", "Answer1", :cat1)
@@ -244,7 +235,6 @@ RSpec.describe Round do
 
     expect(round.percent_correct).to eq 100.0
 
-
     # NOW WE DO "ANOTHER NEW_TURN"
     round.current_card
     new_turn2 = round.take_turn("Wrong Answer")
@@ -253,8 +243,6 @@ RSpec.describe Round do
     round.turns_array.push(new_turn2)
 
     expect(round.percent_correct).to eq 50.0
-    # vv I think I can disregard below, because we are comparing to the turns taken.
-    # careful this number stored total cards at beginning, in case shrinkage
   end
 
   it 'will pull the next card when take_turn is called again' do
@@ -288,7 +276,6 @@ RSpec.describe Round do
     new_turn2.feedback
 
     expect(new_turn2.card).to be card_2
-
   end
 
   it 'can access the last turn feedback' do
@@ -355,12 +342,10 @@ RSpec.describe Round do
     round.turns_array.push(new_turn2)
 
     expect(round.number_correct_by_category(:cat2)).to eq 0
-
   end
 
   it 'can turn that number into a percent' do
-    # divides number correct by total cards
-    # careful this number stored total cards at beginning, in case shrinkage
+    # divides number correct by total cards IN THAT CATEGORY
     ########### Initial Setup
     card_1 = Card.new("Question1", "Answer1", :cat1)
     card_2 = Card.new("Question2", "Answer2", :cat1)
@@ -397,6 +382,6 @@ RSpec.describe Round do
 
   xit 'keeps going' do
   # will display next card until there are no cards left
-
+  # THIS METHOD EXISTS IN THE RUNNER, NOT ROUND.
   end
 end
