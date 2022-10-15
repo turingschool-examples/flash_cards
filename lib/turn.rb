@@ -30,15 +30,6 @@ class Turn
       match = guess_str.split.select {|word| word == big_word}
       match.length > 0 ? guess_str = answ_str : nil
     end
-    # if @card.answer.length > @guess.length
-    #   ans_size_diff = @card.answer.length - @guess.length.to_f
-    #   ans_size_diff_perc = (ans_size_diff / @card.answer.length * 100)
-    #   if ans_size_diff_perc.to_i < 30
-    #     if @card.answer.downcase.include?(str.downcase)
-    #       (return @card.answer.downcase)
-    #     end
-    #   end
-    # end
     guess_str == answ_str
   end
 
