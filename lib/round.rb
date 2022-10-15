@@ -2,7 +2,6 @@ require './lib/turn'
 
 class Round
   attr_reader :deck, :turns, :correct_turns
-
   def initialize(deck)
     @deck = deck
     @turns = []
@@ -27,7 +26,6 @@ class Round
   end
 
   def number_correct_by_category(category_input)
-
     @correct_turns.count do |correct_card|
       correct_card.card.category.downcase == category_input.downcase
     end
@@ -38,17 +36,12 @@ class Round
   end
 
   def percent_correct_by_category(category)
-    
-
     category_correct_amount = @correct_turns.count do |correct_card|
       correct_card.card.category.downcase == category.downcase
     end
-
-    
     category_asked_amount = @turns.count do |turn|
       turn.card.category.downcase == category.downcase
     end
-
     category_correct_amount.to_f / category_asked_amount * 100.0
   end
 
