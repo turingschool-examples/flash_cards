@@ -32,4 +32,14 @@ class Round
         correct_answers.count
     end
 
+    def number_correct_by_category(category)
+        correct_answers_by_category = []
+        turns.category.each do |turn|
+            if turn.correct? == true
+                correct_answers_by_category << turn.correct?
+            end
+        end
+        correct_answers_by_category.count
+    end
+
 end
