@@ -33,6 +33,11 @@ class Turn
     else
       'Incorrect.'
     end
-      
   end
+
+  # def number_correct_by_category
+  #   require 'pry'; binding.pry
+  # end
+
+
 end

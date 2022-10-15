@@ -49,6 +49,67 @@ class Round
     end
 
 
+
+    def number_correct_by_category(category_feedback)
+        score_by_category = 0
+        turns.each do |turn|
+            # require 'pry'; binding.pry
+            if turn.card.category == category_feedback && turn.correct?
+                score_by_category += 1
+            end
+
+
+        end
+        score_by_category
+
+    end
+
+    def percent_correct
+        # number_correct divided by @turns
+        (number_correct / turns.length.to_f) * 100
+        # require 'pry'; binding.pry
+        # require 'pry'; binding.pry
+    end
+
+    def percent_correct_by_category(category_feedback)
+
+
+        # require 'pry'; binding.pry
+        # number_correct_by_category(category_feedback) / 
+        score_by_category_percent = 0
+        turns.each do |turn|
+            # require 'pry'; binding.pry
+            if turn.card.category == category_feedback
+                score_by_category_percent += 1
+            end
+
+
+        end
+        # score_by_category
+        (number_correct_by_category(category_feedback).to_f / score_by_category_percent) * 100
+
+
+
+
+
+
+        # score_percent_by_category = 0
+        # turns.each do |turn|
+
+        #     require 'pry'; binding.pry
+        # what is this doing
+        # if turn.card.category == category_feedback
+        # sees how many turn categories match category_feedback
+        # calls.percent correct on 
+        # number_correct_by_category(category_feedback)
+        # end
+
+    end
+
+
+      
+
+
     
 
     
