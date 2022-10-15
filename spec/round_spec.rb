@@ -399,6 +399,19 @@ RSpec.describe Round do
 
     it "Shows number of correct answers in the round" do
 
+        cç
+
+        round.number_correct
+
+        expect(round.number_correct).to eq(1)
+
+    end
+
+#Test 17
+#Checks the number of correct answers in the round by category, Geography"
+
+    it "What are the number of correct answers in category Geography for round?" do
+
         card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
         card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
@@ -420,14 +433,11 @@ RSpec.describe Round do
 
         new_turn2 = round.take_turn("Venus")
 
-        round.number_correct
-require 'pry'; binding.pry
-        expect(round.number_correct).to eq(1)
+        round.number_correct_by_category(:Geography)
+
+        expect(round.number_correct_by_category(:Geography)).to eq(1)
 
     end
-
-#Test 17
-#Checks the number of correct answers in the round by category, Geography"
 
 #Test 18
 #Checks the number of correct answers in the round by category, STEM"
