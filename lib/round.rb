@@ -23,14 +23,7 @@ class Round
     end
 
     def number_correct_by_category(category)
-        #refactor
-        category_score = 0
-        turns.each do |turn| 
-            if turn.correct? && turn.card.category == category
-                category_score += 1
-            end
-        end
-        category_score
+        turns.select{|turn| turn.correct? && turn.card.category == category}.length 
     end
 
     def percent_correct
