@@ -6,7 +6,7 @@ class Round
     @deck = deck
     @turns = []
     @number_correct = 0
-    @num_correct_cat = [:Geography, :STEM, :Pop_culture]
+    @num_correct_cat = [:Geography, :STEM, :Pop_Culture]
     @cat_score = [0, 0, 0]
     end
 
@@ -24,7 +24,7 @@ class Round
     end
 
     def percent_correct
-      @number_correct / @turns.length * 100
+      @number_correct.to_f / @turns.length.to_f * 100.00
     end
 
     def percent_correct_category(category)
@@ -33,7 +33,7 @@ class Round
       corr_category = @turns.find_all do |turn|
         turn.card.category == category
       end.length
-      number_correct_by_category(category) / corr_category * 100
+      number_correct_by_category(category) / corr_category * 100.00
     end
 
 

@@ -22,11 +22,18 @@ def start
 
       turn_1 = round.take_turn(gets.chomp)
       puts "#{turn_1.feedback}"
-    
+
+    if round.turns.length == deck.count
+
+      puts "****** Game Over! ******"
+      puts "you had #{round.number_correct} out of #{deck.count} for a total score of #{round.percent_correct}%."
+      puts "STEM - #{round.number_correct_by_category(:STEM)}"
+      puts "Geography - #{round.number_correct_by_category(:Geography)}"
+      puts "Pop Culture - #{round.number_correct_by_category(:Pop_Culture)}"
+    end
   end
   #binding.pry
 end
-
 
 
 start
