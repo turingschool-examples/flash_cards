@@ -15,7 +15,7 @@ class Deck
     end
 
     def change_card
-        cards.shift
+        @cards.shift
     end
 
     def cards_in_category(category)
