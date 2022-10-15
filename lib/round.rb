@@ -67,6 +67,7 @@ class Round
         end
         percentage_cat = number_correct_by_category(category_check).to_f / category_turn.count.to_f * 100
         return "#{percentage_cat}%"
+    
     end
 
 end
