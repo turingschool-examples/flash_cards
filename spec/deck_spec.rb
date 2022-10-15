@@ -1,13 +1,6 @@
 require './lib/card'
 require './lib/deck'
 
-# RSpec.describe Turn do
-
-
-
-# end
-
-
 RSpec.describe Deck do
     it 'exists' do
         card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
@@ -28,11 +21,7 @@ RSpec.describe Deck do
         deck = Deck.new(cards)
 
         expect(deck.cards).to eq(cards)
-        # did I write this test correctly? what if the var cards doesn't equal [#<Card:123xyz...>, ] (an array of card objs)?
     end
-
-    # test it counts the array of cards
-
 
     # test it identifies the cards in a certain category
     it 'identifies number of cards in a specific category' do
@@ -43,10 +32,7 @@ RSpec.describe Deck do
         deck = Deck.new(cards)
 
         expect(deck.cards_in_category(:STEM)).to eq([card_2, card_3])
-        # Did I write this test correctly? In iteration 2 requirements, the pry return is the data address. does that change every time it runs?
     end
-
-
 
     # test a different category
     it 'tests a different category' do
@@ -59,8 +45,6 @@ RSpec.describe Deck do
         expect(deck.cards_in_category(:Geography)).to eq([card_1])
     end
 
-
-
     # test an undefined category with no cards
     it 'tests an undefined category with no cards' do
         card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
@@ -72,7 +56,3 @@ RSpec.describe Deck do
         expect(deck.cards_in_category("Pop Culture")).to eq([])
     end
 end
-
-
-
-
