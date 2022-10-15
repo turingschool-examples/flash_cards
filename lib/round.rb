@@ -20,16 +20,13 @@ class Round
         
         return new_turn_instance
         
-
-        
     end
 
-   
-        def number_correct
+    def number_correct
         correct_answers = []
         turns.each do |turn|
             correct_answers << turn.correct?
-        end
+    end
         correct_answers.count
     end
 

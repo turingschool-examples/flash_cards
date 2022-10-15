@@ -326,15 +326,41 @@ RSpec.describe Round do
 
         new_turn2 = round.take_turn("Venus")
 
-require 'pry'; binding.pry
-
-        expect (new_turn2).to be_instance_of(Turn)
-
+        expect(new_turn2).to be_instance_of(Turn)
 
     end
 
 #Test 14
 #Counts the number of turns in the round taken
+
+    it "Counts the turns after second guess" do
+
+        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+
+        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+
+        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+
+        cards = []
+        cards.push card_1, card_2, card_3
+
+        deck = Deck.new(cards)
+
+        round = Round.new(deck)
+
+        round.turns
+
+        round.current_card
+
+        new_turn = round.take_turn("Juneau")
+
+        new_turn2 = round.take_turn("Venus")
+
+        round.turns.count
+
+        expect(round.turns.count).to eq(2)
+
+    end
 
 #Test 15
 #Requests feedback method on the last turn taken
