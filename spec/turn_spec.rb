@@ -48,11 +48,54 @@ RSpec.describe Turn do
     # require 'pry'; binding.pry
     expect(new_turn.correct?).to eq(true)
 
+    new_turn = Turn.new(card_1, "    juneau")
+    # require 'pry'; binding.pry
+    expect(new_turn.correct?).to eq(true)
+
     new_turn = Turn.new(card_1, "Sitka")
     expect(new_turn.correct?).to eq(false)
 
+    
+
+
+
 
   end
+
+  it 'accpets different card answer types' do 
+    card_1 = Card.new("What is 5 + 5?", 10, :STEM)
+    new_turn = Turn.new(card_1, 10)
+    expect(new_turn.correct?).to eq(true)
+
+    new_turn = Turn.new(card_1, 11)
+    expect(new_turn.correct?).to eq(false)
+  end
+
+  
+
+  it 'accepts different data types' do
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    new_turn = Turn.new(card_1, 42)
+    expect(new_turn.correct?).to eq(false)
+
+    new_turn = Turn.new(card_1, true)
+    expect(new_turn.correct?).to eq(false)
+
+    new_turn = Turn.new(card_1, 43.233)
+    expect(new_turn.correct?).to eq(false)
+
+    new_turn = Turn.new(card_1, [2,3,4])
+    expect(new_turn.correct?).to eq(false)
+
+    card_1 = Card.new("What is 5 + 5?", 10, :STEM)
+    new_turn = Turn.new(card_1, 10.0)
+    expect(new_turn.correct?).to eq(true)
+
+  end
+
+  
+
+
   # it provides feedback
   it 'provides feedback' do
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)

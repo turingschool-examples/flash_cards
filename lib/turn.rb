@@ -9,7 +9,17 @@ class Turn
 
   def correct?
     # require 'pry'; binding.pry
-    @guess.downcase.strip == card.answer.downcase
+    if guess.class == card.answer.class
+      if card.answer.class == String
+        @guess.downcase.strip == card.answer.downcase
+      else card.answer.class == Integer
+        guess == card.answer
+
+      end
+    else
+      false
+    end
+    
   end
 
   def feedback
