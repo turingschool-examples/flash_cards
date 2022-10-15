@@ -9,13 +9,15 @@ class Turn
 
   def correct?
     # require 'pry'; binding.pry
+    
     if guess.class == card.answer.class
-      if card.answer.class == String
+      if guess.class == String
         @guess.downcase.strip == card.answer.downcase
-      else card.answer.class == Integer
+      else
         guess == card.answer
-
       end
+    elsif card.answer.class == Integer && guess.class == Float
+      guess.to_i == card.answer
     else
       false
     end
