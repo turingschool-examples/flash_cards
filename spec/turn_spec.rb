@@ -42,6 +42,38 @@ describe Turn do
       expect(turn_2.correct?).to be false
 
     end
+
+    it 'returns correct regardless of capitalization' do
+      card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+      turn_1 = Turn.new("Juneau", card)
+      turn_2 = Turn.new("juneau", card)
+
+      expect(turn_1.correct?).to be true
+      expect(turn_2.correct?).to be true
+
+    end
+
+    it 'returns correct regardless of spaces between answer words' do
+      card = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+
+      turn_1 = Turn.new("north north west", card)
+      turn_2 = Turn.new("northnorthwest", card)
+      turn_3 = Turn.new("north northwest", card)
+
+      expect(turn_1.correct?).to be true
+      expect(turn_2.correct?).to be true
+      expect(turn_3.correct?).to be true
+
+    end
+
+    it 'returns incorrect if answer words are out of order' do
+      card = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+
+      turn = Turn.new("north west north", card)
+
+      expect(turn.correct?).to be false
+    end
+
   end
 
   describe '#feedback' do

@@ -23,7 +23,7 @@ describe Round do
       expect(round.deck).to eq deck
     end
 
-    it 'has an array for Turns that defaults empty' do
+    it 'has an array for turns that starts empty' do
       card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
       card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
@@ -31,6 +31,17 @@ describe Round do
       round = Round.new(deck)
 
       expect(round.turns).to eq []
+    end
+
+    it 'has an array for correct and incorrect turns that starts empty' do
+      card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+      card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+      card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+      deck = Deck.new([card_1, card_2, card_3])
+      round = Round.new(deck)
+
+      expect(round.correct).to eq []
+      expect(round.incorrect).to eq []
     end
 
   end
@@ -87,6 +98,33 @@ describe Round do
       expect(new_turn_2.correct?).to be false
     end
 
+    it 'saves correct guesses' do
+      card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+      card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+      card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+      deck = Deck.new([card_1, card_2, card_3])
+      round = Round.new(deck)
+
+      new_turn = round.take_turn("Juneau")
+
+      expect(round.correct).to include new_turn
+
+    end
+
+    it 'saves incorrect guesses' do
+      card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+      card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+      card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+      deck = Deck.new([card_1, card_2, card_3])
+      round = Round.new(deck)
+
+      new_turn = round.take_turn("Austin")
+
+      expect(round.correct).not_to include new_turn
+      expect(round.incorrect).to include new_turn
+
+    end
+
     it 'stores new turn' do
       card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
@@ -117,49 +155,6 @@ describe Round do
       expect(round.turns.count).to eq 2
     end
 
-    it 'gives feedback for each new turn' do
-      card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-      card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
-      card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-      deck = Deck.new([card_1, card_2, card_3])
-      round = Round.new(deck)
-
-      new_turn_1 = round.take_turn("Juneau")
-
-      expect(round.turns.last.feedback).to eq "Correct!"
-
-      new_turn_2 = round.take_turn("Juneau")
-
-      expect(round.turns.last.feedback).to eq "Incorrect."
-    end
-
-    it 'saves correct guesses' do
-      card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-      card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
-      card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-      deck = Deck.new([card_1, card_2, card_3])
-      round = Round.new(deck)
-
-      new_turn = round.take_turn("Juneau")
-
-      expect(round.correct).to include new_turn
-
-    end
-
-    it 'saves incorrect guesses' do
-      card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-      card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
-      card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-      deck = Deck.new([card_1, card_2, card_3])
-      round = Round.new(deck)
-
-      new_turn = round.take_turn("Austin")
-
-      expect(round.correct).not_to include new_turn
-      expect(round.incorrect).to include new_turn
-
-    end
-
     it 'switches current card to the next card in the deck ' do
       card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
@@ -174,6 +169,46 @@ describe Round do
       new_turn_2 = round.take_turn("Saturn")
 
       expect(round.current_card).to eq card_3
+
+    end
+
+  end
+
+  describe 'last_turn' do
+    it 'returns the last turn just taken' do
+      card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+      card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+      card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+      deck = Deck.new([card_1, card_2, card_3])
+      round = Round.new(deck)
+
+      new_turn_1 = round.take_turn("Juneau")
+
+      expect(round.last_turn).to eq new_turn_1
+
+      new_turn_2 = round.take_turn("Juneau")
+
+      expect(round.last_turn).to eq new_turn_2
+
+    end
+
+  end
+
+  describe '#turn_feedback' do
+    it 'gives feedback for the turn just taken' do
+      card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+      card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+      card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+      deck = Deck.new([card_1, card_2, card_3])
+      round = Round.new(deck)
+
+      new_turn_1 = round.take_turn("Juneau")
+
+      expect(round.turn_feedback).to eq "Correct!"
+
+      new_turn_2 = round.take_turn("Juneau")
+
+      expect(round.turn_feedback).to eq "Incorrect."
 
     end
 

@@ -28,6 +28,13 @@ class Round
     turn
   end
 
+  def last_turn
+    turns.last
+  end
+
+  def turn_feedback
+    last_turn.feedback
+  end
 
   def number_correct
     correct.length
