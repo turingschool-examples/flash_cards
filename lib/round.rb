@@ -1,12 +1,13 @@
 require './lib/deck'
 
 class Round
-  attr_reader :deck, :turns, :number_of_cards
+  attr_reader :deck, :turns, :number_of_cards, :discard_cards
 
   def initialize(deck)
     @deck = deck
     @turns = []
     @number_of_cards = @deck.count
+    @discarded_cards = []
   end
 
   def current_card
@@ -16,7 +17,7 @@ class Round
   def take_turn(guess)
     this_turn = Turn.new(guess, current_card)
     @turns << this_turn
-    @deck.cards.shift
+    @discarded_cards << @deck.cards.shift
     this_turn
   end
 
@@ -74,6 +75,18 @@ class Round
       guess = gets.chomp
       feedback = take_turn(guess).feedback
       puts feedback
+    end
+
+    def game_over
+      puts "****** Game over! ******"
+      puts "You had #{number_correct} correct guesses out of #{@number_of_cards} for a total score of #{percent_correct}%."
+      categories = []
+      @discarded_cards.each do |discarded_card|
+        categories << discarded_card.category
+      end
+      categories.uniq.each do |category|
+        puts "#{category} - #{percent_correct_by_category(category)}% correct"
+      end
     end
   end
 end
