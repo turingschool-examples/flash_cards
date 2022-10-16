@@ -17,12 +17,12 @@ describe CardGenerator do
       filename = "test_cards.txt"
       reader = CardGenerator.new(filename)
 
-      expect(reader.cards[0].question).to eq("What is 5 + 5?")
-      expect(reader.cards[0].answer).to eq("10")
-      expect(reader.cards[0].category).to eq(:STEM)
-      expect(reader.cards[1].question).to eq("What is Rachel's favorite animal?")
-      expect(reader.cards[1].answer).to eq("red panda")
-      expect(reader.cards[1].category).to eq(:TuringStaff)
+      expect(reader.new_cards[0].question).to eq("What is 5 + 5?")
+      expect(reader.new_cards[0].answer).to eq("10")
+      expect(reader.new_cards[0].category).to eq(:STEM)
+      expect(reader.new_cards[1].question).to eq("What is Rachel's favorite animal?")
+      expect(reader.new_cards[1].answer).to eq("red panda")
+      expect(reader.new_cards[1].category).to eq(:TuringStaff)
     end
   end
 end
