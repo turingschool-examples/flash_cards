@@ -16,6 +16,6 @@ class CardGenerator
     @filename = filename
     @new_cards = []
     build_cards
-    @cards = @new_cards.shuffle.first(amount)
+    @cards = @new_cards.shuffle.shuffle.first(amount)
   end
 end
