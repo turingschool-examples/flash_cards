@@ -6,3 +6,6 @@ What is the Capitol of North Dakota?,Bismarck,Geography
 What is the Capitol of California?,Sacramento,Geography
 What is the Capitol of Rhode Island?,Providence,Geography
 What is the Capitol of Maine?,August,Geography
+What is 90-37?,53,STEM
+What is the capitol of Washington?,Olympia,Geography
+What is my wife's name?,Mediha,Celebrities

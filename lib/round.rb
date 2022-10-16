@@ -44,7 +44,7 @@ class Round
   end
 
   def percent_correct_by_category(category)
-    ((number_correct_by_category(category) / number_of_turns_by_category(category)) * 100).round(1)
+    (number_correct_by_category(category) / number_of_turns_by_category(category).to_f * 100).round(1)
   end
 
   def categories_present
