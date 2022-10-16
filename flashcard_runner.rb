@@ -6,9 +6,11 @@ require './lib/card_generator'
 
 file = File.read("cards.txt")
 raw_cards = file.split(/\n+/)
+
 puts "Welcome! There are #{raw_cards.count} cards available."
 puts "How many cards would you like to play with?"
 @amount = 0
+
 loop do
   input = gets.chomp.to_i
   if input > 0 && input < raw_cards.count
