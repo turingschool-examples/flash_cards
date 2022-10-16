@@ -6,41 +6,28 @@ require './lib/card_generator'
 
 RSpec.describe CardGenerator do
   it 'exists' do
-    filename = "cards.txt"
+    filename = 'cards.txt'
     cards = CardGenerator.new(filename)
-    
 
     expect(cards).to be_instance_of(CardGenerator)
   end
 
-  it 'creates a card' do 
-    filename = "cards.txt"
+  it 'creates a card' do
+    filename = 'cards.txt'
     cards = CardGenerator.new(filename).cards
 
-    card_1 = Card.new("What is 5 + 5?", "10", "STEM")
-    # require 'pry'; binding.pry
-
+    card_1 = Card.new('What is 5 + 5?', '10', 'STEM')
 
     expect(cards[0].question).to eq(card_1.question)
     expect(cards[0].answer).to eq(card_1.answer)
     expect(cards[0].category).to eq(card_1.category)
     expect(cards[0]).to be_instance_of(Card)
-    # require 'pry'; binding.pry
-
-
-    
   end
-  it 'creates an array of cards' do 
-    filename = "cards.txt"
+
+  it 'creates an array of cards' do
+    filename = 'cards.txt'
     cards = CardGenerator.new(filename).cards
 
-    # card_1 = Card.new("What is 5 + 5?", "10", "STEM")
-    # require 'pry'; binding.pry
-
     expect(cards).to be_instance_of(Array)
-    # require 'pry'; binding.pry
-
-
-    
   end
 end
