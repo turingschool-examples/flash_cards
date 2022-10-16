@@ -10,6 +10,7 @@ class Round
   end
 
   def take_turn(guess)
+    # require 'pry'; binding.pry
     turn = Turn.new(current_card, guess)
     @turns << turn
     deck.cards.shift
@@ -46,7 +47,9 @@ class Round
   end
 
   def start
-    puts " Welcome! You're playing with #{@deck_size} cards."
+    card_plural = 'cards'
+    card_plural = 'card' if @deck_size == 1
+    puts " Welcome! You're playing with #{@deck_size} #{card_plural}."
     puts '-------------------------------------------------'
     sleep(1)
 

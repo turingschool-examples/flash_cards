@@ -9,7 +9,8 @@ class Turn
   def correct?
     if guess.instance_of?(card.answer.class)
       if guess.instance_of?(String)
-        @guess.downcase.strip == card.answer.downcase
+        # require 'pry'; binding.pry
+        @guess.downcase.strip.split(".")[0] == card.answer.downcase
       else
         guess == card.answer
       end
