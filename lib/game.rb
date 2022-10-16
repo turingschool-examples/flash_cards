@@ -4,13 +4,15 @@ require './lib/deck'
 require './lib/round'
 
 class Game
-  attr_reader :round
+  attr_reader :round,
+              :turn,
+              :deck
 
   def initialize(round)
     @round = round
   end
 
-  def welcome
+  def start
     puts ""
     puts "Welcome to"
     puts ""
@@ -24,20 +26,23 @@ class Game
     puts "Please enter your name"
     name = gets.chomp
 
-    puts "Welcome #{name}! You're playing with #{@round.deck.cards.length} cards."
+    puts "Welcome #{name}! You're playing with #{round.deck.cards.length} cards."
     puts "-------------------------------------------------"
-    puts "This is card number #{@round.turns.size + 1} out of #{@round.deck.cards.length}."
-    puts "Question: #{@round.current_card.question}"
-    guess = gets.chomp
-    #Check guess - if guess == answer, return correct. else return incorrect
     
-    # @turn.feedback
-  
-    #loop back to line 29
-    # if @deck.length == 0
-    #   end_game
-    # end
-  end 
+    if (round.turns.size + 1) < round.deck.cards.length
+      
+      round.deck.cards.each do |card|
+        puts "This is card number #{round.turns.size + 1} out of #{round.deck.cards.length}."
+        puts "Question: #{round.current_card.question}"
+        guess = gets.chomp
+        turn = round.take_turn(guess)
+        puts turn.feedback
+      end
+
+    else
+      end_game
+    end
+  end
 
   def end_game
                                                                                           
