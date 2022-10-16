@@ -124,4 +124,20 @@ class Round
 
     end
 
+    def turn_4
+
+        turn4 = ["-------------------------------------------------", 
+        "This is card number #{active_deck.cards[0].card_number} out of 4.", 
+        "", "Question: #{active_deck.cards[0].question}", ""]
+
+        puts turn4
+
+        puts "Answer:"
+
+        fourth_answer = gets.chomp
+
+        take_turn(fourth_answer)
+
+    end
+
 end
