@@ -69,6 +69,7 @@ class Round
     while turns.length < deck.cards.length do
       ask_question
     end
+    end_game
   end
 
   def ask_question
@@ -78,6 +79,11 @@ class Round
     guess = gets.strip
     take_turn(guess)
     puts turns.last.feedback
-
   end
+
+  def end_game
+    puts "****** Game over! ******"
+    puts "You had #{number_correct} correct guesses out of #{turns.length} for a total score of #{percent_correct}%."
+  end
+
 end
