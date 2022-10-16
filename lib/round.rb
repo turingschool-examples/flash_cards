@@ -17,7 +17,7 @@ class Round
   def take_turn(guess)
     new_turn = Turn.new(guess, current_card)
     turns << new_turn
-    @deck.cards.shift
+    @deck.cards.rotate(1)
     if new_turn.correct?
       @number_correct += 1
     end
@@ -39,8 +39,7 @@ class Round
   end
 
   def percent_correct_by_category
-    number_correct.to_f /
-    number_correct_by_category(:Geography).to_f * 100
+    number_correct.to_f / number_correct_by_category(:Geography).to_f * 100
   end
 
 
