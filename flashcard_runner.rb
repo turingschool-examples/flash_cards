@@ -23,7 +23,6 @@ end
 
 def start
   def new_round
-    require 'pry'; binding.pry
     Round.new(Deck.new(CardGenerator.new("cards.txt", @amount).cards))
   end
 
@@ -59,30 +58,26 @@ def start
   results
 end
 
-# file = File.read("cards.txt")
-# raw_cards = file.split(/\n+/)
-# puts "Welcome! There are #{raw_cards.count} cards available."
-# puts "How many cards would you like to play with?"
-# amount = 0
-# loop do
-#   input = gets.chomp.to_i
-#   if input > 0 && input < raw_cards.count
-#     amount = input
-#     break
-#   else
-#     puts "Invalid input. Please enter a number from 1 - #{raw_cards.count}"
-#   end
-# end
-
-require 'pry'; binding.pry
 loop do
   start # starts the round using the start method defined above
   puts "-------------------------------------------------"
   puts "Would you like to play again?"
-  puts "(Y/N):" 
-  answer = gets.chomp.downcase
+  puts "(Y/N)" 
+  answer = nil
+  loop do
+    input = gets.chomp.downcase
+    if input == "y" or input == "yes" or input == "n" or input == "no"
+      answer = input
+      break
+    else
+      puts "Invalid input. Please type \"Y\" or \"N\""
+    end
+  end
+  
   if answer == "n" or answer == "no"
+    puts "-------------------------------------------------"
     puts "Thank you for playing!"
+    puts "-------------------------------------------------"
     break
   end
 end
