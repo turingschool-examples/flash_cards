@@ -42,10 +42,8 @@ puts "#{turn_1.feedback}"
 
     puts "Pop Culture - #{round.percent_correct_by_category(:pop_culture)}% correct"
 
+    end
   end
-
-  end
-
 end
 
 start
