@@ -69,7 +69,7 @@ class Game
   def game_over
     # game over sequence
     puts ' Game over! '.center(25, '*')
-    puts "You had #{@round.number_correct} correct guesses out of #{@round.turn_count + 1} for a total score of #{@round.percent_correct}%"
+    puts "You had #{@round.number_correct} correct guesses out of #{@round.turn_count} for a total score of #{@round.percent_correct}%"
 
     # iterate through each category and provide score
     @round.categories.each do |category|
