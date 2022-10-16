@@ -41,4 +41,8 @@ describe CardGenerator do
 
   end
 
+  describe 'create_cards' do
+    
+  end
+
 end
