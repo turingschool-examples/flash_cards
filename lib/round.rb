@@ -75,8 +75,9 @@ class Round
     puts "This is card number #{turns.length+1} out of #{deck.cards.length}"
     puts "Question: #{current_card.question}"
 
-    guess = ""
-    gets guess
+    guess = gets.strip
     take_turn(guess)
+    puts turns.last.feedback
+
   end
 end
