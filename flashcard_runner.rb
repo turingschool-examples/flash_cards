@@ -30,7 +30,8 @@ def start
     deck = Deck.new(num_cards.times.map {create_card})
   end
   
-  puts "You'll be playing with #{num_cards} cards"
+  puts %W[You'll be playing with #{num_cards}
+       #{num_cards == 1 ? "card" : "card"}].join(" ")
   puts "#{("*" * 30)}"
   
   round = Round.new(deck)
@@ -42,14 +43,14 @@ def start
   end
 
   puts "#{("*" * 9)} Game over! #{("*" * 9)}"
-  puts %W[You had #{round.number_correct} 
-       correct guesses out of #{deck.count} 
-       for a total score of 
-       #{round.percent_correct}%.].join(' ')
+  puts %W[You had #{round.number_correct}
+       #{round.number_correct == 1 ? "correct guess" : "correct guesses"}
+       out of #{deck.count} for a total score of 
+       #{round.percent_correct}%.].join(" ")
   round.categories.each do |category|
-    puts %W[#{category} -
-         #{round.percent_correct_by_category(category)} 
-         % correct].join(' ')
+    puts %W[#{category} - 
+         #{round.percent_correct_by_category(category)}%
+         correct].join(" ")
   end
 end
 
