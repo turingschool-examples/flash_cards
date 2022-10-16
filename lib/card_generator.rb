@@ -8,7 +8,8 @@ class CardGenerator
   def cards
     deck = []
     text.each_line do |card|
-      deck << Card.new(card.chomp.split(',')[0], card.chomp.split(',')[1], card.chomp.split(',')[2])
+      info = card.chomp.split(',')
+      deck << Card.new(info[0], info[1], info[2])
     end
     deck
   end

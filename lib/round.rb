@@ -10,7 +10,6 @@ class Round
   end
 
   def take_turn(guess)
-    # require 'pry'; binding.pry
     turn = Turn.new(current_card, guess)
     @turns << turn
     deck.cards.shift
@@ -81,8 +80,15 @@ class Round
       final_score_categories << turn.card.category
     end
 
-    final_score_categories.uniq.each do |ctgrs|
-      puts "#{ctgrs} - #{percent_correct_by_category(ctgrs).to_i}% correct"
+    final_score_categories.uniq.each do |categories|
+      puts "#{categories} - #{percent_correct_by_category(categories).to_i}% correct"
     end
+    sleep(1)
+
+    puts "Switch .txt files to play with another deck."
+    sleep(3)
+
+    puts "Thanks for playing!"
+    sleep(1)
   end
 end

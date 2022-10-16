@@ -4,7 +4,7 @@ require './lib/deck'
 require './lib/round'
 require './lib/card_generator'
 
-filename = 'math.txt'
+filename = 'random.txt'
 cards = CardGenerator.new(filename).cards
 deck = Deck.new(cards)
 round = Round.new(deck)

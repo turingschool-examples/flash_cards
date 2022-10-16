@@ -47,7 +47,7 @@ RSpec.describe Turn do
     expect(new_turn.correct?).to eq(false)
   end
 
-  it 'accpets different card answer types' do
+  it 'accepts different card answer types' do
     card_1 = Card.new('What is 5 + 5?', 10, :STEM)
     new_turn = Turn.new(card_1, 10)
     expect(new_turn.correct?).to eq(true)
