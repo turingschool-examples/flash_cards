@@ -16,45 +16,38 @@ deck = Deck.new(cards)
 
 round = Round.new(deck)
 
+total_cards = cards.length
+
 # binding.pry
 puts "Welcome! You're playing with #{cards.length} cards."
 
 puts '-------------------------------------------------'
 
-puts "This card is number 1 out of #{cards.length}"
+puts "This card is number 1 out of #{total_cards}"
 # binding.pry
 puts "#{round.current_card.question}"
 guess = gets.chomp
 guess.capitalize!
 puts round.take_turn(guess).feedback
 
-binding.pry
+# binding.pry
 
-puts "This card is number 2 out of #{cards.length}"
-
-puts "#{round.current_card.question}"
-guess = gets.chomp
-guess.capitalize!
-puts round.take_turn(guess).feedback
-
-puts "This card is number 3 out of #{cards.length}"
+puts "This card is number 2 out of #{total_cards}"
 
 puts "#{round.current_card.question}"
 guess = gets.chomp
 guess.capitalize!
 puts round.take_turn(guess).feedback
 
+puts "This card is number 3 out of #{total_cards}"
 
-# Inside of this file, write the code to do the following:
-# 
-# X Create some Cards
-# X Put those card into a Deck
-# X Create a new Round using the Deck you created
-# Start the round using a new method called start
-# Keep in mind that your existing objects should already contain, more or less, the data and methods needed to manage this process. Your challenge in this iteration is to build out the input/output messaging to support the user’s card experience using your existing pieces to store and manage all the necessary data.
-# 
-# When we start the round by running ruby flashcard_runner.rb, it should produce the following interaction from the command line:
+puts "#{round.current_card.question}"
+guess = gets.chomp
+guess.capitalize!
+puts round.take_turn(guess).feedback
 
-# 
-# puts to display a line of text to user
-# gets to read a line of input from a user
+puts "****** Game over! ******"
+
+puts "You had #{round.number_correct} correct guesses out of #{total_cards} for a total score of #{round.percent_correct}%."
+puts "STEM - #{round.percent_correct_by_category(:STEM)}% correct"
+puts "Geography - #{round.percent_correct_by_category(:Geography)}% correct"
