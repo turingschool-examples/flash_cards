@@ -21,7 +21,7 @@ RSpec.describe CardGenerator do
     end
   end
 
-  xit 'interacts with cards.txt' do
+  describe 'interactions with cards.txt' do
     it 'reads the question' do
       expect(cards[0].question).to eq "What is the capital of Alaska?"
     end
