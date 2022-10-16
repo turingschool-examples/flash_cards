@@ -18,6 +18,6 @@ class CardGenerator
 
     # Card.new(text.split(',')[0],text.split(',')[1],text.split(',')[2])
     # require 'pry'; binding.pry
-    Deck.new(deck)
+    deck
   end
 end

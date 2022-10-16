@@ -13,31 +13,31 @@ RSpec.describe CardGenerator do
     expect(cards).to be_instance_of(CardGenerator)
   end
 
-  xit 'creates a card' do 
+  it 'creates a card' do 
     filename = "cards.txt"
-    generated_card = CardGenerator.new(filename).cards
+    cards = CardGenerator.new(filename).cards
 
     card_1 = Card.new("What is 5 + 5?", "10", "STEM")
-    require 'pry'; binding.pry
+    # require 'pry'; binding.pry
 
 
-    expect(generated_card.question).to eq(card_1.question)
-    expect(generated_card.answer).to eq(card_1.answer)
-    expect(generated_card.category).to eq(card_1.category)
-    expect(generated_card).to be_instance_of(Card)
+    expect(cards[0].question).to eq(card_1.question)
+    expect(cards[0].answer).to eq(card_1.answer)
+    expect(cards[0].category).to eq(card_1.category)
+    expect(cards[0]).to be_instance_of(Card)
     # require 'pry'; binding.pry
 
 
     
   end
-  it 'creates a deck' do 
+  it 'creates an array of cards' do 
     filename = "cards.txt"
     cards = CardGenerator.new(filename).cards
 
     # card_1 = Card.new("What is 5 + 5?", "10", "STEM")
-    # # require 'pry'; binding.pry
+    # require 'pry'; binding.pry
 
-    expect(cards).to be_instance_of(Deck)
+    expect(cards).to be_instance_of(Array)
     # require 'pry'; binding.pry
 
 
