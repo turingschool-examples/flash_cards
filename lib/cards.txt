@@ -1,0 +1,18 @@
+
+What is 5 + 5?,10,STEM
+What is 5 * 5?,25,STEM
+
+What is Rachel's favorite animal?,red panda,Turing Staff
+
+What is Mike's middle name?,nobody knows,Turing Staff
+
+What cardboard cutout lives at Turing?,Justin bieber,PopCulture
+
+What is the capital of Alaska?,Juneau,:Geography
+
+What color is Mario's hat?,Red,Video Games
+
+What is the minimum material required for a Minecraft pickaxe to be able to mine for diamonds?,Iron,Video Games
+What die is used most often in Dungeons & Dragons? It makes many games famous for its critical hits but even more famous for its critical failures.,d20,Tabletop
+
+What creature was famous for her gaze which would turn those that looked at her to stone?,Medusa,Greek mythology
