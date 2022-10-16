@@ -49,12 +49,12 @@ class Round
   end
 
   def cards_in_category(category)
-    cards_in_cat = []
+    cards_in_cate = []
     @turns.each do |turn|
       if turn.card.category == category
-        cards_in_cat << turn
+        cards_in_cate << turn
       end
     end
-    cards_in_cat.count
+    cards_in_cate.count
   end
 end
