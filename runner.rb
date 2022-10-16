@@ -18,19 +18,15 @@ round = Round.new(deck)
 
 total_cards = cards.length
 
-# binding.pry
 puts "Welcome! You're playing with #{cards.length} cards."
 
 puts '-------------------------------------------------'
 
 puts "This card is number 1 out of #{total_cards}"
-# binding.pry
 puts "#{round.current_card.question}"
 guess = gets.chomp
 guess.capitalize!
 puts round.take_turn(guess).feedback
-
-# binding.pry
 
 puts "This card is number 2 out of #{total_cards}"
 

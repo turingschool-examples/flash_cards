@@ -57,5 +57,3 @@ class Round
     cards_in_cat.count
   end
 end
-
-# require 'pry';binding.pry
