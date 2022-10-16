@@ -27,6 +27,8 @@ round_1 = Round.new(deck_1)
 
 require 'pry'; binding.pry
 
+#Taking the first turn
+
 round_1.start
 
 user_feedback_1 = round_1.turns[0].feedback

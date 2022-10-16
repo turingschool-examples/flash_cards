@@ -94,4 +94,10 @@ class Round
 
     end
 
+    def turn_2
+
+        
+
+    end
+
 end
