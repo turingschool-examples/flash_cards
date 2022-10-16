@@ -35,5 +35,14 @@ class Round
     (number_correct.to_f / turns.size.to_f) * 100
   end
 
+  def number_correct_by_category(cat)
+    counter = 0
+    turns.each do |turn|
+      if (turn.correct?) && (turn.card.category == cat)
+        counter += 1
+      end
+    end
+    counter
+  end
 
 end
