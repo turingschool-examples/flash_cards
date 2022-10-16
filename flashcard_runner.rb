@@ -31,7 +31,7 @@ def start
   end
   
   puts %W[You'll be playing with #{num_cards}
-       #{num_cards == 1 ? "card" : "card"}].join(" ")
+       #{num_cards == 1 ? "card" : "cards"}].join(" ")
   puts "#{("*" * 30)}"
   
   round = Round.new(deck)
