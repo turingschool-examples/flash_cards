@@ -19,7 +19,5 @@ class Deck
       end
     end
     categories
-
-    end
-
+  end
 end
