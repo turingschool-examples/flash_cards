@@ -30,7 +30,23 @@ describe CardGenerator do
       cards = CardGenerator.new(filename)
 
       expect(cards.file).to be_a File
-      
+
+    end
+
+  end
+
+  describe '#create_cards' do
+    it 'can create cards from a file' do
+      filename = "./lib/cards.txt"
+      card_gen = CardGenerator.new(filename)
+
+      card_gen.create_cards
+
+      expect(card_gen.cards.first).to be_a Card
+      expect(card_gen.cards.first.answer).to eq "10"
+      expect(card_gen.cards.first.question).to eq "What is 5 + 5?"
+      expect(card_gen.cards.first.category).to eq "STEM"
+
     end
 
   end
