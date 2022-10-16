@@ -4,7 +4,7 @@ require './lib/turn'
 
 RSpec.describe Turn do
   describe '#initialize' do
-    it 'has two arguments'do
+    it 'has two arguments' do
       card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       turn = Turn.new("Juneau", card)
 
@@ -29,7 +29,6 @@ RSpec.describe Turn do
   it 'has a true answer' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
-# require 'pry'; binding.pry
     expect(turn.correct?).to be true
   end
 
