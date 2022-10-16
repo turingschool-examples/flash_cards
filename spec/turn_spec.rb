@@ -2,26 +2,27 @@ require './lib/turn'
 require './lib/card'
 
 RSpec.describe Turn do
-  it 'exists' do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    card2 = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
-    turn = Turn.new("Juneau", card)
-    turn2 = Turn.new("Juneau", card2)
 
+  describe '#it exists' do
+    it 'exists' do
+      card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+      card2 = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+      turn = Turn.new("Juneau", card)
+      turn2 = Turn.new("Juneau", card2)
 
-    expect(turn).to be_instance_of(Turn)
-    expect(turn2).to be_instance_of(Turn)
-  end
+      expect(turn).to be_instance_of(Turn)
+      expect(turn2).to be_instance_of(Turn)
+    end
 
-  it 'has a guess' do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    card2 = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
-    turn = Turn.new("Juneau", card)
-    turn2 = Turn.new("Saturn", card2)
+    it 'has a guess' do
+      card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+      card2 = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+      turn = Turn.new("Juneau", card)
+      turn2 = Turn.new("Saturn", card2)
 
-
-    expect(turn.guess).to eq("Juneau")
-    expect(turn2.guess).to eq("Saturn")
+      expect(turn.guess).to eq("Juneau")
+      expect(turn2.guess).to eq("Saturn")
+    end
   end
 
   describe "#correct?" do
@@ -38,11 +39,9 @@ RSpec.describe Turn do
       expect(card2.answer.downcase).to eq("mercury")
     end
 
-
     it 'knows if the answer is correct' do
       card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       turn = Turn.new("Juneau", card)
-
 
       expect(turn.correct?).to eq(true)
     end
@@ -55,17 +54,16 @@ RSpec.describe Turn do
     end
   end
 
-  it 'will give you feedback' do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    card2 = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
-    turn = Turn.new("Juneau", card)
-    turn2 = Turn.new("Saturn", card2)
+  describe '#feedback' do
 
+    it 'will give you feedback' do
+      card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+      card2 = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+      turn = Turn.new("Juneau", card)
+      turn2 = Turn.new("Saturn", card2)
 
-    expect(turn.feedback).to eq("Correct!")
-    expect(turn2.feedback).to eq("Incorrect!")
+      expect(turn.feedback).to eq("Correct!")
+      expect(turn2.feedback).to eq("Incorrect!")
+    end
   end
-
-
-
 end
