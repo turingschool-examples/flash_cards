@@ -1,3 +1,7 @@
 ##  Flash Cards
 
-This is the starter repository for the [Flash Cards](http://backend.turing.io/module1/projects/flashcards) project.
+A command line interface flashcard game. 
+
+Answers are not case sensitive and spelling requirements are loose. 
+
+Scores will be reported at the end of the game, including a breakdown by category. 
