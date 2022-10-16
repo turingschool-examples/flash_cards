@@ -5,8 +5,8 @@ class Round
   attr_reader :turns, :deck, :turn_count, :categories
 
   def initialize(deck)
-    @deck = deck 
-    @turns = [] 
+    @deck = deck
+    @turns = []
     @categories = deck.cards.map(&:category).uniq
     @turn_count = 0
   end
@@ -18,13 +18,13 @@ class Round
   def take_turn(guess)
     new_turn = Turn.new(guess, current_card)
     @turns << new_turn
-    @turn_count += 1 
+    @turn_count += 1
     @deck.cards.rotate!
     new_turn
-  end 
+  end
 
   # number_correct helper method
-  def correct_answers 
+  def correct_answers
     @turns.select { |turn| turn.card.answer.downcase == turn.guess.downcase }
   end
 
@@ -32,15 +32,15 @@ class Round
   def cards_in_category(target, category)
     target.select { |turn| turn.card.category == category }
   end
-  
+
   def cards_in_round
     @deck.cards.count
   end
-  
+
   def number_correct
     correct_answers.count
   end
-  
+
   def number_correct_by_category(category)
     cards_in_category(correct_answers, category).count
   end
@@ -48,7 +48,7 @@ class Round
   def percent_correct
     return 0 if number_correct == 0
 
-    (number_correct / @turns.count.to_f * 100).round(2) 
+    (number_correct / @turns.count.to_f * 100).round(2)
   end
 
   def percent_correct_by_category(category)
