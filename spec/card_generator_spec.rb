@@ -55,7 +55,7 @@ describe CardGenerator do
       filename = "./lib/cards.txt"
       card_gen = CardGenerator.new(filename)
 
-      expect(card_gen.cards.length).to eq 4
+      expect(card_gen.cards.length).to eq 10
 
 
     end

@@ -6,7 +6,7 @@ What is Rachel's favorite animal?,red panda,Turing Staff
 
 What is Mike's middle name?,nobody knows,Turing Staff
 
-What cardboard cutout lives at Turing?,Justin bieber,PopCulture
+What cardboard cutout lives at Turing?,Justin Bieber,PopCulture
 
 What is the capital of Alaska?,Juneau,:Geography
 

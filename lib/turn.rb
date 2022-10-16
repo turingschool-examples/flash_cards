@@ -30,10 +30,10 @@ attr_reader :guess, :card
   end
 
   def feedback
-    if correct? 
+    if correct?
       'Correct!'
     else
-      'Incorrect.'
+      "Incorrect.\nThe correct answer is #{card.answer}"
     end
   end
 

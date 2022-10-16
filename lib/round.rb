@@ -9,6 +9,9 @@ class Round
     @turns = []
     @correct= []
     @incorrect = []
+    # Never actually did anything with this attribute @incorrect.
+    # If I had more time and energy I was hoping to use it for
+    # more feedback after the game end for the user
   end
 
   def current_card

@@ -84,7 +84,7 @@ describe Turn do
       turn_2 = Turn.new("Austin", card)
 
       expect(turn_1.feedback).to eq 'Correct!'
-      expect(turn_2.feedback).to eq 'Incorrect.'
+      expect(turn_2.feedback).to eq "Incorrect.\nThe correct answer is #{card.answer}"
     end
   end
 end

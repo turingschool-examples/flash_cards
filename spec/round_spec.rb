@@ -208,7 +208,7 @@ describe Round do
 
       new_turn_2 = round.take_turn("Juneau")
 
-      expect(round.turn_feedback).to eq "Incorrect."
+      expect(round.turn_feedback).to eq "Incorrect.\nThe correct answer is Mars"
 
     end
 

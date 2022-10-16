@@ -1,3 +1,4 @@
+require './lib/game_setup'
 def start(input)
   if input.downcase == 'start'
     until @round.turns.length == @round.deck.count
