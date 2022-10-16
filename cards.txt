@@ -1,4 +1,4 @@
-Where is the house from the painting American Gothic located?,Eldon IA,Art History
+In what city and state is the house from the painting American Gothic located?,Eldon IA,Art History
 What driver holds the record for most Formula 1 race wins in a row?,Sebastian Vettel,Sports
 What country won the 2014 Football World Cup in Brazil?,Germany,Sports
 Who burned down the White House during the War of 1812?,Canada,History

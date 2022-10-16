@@ -1,12 +1,7 @@
-require './card'
-
-require './turn'
-
-require './deck'
+require './lib/turn'
 
 class Round
   attr_reader :deck, :turns, :correct_turns
-
   def initialize(deck)
     @deck = deck
     @turns = []
@@ -15,45 +10,33 @@ class Round
 
   def current_card
     current_card = @deck.cards
-    current_card[turns.count]
+    current_card[@turns.count]
   end
 
   def take_turn(guess)
-    @turns.push Turn.new(guess, current_card)
-    if @turns.last.card.answer.downcase == @turns.last.guess.downcase
-      @correct_turns.push turns.last
+    @turns.push(Turn.new(guess, current_card))
+    if @turns.last.correct?
+      @correct_turns.push(@turns.last)
     end
     @turns.last
   end
 
   def number_correct
-    @turns.length
+    @correct_turns.length
   end
 
   def number_correct_by_category(category_input)
-
     @correct_turns.count do |correct_card|
       correct_card.card.category.downcase == category_input.downcase
     end
   end
 
   def percent_correct
-    @correct_turns.length.to_f / @turns.length.to_f * 100.0
+    @correct_turns.length.to_f / @turns.length * 100.0
   end
 
-  def percent_correct_by_category(category)
-    @category_asked_amount = 0.0
-    @category_correct_amount = 0.0
-
-    @correct_turns.each do |correct_card|
-      @category_correct_amount += 1.0 if correct_card.card.category.downcase == category.downcase
-    end
-
-    @turns.each do |turn|
-      @category_asked_amount += 1.0 if turn.card.category.downcase == category.downcase
-    end
-
-    @category_correct_amount / @category_asked_amount * 100.0
+  def percent_correct_by_category(category_input)
+    number_correct_by_category(category_input).to_f / @deck.cards_in_category(category_input).count * 100.0
   end
 
   def card_number
