@@ -5,7 +5,7 @@ require './lib/round'
 require './lib/CardGenerator'
 def start
 
-card_set = CardGenerator.new('./lib/cards.txt') 
+card_set = CardGenerator.new('./lib/cards3.txt') 
 card_set.make_cards
 deck_1 = Deck.new(card_set.cards)
 round = Round.new(deck_1)

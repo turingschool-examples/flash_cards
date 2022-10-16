@@ -53,10 +53,5 @@ class Round
       cats_present.push(turn.card.category)
     end
     cats_present.uniq
-    # turns.map do |turn|
-    #   turn.card.category
-   
-      
-   
   end
 end

@@ -5,3 +5,4 @@ What is the Capitol of Michigan?,Lansing,Geography
 What is the Capitol of North Dakota?,Bismarck,Geography
 What is the Capitol of California?,Sacramento,Geography
 What is the Capitol of Rhode Island?,Providence,Geography
+What is the Capitol of Maine?,August,Geography
