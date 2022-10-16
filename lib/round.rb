@@ -29,12 +29,24 @@ class Round
     def number_correct_by_category(category)
         num_correct_cat = []
         @turns.each do |completed_turn|
-            if completed_turn.card.category == category
+            if completed_turn.correct? == true and completed_turn.card.category == category
                 num_correct_cat << completed_turn     
             end      
         end 
         num_correct_cat.count
        
+    end 
+
+    def percent_correct
+        num_correct_per = []
+        @turns.each do |completed_turn|
+            if completed_turn.correct? == true
+                num_correct_per << completed_turn
+            end
+        end
+        # require 'pry'; binding.pry
+        percent = (num_correct_per.count)/ (@turns.count).to_f
+        "#{percent.round(3)}%"
     end 
 
     
