@@ -25,9 +25,6 @@ describe CardGenerator do
 
     end
 
-  end
-
-  describe '#cards' do
     it 'can create cards from a file' do
       filename = "./lib/cards.txt"
       cards = CardGenerator.new(filename).cards
@@ -42,7 +39,28 @@ describe CardGenerator do
   end
 
   describe 'create_cards' do
-    
+    it 'only returns cards from non empty lines' do
+      filename = "./lib/cards.txt"
+      cards = CardGenerator.new(filename).cards
+
+      expect(cards).not_to include(nil)
+
+
+    end
+
   end
+
+  describe 'sanitize_file_lines' do
+    it 'returns only non empty lines' do
+      filename = "./lib/cards.txt"
+      card_gen = CardGenerator.new(filename)
+
+      expect(card_gen.cards.length).to eq 4
+
+
+    end
+
+  end
+
 
 end

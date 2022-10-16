@@ -1,28 +1,27 @@
 require './lib/card'
 class CardGenerator
-  attr_reader :filename, :file
+  attr_reader :filename, :file, :cards
   def initialize(filename)
     @filename = filename
     @file = File.new(filename, "r")
+    @cards = create_cards
   end
 
-  def cards
-    create_cards
-  end
+
 
   def create_cards
-    sanitize_file_cards.map do |line|
-      if line.empty? == false
+    created_cards = sanitize_file_lines.map do |line|
         Card.new(line[0], line[1], line[2])
-      end
     end
+
   end
 
 
-  def sanitize_file_cards
-    read_file.map do |line|
+  def sanitize_file_lines
+    stripped_lines = read_file.map do |line|
       line.strip.split(",")
     end
+    stripped_lines.delete_if {|line| line.empty?}
   end
 
 
