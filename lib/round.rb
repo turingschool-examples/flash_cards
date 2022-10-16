@@ -25,7 +25,7 @@ class Round
 
   # number_correct helper method
   def correct_answers 
-    @turns.select { |turn| turn.card.answer == turn.guess }
+    @turns.select { |turn| turn.card.answer.downcase == turn.guess.downcase }
   end
 
   # percent_correct helper method

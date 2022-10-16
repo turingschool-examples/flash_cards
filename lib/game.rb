@@ -2,10 +2,19 @@ require './lib/card'
 require './lib/deck'
 require './lib/turn'
 require './lib/round'
+require './lib/card_generator'
 
 class Game  
   # create some cards
-  def initialize
+  # def initialize
+  # end
+
+  def play_with_cards_from_file
+    @deck = Deck.new(CardGenerator.new("cards.txt").cards)
+    @round = Round.new(@deck)
+  end
+
+  def play_with_hardcoded_deck
     @card_1 = Card.new( "What color is water?", "Blue", :Basics)
     @card_2 = Card.new( "What color is fire?", "Red", :Basics)
     @card_3 = Card.new( "In what state is Detroit", "Michigan", :Geography)
@@ -22,8 +31,7 @@ class Game
     
   # create a new round using the deck you created
     @round = Round.new(@deck)
-  end
-
+  end 
 
   def display_title(round)
     puts '
@@ -38,11 +46,43 @@ class Game
     puts "-" * 50
   end
 
-  # start the round using a new method called start
-  def start
-    display_title(@round)
+  def check_game_type
+    valid_game_type = false
+     
+    until valid_game_type
+      puts "Play with hardcoded cards or load cards.txt from root dir?"
+      puts "[h]ardcoded cards"
+      puts "[l]oad text file"
+      print "Enter 'h' or 'l' >> "
+      game_type = gets.chomp.downcase
 
-    # loop all the cards 
+      if game_type == "h"
+        valid_game_type = true
+        play_with_hardcoded_deck
+      elsif game_type == "l"
+        valid_game_type = true
+        play_with_cards_from_file
+      else
+        puts "That's... not an option."
+      end
+    end
+  end
+
+  def game_over
+    # game over sequence
+    puts " Game over! ".center(25, "*")
+    puts "You had #{@round.number_correct} correct guesses out of #{@round.turn_count + 1} for a total score of #{@round.percent_correct}%"
+
+    # iterate through each category and provide score
+    @round.categories.each do |category|
+      puts "#{category} - #{@round.percent_correct_by_category(category)}% correct"
+    end
+    
+    puts @round.percent_correct >= 90 ? "You're a pro, have a nap!" : "Maybe keep practicing..."
+  end 
+
+  def game_loop 
+  # loop all the cards 
     until @round.finished?
       puts "This is card number #{@round.turn_count + 1} of #{@round.cards_in_round}."
       puts "Question: #{@round.current_card.question}"
@@ -52,14 +92,18 @@ class Game
       @round.take_turn(guess)
       puts @round.turns.last.feedback
     end
+  end
 
-    # game over sequence
-    puts " Game over! ".center(25, "*")
-    puts "You had #{@round.number_correct} correct guesses out of #{@round.turn_count + 1} for a total score of #{@round.percent_correct}%"
-    @round.categories.each do |category|
-      puts "#{category} - #{@round.percent_correct_by_category(category)}% correct"
-    end
-    puts @round.percent_correct >= 90 ? "You're a pro, have a nap!" : "Maybe keep practicing..."
+  # start the round using a new method called start
+  def start
+    # determine hardcoded or cards.txt game
+    check_game_type
+    # display the opening title
+    display_title(@round)
+    # loop the game
+    game_loop
+    # end game stats
+    game_over
   end
 end
 
