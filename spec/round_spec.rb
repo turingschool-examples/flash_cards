@@ -166,7 +166,7 @@ RSpec.describe Round do
             expect(round.percent_correct).to eq 100.0
 
             turn3 = round.take_turn('bad guess')
-            expect(round.percent_correct).to be_within(0.1).of(66.6) 
+            expect(round.percent_correct).to be_within(0.3).of(66.6) 
         end
     end
 

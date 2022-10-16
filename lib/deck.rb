@@ -1,9 +1,10 @@
 class Deck
-    attr_reader :cards, :initial_size
+    attr_reader :cards, :initial_size, :category_data
 
     def initialize(cards)
         @cards = cards
         @initial_size = count
+        @category_data = Hash[categories.map {|category| [category, cards_in_category(category)]}]
     end
 
     def count
@@ -12,6 +13,14 @@ class Deck
 
     def current_card
         @cards[0]
+    end
+
+    def change_card
+        @cards.shift
+    end
+
+    def categories
+        @cards.map {|card| card.category}.uniq
     end
 
     def cards_in_category(category)
