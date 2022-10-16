@@ -8,13 +8,13 @@ RSpec.describe Round do
 #Test 1
 #Checks that cards 1-3 exist
     it "Cards 1 through 3 exist" do
-        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography, 1)
         expect(card_1).to be_instance_of(Card)
 
-        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM, 2)
         expect(card_2).to be_instance_of(Card)
 
-        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM, 3)
         expect(card_2).to be_instance_of(Card)
 
     end
@@ -24,11 +24,11 @@ RSpec.describe Round do
 #Checks that deck exists and has all cards in it
 
     it "Deck exists" do
-        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography, 1)
 
-        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM, 2)
 
-        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM, 3)
 
         cards = []
         cards.push card_1, card_2, card_3
@@ -42,11 +42,11 @@ RSpec.describe Round do
 #Test 3
 #Checks that round is an instance of Round
     it "round exists with an attribute of deck" do
-        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography, 1)
 
-        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM, 2)
 
-        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM, 3)
 
         cards = []
         cards.push card_1, card_2, card_3
@@ -62,11 +62,11 @@ RSpec.describe Round do
 #Test 4
 #Checks that round.active_deck calls the instance deck
     it "deck exists within round" do
-        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography, 1)
 
-        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM, 2)
 
-        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM, 3)
 
         cards = []
         cards.push card_1, card_2, card_3
@@ -84,11 +84,11 @@ RSpec.describe Round do
 #Checks that round has an attribute, turns with an empty array
     it "round has attribute turns that is an empty array" do
 
-        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography, 1)
 
-        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM, 2)
 
-        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM, 3)
 
         cards = []
         cards.push card_1, card_2, card_3
@@ -107,11 +107,11 @@ RSpec.describe Round do
 #Checks that method current card pulls up the first card we make
     it "The current card is card_1" do
         
-        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography, 1)
 
-        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM, 2)
 
-        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM, 3)
 
         cards = []
         cards.push card_1, card_2, card_3
@@ -132,11 +132,11 @@ RSpec.describe Round do
 #Checks that method take turn enters a guess into a new turn
     it "create an instance of Turn called 'new_turn' and have the guess be 'Juneau'" do
 
-        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography, 1)
 
-        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM, 2)
 
-        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM, 3)
 
         cards = []
         cards.push card_1, card_2, card_3
@@ -159,11 +159,11 @@ RSpec.describe Round do
 #Checks that new_turn is an instance of Turn class with the class method
 
     it "new_turn.class returns Turn" do
-        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography, 1)
 
-        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM, 2)
 
-        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM, 3)
 
         cards = []
         cards.push card_1, card_2, card_3
@@ -189,11 +189,11 @@ RSpec.describe Round do
 
     it "The guess in new_turn is correct" do
 
-        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography, 1)
 
-        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM, 2)
 
-        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM, 3)
 
         cards = []
         cards.push card_1, card_2, card_3
@@ -218,11 +218,11 @@ RSpec.describe Round do
 
     it "When a new turn is made the turn also needs to be added in the round's @turns" do
 
-        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography, 1)
 
-        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM, 2)
 
-        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM, 3)
 
         cards = []
         cards.push card_1, card_2, card_3
@@ -247,11 +247,11 @@ RSpec.describe Round do
 #Checks that number_correct method can share the number of correct answers in the round
     it "The number of correct guesses is 1" do
 
-        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography, 1)
 
-        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM, 2)
 
-        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM, 3)
 
         cards = []
         cards.push card_1, card_2, card_3
@@ -275,11 +275,11 @@ RSpec.describe Round do
 #Checks that the current card has changed to the next one"
 
     it "Current card has been updated to the next one via the take turn method" do
-        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography, 1)
 
-        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM, 2)
 
-        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM, 3)
 
         cards = []
         cards.push card_1, card_2, card_3
@@ -305,11 +305,11 @@ RSpec.describe Round do
 
     it "Take another turn and guess 'venus'" do
 
-        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography, 1)
 
-        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM, 2)
 
-        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM, 3)
 
         cards = []
         cards.push card_1, card_2, card_3
@@ -335,11 +335,11 @@ RSpec.describe Round do
 
     it "Counts the turns after second guess" do
 
-        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography, 1)
 
-        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM, 2)
 
-        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM, 3)
 
         cards = []
         cards.push card_1, card_2, card_3
@@ -367,11 +367,11 @@ RSpec.describe Round do
 
     it "Looks up feedback for last turn guess" do
 
-        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography, 1)
 
-        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM, 2)
 
-        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM, 3)
 
         cards = []
         cards.push card_1, card_2, card_3
@@ -399,11 +399,11 @@ RSpec.describe Round do
 
     it "Shows number of correct answers in the round" do
 
-        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography, 1)
 
-        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM, 2)
 
-        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM, 3)
 
         cards = []
         cards.push card_1, card_2, card_3
@@ -431,11 +431,11 @@ RSpec.describe Round do
 
     it "What are the number of correct answers in category Geography for round?" do
 
-        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography, 1)
 
-        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM, 2)
 
-        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM, 3)
 
         cards = []
         cards.push card_1, card_2, card_3
@@ -463,11 +463,11 @@ RSpec.describe Round do
 
     it "what are the number of correct answers in the round by category STEM" do
 
-        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography, 1)
 
-        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM, 2)
 
-        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM, 3)
 
         cards = []
         cards.push card_1, card_2, card_3
@@ -495,11 +495,11 @@ RSpec.describe Round do
 
     it "Shows the percentage of correct answers from the 2 turns" do
 
-        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography, 1)
 
-        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM, 2)
 
-        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM, 3)
 
         cards = []
         cards.push card_1, card_2, card_3
@@ -527,11 +527,11 @@ RSpec.describe Round do
 
     it "Checks percentage of correct answers in the geography category" do
 
-        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography, 1)
 
-        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM, 2)
 
-        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM, 3)
 
         cards = []
         cards.push card_1, card_2, card_3
@@ -559,11 +559,11 @@ RSpec.describe Round do
 
     it "Check current card is card_3" do
 
-        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography, 1)
 
-        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM, 2)
 
-        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM, 3)
 
         cards = []
         cards.push card_1, card_2, card_3
