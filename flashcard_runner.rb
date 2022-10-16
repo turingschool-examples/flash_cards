@@ -15,6 +15,7 @@ puts opening_message
 
 
 card_number_message = "This is card number 1 out of #{deck.count}."
+puts card_number_message
 
-
-
+question_message = "Question: #{round.current_card.question}"
+puts question_message
