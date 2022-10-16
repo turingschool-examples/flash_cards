@@ -1,7 +1,7 @@
 class Round
 
   attr_reader :deck, :turns
-  attr_accessor :number_correct, :count, :total_cards#, :cats
+  attr_accessor :number_correct, :count, :total_cards, :cats
 
   def initialize(deck)
     @deck = deck
@@ -9,7 +9,7 @@ class Round
     @number_correct = 0
     @count = 1
     @total_cards = 0
-    # @cats = [] Didn't end up needing for percent calculations
+    @cats = [] # need for puts statement in runner file
   end
 
   def current_card
@@ -55,5 +55,13 @@ class Round
     (number_correct_by_category(cat).to_f / counter.to_f) * 100
   end
 
+  def categories_used
+    deck.cards.each do |card|
+      if !(@cats.include?(card.category))
+        @cats << card.category
+      end
+    end
+  end
 
+  
 end
