@@ -1,7 +1,7 @@
 # require './lib/card'
 require './lib/deck'
 require './lib/round'
-
+require './lib/card_generator'
   # HARD CODED CARDS
   # card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
   # card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
@@ -13,5 +13,6 @@ require './lib/round'
   # deck = Deck.new([card_1, card_2, card_3, card_4, card_5, card_6, card_7])
 
   # GENERATED CARDS
-
+  cards = CardGenerator.new("./lib/cards.txt").cards
+  deck = Deck.new(cards)
   @round = Round.new(deck)
