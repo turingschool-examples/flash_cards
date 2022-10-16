@@ -128,7 +128,7 @@ RSpec.describe Round do
       new_turn = round.take_turn('Juneau')
       new_turn = round.take_turn('Uranus')
 
-      expect(round.turns.last.feedback).to eq('Incorrect.')
+      expect(round.turns.last.feedback).to eq('Incorrect. The correct answer is Mars.')
     end
 
     it 'adds to correct_turns only when an answer is correct' do
