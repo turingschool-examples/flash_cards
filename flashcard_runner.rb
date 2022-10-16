@@ -6,7 +6,7 @@ require './lib/round'
 
 class Game
 
-  attr_reader :card_1, :card_2, :card_3, :cards, :deck, :round, :turn, :guess, :new_turn
+  attr_reader :card_1, :card_2, :card_3, :cards, :deck, :round, :turn, :guess
 
   def initialize
     @card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
@@ -15,9 +15,7 @@ class Game
     @cards = [@card_1, @card_2, @card_3]
     @deck = Deck.new(@cards)
     @round = Round.new(@deck)
-    @new_turn = Turn.new(@guess, round.current_card)
   end
- #round = Round.new(Deck.new(cards))
 
  def start
    puts "Welcome! You are playing with #{deck.count} cards."
@@ -38,8 +36,8 @@ class Game
  def game_over
    puts "****** Game Over! *******"
    puts "You had #{round.number_correct} correct guesses out of #{round.turns.count} for a total score of #{round.percent_correct}%."
-
-    #puts "#{card.category} - #{round.percent_correct_by_category(category)}%"
+   puts "Geography - #{round.percent_correct_by_category(:Geography)}% correct."
+   puts "STEM - #{round.percent_correct_by_category(:STEM)}% correct."
  end
 
 end
@@ -47,5 +45,3 @@ end
 new_game = Game.new
 new_game.start
 new_game.game_over
-
-#end
