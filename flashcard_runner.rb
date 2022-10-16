@@ -2,7 +2,7 @@ require './lib/card'
 require './lib/turn'
 require './lib/deck'
 require './lib/round'
-  
+
   card_1 = Card.new(
     'What is the capital of Alaska?',
     'Juneau',
