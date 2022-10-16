@@ -26,9 +26,14 @@ class Round
     end
     next_turn
   end
-  
+
   def number_correct
     @number_correct
   end
+
+  def percent_correct
+    (number_correct.to_f / turns.size.to_f) * 100
+  end
+
 
 end
