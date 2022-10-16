@@ -44,7 +44,6 @@ class Round
    
   def percent_correct_by_category(category)
     category_correct = self.number_correct_by_category(category)
-    # require 'pry';binding.pry
     total = self.cards_in_category(category)
     (category_correct / total) * 100.round(1)
   end
