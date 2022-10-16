@@ -39,7 +39,7 @@ RSpec.describe Turn do
     describe '#close_enough?' do
         it 'checks whether or not the guess has similar characters to answer' do
             card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-            turn = Turn.new('Junea', card)
+            turn = Turn.new('Juneas', card)
             turn2 = Turn.new('Denver', card)
 
             expect(turn.close_enough?).to eq true

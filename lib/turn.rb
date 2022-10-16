@@ -16,8 +16,8 @@ class Turn
     end
 
     def close_enough?
-        (@guess.downcase.chars - card.answer.downcase.chars).length <= 1 && 
-        (card.answer.downcase.chars - @guess.downcase.chars).length <= 1
+        (@guess.downcase.chars - card.answer.downcase.chars).length <= 2 && 
+        (card.answer.downcase.chars - @guess.downcase.chars).length <= 2
     end
 
 
