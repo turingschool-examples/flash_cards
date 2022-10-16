@@ -10,6 +10,7 @@ class Interface
 
   def play
     puts "Welcome! You're playing with #{@round.deck.initial_size} cards."
+    puts "Answers are not case sensitive and *~some~* spelling errors are allowed."
     puts "-------------------------------------------------"
 
 
