@@ -4,12 +4,14 @@ require './lib/deck'
 class Round
   attr_reader :deck,
               :turns,
-              :number_correct
+              :number_correct,
+              :total_cards
 
   def initialize(deck)
     @deck = deck
     @turns = []
     @number_correct = 0
+    @total_cards = deck.count
   end
 
   def current_card
