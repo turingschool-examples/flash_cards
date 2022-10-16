@@ -20,9 +20,7 @@ class Round
     def take_turn(guess)
         turn = Turn.new(guess, current_card)
         @turns << turn
-            if turn.correct? == true
-                @number_correct += 1
-            end
+        turn.correct? ? @number_correct += 1 : @number_correct += 0
         turn
     end
  
