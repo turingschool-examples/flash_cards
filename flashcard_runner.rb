@@ -11,7 +11,6 @@ def start
 
   @round = new_round
   @categories_played = []
-  puts "Welcome! You're playing with #{@round.deck.count} cards."
 
   @round.deck.count.times do
     def play_turn
@@ -30,6 +29,7 @@ def start
   end
   
   def results
+    puts "-------------------------------------------------"
     puts "****** Game over! ******"
     puts "You had #{@round.number_correct} correct guesses out of #{@round.deck.count} for a total score of #{@round.percent_correct.to_i}%"
 
@@ -40,5 +40,16 @@ def start
 
   results
 end
+                                                  
+puts "Welcome! 6 cards will be chosen at random each time you begin."
 
-start # starts the round using the start method defined above
+loop do
+  start # starts the round using the start method defined above
+  puts "-------------------------------------------------"
+  puts "Would you like to play again?"
+  puts "(Y/N):" 
+  answer = gets.chomp.downcase
+  if answer == "n" or answer == "no"
+    break
+  end
+end
