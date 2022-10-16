@@ -15,5 +15,4 @@ class Turn
     return "Correct!" if correct?
     "Incorrect"
   end
-
 end
