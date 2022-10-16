@@ -11,6 +11,11 @@ class Round
         active_deck.cards[0]
     end
 
+    # def first_turn(guess)
+    #     new_turn_instance = Turn.new(guess, active_deck.cards[0])
+    #     turns << new_turn_instance
+    # end
+
     def take_turn(guess)
         new_turn_instance = Turn.new(guess, active_deck.cards[0])
         turns << new_turn_instance
@@ -70,17 +75,22 @@ class Round
     
     end
 
-    def start_round_intro
+    def start
     
     welcome = ["", "Welcome! You're playing with 4 cards.","-------------------------------------------------
     ", "This is card number #{active_deck.cards[0].card_number} out of 4", "Question: #{active_deck.cards[0].question}", ""]
 
     puts welcome
 
+    #code requests the first answer from user
 
     puts "Answer:"
     
-    first_question = gets.chomp
+    first_answer = gets.chomp
+
+    #answer is checked
+
+    take_turn(first_answer)
 
     end
 
