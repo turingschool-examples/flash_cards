@@ -75,3 +75,5 @@ puts user_feedback_4
 puts ""
 
 #Game ends
+
+round_1.game_over
