@@ -59,7 +59,7 @@ describe Turn do
       turn_2 = Turn.new('Anchorhead', card)
 
       expect(turn_1.feedback).to eq('Correct!')
-      expect(turn_2.feedback).to eq('Incorrect. The correct answer is Juneau')
+      expect(turn_2.feedback).to eq('Incorrect. The correct answer is: Juneau')
     end
   end
 end
