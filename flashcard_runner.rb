@@ -51,3 +51,13 @@ puts user_feedback_2
 puts ""
 
 #Taking turn 3
+
+round_1.turn_3
+
+user_feedback_3 = round_1.turns[2].feedback
+
+puts ""
+
+puts user_feedback_3
+
+puts ""
