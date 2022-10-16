@@ -143,8 +143,8 @@ class Round
     def game_over
 
         game_over_message = ["****** Game over! ******", "", "You had #{number_correct} correct guesses out of 4 for a total score of #{percent_correct}.",
-        "US States - #{percent_correct_by_category(US_States)}", 
-        "Tongue Twisters - #{percent_correct_by_category(tongue_twister)}"]
+        "US States - #{percent_correct_by_category(:US_States)}", 
+        "Tongue Twisters - #{percent_correct_by_category(:tongue_twister)}","", "************************"]
 
         puts game_over_message
 
