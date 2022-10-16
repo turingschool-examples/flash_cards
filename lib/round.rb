@@ -26,6 +26,9 @@ class Round
     end
     next_turn
   end
-
+  
+  def number_correct
+    @number_correct
+  end
 
 end
