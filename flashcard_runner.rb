@@ -61,3 +61,17 @@ puts ""
 puts user_feedback_3
 
 puts ""
+
+#Taking turn 4
+
+round_1.turn_4
+
+user_feedback_4 = round_1.turns[3].feedback
+
+puts ""
+
+puts user_feedback_4
+
+puts ""
+
+#Game ends
