@@ -12,10 +12,10 @@ class CardGenerator
     end
   end
 
-  def initialize(filename)
+  def initialize(filename, amount)
     @filename = filename
     @new_cards = []
     build_cards
-    @cards = @new_cards.shuffle.first(6)
+    @cards = @new_cards.shuffle.first(amount)
   end
 end

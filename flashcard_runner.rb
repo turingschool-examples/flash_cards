@@ -4,9 +4,25 @@ require './lib/deck'
 require './lib/round'
 require './lib/card_generator'
 
+file = File.read("cards.txt")
+raw_cards = file.split(/\n+/)
+puts "Welcome! There are #{raw_cards.count} cards available."
+puts "How many cards would you like to play with?"
+@amount = 0
+loop do
+  input = gets.chomp.to_i
+  if input > 0 && input < raw_cards.count
+    @amount = input
+    break
+  else
+    puts "Invalid input. Please enter a number from 1 - #{raw_cards.count}"
+  end
+end
+
 def start
   def new_round
-    Round.new(Deck.new(CardGenerator.new("cards.txt").cards))
+    require 'pry'; binding.pry
+    Round.new(Deck.new(CardGenerator.new("cards.txt", @amount).cards))
   end
 
   @round = new_round
@@ -40,9 +56,23 @@ def start
 
   results
 end
-                                                  
-puts "Welcome! 6 cards will be chosen at random each time you begin."
 
+# file = File.read("cards.txt")
+# raw_cards = file.split(/\n+/)
+# puts "Welcome! There are #{raw_cards.count} cards available."
+# puts "How many cards would you like to play with?"
+# amount = 0
+# loop do
+#   input = gets.chomp.to_i
+#   if input > 0 && input < raw_cards.count
+#     amount = input
+#     break
+#   else
+#     puts "Invalid input. Please enter a number from 1 - #{raw_cards.count}"
+#   end
+# end
+
+require 'pry'; binding.pry
 loop do
   start # starts the round using the start method defined above
   puts "-------------------------------------------------"
@@ -50,6 +80,7 @@ loop do
   puts "(Y/N):" 
   answer = gets.chomp.downcase
   if answer == "n" or answer == "no"
+    puts "Thank you for playing!"
     break
   end
 end
