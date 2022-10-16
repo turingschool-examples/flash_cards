@@ -1,2 +1,0 @@
-class CloseGuessCheck
-end
