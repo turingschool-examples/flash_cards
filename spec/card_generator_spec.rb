@@ -13,7 +13,7 @@ RSpec.describe CardGenerator do
     
     generated_cards = CardGenerator.new("cards.txt")
 
-    expect(generated_cards.cards[0].question).to eq "What is the capital of Alaska?"
+    expect(generated_cards.cards[0].question).to eq "Who won the 2022 Nobel Prize for Literature?"
     expect(generated_cards.cards[2].category).to eq :STEM
   end
 
