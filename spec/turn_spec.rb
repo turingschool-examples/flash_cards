@@ -14,7 +14,7 @@ RSpec.describe Turn do
     
     end
 
-    #Test 2
+#Test 2
 # it has a card
     it 'turn has a card' do
         card = Card.new("What is the capital of Alaska?", "Juneau", :Geography, 1)
@@ -25,7 +25,7 @@ RSpec.describe Turn do
 
     end
 
-    #Test 3
+#Test 3
 #it has a guess
     it 'has a guess' do
         card = Card.new("What is the capital of Alaska?", "Juneau", :Geography, 1)
@@ -47,7 +47,7 @@ RSpec.describe Turn do
         expect(turn.correct?).to be true
     end
 
-    #Test 5
+#Test 5
 #feedback for the correct guess is Correct!
     it "feedback for a correct answer is 'correct'" do
         card = Card.new("What is the capital of Alaska?", "Juneau", :Geography, 1)
