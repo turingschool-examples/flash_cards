@@ -1,10 +1,22 @@
 # follow format exactly to add your own questions and answers!
-# question,answer,category
-What is 5 + 5?,10,STEM
-What is Rachel's favorite animal?,red panda,Turing Staff
-What is Mike's middle name?,nobody knows,Turing Staff
-What cardboard cutout lives at Turing?,Justin bieber,PopCulture
+# ***DO NOT USE COMMAS OTHER THAN THOSE IN FORMAT EXAMPLE***
+# Format example: question,answer,category
 Who won the 2021 F1 Drivers Chanpionship?,Max Verstappen,Sports
 Who was eliminated in the 2022 Wilcard Round of MLB Playoffs: Seattle or Toronto?,Toronto,Sports
 What city in Ontario is the capital of Canada?,Ottawa,Geography
 What city is the capital of Ontario?,Toronto,Geography
+Which actor played Private Hudson in ALIENS?,Bill Paxton,Movies
+What is the name of the android in ALIENS?,Bishop,Movies
+While he was a superstar when "The Cabin in the Woods" released; this actor was killed off early in the movie because he was relatively unkown at the time of filming.,Chris Hemsworth,Movies
+Sylvester Stalone; Sandra Bullock and Wesley Snipes starred in this 1993 sci-fi action thriller,Demolition Man,Movies
+What is the official term for the "surface" of a black hole?,Event horizon,Space
+What mysterious thing is theorized to be forcing the universe to expand?,Dark Matter,Space
+What star is the closest to our solar system?,Proxima Centauri,Space
+What galaxy is widely considered the closest neighbour to the Milky Way?,Andromeda,Space
+No matter where we are on earth or what time of year it is, we always see the same side of the moon. True or False?,True,Space
+What is the largest freshwater island in the world?,Manitoulin Island,Geography
+Which team won the 2021 F1 Constructors Championship?,Mercedes,Sports
+What year did the Toronto Blue Jays last win the World Series?,1993,Sports
+Most PCs have a GPU. What does GPU stand for?,Graphics Processing Unit,Computers
+All PCs have RAM. What does RAM stand for?,Random Access Memory,Computers
+Most PCs use some kind of GUI. What does GUI stand for?, Graphical User Interface,Computers
