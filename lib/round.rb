@@ -16,4 +16,16 @@ class Round
     @deck.cards[0]
   end
 
+  def take_turn(turn_guess, card = @deck.cards[0])
+    @deck.cards.shift
+    @count += 1
+    next_turn = Turn.new(turn_guess, card)
+    @turns << next_turn
+    if @turns.last.correct?
+      @number_correct += 1
+    end
+    next_turn
+  end
+
+
 end
