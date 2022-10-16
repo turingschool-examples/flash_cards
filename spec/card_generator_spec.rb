@@ -17,14 +17,6 @@ describe CardGenerator do
       expect(cards.filename).to eq "./lib/cards.txt"
     end
 
-    it 'starts with an empty cards array' do
-      filename = "./lib/cards.txt"
-      cards = CardGenerator.new(filename)
-
-      expect(cards.cards).to eq []
-
-    end
-
     it 'can read a file' do
       filename = "./lib/cards.txt"
       cards = CardGenerator.new(filename)
@@ -35,17 +27,15 @@ describe CardGenerator do
 
   end
 
-  describe '#create_cards' do
+  describe '#cards' do
     it 'can create cards from a file' do
       filename = "./lib/cards.txt"
-      card_gen = CardGenerator.new(filename)
+      cards = CardGenerator.new(filename).cards
 
-      card_gen.create_cards
-
-      expect(card_gen.cards.first).to be_a Card
-      expect(card_gen.cards.first.answer).to eq "10"
-      expect(card_gen.cards.first.question).to eq "What is 5 + 5?"
-      expect(card_gen.cards.first.category).to eq "STEM"
+      expect(cards.first).to be_a Card
+      expect(cards.first.answer).to eq "10"
+      expect(cards.first.question).to eq "What is 5 + 5?"
+      expect(cards.first.category).to eq "STEM"
 
     end
 
