@@ -5,8 +5,13 @@ class CardGenerator
         @filename = filename
     end
 
-    def make_cards
+    # def make_cards
 
+    #     filename.each do |file|
         
-    end
+    #     Card.new(file)
+
+    #     end
+
+    # end
 end
