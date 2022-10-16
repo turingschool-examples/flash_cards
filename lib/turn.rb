@@ -14,7 +14,8 @@ class Turn
   def feedback
     if @guess == true
       puts "Correct!"
-    else puts "Incorrect!"
+    else
+      puts "Incorrect!"
     end
   end
 end
