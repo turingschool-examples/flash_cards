@@ -25,8 +25,6 @@ deck_1 = Deck.new(cards_1)
 
 round_1 = Round.new(deck_1)
 
-require 'pry'; binding.pry
-
 #Taking the first turn
 
 round_1.start
@@ -36,3 +34,9 @@ user_feedback_1 = round_1.turns[0].feedback
 puts ""
 
 puts user_feedback_1
+
+puts ""
+
+#Taking turn 2
+
+round_1.turn_2

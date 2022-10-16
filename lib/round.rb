@@ -77,27 +77,39 @@ class Round
 
     def start
     
-    welcome = ["", "Welcome! You're playing with 4 cards.","-------------------------------------------------
-    ", "This is card number #{active_deck.cards[0].card_number} out of 4", "Question: #{active_deck.cards[0].question}", ""]
+        welcome = ["", "Welcome! You're playing with 4 cards.",
+        "-------------------------------------------------", 
+        "This is card number #{active_deck.cards[0].card_number} out of 4.", 
+        "Question: #{active_deck.cards[0].question}", ""]
 
-    puts welcome
+        puts welcome
 
-    #code requests the first answer from user
+        #code requests the first answer from user
 
-    puts "Answer:"
-    
-    first_answer = gets.chomp
+        puts "Answer:"
+        
+        first_answer = gets.chomp
 
-    #answer is checked
+        #answer is checked
 
-    take_turn(first_answer)
+        take_turn(first_answer)
 
     end
 
     def turn_2
 
-        
+        turn2 = ["-------------------------------------------------", 
+        "This is card number #{active_deck.cards[0].card_number} out of 4.", 
+        "", "Question: #{active_deck.cards[0].question}", ""]
 
+        puts turn2
+
+        puts "Answer:"
+
+        second_answer = gets.chomp
+
+        take_turn(second_answer)
+        
     end
 
 end
