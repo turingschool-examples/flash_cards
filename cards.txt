@@ -1,5 +1,5 @@
 # follow format exactly to add your own questions and answers!
-# ***DO NOT USE COMMAS OTHER THAN THOSE IN FORMAT EXAMPLE***
+# ***DO NOT USE COMMAS OTHER THAN THOSE IN THE FORMAT EXAMPLE***
 # Format example: question,answer,category
 Who won the 2021 F1 Drivers Chanpionship?,Max Verstappen,Sports
 Who was eliminated in the 2022 Wilcard Round of MLB Playoffs: Seattle or Toronto?,Toronto,Sports
@@ -13,10 +13,14 @@ What is the official term for the "surface" of a black hole?,Event horizon,Space
 What mysterious thing is theorized to be forcing the universe to expand?,Dark Matter,Space
 What star is the closest to our solar system?,Proxima Centauri,Space
 What galaxy is widely considered the closest neighbour to the Milky Way?,Andromeda,Space
-No matter where we are on earth or what time of year it is, we always see the same side of the moon. True or False?,True,Space
+No matter where we are on earth or what time of year it is; we always see the same side of the moon. True or False?,True,Space
 What is the largest freshwater island in the world?,Manitoulin Island,Geography
 Which team won the 2021 F1 Constructors Championship?,Mercedes,Sports
 What year did the Toronto Blue Jays last win the World Series?,1993,Sports
 Most PCs have a GPU. What does GPU stand for?,Graphics Processing Unit,Computers
 All PCs have RAM. What does RAM stand for?,Random Access Memory,Computers
 Most PCs use some kind of GUI. What does GUI stand for?, Graphical User Interface,Computers
+How many chambers are in a human heart?,4,Biology
+What organ produces insulin?,The Pancreas,Biology
+What part of the brain is responsible for emotions?,The amygdala,Biology
+This bone in your uppper arm is often called the "funny bone":,The Humerus,Biology
