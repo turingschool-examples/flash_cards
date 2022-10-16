@@ -6,7 +6,6 @@ class Round
 
 
   def initialize(deck)
-
     @deck = deck
     @turns = []
     @number_correct = 0
@@ -34,7 +33,7 @@ class Round
     @correct_by_category = []
     @turns.each do |turn|
       if (turn.card.category == category_correct) &&
-        (turn.guess.downcase == turn.card.answer.downcase)
+        (turn.correct?)
           @correct_by_category << turn
       end
     end
