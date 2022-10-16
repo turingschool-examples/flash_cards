@@ -77,6 +77,11 @@ class Round
 
     puts welcome
 
+
+    puts "Answer:"
+    
+    first_question = gets.chomp
+
     end
 
 end
