@@ -20,16 +20,21 @@ class Round
         num_correct = []
          @turns.each do |completed_turn| 
             if completed_turn.correct? == true
-                num_correct << completed_turn
-            return num_correct.count  
+                num_correct << completed_turn 
             end       
        end  
+        num_correct.count
     end 
 
     def number_correct_by_category(category)
-         
-         
-
+        num_correct_cat = []
+        @turns.each do |completed_turn|
+            if completed_turn.card.category == category
+                num_correct_cat << completed_turn     
+            end      
+        end 
+        num_correct_cat.count
+       
     end 
 
     
