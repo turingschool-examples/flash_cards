@@ -36,8 +36,18 @@ RSpec.describe Turn do
         end
     end
 
-    describe '#feedback' do
-        
+    describe '#close_enough?' do
+        it 'checks whether or not the guess has similar characters to answer' do
+            card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+            turn = Turn.new('Juneas', card)
+            turn2 = Turn.new('Denver', card)
+
+            expect(turn.close_enough?).to eq true
+            expect(turn2.close_enough?).to eq false 
+        end
+    end
+
+    describe '#feedback' do        
         it 'can give user feedback on their answer' do
             card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
             
