@@ -5,7 +5,7 @@ describe CardGenerator do
   cards = CardGenerator.new(filename).cards
 
   it 'returns an array of cards' do
-    card.each do |card|
+    cards.each do |card|
       expect(card).to be_a Card
     end
   end
