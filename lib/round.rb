@@ -3,12 +3,11 @@ require './lib/card'
 require './lib/deck'
 
 class Round
-  attr_reader :deck, :turns #:number_correct
+  attr_reader :deck, :turns 
 
   def initialize(deck)
     @deck = deck
     @turns = []
-    # @number_correct = 0
   end
 
   def current_card
@@ -19,9 +18,6 @@ class Round
   def take_turn(guess)
     new_turn = Turn.new(guess, current_card)
     @turns << new_turn # puts new turn into the @turns array
-    # if new_turn.correct?
-    #   @number_correct += 1
-    # end
     return new_turn
   end
 
