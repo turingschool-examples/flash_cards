@@ -1,6 +1,3 @@
-require './lib/card'
-require './lib/deck'
-require './lib/round'
 require './lib/game'
 
 card_1 = Card.new("What is 5 + 5?", "10", :STEM)

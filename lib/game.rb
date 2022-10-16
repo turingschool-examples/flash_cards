@@ -1,6 +1,5 @@
 require 'rspec'
 require './lib/turn'
-require './lib/deck'
 require './lib/round'
 
 class Game

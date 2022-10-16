@@ -16,7 +16,7 @@ class Round
     def current_card
         @deck.cards[@turns.count]
     end
-# correct? ? "Correct!" : "Incorrect."
+
     def take_turn(guess)
         turn = Turn.new(guess, current_card)
         @turns << turn
