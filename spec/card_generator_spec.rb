@@ -5,8 +5,7 @@ require './lib/card'
 describe CardGenerator do
   describe '#initialize' do
     it 'is an instance of Card_generator' do
-      filename = "cards.txt"
-      reader = CardGenerator.new(filename)
+      reader = CardGenerator.new("test_cards.txt", 2)
 
       expect(reader).to be_instance_of(CardGenerator)
     end
@@ -14,8 +13,7 @@ describe CardGenerator do
 
   describe '#build_cards' do
     it 'builds an array of cards based on input from a text file. requires test_cards.txt' do
-      filename = "test_cards.txt"
-      reader = CardGenerator.new(filename)
+      reader = CardGenerator.new("test_cards.txt", 2)
 
       expect(reader.new_cards[0].question).to eq("What is 5 + 5?")
       expect(reader.new_cards[0].answer).to eq("10")
