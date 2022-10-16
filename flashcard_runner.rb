@@ -23,9 +23,8 @@ class Game
    puts "Welcome! You are playing with #{deck.count} cards."
    puts "--------------------------------------------------------------"
 
-   puts "This is card number #{round.current_card} out of #{round.deck.count}"
-
    while (round.turns.length < 3)
+     puts "This is card number #{round.turns.length + 1} out of #{deck.count}"
 
      puts "#{round.current_card.question}"
 
@@ -36,8 +35,17 @@ class Game
 
  end
 
+ def game_over
+   puts "****** Game Over! *******"
+   puts "You had #{round.number_correct} correct guesses out of #{round.turns.count} for a total score of #{round.percent_correct}%."
+
+    #puts "#{card.category} - #{round.percent_correct_by_category(category)}%"
+ end
+
 end
+
 new_game = Game.new
 new_game.start
+new_game.game_over
 
 #end
