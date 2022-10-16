@@ -3,7 +3,7 @@ require './lib/card'
 require './lib/deck'
 require './lib/round'
 require './lib/turn'
-require 'pry'
+
 
 describe Round do
   it 'exists and can deck of cards can be added to the round' do
