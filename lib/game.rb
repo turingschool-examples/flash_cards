@@ -67,5 +67,4 @@ end
 
 
 
-Game.new.start
 
