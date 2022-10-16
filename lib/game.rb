@@ -11,6 +11,7 @@ class Game
   end
 
   def start
+
     puts ""
     puts "Welcome to"
     puts ""
