@@ -1,4 +1,4 @@
-require './lib/card'
+# require './lib/card'
 require './lib/deck'
 require './lib/round'
 
@@ -12,6 +12,6 @@ require './lib/round'
   # card_7 = Card.new("Who is Master Chief's A.I.?", "Cortana", "Video Games")
   # deck = Deck.new([card_1, card_2, card_3, card_4, card_5, card_6, card_7])
 
+  # GENERATED CARDS
 
-  
   @round = Round.new(deck)

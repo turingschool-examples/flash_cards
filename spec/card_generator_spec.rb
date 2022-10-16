@@ -4,7 +4,8 @@ require 'rspec'
 describe CardGenerator do
   describe '#initialize' do
     it 'exists' do
-      cards = CardGenerator.new('stuff')
+      filename = "./lib/cards.txt"
+      cards = CardGenerator.new(filename)
 
       expect(cards).to be_a CardGenerator
     end
@@ -22,6 +23,14 @@ describe CardGenerator do
 
       expect(cards.cards).to eq []
 
+    end
+
+    it 'can read a file' do
+      filename = "./lib/cards.txt"
+      cards = CardGenerator.new(filename)
+
+      expect(cards.file).to be_a File
+      
     end
 
   end
