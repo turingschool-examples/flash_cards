@@ -1,0 +1,5 @@
+What is the capital of California?,Sacramento,Geography
+What is 5 + 5?,10,STEM
+What is Rachel's favorite animal?,red panda,Turing Staff
+What is -8 + -9?,-17,STEM
+What is pi?,3,STEM

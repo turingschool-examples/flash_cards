@@ -7,9 +7,10 @@ class Turn
   end
 
   def correct?
+    # I wrote all of this before I learned that all user input would be strings
     if guess.instance_of?(card.answer.class)
       if guess.instance_of?(String)
-        @guess.downcase.strip == card.answer.downcase
+        @guess.downcase.strip.split('.')[0] == card.answer.downcase
       else
         guess == card.answer
       end
