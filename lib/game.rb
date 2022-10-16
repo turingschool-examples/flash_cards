@@ -26,6 +26,7 @@ class Game
 
     puts "Welcome #{name}! You're playing with #{round.deck.cards.length} cards."
     puts "-------------------------------------------------"
+    
     round_number = 1
     until (round_number - 1) == round.deck.cards.size
       round.deck.cards.each do |card|
@@ -51,5 +52,6 @@ class Game
     puts "STEM - #{round.percent_correct_by_category(:STEM)}% correct"
     puts "Turing Staff - #{round.percent_correct_by_category(:TuringStaff)}% correct"
     puts "Pop Culture - #{round.percent_correct_by_category(:PopCulture)}% correct"
+   
   end 
 end 

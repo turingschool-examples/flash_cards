@@ -27,7 +27,7 @@ class Round
     end
  
     def number_correct_by_category(category)
-        @turns.find_all { |turn| turn.guess && turn.card.category == category}.count
+        @turns.find_all { |turn| (turn.card.category == category) && (turn.correct? == true) }.count
     end
 
     def percent_correct
