@@ -1,7 +1,5 @@
 class CardGenerator
-
-  attr_reader :cards
-
+  
   def initialize(filename)
     @filename = filename
   end
