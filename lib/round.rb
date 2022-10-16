@@ -10,13 +10,13 @@ class Round
 
   def current_card
     current_card = @deck.cards
-    current_card[turns.count]
+    current_card[@turns.count]
   end
 
   def take_turn(guess)
-    @turns.push Turn.new(guess, current_card)
+    @turns.push(Turn.new(guess, current_card))
     if @turns.last.correct?
-      @correct_turns.push turns.last
+      @correct_turns.push(@turns.last)
     end
     @turns.last
   end
