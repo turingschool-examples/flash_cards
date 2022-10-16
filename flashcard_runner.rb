@@ -15,6 +15,7 @@ def start
   round = Round.new(deck)
 
   puts "Welcome! You're playing with #{deck.count} cards."
+  puts "-------------------------------------"
 
   deck.count.times do
 
@@ -37,10 +38,7 @@ def start
       puts "Pop Culture - #{round.percent_correct_category(:Pop_Culture)}% correct"
 
     end
-
   end
-  #binding.pry
 end
-
 
 start

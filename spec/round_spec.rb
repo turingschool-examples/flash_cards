@@ -55,7 +55,7 @@ RSpec.describe Round do
       deck = Deck.new([card_1, card_2, card_3])
       round = Round.new(deck)
 
-      expect(round.take_turn("Juneau")).to eq(@turns.last)
+      expect(round.take_turn("Juneau")).to be_instance_of(Turn)
 
     end
 
@@ -75,6 +75,7 @@ RSpec.describe Round do
     end
 
   describe ("#percent_correct and #percent_correct_by_category")
+
     it 'can show the percent correct' do
 
       card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)

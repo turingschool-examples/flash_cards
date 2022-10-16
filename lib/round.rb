@@ -1,5 +1,7 @@
 require 'pry'
+
 class Round
+
   attr_reader :deck, :turns, :cur_card_index
 
   def initialize(deck)
@@ -13,7 +15,6 @@ class Round
   def current_card
     @deck.cards[0]
   end
-
 
   def number_correct
     @number_correct
@@ -31,11 +32,9 @@ class Round
     corr_category = 0
     corr_category = @turns.find_all do |turn|
       turn.card.category == category
-      end.length
-      (number_correct_by_category(category) / corr_category.to_f * 100).round(1)
+    end.length
+    (number_correct_by_category(category) / corr_category.to_f * 100).round(1)
   end
-
-
 
   def take_turn(guess)
     @turns << Turn.new(guess, current_card)
@@ -43,9 +42,11 @@ class Round
       @number_correct += 1
       @cat_score[@num_correct_cat.index(current_card.category)] += 1
     end
-      @deck = Deck.new(@deck.cards.rotate(1))
-      @turns.last
+    @deck = Deck.new(@deck.cards.rotate(1))
+    @turns.last
   end
 end
 
-        #binding.pry
+
+
+#binding.pry
