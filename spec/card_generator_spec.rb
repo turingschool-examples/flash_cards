@@ -10,16 +10,23 @@ describe CardGenerator do
     end
   end
 
-  it 'reads the question from cards.txt' do
-    expect(cards[0].question) to eq "What is the capital of Alaska?"
-  end
+  it 'interacts with cards.txt' do
+    it 'reads the question' do
+      expect(cards[0].question).to eq "What is the capital of Alaska?"
+    end
 
-  it 'reads the answer from cards.txt' do
-    expect(cards[0].answer) to eq "Juneau"
-  end
+    it 'reads the answer' do
+      expect(cards[0].answer).to eq "Juneau"
+    end
 
-  it 'reads the category from cards.txt' do
-    expect(cards[0].category) to eq :Geography
+    it 'reads the category' do
+      expect(cards[0].category).to eq :Geography
+    end
+
+    it 'reads every question' do
+      expect(cards.length).to be 9
+    end
   end
+end
 
 end
