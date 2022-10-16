@@ -3,6 +3,7 @@ class Round
                 :turns,
                 :number_correct,
                 :correct_by_cat
+                :group
 
     def initialize(deck)
         @deck = deck
@@ -53,13 +54,13 @@ class Round
         if turn.card.category == category
           group << turn
         end
-      end
+        end
         group.each do |card|
         if card.correct?
           correct_by_cat += 1
         end
-      end
+        end
         answer_by_cat = ((correct_by_cat.to_f / group.count) * 100)
         return answer_by_cat.round(1)
-    end
+     end
 end
