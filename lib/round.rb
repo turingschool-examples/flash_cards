@@ -48,22 +48,36 @@ class Round
   def start
     puts " Welcome! You're playing with #{@deck_size} cards."
     puts '-------------------------------------------------'
+    sleep(1)
+
     count = 0
     while deck.cards.length.positive?
       puts "This is card number #{count += 1} out of #{@deck_size}."
+      sleep(1)
+
       puts "#{deck.cards[0].question}"
       new_turn = take_turn(gets)
+      sleep(1)
+
       puts new_turn.feedback
+      sleep(1)
     end
   end
 
   def complete
     puts '****** Game over! ******'
-    puts "You had #{number_correct} correct guesses out of #{@deck_size} for a total score of #{percent_correct.to_i}%."
+    sleep(1)
+
+    guess_plural = 'guesses'
+    guess_plural = 'guess' if number_correct == 1
+    puts "You had #{number_correct} correct #{guess_plural} out of #{@deck_size} for a total score of #{percent_correct.to_i}%."
+    sleep(2)
+
     final_score_categories = []
     turns.each do |turn|
       final_score_categories << turn.card.category
     end
+
     final_score_categories.uniq.each do |ctgrs|
       puts "#{ctgrs} - #{percent_correct_by_category(ctgrs).to_i}% correct"
     end
