@@ -30,12 +30,12 @@ class Round
     @correct
   end
 
-  def number_correct_by_category(category)
-    correct_cat = []
+  def correct_by_category(category)
+    correct_in_category = []
     @turns.each do |turn|
-      correct_cat << turn if turn.correct? && turn.card.category == category
+      correct_in_category << turn if turn.correct? && turn.card.category == category
     end
-    correct_cat.count
+    correct_in_category.count
   end
 
   def percent_correct
@@ -43,7 +43,7 @@ class Round
   end
 
   def percent_correct_by_category(category)
-    category_correct = self.number_correct_by_category(category)
+    category_correct = self.correct_by_category(category)
     category_total = self.cards_in_category(category)
     ((category_correct.to_f / category_total.to_f) * 100).round(1)
   end
@@ -52,9 +52,9 @@ class Round
     cards_in_cate = []
     @turns.each do |turn|
       if turn.card.category == category
-        cards_in_cate << turn
+        cards_per_category << turn
       end
     end
-    cards_in_cate.count
+    cards_per_category.count
   end
 end
