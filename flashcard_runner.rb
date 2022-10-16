@@ -10,7 +10,8 @@ require './lib/card_generator'
 # card_4 = Card.new("In 700 BC what was the capital of Assyria ", "Ninevah", :AncientGeography)
 
 filename = "cards.txt"
-cards = CardGenerator.new(filename).txt_to_cards
+cards = CardGenerator.new(filename).cards
+# .txt_to_cards
 
 # cards = [card_1, card_2, card_3, card_4]
 # require "pry"; binding.pry
