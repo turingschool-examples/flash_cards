@@ -62,4 +62,21 @@ class Round
       ((number_correct_by_category(category) / num_questions_category.to_f)*100).round(1)
     end
   end
+
+  def start
+    puts "Welcome! You're playing with #{deck.cards.length} cards."
+    puts "-------------------------------------------------"
+    while turns.length < deck.cards.length do
+      ask_question
+    end
+  end
+
+  def ask_question
+    puts "This is card number #{turns.length+1} out of #{deck.cards.length}"
+    puts "Question: #{current_card.question}"
+
+    guess = ""
+    gets guess
+    take_turn(guess)
+  end
 end
