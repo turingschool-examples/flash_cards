@@ -3,14 +3,17 @@ class CardGenerator
   attr_reader :filename, :file
   def initialize(filename)
     @filename = filename
-    @cards = []
     @file = File.new(filename, "r")
+  end
+
+  def cards
+    create_cards
   end
 
   def create_cards
     sanitize_file_cards.map do |line|
       if line.empty? == false
-        cards << Card.new(line[0], line[1], line[2])
+        Card.new(line[0], line[1], line[2])
       end
     end
   end
