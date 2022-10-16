@@ -27,4 +27,3 @@ round_1 = Round.new(deck_1)
 
 round_1.start_round_intro
 
-require 'pry'; binding.pry
