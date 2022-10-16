@@ -22,7 +22,7 @@ class Round
     end
 
     def number_correct_by_category(category)
-        turns.select{|turn| turn.correct? && turn.card.category == category}.length 
+        turns.count{|turn| turn.correct? && turn.card.category == category} 
     end
 
     def percent_correct
