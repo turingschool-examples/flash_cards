@@ -8,7 +8,7 @@ require './lib/card_generator'
 # raw_cards = file.split(/\n+/)
 # raw_cards_count = raw_cards.reject{ |raw_card| raw_card.start_with?("#") }.count
 raw_cards_count = File.read("cards.txt").split(/\n+/).reject{ |raw_card| raw_card.start_with?("#") }.count
-require 'pry'; binding.pry
+
 puts "Welcome! There are #{raw_cards_count} cards available."
 puts "How many cards would you like to play with?"
 @amount = 0
