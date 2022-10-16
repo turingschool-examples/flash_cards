@@ -1,11 +1,13 @@
 require './lib/deck'
 
 class Round
-  attr_reader :deck, :turns
+  attr_reader :deck, :turns, :number_of_cards, :discard_cards
 
   def initialize(deck)
     @deck = deck
     @turns = []
+    @number_of_cards = @deck.count
+    @discarded_cards = []
   end
 
   def current_card
@@ -13,10 +15,10 @@ class Round
   end
 
   def take_turn(guess)
-    new_turn = Turn.new(guess, current_card)
-    @turns << new_turn
-    @deck.cards.shift
-    new_turn
+    this_turn = Turn.new(guess, current_card)
+    @turns << this_turn
+    @discarded_cards << @deck.cards.shift
+    this_turn
   end
 
   def number_correct
@@ -57,5 +59,34 @@ class Round
       end
     end
     (number_correct_by_category(category).to_f / turns_in_category.count * 100)
+  end
+
+  def start
+    puts "Welcome! You're playing with #{@number_of_cards} cards."
+    puts "-------------------------------------------------"
+  end
+
+  def ask_questions
+    question_counter = 0
+    until question_counter == @number_of_cards
+      question_counter += 1
+      puts "This is card number #{@turns.count + 1} out of #{@number_of_cards}."
+      puts "Question: #{@deck.cards[0].question}"
+      guess = gets.chomp
+      feedback = take_turn(guess).feedback
+      puts feedback
+    end
+
+    def game_over
+      puts "****** Game over! ******"
+      puts "You had #{number_correct} correct guesses out of #{@number_of_cards} for a total score of #{percent_correct}%."
+      categories = []
+      @discarded_cards.each do |discarded_card|
+        categories << discarded_card.category
+      end
+      categories.uniq.each do |category|
+        puts "#{category} - #{percent_correct_by_category(category)}% correct"
+      end
+    end
   end
 end
