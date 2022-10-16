@@ -10,7 +10,7 @@ class Round
     def current_card
         active_deck.cards[0]
     end
-    
+
    
     def take_turn(guess)
         new_turn_instance = Turn.new(guess, active_deck.cards[0])
@@ -106,6 +106,22 @@ class Round
 
         take_turn(second_answer)
         
+    end
+
+    def turn_3
+
+        turn3 = ["-------------------------------------------------", 
+        "This is card number #{active_deck.cards[0].card_number} out of 4.", 
+        "", "Question: #{active_deck.cards[0].question}", ""]
+
+        puts turn3
+
+        puts "Answer:"
+
+        third_answer = gets.chomp
+
+        take_turn(third_answer)
+
     end
 
 end

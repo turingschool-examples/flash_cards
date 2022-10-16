@@ -41,7 +41,7 @@ puts ""
 #Taking turn 2
 
 round_1.turn_2
-require 'pry'; binding.pry
+
 user_feedback_2 = round_1.turns[1].feedback
 
 puts ""
@@ -49,3 +49,5 @@ puts ""
 puts user_feedback_2
 
 puts ""
+
+#Taking turn 3
