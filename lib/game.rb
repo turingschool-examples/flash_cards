@@ -10,7 +10,7 @@ class Game
     @round = round
   end
 
-  def welcome
+  def start
     puts ""
     puts "Welcome to"
     puts ""
@@ -24,31 +24,34 @@ class Game
     puts "Please enter your name"
     name = gets.chomp
 
-    puts "Welcome #{name}! You're playing with #{@round.deck.cards.length} cards."
+    puts "Welcome #{name}! You're playing with #{round.deck.cards.length} cards."
     puts "-------------------------------------------------"
-    puts "This is card number #{@round.turns.size + 1} out of #{@round.deck.cards.length}."
-    puts "Question: #{@round.current_card.question}"
-    guess = gets.chomp
-    #Check guess - if guess == answer, return correct. else return incorrect
     
-    # @turn.feedback
-  
-    #loop back to line 29
-    # if @deck.length == 0
-    #   end_game
-    # end
-  end 
+    round_number = 1
+    until (round_number - 1) == round.deck.cards.size
+      round.deck.cards.each do |card|
+        puts "This is card number #{round_number} out of #{round.deck.cards.length}."
+        puts "Question: #{round.current_card.question}"
+        guess = gets.chomp
+        turn = round.take_turn(guess)
+        puts turn.feedback
+        round_number += 1
+      end
+      end_game
+    end
+  end
 
   def end_game
                                                                                           
-    p "     _/_/_/    _/_/    _/      _/  _/_/_/_/        _/_/    _/      _/  _/_/_/_/  _/_/_/    "
-    p "  _/        _/    _/  _/_/  _/_/  _/            _/    _/  _/      _/  _/        _/    _/  " 
-    p " _/  _/_/  _/_/_/_/  _/  _/  _/  _/_/_/        _/    _/  _/      _/  _/_/_/    _/_/_/    "  
-    p "_/    _/  _/    _/  _/      _/  _/            _/    _/    _/  _/    _/        _/    _/  "   
-    p " _/_/_/  _/    _/  _/      _/  _/_/_/_/        _/_/        _/      _/_/_/_/  _/    _/  "
-    p "You had #{round.number_correct} correct guesses out of #{round.turns.length} for a total score of #{round.percent_correct}."
-    p "STEM - #{round.percent_correct_by_category(:STEM)}% correct"
-    p "Turing Staff - #{round.percent_correct_by_category(:TuringStaff)}% correct"
-    p "Pop Culture - #{round.percent_correct_by_category(:PopCulture)}% correct"
+    puts "     _/_/_/    _/_/    _/      _/  _/_/_/_/        _/_/    _/      _/  _/_/_/_/  _/_/_/    "
+    puts "  _/        _/    _/  _/_/  _/_/  _/            _/    _/  _/      _/  _/        _/    _/  " 
+    puts " _/  _/_/  _/_/_/_/  _/  _/  _/  _/_/_/        _/    _/  _/      _/  _/_/_/    _/_/_/    "  
+    puts "_/    _/  _/    _/  _/      _/  _/            _/    _/    _/  _/    _/        _/    _/  "   
+    puts " _/_/_/  _/    _/  _/      _/  _/_/_/_/        _/_/        _/      _/_/_/_/  _/    _/  "
+    puts "You had #{round.number_correct} correct guesses out of #{round.turns.length} for a total score of #{round.percent_correct}."
+    puts "STEM - #{round.percent_correct_by_category(:STEM)}% correct"
+    puts "Turing Staff - #{round.percent_correct_by_category(:TuringStaff)}% correct"
+    puts "Pop Culture - #{round.percent_correct_by_category(:PopCulture)}% correct"
+   
   end 
 end 

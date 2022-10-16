@@ -10,7 +10,6 @@ card_4 = Card.new("What cardboard cutout lives at Turing?", "Justin Bieber", :Po
 deck = Deck.new([card_1, card_2, card_3, card_4])
 round = Round.new(deck)
 game = Game.new(round)
-# require 'pry'; binding.pry
-game.welcome
 
-# require 'pry'; binding.pry
+game.start
+
