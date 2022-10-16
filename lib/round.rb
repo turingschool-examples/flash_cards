@@ -11,14 +11,12 @@ class Round
   end
 
   def current_card
-    current_card = @deck.cards # defines local variable to be an array of cards stored in the deck
-    current_card[turns.count] # pulls current card from deck based on the number of turns completed
+    @deck.cards[turns.count] # pulls current card from deck based on the number of turns completed
   end
 
   def take_turn(guess)
-    new_turn = Turn.new(guess, current_card)
-    @turns << new_turn # puts new turn into the @turns array
-    return new_turn
+    @turns << Turn.new(guess, current_card) # puts new turn into the @turns array
+    return @turns.last
   end
 
   def number_correct # uses .count to return total of turns with correct guesses
