@@ -72,10 +72,10 @@ class Round
 
     def start_round_intro
     
-    welcome = ["Welcome! You're playing with 4 cards.","-------------------------------------------------
-    ", "This is card number "  ]
+    welcome = ["", "Welcome! You're playing with 4 cards.","-------------------------------------------------
+    ", "This is card number #{active_deck.cards[0].card_number} out of 4"]
 
-    puts 
+    puts welcome
 
     end
 
