@@ -47,6 +47,17 @@ RSpec.describe Turn do
         end
     end
 
+    describe '#similar_length?' do
+        it 'checks if the guess and answer are similar in length' do
+            card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+            turn = Turn.new('Juneassssssss', card)
+            turn2 = Turn.new('Juneaau', card)
+
+            expect(turn.similar_length?).to eq false
+            expect(turn2.similar_length?).to eq true 
+        end
+    end
+
     describe '#feedback' do        
         it 'can give user feedback on their answer' do
             card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)

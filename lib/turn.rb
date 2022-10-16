@@ -8,7 +8,7 @@ class Turn
     end
 
     def correct?
-        @guess.downcase == card.answer.downcase || close_enough?
+        @guess.downcase == card.answer.downcase || (close_enough? && similar_length?)
     end
 
     def feedback
@@ -20,7 +20,9 @@ class Turn
         (card.answer.downcase.chars - @guess.downcase.chars).length <= 2
     end
 
-
+    def similar_length?
+        (@guess.length - card.answer.length).abs <= 1
+    end
 
 end
 
