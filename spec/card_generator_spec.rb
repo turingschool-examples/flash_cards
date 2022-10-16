@@ -15,7 +15,7 @@ RSpec.describe CardGenerator do
     expect(card_gen.filename).to eq filename
   end
 
-  it 'returns an array of cards' do
+  it 'contains an array of Card objects' do
     cards.each do |card|
       expect(card).to be_a Card
     end
