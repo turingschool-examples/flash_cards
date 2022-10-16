@@ -5,11 +5,11 @@ require './lib/round'
 require './lib/card_generator'
 
 def start
-  Round.new(Deck.new(CardGenerator.new("cards.txt").cards))
-end
+  def new_round
+    Round.new(Deck.new(CardGenerator.new("cards.txt").cards))
+  end
 
-def play_round
-  @round = start
+  @round = new_round
   @categories_played = []
   puts "Welcome! You're playing with #{@round.deck.count} cards."
 
@@ -40,4 +40,5 @@ def play_round
 
   results
 end
-play_round
+
+start # starts the round using the start method defined above
