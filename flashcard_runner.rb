@@ -4,17 +4,9 @@ require './lib/round'
 require './lib/turn'
 require './lib/card_generator'
 
-# card_1 = Card.new("Who is Joe's fave?", "Hanna", :Joe)
-# card_2 = Card.new("What is sylvie's nickname?", "egg", :Sylvie)
-# card_3 = Card.new("What does Loki like best?", "food", :Loki)
-# card_4 = Card.new("In 700 BC what was the capital of Assyria ", "Ninevah", :AncientGeography)
 
 filename = "cards.txt"
 cards = CardGenerator.new(filename).cards
-# .txt_to_cards
-
-# cards = [card_1, card_2, card_3, card_4]
-# require "pry"; binding.pry
 deck = Deck.new(cards)
 round = Round.new(deck)
 

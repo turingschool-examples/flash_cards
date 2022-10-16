@@ -15,7 +15,7 @@ describe Round do
     deck = Deck.new(cards)
     round = Round.new(deck)
 
-    expect(round).to be_a Round
+    expect(round).to be_a(Round)
   end
   describe '#current_card' do
     it 'can provide the current card' do
@@ -27,7 +27,7 @@ describe Round do
       deck = Deck.new(cards)
       round = Round.new(deck)
 
-      expect(round.current_card).to eq card_1
+      expect(round.current_card).to eq(card_1)
     end
   end
 
@@ -43,8 +43,8 @@ describe Round do
 
       new_turn = round.take_turn("Juneau")
 
-      expect(new_turn).to be_a Turn
-      expect(new_turn.guess == "Juneau").to eq true
+      expect(new_turn).to be_a(Turn)
+      expect(new_turn.guess == "Juneau").to eq(true)
     end
 
     it 'can confirm if a question is correct' do
@@ -58,7 +58,7 @@ describe Round do
 
       new_turn = round.take_turn("Juneau")
 
-      expect(new_turn.correct?).to eq (true)
+      expect(new_turn.correct?).to eq(true)
 
     end
 
@@ -73,7 +73,7 @@ describe Round do
 
       new_turn = round.take_turn("Juneau")
 
-      expect(round.turns).to eq ([new_turn])
+      expect(round.turns).to eq([new_turn])
     end
 
     it 'can keep track of the number of correct answers' do
@@ -87,7 +87,7 @@ describe Round do
 
       new_turn = round.take_turn("Juneau")
 
-      expect(round.number_correct).to eq 1
+      expect(round.number_correct).to eq(1)
     end
 
     it 'moves on to next card in deck after first card' do
@@ -101,7 +101,7 @@ describe Round do
 
       new_turn = round.take_turn("Juneau")
 
-      expect(round.current_card).to eq card_2
+      expect(round.current_card).to eq(card_2)
     end
 
     it 'can keep track of how many turns are taken' do
@@ -114,9 +114,9 @@ describe Round do
       round = Round.new(deck)
 
       new_turn = round.take_turn("Juneau")
-      expect(round.turns.count).to eq 1
+      expect(round.turns.count).to eq(1)
       turn2 = round.take_turn("Venus")
-      expect(round.turns.count).to eq 2
+      expect(round.turns.count).to eq(2)
     end
   end
 
@@ -133,7 +133,7 @@ describe Round do
       new_turn = round.take_turn("Juneau")
       turn2 = round.take_turn("Venus")
 
-      expect(round.number_correct_by_category(:Geography)).to eq 1
+      expect(round.number_correct_by_category(:Geography)).to eq(1)
     end
 
     it 'tracks number correct in a diff given category category' do
@@ -148,11 +148,10 @@ describe Round do
       new_turn = round.take_turn("Juneau")
       turn2 = round.take_turn("Venus")
 
-      expect(round.number_correct_by_category(:STEM)).to eq 0
+      expect(round.number_correct_by_category(:STEM)).to eq(0)
 
       turn3 = round.take_turn("North north west")
-
-      expect(round.number_correct_by_category(:STEM)).to eq 1
+      expect(round.number_correct_by_category(:STEM)).to eq(1)
     end
   end
 
@@ -168,7 +167,7 @@ describe Round do
 
       new_turn = round.take_turn("Juneau")
       turn2 = round.take_turn("Venus")
-      expect(round.percent_correct).to eq 50.0
+      expect(round.percent_correct).to eq(50.0)
     end
   end
 
@@ -185,7 +184,7 @@ describe Round do
       new_turn = round.take_turn("Juneau")
       turn2 = round.take_turn("Venus")
 
-      expect(round.percent_correct_by_category(:Geography)).to eq 100.0
+      expect(round.percent_correct_by_category(:Geography)).to eq(100.0)
     end
 
     it 'tracks percent of the correct answers in a diff category' do
@@ -200,7 +199,7 @@ describe Round do
       new_turn = round.take_turn("Juneau")
       turn2 = round.take_turn("Venus")
 
-      expect(round.percent_correct_by_category(:STEM)).to eq 0
+      expect(round.percent_correct_by_category(:STEM)).to eq(0)
     end
 
     it 'tracks percent of the correct answers in different categories in a row' do
@@ -215,8 +214,8 @@ describe Round do
       new_turn = round.take_turn("Juneau")
       turn2 = round.take_turn("Venus")
 
-      expect(round.percent_correct_by_category(:Geography)).to eq 100.0
-      expect(round.percent_correct_by_category(:STEM)).to eq 0
+      expect(round.percent_correct_by_category(:Geography)).to eq(100.0)
+      expect(round.percent_correct_by_category(:STEM)).to eq(0)
 
     end
   end
@@ -234,7 +233,7 @@ describe Round do
     new_turn = round.take_turn("Juneau")
     turn2 = round.take_turn("Venus")
     turn3 = round.take_turn("North north west")
-    expect(round.categories_list).to eq [:Geography, :STEM]
+    expect(round.categories_list).to eq([:Geography, :STEM])
     end
   end
 end

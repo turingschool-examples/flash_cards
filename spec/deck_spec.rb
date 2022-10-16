@@ -12,7 +12,7 @@ describe Deck do
 
     deck = Deck.new(cards)
 
-    expect(deck).to be_a Deck
+    expect(deck).to be_a(Deck)
   end
 
   it 'can count the cards in the deck' do
@@ -24,7 +24,7 @@ describe Deck do
 
     deck = Deck.new(cards)
 
-    expect(deck.count).to eq 3
+    expect(deck.count).to eq(3)
   end
 
   it 'can provide the cards in a category' do
@@ -50,5 +50,5 @@ describe Deck do
 
     expect(deck.cards_in_category("Pop culture")).to eq []
   end
-  ##stopped at ROUND in iteration 2
+
 end

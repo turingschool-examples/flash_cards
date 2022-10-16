@@ -10,24 +10,31 @@ describe CardGenerator do
     filename = "cards.txt"
     cards = CardGenerator.new(filename)
 
-    expect(cards).to be_a CardGenerator
+    expect(cards).to be_a(CardGenerator)
   end
 
-  describe '#txt_to_cards' do
-    it 'formats the array of cards to separate question, answer and category' do
-      filename = "cards.txt"
-      cards = CardGenerator.new(filename)
-      formatted_array = cards.cards
+  it 'formats the array of cards to separate question, answer and category' do
+    filename = "cards.txt"
+    cards = CardGenerator.new(filename)
+    formatted_array = cards.cards
 
-      # require "pry"; binding.pry
-      expect(formatted_array[0].question).to eq("What is 5 + 5?")
-      expect(formatted_array[0].answer).to eq("10")
-      expect(formatted_array[0].category).to eq("STEM")
+    expect(formatted_array[0].question).to eq("What is 5 + 5?")
+    expect(formatted_array[0].answer).to eq("10")
+    expect(formatted_array[0].category).to eq("STEM")
 
-      expect(formatted_array[1].question).to eq("What is Rachel's favorite animal?")
-      expect(formatted_array[1].answer).to eq("red panda")
-      expect(formatted_array[1].category).to eq("Turing Staff")
-    end
+    expect(formatted_array[1].question).to eq("What is Rachel's favorite animal?")
+    expect(formatted_array[1].answer).to eq("red panda")
+    expect(formatted_array[1].category).to eq("Turing Staff")
   end
+
+  it 'has an output that can be put into a deck' do
+    filename = "cards.txt"
+    cards = CardGenerator.new(filename)
+    formatted_array = cards.cards
+    deck = Deck.new(formatted_array)
+
+    expect(deck).to be_a(Deck)
+  end
+
 
 end
