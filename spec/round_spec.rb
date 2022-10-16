@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require './lib/card'
 require './lib/deck'
 require './lib/turn'
@@ -66,23 +67,23 @@ RSpec.describe Round do
     it 'can accurately count multiple correct answers' do
       expect(round.number_correct).to eq(0)
 
-      new_turn = round.take_turn('Color')
+      round.take_turn('Color')
       expect(round.number_correct).to eq(1)
 
-      another_turn = round.take_turn('Liquid')
+      round.take_turn('Liquid')
       expect(round.number_correct).to eq(2)
     end
 
     it 'does not count incorrect answers' do
       expect(round.number_correct).to eq(0)
 
-      new_turn = round.take_turn('Color')
+      round.take_turn('Color')
       expect(round.number_correct).to eq(1)
 
-      another_turn = round.take_turn('Liquid')
+      round.take_turn('Liquid')
       expect(round.number_correct).to eq(2)
 
-      yet_another_turn = round.take_turn('Bad Answer')
+      round.take_turn('Bad Answer')
       expect(round.number_correct).to eq(2)
     end
   end

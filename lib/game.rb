@@ -1,5 +1,4 @@
-# frozen_string_literal:true
-
+# frozen_string_literal: true
 require './lib/card'
 require './lib/deck'
 require './lib/turn'
