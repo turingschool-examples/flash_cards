@@ -18,7 +18,7 @@ class Turn
     if correct? #checks the return from the correct? method.
       "Correct!"
     else
-      "Incorrect."
+      "Incorrect. The correct answer is: #{@card.answer}"
     end
   end
 end
