@@ -43,7 +43,7 @@ class Game
  '
     
     puts "Welcome! You're playing with #{@round.cards_in_round} cards."
-    puts "-" * 50
+    puts "-" * 80
   end
 
   def check_game_type
@@ -63,7 +63,7 @@ class Game
         valid_game_type = true
         play_with_cards_from_file
       else
-        puts "That's... not an option."
+        puts "That's... not an option. :( \n\n"
       end
     end
   end
