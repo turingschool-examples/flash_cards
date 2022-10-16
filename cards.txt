@@ -1,0 +1,8 @@
+How much wood would a woodchuck chuck if a woodchuck could chuck wood?,  
+A woodchuck would chuck as much wood as a woodchuck could chuck if a woodchuck could chuck wood, :tongue_twister, 1
+
+How many states border Colorado?, 7, :US_States, 2
+
+Which state was the 37th to join the union?,Nebraska, :US_States, 3)
+
+Who sells sea shells by the seashore?, She, :tongue_twister, 4)
