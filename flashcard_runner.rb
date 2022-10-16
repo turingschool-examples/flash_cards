@@ -6,9 +6,10 @@ require './lib/turn'
 
 #The four cards for the game
 
-card_1 = Card.new("How much wood would a woodchuck chuck if a woodchuck could chuck wood?", "A woodchuck would chuck as much wood as a woodchuck could chuck if a woodchuck could chuck wood", :tongue_twister, 1)
+card_1 = Card.new("How much wood would a woodchuck chuck if a woodchuck could chuck wood?", 
+    "A woodchuck would chuck as much wood as a woodchuck could chuck if a woodchuck could chuck wood", :tongue_twister, 1)
 
-card_2 = Card.new("How many states border Colorado?", 7, :US_States, 2)
+card_2 = Card.new("How many states border Colorado?", "7", :US_States, 2)
 
 card_3 = Card.new("Which state was the 37th to join the union?","Nebraska", :US_States, 3)
 
@@ -40,3 +41,11 @@ puts ""
 #Taking turn 2
 
 round_1.turn_2
+require 'pry'; binding.pry
+user_feedback_2 = round_1.turns[1].feedback
+
+puts ""
+
+puts user_feedback_2
+
+puts ""
