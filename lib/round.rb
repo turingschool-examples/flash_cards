@@ -43,7 +43,7 @@ class Round
   end
 
   def percent_correct
-      # all percents rounded to 1 decimal place
+      # percents rounded to 1 decimal place in testing but 0 decimal places in user experience (i.e. end_game method)
       if turns.length == 0
         return nil
       else
@@ -83,7 +83,19 @@ class Round
 
   def end_game
     puts "****** Game over! ******"
-    puts "You had #{number_correct} correct guesses out of #{turns.length} for a total score of #{percent_correct}%."
+    puts "You had #{number_correct} correct guesses out of #{turns.length} for a total score of #{percent_correct.round(0)}%."
+
+    # generate array of unique categories
+    categories = []
+    turns.each do |turn|
+      categories << turn.card.category
+    end
+    categories.uniq!
+
+    categories.each do |category|
+      puts "#{category} - #{percent_correct_by_category(category).round(0)}%"
+    end
+
   end
 
 end
