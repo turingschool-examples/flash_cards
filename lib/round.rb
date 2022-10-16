@@ -13,7 +13,6 @@ class Round
     end
 
     def take_turn(guess, card = current_card)
-        #this method does too many things, create helper methods
         turn = Turn.new(guess, card)
         @number_correct += 1 if turn.correct?
         @feedback = turn.feedback
@@ -27,11 +26,11 @@ class Round
     end
 
     def percent_correct
-        @number_correct.fdiv(@turns.length).round(3) * 100.0
+        (@number_correct.fdiv(@turns.length) * 100.0).round(1)
     end
 
     def percent_correct_by_category(category)
-        number_correct_by_category(category).fdiv(@deck.category_data[category].length).round(3) * 100.0
+        (number_correct_by_category(category).fdiv(@deck.category_data[category].length) * 100.0).round(1)
     end
 
 end
