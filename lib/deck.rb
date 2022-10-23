@@ -18,6 +18,7 @@ class Deck
             end 
         end 
         final_count.count
+        
     end 
 end 
 
