@@ -23,14 +23,14 @@ RSpec.describe Turn do
     expect(turn.card).to be_instance_of(Card)
   end
 
-  it 'can determine if an guess is correct' do
+  it 'can determine if a guess is correct' do
     card = Card.new("What is my name?", "Rontron", :People)
     turn = Turn.new("Rontron", card)
 
     expect(turn.correct?).to be true
   end
 
-  it 'can determine if an guess is incorrect' do
+  it 'can determine if a guess is incorrect' do
     card = Card.new("What is my name?", "Rontron", :People)
     turn = Turn.new("Fred", card)
 
