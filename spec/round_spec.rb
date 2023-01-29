@@ -3,14 +3,13 @@ require './lib/turn'
 require './lib/deck'
 require './lib/round'
 
-card_1 = Card.new("What is my name?", "Rontron", :People)
-card_2 = Card.new("Where is the best training track?", "Aurora Reservoir", :Places)
-card_3 = Card.new("How long is the Miami UltraSkate?", "24 hours", :SkateEvents)
-card_4 = Card.new("Where does the A2A roadskate begin?", "Athens, GA", :SkateEvents)
-
-deck = Deck.new([card_1, card_2, card_3, card_4])
-
 RSpec.describe Round do
+  let(:card_1) { Card.new("What is my name?", "Rontron", :People) }
+  let(:card_2) { Card.new("Where is the best training track?", "Aurora Reservoir", :Places) }
+  let(:card_3) { Card.new("How long is the Miami UltraSkate?", "24 hours", :SkateEvents) }
+  let(:card_4) { Card.new("Where does the A2A roadskate begin?", "Athens, GA", :SkateEvents) }
+  let(:deck) { Deck.new([card_1, card_2, card_3, card_4]) }
+
   before(:each) do
     @round = Round.new(deck)
   end
