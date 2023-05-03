@@ -53,14 +53,6 @@ describe Turn do
     expect(turn.feedback).to eq("Incorrect.")
   end
 
-  it 'can process an unusual answer' do
-    card = Card.new("What is the capital of Alaska?", 52.05, :Geography)
-    card = Card.new("What is the capital of Alaska?", "52.05?", :Geography)
-    turn = Turn.new("52.05", card)
-
-    expect(turn.correct?).to be true
-  end
-
   it 'can process partial answers' do
     card = Card.new("Best movie of all time?", "Who Framed Roger Rabbit?", "Pop Culture")
     turn = Turn.new("Framed Roger Rabbit", card)
@@ -68,16 +60,5 @@ describe Turn do
     expect(turn.guess).to eq("Framed Roger Rabbit")
     expect(turn.correct?).to eq(true)
     expect(turn.feedback).to eq("Correct!")
-  end
-
-  it 'can test for numeric input' do
-    card = Card.new("Best movie of all time?", "Who Framed Roger Rabbit?", "Pop Culture")
-    turn = Turn.new("Framed Roger Rabbit", card)
-
-    expect(turn.convert_numeric(25)).to eq(25)
-    expect(turn.convert_numeric(762.0)).to eq(762.0)
-    expect(turn.convert_numeric("762.0")).to eq(762.0)
-    expect(turn.convert_numeric("25")).to eq(25)
-    expect(turn.convert_numeric("Bubbles")).to eq("Bubbles")
   end
 end

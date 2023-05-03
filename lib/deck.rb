@@ -1,9 +1,8 @@
 require './lib/card'
 
 class Deck
-
   attr_reader :cards
-  
+
   def initialize(cards)
     @cards = cards
   end
@@ -13,6 +12,6 @@ class Deck
   end
 
   def cards_in_category(type)
-    @cards.select {|card| card.category == type}
+    @cards.select { |card| card.category == type }
   end
 end
