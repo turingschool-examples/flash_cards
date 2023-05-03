@@ -1,5 +1,4 @@
 class CardGenerator
-  
   def initialize(filename)
     @filename = filename
   end
@@ -14,12 +13,11 @@ class CardGenerator
 end
 
 class Card
-
   attr_reader :question, :answer, :category
 
   def initialize(question, answer, category)
     @question = question
-    @answer = answer
+    @answer   = answer
     @category = category.to_sym
   end
 end
