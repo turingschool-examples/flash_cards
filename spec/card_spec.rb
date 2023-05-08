@@ -24,4 +24,12 @@ RSpec.describe Card do
 
     expect(card.category).to eq(:Geography)
   end
+  
+  it 'can have a different question, answer, and category' do
+    card = Card.new("What country did boba tea originate?", "Taiwan", :food_geography)
+
+    expect(card.question).to eq("What country did boba tea originate?")
+    expect(card.answer).to eq("Taiwan")
+    expect(card.category).to eq(:food_geography)
+  end
 end
