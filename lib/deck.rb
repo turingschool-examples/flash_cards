@@ -7,4 +7,12 @@ class Deck
   def count
     cards.length
   end
+
+  def cards_in_category(category)
+    category_cards = []
+    cards.map do |card|
+      category_cards << card if card.category == category
+    end
+    category_cards
+  end
 end
