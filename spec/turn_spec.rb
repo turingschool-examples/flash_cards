@@ -43,7 +43,7 @@ RSpec.describe Turn do
 
   it "also gives feedback on incorrect data types" do
     card = Card.new("How many licks to get to center of tootsie pop?", 525600,:candy)
-    turn3 = Turn.new("525600",card)
+    turn3 = Turn.new("six hundred",card)
     
     expect(turn3.feedback).to eq("Incorrect. You entered a String, please enter in Integer format.")
   end
