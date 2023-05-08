@@ -10,6 +10,12 @@ class Turn
   end
 
   def feedback
-    correct? ? "Correct!" : "Incorrect."
+    if correct? 
+      "Correct!" 
+    elsif guess.class != card.answer.class
+      "Incorrect. You entered a #{guess.class}, please enter in #{card.answer.class} format."
+    else
+      "Incorrect."
+    end
   end
 end
