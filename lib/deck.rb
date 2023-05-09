@@ -9,7 +9,7 @@ class Deck
   end
 
   def cards_in_category(category)
-    category_cards = cards.select do |card|
+    cards.select do |card|
       card if card.category == category
     end
   end
