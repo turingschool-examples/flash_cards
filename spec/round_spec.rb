@@ -104,4 +104,17 @@ RSpec.describe Round do
     round.take_turn("Pizza")
     expect(round.current_card).to eq card_2
   end
+
+  it 'returns number correct' do
+    card_1 = Card.new("What my favorite food?", "Zhu Rou Fan", :cuisine)
+    card_2 = Card.new("Who created the Ruby programming language?", "Yukihiro Matsumoto", :programming)
+    card_3 = Card.new("What year was the original movie The Wizard of OZ released?", 1939, :cenima)
+    cards = [card_1, card_2, card_3]
+    deck = Deck.new(cards)
+    round = Round.new(deck)
+
+    round.take_turn("Zhu Rou Fan")
+    round.take_turn("Yukihiro Matsumoto")
+    expect(round.number_correct).to eq 2
+  end
 end
