@@ -146,4 +146,19 @@ RSpec.describe Round do
     round.take_turn(1998)
     expect(round.percent_correct).to be 33.33
   end
+
+  it 'has method to determine percent correct by category' do
+    card_1 = Card.new("What my favorite food?", "Zhu Rou Fan", :cuisine)
+    card_2 = Card.new("What's my cat's favorite food?", "Salmon", :cuisine)
+    card_3 = Card.new("What year was the original movie The Wizard of OZ released?", 1939, :cenima)
+    cards = [card_1, card_2, card_3]
+    deck = Deck.new(cards)
+    round = Round.new(deck)
+
+    round.take_turn("Zhu Rou Fan")
+    round.take_turn("Meow Mix")
+    expect(round.percent_correct_by_category(:cuisine)).to be 50.0
+    round.take_turn(1998)
+    expect(round.percent_correct_by_category(:cinema)).to be 100.0
+  end
 end
