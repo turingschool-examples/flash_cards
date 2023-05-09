@@ -1,3 +1,5 @@
+require 'pry'
+require 'rspec'
 require './lib/round'
 require './lib/deck'
 require './lib/turn'
@@ -57,11 +59,11 @@ RSpec.describe Round do
     round = Round.new(deck)
 
     new_turn = round.take_turn("Zhu Rou Fan")
-    expect(new_turn).to be_an_instance_of(Turn) 
+    expect(new_turn.class).to be Turn 
     expect(new_turn.correct?).to eq true
   end
 
-  it 'has has an array to keep turns' do
+  it 'has has an array to track turns' do
     card_1 = Card.new("What my favorite food?", "Zhu Rou Fan", :cuisine)
     card_2 = Card.new("Who created the Ruby programming language?", "Mars", :programming)
     card_3 = Card.new("What year was the original movie The Wizard of OZ released?", 1939, :cenima)
@@ -84,13 +86,13 @@ RSpec.describe Round do
     deck = Deck.new(cards)
     round = Round.new(deck)
 
-    turn_1 = round.take_turn("Pizza")
-    expect(turn_1.correct?).to eq false
-    turn_2 = round.take_turn("Zhu Rou Fan")
-    expect(turn_2.correct?).to eq true
+    turn_1 = round.take_turn("Zhu Rou Fan")
+    expect(turn_1.correct?).to eq true
+    turn_2 = round.take_turn("Einstein")
+    expect(turn_2.correct?).to eq false
   end
 
-  xit 'moves on to the next card in the deck' do
+  it 'moves on to the next card in the deck' do
     card_1 = Card.new("What my favorite food?", "Zhu Rou Fan", :cuisine)
     card_2 = Card.new("Who created the Ruby programming language?", "Mars", :programming)
     card_3 = Card.new("What year was the original movie The Wizard of OZ released?", 1939, :cenima)
@@ -99,7 +101,7 @@ RSpec.describe Round do
     round = Round.new(deck)
 
     expect(round.current_card).to eq card_1
-    turn_1 = round.take_turn("Pizza")
+    round.take_turn("Pizza")
     expect(round.current_card).to eq card_2
   end
 end
