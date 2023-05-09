@@ -15,11 +15,8 @@ RSpec.describe Turn do
     expect(@turn.card).to eq(@card)
 
     expect(@turn2.card).to eq(@card2)
-  end
-  
-  it "has a guess method" do
-    expect(@turn.guess).to eq("Juneau")
 
+    expect(@turn.guess).to eq("Juneau")
     expect(@turn2.guess).to eq("Saturn")
   end
   
@@ -31,7 +28,7 @@ RSpec.describe Turn do
   
   it "has a feedback method" do
     expect(@turn.feedback).to eq("Correct!")
-    
+
     expect(@turn2.feedback).to eq("Incorrect.")
   end
 end
