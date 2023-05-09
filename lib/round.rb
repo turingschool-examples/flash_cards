@@ -27,4 +27,9 @@ class Round
     end
     category_array.count
   end
+
+  def percent_correct
+    percent = (@number_correct / @turn_number.to_f) * 100
+    percent.round(2)
+  end
 end

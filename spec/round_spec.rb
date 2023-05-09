@@ -143,5 +143,7 @@ RSpec.describe Round do
     round.take_turn("Zhu Rou Fan")
     round.take_turn("Meg")
     expect(round.percent_correct).to be 50.0
+    round.take_turn(1998)
+    expect(round.percent_correct).to be 33.33
   end
 end
