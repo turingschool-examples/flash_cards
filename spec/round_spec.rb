@@ -129,6 +129,6 @@ RSpec.describe Round do
     round.take_turn("Zhu Rou Fan")
     round.take_turn("Yukihiro Matsumoto")
     expect(round.number_correct_by_category(:cuisine)).to eq 1
-    expect(round.number_correct_by_category(:cuisine)).to eq 1
+    expect(round.number_correct_by_category(:programming)).to eq 1
   end
 end
