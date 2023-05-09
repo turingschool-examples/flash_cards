@@ -121,14 +121,15 @@ RSpec.describe Round do
   it 'returns number correct based off category' do
     card_1 = Card.new("What my favorite food?", "Zhu Rou Fan", :cuisine)
     card_2 = Card.new("Who created the Ruby programming language?", "Yukihiro Matsumoto", :programming)
-    card_3 = Card.new("What year was the original movie The Wizard of OZ released?", 1939, :cenima)
+    card_3 = Card.new("What's my cat's favorite food?", "Salmon", :cuisine)
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
     round = Round.new(deck)
 
     round.take_turn("Zhu Rou Fan")
     round.take_turn("Yukihiro Matsumoto")
-    expect(round.number_correct_by_category(:cuisine)).to eq 1
+    round.take_turn("Salmon")
+    expect(round.number_correct_by_category(:cuisine)).to eq 2
     expect(round.number_correct_by_category(:programming)).to eq 1
   end
 
@@ -142,23 +143,24 @@ RSpec.describe Round do
 
     round.take_turn("Zhu Rou Fan")
     round.take_turn("Meg")
-    expect(round.percent_correct).to be 50.0
+    expect(round.percent_correct).to eq 50.0
     round.take_turn(1998)
-    expect(round.percent_correct).to be 33.33
+    expect(round.percent_correct).to eq 33.33
   end
 
   it 'has method to determine percent correct by category' do
-    card_1 = Card.new("What my favorite food?", "Zhu Rou Fan", :cuisine)
+    card_1 = Card.new("What my favorite movie?", "Eat Pray Love", :movie)
     card_2 = Card.new("What's my cat's favorite food?", "Salmon", :cuisine)
-    card_3 = Card.new("What year was the original movie The Wizard of OZ released?", 1939, :cenima)
+    card_3 = Card.new("What year was the original movie The Wizard of OZ released?", 1939, :movie)
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
     round = Round.new(deck)
 
-    round.take_turn("Zhu Rou Fan")
+    round.take_turn("Eat Pray Love")
     round.take_turn("Meow Mix")
-    expect(round.percent_correct_by_category(:cuisine)).to be 50.0
-    round.take_turn(1998)
-    expect(round.percent_correct_by_category(:cinema)).to be 100.0
+    round.take_turn(1992)
+    expect(round.percent_correct_by_category(:movie)).to eq 50.0
+    expect(round.percent_correct_by_category(:cuisine)).to eq 0.0
+    
   end
 end
