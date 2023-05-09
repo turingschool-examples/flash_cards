@@ -19,15 +19,11 @@ class Round
   end
 
   def number_correct
-    require 'pry'; binding.pry
+    @turns.select { |turn| turn.correct? }.count
   end
-  # The take_turn method is the crux of this problem. 
-  # The take_turn method takes a string representing the guess. 
 
-  # It should create a new Turn object with the appropriate 
-  # guess and Card. It should store this new Turn, as well as 
-  # return it from the take_turn method. 
+  def number_correct_by_category(category)
+    @turns.select { |turn| turn.correct? && turn.card.category == category }.count  
+  end
 
-  # Also, when the take_turn method is called, the Round 
-  # should move on to the next card in the deck.
 end
