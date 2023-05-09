@@ -35,6 +35,24 @@ RSpec.describe Round do
   
   it "has a number_correct method" do
     new_turn = @round.take_turn("Juneau")
+
     expect(@round.number_correct).to eq(1)
+  end
+  
+  it "can take multiple turns" do
+    @round.take_turn("Juneau")
+    @round.take_turn("Venus")
+
+    expect(@round.turns.count).to eq(2)
+    expect(@round.turns.last.feedback).to eq("Incorrect.")
+    expect(@round.number_correct).to eq(1)
+  end
+
+  it "has a number_correct_by_category method" do
+    @round.take_turn("Juneau")
+    @round.take_turn("Venus")
+
+    expect(@round.number_correct_by_category(:Geography)).to eq(1)
+    expect(@round.number_correct_by_category(:STEM)).to eq(0)
   end
 end
