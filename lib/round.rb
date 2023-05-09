@@ -20,4 +20,11 @@ class Round
     @turns << turn
     turn
   end
+
+  def number_correct_by_category(category)
+    category_array = turns.select do |turn|
+      turn.card.category == category
+    end
+    category_array.count
+  end
 end
