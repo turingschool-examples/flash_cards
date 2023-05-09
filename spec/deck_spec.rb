@@ -14,7 +14,13 @@ RSpec.describe Deck do
   end
 
   it "exists with readable attributes" do
+    expect(@deck).to be_instance_of(Deck)
     expect(@deck.cards).to eq(@cards)
   end
+  
+  it "has a count method" do
+    expect(@deck.count).to eq(3)
+  end
 
+  
 end
