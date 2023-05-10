@@ -12,8 +12,6 @@ class Turn
   def feedback
     if correct? 
       "Correct!" 
-    elsif guess.class != card.answer.class
-      "Incorrect. You entered a #{guess.class}, please enter in #{card.answer.class} format."
     else
       "Incorrect."
     end
