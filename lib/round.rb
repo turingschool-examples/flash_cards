@@ -43,6 +43,7 @@ class Round
   def start
     puts "Welcome! You're playing Trivia with a deck of #{deck.count} cards."
     puts "---------------------------------------------------"
+    
     deck.cards.each do |card|
       puts "This is card number #{@turn_number + 1} out of #{deck.count} cards."
       puts "Question: #{deck.cards[@turn_number].question}"
@@ -51,6 +52,7 @@ class Round
       puts turn.feedback
       puts "-- -- -- -- -- -- -- -- -- -- -- -- --"
     end
+    
     puts "****** Game over! ******"
     puts "You had #{number_correct} correct guesses out of #{deck.count} cards, for a totale score of #{percent_correct}%"
     puts "Animal - #{percent_correct_by_category(:animal)}% correct"
