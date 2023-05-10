@@ -37,6 +37,25 @@ class Round
     num_correct = number_correct_by_category(category)
     num_in_category = deck.cards_in_category(category).length
     percent = (num_correct / num_in_category.to_f) * 100
-    percent
+    percent.round(2)
+  end
+
+  def start
+    puts "Welcome! You're playing Trivia with a deck of #{deck.count} cards."
+    puts "---------------------------------------------------"
+    deck.cards.each do |card|
+      puts "This is card number #{@turn_number + 1} out of #{deck.count} cards."
+      puts "Question: #{deck.cards[@turn_number].question}"
+      guess = gets.chomp
+      turn = take_turn(guess)
+      puts turn.feedback
+      puts "-- -- -- -- -- -- -- -- -- -- -- -- --"
+    end
+    puts "****** Game over! ******"
+    puts "You had #{number_correct} correct guesses out of #{deck.count} cards, for a totale score of #{percent_correct}%"
+    puts "Animal - #{percent_correct_by_category(:animal)}% correct"
+    puts "Food - #{percent_correct_by_category(:food)}% correct"
+    puts "Geography - #{percent_correct_by_category(:geography)}% correct"
+    puts "Programming - #{percent_correct_by_category(:programming)}% correct"
   end
 end
