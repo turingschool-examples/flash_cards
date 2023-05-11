@@ -52,8 +52,8 @@ class Round
     
     puts "****** Game over! ******"
     puts "You had #{number_correct} correct guesses out of #{deck.count} cards, for a totale score of #{percent_correct}%"
-    puts "STEM - #{percent_correct_by_category(:STEM)}% correct"
-    puts "Turing Staff - #{percent_correct_by_category(:Turing_Staff)}% correct"
-    puts "Pop Culture - #{percent_correct_by_category(:Pop_Culture)}% correct"
+    puts "STEM - #{percent_correct_by_category(:stem)}% correct"
+    puts "Turing Staff - #{percent_correct_by_category(:turing_staff)}% correct"
+    puts "Pop Culture - #{percent_correct_by_category(:pop_culture)}% correct"
   end
 end
