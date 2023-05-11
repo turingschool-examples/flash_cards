@@ -1,4 +1,4 @@
-require ./lib/card
+require './lib/card'
 
 class CardGenerator
     attr_reader :cards
