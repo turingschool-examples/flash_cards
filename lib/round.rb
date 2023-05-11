@@ -49,8 +49,6 @@ class Round
     round(2)
   end
 
-  # if number is greater than length of deck array, go to game over
-  # method
   def round(number)
     if number > 4
       game_over
