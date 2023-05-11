@@ -34,8 +34,13 @@ class Round
   end
 
   def percent_correct_by_category(category)
-    turns_in_category = @turns.count { |turn| turn.card.category == category }
-    (number_correct_by_category(category).to_f / turns_in_category) * 100
+    total_in_category = deck.cards_in_category(category).count.to_f
+    correct_in_category = deck.cards_in_category(category).count { |card| card.guess == card.answer }
+    if total_in_category > 0
+      (correct_in_category / total_in_category * 100).round(1)
+    else
+      0
+    end
   end
 
   def start
@@ -52,8 +57,8 @@ class Round
     
     puts "****** Game over! ******"
     puts "You had #{number_correct} correct guesses out of #{deck.count} cards, for a totale score of #{percent_correct}%"
-    puts "STEM - #{percent_correct_by_category(:stem)}% correct"
-    puts "Turing Staff - #{percent_correct_by_category(:turing_staff)}% correct"
-    puts "Pop Culture - #{percent_correct_by_category(:pop_culture)}% correct"
+    puts "STEM - #{percent_correct_by_category(:STEM)}% correct"
+    puts "Turing Staff - #{percent_correct_by_category(:TURING_STAFF)}% correct"
+    puts "Pop Culture - #{percent_correct_by_category(:POP_CULTURE)}% correct"
   end
 end
