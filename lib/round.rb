@@ -34,13 +34,8 @@ class Round
   end
 
   def percent_correct_by_category(category)
-    total_in_category = deck.cards_in_category(category).count.to_f
-    correct_in_category = deck.cards_in_category(category).count { |card| card.guess == card.answer }
-    if total_in_category > 0
-      (correct_in_category / total_in_category * 100).round(1)
-    else
-      0
-    end
+    turns_in_category = @turns.count { |turn| turn.card.category == category }
+    (number_correct_by_category(category).to_f / turns_in_category) * 100
   end
 
   def start
