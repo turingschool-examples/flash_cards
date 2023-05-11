@@ -28,6 +28,8 @@ RSpec.describe Round do
   it "has a take_turn method" do
     new_turn = @round.take_turn("Juneau")
     
+    expect(new_turn).to be_instance_of(Turn)
+
     expect(new_turn.class).to eq(Turn)
     expect(new_turn.correct?).to eq(true)
     expect(@round.turns).to eq([new_turn])
