@@ -3,7 +3,7 @@ class Card
                 :answer,
                 :category
 
-  def initialize(question, anser,category)
+  def initialize(question, answer,category)
     @question   = question
     @answer     = answer
     @category   = category
