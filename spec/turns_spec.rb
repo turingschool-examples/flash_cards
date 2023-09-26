@@ -28,9 +28,6 @@ RSpec.describe Card do
     turn = Turn.new("Juneau", card)
     expect(turn.feedback).to eq("Correct!")
   end
-
-
-  
 end
 
 
