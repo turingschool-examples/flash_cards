@@ -19,4 +19,8 @@ class Deck
         }
         return_array
     end
+
+    def add_card(card)
+        @cards.append(card)
+    end
 end
