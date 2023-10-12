@@ -6,9 +6,9 @@ class Turn
     end
 
     def correct?
-        if guess == card.answer
+        if guess.to_s == card.answer.to_s
             true
-        else
+        elsif guess.to_s != card.answer.to_s
             false
         end
     end
