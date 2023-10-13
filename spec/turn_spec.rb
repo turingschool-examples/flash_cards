@@ -15,15 +15,7 @@ RSpec.describe Turn do
     expect(@turn.guess).to eq("Juneau")
   end
 
-  xit 'has an answer' do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-
-    expect(card.answer).to eq("Juneau")
-  end
-
-  xit 'has a category' do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-
-    expect(card.category).to eq(:Geography)
+  it 'has a card' do
+    expect(@turn.card).to be_an_instance_of(Card)
   end
 end
