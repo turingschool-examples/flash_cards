@@ -17,4 +17,12 @@ RSpec.describe Turn do
         
         expect(turn).to be_a Turn
     end
+
+    it 'can read card' do
+
+        card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        turn = Turn.new("Juno", card)
+        
+        expect(turn.card).to eq(card)
+    end
 end
