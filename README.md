@@ -13,3 +13,13 @@ This is the starter repository for the [Flash Cards](http://backend.turing.io/mo
     - Once all tests are written and all methods are written within the class (and the tests are all passing),
       move on to next class and follow the same steps
 
+- Classes needed for iteration 1 + 2
+    - Card class
+        - Methods/Attributes needed: question, answer, category
+    - Turn class
+        - Methods/Attributes needed: card, guess, correct?, feedback
+    - Deck class
+        - Methods/Attributes needed: cards, count, cards_in_category, last(?)
+    - Round class
+        - Methods/Attributes needed: deck, turns, current_card, take_turn, class, correct?, number_correct,
+          last(?), number_correct_by_category, percent_correct, percent_correct_by_category
