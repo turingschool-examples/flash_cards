@@ -1,13 +1,16 @@
-require './lib/deck'
+require './lib/deck.rb'
+require './lib/turn.rb'
 
 class Round
-    attr_accessor :deck,
-                  :turns
+   attr_accessor :deck,
+                 :turns
 
-    def initialize (deck)
+   def initialize (deck)
         @deck = deck
         @turns = []
     end
 
-
+    def current_card
+        @deck[0]
+    end
 end
