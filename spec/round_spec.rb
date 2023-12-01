@@ -29,19 +29,21 @@ RSpec.describe Round do
         expect(@round.current_card).to eq (@card_1)
     end
 
-    it 'stores the guess in the new Turn object' do
-       new_turn = @round.take_turn("Juneau")
+    it 'can create a Turn class object and store guess and card' do
+        new_turn = @round.take_turn("Juneau")
         
-        expect(new_turn).to eq (["Juneau", @card_1])
+        expect(new_turn).to be_an_instance_of (Turn)
+        expect(new_turn.guess).to eq ("Juneau")
+        expect(new_turn.card).to eq (@card_1)
     end
     
-    # xit 'move on to the next card in the deck' do
-    #     new_turn = @round.take_turn("Juneau")
+    it 'move on to the next card in the deck' do
+        new_turn = @round.take_turn("Juneau")
 
-    #     expect(@round.current_card).to eq (@card_2)
+        expect(@round.current_card).to eq (@card_2)
         
-    #     @round.take_turn("z")
-    #     expect(@round.current_card).to eq (@card_3)
+        @round.take_turn("z")
+        expect(@round.current_card).to eq (@card_3)
 
-    # end
+    end
 end
