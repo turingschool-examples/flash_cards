@@ -29,6 +29,13 @@ describe Turn do
     expect(turn.correct?).to eq(true)
     end
 
+    it 'gives feedback' do
+        turn = Turn.new("Juneau", card)
+
+        expect(turn.feedback).to eq("correct")
+    end 
+end 
+
     
     
 
