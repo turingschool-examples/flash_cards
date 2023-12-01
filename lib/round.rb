@@ -13,4 +13,9 @@ class Round
     def current_card
         @deck.cards.first
     end
+    
+    def take_turn(guess)
+        Turn.new(guess, current_card)
+        # @deck.shuffle!
+    end
 end
