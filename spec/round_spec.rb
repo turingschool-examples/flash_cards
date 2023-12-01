@@ -28,4 +28,20 @@ RSpec.describe Round do
     it 'returns the correct card being played' do
         expect(@round.current_card).to eq (@card_1)
     end
+
+    it 'stores the guess in the new Turn object' do
+       new_turn = @round.take_turn("Juneau")
+        
+        expect(new_turn).to eq (["Juneau", @card_1])
+    end
+    
+    # xit 'move on to the next card in the deck' do
+    #     new_turn = @round.take_turn("Juneau")
+
+    #     expect(@round.current_card).to eq (@card_2)
+        
+    #     @round.take_turn("z")
+    #     expect(@round.current_card).to eq (@card_3)
+
+    # end
 end
