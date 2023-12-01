@@ -13,7 +13,7 @@ class Turn
     end
     
     def feedback
-        if @guess == correct? 
+        if correct? 
             puts "correct"
         else 
             "incorrect"
