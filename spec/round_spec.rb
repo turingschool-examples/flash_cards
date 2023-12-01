@@ -19,4 +19,10 @@ RSpec.describe Turn do
 
         expect(round).to be_instance_of(Round)
     end 
+
+    it "has a turn" do 
+        round = Round.new(@deck)
+
+        expect(round.turns).to eq []
+    end 
 end 
