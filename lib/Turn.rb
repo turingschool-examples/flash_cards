@@ -13,4 +13,12 @@ class Turn
         #if guess == @answer was not correct because @answer is not defined in turn class.
             @guess == @card.answer
     end
+
+    def feedback
+        if @guess == @card.answer
+            "Correct!"
+        else
+            "sorry, not correct."
+        end
+    end   
 end
