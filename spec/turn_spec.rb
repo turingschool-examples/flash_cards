@@ -1,9 +1,11 @@
-require './lib/card'
-require './lib/turn'
+require "lib/card"
+require "./lib/turn"
 
-Rspec.describe Turn do
+RSpec.describe Turn do
     it 'exists' do
-        turn = Turn.new()
+        card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        turn = Turn.new("Juneu", card)
+        
 # pry(main)> require './lib/turn'
 # #=> true
 
