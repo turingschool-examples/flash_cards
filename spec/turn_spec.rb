@@ -17,4 +17,22 @@ describe Turn do
         expect(turn.guess).to eq("Juneau")
     end
 
+    it 'has a card' do
+        turn = Turn.new("Juneau", card)
+
+        expect(turn.card).to eq(card)
+    end
+
+    it 'checks if correct or incorrect' do
+    turn = Turn.new("Juneau", card)
+
+    expect(turn.correct?).to eq(true)
+    end
+
+    
+    
+
+
+    
+
 
