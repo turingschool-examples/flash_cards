@@ -7,8 +7,5 @@ class Card
         @category = category
     end
 
-    def Question?
-        "What is the capital of #{}"
-    end
 end
 
