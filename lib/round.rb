@@ -26,8 +26,6 @@ class Round
         @turns[-1]
     end
 
-    
-
     # I need to have the take turn method accept a string argument as the guess,
     # then create a new instance of Turn using that guess and the current card
     # Once that instance of turn is created, the take_turn method should return
@@ -39,4 +37,30 @@ class Round
     # DRY Don't Repeat Yourself, save yourself the time by using the methods
     # you define in a class rather than rewriting the same code in a different method
 
+    def number_correct
+        @turns.count do |turn|
+            turn.correct?
+        end
+    end
+
+    def number_correct_by_category(category)
+        @turns.count do |turn|
+            turn.card.category == category && turn.correct?
+        end
+    end
+
+    def percent_correct
+        ((number_correct.to_f / @turns.count.to_f) * 100).round(1)
+    end
+
+    def turns_by_category(category)
+        @turns.count do |turn|
+            turn.card.category == category
+        end
+    end
+
+    def percent_correct_by_category(category)
+        ((number_correct_by_category(category).to_f / 
+        turns_by_category(category).to_f) * 100).round(1)
+    end
 end
