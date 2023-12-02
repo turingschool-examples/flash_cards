@@ -39,4 +39,62 @@ RSpec.describe Turn do
 
         expect(new_turn).to be_instance_of(Turn) 
     end 
+
+    it "is correct" do
+    round = Round.new(@deck)
+    new_turn = round.take_turn("Juneau")
+
+    expect(new_turn.correct?).to eq true 
+    end
+
+    it "number count" do
+        round = Round.new(@deck)
+        new_turn = round.take_turn("Juneau")
+
+        expect(round.number_correct).to eq 1
+
+        new_turn = round.take_turn("Mars")
+
+        expect(round.number_correct).to eq 2
+
+        new_turn = round.take_turn("Wrong answer")
+    
+        expect(round.number_correct).to eq 2
+    end 
+
+    it "Counts turns" do 
+        round = Round.new(@deck)
+        new_turn = round.take_turn("Juneau")
+       
+        expect(round.turns.count).to eq 1 
+
+        new_turn = round.take_turn("Venus")
+
+        expect(round.turns.count).to eq 2 
+
+        new_turn = round.take_turn("Wrong answer")
+
+        expect(round.turns.count).to eq 3
+    end 
+
+    it "continues to next card" do 
+        round = Round.new(@deck)
+        new_turn = round.take_turn("Juneau")
+        
+        expect(round.current_card).to eq @cards[1]
+    end
+
+    it "counts correct by category" do 
+        round = Round.new(@deck) 
+        new_turn = round.take_turn("Juneau")
+
+        expect(round.number_correct_by_category(:Geography)).to eq 1
+        
+        round = Round.new(@deck) 
+        new_turn = round.take_turn("Juneau")
+        
+        expect(round.number_correct_by_category(:Stem)).to eq 0
+    end
+
+
 end 
