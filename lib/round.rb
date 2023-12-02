@@ -1,6 +1,3 @@
-require './lib/deck.rb'
-require './lib/turn.rb'
-
 class Round
    attr_accessor :deck,
                  :turns
