@@ -62,4 +62,13 @@ RSpec.describe Round do
         
         expect(@round.current_card).to eq (@card_3)
     end
-end
+
+    it "counts turns" do
+        new_turn_1 = @round.take_turn("Juneau")
+        new_turn_2 = @round.take_turn("Venus")
+        
+        expect(@round.turns.count).to eq (2)
+
+    end
+
+  end
