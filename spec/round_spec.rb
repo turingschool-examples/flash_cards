@@ -69,11 +69,21 @@ RSpec.describe Round do
       expect(@round.turns.count).to eq (2)
     end
 
-    it "gives feedback" do
+    it "gives feedback on turns" do
       new_turn_1 = @round.take_turn("Juneau")
       new_turn_2 = @round.take_turn("Venus")
         
       expect(@round.turns.last.feedback).to eq ("Incorrect.")
     end
 
+    it "calculates number of correct guesses" do
+      new_turn_1 = @round.take_turn("Juneau")
+      new_turn_2 = @round.take_turn("Venus")
+        
+      expect(@round.number_correct).to eq (1)
+      
+      new_turn_2 = @round.take_turn("North north west")
+
+      expect(@round.number_correct).to eq (2)
+    end
   end
