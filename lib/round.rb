@@ -5,16 +5,22 @@ class Round
    def initialize (deck)
         @deck = deck
         @turns = []
+        @turn_count = 0
     end
 
     def current_card
-        @deck.cards.first
+       @deck.cards[@turn_count]
     end
-    
+
     def take_turn(guess)
         new_turn = Turn.new(guess, current_card)
-        @deck.rotate
-        @turns << new_turn
+       
+        turns = @turns.push(new_turn)
+        @turn_count += 1
+
         new_turn
     end
+
+    
+
 end
