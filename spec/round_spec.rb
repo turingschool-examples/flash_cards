@@ -96,5 +96,24 @@ RSpec.describe Turn do
         expect(round.number_correct_by_category(:Stem)).to eq 0
     end
 
+    it "gives correct percent" do 
+        round = Round.new(@deck) 
+        new_turn = round.take_turn("Juneau")
+
+        expect(round.percent_correct).to eq 100
+    end 
+
+    it "gives percent correct by category" do 
+        round = Round.new(@deck) 
+        new_turn = round.take_turn("Juneau") 
+
+        expect(round.percent_correct_by_category(:Geography)).to eq 100
+
+        new_turn = round.take_turn("Juneau")
+        
+        expect(round.percent_correct_by_category(:STEM)).to eq 100
+        
+    end 
+
 
 end 
