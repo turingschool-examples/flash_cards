@@ -47,7 +47,7 @@ RSpec.describe Turn do
     expect(new_turn.correct?).to eq true 
     end
 
-    it "number count" do
+    it "number count correct guesses" do
         round = Round.new(@deck)
         new_turn = round.take_turn("Juneau")
 
@@ -96,6 +96,21 @@ RSpec.describe Turn do
         expect(round.number_correct_by_category(:Stem)).to eq 0
     end
 
+    it "counts number of turns by category" do 
+        round = Round.new(@deck) 
+        new_turn = round.take_turn("Juneau")
+
+        expect(round.num_turns_by_category(:Geography)).to eq 1 
+
+        new_turn = round.take_turn("Mars")
+
+        expect(round.num_turns_by_category(:STEM)).to eq 1
+
+        new_turn = round.take_turn("Wrong answer")
+        
+        expect(round.num_turns_by_category(:STEM)).to eq 2
+    end 
+
     it "gives correct percent" do 
         round = Round.new(@deck) 
         new_turn = round.take_turn("Juneau")
@@ -109,11 +124,21 @@ RSpec.describe Turn do
 
         expect(round.percent_correct_by_category(:Geography)).to eq 100
 
-        new_turn = round.take_turn("Juneau")
+        new_turn = round.take_turn("Mars")
         
         expect(round.percent_correct_by_category(:STEM)).to eq 100
         
     end 
 
+    it "provides feedback" do 
+        round = Round.new(@deck) 
+        new_turn = round.take_turn("Juneau")
 
+        expect(round.turns.last.feedback).to eq "Correct!"
+
+        new_turn = round.take_turn("Juneau")
+
+        expect(round.turns.last.feedback).to eq "Incorrect."
+
+    end 
 end 
