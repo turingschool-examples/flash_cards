@@ -18,6 +18,15 @@ card_4 = Card.new("What kind of car does Jack drive?", "Volkswagen", :JackTrivia
 
 @card_count = 0
 
+def category_selector
+    unique_categories = []
+    @cards.each do |card|
+        unique_categories << card.category  
+    end
+    unique_categories.uniq!
+end
+
+
 def start
     puts "Welcome! You're playing with #{@cards.count} cards."
     puts "-------------------------------------------"
@@ -33,7 +42,13 @@ def start
     puts "****** Game over! ******"
     puts "You had #{@round.number_correct} correct guesses out of #{@cards.count} for a total score 
     of #{@round.percent_correct}%."
+    
+    
 end
 
 
-start
+
+
+    
+
+# start
