@@ -6,7 +6,7 @@ RSpec.describe Turn do
         card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     
         expect(card).to be_instance_of(Card)
-      end
+    end
 
     it 'exists' do
         card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
