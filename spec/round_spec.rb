@@ -12,7 +12,6 @@ RSpec.describe Turn do
         card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
         @cards = [card_1, card_2, card_3]
         @deck = Deck.new(@cards) 
-        
     end 
 
     it "exists" do 
@@ -126,8 +125,7 @@ RSpec.describe Turn do
 
         new_turn = round.take_turn("Mars")
         
-        expect(round.percent_correct_by_category(:STEM)).to eq 100
-        
+        expect(round.percent_correct_by_category(:STEM)).to eq 100 
     end 
 
     it "provides feedback" do 
@@ -139,6 +137,5 @@ RSpec.describe Turn do
         new_turn = round.take_turn("Juneau")
 
         expect(round.turns.last.feedback).to eq "Incorrect."
-
     end 
 end 

@@ -14,5 +14,4 @@ class Deck
     def count 
         @cards.count 
     end 
-
 end 
