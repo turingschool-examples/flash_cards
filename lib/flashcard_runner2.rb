@@ -41,4 +41,13 @@ def game_rounds
     end
 end
 
+def game_over_message
+    puts "****** Game over! ******"
+    puts "You had #{@round.number_correct} correct guesses out of #{@cards.count} for a total score of #{@round.percent_correct}%."
+    category_selector.each do |category|
+        puts "#{category} - #{@round.percent_correct_by_category(category)}% correct"
+    end
+end
+
+
 start
