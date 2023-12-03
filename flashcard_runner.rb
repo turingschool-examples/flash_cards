@@ -16,15 +16,17 @@ round = Round.new(deck)
 puts "Welcome! You're playing with #{deck.cards.count} cards."
 puts "-------------------------------------------------"
 
-
-deck.cards.count do |index|
-    puts" This is card number #{index} out of #{deck.cards.count}.
+cards_total = deck.cards.count
+n = 1
+cards_total.times do
+    puts" This is card number #{n} out of #{cards_total}.
     Question: #{round.current_card.question}"
 
-    guess = gets.to_i
+    guess = gets
     puts round.take_turn(guess).feedback
+    n += 1
 end
-
+require 'pry'; binding.pry  
 puts "****** Game over! ******"
 puts "You had #{round.number_correct} correct guesses out of #{round.turns.count} for a total score of #{round.percent_correct}."
 
