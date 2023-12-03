@@ -32,7 +32,7 @@ RSpec.describe Card do
   end
 
   it 'checks if card2 has an answer' do
-    card2 = Card.new("Which planet is closest to the sun?", "Mercury", :STEM))
+    card2 = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
 
     expect(card2.answer).to eq("Mercury")
   end
