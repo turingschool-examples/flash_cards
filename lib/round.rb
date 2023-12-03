@@ -31,4 +31,9 @@ class Round
     @current_card_idx += 1
     turn
   end
+
+  def number_correct
+    @correct_guess.count
+  end
+
 end
