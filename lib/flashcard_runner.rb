@@ -14,4 +14,15 @@ class Runner
     @deck = Deck.new(collection_card)
     @round = Round.new(@deck)
   end
+
+  def start
+    puts "Welcome! You are playing with #{@deck.collection_card.count} cards"
+    puts "-------------------------------------"
+    @deck.collection_card.count.times do
+      current_card_number = @round.current_card_idx + 1
+      puts "This is card number #{current_card_number} out of #{@deck.collection_card.count}"
+      puts "Question: #{@round.current_card.question}"
+      guess_feedback
+    end
+  end
 end
