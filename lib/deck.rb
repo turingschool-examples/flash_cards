@@ -13,12 +13,8 @@ class Deck
     end
 
     def cards_in_category(category)
-        matched_cards = []
-        @cards.each do |card|
-            if card.category == category
-                matched_cards << card
-            end
+        matched_cards = @cards.select do |card|
+            card.category == category
         end
-        matched_cards
     end
 end
