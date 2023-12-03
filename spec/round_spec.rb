@@ -20,6 +20,11 @@ describe Round do
         expect(round).to be_instance_of(Round)
     end
 
+    it 'has a deck' do
+
+      expect(round.deck).to eq(deck)
+    end
+
     it 'starts with no turns' do
 
         expect(round.turns).to eq([])
@@ -30,5 +35,28 @@ describe Round do
         expect(round.current_card).to eq(card_1)
     end
 
+    it 'takes a turn and returns the new turn' do
+        new_turn = round.take_turn("Juneau")
 
+        expect(new_turn).to be_instance_of(Turn)
+        expect(round.turns).to include(new_turn)
+    end
+
+    it 'returns the number of correct guesses' do
+        new_turn = round.take_turn("Juneau")
+
+        expect(round.number_correct).to eq(1)
+    end
+
+    it 'returns the number of correct guesses by category' do
+        new_turn = round.take_turn("Juneau")
+        new_turn = round.take_turn("Venus")
+
+        expect(round.number_correct_by_category(:Geography)).to eq(1)
+        expect(round.number_correct_by_category(:STEM)).to eq(0)
+    end
+
+    # it 'returns the percentage of correct guesses' do
+
+    end
 end
