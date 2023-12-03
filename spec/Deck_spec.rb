@@ -27,7 +27,7 @@ RSpec.describe Deck do
         cards = [card_1, card_2, card_3]
         deck = Deck.new(cards)
         expect(deck.count).to eq(3)
-    end
+      end
 
    
 
