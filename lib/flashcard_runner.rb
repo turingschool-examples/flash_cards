@@ -3,8 +3,6 @@ require './lib/deck.rb'
 require './lib/turn.rb'
 require './lib/round.rb'
 
-# Remember to use .chomp after gets
-
 card_1 = Card.new("What is the first letter of the alphabet?", "A", :English)
 card_2 = Card.new("what is the last letter of the alphabet?", "Z", :English)
 card_3 = Card.new("What is the best kind of food?", "Pizza", :JackTrivia)
