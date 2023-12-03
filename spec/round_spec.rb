@@ -32,5 +32,12 @@ RSpec.describe Round do
     end
   end
 
+  describe '#current_card' do
+  it "show the current card" do
+    round = Round.new(deck)
+
+    expect(round.current_card).to eq (card_1)
+  end
+end
 
 end
