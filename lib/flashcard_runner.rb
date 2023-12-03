@@ -35,4 +35,13 @@ class Runner
     turn = @round.take_turn(user_guess)
     p turn.feedback
   end
+
+  def final_score
+    puts "****** Game over! ******"
+    puts "You had #{@round.number_correct} correct guesses out of #{@deck.collection_card.count} for a total score of #{@round.percent_correct}."
+    categories = @deck.collection_card.map {|card| card.category}.uniq
+    categories.each do |category|
+    puts "#{category} - #{@round.percent_correct_by_category(category)} % correct"
+    end
+  end
 end
