@@ -25,4 +25,9 @@ class Runner
       guess_feedback
     end
   end
+
+  def user_guess
+    puts "Enter your guess"
+    guess = gets.chomp
+  end
 end
