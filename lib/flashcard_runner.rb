@@ -25,12 +25,23 @@ def start
         Question: #{@round.current_card.question}"
         
         guess = gets.chomp 
-        puts @round.take_turn(guess).feedback 
         @round.take_turn(guess)
+        puts @round.turns[-1].feedback 
         card_num += 1 
     end 
+
+    game_over
 end 
-start 
+
+def game_over
+        #round.turns.count == card_total 
+        puts "****** Game over! ******"
+        puts "You had #{@round.number_correct} out of #{@deck.cards.count} for a total score of #{@round.percent_correct}% correct"
+        puts "#{@round.deck.cards[0].category} - #{@round.percent_correct_by_category(:Joey)}% correct"
+        puts "#{@round.deck.cards[2].category} - #{@round.percent_correct_by_category(:Earth)}% correct"
+end 
+
+start
 
 
 
