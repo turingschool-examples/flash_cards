@@ -28,7 +28,6 @@ RSpec.describe Deck do
 
     it "can return an array of the cards classes" do
         expect(@deck.categories_in_deck).to eq ([:Geography, :STEM])
-
     end
 
 end
