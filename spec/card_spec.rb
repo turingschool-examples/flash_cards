@@ -22,7 +22,7 @@ RSpec.describe Card do
   it 'checks if card2 has a question' do
     card2 = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
 
-    expect(card.question).to eq("Which planet is closest to the sun?")
+    expect(card2.question).to eq("Which planet is closest to the sun?")
   end
 
   it 'checks if card1 has an answer' do
@@ -37,9 +37,15 @@ RSpec.describe Card do
     expect(card2.answer).to eq("Mercury")
   end
 
-  it 'has a category' do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+  it 'checks if card1 has a category' do
+    card1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
-    expect(card.category).to eq(:Geography)
+    expect(card1.category).to eq(:Geography)
+  end
+
+  it 'checks if card2 has a category' do
+    card2 = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+
+    expect(card2.category).to eq(:STEM)
   end
 end
