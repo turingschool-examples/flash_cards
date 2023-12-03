@@ -59,4 +59,17 @@ RSpec.describe Round do
     end
   end
 
+  describe '#number_correct' do
+    it 'count the number of correct turns' do
+      round = Round.new(deck)
+
+      round.take_turn("Juneau")
+      round.take_turn("Venus")
+      round.take_turn("North North West")
+
+      expect(round.number_correct).to eq (2)
+    end
+  end
+
+
 end
