@@ -49,5 +49,10 @@ def game_over_message
     end
 end
 
+def start
+    start_game_message
+    game_rounds
+    game_over_message
+end
 
 start
