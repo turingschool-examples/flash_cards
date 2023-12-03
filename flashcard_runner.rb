@@ -30,6 +30,6 @@ end
 puts "****** Game over! ******"
 puts "You had #{round.number_correct} correct guesses out of #{round.turns.count} for a total score of #{round.percent_correct}."
 
-@round.turns.count do |guess|
-    puts "#{turns.card.category} - #{percent_correct_by_category} correct"
+cards_total.times do
+    puts "#{round.turns.card.category} - #{percent_correct_by_category} correct"
 end
