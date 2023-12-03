@@ -11,14 +11,26 @@ card_4 = Card.new("What state do i live in", "California", :Joey)
 @cards = [card_1, card_2, card_3, card_4]
 @deck = Deck.new(@cards) 
 @round = Round.new(@deck)
+ 
 
 
-        # def start 
-    # puts "Welcome! You're playing with 4 cards." 
-    # 
-    # @deck.cards.each do |card| 
-        # puts "This is card #{@cards.index} out of #{@cards[-1]} "
-    # end 
+def start 
+    card_total = @deck.cards.count
+    card_num = 1 
+    puts "Welcome! You're playing with #{card_total} cards." 
+    puts "-------------------------------------------------"
+
+    card_total.times  do 
+        puts "This is card number #{card_num} out of #{card_total}
+        Question: #{@round.current_card.question}"
+        
+        guess = gets.chomp 
+        puts @round.take_turn(guess).feedback 
+        @round.take_turn(guess)
+        card_num += 1 
+    end 
 end 
-
 start 
+
+
+
