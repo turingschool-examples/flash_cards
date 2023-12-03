@@ -12,5 +12,8 @@ class Round
     @correct_categories = {}
   end
 
+  def current_card
+    deck.collection_card[@current_card_idx]
+  end
 
 end
