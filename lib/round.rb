@@ -43,4 +43,14 @@ class Round
       0
     end
   end
+
+  def percent_correct
+    percent_correct =(number_correct.to_f / @turns.count.to_f ) * 100
+    percent_correct.round(2)
+  end
+
+  def percent_correct_by_category(category)
+    percent_correct_by_category = (number_correct_by_category(category).to_f / number_correct.to_f ) * 100
+    percent_correct_by_category.round(2)
+  end
 end
