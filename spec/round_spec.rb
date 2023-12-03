@@ -86,4 +86,16 @@ RSpec.describe Round do
 
       expect(@round.number_correct).to eq (2)
     end
+
+    it "calculates number of correct guesses by category" do
+      new_turn_1 = @round.take_turn("Juneau")
+      new_turn_2 = @round.take_turn("Venus")
+        
+      expect(@round.number_correct_by_category(:Geography)).to eq (1)
+      
+      new_turn_2 = @round.take_turn("North north west")
+
+      expect(@round.number_correct_by_category(:STEM)).to eq (1)
+    end
+
   end
