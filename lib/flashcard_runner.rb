@@ -30,4 +30,9 @@ class Runner
     puts "Enter your guess"
     guess = gets.chomp
   end
+
+  def guess_feedback
+    turn = @round.take_turn(user_guess)
+    p turn.feedback
+  end
 end
