@@ -9,10 +9,10 @@ class Deck
     def cards_in_category(cat)
         cards_in_cat = []
         
-        @cards.each_index do |index|
+        @cards.each do |card|
            
-            if (@cards[index].category) == cat
-                cards_in_cat << @cards[index]
+            if card.category == cat
+                cards_in_cat << card
             end
        
         end
@@ -21,12 +21,12 @@ class Deck
     end
 
     def categories_in_deck
-        n = 0
         cat_in_deck = []
-        @cards.count.times do
-          cat_in_deck << @cards[n].category
-        n += 1
+        
+        @cards.each do |card|
+          cat_in_deck << card.category
         end
+        
         cat_in_deck.uniq
     end
     
