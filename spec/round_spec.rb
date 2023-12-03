@@ -84,5 +84,28 @@ RSpec.describe Round do
     end
   end
 
+  describe '#percent_correct' do
+    it 'calculate the percentage of correct turns' do
+      round = Round.new(deck)
 
+      round.take_turn("Juneau")
+      round.take_turn("Venus")
+      round.take_turn("North North West")
+
+      expect(round.percent_correct).to eq (66.67)
+    end
+  end
+
+  describe '#percent_correct_by_category' do
+    it 'calculate the percentage of correct turns for a specific category' do
+      round = Round.new(deck)
+
+      round.take_turn("Juneau")
+      round.take_turn("Venus")
+      round.take_turn("North North West")
+
+      expect(round.percent_correct_by_category(:STEM)).to eq (50)
+      expect(round.percent_correct_by_category(:Geography)).to eq (50)
+    end
+  end
 end
