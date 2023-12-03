@@ -30,4 +30,8 @@ class Round
        turn.correct? && turn.card.category == cat
       end
     end
+
+    def percent_correct 
+      (number_correct.to_f / @turns.count.to_f) * 100
+    end
 end
