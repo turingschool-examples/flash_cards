@@ -26,7 +26,7 @@ cards_total.times do
     puts round.take_turn(guess).feedback
     n += 1
 end
-require 'pry'; binding.pry  
+
 puts "****** Game over! ******"
 puts "You had #{round.number_correct} correct guesses out of #{round.turns.count} for a total score of #{round.percent_correct}."
 
