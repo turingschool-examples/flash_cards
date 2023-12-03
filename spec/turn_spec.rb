@@ -11,13 +11,13 @@ RSpec.describe Turn do
 
       expect(turn).to be_a Turn
     end
-  end
+
 
     it 'has a guess' do
       turn = Turn.new("Juneau", card)
 
       expect(turn.guess).to eq ("Juneau")
-  end
+    end
 
     it 'has a card' do
       turn = Turn.new("Juneau", card)
@@ -25,6 +25,7 @@ RSpec.describe Turn do
       expect(turn.card.question).to eq ("What is the capital of Alaska?")
       expect(turn.card.answer).to eq ("Juneau")
       expect(turn.card.category).to eq (:Geography)
+    end
   end
 
   describe '#correct?' do
