@@ -36,4 +36,11 @@ class Round
     @correct_guess.count
   end
 
+  def number_correct_by_category(category)
+    if @correct_categories.key?(category)
+      @correct_categories[category]
+    else
+      0
+    end
+  end
 end
