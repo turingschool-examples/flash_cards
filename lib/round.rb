@@ -8,14 +8,14 @@ class Round
     end
 
     def current_card
-      @deck.cards[@turns.length]
+      @deck.cards[0]
     end
 
     def take_turn (guess)
       new_turn = Turn.new(guess, current_card)
        
       turns = @turns.push(new_turn)
-        
+      @deck.cards.shift
       new_turn
     end
 
