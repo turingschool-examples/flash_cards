@@ -45,3 +45,7 @@ class Runner
     end
   end
 end
+
+runner = Runner.new()
+runner.start
+runner.final_score
