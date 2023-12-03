@@ -11,7 +11,7 @@ class Round
       @deck.cards[@turns.length]
     end
 
-    def take_turn(guess)
+    def take_turn (guess)
       new_turn = Turn.new(guess, current_card)
        
       turns = @turns.push(new_turn)
@@ -25,4 +25,9 @@ class Round
       end
     end
 
+    def number_correct_by_category (cat)
+      @turns.count do |turn|
+       turn.correct? && turn.card.category == cat
+      end
+    end
 end
