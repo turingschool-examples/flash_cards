@@ -24,7 +24,9 @@ class Deck
         cat_in_deck = []
         
         @cards.each do |card|
-          cat_in_deck << card.category
+            
+            cat_in_deck << card.category
+        
         end
         
         cat_in_deck.uniq
