@@ -10,12 +10,7 @@ class Deck
   end
 
   def cards_in_category(category)
-    found_cards = []
-    cards.each do |card|
-      if card.category == category      
-        found_cards << card 
-      end
-    end
-    found_cards
+    found_cards = @cards.find_all {|card| card.category == category}
+      found_cards
   end
 end
