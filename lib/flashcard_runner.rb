@@ -24,7 +24,6 @@ def category_selector
     unique_categories.uniq!
 end
 
-
 def start
     puts "Welcome! You're playing with #{@cards.count} cards."
     puts "-------------------------------------------"
