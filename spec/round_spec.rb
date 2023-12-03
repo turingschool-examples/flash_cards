@@ -33,11 +33,30 @@ RSpec.describe Round do
   end
 
   describe '#current_card' do
-  it "show the current card" do
-    round = Round.new(deck)
+    it "show the current card" do
+      round = Round.new(deck)
 
-    expect(round.current_card).to eq (card_1)
+      expect(round.current_card).to eq (card_1)
+    end
   end
-end
+
+  describe '#take_turn' do
+    it 'create a Turn object and add it to turns array' do
+      round = Round.new(deck)
+
+      new_turn = round.take_turn("Juneau")
+
+      expect(new_turn).to be_a (Turn)
+      expect(round.turns).to eq ([new_turn])
+    end
+
+    it 'return the next card' do
+      round = Round.new(deck)
+
+      round.take_turn("guess")
+
+      expect(round.current_card).to eq (card_2)
+    end
+  end
 
 end
