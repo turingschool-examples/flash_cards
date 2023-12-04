@@ -13,35 +13,42 @@ card_4 = Card.new("What state do i live in", "California", :Joey)
 @round = Round.new(@deck)
  
 
+class StartGame 
+    def initialize(deck)
+        @deck = deck 
+        @round = Round.new(@deck)
+    end 
+ 
+    def start 
+        card_total = @deck.cards.count
+        card_num = 1 
+        puts "Welcome! You're playing with #{card_total} cards." 
+        puts "-------------------------------------------------"
 
-def start 
-    card_total = @deck.cards.count
-    card_num = 1 
-    puts "Welcome! You're playing with #{card_total} cards." 
-    puts "-------------------------------------------------"
-
-    card_total.times  do 
-        puts "This is card number #{card_num} out of #{card_total}
-        Question: #{@round.current_card.question}"
+        card_total.times  do 
+            puts "This is card number #{card_num} out of #{card_total}
+            Question: #{@round.current_card.question}"
         
-        guess = gets.chomp 
-        @round.take_turn(guess)
-        puts @round.turns[-1].feedback 
-        card_num += 1 
+            guess = gets.chomp 
+            @round.take_turn(guess)
+            puts @round.turns[-1].feedback 
+            card_num += 1 
+        end 
+
+        game_over
     end 
 
-    game_over
+    def game_over
+            #round.turns.count == card_total 
+            puts "****** Game over! ******"
+            puts "You had #{@round.number_correct} out of #{@deck.cards.count} for a total score of #{@round.percent_correct}% correct"
+            puts "#{@round.deck.cards[0].category} - #{@round.percent_correct_by_category(:Joey)}% correct"
+            puts "#{@round.deck.cards[2].category} - #{@round.percent_correct_by_category(:Earth)}% correct"
+    end 
 end 
 
-def game_over
-        #round.turns.count == card_total 
-        puts "****** Game over! ******"
-        puts "You had #{@round.number_correct} out of #{@deck.cards.count} for a total score of #{@round.percent_correct}% correct"
-        puts "#{@round.deck.cards[0].category} - #{@round.percent_correct_by_category(:Joey)}% correct"
-        puts "#{@round.deck.cards[2].category} - #{@round.percent_correct_by_category(:Earth)}% correct"
-end 
-
-start
+start_game = StartGame.new(@deck)
+start_game.start 
 
 
 
