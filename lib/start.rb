@@ -5,6 +5,9 @@ require './lib/round.rb'
 
 class Start
 
-    def initialize
+    attr_reader :round
+
+    def initialize(round)
+        @round = round
     end
 end
