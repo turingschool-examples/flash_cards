@@ -32,6 +32,7 @@ class Round
     correct_count = 0
     require 'pry' ; binding.pry
     @turns.each do |turn|
+      #need to include category somewhere
       correct_count += 1 if turn.correct?
     end
       correct_count
@@ -39,10 +40,15 @@ class Round
 
   # def percent_correct
   #   @turns / self.number_correct
+
+  #may need to change to float and/or numbers visible after decimal
   # end
 
   # def percent_correct_by_category
+    # iterate on @turns 
     #@turns / self.number_correct_by_category
+
+    #may need to change to float and/or numbers visible after decimal
   # end
 end
 
