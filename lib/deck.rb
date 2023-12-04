@@ -1,8 +1,6 @@
-class deck
-    attr_reader :question, :answer, :category
+class Deck
+    attr_reader :cards
     
-    def initialize(question, answer, category)
-        @question = question
-        @answer = answer
-        @category = category
+    def initialize(*card_objects)
+        @card_objects = card_objects
     end
