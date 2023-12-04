@@ -17,5 +17,12 @@ describe CardGenerator do
     end
   end
 
+  describe "#card" do
+    it "split the card data into 3 components" do
+      card_generator = CardGenerator.new("cards.txt")
+
+      expect(card_generator.card).to be_a (Card)
+    end
+  end
 
 end
