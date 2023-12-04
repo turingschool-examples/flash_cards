@@ -1,5 +1,6 @@
 require './lib/card'
 require './lib/deck'
+require 'pry'
 
 Rspec.descibe Deck do
     it "is a deck" do
@@ -9,6 +10,8 @@ Rspec.descibe Deck do
 
         cards = [card1, card2, card3]
         deck = Deck.new(cards)
+
+        expect(deck.cards).to equal (card1, card2, card3)
     end
 
     it 'storing cards in a deck'
@@ -20,6 +23,8 @@ Rspec.descibe Deck do
         deck = Deck.new(cards)
 
         expect(deck.cards).to be (cards)
+
+    it 'has an amount of cards'
 end
 
 
