@@ -51,6 +51,6 @@ RSpec.describe do
 
         start = Start.new(round)
 
-        expect(start.start_game_message).to eq("Welcome! You're playing with #{@cards.count} cards.", "-------------------------------------------")
+        expect(start.start_game_message).to eq("Welcome! You're playing with 3 cards.\n-------------------------------------------")
     end
 end
