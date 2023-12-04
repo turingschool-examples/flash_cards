@@ -10,4 +10,6 @@ class Deck
     end
 
     def cards
+        @cards
+    end
 end
