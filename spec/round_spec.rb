@@ -56,7 +56,15 @@ describe Round do
         expect(round.number_correct_by_category(:STEM)).to eq(0)
     end
 
-    # it 'returns the percentage of correct guesses' do
+    it 'returns the percentage of correct guesses' do
+        new_turn = round.take_turn("Juneau")
 
+        expect(round.percent_correct).to eq(100.0)
+    end
+
+    it 'returns the percentage of correct guesses based on category' do
+        new_turn = round.take_turn("Juneau")
+
+        expect(round.percent_correct_by_category(:Geography)).to eq(100.0)
     end
 end
