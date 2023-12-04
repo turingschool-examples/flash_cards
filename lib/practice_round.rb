@@ -23,7 +23,29 @@ class Round
     end
   end
 
-  def number_correct_by_category
 
+      #@turns.card.category
+      #I need to iterate on @turns to isolate correct turns.
+        #isolate category
+        #count correct guesses cards with category
+  def number_correct_by_category(category)
+    correct_count = 0
+    require 'pry' ; binding.pry
+    @turns.each do |turn|
+      correct_count += 1 if turn.correct?
+    end
+      correct_count
   end
+
+  # def percent_correct
+  #   @turns / self.number_correct
+  # end
+
+  # def percent_correct_by_category
+    #@turns / self.number_correct_by_category
+  # end
 end
+
+  
+    
+  
