@@ -34,9 +34,9 @@ RSpec.describe Round do
       @new_turn = @round.take_turn("Juneau")
       
       expect(@new_turn).to be_a(Turn)
+      expect(@new_turn.correct?).to be true
     end
   end
-  # expect(@new_turn.correct?).to be true
   
   describe '#take_turn' do
     it 'can take a second turn' do
@@ -47,21 +47,28 @@ RSpec.describe Round do
       expect(@round.current_card).to eq(@card_2)
       
       @new_turn1 = @round.take_turn("Venus")
-      require 'pry' ; binding.pry
       expect(@round.turns.count).to eq(2)
       expect(@round.turns.last.feedback).to eq("Incorrect")
       expect(@round.number_correct).to eq(1)
-      expect(@round.current_card).to eq(@card_3)
     end
   end
 
   describe '#number_correct_by_category' do
     it 'can determine #number_correct_by_category' do
+      @new_turn = @round.take_turn("Juneau")
+      @new_turn1 = @round.take_turn("Venus")
 
+      expect(@round.number_correct_by_category(:Geography)).to eq(1)
+      expect(@round.number_correct_by_category(:STEM)).to eq(0)
     end
 
-    it 'calculates #percent_corrrect and ' do
-
+    it 'calculates #percent_corrrect and percent_correct_by_category' do
+      @new_turn = @round.take_turn("Juneau")
+      @new_turn1 = @round.take_turn("Venus")
+      
+      expect(@round.percent_correct).to eq(50.0)
+      expect(@round.percent_correct_by_category(:Geography)).to eq(100.0)
+      expect(@round.current_card).to eq(@card_3)
     end
   end
 end  

@@ -23,9 +23,8 @@ class Round
     end
   end
 
-
-  # will count the return value of iteration. 
-  def number_correct_by_category(category)
+  
+  def number_correct_by_category(category)  # will count the return value of iteration. 
     @turns.count do |turn|
       turn.correct? && turn.card.category == category 
     end
@@ -35,13 +34,15 @@ class Round
     (number_correct.to_f / @turns.count.to_f) * 100
   end
 
-  #   def percent_correct_by_category
-#     #iterate on @turns 
-#     require 'pry' ; binding.pry
-#     @turns / #self.number_correct_by_category
+  # def guess_by_category(category)
+  #   turns.each do |turn|
+  #     turn.card.category
+  #   end
+  # end
 
-#     may need to change to float and/or numbers visible after decimal
-#   end
+  def percent_correct_by_category(category)
+    (number_correct_by_category(category) / @deck.cards_in_category(category).count.to_f) * 100
+  end
 
 end
 
