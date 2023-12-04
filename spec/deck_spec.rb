@@ -48,6 +48,8 @@ Rspec.descibe Deck do
 
     it 'checks if the deck has cards in the :Pop culture category' do
 
+        expect(deck.cards_in_category).to equal ()
+    end
 end
 
 
