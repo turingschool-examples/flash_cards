@@ -17,14 +17,6 @@ RSpec.describe CardGenerator do
         expect(cg.read_file).to eq(["What is 5 + 5?,10,STEM","What is Rachel's favorite animal?,red panda,Turing Staff","What is Mike's middle name?,nobody knows,Turing Staff","What cardboard cutout lives at Turing?,Justin bieber,PopCulture"])
     end
 
-    it 'can separate file data into separate arrays and portions' do
-        filename = "cards.txt"
-        cg = CardGenerator.new(filename)
-        cg.read_file
-
-        expect(cg.separate_data).to eq([["What is 5 + 5?", "10", "STEM"],["What is Rachel's favorite animal?", "red panda", "Turing Staff"],["What is Mike's middle name?", "nobody knows", "Turing Staff"], ["What cardboard cutout lives at Turing?", "Justin bieber", "PopCulture"]])
-    end
-
     it 'can create cards from the separated data' do
         filename = "cards.txt"
         cg = CardGenerator.new(filename)
@@ -37,7 +29,7 @@ RSpec.describe CardGenerator do
 
     it 'can create cards when instantiated' do
         filename = "cards.txt"
-        cg = CardGenerator.new(filename).cards
+        cg = CardGenerator.new(filename)
 
         expect(cg.cards[0]).to be_a(Card)
         expect(cg.cards[1]).to be_a(Card)
