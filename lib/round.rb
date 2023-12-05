@@ -37,6 +37,16 @@ class Round
         end
         numcbc
     end
-
-
+    def percent_correct
+        correctcount = @turns.count do |turn| turn.correct? end
+        percentage_correct = (correctcount.to_f / @turns.length) * 100
+        percentage_correct
+    end
+    def percent_correct_by_category(category)
+        correct_countbyC = @turns.count do |turn| 
+            turn.card.category == category && turn.correct? end
+            percentage_correctbyC = (correct_countbyC.to_f / turns.length) *100
+            percentage_correctbyC
+        
+    end
 end
