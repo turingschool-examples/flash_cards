@@ -1,16 +1,13 @@
 
-require './lib/card'
-require './lib/turn'
-require './lib/deck'
-require './lib/round'
+require "./lib/card"
+require "./lib/turn"
+require "./lib/deck"
+require "./lib/round"
+require "./lib/card_generator"
 
 #Setup
-    card_0 = Card.new("What is 5 + 5?", "10", :STEM)
-    card_1 = Card.new("What is Rachel's favorite animal?", "beaver", :Turing_Staff)
-    card_2 = Card.new("What is Mike's middle name?", "Red Panda", :Turing_Staff)
-    card_3 = Card.new("What cardboard cutout lives at Turing?", "Justin bieber", :Pop_Culture)
-    cards = [card_0, card_1, card_2, card_3]
-    deck = Deck.new([card_0, card_1, card_2, card_3])
+    cards = CardGenerator.new(cards.txt)
+    deck = Deck.new(cards)
     round = Round.new(deck)
 
     cards_total = deck.cards.count
