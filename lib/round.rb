@@ -4,13 +4,13 @@ require './lib/turn'
 
 class Round
 
-    attr_reader :deck, :turns, :current_card_index
+    attr_reader :deck, :turns, :current_card_index, :current_turn
 
     def initialize(deck)
         @deck = deck
         @turns = []
         @current_card_index = 0
-        @current_turn = 0
+        @current_turn = 1
     end
 
     def current_card
