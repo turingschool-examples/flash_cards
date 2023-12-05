@@ -6,7 +6,8 @@ require "./lib/round"
 require "./lib/card_generator"
 
 #Setup
-    cards = CardGenerator.new(cards.txt)
+    filename = "cards.txt"
+    cards = CardGenerator.new(filename).cards
     deck = Deck.new(cards)
     round = Round.new(deck)
 
@@ -15,7 +16,8 @@ require "./lib/card_generator"
     categories = deck.categories_in_deck
     n = 1
 
-    puts "Welcome! It's time to play a game. You'll have #{deck.cards.count} chances to guess."
+    puts "Welcome!"
+    puts "It's time to play a game. You'll have #{deck.cards.count} chances to guess."
     puts "-------------------------------------------------------------------------"
 
 cards_total.times do
@@ -23,16 +25,17 @@ cards_total.times do
     Question: #{round.current_card.question}"
     print "Your Guess: "
 
-    guess = gets.chop
+    guess = gets.chop.downcase
     puts round.take_turn(guess).feedback
     n += 1
+    
 end
 
 puts "****** Game over! ******"
 puts "You had #{round.number_correct} correct guesses out of #{round.turns.count} for a total score of #{round.percent_correct}%."
 
 categories.each do |category|
-    puts "#{category} - #{round.percent_correct_by_category(category)}% correct"
+    puts "Category: #{category} - #{round.percent_correct_by_category(category)}% correct"
 end
 
 
