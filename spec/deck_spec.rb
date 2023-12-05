@@ -2,9 +2,9 @@ require './lib/card'
 require './lib/deck'
 
 RSpec.describe Deck do
-  let(:card_1) { Card.new("What is the capital of Alaska?", "Juneau", :Geography) }
-  let(:card_2) { Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM) }
-  let(:card_3) { Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM) }
+  let(:card_1) { Card.new("What is the capital of Alaska?", "Juneau", "Geography") }
+  let(:card_2) { Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", "STEM") }
+  let(:card_3) { Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", "STEM") }
 
   describe '#initialize' do
     it 'is an instance of Deck' do
@@ -42,8 +42,8 @@ RSpec.describe Deck do
     it 'return card on a given category' do
       deck = Deck.new([card_1, card_2, card_3])
 
-      stem_cards = deck.cards_in_category(:STEM)
-      geography_cards = deck.cards_in_category(:Geography)
+      stem_cards = deck.cards_in_category("STEM")
+      geography_cards = deck.cards_in_category("Geography")
       pop_culture_cards = deck.cards_in_category("Pop Culture")
 
       expect(stem_cards).to eq [card_2, card_3]
