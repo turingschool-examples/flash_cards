@@ -25,8 +25,10 @@ def start(round)
         puts "This is card number #{count} out of #{amount_of_cards}"
         puts "Question: #{round.current_card.question}"
         guess = gets.chomp
+
         turn = round.take_turn(guess)
         puts "#{turn.feedback}"
+
         count += 1
     end
 
