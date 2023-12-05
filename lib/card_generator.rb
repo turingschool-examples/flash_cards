@@ -9,7 +9,7 @@ class CardGenerator
         file_lines = []
         n = 0
         
-        file_lines = File.read("./#{filename}").split(/[,\n]/)    
+        file_lines = File.read("./lib/#{filename}").split(/[,\n]/)    
 
         n = (file_lines.length)/3
 
