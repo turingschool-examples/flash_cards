@@ -40,15 +40,13 @@ class Round
     end
     
     def percent_correct_by_category(category)
-        category_cards = []
-        turns.each do |turn|
-            if turn.card.category == category
-                category_cards.push(turn)
-            end
+        category_cards = turns.select do |turn|
+            turn.card.category == category
+            
         end
-
+        require 'pry' ; binding.pry
+        
         (number_correct_by_category(category).to_f / category_cards.length) * 100
-        # require 'pry' ; binding.pry
             
     end
 
