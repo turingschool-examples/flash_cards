@@ -32,13 +32,21 @@ class Round
         @turns.count { |turn| turn.card.category == category && turn.correct? }
     end
 
+    def total_by_category(category)
+        @turns.count { |turn| turn.card.category == category && turn.correct? }
+    end
+
     def percent_correct
         (number_correct.to_f / @turns.length.to_f) * 100
     end
 
     def percent_correct_by_category(category)
 
-        number_correct_by_category(category).to_f / @turns.count { |turn| turn.card.category == category && turn.correct? } * 100
+        if total_by_category(category).zero?
+            return 0
+          else
+            number_correct_by_category(category) / total_by_category(category) * 100
+          end
     end
 
 end
