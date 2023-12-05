@@ -21,12 +21,28 @@ class Start
     def game_rounds
         (@cards.count).times do
             @card_count += 1
-            puts "This is card number #{@card_count} out of #{@cards.count}."
-            puts @round.current_card.question
+            p "This is card number #{@card_count} out of #{@cards.count}."
+            p @round.current_card.question
         
             input1 = gets.chomp
             @round.take_turn(input1)
             @round.turns[-1].feedback
+        end
+    end
+
+    def category_selector
+        unique_categories = []
+        @cards.each do |card|
+            unique_categories << card.category  
+        end
+        unique_categories.uniq!
+    end
+
+    def game_over_message
+    puts "****** Game over! ******"
+    puts "You had #{@round.number_correct} correct guesses out of #{@cards.count} for a total score of #{@round.percent_correct}%."
+    category_selector.each do |category|
+        puts "#{category} - #{@round.percent_correct_by_category(category)}% correct"
         end
     end
 end
