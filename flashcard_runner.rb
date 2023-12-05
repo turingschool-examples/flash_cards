@@ -10,22 +10,23 @@ cards = [card_1, card_2, card_3]
 deck = Deck.new(cards)
 round = Round.new(deck)
 
-puts """Welcome! You're playing with #{deck.count} cards.
---------------------------------------------------"""
+puts "Welcome! You're playing with #{deck.count} cards.\n#{"-" * 45}"
 
 #continues game until deck out of cards
 until round.turns.count >= deck.count do
     puts "This is card number #{round.turns.count + 1} out of #{deck.count} cards."
-    puts "Question: #{round.current_card.question}"
-    print "Your answer: "
-    guess = gets.chomp
+    puts "\tQuestion: #{round.current_card.question}"
+    print "\tYour answer: "
+    guess = gets.strip
     round.take_turn(guess)
-    puts round.turns.last.feedback
+    puts "\t#{round.turns.last.feedback}\v"
 end
 
 puts """****** Game Over! ******
-You had #{round.number_correct} out of #{round.turns.length} for a total score of #{round.percentage_correct}.
+You had #{round.number_correct} correct guesses out of #{round.turns.length} for a total score of #{round.percentage_correct}%."""
 
-"""
-
-# puts round.deck.cards.uniq {|turn_result| turn_result.category}
+every_turns_category = round.turns.map {|card_info| card_info.card.category}
+category_list = every_turns_category.uniq!
+category_list.each do |category_a| 
+    puts "\t#{category_a} \- #{round.percent_correct_by_category(category_a)}% correct (#{round.number_correct_by_category(category_a)}\/#{deck.cards_in_category(category_a).count} cards)"
+end
