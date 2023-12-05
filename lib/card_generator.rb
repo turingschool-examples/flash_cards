@@ -2,11 +2,16 @@ require './lib/card.rb'
 
 class CardGenerator
 
+    attr_reader :cards
+
     def initialize(file)
         @file = file
         @file_data = []
         @separate_data = []
         @cards = []
+        read_file
+        separate_data
+        create_cards
     end
 
     def read_file
