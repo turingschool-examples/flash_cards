@@ -24,7 +24,7 @@ require 'pry'
             puts " This is card number #{counter} out of #{cards_total}.
             Question: #{@round.current_card.question}"
             guess = gets.chomp 
-            counter += 1
+            
 
           turn =  @round.take_turn(guess)
           puts turn.feedback
