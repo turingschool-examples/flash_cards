@@ -16,7 +16,7 @@ class Round
         new_turn = Turn.new(guess,current_card)
         @turns << new_turn
         @currentcard +=1
-        return new_turn
+         new_turn
     end
 
     def number_correct
@@ -46,5 +46,21 @@ class Round
         percentage_correct_by_category = (number_correct_by_category(category).to_f / turns.length) *100
         percentage_correct_by_category
         
+    end
+
+
+    def start
+        puts " Welcome! You're playing with #{deck.count} cards."
+        "-------------------------------------------------------"
+        deck.cards.each do |card|
+            puts "This is card number #{@currentcard + 1} out of #{deck.count}."
+            puts"Question: #{card.question}"
+            user_answer = gets.chomp
+            new_turn = take_turn(user_answer)
+            new_turn.feedback
+         end
+         puts "****** Game over! *******"
+         puts "You had #{number_correct} correct guesses out of #{deck.count} for a total score of #{percent_correct}% "
+         
     end
 end
