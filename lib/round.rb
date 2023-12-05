@@ -28,7 +28,15 @@ class Round
         end
         numc
     end
-
+    def number_correct_by_category(category)
+        numcbc = 0
+        @turns.each do |turn|
+            if turn.card.category == category && turn.correct?
+                numcbc += 1
+            end
+        end
+        numcbc
+    end
 
 
 end
