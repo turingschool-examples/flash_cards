@@ -23,25 +23,45 @@ require 'pry'
               puts "Correct!"
             else puts  "Nope, sorry!"
                 @card_counter += 1
+            end    
 
-            puts "This is card number #{@card_counter} out of #{@deck.cards.count}.
-            Question: What is Rachel's favorite animal?"
+            puts "This is card number #{@card_counter} out of #{@deck.cards.count}."
+            puts "Question: What is Rachel's favorite animal?"
             answer = gets.chomp
 
-        if answer == "lion"
-            "lion" == 
+        if answer == "lion" || "Lion"
+            
             puts "Correct!"
             else puts  "Nope, sorry!"
+                @card_counter += 1
+            end
+
+            puts "This is card number #{@card_counter} out of #{@deck.cards.count}."
+            puts "Question: What is Mike's middle name?"
+            answer = gets.chomp
+
+        if answer == "no one knows." || "No one knows." || "no one knows"
+            puts "Correct!"
+            else puts  "Nope, sorry!"
+                @card_counter += 1
             end
 
 
+        puts "This is card number #{@card_counter} out of #{@deck.cards.count}."
+        puts "Question: What cardboard cutout lives at Turing?"
+    answer = gets.chomp
 
-            end
+    #Justin Bieber
 
 
 
 
         end
+
+
+
+
+        
 
         start
     
