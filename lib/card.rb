@@ -7,4 +7,8 @@ class Card
     @answer = answer
     @category = category
   end
+
+  def ==(card)
+    question == card.question && answer == card.answer && category == card.category
+  end
 end
