@@ -14,5 +14,6 @@ class CardGenerator
         @file_data.each do |raw_card_data|
             @separate_data << raw_card_data.split(",")
         end
+        @separate_data
     end
 end
