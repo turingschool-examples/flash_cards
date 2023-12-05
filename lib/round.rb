@@ -1,74 +1,89 @@
 class Round
   attr_reader :deck, 
-              :turns, 
-              :current_card, 
-              :correct, 
-              :guess_counter
-              
+              :turns
   def initialize(deck)
     @deck = deck
     @turns = []
-    @current_card
-    @correct = 0
-    # @incorrect = 0
-    @guess_counter = 0  #1?
+    @card_position = 1
   end
 
   def current_card
-    deck.cards.first
+    @deck.cards.first
   end
 
-  #next card in the deck becomes the current card.
-  
   def number_correct
-    binding.pry
     @turns.count do |turn|
-      @correct += 1 if turn.correct? #turn[0].guess.correct?
-      @correct
-    # current_turn = @turns.last
-  end
-    #add to @correct counter if guess is correct
-    #I want to verify how many correct turns I have had
-    #I need my turns.
-    #I need to verify that my turn guess was correct
-      #if it's correct, I want to add it to increase the counter. 
-      #if it's incorrect, I do not want to add it to the counter.  
-    #return the correct count. 
-  
-  def remove_top_card
-    deck.cards.shift
+      turn.correct?
+    end
   end
   
+  def number_correct_by_category(category)  # will count the return value of iteration. 
+    @turns.count do |turn|
+      turn.correct? && turn.card.category == category 
+    end
+  end
+
+  def percent_correct
+    (number_correct.to_f / @turns.count.to_f) * 100
+  end
+
+  def percent_correct_by_category(category)
+    (number_correct_by_category(category) / @deck.cards_in_category(category).count.to_f) * 100
+  end
+
   def take_turn(guess)
-    current_turn = Turn.new(guess, current_card)
-    @turns << current_turn
-    current_turn
-    # remove_top_card
+    new_turn = Turn.new(guess, current_card)
+    @turns << new_turn
+    @card_position += 1 if @deck.cards.rotate!
+    puts new_turn.feedback
   end
-  
-  
-  def each_turn_adds_card_to_turns
-    # @turns << turn.card
-    #returns a new array of @turns
+
+  def start
+    welcome 
+    show_card_message(current_card)
+    guess = get_guess_input(current_card)
+    take_turn(guess)
+    continue
   end
+
+  def continue
+    show_card_message(current_card)
+    guess = get_guess_input(current_card)
+    take_turn(guess) 
+    continue until @card_position == 5
+    # need to end the game loop when #53
+    # game_over, game_over_score or something should return final interaction pattern. 
+  end
+
+  def game_over
+    p "You had {number_correct} correct guesses out of 4 for a total score of 75%.
+    "
+  end
+
+  def welcome
+    puts "Welcome! You're playing with #{@deck.count} cards."
+    puts "-----------------------------------------------"
+  end
+
+  def show_card_message(card)
+    # add a counter as cards rotate with guess?
+    puts "This is card number #{@card_position} out of #{@deck.count}."
+  end
+
+  def card_index(card)
+    index = @deck.cards.index(card)
+    return index += 1   #to_i?
+  end
+
+  def get_guess_input(card)
+    puts "Question: #{card.question}"
+    gets.chomp  # can I do this?
+  end
+
+  def feedback_message
+    if guess_input.correct? #method in Turn evaluating that @guess == card.answer
+      puts @turns.last.feedback #method in Turn that evaluates .correct? and returns response
+    end
+  end
+
 end
-
-
-
-#  #records guesses
-#   def make_a_guess
-#     # When we make a guess, the guess is recorded
-#     guess = gets.chomp
-#     turn = take_turn(guess)
-#     guess_counter += 1
-#     add_to_correct_counter
-#     puts turn.feedback 
-#   end
-
-
-
-
-
-#  should create a new Turn object with the appropriate guess and Card
-#  return it from the take_turn method.
-#  when the take_turn method is called, the Round should move on to the next card in the dec
