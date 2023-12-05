@@ -18,12 +18,13 @@ require './lib/round'
     categories = deck.categories_in_deck
     n = 1
 
-    puts "Welcome! You're playing with #{deck.cards.count} cards."
-puts "-------------------------------------------------"
+    puts "Welcome! It's time to play a game. You'll have #{deck.cards.count} chances to guess."
+    puts "-------------------------------------------------------------------------"
 
 cards_total.times do
-    puts" This is card number #{n} out of #{cards_total}.
+    puts "This is chance #{n} out of #{cards_total}.
     Question: #{round.current_card.question}"
+    print "Your Guess: "
 
     guess = gets.chop
     puts round.take_turn(guess).feedback
