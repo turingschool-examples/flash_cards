@@ -2,7 +2,6 @@ require './lib/card'
 require './lib/turn'
 require './lib/deck'
 require './lib/round'
-require 'rspec'
 
 RSpec.describe Round do
   let(:card_1) { Card.new("What is the capital of Alaska?", "Juneau", "Geography") }
