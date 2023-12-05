@@ -1,5 +1,3 @@
-require './card'
-
 class CardGenerator
     attr_reader :cards
 
@@ -21,6 +19,5 @@ class CardGenerator
        
         @cards
     end
-    require 'pry'; binding.pry
    
 end
