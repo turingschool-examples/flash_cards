@@ -117,4 +117,15 @@ RSpec.describe Round do
       expect(@round.percent_correct_by_category(:STEM)).to eq (50)
     end
 
+    it "calculates percentage of correct guesses by category when no correct guesses" do
+      new_turn_1 = @round.take_turn("Denver")
+      new_turn_2 = @round.take_turn("Venus")
+        
+      expect(@round.percent_correct_by_category(:Geography)).to eq (0)
+      
+      new_turn_2 = @round.take_turn("North north west")
+
+      expect(@round.percent_correct_by_category(:STEM)).to eq (100)
+    end
+
   end
