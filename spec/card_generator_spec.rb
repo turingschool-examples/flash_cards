@@ -22,4 +22,5 @@ RSpec.describe CardGenerator do
         cg.read_file
 
         expect(cg.separate_data).to eq([["What is 5 + 5?", "10", "STEM"],["What is Rachel's favorite animal?", "red panda", "Turing Staff"],["What is Mike's middle name?", "nobody knows", "Turing Staff"], ["What cardboard cutout lives at Turing?", "Justin bieber", "PopCulture"]])
+    end
 end
