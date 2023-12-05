@@ -7,7 +7,6 @@ class Round
     end
 
     def current_card
-        # require 'pry' ; binding.pry
         deck.cards.first
     end
 
@@ -42,12 +41,9 @@ class Round
     def percent_correct_by_category(category)
         category_cards = turns.select do |turn|
             turn.card.category == category
-            
-        end
-        require 'pry' ; binding.pry
-        
+        end        
+
         (number_correct_by_category(category).to_f / category_cards.length) * 100
-            
     end
 
 end
