@@ -38,7 +38,11 @@ class Round
     end
 
     def percent_correct_by_category (cat)
-      ((number_correct_by_category(cat).to_f / number_correct.to_f) * 100).round(0)
+      if number_correct > 0
+      ((number_correct_by_category(cat).to_f / number_correct) * 100).round(0)
+      else
+        0
+      end
     end
 
 end
