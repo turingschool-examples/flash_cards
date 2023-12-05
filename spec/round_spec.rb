@@ -42,6 +42,9 @@ RSpec.describe Round do
     @new_turn = @round.take_turn("Juneau")
     expect(@new_turn.class).to eq Turn
     expect(@new_turn.correct?).to eq true
+    @new_turn = @round.take_turn("Boston")
+    expect(@new_turn.class).to eq Turn
+    expect(@new_turn.correct?).to eq false
   end
 
   it "Can store the turns" do
@@ -51,12 +54,14 @@ RSpec.describe Round do
 
   it "Can take more turns" do
     @new_turn = @round.take_turn("Juneau")
+    expect(@round.turns.count).to eq 1
     @new_turn_2 = @round.take_turn("Venus")
     expect(@round.turns.count).to eq 2
   end
 
   it "Can give feedback on the last turn" do
     @new_turn = @round.take_turn("Juneau")
+    expect(@round.turns.last.feedback).to eq "Correct!"
     @new_turn_2 = @round.take_turn("Venus")
     expect(@round.turns.last.feedback).to eq "Incorrect."
   end
