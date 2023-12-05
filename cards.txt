@@ -2,3 +2,7 @@ What is 5 + 5?,10,STEM
 What is Rachel's favorite animal?,red panda,Turing Staff
 What is Mike's middle name?,nobody knows,Turing Staff
 What cardboard cutout lives at Turing?,Justin bieber,PopCulture
+What is the capital of Alaska?,Juneau,Geography
+The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?,Mars,STEM
+Which caracther saves Bran Stark?,Hordor,PopCulture
+Whats the Capital of Brazil?,Brasilia,Geography
