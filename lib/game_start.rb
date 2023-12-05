@@ -1,5 +1,5 @@
 class Start
-   
+
    def initialize(deck)
       @deck = deck
       @round = Round.new(deck)
@@ -14,14 +14,13 @@ class Start
       @deck.cards.each do |card|
       puts "This is card #{(@round.turns.length) + 1} out of #{@deck.cards.length}"
       puts "Question: #{@round.current_card.question}"
-      
+      puts "Answer:"
       user_guess = gets.chomp
-
+      
       turn = @round.take_turn(user_guess)
       puts turn.feedback
       end
    end
-
       
    def ending_message
       puts "****** Game Over! ******"
