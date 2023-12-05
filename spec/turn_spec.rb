@@ -8,38 +8,28 @@ RSpec.describe Turn do
         expect(card).to be_instance_of(Card)
     end
 
+    before(:example) do #code block to run before all remaining tests below
+        @card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        @turn = Turn.new("Juneau", @card)
+    end
+
     it 'exists' do
-        card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-        turn = Turn.new("Juneau", card)
-  
-      expect(turn).to be_instance_of(Turn)
+        expect(@turn).to be_instance_of(Turn)
     end
 
     it "returns card info" do
-        card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-        turn = Turn.new("Juneau", card)
-
-       expect(turn.card).to eq(card)
+        expect(@turn.card).to eq(@card)
     end
 
     it "states the guess" do
-        card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-        turn = Turn.new("Juneau", card)
-
-       expect(turn.guess).to eq("Juneau")
+        expect(@turn.guess).to eq("Juneau")
     end
 
     it "checks if guess is correct" do
-        card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-        turn = Turn.new("Juneau", card)
-
-       expect(turn.correct?).to eq(true)
+        expect(@turn.correct?).to eq(true)
     end
 
     it "states if guess is correct" do
-        card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-        turn = Turn.new("Juneau", card)
-
-       expect(turn.feedback).to eq("Correct!")
+        expect(@turn.feedback).to eq("Correct!")
     end
 end
