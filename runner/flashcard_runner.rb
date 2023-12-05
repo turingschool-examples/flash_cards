@@ -7,7 +7,7 @@ def start
   card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
   card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
   card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-  card_4 = Card.new("What is Mike's middle name?", "nobody knows", "Turing Staff")
+  card_4 = Card.new("What is Mike's middle name?", "nobody knows", :Turing_Staff)
   cards = [card_1, card_2, card_3, card_4]
   deck = Deck.new(cards)
   round = Round.new(deck)
@@ -38,7 +38,7 @@ def start
 
   cards.map do |card|
     category = card.category
-    puts "#{category} - #{round.percent_correct_by_category(category).to_i}% correct"
+    puts "#{category} - #{round.percent_correct_by_category(category)}% correct"
   end
 end
 
