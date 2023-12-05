@@ -42,7 +42,8 @@ require 'pry'
     end
     
     puts "you had #{@round.number_correct} guesses out of #{cards_total} for a total score of #{@round.percent_correct}"
-individual_category_count.each do |category|
+    individual_category_count.each do |category|
+        
     puts "#{category} - #{@round.percent_correct_by_category(category)}% correct"
     end
 
