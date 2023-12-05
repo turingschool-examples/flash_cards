@@ -20,7 +20,7 @@ RSpec.describe Turn do
         expect(round).to be_instance_of(Round)
     end 
 
-    it "has a turn" do 
+    it "starts with now turns" do 
         round = Round.new(@deck)
 
         expect(round.turns).to eq []
@@ -40,10 +40,10 @@ RSpec.describe Turn do
     end 
 
     it "is correct" do
-    round = Round.new(@deck)
-    new_turn = round.take_turn("Juneau")
+        round = Round.new(@deck)
+        new_turn = round.take_turn("Juneau")
 
-    expect(new_turn.correct?).to eq true 
+        expect(new_turn.correct?).to eq true 
     end
 
     it "number count correct guesses" do
