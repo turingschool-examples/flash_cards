@@ -1,9 +1,9 @@
-require_relative './lib/card'      #question:  What's the diff b/n require and require_relative?
+require_relative './lib/card'      
 require_relative './lib/deck'
 require_relative './lib/turn'
 require_relative './lib/round'
 require_relative './runner.rb'
-
+#question:  What's the diff b/n require and require_relative? I read about the difference but functionally it seems to do the same thing.
 
 card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)

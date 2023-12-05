@@ -18,7 +18,7 @@ class Round
     end
   end
   
-  def number_correct_by_category(category)  # will count the return value of iteration. 
+  def number_correct_by_category(category) 
     @turns.count do |turn|
       turn.correct? && turn.card.category == category 
     end
@@ -35,7 +35,6 @@ class Round
   def take_turn(guess)
     new_turn = Turn.new(guess, current_card)
     @turns << new_turn
-    # @deck.cards.rotate!
     @card_position += 1 if @deck.cards.rotate!
     puts new_turn.feedback
     new_turn
@@ -54,11 +53,9 @@ class Round
     guess = get_guess_input(current_card)
     take_turn(guess) 
     continue until @card_position == 5
-    # need to end the game loop when line 53
     game_play_over
   end
 
-  # game_over, game_over_score or something should return final interaction pattern. 
   def game_play_over
     game_over_message
     category_correct_stats
@@ -92,14 +89,12 @@ class Round
 
   def card_index(card)
     index = @deck.cards.index(card)
-    return index += 1   #to_i?
+    return index += 1 
   end
 
   def get_guess_input(card)
     puts "Question: #{card.question}"
-    # put an empty line here
     gets.chomp  
-    # put an empty line
   end
 
   def feedback_message
