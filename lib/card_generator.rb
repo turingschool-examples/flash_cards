@@ -7,18 +7,17 @@ class CardGenerator
     def initialize (filename)
         @cards = []
         file_lines = []
+        n = 0
+        
+        file_lines = File.read("./#{filename}").split(/[,\n]/)    
 
-        file_lines = File.read("./#{filename}").split(/[,\n]/)      
+        n = (file_lines.length)/3
 
-        file_lines.each do |index|
-          question = file_lines[1]
-          file_lines.shift
-          answer = file_lines[1]
-          file_lines.shift
-          category = file_lines[1]
-          card = Card.new(question,answer,category)
-          @cards << card
-         end
+        n.times do
+           file_line = file_lines.shift(3)
+           card = Card.new(file_line.first , file_line[1] , file_line.last)
+           @cards << card
+          end
        
         @cards
     end
