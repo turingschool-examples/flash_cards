@@ -2,13 +2,16 @@ require './lib/card.rb'
 require './lib/deck.rb'
 require './lib/turn.rb'
 require './lib/round.rb'
+require './lib/card_generator.rb'
 
-card_1 = Card.new("What is the first letter of the alphabet?", "A", :English)
-card_2 = Card.new("what is the last letter of the alphabet?", "Z", :English)
-card_3 = Card.new("What is the best kind of food?", "Pizza", :JackTrivia)
-card_4 = Card.new("What kind of car does Jack drive?", "Volkswagen", :JackTrivia)
+# card_1 = Card.new("What is the first letter of the alphabet?", "A", :English)
+# card_2 = Card.new("what is the last letter of the alphabet?", "Z", :English)
+# card_3 = Card.new("What is the best kind of food?", "Pizza", :JackTrivia)
+# card_4 = Card.new("What kind of car does Jack drive?", "Volkswagen", :JackTrivia)
 
-@cards = [card_1, card_2, card_3, card_4]
+# @cards = [card_1, card_2, card_3, card_4]
+
+@cards = CardGenerator.new("cards.txt").cards
 
 @deck = Deck.new(@cards)
 
