@@ -10,7 +10,7 @@ class Turn
         guess == card.answer
     end
 
-    def feedback
+    def feedback 
         if correct?
             "Correct!"
         else
