@@ -45,4 +45,10 @@ class Start
         puts "#{category} - #{@round.percent_correct_by_category(category)}% correct"
         end
     end
+
+    def start
+        start_game_message
+        game_rounds
+        game_over_message
+    end
 end
