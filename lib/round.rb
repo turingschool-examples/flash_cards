@@ -39,10 +39,10 @@ class Round
     end
 
     def percentage_correct
-        @correct_guesses.to_f / @turns.length.to_f * 100
+        (@correct_guesses.to_f / @turns.length.to_f * 100).round(ndigits=1)
     end
 
     def percent_correct_by_category(category)
-        number_correct_by_category(category) / @turns.count {|turn_result| turn_result.card.category == category}.to_f * 100
+        (number_correct_by_category(category) / @turns.count {|turn_result| turn_result.card.category == category}.to_f * 100).round(ndigits=1)
     end
 end
