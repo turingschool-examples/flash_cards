@@ -14,8 +14,30 @@ require 'pry'
 
         def start
             puts "Welcome! You're playing with #{@deck.cards.count} cards."
-           puts "-------------------------"
-          puts "This is card number #{@card_counter} out of #{@deck.cards.count}."
+            puts "-------------------------"
+            puts "This is card number #{@card_counter} out of #{@deck.cards.count}."
+            puts "Question: What is 5 + 5?"
+
+            answer = gets.chomp.to_i
+            if answer == 10
+              puts "Correct!"
+            else puts  "Nope, sorry!"
+                @card_counter += 1
+
+            puts "This is card number #{@card_counter} out of #{@deck.cards.count}.
+            Question: What is Rachel's favorite animal?"
+            answer = gets.chomp
+
+        if answer == "lion"
+            "lion" == 
+            puts "Correct!"
+            else puts  "Nope, sorry!"
+            end
+
+
+
+            end
+
 
 
 
