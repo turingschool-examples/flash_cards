@@ -11,7 +11,6 @@ class Round
         @turns = []
         @active_card = 0
         @correct_guesses = 0
-        @incorrect_guesses = 0
     end
 
     def current_card
@@ -24,8 +23,6 @@ class Round
         @active_card = @active_card + 1
         if new_turn.correct? == true
             @correct_guesses = @correct_guesses + 1
-        else
-            @incorrect_guesses = @incorrect_guesses + 1
         end
         new_turn
     end
