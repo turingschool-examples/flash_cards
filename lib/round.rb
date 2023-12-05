@@ -1,6 +1,7 @@
 class Round
   attr_reader :deck, 
-              :turns
+              :turns, 
+              :card_position
   def initialize(deck)
     @deck = deck
     @turns = []
@@ -34,8 +35,10 @@ class Round
   def take_turn(guess)
     new_turn = Turn.new(guess, current_card)
     @turns << new_turn
+    # @deck.cards.rotate!
     @card_position += 1 if @deck.cards.rotate!
     puts new_turn.feedback
+    new_turn
   end
 
   def start
@@ -51,22 +54,39 @@ class Round
     guess = get_guess_input(current_card)
     take_turn(guess) 
     continue until @card_position == 5
-    # need to end the game loop when #53
-    # game_over, game_over_score or something should return final interaction pattern. 
+    # need to end the game loop when line 53
+    game_play_over
   end
 
-  def game_over
-    p "You had {number_correct} correct guesses out of 4 for a total score of 75%.
-    "
+  # game_over, game_over_score or something should return final interaction pattern. 
+  def game_play_over
+    game_over_message
+    category_correct_stats
+    break
+  end
+
+  def game_over_message
+    p "****** GAME OVER ******"
+    p "You had #{number_correct} correct guesses out of #{@deck.count} for a total score of #{percent_correct}%."
+    puts
+  end
+
+  def category_correct_stats
+    @deck.cards.each do |card|
+      p "#{card.category}  -  #{percent_correct_by_category(card.category)}"
+      puts
+    end
   end
 
   def welcome
+    puts
     puts "Welcome! You're playing with #{@deck.count} cards."
-    puts "-----------------------------------------------"
+    puts "\n-----------------------------------------------"
+    puts 
   end
 
   def show_card_message(card)
-    # add a counter as cards rotate with guess?
+    puts
     puts "This is card number #{@card_position} out of #{@deck.count}."
   end
 
@@ -77,12 +97,15 @@ class Round
 
   def get_guess_input(card)
     puts "Question: #{card.question}"
-    gets.chomp  # can I do this?
+    # put an empty line here
+    gets.chomp  
+    # put an empty line
   end
 
   def feedback_message
-    if guess_input.correct? #method in Turn evaluating that @guess == card.answer
-      puts @turns.last.feedback #method in Turn that evaluates .correct? and returns response
+    if guess_input.correct? 
+      puts @turns.last.feedback 
+      puts
     end
   end
 
