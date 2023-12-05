@@ -34,4 +34,14 @@ RSpec.describe CardGenerator do
 
         expect(cg.create_cards[0]).to be_a(Card)
     end
+
+    it 'can create cards when instantiated' do
+        filename = "cards.txt"
+        cg = CardGenerator.new(filename).cards
+
+        expect(cg.cards[0]).to be_a(Card)
+        expect(cg.cards[1]).to be_a(Card)
+        expect(cg.cards[2]).to be_a(Card)
+        expect(cg.cards[3]).to be_a(Card)
+    end
 end
