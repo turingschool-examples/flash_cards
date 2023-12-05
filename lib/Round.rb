@@ -28,7 +28,7 @@ class Round
     end
 
     def number_correct
-    turns.count do |turn|
+        turns.count do |turn|
         turn.correct?
       end
 
