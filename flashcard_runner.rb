@@ -16,9 +16,9 @@ require "./lib/card_generator"
     categories = deck.categories_in_deck
     n = 1
 
-    puts "Welcome!"
-    puts "It's time to play a game. You'll have #{deck.cards.count} chances to guess."
-    puts "-------------------------------------------------------------------------"
+puts "Welcome!"
+puts "It's time to play a game. You'll have #{deck.cards.count} chances to guess."
+puts "-------------------------------------------------------------------------"
 
 cards_total.times do
     puts "This is chance #{n} out of #{cards_total}.
