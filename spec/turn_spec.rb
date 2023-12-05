@@ -1,3 +1,4 @@
+require "pry"
 require "rspec"
 require "./lib/card"
 require "./lib/turn"
@@ -32,23 +33,8 @@ RSpec.describe Turn do
     card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
     turn = Turn.new("Saturn", card)
     expect(turn.guess).to eq("Saturn") 
-  end
-
-  it "is false" do
-    card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
-    turn = Turn.new("Saturn", card)
     expect(turn.correct?).to eq(false)
-  end
-
-  it "gives incorrect feedback" do
-    card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
-    turn = Turn.new("Saturn", card)
     expect(turn.feedback).to eq("Incorrect.")
   end
+
 end
-
-
-
-
-# pry(main)> turn.card
-# => #<Card:0x007ffdf1820a90 @answer="Mercury", @question="Which planet is closest to the sun?", @category=:STEM>
