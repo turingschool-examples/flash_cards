@@ -3,8 +3,6 @@ require './lib/turn'
 require './lib/deck'
 require './lib/round'
 
-
-
 RSpec.describe Round do
   before(:each) do
     @card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
@@ -39,55 +37,55 @@ RSpec.describe Round do
   end
 
   it "Can tell if the new turn is correct" do
-    @new_turn = @round.take_turn("Juneau")
-    expect(@new_turn.class).to eq Turn
-    expect(@new_turn.correct?).to eq true
-    @new_turn = @round.take_turn("Boston")
-    expect(@new_turn.class).to eq Turn
-    expect(@new_turn.correct?).to eq false
+    new_turn = @round.take_turn("Juneau")
+    expect(new_turn.class).to eq Turn
+    expect(new_turn.correct?).to eq true
+    new_turn = @round.take_turn("Boston")
+    expect(new_turn.class).to eq Turn
+    expect(new_turn.correct?).to eq false
   end
 
   it "Can store the turns" do
-    @new_turn = @round.take_turn("Juneau")
-    expect(@round.turns).to eq [@new_turn]
+    new_turn = @round.take_turn("Juneau")
+    expect(@round.turns).to eq [new_turn]
   end
 
   it "Can take more turns" do
-    @new_turn = @round.take_turn("Juneau")
+    new_turn = @round.take_turn("Juneau")
     expect(@round.turns.count).to eq 1
-    @new_turn_2 = @round.take_turn("Venus")
+    new_turn_2 = @round.take_turn("Venus")
     expect(@round.turns.count).to eq 2
   end
 
   it "Can give feedback on the last turn" do
-    @new_turn = @round.take_turn("Juneau")
+    new_turn = @round.take_turn("Juneau")
     expect(@round.turns.last.feedback).to eq "Correct!"
-    @new_turn_2 = @round.take_turn("Venus")
+    new_turn_2 = @round.take_turn("Venus")
     expect(@round.turns.last.feedback).to eq "Incorrect."
   end
 
   it "Can tell how many correct guesses" do 
-    @new_turn = @round.take_turn("Juneau")
-    @new_turn_2 = @round.take_turn("Venus")
+    new_turn = @round.take_turn("Juneau")
+    new_turn_2 = @round.take_turn("Venus")
     expect(@round.number_correct).to eq 1
   end
 
   it "Can tell how many correct guesses by category" do
-    @new_turn = @round.take_turn("Juneau")
-    @new_turn_2 = @round.take_turn("Venus")
+    new_turn = @round.take_turn("Juneau")
+    new_turn_2 = @round.take_turn("Venus")
     expect(@round.number_correct_by_category(:Geography)).to eq 1
     expect(@round.number_correct_by_category(:STEM)).to eq 0
   end
 
   it "Can return the percentage of corrects" do 
-    @new_turn = @round.take_turn("Juneau")
-    @new_turn_2 = @round.take_turn("Venus")
+    new_turn = @round.take_turn("Juneau")
+    new_turn_2 = @round.take_turn("Venus")
     expect(@round.percent_correct).to be 50.0
   end
 
   it "Can tell the percentage of corrects by category" do
-    @new_turn = @round.take_turn("Juneau")
-    @new_turn_2 = @round.take_turn("Venus")
+    new_turn = @round.take_turn("Juneau")
+    new_turn_2 = @round.take_turn("Venus")
     expect(@round.percent_correct_by_category(:Geography)).to be 100.0
   end
 
