@@ -43,7 +43,8 @@ class Round
         percentage_correct
     end
     def percent_correct_by_category(category)
-        percentage_correct_by_category = (number_correct_by_category(category).to_f / turns.length) *100
+        new_cat = @turns.count {|turn|  category == turn.card.category }
+        percentage_correct_by_category = (number_correct_by_category(category).to_f / new_cat ) *100
         percentage_correct_by_category
         
     end
@@ -60,7 +61,11 @@ class Round
             new_turn.feedback
          end
          puts "****** Game over! *******"
-         puts "You had #{number_correct} correct guesses out of #{deck.count} for a total score of #{percent_correct}% "
-         
+         puts "You had #{number_correct} correct guesses out of #{deck.count} for a total score of #{percent_correct.round(1)}% "
+         new_cat = [] 
+         @turns.each do |turn| new_cat << turn.card.category end
+         new_cat.uniq.each do |cat|    
+            puts "#{cat} - #{percent_correct_by_category(cat)} correct"
+         end
     end
 end
