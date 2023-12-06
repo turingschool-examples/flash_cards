@@ -5,5 +5,7 @@ class Round
         @turns = []
     end
 
-    def take_turn(guess) do
-
+    def take_turn(guess, card)
+        turn = (guess, card)
+    end
+end
