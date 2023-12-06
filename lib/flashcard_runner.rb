@@ -24,6 +24,7 @@ require 'pry'
             puts " This is card number #{counter} out of #{cards_total}.
             Question: #{@round.current_card.question}"
             guess = gets.chomp 
+            counter += 1
             
 
           turn =  @round.take_turn(guess)
@@ -41,6 +42,7 @@ require 'pry'
         individual_category.uniq!
     end
     
+    puts "****** Game over! ******"
     puts "you had #{@round.number_correct} guesses out of #{cards_total} for a total score of #{@round.percent_correct}"
     individual_category_count.each do |category|
         
