@@ -1,12 +1,12 @@
 require 'rspec'
 require '/.lib/.deck'
 
-RSpec.describe 'deck' do
-    let(:card1) {Card.new("Ques_1","Ans_1", "Cat_1")}
-    let(:card2) {Card.new("Ques_2","Ans_2", "Cat_2")}
-    let(:card3) {Card.new("Ques_3","Ans_3", "Cat_3")}
+RSpec.describe Deck do
+    let(:card1) {Card.new("What is the capital of Alaska?", "Juneau", :Geography)}
+    let(:card2) {Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)}
+    let(:card3) {Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)}
     let(:cards) {[card1, card2, card3]}
-
+    let(:deck) {Deck.new(cards)}
 
 describe 'initialze' do 
     it 'creates a new deck instance' do
@@ -21,19 +21,27 @@ describe 'card_in_category' do
     it 'puts cards into category' do
         deck = Deck.new(cards)
 
-        cat_1_cards = deck.cards_in_category("Cat_1")
-        expect(cat_1_cards).to contain_exactly(card1, card3)
+        Geography_cards = deck.cards_in_category(:Geography)
+        expect(cat_1_cards).to contain_exactly(card1)
 
-        cat_2_cards = deck.cards_in_category("cat_2")
-        expect(cat_2_cards).to contain_exactly(card2)
+        STEM_cards = deck.cards_in_category(:STEM)
+        expect(cat_2_cards).to contain_exactly(card2, card3)
     end
 
 
-    it 'returns an empty array when no cards dont match catagory' do
+    it 'returns an empty array when no cards dont match category' do
     deck = Deck.new(cards)
 
-    cat_not_found = deck.cards_in_category("catagory Not found")
-    expect (cat_not_found).to be_empty
+    category_not_found = deck.cards_in_category("category Not found")
+    expect (category_not_found).to be_empty
     end
         end 
+
+        describe 'count' do
+            it ' returns full amount of cards inside deck' do
+                deck = deck.new(cards)
+                expect(deck.count).to eq(3)
+            end
+        end
+
 end
