@@ -38,4 +38,6 @@ categories.each do |category|
     puts "Category: #{category} - #{round.percent_correct_by_category(category)}% correct"
 end
 
+#Game class
+#game_start
 

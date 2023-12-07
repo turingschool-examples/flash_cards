@@ -19,5 +19,9 @@ class CardGenerator
        
         @cards
     end
+
+    # def create_cards
+
+    # end
    
 end
