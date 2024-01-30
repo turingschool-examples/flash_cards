@@ -12,6 +12,17 @@ class Deck
         @cards.length
     end
 
+    def cards_in_category(category)
+        num_of_cards = 0
+        for i in 0..@cards.length
+            card = @cards[i]
+            if card.category == category
+                num_of_cards += 1
+            end
+        end
+        num_of_cards
+    end
+
 end
 
 card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
