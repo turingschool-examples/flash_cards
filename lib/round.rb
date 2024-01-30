@@ -1,9 +1,8 @@
-require './lib/card.rb'
-require './lib/turn.rb'
-require './lib/deck.rb'
+require './lib/card'
+require './lib/turn'
+require './lib/deck'
 
+# Documentation for class Round
 class Round
-    def initialize
-
-    end
+  def initialize; end
 end
