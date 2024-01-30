@@ -1,8 +1,10 @@
-require './lib/card.rb'
-require './lib/turn.rb'
-require './lib/deck.rb'
-require './lib/round.rb'
+# frozen_string_literal: true
+# typed: ignore
+
+require './lib/card'
+require './lib/turn'
+require './lib/deck'
+require './lib/round'
 
 RSpec.describe Round do
-
 end

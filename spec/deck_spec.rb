@@ -1,12 +1,15 @@
-require './lib/card.rb'
-require './lib/turn.rb'
-require './lib/deck.rb'
+# frozen_string_literal: true
+# typed: ignore
+
+require './lib/card'
+require './lib/turn'
+require './lib/deck'
 
 RSpec.describe Deck do
   cards = [
-    Card.new("Question 1", "Answer 1", :category1),
-    Card.new("Question 2", "Answer 2", :category1),
-    Card.new("Question 3", "Answer 3", :category2)
+    Card.new('Question 1', 'Answer 1', :category1),
+    Card.new('Question 2', 'Answer 2', :category1),
+    Card.new('Question 3', 'Answer 3', :category2)
   ]
   deck = Deck.new(cards)
 
@@ -15,9 +18,8 @@ RSpec.describe Deck do
   end
 
   it 'cards array items are Cards' do
-    for i in 0..deck.cards.length - 1
-        card = deck.cards[i]
-        expect(card).to be_an_instance_of(Card)
+    deck.cards.each do |card|
+      expect(card).to be_an_instance_of(Card)
     end
   end
 
@@ -29,4 +31,3 @@ RSpec.describe Deck do
     expect(deck.cards_in_category(:category1)).to eq(2)
   end
 end
-
