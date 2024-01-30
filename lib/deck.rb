@@ -8,6 +8,10 @@ class Deck
         @cards = cards
     end
 
+    def count
+        @cards.length
+    end
+
 end
 
 card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
