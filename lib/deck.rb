@@ -14,7 +14,7 @@ class Deck
 
     def cards_in_category(category)
         num_of_cards = 0
-        for i in 0..@cards.length
+        for i in 0..@cards.length - 1
             card = @cards[i]
             if card.category == category
                 num_of_cards += 1
