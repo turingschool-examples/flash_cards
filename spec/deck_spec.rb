@@ -20,5 +20,9 @@ RSpec.describe Deck do
         expect(card).to be_an_instance_of(Card)
     end
   end
+
+  it 'counts number of cards in deck' do
+    expect(deck.count).to eq(3)
+  end
 end
 
