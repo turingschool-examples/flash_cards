@@ -1,6 +1,6 @@
-require './card.rb'
-require './turn.rb'
-require './deck.rb'
+require './lib/card.rb'
+require './lib/turn.rb'
+require './lib/deck.rb'
 
 RSpec.describe Deck do
   cards = [
@@ -15,7 +15,7 @@ RSpec.describe Deck do
   end
 
   it 'cards array items are Cards' do
-    for i in 0..deck.cards.length
+    for i in 0..deck.cards.length - 1
         card = deck.cards[i]
         expect(card).to be_an_instance_of(Card)
     end
