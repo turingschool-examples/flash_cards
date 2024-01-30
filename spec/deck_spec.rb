@@ -14,6 +14,10 @@ RSpec.describe Deck do
     @deck = Deck.new(cards)
   end
 
+  it 'exists' do
+    expect(@deck).to be_an_instance_of(Deck)
+  end
+
   it 'cards property is an array' do
     expect(@deck.cards).to be_an_instance_of(Array)
   end
