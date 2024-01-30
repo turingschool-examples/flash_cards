@@ -5,8 +5,8 @@ require './lib/deck.rb'
 RSpec.describe Deck do
   cards = [
     Card.new("Question 1", "Answer 1", :category1),
-    Card.new("Question 2", "Answer 2", :category2),
-    Card.new("Question 3", "Answer 3", :category3)
+    Card.new("Question 2", "Answer 2", :category1),
+    Card.new("Question 3", "Answer 3", :category2)
   ]
   deck = Deck.new(cards)
 
@@ -23,6 +23,10 @@ RSpec.describe Deck do
 
   it 'counts number of cards in deck' do
     expect(deck.count).to eq(3)
+  end
+
+  it 'counts number of cards in category' do
+    expect(deck.cards_in_category(:category1)).to eq(2)
   end
 end
 
