@@ -15,10 +15,10 @@ class Turn
   end
 
   def feedback
-    if @guess == @answer
+    if @guess.downcase == @answer.downcase
       'Correct!'
     else
-      'Incorrect.'
+      "Incorrect. The correct answer is #{@answer}"
     end
   end
 end
