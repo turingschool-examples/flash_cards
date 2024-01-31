@@ -24,7 +24,7 @@ RSpec.describe Round do # rubocop:disable Metrics/BlockLength
   end
 
   it 'has a current card on each turn, starting with the first card' do
-    expect(@round.current_card).to eq(card1)
+    expect(@round.current_card).to eq(@card1)
   end
 
   it 'adds a new Turn object when take_turn is called' do
@@ -57,7 +57,7 @@ RSpec.describe Round do # rubocop:disable Metrics/BlockLength
   it 'gives feedback on the last answer' do
     @round.take_turn('Juneau')
     @round.take_turn('Mars')
-    expect(@round.turns.last.feedback).to eq('Incorrect.')
+    expect(@round.turns.last.feedback).to eq('Correct!')
   end
 
   it 'doesn\'t count every answer as correct' do
@@ -84,6 +84,6 @@ RSpec.describe Round do # rubocop:disable Metrics/BlockLength
   it 'shows the current turn card' do
     @round.take_turn('Juneau')
     @round.take_turn('Mars')
-    expect(@round.current_card).to eq(card3)
+    expect(@round.current_card).to eq(@card3)
   end
 end
