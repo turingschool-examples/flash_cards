@@ -11,7 +11,7 @@ RSpec.describe Turn do
 
   it 'returns a guess' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    guess = turn.new("Denver", card)
+    turn = Turn.new("Denver", card)
 
     expect(turn.guess).to eq "Denver"
   end
