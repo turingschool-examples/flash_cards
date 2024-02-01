@@ -15,4 +15,12 @@ RSpec.describe Turn do
 
     expect(turn.guess).to eq "Denver"
   end
+
+  it 'returns a card' do
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Denver", card)
+
+    expect(turn.card).to eq(card)
+  end
+
 end
