@@ -1,7 +1,5 @@
 # turn.rb
 
-require './lib/card.rb'
-
 class Turn
 
     attr_reader :string, :card
@@ -9,6 +7,18 @@ class Turn
     def initialize (string, card)
         @string = string
         @card = card
+    end
+
+    def guess
+        @string
+    end
+
+    def correct?
+        if string == card.answer
+            true
+        else
+            false
+        end
     end
 
 end
