@@ -23,8 +23,7 @@ class Game
   def take_input
     puts "This is card number #{@round.turn + 1} out of #{@deck.count}"
     puts "Question: #{@round.current_card.question}"
-    guess = gets
-    guess[-1] = '' # remove line break
+    guess = gets.chomp
     turn = @round.take_turn(guess)
     puts turn.feedback
     sleep(1)
