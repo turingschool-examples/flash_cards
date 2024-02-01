@@ -20,14 +20,22 @@ class Game
     quiz_loop
   end
 
-  def take_input
+  def provide_question
     puts "This is card number #{@round.turn + 1} out of #{@deck.count}"
     puts "Question: #{@round.current_card.question}"
-    guess = gets.chomp
-    turn = @round.take_turn(guess)
+  end
+
+  def provide_feedback(turn)
     puts turn.feedback
     sleep(1)
     puts "--------------------------------------\n"
+  end
+
+  def take_input
+    provide_question
+    guess = gets.chomp
+    turn = @round.take_turn(guess)
+    provide_feedback(turn)
   end
 
   def quiz_loop
@@ -35,14 +43,19 @@ class Game
     show_results
   end
 
-  def show_results # rubocop:disable Metrics/AbcSize
+  def categories_array
+    list_of_categories = []
+    @deck.cards.each do |card|
+      list_of_categories.push(card.category) unless list_of_categories.include?(card.category)
+    end
+    list_of_categories
+  end
+
+  def show_results
     puts "\n****** Game over! ******\n"
     puts "\nYou had #{@round.number_correct} correct guesses out of #{@deck.count} for a total score of #{(100.0 * @round.number_correct / @deck.count).round}%."
-    categories = []
-    @deck.cards.each do |card|
-      categories.push(card.category) unless categories.include?(card.category)
-    end
-    categories.each do |category|
+    list_of_categories = categories_array
+    list_of_categories.each do |category|
       puts "#{category} - #{@round.percent_correct_by_category(category)}% correct"
     end
     puts ''
