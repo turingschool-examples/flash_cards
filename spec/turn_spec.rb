@@ -37,8 +37,8 @@ RSpec.describe Turn do
     incorrect_guess = Turn.new("Denver", card)
     correct_guess = Turn.new("Juneau", card)
 
-    expect(incorrect_guess.feedbcack).to eq "Incorrect."
-    expect(correct_guess.feedbcack).to eq "Correct!"
+    expect(incorrect_guess.feedback).to eq "Incorrect."
+    expect(correct_guess.feedback).to eq "Correct!"
   end
 
 
