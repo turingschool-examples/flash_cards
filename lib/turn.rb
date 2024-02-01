@@ -12,4 +12,8 @@ class Turn
       false
     end
   end
+
+  def feedback
+    if correct? == 
+  end
 end
