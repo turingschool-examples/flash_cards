@@ -2,8 +2,15 @@
 
 class Deck
 
-    def initialize (deck)
-        @deck = []
+    attr_reader :deck, :cards
+
+    def initialize(deck = [], cards)
+        @deck = cards
+        @cards = cards
+    end
+
+    def cards
+        @deck
     end
 
 end
