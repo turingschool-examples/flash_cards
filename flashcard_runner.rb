@@ -21,7 +21,7 @@ class Game
   end
 
   def provide_question
-    puts "This is card number #{@round.turn + 1} out of #{@deck.count}"
+    puts "This is card number #{@round.turn_number + 1} out of #{@deck.count}"
     puts "Question: #{@round.current_card.question}"
   end
 
@@ -39,7 +39,7 @@ class Game
   end
 
   def quiz_loop
-    take_input while @round.turn < @deck.count
+    take_input while @round.turn_number < @deck.count
     show_results
   end
 

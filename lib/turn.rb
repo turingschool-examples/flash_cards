@@ -5,20 +5,17 @@ class Turn
   def initialize(guess, card)
     @guess = guess
     @card = card
-    @question = @card.question
-    @answer = @card.answer
-    @category = @card.category
   end
 
   def correct?
-    @guess == @answer
+    @guess == @card.answer
   end
 
   def feedback
-    if @guess.downcase == @answer.downcase
+    if @guess.downcase == @card.answer.downcase
       'Correct!'
     else
-      "Incorrect. The correct answer is #{@answer}"
+      "Incorrect. The correct answer is #{@card.answer}"
     end
   end
 end

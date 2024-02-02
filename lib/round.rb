@@ -4,43 +4,35 @@ require './lib/deck'
 
 # Documentation for class Round
 class Round
-  attr_reader :deck, :turns, :turn, :number_correct
+  attr_reader :deck, :turns, :turn_number, :number_correct
 
   def initialize(deck)
     @deck = deck
     @turns = []
-    @turn = 0
-    @guess = nil
+    @turn_number = 0
     @number_correct = 0
   end
 
   def current_card
-    @deck.cards[@turn]
+    @deck.cards[@turn_number]
   end
 
   def take_turn(guess)
     turn = Turn.new(guess, current_card)
     turns.push(turn)
-    @guess = guess
-    @turn += 1
+    @turn_number += 1
     @number_correct += 1 if guess == turn.answer
     turn
   end
 
   def correct?
-    if @guess == current_card.answer
-      true
-    elsif @guess.nil?
-      nil
-    else
-      false
-    end
+    @turns.last.guess == current_card.answer
   end
 
   def number_correct_by_category(category)
     count_correct = 0
     @turns.each do |turn|
-      count_correct += 1 if turn.category == category && turn.guess == turn.answer
+      count_correct += 1 if turn.card.category == category && turn.guess == turn.card.answer
     end
     count_correct
   end
