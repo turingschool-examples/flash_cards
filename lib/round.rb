@@ -5,12 +5,14 @@ require './lib/deck'
 class Round
     attr_reader :deck, 
                 :turns,
-                :number_correct
+                :number_correct,
+                :card_count
 
     def initialize(deck)
         @deck = deck
         @turns = []
         @number_correct = 0
+        @card_count = 1
     end
 
     def current_card
@@ -20,6 +22,8 @@ class Round
     def take_turn(guess)
         current_turn = Turn.new(guess, current_card)
         correct_guess(current_turn)
+        @card_count += 1
+        p current_turn.feedback
         @turns << current_turn
         @deck.move_card_to_back
         current_turn
@@ -55,6 +59,13 @@ class Round
         @turns.count do |turn|
             turn.card.category == category
         end
+    end
+
+    def start
+        p "Welcome! You're playing with #{deck.count} cards."
+        p "-------------------------------------------------"
+        p "This is card number #{card_count} out of #{deck.count}."
+        p "Question: #{current_card.question}"
     end
 
 

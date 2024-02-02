@@ -180,4 +180,27 @@ RSpec.describe Round do
 
     expect(round.percent_correct_by_category(:STEM)).to eq(50)
   end
+
+  it 'counts how many cards have been played' do
+    card1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+    card3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+    deck = Deck.new([card1, card2, card3])
+    round = Round.new(deck)
+
+    expect(round.card_count).to eq(1)
+
+    new_turn = round.take_turn("Juneau")
+    
+    expect(round.card_count).to eq(2)
+   
+    new_turn = round.take_turn("Mars")
+
+    expect(round.card_count).to eq(3)
+
+    new_turn = round.take_turn("I dunno")
+
+    expect(round.card_count).to eq(4)
+  end
+
 end
