@@ -1,5 +1,10 @@
 require './lib/turn'
 require './lib/card'
+require 'rspec'
+
+RSpec.configure do |config|
+	config.formatter = :documentation
+end
 
 RSpec.describe Turn do
 	it 'exists' do
