@@ -35,4 +35,17 @@ RSpec.describe Deck do
     expect(categorized_cards).to eq([card1, card2])
   end
 
+  it 'can move the first card of the deck to the back' do
+    card1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card2 = Card.new("What is the capital of Nevada?", "Carson City", :Geography)
+    card3 = Card.new("What is 2+2?", 4, :Math)
+    deck = Deck.new([card1, card2, card3])
+
+    expect(deck.cards[0]).to eq(card1)
+
+    deck.move_card_to_back
+
+    expect(deck.cards[0]).to eq(card2)
+  end
+
 end

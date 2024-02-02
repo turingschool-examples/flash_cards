@@ -17,4 +17,8 @@ class Deck
         end
     end
 
+    def move_card_to_back
+        @cards.rotate!
+    end
+
 end
