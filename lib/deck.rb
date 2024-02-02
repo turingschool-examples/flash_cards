@@ -13,4 +13,8 @@ class Deck
         @deck
     end
 
+    def count
+        @deck.length
+    end
+
 end
