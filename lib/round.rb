@@ -30,6 +30,9 @@ class Round
     end
 
     def number_correct_by_category(category)
+        @turns.count do |turn|
+            turn.card.category == category && turn.correct?
+        end
     end
 
     def percent_correct
