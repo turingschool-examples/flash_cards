@@ -40,6 +40,4 @@ RSpec.describe Turn do
     expect(incorrect_guess.feedback).to eq "Incorrect."
     expect(correct_guess.feedback).to eq "Correct!"
   end
-
-
 end
