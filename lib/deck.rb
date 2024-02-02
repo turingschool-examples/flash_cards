@@ -1,11 +1,9 @@
 class Deck
     attr_reader :cards
     
-    def initialize
+    def initialize(cards)
         @cards = []
+        @count = @cards.count
     end
-    # not sure if this is the right way to set up this Class.
-    def add_card(card)
-        Card.new.shift
-    end
+
 end
