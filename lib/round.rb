@@ -22,9 +22,9 @@ class Round
     def take_turn(guess)
         current_turn = Turn.new(guess, current_card)
         correct_guess(current_turn)
-        @card_count += 1
         p current_turn.feedback
         @turns << current_turn
+        @card_count += 1
         @deck.move_card_to_back
         current_turn
     end
@@ -62,11 +62,25 @@ class Round
     end
 
     def start
-        p "Welcome! You're playing with #{deck.count} cards."
+        p "Welcome! You're playing with #{@deck.count} cards."
         p "-------------------------------------------------"
-        p "This is card number #{card_count} out of #{deck.count}."
-        p "Question: #{current_card.question}"
+        p "Type 'Start' if you'd like to start the game!"
+        user_start = gets.chomp
+        play_game if user_start.downcase == "start"
     end
+
+    def play_game
+        until @card_count > @deck.count
+        p "This is card number #{@card_count} out of #{@deck.count}."
+        p "Question: #{current_card.question}"
+        user_answer = gets.chomp
+        take_turn(user_answer)
+        end
+    end
+
+    # def game_over
+
+
 
 
 end
