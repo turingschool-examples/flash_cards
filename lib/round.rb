@@ -1,7 +1,3 @@
-require './lib/card'
-require './lib/turn'
-require './lib/deck'
-
 class Round
     attr_reader :deck, 
                 :turns,
@@ -76,11 +72,24 @@ class Round
         user_answer = gets.chomp
         take_turn(user_answer)
         end
+        game_over
     end
 
-    # def game_over
-
-
-
+    def game_over
+        p "****** Game over! ******"
+        p "You had #{number_correct} correct guesses out of #{@turns.length} for a total score of #{percent_correct}%."
+        p "Math - #{percent_correct_by_category(:Math)}% correct"
+        p "Philosophy - #{percent_correct_by_category(:Philosophy)}% correct"
+        p "Type 'Start' if you'd like to play again!"
+        game_over_answer = gets.chomp
+        if game_over_answer.downcase == "start"
+            @card_count = 1
+            @turns = []
+            @number_correct = 0
+            play_game
+        else
+            p "Thanks for playing! Bye bye."
+        end
+    end
 
 end
