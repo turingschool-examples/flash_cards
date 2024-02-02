@@ -10,4 +10,15 @@ RSpec.describe Deck do
     expect(deck).to be_instance_of(Deck)
   end
 
+  it 'can categorize cards' do
+    card1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card2 = Card.new("What is the capital of Nevada?", "Carson City", :Geography)
+    card3 = Card.new("What is 2+2?", 4, :Math)
+    deck = Deck.new([card1, card2, card3])
+
+    categorized_cards = deck.cards_in_category(:Geography)
+
+    expect(categorized_cards).to eq([card1, card2])
+  end
+
 end
