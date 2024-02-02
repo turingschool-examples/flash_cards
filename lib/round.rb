@@ -36,9 +36,15 @@ class Round
     end
 
     def percent_correct
+        if @turns.length == 0
+            0
+        else
+            ((@number_correct.to_f / @turns.length) * 100).round 
+        end
     end
 
     def percent_correct_by_category(category)
+       
     end
 
 end

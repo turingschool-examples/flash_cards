@@ -113,5 +113,26 @@ RSpec.describe Round do
     expect(round.number_correct_by_category(:STEM)).to eq(1)
   end
 
+  it 'gives percentage correctly guessed' do
+    card1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+    card3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+    deck = Deck.new([card1, card2, card3])
+    round = Round.new(deck)
+
+    expect(round.percent_correct).to eq(0)
+
+    new_turn = round.take_turn("Juneau")
+    
+    expect(round.percent_correct).to eq(100)
+
+    new_turn = round.take_turn("Jupiter")
+
+    expect(round.percent_correct).to eq(50)
+
+    new_turn = round.take_turn("North north west")
+
+    expect(round.percent_correct).to eq(67)
+  end
 
 end
