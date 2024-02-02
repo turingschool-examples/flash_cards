@@ -22,5 +22,17 @@ RSpec.describe Turn do
     expect(turn.correct?).to eq(true)
   end
 
-  
+  it 'returns an appropriate String if correct or incorrect' do
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    incorrect_guess = "New York"
+    turn = Turn.new(incorrect_guess, card)
+
+    expect(turn.feedback).to eq("Incorrect!")
+
+    correct_guess = "Juneau"
+    turn = Turn.new(correct_guess, card)
+
+    expect(turn.feedback).to eq("Correct!")
+  end
+
 end
