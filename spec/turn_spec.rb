@@ -9,6 +9,13 @@ RSpec.describe Turn do
         expect(turn).to be_instance_of(Turn)
     end
 
+    it 'returns guess' do
+        card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        turn = Turn.new("Juneau", card)
+
+        expect(turn.guess).to eq("Juneau")
+    end
+
     it 'determines guess is correct' do
         card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
         turn = Turn.new("Juneau", card)
@@ -23,9 +30,10 @@ RSpec.describe Turn do
         expect(turn.correct?).to be false
     end
     
-    xit 'has a category' do
+    it 'gives feedback' do
         card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    
-        expect(turn.category).to eq(:Geography)
+        turn = Turn.new("Sacramento", card)
+
+        expect(turn.feedback).to eq("Incorrect.")
     end
 end
