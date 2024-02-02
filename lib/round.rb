@@ -13,8 +13,12 @@ class Round
     def current_card
         @deck.cards[0]
     end
-
+ 
     def take_turn(guess)
+        current_turn = Turn.new(guess, current_card)
+        @turns << current_turn
+        @deck.move_card_to_back
+        current_turn
     end
 
     def number_correct
