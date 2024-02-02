@@ -1,4 +1,9 @@
 require './lib/card'
+require 'rspec'
+
+RSpec.configure do |config|
+	config.formatter = :documentation
+end
 
 RSpec.describe Card do
 	it 'exists' do
