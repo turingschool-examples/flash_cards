@@ -8,5 +8,13 @@ class Deck
   def count
     @cards.count
   end
-  
+
+  def cards_in_category(subject)
+    
+    @cards.select do |card| 
+      card.category == subject
+    end
+
+  end
 end
+ 
