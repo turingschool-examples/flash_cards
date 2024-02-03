@@ -10,11 +10,7 @@ class Round
         @number_correct = 0
         @card_count = 1
     end
-
-    def current_card
-        @deck.cards[0]
-    end
- 
+    
     def take_turn(guess)
         current_turn = Turn.new(guess, current_card)
         correct_guess(current_turn)
@@ -23,6 +19,27 @@ class Round
         @card_count += 1
         @deck.move_card_to_back
         current_turn
+    end
+
+    def play_round
+        until @card_count > @deck.count
+        p "This is card number #{@card_count} out of #{@deck.count}."
+        p "Question: #{current_card.question}"
+        user_answer = gets.chomp
+        take_turn(user_answer)
+        end
+        round_over
+    end
+
+    def round_over
+        p "****** Round over! ******"
+        p "You had #{number_correct} correct guesses out of #{@turns.length} for a total score of #{percent_correct}%."
+        p "Math - #{percent_correct_by_category(:Math)}% correct"
+        p "Philosophy - #{percent_correct_by_category(:Philosophy)}% correct"
+    end
+    
+    def current_card
+        @deck.cards[0]
     end
 
     def correct_guess(turn)
@@ -54,41 +71,6 @@ class Round
     def turns_by_category(category)
         @turns.count do |turn|
             turn.card.category == category
-        end
-    end
-
-    def start
-        p "Welcome! You're playing with #{@deck.count} cards."
-        p "-------------------------------------------------"
-        p "Type 'Start' if you'd like to start the game!"
-        user_start = gets.chomp
-        play_game if user_start.downcase == "start"
-    end
-
-    def play_game
-        until @card_count > @deck.count
-        p "This is card number #{@card_count} out of #{@deck.count}."
-        p "Question: #{current_card.question}"
-        user_answer = gets.chomp
-        take_turn(user_answer)
-        end
-        game_over
-    end
-
-    def game_over
-        p "****** Game over! ******"
-        p "You had #{number_correct} correct guesses out of #{@turns.length} for a total score of #{percent_correct}%."
-        p "Math - #{percent_correct_by_category(:Math)}% correct"
-        p "Philosophy - #{percent_correct_by_category(:Philosophy)}% correct"
-        p "Type 'Start' if you'd like to play again!"
-        game_over_answer = gets.chomp
-        if game_over_answer.downcase == "start"
-            @card_count = 1
-            @turns = []
-            @number_correct = 0
-            play_game
-        else
-            p "Thanks for playing! Bye bye."
         end
     end
 end
