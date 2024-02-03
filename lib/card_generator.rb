@@ -1,23 +1,17 @@
-require './lib/card'
-
 class CardGenerator
     attr_reader :file_path, :cards
 
     def initialize(file_path)
         @file_path = file_path
-        @cards = convert_to_cards
+        @cards = cards
     end
 
     def convert_to_cards
-        cards = []
+        @cards = []
         File.foreach(@file_path) do |line|
-            card = line.chomp.split(",")
-            cards << Card.new(card[0], card[1], card[2].to_sym)
+            card = line.chomp.split(',')
+            @cards << Card.new(card[0], card[1], card[2].to_sym)
           end
-          cards
+          @cards
     end
-    
 end
-
-# card_generator = CardGenerator.new("cards.txt")
-# p @cards

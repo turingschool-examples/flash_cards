@@ -17,7 +17,6 @@ class Turn
             "Incorrect!"
         end 
     end
-
 end
 
 

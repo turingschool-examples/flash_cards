@@ -1,7 +1,7 @@
 class Deck
     attr_reader :cards
 
-    def initialize(cards = [])
+    def initialize(cards)
         @cards = cards
     end
 
@@ -18,5 +18,4 @@ class Deck
     def move_card_to_back
         @cards.rotate!
     end
-
 end
