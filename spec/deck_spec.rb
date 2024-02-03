@@ -10,6 +10,15 @@ RSpec.describe Deck do
     expect(deck).to be_instance_of(Deck)
   end
 
+  it 'can have cards' do
+    card1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card2 = Card.new("What is the capital of Nevada?", "Carson City", :Geography)
+    card3 = Card.new("What is 2+2?", 4, :Math)
+    deck = Deck.new([card1])
+
+    expect(deck.cards).to eq([card1])
+  end
+
   it 'can count how many cards are in the deck' do
     card1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card2 = Card.new("What is the capital of Nevada?", "Carson City", :Geography)
