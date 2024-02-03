@@ -91,5 +91,4 @@ class Round
             p "Thanks for playing! Bye bye."
         end
     end
-
 end
