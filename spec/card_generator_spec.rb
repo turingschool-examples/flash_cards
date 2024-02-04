@@ -9,7 +9,7 @@ RSpec.describe CardGenerator do
   end
 
   it 'can convert cards info from a text file to Cards' do
-    card_generator = CardGenerator.new('./cards.txt')
+    card_generator = CardGenerator.new('./decks/math.txt')
 
     expect(card_generator.cards).to be_empty
     card_generator.convert_to_cards

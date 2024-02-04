@@ -1,4 +1,0 @@
-What is 1+1?,2,Math
-What is 2+2?,4,Math
-What is 4+4?,8,Math
-What is the meaning of life?,42,Philosophy
