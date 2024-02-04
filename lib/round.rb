@@ -35,7 +35,7 @@ class Round
     def round_over
         p "****** Round over! ******"
         p "You had #{number_correct} correct guesses out of #{@turns.length} for a total score of #{percent_correct}%."
-        p "#{current_card.category} - #{percent_correct_by_category(:Math)}% correct"
+        p "#{current_card.category} - #{percent_correct_by_category(current_card.category)}% correct"
     end
     
     def current_card

@@ -1,3 +1,20 @@
-What is 1*1?,1,Math
-What is 2*2?,4,Math
-What is 4*4?,16,Math
+What year did Christopher Columbus first reach the Americas?,1492,History
+Who was the first President of the United States?,George Washington,History
+In which war did the Battle of Gettysburg take place?,American Civil War,History
+Who wrote the 'Declaration of Independence'?,Thomas Jefferson,History
+What ancient civilization built the pyramids in Egypt?,Ancient Egyptians,History
+Who was the famous nurse during the Crimean War and is considered the founder of modern nursing?,Florence Nightingale,History
+What event marked the beginning of World War I?,Assassination of Archduke Franz Ferdinand,History
+Who was the leader of the Soviet Union during World War II?,Joseph Stalin,History
+What is the Renaissance known for?,Revival of art and learning,History
+In what year did the Titanic sink?,1912,History
+What ancient city was known for the Hanging Gardens?,Babylon,History
+Who was the famous leader of the nonviolent civil disobedience movement in India?,Mahatma Gandhi,History
+Which American president is associated with the Emancipation Proclamation?,Abraham Lincoln,History
+What event marked the end of apartheid in South Africa?,Election of Nelson Mandela,History
+Who was the first woman to fly solo across the Atlantic Ocean?,Amelia Earhart,History
+What city was the center of the Italian Renaissance?,Florence,History
+Who is known for writing 'The Communist Manifesto' with Karl Marx?,Friedrich Engels,History
+What was the main cause of the French Revolution?,Social inequality and economic hardship,History
+What ancient civilization built the Great Wall of China?,Ancient Chinese,History
+What major event occurred on July 20 1969?,Apollo 11 Moon Landing,History
