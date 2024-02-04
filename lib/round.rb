@@ -26,6 +26,7 @@ class Round
         p "This is card number #{@card_count} out of #{@deck.count}."
         p "Question: #{current_card.question}"
         user_answer = gets.chomp
+        break if user_answer == "quit"
         take_turn(user_answer)
         end
         round_over
@@ -34,8 +35,7 @@ class Round
     def round_over
         p "****** Round over! ******"
         p "You had #{number_correct} correct guesses out of #{@turns.length} for a total score of #{percent_correct}%."
-        p "Math - #{percent_correct_by_category(:Math)}% correct"
-        p "Philosophy - #{percent_correct_by_category(:Philosophy)}% correct"
+        p "#{current_card.category} - #{percent_correct_by_category(:Math)}% correct"
     end
     
     def current_card

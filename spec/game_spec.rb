@@ -10,8 +10,10 @@ RSpec.describe Game do
         expect(game).to be_instance_of(Game)
     end
 
-    it 'has a deck' do
+    it 'can create a deck' do
         game = Game.new
+
+        game.create_deck("./decks/math.txt")
 
         expect(game.deck).to be_instance_of(Deck)
     end
