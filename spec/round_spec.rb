@@ -73,7 +73,6 @@ RSpec.describe Round do
 
 end
 
-
 # pry(main)> round.turns
 # #=> [#<Turn:0x00007f99842f09e8 @card=#<Card:0x00007f800e29f0c9 @question=""What is the capital of Alaska?", @answer="Juneau", @category=:Geography>, @guess="Juneau">]
 
