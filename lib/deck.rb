@@ -14,7 +14,10 @@ class Deck
     @cards.select do |card| 
       card.category == subject
     end
+  end
 
+  def current_card
+    @cards.shift
   end
 end
  
