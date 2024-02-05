@@ -11,12 +11,9 @@ class Round
   end
 
   def take_turn(guess)
-    turn = Turn.new()
-  # # Create a turn object with guess
-  # # Card should be current card
-  #   text
+    turn = Turn.new(guess, current_card)
+    @turns << turn
+    turn
   end
-
-
 
 end
