@@ -1,8 +1,10 @@
+require 'rspec'
+require 'pry'
 require './lib/card'
 require './lib/turn'
 require './lib/deck'
 require './lib/round'
-require 'rspec'
+
 
 RSpec.configure do |config|
 	config.formatter = :documentation
@@ -114,7 +116,7 @@ RSpec.describe Round do
 
         current_turn = round.take_turn("Juneau")
 
-        expect(round.turns).to eq[current_turn]
+        expect(round.turns).to eq ([current_turn])
     end
 end
 
