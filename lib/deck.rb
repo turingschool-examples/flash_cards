@@ -2,37 +2,28 @@
 
 class Deck
 
-    attr_reader :deck, :cards
+    attr_reader :cards
 
-    def initialize(deck = [], cards)
-        @deck = cards
+    def initialize (cards)
         @cards = cards
     end
 
-    def cards
-        @deck
-    end
-
     def count
-        @deck.length
+        @cards.count
     end
 
     def cards_in_category(category)
-
-        count = 0
+        counter = 0
         sorted_array = []
-        d_arr_len = @deck.length
 
-        d_arr_len.times do
-            
-            if deck[count].category == category
-                sorted_array << deck[count]
+        @cards.count.times do
+            if @cards[counter].category == category
+                sorted_array << cards[counter]
             end
-            count += 1
+            counter += 1
         end
 
         sorted_array
-
     end
 
 end
