@@ -20,4 +20,8 @@ class Round
         end
         current_turn
     end
+
+    def number_correct_by_category(category)
+        @turns.count { |turn| turn.card.category == category && turn.correct?}
+    end
 end
