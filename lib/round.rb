@@ -3,6 +3,10 @@ class Round
 
     def initialize(deck)
         @deck = deck
-        @turns = turns
+        @turns = []
+    end
+
+    def current_card
+        @deck.cards
     end
 end
