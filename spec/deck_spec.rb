@@ -11,7 +11,7 @@ RSpec.describe Deck do
       Card.new('Question 2', 'Answer 2', :category1),
       Card.new('Question 3', 'Answer 3', :category2)
     ]
-    @deck = Deck.new(cards)
+    @deck = Deck.new(@cards)
   end
 
   it 'exists' do
@@ -22,9 +22,9 @@ RSpec.describe Deck do
     expect(@deck.cards).to be_an_instance_of(Array)
   end
 
-  it 'cards array items are Cards' do
-    @deck.cards.each do |card|
-      expect(card).to be_an_instance_of(Card)
+  it 'cards array items are correct cards' do
+    @cards.each_index do |i|
+      expect(@deck.cards[i]).to eq(@cards[i])
     end
   end
 
