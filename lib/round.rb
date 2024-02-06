@@ -62,7 +62,7 @@ class Round
       turn.correct? 
     end
 
-    correct_perc = correct_turns_category.count.to_f / total_category_turns.count * 100
+     (correct_turns_category.count.to_f / total_category_turns.count * 100).round(2)
 
   end
   
