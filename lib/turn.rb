@@ -1,5 +1,3 @@
-# turn.rb
-
 class Turn
 
     attr_reader :guess, :card

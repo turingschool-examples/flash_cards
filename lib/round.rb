@@ -1,5 +1,3 @@
-# round.rb
-
 class Round
 
     @@card_counter = 0
@@ -12,7 +10,7 @@ class Round
         @number_correct = 0
     end
 
-    def current_card
+    def current_card      
         @deck.cards[@@card_counter]
     end
 
