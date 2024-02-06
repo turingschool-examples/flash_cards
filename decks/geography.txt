@@ -1,0 +1,20 @@
+What is the capital city of France?,Paris,Geography
+What is the longest river in the world?,Nile,Geography
+What continent is known as the 'Land Down Under'?,Australia,Geography
+What ocean is on the east coast of the United States?,Atlantic,Geography
+What is the largest desert in the world?,Antarctica,Geography
+What country is known as the 'Land of the Rising Sun'?,Japan,Geography
+What is the smallest country in the world?,Vatican City,Geography
+What mountain range spans the border between Europe and Asia?,Ural Mountains,Geography
+What is the capital city of Canada?,Ottawa,Geography
+In which continent is the Amazon rainforest located?,South America,Geography
+What is the highest mountain in North America?,Denali,Geography
+Which river is associated with ancient Egypt?,Nile,Geography
+What is the largest lake in Africa?,Lake Victoria,Geography
+What is the Great Barrier Reef?,Coral reef,Geography
+What is the southernmost continent on Earth?,Antarctica,Geography
+What is the currency of Japan?,Yen,Geography
+Which country is known as the 'Land of a Thousand Lakes'?,Finland,Geography
+What is the capital city of Brazil?,Brasília,Geography
+Which ocean is the largest by size?,Pacific,Geography
+What is the famous canal that connects the Atlantic and Pacific Oceans?,Panama Canal,Geography
