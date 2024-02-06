@@ -19,7 +19,6 @@ class Round
             @number_correct += 1
         else
         end
-        # try to adjust below to reassign, rather than bang operator.
         @deck.cards.rotate!
         current_turn
     end
@@ -29,7 +28,7 @@ class Round
     end
 
     def percent_correct
-        ((@number_correct.to_f / @turns.count) * 100).round(2)
+        ((@number_correct.to_f / @turns.count) * 100).round(2)    
     end
 
     def percent_correct_by_category(category)
