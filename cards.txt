@@ -1,6 +1,6 @@
 What is 10 + 15?,25,math
 What is the author of this repository's first name?,Neil,common_knowledge
-What is the integral of (x dx) evaluated from 0 to 2 (round to nearest integer)?,2,math
+What is the integral of (x dx) evaluated from 0 to 2?,2,math
 Who is the president of the United States as of January 2024?,Joe Biden,common_knowledge
 Is pineapple pizza delicious or not (yes or no)?,yes,common_knowledge
 Does water have higher density than ethanol?,yes,physics
