@@ -1,5 +1,7 @@
 # typed: ignore
 
+# rubocop:disable Lint/MissingCopEnableDirective
+# rubocop: disable Metrics/BlockLength
 require './lib/turn'
 require './lib/card'
 
@@ -32,5 +34,14 @@ RSpec.describe Turn do
 
   it 'gives correct feedback when guess is incorrect' do
     expect(@turn.feedback).to eq("Incorrect. The correct answer is #{@card.answer}")
+  end
+
+  it 'returns true from .guess? when guess is correct' do
+    turn = Turn.new('answer', @card)
+    expect(turn.correct?).to eq(true)
+  end
+
+  it 'returns false from .guess? when guess is incorrect' do
+    expect(@turn.correct?).to eq(false)
   end
 end
