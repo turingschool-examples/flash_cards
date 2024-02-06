@@ -8,18 +8,18 @@ RSpec.describe Card do
   end
 
   it 'exists' do
-    expect(card).to be_instance_of(Card)
+    expect(@card).to be_instance_of(Card)
   end
 
   it 'has a question' do
-    expect(card.question).to eq('What is the capital of Alaska?')
+    expect(@card.question).to eq('What is the capital of Alaska?')
   end
 
   it 'has an answer' do
-    expect(card.answer).to eq('Juneau')
+    expect(@card.answer).to eq('Juneau')
   end
 
   it 'has a category' do
-    expect(card.category).to eq(:Geography)
+    expect(@card.category).to eq(:Geography)
   end
 end
