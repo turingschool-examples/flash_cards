@@ -3,6 +3,7 @@ require './lib/card'
 RSpec.describe Card do
   let(:card) { Card.new('What is the capital of Alaska?', 'Juneau', :Geography) }
 
+  #could add "and attributes" and list all attributes
   it 'exists' do
     expect(card).to be_instance_of(Card)
   end

@@ -56,7 +56,7 @@ class Round
     if @turns.empty?
       0
     else
-      (@number_correct.to_f / @turns.length * 100).round
+      (@number_correct.to_f / @turns.length * 100).round(1)
     end
   end
 
@@ -64,7 +64,7 @@ class Round
     if turns_by_category(category).zero?
       0
     else
-      (number_correct_by_category(category).to_f / turns_by_category(category) * 100).round
+      (number_correct_by_category(category).to_f / turns_by_category(category) * 100).round(1)
     end
   end
 

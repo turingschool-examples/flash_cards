@@ -22,6 +22,12 @@ RSpec.describe Round do
     expect(round.turns).to be_empty
   end
 
+  it 'can take and store a turn' do
+    new_turn = round.take_turn('Juneau')
+
+    expect(round.turns).to eq([new_turn])
+  end
+
   it 'knows the current card' do
     expect(round.current_card).to eq(card1)
   end
@@ -32,7 +38,7 @@ RSpec.describe Round do
     expect(new_turn).to be_instance_of(Turn)
   end
 
-  it 'tracks turns taken' do
+  it 'tracks the number of turns taken' do
     expect(round.turns.length).to eq(0)
 
     round.take_turn('Juneau')
@@ -101,7 +107,7 @@ RSpec.describe Round do
 
     round.take_turn('North north west')
 
-    expect(round.percent_correct).to eq(67)
+    expect(round.percent_correct).to eq(66.7)
   end
 
   it 'gives percentage correctly guessed by category' do

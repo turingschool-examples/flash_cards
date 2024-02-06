@@ -35,9 +35,9 @@ class Game
   def end_of_round_message
     round_over_answer = gets.chomp
     case round_over_answer.downcase
-    when `yes`
+    when 'yes'
       true
-    when `change deck`
+    when 'change deck'
       p 'Please choose from one of the decks below!'
       p 'Math, Geography, History, Games or Anime'
       choose_deck
