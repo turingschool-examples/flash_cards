@@ -183,6 +183,23 @@ RSpec.describe Round do
         expect(geography_correct).to eq 1
         expect(stem_correct).to eq 0
     end
+
+    it 'returns feedback for last guess' do
+        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+        card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+
+        cards = [card_1, card_2, card_3]
+    
+        deck = Deck.new(cards)
+
+        round = Round.new(deck) 
+
+        turn_1 = round.take_turn("Juneau")
+        turn_2 = round.take_turn("Venus")
+
+        expect(turns.last.feedback).to eq "Incorrect"
+    end
 end
 
 
