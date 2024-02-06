@@ -162,6 +162,8 @@ RSpec.describe Round do
         expect(round.current_card).to eq card_2
 
         turn_2 = round.take_turn("Venus")
+
+        expect(round.current_card).to eq card_3
     end
 
     it 'returns how many guesses are correct by category' do
