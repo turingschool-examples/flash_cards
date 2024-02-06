@@ -55,6 +55,7 @@ RSpec.describe Round do
   it "takes turns" do
     card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
     turn = Turn.new("Saturn", card)
+    round = Round.new(deck)
 
     expect(round.turns).to eq(:turn)
     expect(round.number_correct).to eq(1)
