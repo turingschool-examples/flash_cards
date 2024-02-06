@@ -23,13 +23,15 @@ class Round
   end
 
   def number_correct
+      correct = 0
       @turns.each do |turn|
-        turn.correct? == true
-        @correct += 1
+        if turn.correct? 
+        correct += 1
+        end
     end
-    @correct
+    correct
   end
-
+  
 
 
 end
