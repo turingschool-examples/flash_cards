@@ -1,6 +1,8 @@
 require './lib/card'
 
-# Documentation for class CardGenerator
+# Generates an array of cards from a .txt file
+# Syntax:
+# card_generator = CardGenerator.new(".../file_path.txt")
 class CardGenerator
   attr_reader :cards, :file_text
 

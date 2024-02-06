@@ -1,7 +1,11 @@
 require './lib/card'
 require './lib/deck'
 
-# Documentation for class Deck
+# Generates a deck of cards from an array of Card instances. The main
+# difference between this class and an array of Cards is the
+# .cards_in_category method.
+# Syntax:
+# deck = Deck.new([card1, card2, card3...])
 class Deck
   attr_reader :cards
 

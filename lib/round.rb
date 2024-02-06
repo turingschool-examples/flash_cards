@@ -2,7 +2,12 @@ require './lib/card'
 require './lib/turn'
 require './lib/deck'
 
-# Documentation for class Round
+# A class that provides functionality for the flash cards game.
+# It is instantiated from a Deck instance, and has methods to
+# compare guesses with answers, count the number of correct answers
+# by cateogory, and display the current card.
+# Syntax:
+# round = Round.new(deck)
 class Round
   attr_reader :deck, :turns, :turn_number, :number_correct
 

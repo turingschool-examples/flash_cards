@@ -1,4 +1,9 @@
-# Documentation for class Turn
+# This is a class providing functionality for each individual
+# turn in a Round. It has methods to check whether the answer
+# for that turn is correct, and provides feedback based on
+# whether or not the answer for that turn is correct.
+# Syntax:
+# turn = Turn.new("guess", card)
 class Turn
   attr_reader :card, :guess, :question, :answer, :category
 
