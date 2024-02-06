@@ -176,6 +176,7 @@ RSpec.describe Round do
         round = Round.new(deck) 
 
         turn_1 = round.take_turn("Juneau")
+        turn_2 = round.take_turn("Venus")
 
         geography_correct = round.number_correct_by_category(:Geography)
         stem_correct = round.number_correct_by_category(:STEM)
