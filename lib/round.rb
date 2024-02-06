@@ -29,25 +29,39 @@ class Round
     end
 
     def percent_correct
-        (@number_correct.to_f / @turns.count) * 100
+        ((@number_correct.to_f / @turns.count) * 100).round(2)
     end
 
     def percent_correct_by_category(category)
         category_correct = @turns.count { |turn| turn.card.category == category && turn.correct?}
         category_count = @turns.count { |turn| turn.card.category == category}
-        (category_count.to_f / category_correct) * 100
+        ((category_correct.to_f / category_count) * 100).round(2)
     end
 
     def start
-        p "Welcome! You're playing with #{deck.count} cards."
-        p "-------------------------------------"
+        puts "Welcome! You're playing with #{deck.count} cards."
+        puts "-------------------------------------"
 
         deck.cards.each do 
-            p "This is card number #{turns.count+1} out of #{deck.count}"
-            p "Question: #{current_card.question}"
+            puts "This is card number #{turns.count+1} out of #{deck.count}"
+            puts "Question: #{current_card.question}"
             
             guess = gets.chomp
             take_turn(guess)
+        end
+    end
+
+    def summary
+        puts "***** Game over! *****"
+    
+        puts "You had #{number_correct} correct guesses out of #{deck.count} for a total score of #{percent_correct}%."
+        category_array = []
+        turns.each do |turn|
+            category = turn.card.category
+            category_array << category
+        end
+        category_array.uniq.each do |category|
+            puts "#{category} - #{percent_correct_by_category(category)}% correct"
         end
     end
 end
