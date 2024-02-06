@@ -21,33 +21,5 @@ cards = [card_1, card_2, card_3, card_4, card_5, card_6, card_7, card_8, card_9,
 deck = Deck.new(cards)
 round = Round.new(deck)
 
-# Welcome
-puts " "
-puts "Welcome to Grant's Game!"
-puts "10 questions, 10 answers - how will you fare?"
-puts "---------------------------------------------"
-
-# Game
-counter = 1
-deck.count.times do
-    puts " "
-    puts "Card #{counter}: #{round.current_card.question}"
-    guess = gets.chomp
-    new_turn = round.take_turn(guess)
-    puts new_turn.feedback?
-    counter += 1
-end
-
-# Exit & Summary
-puts " "
-puts "Game Over! Let's see how you did..."
-puts " "
-puts "Game Summary:"
-puts "-------------"
-puts "Geography - #{round.percent_correct_by_category(:Geography)}% correct"
-puts "Math - #{round.percent_correct_by_category(:Math)}% correct"
-puts "Space - #{round.percent_correct_by_category(:Space)}% correct"
-puts "Bonus - #{round.percent_correct_by_category(:Bonus)}% correct"
-puts " "
-puts "See you next time!"
-puts " "
+# Play
+round.start
