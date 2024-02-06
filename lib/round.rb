@@ -31,7 +31,21 @@ class Round
     end
     correct
   end
-  
+  def number_correct_by_category(subject)
+    correct = 0
+    @turns.each do |turn|
+      if turn.correct? && turn.card.category == subject
+      correct += 1
+      end
+    end
+    
+    correct % 100
+  end
 
+  def perecnt_correct
+      
+     number_correct * 100.0 / @turns.count
+  end 
+ 
 
 end
