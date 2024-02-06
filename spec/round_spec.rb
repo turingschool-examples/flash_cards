@@ -70,8 +70,18 @@ RSpec.describe Round do
         round = Round.new(deck)
         new_turn = round.take_turn("Juneau")
         
-        
-        # require 'pry'; binding.pry
         expect(round.number_correct).to eq(1)
+    end
+
+    it 'counts number correct by category' do
+        card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+        cards = [card_1, card_2]
+        deck = Deck.new(cards)
+        round = Round.new(deck)
+        new_turn = round.take_turn("Juneau")
+        new_turn_2 = round.take_turn("Mars")
+        
+        expect(round.number_correct_by_category).to eq(2)
     end
 end

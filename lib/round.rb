@@ -9,7 +9,11 @@ class Round
     end
 
     def current_card
-        @deck.cards.first
+        used_cards = []
+        deck.each do |card|
+         used_cards << @deck.cards.first
+        end
+        used_cards
     end
 
     def take_turn(guess)
@@ -24,12 +28,13 @@ class Round
         @turns.count {|turn| turn.correct?}
     end
 
-    # def number_correct_by_category
-
-    # end
+    def number_correct_by_category
+        binding.pry
+        @turns
+    end
 
     # def percent_correct
-
+    #(@turns.count {|turn| turn.correct?}) % (@turns.count {|turns| turns.correct? != true})
     # end
 
     # def percent_correct_by_category
