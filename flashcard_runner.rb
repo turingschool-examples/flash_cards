@@ -4,7 +4,16 @@ require './lib/round'
 require './lib/turn'
 require './lib/card_generator'
 
-# Documentation for class Game
+# This class is the wrapper for the entire flash card CLI.
+# It handles the text input and output happening in the terminal.
+#
+# Syntax:
+#
+# Game.new.start
+#
+# Terminal command to start the game:
+#
+# ruby ...path_to/flashcard_runner.rb
 class Game
   def initialize
     card_generator = CardGenerator.new('cards.txt')
