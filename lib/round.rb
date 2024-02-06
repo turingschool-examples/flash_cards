@@ -1,17 +1,16 @@
 class Round
 
-    @@card_counter = 0
-
-    attr_reader :deck, :turns, :number_correct
+    attr_reader :deck, :turns, :number_correct, :card_counter
 
     def initialize (deck)
         @deck = deck
         @turns = []
         @number_correct = 0
+        @card_counter = 0
     end
 
     def current_card      
-        @deck.cards[@@card_counter]
+        @deck.cards[@card_counter]
     end
 
     def take_turn(guess)
@@ -19,14 +18,14 @@ class Round
         if new_turn.correct? == true
             @number_correct += 1
         end
-        @@card_counter += 1
+        @card_counter += 1
         @turns << new_turn
         new_turn
     end
 
     def number_correct_by_category(category)
         sorted_array = @turns        
-        length = @@card_counter
+        length = @card_counter
 
         counter = 0
         number_correct = 0
@@ -43,7 +42,7 @@ class Round
 
     def percent_correct
         number_correct = @number_correct
-        count = @@card_counter
+        count = @card_counter
         percent_correct = ((number_correct.to_f / count.to_f) * 100).round(1)
     end
 
@@ -53,6 +52,41 @@ class Round
         number_correct = number_correct_by_category(category)
         count = cards_in_cat
         percent_correct = ((number_correct.to_f / count.to_f) * 100).round(1)
+    end
+
+    def start
+        # Welcome Message
+        puts " "
+        puts "Welcome to Grant's Game!"
+        puts "10 questions, 10 answers - how will you fare?"
+        puts "---------------------------------------------"
+
+        # Game
+        counter = 1
+        deck.count.times do
+
+            puts " "
+            puts "Card #{counter}: #{current_card.question}"
+            guess = gets.chomp
+            new_turn = take_turn(guess)
+            puts new_turn.feedback
+            counter += 1
+
+        end
+
+        # Exit & Summary
+        puts " "
+        puts "Game Over! Let's see how you did..."
+        puts " "
+        puts "Game Summary:"
+        puts "-------------"
+        puts "Geography - #{percent_correct_by_category(:Geography)}% correct"
+        puts "Math - #{percent_correct_by_category(:Math)}% correct"
+        puts "Space - #{percent_correct_by_category(:Space)}% correct"
+        puts "Bonus - #{percent_correct_by_category(:Bonus)}% correct"
+        puts " "
+        puts "See you next time!"
+        puts " "
     end
 
 end
