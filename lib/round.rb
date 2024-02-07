@@ -30,20 +30,24 @@ class Round
 
 
     def number_correct_by_category(subject)
-        binding.pry
         number_correct = 0
-        @turns.count {|turn| {if turn.correct? && turn.category == subject}
-            number_correct += 1 }
+        @turns.count {|turn| if turn.correct? && current_card.category == subject
+            number_correct += 1 
+            end}
         # count the turns that have the correct answer by category
     end
 
-    # def percent_correct
-    #(@turns.count {|turn| turn.correct?}) % (@turns.count {|turns| turns.correct? != true})
-    # end
+    def percent_correct
+        number = (@turns.count {|turn| turn.correct?}) / (@turns.count)
+        number * 100 
+    end
 
-    # def percent_correct_by_category
+    def percent_correct_by_category
+        #correct answers per category divided by the number of categories
+        percent_correct = (@turns.) / (@deck.category.count)
+        percentage_correct * 100
+    end
 
-    # end
     def start
         p "Hello what is your name"
         name = gets.chomp
@@ -52,6 +56,8 @@ class Round
         p "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
     
         @guess = guess.gets.chomp
-        turn.feedback
+        turn.take_turn(guess)
+        p turn.last.feedback
+
     end
 end
