@@ -31,7 +31,7 @@ class Round
 
     def number_correct_by_category(subject)
         number_correct = 0
-        @turns.count {|turn| if turn.correct? && current_card.category == subject
+        @turns.count {|turn| if turn.correct? && turn.card.category == subject
             number_correct += 1 
             end}
         # count the turns that have the correct answer by category
@@ -42,10 +42,17 @@ class Round
         number * 100 
     end
 
-    def percent_correct_by_category
+    def turn_count_of_categories(subject)
+        
+        @turns.count {|turn| turn.card.category == subject}
+        
+    end
+
+    def percent_correct_by_category(subject)
         #correct answers per category divided by the number of categories
-        percent_correct = (@turns.) / (@deck.category.count)
-        percentage_correct * 100
+    
+        percent_correct = (number_correct_by_category(subject).to_f) / (turn_count_of_categories(subject))
+        percent_correct * 100
     end
 
     def start
