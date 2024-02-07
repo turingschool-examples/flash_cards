@@ -5,17 +5,24 @@ class Round
     @deck = deck
     @turns = []
     @correct = 0
+    @cards = 0
 
   end
 
   def current_card
-    @deck.current_card
+    @deck.cards[@cards]
   end
 
   def take_turn(guess)
     turn = Turn.new(guess, current_card)
     @turns << turn
+    change_current_card
     turn
+  end
+
+  def change_current_card
+    @cards += 1
+
   end
 
   def new_turn
@@ -65,6 +72,27 @@ class Round
      (correct_turns_category.count.to_f / total_category_turns.count * 100).round(2)
 
   end
-  
+
+  def start
+    p "Hello what's your name?"
+    name = gets.chomp
+
+    p "Welcome #{name}! You're playing with 4 cards"
+    p "-----------------------------------------------"
+
+    @deck.cards.each do |card|
+      p current_card.question 
+      guess = gets.chomp
+      turn = take_turn(guess)
+      # @deck.change_current_card
+      p turn.feedback
+     
+    end
+    p "****** Game over! ******"
+    p "You had #{number_correct} correct guesses out of 4 for a total score of #{perecnt_correct} "
+  end
+
+
+
 
 end
