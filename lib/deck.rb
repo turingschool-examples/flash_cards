@@ -1,8 +1,9 @@
 class Deck
-  attr_reader :cards
+  attr_reader :cards, :current_card
   
   def initialize(cards)
     @cards = cards
+    # @current_card = @cards[0]
   end
 
   def count
@@ -16,8 +17,8 @@ class Deck
     end
   end
 
-  def current_card
-    @cards.shift
-  end
+   
+    
+   
 end
  
