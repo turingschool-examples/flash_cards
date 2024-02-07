@@ -8,13 +8,25 @@ class Round
   end
 
   def current_card
-    @deck.cards.first
+    @deck.cards[turns.count]
   end
 
   def take_turn(guess)
     turn = Turn.new(guess, current_card)
+    if turn.correct?
+      @number_correct += 1
+    end
     @turns << turn
-    @deck.cards.shift
     turn
+  end
+
+  def number_correct_by_category(category)
+    @turns.count do |turn|
+      turn.card.category == category && turn.correct?
+    end
+  end
+
+  def percent_correct
+
   end
 end
