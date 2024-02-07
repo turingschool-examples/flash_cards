@@ -23,9 +23,7 @@ RSpec.describe Deck do
   end
 
   it 'cards array items are correct cards' do
-    @cards.each_index do |i|
-      expect(@deck.cards[i]).to eq(@cards[i])
-    end
+    expect(@deck.cards).to eq(@cards)
   end
 
   it 'counts number of cards in deck' do

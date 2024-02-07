@@ -7,7 +7,7 @@
 #
 # turn = Turn.new("guess", card)
 class Turn
-  attr_reader :card, :guess, :question, :answer, :category
+  attr_reader :card, :guess
 
   def initialize(guess, card)
     @guess = guess
