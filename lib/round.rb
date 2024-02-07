@@ -15,7 +15,6 @@ class Round
     turn = Turn.new(guess, current_card)
     @turns << turn
     @deck.cards.shift
-    
     turn
   end
 end
