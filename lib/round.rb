@@ -22,7 +22,6 @@ class Round
 
   def change_current_card
     @cards += 1
-
   end
 
   def new_turn
@@ -30,11 +29,11 @@ class Round
   end
 
   def number_correct
-      correct = 0
-      @turns.each do |turn|
-        if turn.correct? 
+    correct = 0
+    @turns.each do |turn|
+      if turn.correct? 
         correct += 1
-        end
+      end
     end
     correct
   end
@@ -47,7 +46,7 @@ class Round
       end
     end
     
-    correct % 100
+    correct 
   end
 
   def perecnt_correct
