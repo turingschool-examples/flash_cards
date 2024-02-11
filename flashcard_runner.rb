@@ -1,6 +1,8 @@
 # Header Files
 require './lib/card.rb'
 require './lib/deck.rb'
+require './lib/game.rb'
+require './lib/message.rb'
 require './lib/round.rb'
 require './lib/turn.rb'
 
@@ -20,6 +22,7 @@ card_10 = Card.new("What US state was Grant born in?", "Texas", :Bonus)
 cards = [card_1, card_2, card_3, card_4, card_5, card_6, card_7, card_8, card_9, card_10]
 deck = Deck.new(cards)
 round = Round.new(deck)
+game = Game.new(round)
 
 # Play
-round.start
+game.start

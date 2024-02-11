@@ -35,19 +35,23 @@ RSpec.describe Turn do
         expect(turn.guess).to eq ("Juneau")     
     end
 
-    # Returns true or false based on guess
-    it "returns true if guess is correct" do
-        card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-        turn = Turn.new("Juneau", card)
+    describe "correct? method" do
 
-        expect(turn.correct?).to eq (true)     
-    end
+        # Returns true or false based on guess
+        it "returns true if guess is correct" do
+            card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+            turn = Turn.new("Juneau", card)
 
-    it "returns false if guess is incorrect" do
-        card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-        turn = Turn.new("Anchorage", card)
+            expect(turn.correct?).to eq (true)     
+        end
 
-        expect(turn.correct?).to eq (false)     
+        it "returns false if guess is incorrect" do
+            card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+            turn = Turn.new("Anchorage", card)
+
+            expect(turn.correct?).to eq (false)     
+        end
+
     end
 
     # Returns feedback based on whether guess is correct or not

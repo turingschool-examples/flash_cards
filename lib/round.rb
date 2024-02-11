@@ -9,7 +9,7 @@ class Round
         @card_counter = 0
     end
 
-    def current_card      
+    def current_card
         @deck.cards[@card_counter]
     end
 
@@ -41,9 +41,9 @@ class Round
     end
 
     def percent_correct
-        number_correct = @number_correct
-        count = @card_counter
-        percent_correct = ((number_correct.to_f / count.to_f) * 100).round(1)
+        # number_correct = @number_correct
+        # count = @card_counter
+        percent_correct = ((@number_correct.to_f / @card_counter.to_f) * 100).round(1)
     end
 
     def percent_correct_by_category(category)
@@ -52,41 +52,6 @@ class Round
         number_correct = number_correct_by_category(category)
         count = cards_in_cat
         percent_correct = ((number_correct.to_f / count.to_f) * 100).round(1)
-    end
-
-    def start
-        # Welcome Message
-        puts " "
-        puts "Welcome to Grant's Game!"
-        puts "10 questions, 10 answers - how will you fare?"
-        puts "---------------------------------------------"
-
-        # Game
-        counter = 1
-        deck.count.times do
-
-            puts " "
-            puts "Card #{counter}: #{current_card.question}"
-            guess = gets.chomp
-            new_turn = take_turn(guess)
-            puts new_turn.feedback
-            counter += 1
-
-        end
-
-        # Exit & Summary
-        puts " "
-        puts "Game Over! Let's see how you did..."
-        puts " "
-        puts "Game Summary:"
-        puts "-------------"
-        puts "Geography - #{percent_correct_by_category(:Geography)}% correct"
-        puts "Math - #{percent_correct_by_category(:Math)}% correct"
-        puts "Space - #{percent_correct_by_category(:Space)}% correct"
-        puts "Bonus - #{percent_correct_by_category(:Bonus)}% correct"
-        puts " "
-        puts "See you next time!"
-        puts " "
     end
 
 end
