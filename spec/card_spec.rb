@@ -33,6 +33,20 @@ RSpec.describe Turn do
       card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       turn = Turn.new("Albuquerque", card)
       expect(turn).to be_truthy
-  end
+    end
+
+    # attr_reader provides getter methods for guess and card 
+
+    it "should detect if a guess is correct" do
+      card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+      turn = Turn.new("Juneau", card)
+      expect(turn.correct?).to eq(true)
+    end 
+
+    it "should detect if a guess is incorrect" do
+      card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+      turn = Turn.new("Albuquerque", card)
+      expect(turn.correct?).to eq(false)
+    end 
 end
 
