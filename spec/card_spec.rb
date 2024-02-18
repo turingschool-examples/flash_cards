@@ -25,3 +25,14 @@ RSpec.describe Card do
     expect(card.category).to eq(:Geography)
   end
 end
+
+# frozen_string_literal: true
+
+RSpec.describe Turn do
+    it "should have a turn class" do
+      card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+      turn = Turn.new("Albuquerque", card)
+      expect(turn).to be_truthy
+  end
+end
+
