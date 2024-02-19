@@ -7,7 +7,7 @@ class Deck
   end
 
   def count 
-    @cards.lengthy
+    @cards.length
   end
 
   def cards_in_category(cat)
