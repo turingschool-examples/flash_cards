@@ -36,5 +36,57 @@ RSpec.describe Round do
 
   end
 
+  it "return if the guess is correct" do 
+    round = Round.new(@deck)
+    new_turn = round.take_turn("Juneau")
+    expect(new_turn.correct?).to eq(true)
+  end 
+
+  it "return the correct number of turns" do 
+    round = Round.new(@deck)
+    new_turn = round.take_turn("Juneau")
+    expect(round.number_correct).to eq(1)
+  end 
+
+  it "return the new current card" do 
+    round = Round.new(@deck)
+    new_turn = round.take_turn("Juneau")
+    expect(round.current_card).to eq(@card_2)
+  end 
+
+  it "return the new number of correct turns" do 
+    round = Round.new(@deck)
+    round.take_turn("Juneau")
+    second_round = round.take_turn("Venus")
+    expect(round.turns.count).to eq(2)
+    expect(round.turns.last.feedback).to eq("Incorrect")
+    expect(round.number_correct).to eq(1)
+  end 
+
+  it "return the number of correct turns by category " do 
+    round = Round.new(@deck)
+    round.take_turn("Juneau")
+    correct_round1 = round.number_correct_by_category(:Geography)
+    expect(correct_round1).to eq(1)
+    
+  end
+
+  it "return the number of correct by category on the second turn - incorrect" do 
+    round = Round.new(@deck)
+    round.take_turn("Juneau")
+    round.take_turn("Venus")
+    correct_round1 = round.number_correct_by_category(:STEM)
+    expect(correct_round1).to eq(0)
+  end
+
+  it "return the number of correct by category on the second turn - correct" do 
+    round = Round.new(@deck)
+    round.take_turn("Juneau")
+    round.take_turn("Mars")
+    correct_round1 = round.number_correct_by_category(:STEM)
+    expect(correct_round1).to eq(1)
+  end
+
+
 
 end
