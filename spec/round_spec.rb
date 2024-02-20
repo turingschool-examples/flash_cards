@@ -87,6 +87,13 @@ RSpec.describe Round do
     expect(correct_round1).to eq(1)
   end
 
+  it "returns the percent correct " do 
+    round = Round.new(@deck)
+    round.take_turn("Juneau")
+    round.take_turn("Venus")
+    percentage_correct = round.percent_correct
+    expect(percentage_correct).to eq(50.0)
+  end
 
 
 end

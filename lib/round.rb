@@ -24,8 +24,11 @@ class Round
   #  I think this is an area I could modify the deck class and use the method i have there to calculate the category cards in turns 
   def number_correct_by_category(category)
     num_in_category = @turns.select {|turn| turn.card.category == category && turn.correct == true}.count
-
   end  
+
+  def percent_correct
+    percentage = (@number_correct.to_f / @turns.length) * 100
+  end 
 
 end 
 
