@@ -95,5 +95,13 @@ RSpec.describe Round do
     expect(percentage_correct).to eq(50.0)
   end
 
+  it "returns the percent correct by category " do 
+    round = Round.new(@deck)
+    round.take_turn("Juneau")
+    round.take_turn("Venus")
+    percent_correct_category = round.percent_correct_by_category(:Geography)
+    expect(percent_correct_category).to eq(100.0)
+    expect(round.current_card).to eq(@card_3)
+  end
 
 end
