@@ -13,10 +13,10 @@ class Turn
 
 
     def feedback
-        if correct?
-            puts "Correct!"
+        if correct? == true
+            "Correct!"
         else
-            puts "Incorrect!"
+            "Incorrect!"
         end
     end
 
