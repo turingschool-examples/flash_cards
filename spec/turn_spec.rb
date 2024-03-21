@@ -19,4 +19,10 @@ RSpec.describe Turn do
     it "has a guess" do
         expect(@turn.guess).to eq("Juneau")
     end
+
+    describe "#correct?" do
+        it 'returns boolean if guess matches answer on card' do
+            expect(@turn.correct?).to be true
+        end
+    end
 end
