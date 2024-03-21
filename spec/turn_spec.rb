@@ -21,8 +21,14 @@ RSpec.describe Turn do
     end
 
     describe "#correct?" do
-        it 'returns boolean if guess matches answer on card' do
+        it "returns boolean if guess matches answer on card" do
             expect(@turn.correct?).to be true
+        end
+    end
+
+    describe "#feedback" do
+        it "returns correct or incorrect" do
+            expect(@turn.feedback).to eq("Correct!")
         end
     end
 end
