@@ -1,4 +1,4 @@
-require './lib/card'
+require 'spec_helper'
 require 'pry'
 
 RSpec.describe Card do
