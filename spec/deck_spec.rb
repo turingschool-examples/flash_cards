@@ -24,4 +24,12 @@ RSpec.describe Deck do
             expect(@deck.count).to eq(3)
         end
     end
+
+    describe '#cards_in_category' do
+        it 'can find all cards in specified category' do
+            expect(@deck.cards_in_category(:STEM)).to eq([@card_2, @card_3])
+            expect(@deck.cards_in_category(:Geography)).to eq([@card_1])
+            expect(@deck.cards_in_category('Pop Culture')).to eq([])
+        end
+    end
 end
