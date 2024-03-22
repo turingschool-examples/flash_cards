@@ -1,14 +1,19 @@
+require './lib/card.rb'
+
 class Turn
-    attr_reader :string, :card
-    initialize(string, card)
+    attr_reader :string, 
+                :card, 
+                :guess
+    
+    def initialize(string, card)
         @guess = string
-        @card = card
+        @card = card 
 
         def correct?
             if @guess == card.answer
-                @guess == true
+                @guess = true
             else 
-                @guess == false
+                @guess = false
             end
         end
 
@@ -23,3 +28,5 @@ class Turn
     end 
 
 end
+   
+turn = Turn.new("Juneau", card)
