@@ -9,7 +9,7 @@ RSpec.describe Turn do
         @turn_2 = Turn.new("Saturn", @card_2)
     end
 
-    describe 'Object' do
+    describe '#initialize' do
         it 'exists' do
             expect(@turn_1).to be_instance_of(Turn)
         end
