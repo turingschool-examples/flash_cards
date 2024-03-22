@@ -5,27 +5,22 @@ class Turn
                 :card, 
                 :guess
     
-    def initialize(string, card)
-        @guess = string
+    def initialize(guess, card)
+        @guess = guess
         @card = card 
+    end
 
-        def correct?(string)
-            if @guess == card.answer
-                @guess = true
-            else 
-                @guess = false
-            end
+    def correct?
+        @guess == card.answer
+    end
+
+    def feedback(string)
+        if @guess.correct? == true
+            puts "Correct!"
+        else
+            puts "Incorrect."
         end
-
-        def feedback(string)
-            if @guess.correct? == true
-                puts "Correct!"
-            else
-                puts "Incorrect."
-            end
-        end
-
-    end 
+    end
 
 end
 
