@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'pry'
 
 RSpec.describe Turn do
     before(:each) do
@@ -10,30 +9,38 @@ RSpec.describe Turn do
         @turn_2 = Turn.new("Saturn", @card_2)
     end
 
-    it 'exists' do
-        expect(@turn_1).to be_instance_of(Turn)
-    end
+    describe 'Object' do
+        it 'exists' do
+            expect(@turn_1).to be_instance_of(Turn)
+        end
 
-    it 'has a card' do  
-        expect(@turn_1.card).to eq(@card_1)
-        expect(@turn_2.card).to eq(@card_2)
-    end
+        it 'has a card' do  
+            expect(@turn_1.card).to eq(@card_1)
+            expect(@turn_2.card).to eq(@card_2)
+        end
 
-    it 'has a guess' do
-        expect(@turn_1.guess).to eq("Juneau")
-        expect(@turn_2.guess).to eq("Saturn")
+        it 'has a guess' do
+            expect(@turn_1.guess).to eq("Juneau")
+            expect(@turn_2.guess).to eq("Saturn")
+        end
     end
 
     describe '#correct?' do
-        it 'returns boolean if guess matches answer on card' do
+        it 'returns true if guess matches answer on card' do
             expect(@turn_1.correct?).to be true
+        end
+
+        it 'returns false if guess does not match answer on card' do
             expect(@turn_2.correct?).to be false
         end
     end
 
     describe '#feedback' do
-        it 'returns correct or incorrect' do
+        it 'returns correct if guess was right' do
             expect(@turn_1.feedback).to eq("Correct!")
+        end
+
+        it 'returns incorrect if guess was wrong' do
             expect(@turn_2.feedback).to eq("Incorrect.")
         end
     end
