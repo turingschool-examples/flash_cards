@@ -18,4 +18,8 @@ class Round
         @deck.rotate_cards
         new_turn
     end
+
+    def number_correct_by_category(category)
+        @turns.map {|turn| turn.card.category if turn.correct?}.count(category)
+    end
 end
