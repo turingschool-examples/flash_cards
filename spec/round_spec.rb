@@ -23,4 +23,10 @@ RSpec.describe Round do
             expect(@round.turns).to be_empty
         end
     end
+
+    describe '#current_card' do
+        it 'can find the current card being played' do
+            expect(@round.current_card).to eq(@card_1)
+        end
+    end
 end
