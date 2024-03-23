@@ -89,4 +89,12 @@ RSpec.describe Round do
             expect(@round.number_correct_by_category(:STEM)).to eq(0)
         end
     end
+
+    describe '#percent_correct' do
+        it 'can return percentage of correct guesses for the round' do
+            @round.take_turn('Juneau')
+            @round.take_turn('Venus')
+            expect(@round.percent_correct).to eq(50)
+        end
+    end
 end
