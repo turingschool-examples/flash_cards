@@ -1,6 +1,8 @@
+require "pry"
+
 class Card
     
-    attr_reader :card
+    attr_reader :card,
                 :question,
                 :answer,
                 :category
