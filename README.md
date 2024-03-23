@@ -1,4 +1,4 @@
-##  Flash Cards
+<!-- ##  Flash Cards
 
 This is the starter repository for the [Flash Cards](http://backend.turing.io/module1/projects/flashcards) project.
 
@@ -39,7 +39,7 @@ pry(main)> deck.cards_in_category(:Geography)
 #=> [#<Card:0x00007fa16104e160...>]
 
 pry(main)> deck.cards_in_category("Pop Culture")
-#=> []
+#=> [] -->
 The Round
 A Round will be the object that processes responses and records guesses. A Round is initialized with a Deck. The idea is that when we start a Round, the current card is the first in the deck (the first in the Deck’s array of Cards). When we make a guess, the guess is recorded, and the next card in the deck becomes the current card.
 
