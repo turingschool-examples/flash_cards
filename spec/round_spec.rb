@@ -9,4 +9,18 @@ RSpec.describe Round do
         @deck = Deck.new(@cards)
         @round = Round.new(@deck)
     end
+
+    describe '#initialize' do
+        it 'exists' do
+            expect(@round).to be_instance_of(Round)
+        end
+
+        it 'has a deck of cards' do
+            expect(@round.deck).to eq(@deck)
+        end
+
+        it 'has a way to store turns' do
+            expect(@round.turns).to be_empty
+        end
+    end
 end
