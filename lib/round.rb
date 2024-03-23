@@ -13,9 +13,9 @@ class Round
 
     def take_turn(guess)
         new_turn = Turn.new(guess, current_card)
-        @turns << new_turn #store_turn method?
+        @turns << new_turn
         @number_correct += 1 if new_turn.correct?
-        @deck.cards.rotate!
+        @deck.rotate_cards
         new_turn
     end
 end
