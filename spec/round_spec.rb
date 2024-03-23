@@ -65,5 +65,13 @@ RSpec.describe Round do
             @round.take_turn('Juneau')
             expect(@round.current_card).to eq(@card_2)
         end
+
+        it 'takes another turn which has incorrect guess' do
+            turn_1 = @round.take_turn('Juneau')
+            turn_2  = @round.take_turn('Venus')
+            expect(@round.turns.count).to eq(2)
+            expect(@round.turns.last.feedback).to eq('Incorrect.')
+            expect(@round.number_correct).to eq(1)
+        end
     end
 end
