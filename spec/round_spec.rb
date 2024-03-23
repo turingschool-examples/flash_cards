@@ -44,7 +44,7 @@ RSpec.describe Round do
         it 'has appropiate card' do
             new_turn = @round.take_turn('Juneau')
             expect(new_turn.card).to eq(@round.current_card) #will this break?
-        end
+        end 
 
         it 'returns true if guess is correct' do
             new_turn = @round.take_turn('Juneau')
@@ -52,7 +52,7 @@ RSpec.describe Round do
         end
 
         it 'stores each new turn' do
-            @round.take_turn('Juneau')
+            new_turn = @round.take_turn('Juneau')
             expect(@round.turns).to eq([new_turn])
         end
 
