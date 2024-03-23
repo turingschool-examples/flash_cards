@@ -80,4 +80,13 @@ RSpec.describe Round do
             expect(@round.current_card).to eq(@card_3)
         end
     end
+
+    describe '#number_correct_by_category' do
+        it 'can count number of correct guesses for specified category' do
+            @round.take_turn('Juneau')
+            @round.take_turn('Venus')
+            expect(@round.number_correct_by_category(:Geography)).to eq(1)
+            expect(@round.number_correct_by_category(:STEM)).to eq(0)
+        end
+    end
 end
