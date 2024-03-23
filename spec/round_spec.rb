@@ -43,7 +43,27 @@ RSpec.describe Round do
 
         it 'has correct card' do
             new_turn = @round.take_turn('Juneau')
-            expect(new_turn.card).to eq(@round.current_card)
+            expect(new_turn.card).to eq(@round.current_card) #will this break?
+        end
+
+        it 'returns true if guess is correct' do
+            new_turn = @round.take_turn('Juneau')
+            expect(new_turn.correct?).to be true
+        end
+
+        it 'stores each new turn' do
+            @round.take_turn('Juneau')
+            expect(@round.turns).to eq([new_turn])
+        end
+
+        it 'counts number of correct answers' do
+            @round.take_turn('Juneau')
+            expect(@round.number_correct).to eq(1)
+        end
+
+        it 'shifts to next card in deck' do
+            @round.take_turn('Juneau')
+            expect(@round.current_card).to eq(@card_2)
         end
     end
 end
