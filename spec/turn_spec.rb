@@ -39,13 +39,13 @@ RSpec.describe Turn do
  end
 
  it 'gives feedback' do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    card2 = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
-    turn = Turn.new("Juneau", card)
-    turn2 = Turn.new("Saturn", card)
+      card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+      card2 = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+      turn = Turn.new("Juneau", card)
+      turn2 = Turn.new("Saturn", card)
 
-    expect(turn.feedback).to eq("Correct!")
-    expect(turn2.feedback).to eq("Incorrect.")
- end
+      expect(turn.feedback).to eq("Correct!")
+      expect(turn2.feedback).to eq("Incorrect.")
+   end
 
 end
