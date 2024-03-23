@@ -36,12 +36,12 @@ RSpec.describe Round do
             expect(new_turn).to be_instance_of(Turn)
         end
 
-        it 'has correct guess' do
+        it 'has appropiate guess' do
             new_turn = @round.take_turn('Juneau')
             expect(new_turn.guess).to eq('Juneau')
         end
 
-        it 'has correct card' do
+        it 'has appropiate card' do
             new_turn = @round.take_turn('Juneau')
             expect(new_turn.card).to eq(@round.current_card) #will this break?
         end
