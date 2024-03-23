@@ -9,4 +9,8 @@ class Deck
     def cards_in_category(category)
         @cards.find_all {|card| card.category == category} #didnt need card if
     end
+
+    def rotate_cards
+        @cards.rotate!
+    end
 end
