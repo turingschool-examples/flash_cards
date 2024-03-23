@@ -14,6 +14,11 @@ class Deck
     end
 
     def cards_in_category(category)
-        cards_in_category = @cards.count { |card| card.category == category }
+        @cards.select { |card| card.category == category }
+
+    end
+
+    def count_of_cards_in_category(category)
+        @cards.count { |card| card.category == category }
     end
 end
