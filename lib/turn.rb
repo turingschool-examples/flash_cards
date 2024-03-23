@@ -1,18 +1,27 @@
+require "pry"
+
 require './lib/card'
 
 class Turn
-    attr_reader :card,
-                :question,
-                :answer,
-                :category,
+    attr_reader :turn,
+                :card,
                 :guess
 
-    def initialize()
+    def initialize(guess, card)
         @card = card
-        @question = question
-        @answer = answer
-        @category = category
         @guess = guess
+    end
+
+    def correct?
+        @guess == card.answer
+    end
+
+    def feedback
+        if correct? == true
+            "Correct!"
+        else
+            "Incorrect."
+        end
     end
 
 end
