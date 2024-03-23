@@ -29,4 +29,21 @@ RSpec.describe Round do
             expect(@round.current_card).to eq(@card_1)
         end
     end
+
+    describe '#take_turn' do
+        it 'creates a new Turn object' do
+            new_turn = @round.take_turn('Juneau')
+            expect(new_turn).to be_instance_of(Turn)
+        end
+
+        it 'has correct guess' do
+            new_turn = @round.take_turn('Juneau')
+            expect(new_turn.guess).to eq('Juneau')
+        end
+
+        it 'has correct card' do
+            new_turn = @round.take_turn('Juneau')
+            expect(new_turn.card).to eq(@round.current_card)
+        end
+    end
 end
