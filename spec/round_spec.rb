@@ -46,5 +46,25 @@ RSpec.describe Round do
         expect(new_turn.correct?).to be(true)
     end
 
+    it "checks if guess if incorrect this round" do
+        new_turn = @round.take_turn("Madison")
+
+        expect(new_turn.correct?).to be(false)
+    end
+
+    # comeback to don't know how to format test expectation
+    # it "checks the turn" do
+
+    #     expect(round.turns)to eq()
+    # end
+
+    it "can check if number of correct in round" do
+        new_turn = @round.take_turn("Juneau")
+        
+        expect(@round.number_correct).to eq(1)
+    end
+
+
+
 
 end
