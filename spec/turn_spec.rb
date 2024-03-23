@@ -36,4 +36,16 @@ RSpec.describe Turn do
     expect(turn.correct?).to be false
   end
 
+  it 'can provide correct feedback' do
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Juneau", card)
+    expect(turn.feedback).to eq("Correct!")
+  end
+
+  it 'can provide incorrect feedback' do
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("toaster", card)
+    expect(turn.feedback).to eq("Incorrect.")
+  end
+
 end
