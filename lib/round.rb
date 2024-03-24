@@ -40,6 +40,15 @@ class Round
         @turns.count { |turn| turn.correct? }
     end
 
+    def number_incorrect
+        @turns.count { |turn| !turn.correct? }
+    end
+
+    def percent_correct
+        total_turns = @turns.count
+        total_turns > 0 ? (number_correct.to_f / total_turns * 100) : 0
+    end
+
     def number_correct_by_category(category)
         @turns.count do |turn|
             turn.correct? && turn.card.category == category
