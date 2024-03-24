@@ -55,4 +55,10 @@ class Round
         end # chceks each turn to see if `turn.correct?` returns true (meaning the guess was correct) and if the card associated with that turn (`turn.card`) is in teh specified category (`turn.card.category == category`)
     end
     
+    def percent_correct_by_category(category)
+        correct_by_category = number_correct_by_category(category).to_f
+        total_category_turns = @turns.count { |turn| turn.card.category == category }
+        total_category_turns > 0 ? (correct_by_category / total_category_turns * 100) : 0
+    end
+
 end
