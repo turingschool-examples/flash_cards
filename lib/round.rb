@@ -1,5 +1,7 @@
 class Round
-    attr_reader :deck, :turns, :number_correct
+    attr_reader :deck, 
+                :turns, 
+                :number_correct
 
     def initialize(deck)
         @deck = deck
@@ -38,14 +40,23 @@ class Round
     def start
         p "Welcome! You're playing with #{@deck.count} cards."
         p "-------------------------------------------------"
+        begin_game
+    end
+
+    def begin_game
         until @card_count > @deck.count
             p "This is card number #{@card_count} out of #{@deck.count}."
             p "Question: #{current_card.question}"
-            user_answer = gets.chomp
-            take_turn(user_answer)
+            user_guess = gets.chomp
+            break if user_guess == 'exit'
+            take_turn(user_guess)
         end
+        end_game
+    end
+
+    def end_game
         p '****** Game over! ******'
-        p "You had #{@number_correct} correct guesses out of #{@deck.count} for a total score of #{percent_correct.to_s.sub(/0+$/, '').sub('.', '')}%."
+        p "You had #{@number_correct} correct guesses out of #{@turns.length} for a total score of #{percent_correct.to_s.sub(/0+$/, '').sub('.', '')}%."
         p "STEM - #{percent_correct_by_category(:STEM).to_s.sub(/0+$/, '').sub('.', '')}% correct"
         p "Turing Staff - #{percent_correct_by_category(:Turing_Staff).to_s.sub(/0+$/, '').sub('.', '')}% correct"
         p "Pop Culture - #{percent_correct_by_category(:Pop_Culture).to_s.sub(/0+$/, '').sub('.', '')}% correct"

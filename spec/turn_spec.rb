@@ -2,11 +2,10 @@ require 'spec_helper'
 
 RSpec.describe Turn do
     before(:each) do
-        @card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-        @turn_1 = Turn.new("Juneau", @card_1)
-
-        @card_2 = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
-        @turn_2 = Turn.new("Saturn", @card_2)
+        @card_1 = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
+        @turn_1 = Turn.new('Juneau', @card_1)
+        @card_2 = Card.new('Which planet is closest to the sun?', 'Mercury', :STEM)
+        @turn_2 = Turn.new('Saturn', @card_2)
     end
 
     describe '#initialize' do
@@ -14,14 +13,20 @@ RSpec.describe Turn do
             expect(@turn_1).to be_instance_of(Turn)
         end
 
-        it 'has a card' do  
+        it 'has a card - turn_1' do  
             expect(@turn_1.card).to eq(@card_1)
+        end
+
+        it 'has a card - turn_2' do
             expect(@turn_2.card).to eq(@card_2)
         end
 
-        it 'has a guess' do
-            expect(@turn_1.guess).to eq("Juneau")
-            expect(@turn_2.guess).to eq("Saturn")
+        it 'has a guess - turn_1' do
+            expect(@turn_1.guess).to eq('Juneau')
+        end
+
+        it 'has a guess - turn_2' do
+            expect(@turn_2.guess).to eq('Saturn')
         end
     end
 
@@ -37,11 +42,11 @@ RSpec.describe Turn do
 
     describe '#feedback' do
         it 'returns correct if guess was right' do
-            expect(@turn_1.feedback).to eq("Correct!")
+            expect(@turn_1.feedback).to eq('Correct!')
         end
 
         it 'returns incorrect if guess was wrong' do
-            expect(@turn_2.feedback).to eq("Incorrect.")
+            expect(@turn_2.feedback).to eq('Incorrect.')
         end
     end
 end
