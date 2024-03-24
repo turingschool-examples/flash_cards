@@ -30,4 +30,12 @@ RSpec.describe Deck do
             expect(@deck.cards_in_category('Pop Culture')).to eq([])
         end
     end
+
+    describe '#rotate_cards' do
+        it 'rotates elements in the cards array' do
+            expect(@deck.cards).to eq([@card_1, @card_2, @card_3])
+            @deck.rotate_cards
+            expect(@deck.cards).to eq([@card_2, @card_3, @card_1])
+        end
+    end
 end
