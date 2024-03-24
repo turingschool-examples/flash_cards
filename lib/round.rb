@@ -39,5 +39,11 @@ class Round
     def number_correct
         @turns.count { |turn| turn.correct? }
     end
+
+    def number_correct_by_category(category)
+        @turns.count do |turn|
+            turn.correct? && turn.card.category == category
+        end # chceks each turn to see if `turn.correct?` returns true (meaning the guess was correct) and if the card associated with that turn (`turn.card`) is in teh specified category (`turn.card.category == category`)
+    end
     
 end
