@@ -3,9 +3,13 @@ require "pry"
 require './lib/card'
 
 class Deck
-  
 
-    def initialize[]
+	attr_reader :cards,
 
-    end
+	def initialize(cards)
+		@cards = cards
+	end
+
+
+
 end
