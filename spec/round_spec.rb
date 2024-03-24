@@ -60,11 +60,64 @@ RSpec.describe Round do
 
     it "can check if number of correct in round" do
         new_turn = @round.take_turn("Juneau")
-        
+
         expect(@round.number_correct).to eq(1)
     end
 
+    it "Rotates cards to next card" do
+        new_turn = @round.take_turn("Juneau")
 
+        expect(@round.current_card).to eq(@card_2)
+    end
 
+    it "can check how many turns were taken" do
+        new_turn = @round.take_turn("Juneau")
+        new_turn = @round.take_turn("Venus")
 
+        expect(@round.turns.count).to eq(2)
+    end
+
+    it "can check feedback of last turn" do
+        new_turn = @round.take_turn("Juneau")
+        new_turn = @round.take_turn("Venus")
+
+        expect(@round.turns.last.feedback).to eq("Incorrect.")
+    end
+
+    it "can check number correct with an one incorrect and one correct" do
+        new_turn = @round.take_turn("Juneau")
+        new_turn = @round.take_turn("Venus")
+
+        expect(@round.number_correct).to eq(1)
+    end
+
+    it "can check number correct" do
+        new_turn = @round.take_turn("Juneau")
+        new_turn = @round.take_turn("Venus")
+
+        expect(@round.number_correct).to eq(1)
+    end
+
+    it "can tell you percent correct" do
+        new_turn = @round.take_turn("Juneau")
+        new_turn = @round.take_turn("Venus")
+        # @round.number_correct
+
+        expect(@round.percent_correct).to eq(50.0)
+    end
+
+    it "can tell you percent correct by category" do
+        new_turn = @round.take_turn("Juneau")
+        new_turn = @round.take_turn("Venus")
+        # @round.number_correct
+
+        expect(@round.percent_correct_by_category(:Geography)).to eq(100.0)
+    end
+
+    it "checks new current card after mulitple turns" do
+        new_turn = @round.take_turn("Juneau")
+        new_turn = @round.take_turn("Venus")
+
+        expect(@round.current_card).to eq(@card_3)
+    end
 end
