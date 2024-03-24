@@ -15,31 +15,31 @@ def start
 
     puts "Welcome! You're playing with #{round.deck.count} cards."
     puts "-------------------------------------------------------------"
-    puts "This is card number 1 out of 5."
+    puts "This is card number #{round.turns.count + 1} out of #{round.deck.count + round.turns.count}."
     puts "Question: #{round.deck.cards[0].instance_variable_get(:@question)}"
     answer_1 = gets.chomp
     turn_1 = Turn.new(answer_1, round.deck.cards[0])
     puts turn_1.feedback
     round.take_turn(answer_1)
-    puts "This is card number 2 out of 5."
+    puts "This is card number #{round.turns.count + 1} out of #{round.deck.count + round.turns.count}."
     puts "Question: #{round.deck.cards[0].instance_variable_get(:@question)}"
     answer_2 = gets.chomp
     turn_2 = Turn.new(answer_2, round.deck.cards[0])
     puts turn_2.feedback
     round.take_turn(answer_2)
-    puts "This is card number 3 out of 5."
+    puts "This is card number #{round.turns.count + 1} out of #{round.deck.count + round.turns.count}."
     puts "Question: #{round.deck.cards[0].instance_variable_get(:@question)}"
     answer_3 = gets.chomp
     turn_3 = Turn.new(answer_3, round.deck.cards[0])
     puts turn_3.feedback
     round.take_turn(answer_3)
-    puts "This is card number 4 out of 5"
+    puts "This is card number #{round.turns.count + 1} out of #{round.deck.count + round.turns.count}"
     puts "Question: #{round.deck.cards[0].instance_variable_get(:@question)}"
     answer_4 = gets.chomp
     turn_4 = Turn.new(answer_4, round.deck.cards[0])
     puts turn_4.feedback
     round.take_turn(answer_4)
-    puts "This is card number 5 out of 5"
+    puts "This is card number #{round.turns.count + 1} out of #{round.deck.count + round.turns.count}"
     puts "Question: #{round.deck.cards[0].instance_variable_get(:@question)}"
     answer_5 = gets.chomp
     turn_5 = Turn.new(answer_5, round.deck.cards[0])
