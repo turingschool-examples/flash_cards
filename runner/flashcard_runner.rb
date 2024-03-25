@@ -50,8 +50,7 @@ def start(round)
     
     categories_uniq = categories.uniq
     
-    puts "****** Game over! ******
-    You had #{round.number_correct} correct guesses out of #{round.turns.length} for a total score of #{round.percent_correct}."
+    puts "****** Game over! ******\nYou had #{round.number_correct} correct guesses out of #{round.turns.length} for a total score of #{round.percent_correct}."
 
     category_statement_count = 0
 
@@ -77,12 +76,13 @@ puts "Welcome! You're playing with #{round.deck.cards.length} cards.\n
 
 start(round)
 
+# not working try again snippet of code, need further review
 # puts "Try Again?
 # Enter 'yes' or 'no'"
 
-# answer= get.chomp
+# answer = gets.chomp
 
-# def try_again(answer)
+# def try_again(answer, round)
 #     if answer == "yes"
 #         start(round)
 #     elsif answer == "no"
@@ -92,4 +92,10 @@ start(round)
 #     end
 # end
 
-# try_again(answer)
+# loop do
+#     if answer == "yes"
+#         try_again(answer, round)
+#     else
+#     break
+#     end
+# end
