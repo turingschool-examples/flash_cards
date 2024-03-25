@@ -57,8 +57,8 @@ class Round
     def end_game
         p '****** Game over! ******'
         p "You had #{@number_correct} correct guesses out of #{@turns.length} for a total score of #{percent_correct.to_s.sub(/0+$/, '').sub('.', '')}%."
-        p "STEM - #{percent_correct_by_category(:STEM).to_s.sub(/0+$/, '').sub('.', '')}% correct"
-        p "Turing Staff - #{percent_correct_by_category(:Turing_Staff).to_s.sub(/0+$/, '').sub('.', '')}% correct"
-        p "Pop Culture - #{percent_correct_by_category(:Pop_Culture).to_s.sub(/0+$/, '').sub('.', '')}% correct"
+        p "#{@deck.cards[0].category} - #{percent_correct_by_category(@deck.cards[0].category).to_s.sub(/0+$/, '').sub('.', '')}% correct"
+        p "#{@deck.cards[1].category} - #{percent_correct_by_category(@deck.cards[1].category).to_s.sub(/0+$/, '').sub('.', '')}% correct"
+        p "#{@deck.cards[3].category} - #{percent_correct_by_category(@deck.cards[3].category).to_s.sub(/0+$/, '').sub('.', '')}% correct"
     end
 end
