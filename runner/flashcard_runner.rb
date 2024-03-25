@@ -49,16 +49,19 @@ def start(round)
     }
     
     categories_uniq = categories.uniq
-
-    puts categories_uniq
     
     puts "****** Game over! ******
-    You had #{round.number_correct} correct guesses out of #{round.turns.length} for a total score of #{round.percent_correct}.
-    #{categories_uniq[0]} - #{round.percent_correct_by_category(categories_uniq[0])}% correct
-    Turing Staff - #{round.percent_correct_by_category("Turing Staff")}% correct
-    Pop Culture - #{round.percent_correct_by_category("Pop Culture")}% correct"
+    You had #{round.number_correct} correct guesses out of #{round.turns.length} for a total score of #{round.percent_correct}."
 
-#working non-interpolated category statement
+    category_statement_count = 0
+
+    categories_uniq.each {|category|
+        if categories_uniq.length >= category_statement_count
+        puts "#{categories_uniq[category_statement_count]} - #{round.percent_correct_by_category(categories_uniq[category_statement_count])}% correct}"
+        category_statement_count += 1
+        end}
+
+#working non-interpolated category end statement
     # puts "****** Game over! ******
     # You had #{round.number_correct} correct guesses out of #{round.turns.length} for a total score of #{round.percent_correct}.
     # STEM - #{round.percent_correct_by_category(:STEM)}% correct
