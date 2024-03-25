@@ -1,11 +1,9 @@
-require "pry"
-
 require './lib/card'
 
 class Deck
 
 	attr_reader :card,
-							:cards,
+							:cards
 
 	def initialize(cards)
 		@cards = cards
