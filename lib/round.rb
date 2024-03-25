@@ -7,7 +7,8 @@ class Round
     attr_reader :deck, 
                 :current_card, 
                 :round,
-                :turns
+                :turns,
+                :current_card_index
 
     def initialize(deck)
         @deck = deck
@@ -59,6 +60,18 @@ class Round
         correct_by_category = number_correct_by_category(category).to_f
         total_category_turns = @turns.count { |turn| turn.card.category == category }
         total_category_turns > 0 ? (correct_by_category / total_category_turns * 100) : 0
+    end
+
+    def start
+        puts "Welcome you're playing with #{deck.count} cards"
+        puts "-------------------------------------------------"
+        puts "This is card #{current_card_index + 1} out of #{deck.count}"
+        puts "Question: #{current_card.question}"
+
+        answer_1 = gets.chomp
+        turn_1 = Turn.new(answer_1, current_card)
+        puts turn_1.feedback
+
     end
 
 end
