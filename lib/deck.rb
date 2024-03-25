@@ -10,5 +10,11 @@ class Deck
 		@card = card
 	end
 
+	def count
+		cards.count
+	end
+
+	def cards_in_category
+		
 
 end
