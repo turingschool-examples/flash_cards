@@ -13,19 +13,19 @@ RSpec.describe Turn do
             expect(@turn_1).to be_instance_of(Turn)
         end
 
-        it 'has a card - turn_1' do  
+        it 'turn_1 instance has a card object' do  
             expect(@turn_1.card).to eq(@card_1)
         end
 
-        it 'has a card - turn_2' do
+        it 'turn_2 instance has a card object' do
             expect(@turn_2.card).to eq(@card_2)
         end
 
-        it 'has a guess - turn_1' do
+        it 'turn_1 instance has a guess' do
             expect(@turn_1.guess).to eq('Juneau')
         end
 
-        it 'has a guess - turn_2' do
+        it 'turn_2 instance has a guess' do
             expect(@turn_2.guess).to eq('Saturn')
         end
     end
