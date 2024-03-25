@@ -1,7 +1,7 @@
 require './lib/card'
-require './lib/turn'
-require './lib/deck'
-require './lib/round'
+require './turn'
+require './deck'
+require './round'
 
 card1 = Card.new("What is 5 + 5?", "10", :STEM)
 card2 = Card.new("What is Rachel's favorite animal?", "cat", "Turing Staff")
