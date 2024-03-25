@@ -2,6 +2,7 @@ require './lib/card'
 require './lib/turn'
 require './lib/deck'
 require './lib/round'
+require 'pry'
 
 card1 = Card.new("What is 5 + 5?", "10", :STEM)
 card2 = Card.new("What is Rachel's favorite animal?", "cat", "Turing Staff")
@@ -77,25 +78,26 @@ puts "Welcome! You're playing with #{round.deck.cards.length} cards.\n
 start(round)
 
 # not working try again snippet of code, need further review
-# puts "Try Again?
-# Enter 'yes' or 'no'"
 
-# answer = gets.chomp
 
-# def try_again(answer, round)
-#     if answer == "yes"
-#         start(round)
-#     elsif answer == "no"
-#         puts "Hope you had fun."
-#     else 
-#         puts "Invalid answer. Reload to play again."
-#     end
-# end
+def try_again(answer, round)
+    if answer == "yes"
+        start(round)
+    elsif answer == "no"
+        puts "Hope you had fun."
+    else 
+        puts "Invalid answer. Reload to play again."
+    end
+end
 
-# loop do
-#     if answer == "yes"
-#         try_again(answer, round)
-#     else
-#     break
-#     end
-# end
+loop do
+    puts "Try Again?
+Enter 'yes' or 'no'"
+
+answer = gets.chomp
+    if answer == "yes"
+        try_again(answer, round)
+    else
+    break
+    end
+end

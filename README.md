@@ -3,7 +3,7 @@
 This is the starter repository for the [Flash Cards](http://backend.turing.io/module1/projects/flashcards) project.
 
 ***************************Iteration 1
-Cards
+<!-- Cards
 A Card represents a single flashcard in our set. It stores a question, an answer, and a category.
 
 Use the tests provided to drive the development of your Card class. From the root directory of your project, run the test like this:
@@ -28,8 +28,8 @@ pry(main)> card.answer
 #=> "Juneau"
 
 pry(main)> card.category
-#=> :Geography
-Turns
+#=> :Geography -->
+<!-- Turns
 Create a Turn class and an accompanying test file with the following methods:
 
 initialize(string, card) - A turn is initialized with two arguments. The first is a string representing a guess to a card’s question. The second argument is a Card object representing the current flashcard being shown.
@@ -88,9 +88,9 @@ pry(main)> turn.correct?
 pry(main)> turn.feedback
 => "Incorrect."
 **************************************
-**************************************
-<!-- **************************Iteration 2
-Storing Cards in a Deck
+************************************** -->
+ **************************Iteration 2
+ <!-- Storing Cards in a Deck
 Create a Deck class with an accompanying test file. A Deck is initialized with an array of Card objects. A Deck should also be able to return cards based on a given category. The Deck class should respond to the following interaction pattern:
 
 pry(main)> require './lib/card'
@@ -126,9 +126,9 @@ pry(main)> deck.cards_in_category(:Geography)
 #=> [#<Card:0x00007fa16104e160...>]
 
 pry(main)> deck.cards_in_category("Pop Culture")
-#=> []
+#=> []  -->
 The Round
-A Round will be the object that processes responses and records guesses. A Round is initialized with a Deck. The idea is that when we start a Round, the current card is the first in the deck (the first in the Deck’s array of Cards). When we make a guess, the guess is recorded, and the next card in the deck becomes the current card.
+<!-- A Round will be the object that processes responses and records guesses. A Round is initialized with a Deck. The idea is that when we start a Round, the current card is the first in the deck (the first in the Deck’s array of Cards). When we make a guess, the guess is recorded, and the next card in the deck becomes the current card.
 
 The take_turn method is the crux of this problem. The take_turn method takes a string representing the guess. It should create a new Turn object with the appropriate guess and Card. It should store this new Turn, as well as return it from the take_turn method. Also, when the take_turn method is called, the Round should move on to the next card in the deck.
 
@@ -168,22 +168,29 @@ pry(main)> round.turns
 #=> []
 
 pry(main)> round.current_card
-#=> #<Card:0x00007fa16104e160 @answer="Juneau", @question="What is the capital of Alaska?", @category=:Geography>
+#=> #<Card:0x00007fa16104e160 @answer="Juneau", @question="What is the capital of Alaska?", @category=:Geography> -->
 
+
+
+How to make this a test?
 pry(main)> new_turn = round.take_turn("Juneau")
 #=> #<Turn:0x00007f99842f09e8 @card=#<Card:0x00007f800e29f0c9 @question=""What is the capital of Alaska?", @answer="Juneau", @category=:Geography>, @guess="Juneau">
 
-pry(main)> new_turn.class
+<!-- pry(main)> new_turn.class
 #=> Turn
 
 pry(main)> new_turn.correct?
-#=> true
+#=> true -->
 
+
+
+How to make this test?
 pry(main)> round.turns
-#=> [#<Turn:0x00007f99842f09e8 @card=#<Card:0x00007f800e29f0c9 @question=""What is the capital of Alaska?", @answer="Juneau", @category=:Geography>, @guess="Juneau">]
+#=> [#<Turn:0x00007f99842f09e8 @card=#<Card:0x00007f800e29f0c9 @question=""What is the capital of Alaska?", @answer="Juneau", @category=:Geography>, @guess="Juneau">] 
 
-pry(main)> round.number_correct
+<!-- pry(main)> round.number_correct
 #=> 1
+
 
 pry(main)> round.current_card
 #=> #<Card:0x00007fa160a62e90 @answer="Mars", @question="The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", @category=:STEM>
@@ -213,11 +220,12 @@ pry(main)> round.percent_correct_by_category(:Geography)
 #=> 100.0
 
 pry(main)> round.current_card
-#=> #<Card:0x00007fa161a136f0 @answer="North north west", @question="Describe in words the exact direction that is 697.5° clockwise from due north?", @category=:STEM> -->
+#=> #<Card:0x00007fa161a136f0 @answer="North north west", @question="Describe in words the exact direction that is 697.5° clockwise from due north?", @category=:STEM>  -->
+
 **************************************
 **************************************
-<!-- *******************************Iteration 3
-Playing the Game!
+ *******************************Iteration 3
+<!-- Playing the Game!
 So far we’ve focused on modeling the data, classes, and methods that make up our game. However we haven’t done much to put any kind of useable interface onto the game. In this iteration, let’s remedy this by adding a simple Command-Line-Interface (CLI) to the game.
 
 A few key points to keep in mind as you work on this iteration:
@@ -296,7 +304,7 @@ Pop Culture - 100% correct -->
 **************************************
 *************************************
 *************************************
-<!-- Iteration 4
+Iteration 4
 Loading Text Files
 Right now, we’re hardcoding the flashcards into our runner. Wouldn’t it be nice to have a whole text file of questions and answers to use?
 
@@ -321,4 +329,4 @@ pry(main)> cards = CardGenerator.new(filename).cards
  #<Card:0x007f9f1413c788 @answer="red panda", @question="What is Rachel's favorite animal?", @category="Turing Staff">,
  #<Card:0x007f9f1413c2b0 @answer="nobody knows", @question="What is Mike's middle name?", @category="Turing Staff">,
  #<Card:0x007f9f14137da0 @answer="Justin bieber", @question="What cardboard cutout lives at Turing?", @category="Pop Culture">]
-Modify your program so that when you run ruby flashcard_runner.rb, it uses cards from cards.txt instead of hardcoded cards. -->
+Modify your program so that when you run ruby flashcard_runner.rb, it uses cards from cards.txt instead of hardcoded cards.
