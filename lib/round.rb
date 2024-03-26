@@ -8,7 +8,9 @@ class Round
                 :current_card, 
                 :round,
                 :turns,
-                :current_card_index
+                :current_card_index,
+                :take_turn
+
 
     def initialize(deck)
         @deck = deck
@@ -70,8 +72,33 @@ class Round
 
         answer_1 = gets.chomp
         turn_1 = Turn.new(answer_1, current_card)
+        take_turn(answer_1)
         puts turn_1.feedback
+        puts "This is card #{current_card_index + 1} out of #{deck.count}"
+        puts "Question: #{current_card.question}"
 
+        answer_2 = gets.chomp
+        turn_2 = Turn.new(answer_2, current_card)
+        take_turn(answer_2)
+        puts turn_2.feedback
+        puts "This is card #{current_card_index + 1} out of #{deck.count}"
+        puts "Question: #{current_card.question}"
+
+        answer_3 = gets.chomp
+        turn_3 = Turn.new(answer_3, current_card)
+        take_turn(answer_3)
+        puts turn_3.feedback
+        puts "This is card #{current_card_index + 1} out of #{deck.count}"
+        puts "Question: #{current_card.question}"
+
+        answer_4 = gets.chomp
+        turn_4 = Turn.new(answer_4, current_card)
+        take_turn(answer_4)
+        puts turn_4.feedback
+
+        # puts "****** Game over! ******"
+        # puts "You had #{round.number_correct} out of #{deck.count} for a total score of #{round.percent_correct}"
+        # puts "STEM - #{round.percent_correct_by_category}"
     end
 
 end

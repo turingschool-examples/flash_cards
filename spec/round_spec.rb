@@ -41,6 +41,7 @@ RSpec.describe Round do
         my_round = Round.new(deck)
 
         expect(my_round.current_card).to eq(card_1)
+        binding.pry
     end
 
     it "can count how many questions were answered correctly" do
