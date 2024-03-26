@@ -1,0 +1,4 @@
+What is 5 + 5?,10,STEM
+What is Rachel's favorite animal?,red panda,Turing_Staff
+What is Mike's middle name?,nobody knows,Turing_Staff
+What cardboard cutout lives at Turing?,Justin bieber,Pop_Culture
