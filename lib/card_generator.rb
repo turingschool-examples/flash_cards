@@ -1,4 +1,4 @@
-# require './lib/card.rb'
+require 'pry'
 
 class CardGenerator
     attr_reader :cards
@@ -11,14 +11,16 @@ class CardGenerator
         content = File.open(filepath) do |card_data_line|
         card_data_line.readlines
         end
-
-        content.each {|line|
-        @cards << line.split(",")}
-
-        @cards.each {|card| card[-1].chomp!}
+        
+        card_data_array = content.map {|line| line.chomp.split(",")}
+        
+        @cards = card_data_array.map do |card_data|
+            Card.new(card_data[0], card_data[1], card_data[2].to_sym)
+        end
     end
 end
-# puts @cards.inspect
+
+require './lib/card.rb'
 
 filepath = "/Users/cheelee/turing_work/1mod/week1/flashcards_project/flash_cards/lib/cards.txt"
 
