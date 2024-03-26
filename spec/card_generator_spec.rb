@@ -3,12 +3,14 @@
 # require './lib/deck'
 # require './lib/round'
 require './lib/card_generator'
-require 'cards.txt'
+require './lib/cards.txt'
 
+# need work
 Rspec.describe Card_generator do
 
     it "is instance of Card_generator" do
-
-    expect().to eq()
+        card_text = "cards.txt"
+        new_cards = CardGenerator.new(card_text)
+    expect(new_cards).to instance of CardGenerator
     end
 end
