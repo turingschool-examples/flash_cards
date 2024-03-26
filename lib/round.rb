@@ -12,10 +12,10 @@ class Round
     end
       
     def take_turn(guess, cards)
-        current_card = @deck.carrds[@current_card_index]
-        turn = Turn.new(guess, current_card)
-        @turns << turn
-        @current_card_index += 1
+        current_card = @deck.carrds[@current_card_index] # establishes the current_card as whichever instance of the card class is at the index being used in the turn
+        turn = Turn.new(guess, current_card) # creates a new instance of the turn class with the corresponding guess and current card that are active in the current turn
+        @turns << turn 
+        @current_card_index += 1 # Moves to next card (or element) in the index
         turn
       end
   end
