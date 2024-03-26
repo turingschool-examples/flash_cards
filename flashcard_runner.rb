@@ -14,7 +14,6 @@ round = Round.new(deck)
 
 def start(round)
     card_number = 1
-    # round = round
 
     while card_number <= round.deck.cards.length do
         puts "This is card number #{card_number} out of #{round.deck.count}.\n
@@ -60,13 +59,6 @@ def start(round)
         puts "#{categories_uniq[category_statement_count]} - #{round.percent_correct_by_category(categories_uniq[category_statement_count])}% correct}"
         category_statement_count += 1
         end}
-
-#working non-interpolated category end statement
-    # puts "****** Game over! ******
-    # You had #{round.number_correct} correct guesses out of #{round.turns.length} for a total score of #{round.percent_correct}.
-    # STEM - #{round.percent_correct_by_category(:STEM)}% correct
-    # Turing Staff - #{round.percent_correct_by_category("Turing Staff")}% correct
-    # Pop Culture - #{round.percent_correct_by_category("Pop Culture")}% correct"
 end
 
 # categories = @turns.select {|turn| turn.card.category}
@@ -76,8 +68,6 @@ puts "Welcome! You're playing with #{round.deck.cards.length} cards.\n
 -------------------------------------------------"
 
 start(round)
-
-# not working try again snippet of code, need further review
 
 
 def try_again(answer, round)

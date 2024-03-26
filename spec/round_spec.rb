@@ -29,11 +29,6 @@ RSpec.describe Round do
         expect(@round.current_card).to eq(@card_1)
     end
 
-    # comeback to don't know how to format test expectation
-    # it "can create a turn" do
-    #     expect(@round.take_turn("Juneau")).to eq(new_turn)
-    # end
-
     it "checks if new_turn is a Turn class" do
         new_turn = @round.take_turn("Juneau")
 
@@ -53,10 +48,13 @@ RSpec.describe Round do
     end
 
     # comeback to don't know how to format test expectation
-    # it "checks the turn" do
+    it "checks the turns taken" do
+        expect(@round.turns).to eq([])
 
-    #     expect(round.turns)to eq()
-    # end
+        new_turn = @round.take_turn("Juneau")
+
+        expect(@round.turns).to eq(@round.turns)        
+    end
 
     it "can check if number of correct in round" do
         new_turn = @round.take_turn("Juneau")
@@ -101,7 +99,6 @@ RSpec.describe Round do
     it "can tell you percent correct" do
         new_turn = @round.take_turn("Juneau")
         new_turn = @round.take_turn("Venus")
-        # @round.number_correct
 
         expect(@round.percent_correct).to eq(50.0)
     end
@@ -109,7 +106,6 @@ RSpec.describe Round do
     it "can tell you percent correct by category" do
         new_turn = @round.take_turn("Juneau")
         new_turn = @round.take_turn("Venus")
-        # @round.number_correct
 
         expect(@round.percent_correct_by_category(:Geography)).to eq(100.0)
     end
