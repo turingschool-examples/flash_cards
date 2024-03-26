@@ -19,7 +19,7 @@ class Round
         @turns << new_turn
         @number_correct += 1 if new_turn.correct?
         @card_count += 1
-        p new_turn.feedback
+        puts new_turn.feedback
         @deck.rotate_cards
         new_turn
     end
@@ -38,15 +38,15 @@ class Round
     end
 
     def start
-        p "Welcome! You're playing with #{@deck.count} cards."
-        p "-------------------------------------------------"
+        puts "Welcome! You're playing with #{@deck.count} cards."
+        puts "-------------------------------------------------"
         begin_game
     end
 
     def begin_game
         until @card_count > @deck.count
-            p "This is card number #{@card_count} out of #{@deck.count}."
-            p "Question: #{current_card.question}"
+            puts "This is card number #{@card_count} out of #{@deck.count}."
+            puts "Question: #{current_card.question}"
             user_guess = gets.chomp
             break if user_guess == 'exit'
             take_turn(user_guess)
@@ -55,10 +55,10 @@ class Round
     end
 
     def end_game
-        p '****** Game over! ******'
-        p "You had #{@number_correct} correct guesses out of #{@turns.length} for a total score of #{percent_correct.to_s.sub(/0+$/, '').sub('.', '')}%."
-        p "#{@deck.cards[0].category} - #{percent_correct_by_category(@deck.cards[0].category).to_s.sub(/0+$/, '').sub('.', '')}% correct"
-        p "#{@deck.cards[1].category} - #{percent_correct_by_category(@deck.cards[1].category).to_s.sub(/0+$/, '').sub('.', '')}% correct"
-        p "#{@deck.cards[3].category} - #{percent_correct_by_category(@deck.cards[3].category).to_s.sub(/0+$/, '').sub('.', '')}% correct"
+        puts '****** Game over! ******'
+        puts "You had #{@number_correct} correct guesses out of #{@turns.length} for a total score of #{percent_correct.to_s.sub(/0+$/, '').sub('.', '')}%."
+        puts "#{@deck.cards[0].category} - #{percent_correct_by_category(@deck.cards[0].category).to_s.sub(/0+$/, '').sub('.', '')}% correct"
+        puts "#{@deck.cards[1].category} - #{percent_correct_by_category(@deck.cards[1].category).to_s.sub(/0+$/, '').sub('.', '')}% correct"
+        puts "#{@deck.cards[3].category} - #{percent_correct_by_category(@deck.cards[3].category).to_s.sub(/0+$/, '').sub('.', '')}% correct"
     end
 end
