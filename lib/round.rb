@@ -17,5 +17,6 @@ class Round
         @turns << turn 
         @current_card_index += 1 # Moves to next card (or element) in the index
         turn
-      end
+    end
+      
   end
