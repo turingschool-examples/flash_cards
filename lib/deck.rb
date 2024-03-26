@@ -13,5 +13,9 @@ class Deck
         end
     end
 
+    def count
+        cards.count
+    end
+
 end
 
