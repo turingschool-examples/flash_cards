@@ -1,7 +1,7 @@
 require './lib/card'
 
 class Turn
-    attr_reader :card, 
+    attr_reader :cards, 
                 :guess
     
     def initialize(guess, card)

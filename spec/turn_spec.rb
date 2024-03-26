@@ -1,4 +1,5 @@
 require './lib/turn.rb'
+require './lib/card.rb'
 
 RSpec.configure do |config|
       config.formatter = :documentation
