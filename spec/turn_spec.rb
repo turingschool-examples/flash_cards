@@ -1,5 +1,6 @@
 require './lib/turn'
 require './lib/card'
+require 'pry'
 
 RSpec.describe Turn do
     it 'exists' do
@@ -35,6 +36,7 @@ RSpec.describe Turn do
         turn = Turn.new("Juneau", card)
 
         expect(turn.feedback).to eq("Correct!")
+        binding.pry
     end
 
 end

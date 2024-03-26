@@ -7,7 +7,10 @@ class Round
     attr_reader :deck, 
                 :current_card, 
                 :round,
-                :turns
+                :turns,
+                :current_card_index,
+                :take_turn
+
 
     def initialize(deck)
         @deck = deck
@@ -59,6 +62,45 @@ class Round
         correct_by_category = number_correct_by_category(category).to_f
         total_category_turns = @turns.count { |turn| turn.card.category == category }
         total_category_turns > 0 ? (correct_by_category / total_category_turns * 100) : 0
+    end
+
+    def start
+        puts "Welcome you're playing with #{deck.count} cards"
+        puts "-------------------------------------------------"
+        puts "This is card #{current_card_index + 1} out of #{deck.count}"
+        puts "Question: #{current_card.question}"
+
+        answer_1 = gets.chomp
+        turn_1 = Turn.new(answer_1, current_card)
+        take_turn(answer_1)
+        puts turn_1.feedback
+        puts "This is card #{current_card_index + 1} out of #{deck.count}"
+        puts "Question: #{current_card.question}"
+
+        answer_2 = gets.chomp
+        turn_2 = Turn.new(answer_2, current_card)
+        take_turn(answer_2)
+        puts turn_2.feedback
+        puts "This is card #{current_card_index + 1} out of #{deck.count}"
+        puts "Question: #{current_card.question}"
+
+        answer_3 = gets.chomp
+        turn_3 = Turn.new(answer_3, current_card)
+        take_turn(answer_3)
+        puts turn_3.feedback
+        puts "This is card #{current_card_index + 1} out of #{deck.count}"
+        puts "Question: #{current_card.question}"
+
+        answer_4 = gets.chomp
+        turn_4 = Turn.new(answer_4, current_card)
+        take_turn(answer_4)
+        puts turn_4.feedback
+
+        puts "****** Game over! ******"
+        puts "You had #{number_correct} correct guesses out of #{deck.count} for a total score of #{percent_correct.to_i}%"
+        puts "STEM - #{percent_correct_by_category(:STEM).to_i}% correct"
+        puts "Turing Staff - #{percent_correct_by_category(:'Turing Staff').to_i}% correct"
+        puts "Pop Culture - #{percent_correct_by_category(:'Pop Culture').to_i}% correct"
     end
 
 end
