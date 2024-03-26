@@ -14,7 +14,10 @@ class Deck
 		cards.count
 	end
 
-	def cards_in_category
-		
+	def cards_in_category(category)
+		@cards.find_all do |cards|
+			@category
+		end
+	end 
 
 end

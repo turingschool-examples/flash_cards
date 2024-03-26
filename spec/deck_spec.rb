@@ -7,6 +7,7 @@ RSpec.configure do |config|
 end
 
 RSpec.describe Deck do
+  #saw a before :each do example but not going to spend time on that right now.
 
   it 'exists' do
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
