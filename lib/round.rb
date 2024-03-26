@@ -97,11 +97,10 @@ class Round
         puts turn_4.feedback
 
         puts "****** Game over! ******"
-        puts "You had #{round.number_correct} out of #{deck.count} for a total score of #{round.percent_correct}"
-        puts "STEM - #{round.percent_correct_by_category(:STEM)}% correct"
-        puts "Turing Staff - #{round.percent_correct_by_category(:Turing Staff)}"
-        puts "Turing Staff - #{round.percent_correct_by_category(:Pop Culture)}"
-        
+        puts "You had #{number_correct} correct guesses out of #{deck.count} for a total score of #{percent_correct.to_i}%"
+        puts "STEM - #{percent_correct_by_category(:STEM).to_i}% correct"
+        puts "Turing Staff - #{percent_correct_by_category(:'Turing Staff').to_i}% correct"
+        puts "Pop Culture - #{percent_correct_by_category(:'Pop Culture').to_i}% correct"
     end
 
 end
