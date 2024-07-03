@@ -7,3 +7,7 @@ turn = Turn.new("Juneau", card)
 
 puts turn.card.question
 puts card
+
+puts turn.correct?
+puts turn.feedback
+
