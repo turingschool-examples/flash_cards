@@ -32,6 +32,11 @@ RSpec.describe Deck do
     it 'should return an empty array if category does not exist' do
         expect(@deck.cards_in_category('Pop Culture')).to eq []
     end
+
+    it 'lists off all available categories' do
+        @deck.get_categories
+        expect(@deck.categories).to eq [:Geography, :STEM]
+    end
 end
 
 
