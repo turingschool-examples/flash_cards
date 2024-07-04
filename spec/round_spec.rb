@@ -16,8 +16,33 @@ RSpec.describe Round do
     
   end
 
+
+
   it "has a deck that is a deck object" do
     expect(@round.deck).to be_instance_of(Deck)
   end
+
+  it "has a turns attribute that is a list" do
+    expect(@round.turns).to eq([])
+  end
+
+  it "keeps track of the current card" do
+    expect(@round.currnet_card).to be_instance_of(Card)
+  end
+
+  it "will produce a whole new turn object" do
+    new_turn = @round.take_turn("Juneau")
+    expect(new_turn).to be_instance_of(Turn)
+  end
+
+  it "produces a functioning Turn object" do
+    new_turn = @round.take_turn("Juneau")
+    expect(new_turn.correct?).to eq(true)
+  end
+
+
+
+
+
 
 end

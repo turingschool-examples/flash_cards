@@ -34,8 +34,11 @@ deck = Deck.new(cards) # the array of cards object
 round = Round.new(deck)
 
 
-p round.turns
-p round.deck
+new_turn = round.take_turn("Juneau")
 
+p round.turns
+
+
+# ruby lib/tester.rb
 
 # puts deck.cards[0].category
