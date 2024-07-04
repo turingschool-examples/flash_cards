@@ -6,5 +6,7 @@ class Deck
         @cards = cards
     end
 
-   
+#    def add_cards(cards)
+#     @cards.push(card)
+#    end
 end
