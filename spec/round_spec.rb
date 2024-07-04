@@ -18,15 +18,15 @@ RSpec.describe Deck do
         expect(@round).to be_instance_of(Round)
     end
 
-    xit 'can show the deck of cards within' do
+    it 'can show the deck of cards within' do
         expect(@round.deck).to eq(@deck)
     end
 
-    xit 'returns an empty array for start of round turns' do
-        expect(@round.turns).to eq[]
+    it 'returns an empty array for start of round turns' do
+        expect(@round.turns).to eq []
     end
 
-    xit 'shows the current card' do
+    it 'shows the current card' do
         expect(@round.current_card).to be_instance_of(Card)
         expect(@round.current_card).to eq(@deck.cards[0])
     end
