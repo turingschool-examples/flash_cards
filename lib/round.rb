@@ -6,7 +6,9 @@ class Round
     @deck = deck
     @turns = [] # turns taken
     @turn_counter = -1
-    @number_correct = 0 
+    @number_correct = 0
+    @correct_guesses = []
+
     new_card # find a new card
     
   end
@@ -37,9 +39,37 @@ class Round
      # if at any point we start inserting, this code will have to be updated
     if response_check
         @number_correct += 1
+        @correct_guesses << @turns[-1]
+        # puts response_check.class
     end
+
         
   end
+
+  def number_correct_by_category(category)
+    loop_count = 0
+    category_number_correct = 0
+    loop do
+    #   puts "Loop count #{loop_count}"
+      if loop_count == @correct_guesses.count
+        break
+      end
+
+      if @correct_guesses[loop_count].card.category == category
+        category_number_correct += 1
+      end
+      loop_count +=1
+    end
+
+  return category_number_correct
+
+  end
+
+  def percent_correct
+    percentage_of_correct_answers = (@number_correct.to_f / @turn.count) * 100
+  end
+
+
 
     
 

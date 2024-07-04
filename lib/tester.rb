@@ -33,11 +33,13 @@ cards = [card_1, card_2, card_3]
 deck = Deck.new(cards) # the array of cards object
 round = Round.new(deck)
 
-
+# puts deck.cards_in_category(:STEM)
 
 
 new_turn = round.take_turn("Juneau")
-puts round.number_correct
+round.number_correct
+puts round.number_correct_by_category(:Geography)
+puts round.number_correct_by_category(:STEM)
 
 # new_turn = round.take_turn("Venus")
 

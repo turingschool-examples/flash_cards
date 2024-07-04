@@ -13,7 +13,7 @@ class Deck
     category_array = []
     loop do
 
-      if loop_count == @count -1
+      if loop_count == @count
         break
       end
 
