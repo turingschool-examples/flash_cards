@@ -65,10 +65,43 @@ class Round
 
   end
 
-  def percent_correct
-    percentage_of_correct_answers = (@number_correct.to_f / @turn.count) * 100
+  def turns_taken_by_category(category)
+    loop_count = 0
+    category_array = []
+    puts "Turns count #{@turns.count}"
+
+
+    loop do
+      puts "loop_count #{loop_count}"
+
+      if loop_count == @turns.count
+          break
+      end
+    #   puts "correct_guesses"
+      if @turns[loop_count].card.category == category
+          category_array << @turns[loop_count].card
+          puts @turns[loop_count].card
+      end
+
+      loop_count +=1
+
+
+    end
+    return category_array
   end
 
+
+
+  def percent_correct
+    percentage_of_correct_answers = (@number_correct.to_f / @turns.count) * 100
+  end
+
+  def percent_correct_by_category(category)
+    turns_by_category = turns_taken_by_category(category)
+    correct_answers_by_category = number_correct_by_category(category)
+    percent_correct_answers_by_category = (correct_answers_by_category.to_f / turns_by_category.count) * 100
+
+  end
 
 
     
