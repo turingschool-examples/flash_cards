@@ -11,6 +11,6 @@ class Deck
     end
 
     def cards_in_category(category)
-        return deck.cards.category
+        return deck.category
     end
 end
