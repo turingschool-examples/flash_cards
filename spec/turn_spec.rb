@@ -5,7 +5,6 @@ RSpec.describe Turn do
 #If time try to figure out how to pull common methods out from all tests to simplify code
 
     it 'exists' do
-        #Check to see a Turn object is created
         card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
         turn = Turn.new("Juneau", card)
 
@@ -13,8 +12,7 @@ RSpec.describe Turn do
     end
 
     describe 'initializes' do
-        #Check to see initialization happens by checking each given parameter
-        before do
+         before do
             @card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
             @turn = Turn.new("Juneau", @card)
         end
@@ -29,20 +27,24 @@ RSpec.describe Turn do
     end
 
     it 'checks the answer' do
-        #Checks the guess with the answer on the card and sees if they're equal
-        #**IF TIME** Provide edge case testing such as correct answer but punctuation 
-        #is included or capitalization is wrong
         card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
         turn = Turn.new("Juneau", card)
 
         expect(turn.correct?).to eq true
     end
 
-    xit 'provides feedback to answer' do
-        #Provides a response to the user on quality of their answer
+    # it 'checks the answer even if capitalized wrong' do
+    #         #**IF TIME** Provide edge case testing such as correct answer but punctuation 
+    #     #is included or capitalization is wrong
+    # end
+
+    it 'provides feedback to answer' do
         card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
         turn = Turn.new("Juneau", card)
 
-        expect(turn.feedback).to be "Correct!"
+        expect(turn.feedback).to eq "Correct!"
+
+        turn = Turn.new("Cheboygan", card)
+        expect(turn.feedback).to eq "Better luck next time"
     end
 end
