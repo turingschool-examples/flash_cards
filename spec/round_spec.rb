@@ -31,59 +31,59 @@ RSpec.describe Deck do
         expect(@round.current_card).to eq(@deck.cards[0])
     end
 
-    # describe 'the turns' do
-    #     before (:all) do
-    #         @new_turn = @round.take_turn("Juneau")
-    #     end
+    describe 'the turns' do
+        before (:all) do
+            @new_turn = @round.take_turn("Juneau")
+        end
 
-    #     xit 'can take turns' do
-    #         expect(@new_turn).to be_instance_of(Turn)
-    #     end
+        it 'can take turns' do
+            expect(@new_turn).to eq(@round.turns)
+        end
 
-    #     xit 'can track if answer is correct' do
-    #         expect(@new_turn.correct?).to eq true
-    #     end 
+        it 'can track if answer is correct' do
+            expect(@new_turn[0].correct?).to eq true
+        end 
 
-    #     xit 'adds the turn to the turns array' do
-    #         expect(@round.turns).to eq(@round.deck[0])
-    #     end
+        it 'adds the turn to the turns array' do
+            expect(@new_turn).to eq(@round.turns)
+        end
 
-    #     xit 'tracks number of correct answers' do
-    #         expect(@round.number_correct).to eq 1
-    #     end
+        it 'tracks number of correct answers' do
+            expect(@round.number_correct).to eq 1
+        end
 
-    #     xit 'updates current card to the next available' do
-    #         expect(@round.current_card).to eq(@cards[1])
-    #     end
+        it 'updates current card to the next available' do
+            expect(@round.current_card).to eq(@round.deck.cards[1])
+        end
 
-    #     describe 'data available after two rounds' do
-    #         before (:all) do
-    #             round.take_turn("Venus")
-    #         end
+        describe 'data available after two rounds' do
+            before (:all) do
+                @round.take_turn("Venus")
+            end
 
-    #         xit 'plays second round' do
-    #             expect(@round.turns.count).to eq 2
-    #         end
+            xit 'plays second round' do
+                expect(@round.turns.count).to eq 2
+            end
             
-    #         xit 'reveals feedback for second round' do
-    #             expect(@round.turns.last.feedback).to eq "Incorrect"
-    #         end
+            xit 'reveals feedback for second round' do
+                expect(@round.turns.last.feedback).to eq "Incorrect"
+            end
 
-    #         xit 'tracks number correct and percentage' do
-    #             expect(@round.number_correct).to eq 1
-    #             expect(@round.percent_correct).to eq 50.0
-    #         end
+            xit 'tracks number correct and percentage' do
+                expect(@round.number_correct).to eq 1
+                expect(@round.percent_correct).to eq 50.0
+            end
 
-    #         xit 'tracks number correct by category and percentage by category' do
-    #             expect(@round.number_correct_by_category(:Geography)).to eq 1
-    #             expect(@round.number_correct_by_category(:STEM)).to eq 0
-    #             expect(@round.percent_correct_by_category(:Geography)).to eq 100.0
-    #         end
+            xit 'tracks number correct by category and percentage by category' do
+                expect(@round.number_correct_by_category(:Geography)).to eq 1
+                expect(@round.number_correct_by_category(:STEM)).to eq 0
+                expect(@round.percent_correct_by_category(:Geography)).to eq 100.0
+            end
 
-    #         xit 'shows last card in deck' do
-    #             expect(@round.current_card).to eq(@cards[2])
-    #         end
-    #     end
-    # end
+            xit 'shows last card in deck' do
+                expect(@round.current_card).to eq(@cards[2])
+            end
+        end
+    end
 
 end
