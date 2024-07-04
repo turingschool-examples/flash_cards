@@ -46,8 +46,12 @@ RSpec.describe Round do
     expect(@round.turns[0]).to be_instance_of(Turn)
   end
 
-
-
+  it "can keep cycling through the cards in the deck" do
+    new_turn = @round.take_turn("Juneau")
+    new_turn = @round.take_turn("Venus")
+    expect(@round.currnet_card).to eq(@card_2)
+    expect(@round.turns.count).to eq(2)
+  end
 
 
 end
