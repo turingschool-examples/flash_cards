@@ -31,6 +31,9 @@ RSpec.describe Turn do
         turn = Turn.new("Juneau", card)
 
         expect(turn.correct?).to eq true
+
+        turn = Turn.new("Cheboygan", card)
+        expect(turn.correct?).to eq false
     end
 
     # it 'checks the answer even if capitalized wrong' do
