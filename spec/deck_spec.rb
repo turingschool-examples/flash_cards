@@ -11,7 +11,18 @@ RSpec.describe Deck do
     
     end
 
- 
+    it 'is initialized with an array of cards' do
+        expect(@deck).to be_instance_of(Deck)
+        expect(@deck.cards).to eq(@cards)
+    end
+
+    it 'can return cards in a given category' do
+        expect(@deck.cards_in_category (:Geography)).to eq([@card_1])
+        expect(@deck.cards_in_category (:STEM)).to eq([@card_2, @card_3])
+        expect(@deck.cards_in_category (:Geography)).to eq([@card_1])
+        expect(@deck.cards_in_category (:PopCulture)).to eq([])
+    end
+
 end
 
     # it 'has a name' do
