@@ -5,10 +5,11 @@ class Turn
                 :card,
                 :correct,
                 :feedback
+                
     
     def initialize(guess, card)
         @guess = guess
-        @card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        @card = card
         @correct = true
         @feedback = feedback
     end
