@@ -34,25 +34,29 @@ deck = Deck.new(cards) # the array of cards object
 round = Round.new(deck)
 
 
-# new_turn = round.take_turn("Juneau")
+
+
+new_turn = round.take_turn("Juneau")
+puts round.number_correct
 
 # new_turn = round.take_turn("Venus")
 
-puts round.currnet_card
-puts 
-puts round.currnet_card.question
-round.new_card
-puts
-puts round.currnet_card.question
-round.new_card
-puts
-puts round.currnet_card.question
-round.new_card
-puts
-puts round.deck.count
-puts round.currnet_card.question
-puts round.currnet_card.class
+# puts round.currnet_card
+# puts 
+# puts round.currnet_card.question
+# round.new_card
+# puts
+# puts round.currnet_card.question
+# round.new_card
+# puts
+# puts round.currnet_card.question
+# round.new_card
+# puts
+# puts round.deck.count
+# puts round.currnet_card.question
+# puts round.currnet_card.class
 
 # ruby lib/tester.rb
 
 # puts deck.cards[0].category
+
