@@ -6,7 +6,11 @@ class Deck
         @cards = cards
     end
 
-#    def add_cards(cards)
-#     @cards.push(card)
-#    end
+    def count
+        @cards.length
+    end
+
+    def cards_in_category(category)
+        return deck.cards.category
+    end
 end
