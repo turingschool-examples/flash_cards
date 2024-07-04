@@ -16,12 +16,12 @@ RSpec.describe Deck do
         expect(@deck).to be_instance_of(Deck)
     end
 
-    xit 'has cards' do
+    it 'has cards' do
         expect(@deck.cards).to eq(@cards)
     end
 
-    xit 'can count the number of cards in the deck' do
-        expect(@decks.count).to eq 3
+    it 'can count the number of cards in the deck' do
+        expect(@deck.count).to eq 3
     end
 
     xit 'can call all cards from specific categories' do
