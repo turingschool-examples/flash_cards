@@ -29,7 +29,7 @@ RSpec.describe Deck do
         expect(@deck.cards_in_category(:Geography)).to eq [@card_1]
     end
 
-    xit 'should return an empty array if category does not exist' do
+    it 'should return an empty array if category does not exist' do
         expect(@deck.cards_in_category('Pop Culture')).to eq []
     end
 end
