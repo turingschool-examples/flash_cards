@@ -20,7 +20,8 @@ RSpec.describe Card do
   end
 
   it 'has a category' do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card = Card.new("What is the capital of Alaska?", 
+    "Juneau", :Geography)
 
     expect(card.category).to eq(:Geography)
   end
