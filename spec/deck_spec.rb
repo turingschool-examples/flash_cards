@@ -17,8 +17,8 @@ RSpec.describe 'deck' do
         expect(@deck.cards).to be_instance_of(Array).and all(be_instance_of(Card))
     end
 
-    xit 'has an observable length' do
-        #code here
+    it 'has an observable length' do
+        expect(@deck.cards.count).to eq 3
     end
 
     xit 'should return cards based on their category' do
