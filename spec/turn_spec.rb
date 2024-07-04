@@ -30,7 +30,7 @@ RSpec.describe Turn do
     end
     
     it "returns 'Incorrect.' when guess is incorrect" do
-      turn = Turn.new("Anchorage", card)
+      turn = Turn.new("Ottowa", card)
       expect(turn.feedback).to eq "Incorrect."
     end
   end
