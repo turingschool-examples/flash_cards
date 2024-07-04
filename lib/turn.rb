@@ -13,9 +13,7 @@ class Turn
         false
     end
 
-    # def feedback
-    #     if guess.correct? == true
-    #         return "Correct!"
-    #     end
-    # end
+    def feedback
+        return "Correct!"
+    end
 end
