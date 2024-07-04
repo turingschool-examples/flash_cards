@@ -34,6 +34,8 @@ deck = Deck.new(cards) # the array of cards object
 round = Round.new(deck)
 
 
-p deck.cards_in_category(:Geography)
+p round.turns
+p round.deck
+
 
 # puts deck.cards[0].category
