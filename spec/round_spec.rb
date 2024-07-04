@@ -46,12 +46,28 @@ RSpec.describe Round do
     expect(@round.turns[0]).to be_instance_of(Turn)
   end
 
+  it "can keep track of number of correct answers" do
+    new_turn = @round.take_turn("Juneau")
+    expect(@round.number_correct).to eq(1)
+  end
+
   it "can keep cycling through the cards in the deck" do
     new_turn = @round.take_turn("Juneau")
     new_turn = @round.take_turn("Venus")
-    expect(@round.currnet_card).to eq(@card_2)
+    expect(@round.currnet_card).to eq(@card_3)
+    # expecting @card_3 as everytime you input new_turn, it fetches a new card
     expect(@round.turns.count).to eq(2)
   end
+
+  it "it can provide feedback based on your answers" do
+    new_turn = @round.take_turn("Juneau")
+    expect(@round.turns.last.feedback).to eq("Correct!")
+
+    new_turn = @round.take_turn("Venus")
+    expect(@round.turns.last.feedback).to eq("Incorrect.")
+  end
+
+
 
 
 end
