@@ -14,9 +14,9 @@ class Turn
     end
 
     def feedback
-        if guess == true
+        if @guess == guess
             return "Correct!"
-        else
+        elsif @guess != guess
             return "Incorrect."
         end
     end
