@@ -1,5 +1,4 @@
 require './lib/turn'
-require './lib/card'
 
 RSpec.describe Turn do
     before(:each) do
@@ -26,7 +25,6 @@ RSpec.describe Turn do
 
     it 'has correctness' do
         turn = Turn.new("Juneau", @card)
-        require 'pry'; binding.pry
 
         expect(turn.correct?).to be true
 
