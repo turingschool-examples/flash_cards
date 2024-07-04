@@ -10,15 +10,13 @@ class Deck
         @cards.length
     end
 
-    def cards_in_category(category)
-        if @cards[0].category == category
-            return @cards[0]
-        end
-    end
-
     # def cards_in_category(category)
-    #     if cards.any?(category)
-            
+    #     if @cards[0].category == category
+    #         return @cards[0]
     #     end
     # end
+
+    def cards_in_category(category)
+        @cards.select {|cards| cards.category == category }
+    end
 end
