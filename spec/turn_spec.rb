@@ -4,8 +4,35 @@ require 'pry'
 
 RSpec.describe Turn do
     it "initializes with guess and card" do
+        card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
         turn = Turn.new("Juneau", card)
         expect(turn.guess).to eq "Juneau"
         expect(turn.card).to eq card
+    end
+
+    describe 'correct?' do
+      it 'true when it is correct' do
+        card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        turn = Turn.new("Juneau", card)
+        expect(turn.correct?).to be true
       end
-    end 
+
+      it 'is false when incorrect' do
+        card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        turn = Turn.new("Ottowa", card)
+        expect(turn.correct?).to be false
+      end
+    end
+    describe 'feedback' do
+    it "returns correct! when correct" do
+      turn = Turn.new("Juneau", card)
+      expect(turn.feedback).to eq "Correct!"
+    end
+    
+    it "returns 'Incorrect.' when guess is incorrect" do
+      turn = Turn.new("Anchorage", card)
+      expect(turn.feedback).to eq "Incorrect."
+    end
+  end
+
+end
