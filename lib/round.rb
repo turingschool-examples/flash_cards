@@ -1,7 +1,8 @@
 class Round
     attr_accessor :deck,
                   :turns,
-                  :number_correct
+                  :number_correct,
+                  :turn
 
     def initialize(deck)
         @deck = deck
@@ -22,6 +23,11 @@ class Round
             @number_correct += 1
         end
         turns.push(turn)
+    end
+
+    def percent_correct
+        value = @number_correct.fdiv(@turn)
+        value = value * 100
     end
 
 end

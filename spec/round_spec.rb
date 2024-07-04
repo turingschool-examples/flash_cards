@@ -61,15 +61,15 @@ RSpec.describe Deck do
                 @round.take_turn("Venus")
             end
 
-            xit 'plays second round' do
+            it 'plays second round' do
                 expect(@round.turns.count).to eq 2
             end
             
-            xit 'reveals feedback for second round' do
-                expect(@round.turns.last.feedback).to eq "Incorrect"
+            it 'reveals feedback for second round' do
+                expect(@round.turns.last.feedback).to eq "Better luck next time"
             end
 
-            xit 'tracks number correct and percentage' do
+            it 'tracks number correct and percentage' do
                 expect(@round.number_correct).to eq 1
                 expect(@round.percent_correct).to eq 50.0
             end
