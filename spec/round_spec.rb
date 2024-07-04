@@ -74,7 +74,7 @@ RSpec.describe Deck do
                 expect(@round.percent_correct).to eq 50.0
             end
 
-            xit 'tracks number correct by category and percentage by category' do
+            it 'tracks number correct by category and percentage by category' do
                 expect(@round.number_correct_by_category(:Geography)).to eq 1
                 expect(@round.number_correct_by_category(:STEM)).to eq 0
                 expect(@round.percent_correct_by_category(:Geography)).to eq 100.0

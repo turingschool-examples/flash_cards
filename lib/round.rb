@@ -10,6 +10,7 @@ class Round
         @turn = 0
         @current_card = @deck.cards[@turn]
         @number_correct = 0
+        set_correct_by_category
     end
 
     def current_card
@@ -29,5 +30,15 @@ class Round
         value = @number_correct.fdiv(@turn)
         value = value * 100
     end
+
+    def set_correct_by_category
+        @correct_by_category = @deck.categories
+        #Need to convert the categories into seperate hashs
+    end
+
+    def number_correct_by_category(category)
+        @correct_by_category.fetch(category)
+    end
+
 
 end
