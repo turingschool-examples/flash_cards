@@ -14,6 +14,10 @@ class Turn
     end
 
     def feedback
-        return "Correct!"
+        if guess == true
+            return "Correct!"
+        else
+            return "Incorrect."
+        end
     end
 end
