@@ -12,17 +12,19 @@ RSpec.describe Turn do
         expect(turn).to be_instance_of(Turn)
     end
 
-    xit 'initializes' do
+    describe 'initializes' do
         #Check to see initialization happens by checking each given parameter
-        card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-        turn = Turn.new("Juneau", card)
+        before do
+            @card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+            @turn = Turn.new("Juneau", @card)
+        end
 
         it 'has a guess' do
-            expect(turn.guess).to eq("Juneau")
+            expect(@turn.guess).to eq("Juneau")
         end
 
         it 'has a card' do
-            expect(turn.card).to eq(card)
+            expect(@turn.card).to eq(@card)
         end
     end
 
