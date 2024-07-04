@@ -40,6 +40,11 @@ RSpec.describe Round do
     expect(new_turn.correct?).to eq(true)
   end
 
+  it "loads the new Turn object it produces into the @turns array" do
+    new_turn = @round.take_turn("Juneau")
+    expect(@round.turns.length).to eq(1)
+    expect(@round.turns[0]).to be_instance_of(Turn)
+  end
 
 
 
