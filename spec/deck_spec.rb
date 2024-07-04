@@ -24,7 +24,7 @@ RSpec.describe Deck do
         expect(@deck.count).to eq 3
     end
 
-    xit 'can call all cards from specific categories' do
+    it 'can call all cards from specific categories' do
         expect(@deck.cards_in_category(:STEM)).to eq [@card_2, @card_3]
         expect(@deck.cards_in_category(:Geography)).to eq [@card_1]
     end
