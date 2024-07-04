@@ -28,14 +28,14 @@ RSpec.describe Turn do
         end
     end
 
-    xit 'checks the answer' do
+    it 'checks the answer' do
         #Checks the guess with the answer on the card and sees if they're equal
         #**IF TIME** Provide edge case testing such as correct answer but punctuation 
         #is included or capitalization is wrong
         card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
         turn = Turn.new("Juneau", card)
 
-        expect(turn.correct?).to eq True
+        expect(turn.correct?).to eq true
     end
 
     xit 'provides feedback to answer' do
