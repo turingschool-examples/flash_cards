@@ -1,6 +1,6 @@
 class Round
   require './lib/turn'
-  attr_reader :deck, :turns, :currnet_card, :number_correct
+  attr_reader :deck, :turns, :current_card, :number_correct
 
   def initialize(deck)
     @deck = deck
@@ -17,15 +17,15 @@ class Round
     if (@deck.count - 1) > @turn_counter # subtracted -1 from deck.count so that it matches computers counting which begins from 0
       @turn_counter += 1
     # puts("Create a new card at index #{@turn_counter}")
-      @currnet_card = @deck.cards[@turn_counter]
+      @current_card = @deck.cards[@turn_counter]
     else
-      puts ("\n\n!!!You've reached your limit!!!\n\n")
+    #   puts ("\n\n!!!You've reached your limit!!!\n\n")
     end
 
   end
 
   def take_turn(guess)
-    new_turn = Turn.new(guess,@currnet_card)
+    new_turn = Turn.new(guess,@current_card)
     @turns << new_turn
     verify_guess
     new_card # fetch a new card
@@ -68,11 +68,11 @@ class Round
   def turns_taken_by_category(category)
     loop_count = 0
     category_array = []
-    puts "Turns count #{@turns.count}"
+    # puts "Turns count #{@turns.count}"
 
 
     loop do
-      puts "loop_count #{loop_count}"
+    #   puts "loop_count #{loop_count}"
 
       if loop_count == @turns.count
           break
@@ -80,7 +80,7 @@ class Round
     #   puts "correct_guesses"
       if @turns[loop_count].card.category == category
           category_array << @turns[loop_count].card
-          puts @turns[loop_count].card
+        #   puts @turns[loop_count].card
       end
 
       loop_count +=1

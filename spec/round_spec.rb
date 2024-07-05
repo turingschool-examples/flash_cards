@@ -16,8 +16,6 @@ RSpec.describe Round do
     
   end
 
-
-
   it "has a deck that is a deck object" do
     expect(@round.deck).to be_instance_of(Deck)
   end
@@ -27,7 +25,7 @@ RSpec.describe Round do
   end
 
   it "keeps track of the current card" do
-    expect(@round.currnet_card).to be_instance_of(Card)
+    expect(@round.current_card).to be_instance_of(Card)
   end
 
   it "will produce a whole new turn object" do
@@ -54,18 +52,51 @@ RSpec.describe Round do
   it "can keep cycling through the cards in the deck" do
     new_turn = @round.take_turn("Juneau")
     new_turn = @round.take_turn("Venus")
-    expect(@round.currnet_card).to eq(@card_3)
+    expect(@round.current_card).to eq(@card_3)
     # expecting @card_3 as everytime you input new_turn, it fetches a new card
     expect(@round.turns.count).to eq(2)
   end
 
-  it "it can provide feedback based on your answers" do
+  it "can provide feedback based on your answers" do
     new_turn = @round.take_turn("Juneau")
     expect(@round.turns.last.feedback).to eq("Correct!")
 
     new_turn = @round.take_turn("Venus")
     expect(@round.turns.last.feedback).to eq("Incorrect.")
   end
+
+  it "keeps track of correct answers" do
+    new_turn = @round.take_turn("Juneau") # correct answer
+    @round.take_turn("Venus") # incorrect answer
+    expect(@round.number_correct).to eq(1)
+  end
+
+  it "keeps track of correct answers by category" do
+    new_turn = @round.take_turn("Juneau") # correct answer for Georgraphy
+    new_turn = @round.take_turn("Venus") # incorrect answer for STEM
+    @round.take_turn("North north west") # correct answer for STEM
+    expect(@round.number_correct_by_category(:Geography)).to eq(1)
+    expect(@round.number_correct_by_category(:STEM)).to eq(1)
+  end
+
+  it "can tell you percent of answers that are correct" do
+    new_turn = @round.take_turn("Juneau") # correct answer for Georgraphy
+    new_turn = @round.take_turn("Venus") # incorrect answer for STEM
+    expect(@round.percent_correct).to eq(50.0)
+  end
+
+  it "can tell you percent of answers that are correct by category" do
+    new_turn = @round.take_turn("Juneau") # correct answer for Georgraphy
+    new_turn = @round.take_turn("Venus") # incorrect answer for STEM
+    expect(@round.percent_correct_by_category(:Geography)).to eq(100.0)
+  end
+
+  it "accurately keeps track of current_card" do
+    new_turn = @round.take_turn("Juneau")
+    new_turn = @round.take_turn("Venus")
+    expect(@round.current_card).to eq(@card_3)
+  end
+
 
 
 
