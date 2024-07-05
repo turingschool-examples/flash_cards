@@ -1,6 +1,6 @@
 require './lib/turn'
 
-Rspec.describe Turn do
+RSpec.describe Turn do
   it 'exists' do
     turn = Turn.new("Is it guess?", :card)
 
