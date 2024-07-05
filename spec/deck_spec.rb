@@ -21,7 +21,7 @@ RSpec.describe 'deck' do
         expect(@deck.cards.count).to eq 3
     end
 
-    xit 'should return cards based on their category' do
-        #code here
+    it 'should return cards based on their category' do
+        expect(@deck.cards_in_catagory(:STEM)).to all(include("STEM"))
     end
 end
