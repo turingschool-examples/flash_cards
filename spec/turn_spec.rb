@@ -1,5 +1,4 @@
 require './lib/turn'
-require './lib/card'
 
 Rspec.describe Turn do
   it 'exists' do
