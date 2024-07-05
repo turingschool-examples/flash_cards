@@ -22,16 +22,18 @@ class Round
         turn = Turn.new(guess, @current_card)
         @turn += 1
         @category_count[@current_card.category] = (@category_count[@current_card.category] += 1)
-         if turn.correct?
-            @number_correct += 1
-            @correct_by_category[@current_card.category] = (@correct_by_category[@current_card.category] += 1)
-        end
+            if turn.correct?
+                @number_correct += 1
+                @correct_by_category[@current_card.category] = (@correct_by_category[@current_card.category] += 1)
+            end
+        puts turn.feedback
         turns.push(turn)
     end
 
     def percent_correct
         value = @number_correct.fdiv(@turn)
-        value = value * 100
+
+        value = (value * 100).round
     end
 
     def set_correct_by_category
@@ -48,7 +50,7 @@ class Round
 
     def percent_correct_by_category(category)
         value = @correct_by_category[category].fdiv(@category_count[category])
-        value = value * 100
+        value = (value * 100).round
     end
 
 
