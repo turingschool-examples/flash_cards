@@ -6,7 +6,7 @@ class Deck
     def initialize(cards)
         @cards = cards
         @count = cards.count
-        get_categories
+        @categories = get_categories
     end
 
     def cards_in_category(category)
@@ -15,10 +15,9 @@ class Deck
 
     def get_categories
         @categories = []
-        for card in @cards
-            if !(@categories.include?(card.category)) 
-                @categories.push(card.category)
-            end
+        cards.each do |card|
+            @categories << card.category
         end
+        @categories.uniq!
     end
 end
