@@ -10,8 +10,8 @@ class Round
         @turn = 0
         @current_card = @deck.cards[@turn]
         @number_correct = 0
-        set_correct_by_category
-        set_category_count
+        @correct_by_category = set_correct_by_category
+        @category_count = set_category_count
     end
 
     def current_card
@@ -22,7 +22,7 @@ class Round
         turn = Turn.new(guess, @current_card)
         @turn += 1
         @category_count[@current_card.category] = (@category_count[@current_card.category] += 1)
-        if turn.correct?
+         if turn.correct?
             @number_correct += 1
             @correct_by_category[@current_card.category] = (@correct_by_category[@current_card.category] += 1)
         end
@@ -35,13 +35,11 @@ class Round
     end
 
     def set_correct_by_category
-        @correct_by_category = Hash.new
-        @deck.categories.each {|category| @correct_by_category[category] = 0 }
+        @correct_by_category = @deck.categories.to_h {|category| [category, 0] }
     end
 
     def set_category_count
-        @category_count = Hash.new
-        @deck.categories.each {|category| @category_count[category] = 0 }
+        @category_count = @deck.categories.to_h {|category| [category, 0] }
     end
 
     def number_correct_by_category(category)
