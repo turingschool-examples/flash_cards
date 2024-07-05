@@ -80,7 +80,7 @@ RSpec.describe Deck do
                 expect(@round.percent_correct_by_category(:Geography)).to eq 100.0
             end
 
-            xit 'shows last card in deck' do
+            it 'shows last card in deck' do
                 expect(@round.current_card).to eq(@cards[2])
             end
         end
