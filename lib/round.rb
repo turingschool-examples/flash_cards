@@ -8,5 +8,10 @@ class Round
         @turns = []
     end
 
-    
+    def current_card
+        # @cards.select {|cards| cards.first }
+        # @deck.fetch(0)
+        # @deck.first
+        # cards.each
+    end
 end
