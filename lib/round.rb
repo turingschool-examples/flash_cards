@@ -20,6 +20,7 @@ class Round
             "Your guess must be a string"
         else 
             @turn = Turn.new(user_guess, @current_card)
+            @turns.push(turn)
         end
     end
 end
