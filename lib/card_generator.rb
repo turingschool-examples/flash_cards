@@ -2,7 +2,9 @@
 
 File.foreach("./lib/card.txt") do |line| 
   puts line
-  puts line.class
+  cards_data = line.chomp.split(",")
+  p cards_data
+  # puts line.class
 end
 
 
