@@ -21,8 +21,8 @@ RSpec.describe Deck do
     expect(@deck.count).to eq(3)
    end
 
-   it 'returns cards in category'
-   expect(@deck.cards_in_category(:STEM)).to eq([@card_2, @card_3])
-   
+   it 'returns cards in category' do
+    expect(@deck.cards_in_category(:STEM)).to eq([@card_2, @card_3])
+   end
 
 end
