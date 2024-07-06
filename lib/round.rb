@@ -2,6 +2,7 @@ require './lib/deck'
 require './lib/turn'
 
 class Round
+
     attr_reader :turns, 
                 :turn,
                 :take_turn,
@@ -20,6 +21,7 @@ class Round
         @current_card = @deck.cards[0]
         @turn = turn
         @number_correct = 0
+        @correct_turn = []
 
     end
     
@@ -32,6 +34,7 @@ class Round
             @deck.cards.rotate!
             @current_card = @deck.cards[0]
             if @turn.correct?
+                @correct_turn.push(@turn)
                 @number_correct += 1
             end
             @turn
@@ -50,8 +53,14 @@ class Round
        (percent_fig1 / percent_fig2) * 100
     end
 
-    def number_correct_by_category(category)
-
+    def number_correct_by_category(cat)
+            correct_answer_per_cat = 0
+            @correct_turn.each {|x|
+                if x.card.category == cat
+                    correct_answer_per_cat += 1
+                end
+            }
+        return correct_answer_per_cat
     end
 
     def percent_correct_by_category(category)

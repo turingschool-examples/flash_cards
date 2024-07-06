@@ -11,7 +11,6 @@ class Deck
     def initialize(cards)
         @cards = cards
         @count = @cards.length
-        @category_list = {}
     end
 
     def cards_in_category(cat)
