@@ -6,20 +6,19 @@ class Turn
   def initialize(guess, card)
     @guess = guess
     @card = card
+    @answer = @card.answer
   end
 
   def correct?
-    return true if @guess = @answer
     return true if @guess = @card.answer
-   false
+    false
   end
 
   def feedback
-    return "Incorrect." if @guess != @card.answer
-    "Correct!"
-  end
-
+    if @guess == @answer
+        "Correct!"
+    else
+        "Incorrect."
+    end
+  end  
 end
-
-
-
