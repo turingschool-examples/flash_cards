@@ -11,10 +11,6 @@ RSpec.describe Deck do
         @deck = Deck.new(@cards)
     end
 
-    it 'deck exists' do
-        expect(@deck).to be_an_instance_of(Deck)
-    end
-
     it 'contains cards' do 
         expect(@deck.cards).to eq(@cards)
     end
@@ -22,14 +18,18 @@ RSpec.describe Deck do
     it 'returns specific cards' do
         expect(@deck.count).to eq(3)
     end
-    
-    it 'retuns card_1' do 
-        expect(@deck.cards_in_category(:STEM)).to eq(@card_1)
+
+    it 'returns cards in STEM' do
+        expect(@deck.cards_in_category(:STEM)).to eq([@card_2, @card_3])
     end
 
-    xit 'returns card_2 and card_3' do
-        expect(@deck.cards_in_category(:Geography)).to eq(@card_2, @card_3)
+    it 'returns cards in Geography category' do
+        expect(@deck.cards_in_category(:Geography)).to eq([@card_1])
     end
+    
+    it 'returns an empty array for unknown category' do
+        expect(@deck.cards_in_category("Pop Culture")).to eq([])
+    end   
 
 
     
