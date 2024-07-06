@@ -46,7 +46,10 @@ RSpec.describe 'round' do
         expect(@round.take_turn("swag")). to eq @round.turn
     end
     
-    xit 'has a take_turn method that stores turn in turns array' do
+    it 'has a take_turn method that stores turn in turns array' do
+        @round.take_turn("swag")
+
+        expect(@round.turns).to include(@round.turn)
 
     end
 
