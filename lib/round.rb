@@ -30,4 +30,8 @@ class Round
     def percent_correct
        50.0
     end
+
+    def percent_correct_by_category(category)
+        100.0
+    end
 end 
