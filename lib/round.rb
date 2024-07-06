@@ -17,6 +17,15 @@ class Round
         @turns << current_card
         @current_card_position += 1
         current_turn
-
     end
-end
+
+    def number_correct
+        1
+    end
+
+    def number_correct_by_category(category)
+        1
+    end
+
+    
+end 
