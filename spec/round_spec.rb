@@ -24,4 +24,19 @@ RSpec.describe Round do
         expect(@round.deck).to eq(@deck)
     end
 
+    it 'takes empty turn array' do 
+        expect(@round.turns).to be_empty 
+    end
+
+    it 'gives current card' do
+        expect(@round.current_card).to eq(@card_1)
+    end
+
+    it 'takes turns' do 
+        expect(@round.turns.count).to eq(0)
+        new_turn = @round.take_turn("Juneau")
+        expect(new_turn).to be_a(Turn)
+        expect(@round.turns.count).to eq(1)
+    end
+
 end
