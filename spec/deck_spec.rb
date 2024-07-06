@@ -24,7 +24,11 @@ RSpec.describe Deck do
     end
     
     it 'retuns card_1' do 
-        expect(@deck.cards_in_category(:Geography)).to eq(card_1)
+        expect(@deck.cards_in_category(:STEM)).to eq(@card_1)
+    end
+
+    xit 'returns card_2 and card_3' do
+        expect(@deck.cards_in_category(:Geography)).to eq(@card_2, @card_3)
     end
 
 
