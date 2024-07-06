@@ -71,7 +71,7 @@ RSpec.describe 'round' do
         @round.take_turn("Juneau")
         @round.take_turn("incorrect answer")
 
-        expect(@round.percent_correct_by_category). to eq 50.0
+        expect(@round.percent_correct). to eq 50.0
     end
 
     it 'should track number of correct answers per category' do

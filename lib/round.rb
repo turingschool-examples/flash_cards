@@ -9,8 +9,8 @@ class Round
                 :current_card,
                 :deck,
                 :number_correct,
-                :number_correct_by_category,
                 :percent_correct,
+                :number_correct_by_category,
                 :percent_correct_by_category
     
     
@@ -20,7 +20,6 @@ class Round
         @current_card = @deck.cards[0]
         @turn = turn
         @number_correct = 0
-        @number_correct_by_category = 0
 
     end
     
@@ -32,23 +31,30 @@ class Round
             @turns.push(turn)
             @deck.cards.rotate!
             @current_card = @deck.cards[0]
+            if @turn.correct?
+                @number_correct += 1
+            end
             @turn
         end
     end
 
     def number_correct
+        @number_correct
+    end
 
+    def percent_correct
+       percent_fig1 =  @number_correct.to_f
+       percent_fig2 = @turns.length.to_f
+       
+       
+       (percent_fig1 / percent_fig2) * 100
     end
 
     def number_correct_by_category(category)
 
     end
 
-    def percent_correct
+    # def percent_correct_by_category(category)
 
-    end
-
-    def percent_correct_by_category(category)
-
-    end
+    # end
 end
