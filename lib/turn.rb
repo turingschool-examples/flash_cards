@@ -6,7 +6,7 @@ class Turn
     @guess = guess
     @card = card
     
-    if @guess == @card.answer
+    if @guess.downcase == @card.answer.downcase
       @feedback = "Correct!"
     else
       @feedback = "Incorrect."
