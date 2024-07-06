@@ -1,9 +1,8 @@
 class Deck
 
-    attr_reader :cards, :soda
+    attr_reader :cards
 
-    def initialize(cards, soda)
+    def initialize(cards)
         @cards = cards #cards should be an array
-        @soda = soda
     end
 end
