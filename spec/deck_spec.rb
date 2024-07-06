@@ -22,6 +22,7 @@ RSpec.describe Deck do
    end
 
    it 'returns cards in category' do
+    expect(@deck.cards_in_category(:Geography)).to eq([@card_1])
     expect(@deck.cards_in_category(:STEM)).to eq([@card_2, @card_3])
    end
 
