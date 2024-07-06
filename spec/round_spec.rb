@@ -84,7 +84,12 @@ RSpec.describe 'round' do
     it 'should track percent of correct answers per category' do
         @round.take_turn("Juneau")
         @round.take_turn("incorrect answer")
-
+        @round.take_turn("North north west")
+        require 'pry';binding.pry
         expect(@round.percent_correct_by_category(:Geography)). to eq 100.0
+        
+        expect(@round.percent_correct_by_category(:STEM)). to eq 50.0
+
+
     end
 end

@@ -22,6 +22,7 @@ class Round
         @turn = turn
         @number_correct = 0
         @correct_turn = []
+        
 
     end
     
@@ -30,7 +31,7 @@ class Round
             "Your guess must be a string"
         else 
             @turn = Turn.new(user_guess, @current_card)
-            @turns.push(turn)
+            @turns.push(@turn)
             @deck.cards.rotate!
             @current_card = @deck.cards[0]
             if @turn.correct?
@@ -54,7 +55,7 @@ class Round
     end
 
     def number_correct_by_category(cat)
-            correct_answer_per_cat = 0
+        correct_answer_per_cat = 0
             @correct_turn.each {|x|
                 if x.card.category == cat
                     correct_answer_per_cat += 1
@@ -63,7 +64,24 @@ class Round
         return correct_answer_per_cat
     end
 
-    def percent_correct_by_category(category)
+    def percent_correct_by_category(cat)
+        correct_answer_per_cat = 0
+            @correct_turn.each {|x|
+                if x.card.category == cat
+                    correct_answer_per_cat += 1
+                end
+            }
 
+        total_answer_per_cat = 0
+            @turns.each {|x|
+                if x.card.category == cat
+                    total_answer_per_cat += 1
+                end
+            }
+        
+        percent_fig1 = correct_answer_per_cat.to_f
+        percent_fig2 = total_answer_per_cat.to_f
+
+        (percent_fig1 / percent_fig2) * 100
     end
 end
