@@ -5,11 +5,11 @@ class Turn
     
     def initialize (guess, card)
         @guess = guess
-        @card = card.answer
+        @card = card
       end
 
     def correct?
-        if @guess == @card
+        if @guess == @card.answer
             true
         else
             false
