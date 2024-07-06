@@ -4,10 +4,19 @@ class Round
     def initialize(deck)
         @deck = deck
         @turns = []
+        @current_card_position = 0
 
     end
 
     def current_card
         @deck.cards[0]
+    end
+
+    def take_turn(guess)
+        current_turn = Turn.new(current_card, guess)
+        @turns << current_card
+        @current_card_position += 1
+        current_turn
+
     end
 end
