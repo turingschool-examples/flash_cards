@@ -70,7 +70,10 @@ def start(cards)
     puts "Question: #{round.current_card.question}"
 
     user_input = gets.chomp # get rid of the pesky "\n" that is being returned!
-    new_turn = round.take_turn(user_input)
+    round.take_turn(user_input)
+    puts round.turns.last.feedback
+    
+    gets
   end
 
 
