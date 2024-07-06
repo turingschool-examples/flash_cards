@@ -23,26 +23,12 @@ RSpec.describe Turn do
    it 'returns appropriate feedback for true' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
-    # turn.correct?
     expect(turn.feedback).to eq("Correct!")
    end
 
    it 'returns appropriate feedback for false' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Texas", card)
-    # turn.correct?
     expect(turn.feedback).to eq("Incorrect.")
    end
-#   it `returns the card?` do
-#     turn = Turn.new("Juneau", :card)
-#     expect(Card.new).to eq(card)
-#   end
-
-#   it 'returns true if correct' do
-#     turn = Turn.new("Juneau", :card)
-#     expect(turn.correct?).to be true
-#   end
-
-
-
 end

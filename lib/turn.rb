@@ -4,7 +4,6 @@ class Turn
     def initialize(guess, card)
         @guess = guess
         @card = card
-        # result = true
     end
 
     def correct?
@@ -23,25 +22,3 @@ class Turn
         end
     end
 end
-
-# def card
-    #     return @card
-    # end
-
-    # def correct?
-    #     if Turn.guess == @card.answer
-    #         result = true
-    #     else
-    #         result = false
-    #     end
-    # end
-
-    # def feedback
-    #     if result == true
-    #         puts "Correct!"
-    #     elsif result == false
-    #         puts "Incorrect"
-    #     else
-    #         puts "Error, try again"
-    #     end
-    # end
