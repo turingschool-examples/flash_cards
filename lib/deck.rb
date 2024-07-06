@@ -6,16 +6,10 @@ class Deck
         @count = @cards.length
     end
 
-    # def count
-    #     cards.length
-    # end
-
     def cards_in_category(input_category)
         return_array = []
         count = 0
         @count.times do |index|
-            # puts index
-            # puts @cards[index].category
             if @cards[index].category == input_category
                 return_array.push(@cards[index])
             end
