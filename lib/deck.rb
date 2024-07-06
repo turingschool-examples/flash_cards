@@ -3,8 +3,8 @@ require './lib/turn'
 
 class Deck
     attr_accessor :cards,
-                :count,
-                :cards_in_category
+                  :count,
+                  :cards_in_category
 
     def initialize(cards)
         @cards = cards

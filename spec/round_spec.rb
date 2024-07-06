@@ -57,7 +57,7 @@ RSpec.describe 'round' do
     it 'has a take_turn method that increments the current card instance' do
         @round.take_turn("swag")
 
-        expect(@round.current_card).to be @card_2
+        expect(@round.current_card).to eq @card_2
 
     end
 end

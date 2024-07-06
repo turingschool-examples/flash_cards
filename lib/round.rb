@@ -2,10 +2,13 @@ require './lib/deck'
 require './lib/turn'
 
 class Round
-    attr_reader :deck,
-                :turns, 
-                :current_card,
+    attr_reader :turns, 
                 :turn
+    
+    attr_accessor :take_turn,
+                  :cards,
+                  :current_card,
+                  :deck
     
     def initialize(deck)
         @deck = deck
@@ -21,6 +24,8 @@ class Round
         else 
             @turn = Turn.new(user_guess, @current_card)
             @turns.push(turn)
+            @deck.cards.rotate!
+            @current_card = @deck.cards[0]
         end
     end
 end
