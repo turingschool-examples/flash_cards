@@ -10,8 +10,8 @@ class CardGenerator
       # puts line
       cards_data = line.chomp.split(",")
       cards_data[2] = cards_data[2].to_sym
-      puts cards_data[2].class
-      puts cards_data[2]
+      # puts cards_data[2].class
+      # puts cards_data[2]
       card = Card.new(cards_data[0],cards_data[1],cards_data[2])
       @cards << card
     end
@@ -19,5 +19,5 @@ class CardGenerator
 
 end
 
-card_generator = CardGenerator.new
-puts card_generator.cards
+# card_generator = CardGenerator.new
+# puts card_generator.cards
