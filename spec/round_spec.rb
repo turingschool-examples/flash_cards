@@ -14,6 +14,7 @@ RSpec.describe 'round' do
         @card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
         @deck = Deck.new([@card_1, @card_2, @card_3])
         @round = Round.new(@deck)
+        
     end
     it 'should exist' do
 
@@ -22,5 +23,9 @@ RSpec.describe 'round' do
 
     it 'should have an attribute named turns' do
         expect(@round.turns).to be_an_instance_of Array
+    end
+
+    it 'has a current_card method which returns the first card in the cards array' do
+        expect(@round.current_card).to eq @card_1
     end
 end
