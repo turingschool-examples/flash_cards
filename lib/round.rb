@@ -7,7 +7,11 @@ class Round
                 :take_turn,
                 :cards,
                 :current_card,
-                :deck
+                :deck,
+                :number_correct,
+                :number_correct_by_category,
+                :percent_correct,
+                :percent_correct_by_category
     
     
     def initialize(deck)
@@ -15,6 +19,8 @@ class Round
         @turns = []
         @current_card = @deck.cards[0]
         @turn = turn
+        @number_correct = 0
+        @number_correct_by_category = 0
 
     end
     
@@ -26,6 +32,23 @@ class Round
             @turns.push(turn)
             @deck.cards.rotate!
             @current_card = @deck.cards[0]
+            @turn
         end
+    end
+
+    def number_correct
+
+    end
+
+    def number_correct_by_category(category)
+
+    end
+
+    def percent_correct
+
+    end
+
+    def percent_correct_by_category(category)
+
     end
 end

@@ -58,6 +58,33 @@ RSpec.describe 'round' do
         @round.take_turn("swag")
 
         expect(@round.current_card).to eq @card_2
+    end
 
+    it 'should track number of correct answers' do
+        @round.take_turn("Juneau")
+        @round.take_turn("incorrect answer")
+
+        expect(@round.number_correct). to eq 1
+    end
+
+    it 'should track percent of correct answers' do
+        @round.take_turn("Juneau")
+        @round.take_turn("incorrect answer")
+
+        expect(@round.percent_correct_by_category). to eq 50.0
+    end
+
+    it 'should track number of correct answers per category' do
+        @round.take_turn("Juneau")
+        @round.take_turn("incorrect answer")
+
+        expect(@round.number_correct_by_category(:Geography)). to eq 1
+    end
+
+    it 'should track percent of correct answers per category' do
+        @round.take_turn("Juneau")
+        @round.take_turn("incorrect answer")
+
+        expect(@round.percent_correct_by_category(:Geography)). to eq 100.0
     end
 end
