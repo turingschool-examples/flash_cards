@@ -10,8 +10,9 @@ class Round
 
     def current_card
         # @cards.select {|cards| cards.first }
-        # @deck.fetch(0)
+        @deck.cards.fetch(0)
         # @deck.first
         # cards.each
+        # @cards.select.with_index
     end
 end
