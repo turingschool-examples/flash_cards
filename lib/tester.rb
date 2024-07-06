@@ -37,21 +37,23 @@ round = Round.new(deck)
 
 # puts deck.cards_in_category(:STEM)
 
+puts round.all_flashcard_categories
 
-new_turn = round.take_turn("Juneau")
-new_turn = round.take_turn("Venus")
-new_turn = round.take_turn("Aurora")
-new_turn = round.take_turn("Aurora")
-new_turn = round.take_turn("Aurora")
+
+# new_turn = round.take_turn("Juneau")
+# new_turn = round.take_turn("Venus")
+# new_turn = round.take_turn("Aurora")
+# new_turn = round.take_turn("Aurora")
+# new_turn = round.take_turn("Aurora")
 
 # puts round.number_correct
 # puts round.number_correct_by_category(:Geography)
 # puts round.number_correct_by_category(:STEM)
 
-puts round.percent_correct
-p round.turns_taken_by_category(:Geography)
+# puts round.percent_correct
+# p round.turns_taken_by_category(:Geography)
 
-puts round.percent_correct_by_category(:Geography)
+# puts round.percent_correct_by_category(:Geography)
 
 # new_turn = round.take_turn("Venus")
 

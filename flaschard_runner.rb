@@ -66,14 +66,21 @@ def start(cards)
 
   while counter != round.deck.count
     counter += 1
-    puts "This is card number #{counter} out of #{round.deck.count}"
+    puts "\nThis is card number #{counter} out of #{round.deck.count}"
     puts "Question: #{round.current_card.question}"
 
     user_input = gets.chomp # get rid of the pesky "\n" that is being returned!
     round.take_turn(user_input)
     puts round.turns.last.feedback
-    
-    gets
+  end
+
+  puts "\n***** Game over! *****"
+  puts "You had #{round.number_correct} guesses out of #{round.deck.count} for a total of #{round.percent_correct}%"
+  all_flashcard_categories = round.all_flashcard_categories
+  all_flashcard_categories.each do |category|
+    percent_correct = round.percent_correct_by_category(category)
+    puts "#{category} - #{percent_correct}% correct"
+
   end
 
 

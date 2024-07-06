@@ -103,6 +103,19 @@ class Round
 
   end
 
+  ## Making things spicy here
+  def all_flashcard_categories
+    categories_array = []
+    @deck.cards.each do |card|
+      symbol = card.category
+      categories_array << symbol
+    end
+
+    #remove duplicate symbol
+    categories_array = categories_array.uniq
+
+    return categories_array
+  end
 
     
 
