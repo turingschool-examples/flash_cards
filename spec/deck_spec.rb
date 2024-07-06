@@ -22,6 +22,10 @@ RSpec.describe Deck do
     it 'returns specific cards' do
         expect(@deck.count).to eq(3)
     end
+    
+    it 'retuns card_1' do 
+        expect(@deck.cards_in_category(:STEM)).to eq(card_1)
+    end
 
 
     
