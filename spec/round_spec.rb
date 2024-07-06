@@ -39,4 +39,9 @@ RSpec.describe Round do
         expect(@round.turns.count).to eq(1)
     end
 
+    it "returns the number of correct answers" do
+        @round.take_turn("Juneau")
+        @round.take_turn("Venus")
+        expect(@round.number_correct).to eq(1)
+    end
 end
