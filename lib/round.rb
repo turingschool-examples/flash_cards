@@ -3,12 +3,12 @@ require './lib/turn'
 
 class Round
     attr_reader :turns, 
-                :turn
+                :turn,
+                :take_turn,
+                :cards,
+                :current_card,
+                :deck
     
-    attr_accessor :take_turn,
-                  :cards,
-                  :current_card,
-                  :deck
     
     def initialize(deck)
         @deck = deck
