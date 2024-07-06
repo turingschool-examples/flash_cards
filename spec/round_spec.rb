@@ -42,14 +42,15 @@ RSpec.describe 'round' do
     end
 
     it 'has a take_turn method that creates an instance of a turn object' do
-
+        
+        expect(@round.take_turn("swag")). to eq @round.turn
     end
     
-    it 'has a take_turn method that stores turn in turns array' do
+    xit 'has a take_turn method that stores turn in turns array' do
 
     end
 
-    it 'has a take_turn method that increments the current card instance' do
+    xit 'has a take_turn method that increments the current card instance' do
 
     end
 end

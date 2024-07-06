@@ -4,12 +4,15 @@ require './lib/turn'
 class Round
     attr_reader :deck,
                 :turns, 
-                :current_card
+                :current_card,
+                :turn
     
     def initialize(deck)
         @deck = deck
         @turns = []
         @current_card = @deck.cards[0]
+        @turn = turn
+
     end
     
     def take_turn(user_guess)
