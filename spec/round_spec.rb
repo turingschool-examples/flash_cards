@@ -28,4 +28,8 @@ RSpec.describe 'round' do
     it 'has a current_card method which returns the first card in the cards array' do
         expect(@round.current_card).to eq @card_1
     end
+
+    it 'has a take_turn method that exists' do
+        expect(@round.take_turn("venus")).to exist
+    end
 end
