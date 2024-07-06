@@ -10,5 +10,13 @@ RSpec.describe Deck do
         @cards = [@card_1, @card_2, @card_3]
         @deck = Deck.new(@cards)
     end
+
+    it 'deck exists' do
+        expect(@deck).to be_an_instance_of(Deck)
+    end
+
+    it 'contains cards' do 
+        expect(@deck.count).to eq(3)
+    end
     
 end
