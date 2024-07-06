@@ -11,22 +11,16 @@ class Deck
     # end
 
     def cards_in_category(input_category)
-        arr1 = []
+        return_array = []
         count = 0
         @count.times do |index|
             # puts index
             # puts @cards[index].category
             if @cards[index].category == input_category
-                arr1.push(@cards[index])
+                return_array.push(@cards[index])
             end
         end
-        return arr1
-
-        # cards.select{|category| cards.include?(category)}
-        
-        # else
-        #     return []
-        # end
+        return return_array
     end
 
 end
