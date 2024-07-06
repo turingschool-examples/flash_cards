@@ -16,7 +16,13 @@ RSpec.describe Deck do
     end
 
     it 'contains cards' do 
+        expect(@deck.cards).to eq(@cards)
+    end
+
+    it 'returns specific cards' do
         expect(@deck.count).to eq(3)
     end
+
+
     
 end
