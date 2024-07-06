@@ -2,7 +2,7 @@ require './lib/card'
 require './lib/turn'
 
 class Deck
-    attr_reader :cards,
+    attr_accessor :cards,
                 :count,
                 :cards_in_category
 
@@ -11,13 +11,12 @@ class Deck
         @count = @cards.length
     end
 
-    def cards_in_category(category)
+    def cards_in_category(cat)
         matching_cards = []
-        @cards.each {|card|
-            if card.category == category
-                matching_cards.push(card)
+        @cards.each {|x|
+            if x.category == cat
+                matching_cards.push(x)
             end
-            puts "test"
         }
         return matching_cards
     end
