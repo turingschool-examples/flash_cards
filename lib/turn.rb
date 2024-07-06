@@ -7,8 +7,8 @@ class Turn
         # result = true
     end
 
-    def correct?(guess)
-        if @guess == @answer
+    def correct?
+        if @guess == @card.answer
             true
         else
             false
@@ -16,14 +16,15 @@ class Turn
     end
 
     def feedback
-        if guess.correct? == true
-            p "Correct!"
+        if correct? == true
+           return "Correct!"
         else
-            p "Incorrect."
+            return "Incorrect."
         end
     end
+end
 
-    # def card
+# def card
     #     return @card
     # end
 
@@ -44,4 +45,3 @@ class Turn
     #         puts "Error, try again"
     #     end
     # end
-end
