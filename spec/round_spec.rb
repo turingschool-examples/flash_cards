@@ -19,20 +19,26 @@ RSpec.describe Round do
     end
 
     it 'records guesses and moves to the next card' do
-        turn_1 = @round.take_turn('Juneau')
-        expect(turn_1).to be_instance_of(Turn)
-        expect(turn_1.correct?)to be true
-        expect(@round.turns.count).to eq(1)
-        expect(@round.turns.last).to eq(turn_1)
-        expect(@round.current_card).to eq(@card_2)
+        new_turn = @round.take_turn('Juneau')
 
-        turn_2 = @round.take_turn("Venus")
-        expect(turn_2).to be_instance_of(Turn)
-        expect(turn_2.correct?)to be false
-        expect(@round.turns.count).to eq(2)
-        expect(@round.turns.last).to eq(turn_2)
-        expect(@round.current_card).to eq(@card_3)
+        expect(new_turn.class).to eq(Turn)
+        expect(new_turn.correct?)to be true
+        expect(@round.turns).to eq([new_turn])
+        expect(@round.number_correct).to eq(1)
+        expect(@round.current_card).to eq(@card_2)
     end
+
+    it 'takes another turn and updates the round correctly' do
+        @round.take_turn("Juneau")
+        new_turn = @round.take_turn("Venus")
+
+        expect(@round.turns.count).to eq(2)
+        expect(@round.turns.last.feedback).to eq("Incorrect")
+        expect(@round.number_correct).to eq(1)
+        expect(@round.number_correct_by_category(:Geography)).to eq(1)
+        expect(@round.number_correct_by_category(:STEM)).to eq(0)
+        expect(@round.percent_correct).to eq(50.0)
+        expect(@round.percent_correct_by_category(:Geography)).to eq(100.0)
 
 
 end
