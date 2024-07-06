@@ -54,7 +54,7 @@ class Round
 
     end
 
-    # def percent_correct_by_category(category)
+    def percent_correct_by_category(category)
 
-    # end
+    end
 end

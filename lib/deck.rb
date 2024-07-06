@@ -2,13 +2,16 @@ require './lib/card'
 require './lib/turn'
 
 class Deck
-    attr_accessor :cards,
-                  :count,
-                  :cards_in_category
+    attr_accessor :cards
+                  
+    attr_reader :count,
+                :cards_in_category,
+                :category_list
 
     def initialize(cards)
         @cards = cards
         @count = @cards.length
+        @category_list = {}
     end
 
     def cards_in_category(cat)

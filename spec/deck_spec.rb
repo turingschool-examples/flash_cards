@@ -27,7 +27,6 @@ RSpec.describe 'deck' do
     end
 
     it 'should return cards based on their category' do
-        require'pry';binding.pry
         expect(@deck.cards_in_category(:STEM)).to eq [@card_2, @card_3]
     end
 end
