@@ -1,5 +1,4 @@
 require './lib/card_generator'
-filename = "cards.txt"
 
 RSpec.configure do |config|
     config.formatter = :documentation
@@ -7,10 +6,15 @@ end
 
 RSpec.describe CardGenerator do
     before (:all) do
-        cards = CardGenerator.new(filename).cards
+        @filename = "cards.txt"
+        @cards = CardGenerator.new(@filename)
     end
 
     it 'exists' do
-        expect(cards).to be_instance_of CardGenerator
+        expect(@cards).to be_instance_of CardGenerator
+    end
+
+    it 'has existing .txt file' do
+        expect(@cards.filename).to eq @filename
     end
 end
