@@ -22,8 +22,8 @@ def start
     end
 
     puts "*********** GAME OVER **********"
-    puts "You had #{round.number_correct} out of #{deck.count} for a total score of #{round.percent_correct}%"
-    
+    puts "You had #{round.number_correct} correct guesses out of #{deck.count} for a total score of #{round.percent_correct}%"
+    round.correct_by_category.each_key {|key| puts "#{key} - #{round.percent_correct_by_category(key)}% correct"}
 end
 
 start
