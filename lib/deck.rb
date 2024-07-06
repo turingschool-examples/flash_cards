@@ -6,7 +6,6 @@ class Deck
   def initialize(cards)
     @cards = cards
     @count = cards.count
-    @add_cards = 0
   end
 
   def count
@@ -18,5 +17,5 @@ class Deck
       card.category == category
   end
   end
-  
+
 end
