@@ -18,7 +18,9 @@ class CardGenerator
         @data = file.readlines.map(&:chomp)
     end
 
-    def cards
-        
+    def card_data
+        @card_data = @data.map do |card|
+            card.split(",")
+        end
     end
 end

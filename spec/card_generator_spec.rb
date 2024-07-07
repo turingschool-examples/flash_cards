@@ -27,11 +27,11 @@ RSpec.describe CardGenerator do
     end
 
     it 'splits first string into three string' do
-        expect(@cards.card_data[@cards.data[0]]). to eq ["What is the capital of Alaska?","Juneau","Geography"]
+        expect(@cards.card_data[0]). to eq ["What is the capital of Alaska?","Juneau","Geography"]
     end
 
-    xit 'splits last string into three strings' do
-        expect(@cards.card_data[@cards.data[6]]). to eq ["What is the capital of Alaska?","Juneau","Geography"]
+    it 'splits last string into three strings' do
+        expect(@cards.card_data[6]). to eq ["What cardboard cutout lives at Turing?","Justin bieber","PopCulture"]
     end
 
     xit 'create a card using each new string for each attribute' do
