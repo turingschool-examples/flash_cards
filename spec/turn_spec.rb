@@ -27,7 +27,7 @@ RSpec.configure do |config|
   
     it 'has a correct guess' do
       card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-      turn = Turn.new("Janeau", card)
+      turn = Turn.new("Juneau", card)
       expect(turn.correct?).to eq true
     end
   
