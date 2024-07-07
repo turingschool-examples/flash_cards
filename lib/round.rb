@@ -39,4 +39,5 @@ class Round
         return 0 if category_turns.empty?
         (category_turns.count { |turn| turn.correct? }.to_f / category_turns.size) * 100
     end
+    
 end 
