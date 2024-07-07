@@ -10,7 +10,7 @@ RSpec.describe Turn do
         expect(turn.card).to eq card
     end
 
-    describe 'correct?' do
+    
       it 'true when it is correct' do
         card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
         turn = Turn.new("Juneau", card)
@@ -22,8 +22,7 @@ RSpec.describe Turn do
         turn = Turn.new("Venus", card)
         expect(turn.correct?).to be false
       end
-    end
-    describe 'feedback' do
+    
     it "returns correct! when correct" do
       card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
       turn = Turn.new("Juneau", card)
@@ -35,6 +34,6 @@ RSpec.describe Turn do
       turn = Turn.new("Venus", card)
       expect(turn.feedback).to eq "Incorrect."
     end
-  end
+  
 
 end
