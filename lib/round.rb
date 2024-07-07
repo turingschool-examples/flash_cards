@@ -7,7 +7,7 @@ class Round
     @deck = deck
     @turns = []
     @turn_counter = 0
-    @current_card = deck.cards[turn_counter]
+    @current_card = @deck.cards[@turn_counter]
     @number_correct = 0
   end
 
@@ -15,9 +15,14 @@ class Round
     turn = Turn.new(guess, @current_card)
     turns.push(turn)
     @guess = guess
+    new_card
     @turn_counter += 1
     @number_correct += 1 if turn.correct?
     turn
+  end
+
+  def new_card
+    @current_card = @deck.cards[@turn_counter]
   end
 
   def number_correct_by_category(category)
@@ -35,23 +40,8 @@ class Round
   end
 
   def percent_correct_by_category(category)
-    
-  end
-
-  # def percent_correct
-  #   @turns.reduce(0) do |turn|
-  #     number_correct.to_f / @turns.length * 100
-  #   end
-  # end
-
-  # def percent_correct_by_category(category)
-  #   @turns.reduce(0) do |turn|
-  #      number_correct_by_category(category).to_f / @turns.length * 100
-  #   end
-  # end
-
-  def correct?
-    @guess == @card
+  
+    end
   end
 
 end
