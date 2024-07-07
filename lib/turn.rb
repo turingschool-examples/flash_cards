@@ -13,4 +13,5 @@ class Turn
     def feedback
       correct? ? "Correct!" : "Incorrect."
     end
-  end
+
+end
