@@ -24,6 +24,10 @@ RSpec.describe Round do
         expect(@deck.cards).to eq([@card_1, @card_2, @card_3])
     end
 
+    it 'takes turns' do
+        expect(@round.turns).to eq([])
+    end
+
     
 
 end
