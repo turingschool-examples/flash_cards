@@ -3,12 +3,11 @@ require './lib/turn'
 
 class Round
 
-    attr_reader :turns, 
+    attr_reader :deck,
+                :turns, 
                 :turn,
-                :take_turn,
-                :cards,
                 :current_card,
-                :deck,
+                :take_turn,
                 :number_correct,
                 :percent_correct,
                 :number_correct_by_category,
@@ -18,7 +17,7 @@ class Round
     def initialize(deck)
         @deck = deck
         @turns = []
-        @current_card = @deck.cards[0]
+        @current_card = deck.cards[0]
         @turn = turn
         @number_correct = 0
         @correct_turn = []
