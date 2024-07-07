@@ -1,7 +1,7 @@
 require './lib/card'
 
 class Round
-  attr_reader :deck, :turns, :current_card, :turn_counter, :number_correct, :new_turn
+  attr_reader :deck, :turns, :current_card, :turn_counter, :number_correct
 
   def initialize(deck)
     @deck = deck
@@ -9,7 +9,6 @@ class Round
     @turn_counter = 0
     @current_card = deck.cards[turn_counter]
     @number_correct = 0
-    @new_turn 
   end
 
   # def new_turn
@@ -28,16 +27,28 @@ class Round
     turn
   end
 
-  def number_correct_by_category 
+  def percent_correct
+    (number_correct / @turns.count.to_f) * 100
+  end
 
+  def number_correct_by_category(category)
+    correct_in_category = []
+    @turns.each do |turn|
+      if category == turn.card.category && turn.correct?
+        correct_in_category << turn.card
+      end
+      end
+      correct_in_category.count
   end
   
-  def percent_correct_by_category
+  def percent_correct_by_category(category)
 
   end
 
   def correct?
     @guess == @card.answer
   end
+
+
 
 end
