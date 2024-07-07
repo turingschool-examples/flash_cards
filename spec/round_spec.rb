@@ -48,7 +48,7 @@ RSpec.describe Round do
     it "returns the number of correct answers for a specific category" do
         @round.take_turn("Juneau")
         @round.take_turn("Mars")
-        expect(@round.number_correct_by_category(:STEM)).to eq(1)
+        expect(@round.number_correct_by_category(:Geography)).to eq(1)
       end
 
     it 'gives % correct' do 
