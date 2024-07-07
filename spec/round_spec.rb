@@ -86,7 +86,14 @@ RSpec.describe Round do
         round = Round.new(deck)
 
         new_turn = round.take_turn("Juneau")
+        round.take_turn("Venus")
 
         expect(round.number_correct).to eq(1)
+    end
+
+    it 'shows number of correct guesses in each category' do
+
+
+        expect()
     end
 end
