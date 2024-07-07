@@ -18,7 +18,7 @@ RSpec.describe Deck do
     end
 
     it 'has cards in the deck' do
-        expect(@deck.cards).to eq([@card_1, @card_2, @card_3])
+        expect(@deck.cards).to eq(@cards)
     end
 
     it "can count the cards in the deck" do
@@ -26,8 +26,8 @@ RSpec.describe Deck do
     end
 
     it "returns cards in a category" do
-        expect(@deck.cards_in_category(:STEM)).to be([@card_2, @card_3])
-        expect(@deck.cards_in_category(:Geography)).to be([@card_1])
-        expect(@deck.cards_in_category(:Pop)).to be([]) 
+        expect(@deck.cards_in_category(:STEM)).to eq([@card_2, @card_3])
+        expect(@deck.cards_in_category(:Geography)).to eq([@card_1])
+        expect(@deck.cards_in_category("Pop Culture")).to eq([]) 
     end
 end
