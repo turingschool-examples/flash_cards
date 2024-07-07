@@ -1,6 +1,10 @@
 require './lib/card'
 require './lib/deck'
 
+Rspec.configure do |config|
+    config.formatter = :documentation
+end
+
 RSpec.describe Deck do
     
     before(:each) do

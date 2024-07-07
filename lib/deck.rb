@@ -10,7 +10,7 @@ class Deck
     def cards_in_category(category)
         @cards.find_all do |card|
             card.category == category
-            # require 'pry'; binding.pry
+        # require 'pry'; binding.pry
         end
 
     end
