@@ -19,10 +19,13 @@ RSpec.describe Deck do
     it 'can return cards in a given category' do
         expect(@deck.cards_in_category (:Geography)).to eq([@card_1])
         expect(@deck.cards_in_category (:STEM)).to eq([@card_2, @card_3])
-        expect(@deck.cards_in_category (:Geography)).to eq([@card_1])
         expect(@deck.cards_in_category (:PopCulture)).to eq([])
     end
 
+    it 'returns the number of cards' do
+        expect(@deck.count).to eq(3)
+    end
+ 
 end
 
     # it 'has a name' do
