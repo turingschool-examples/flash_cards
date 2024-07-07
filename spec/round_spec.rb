@@ -20,4 +20,16 @@ RSpec.describe Round do
         expect(@round).to be_instance_of(Round)
     end
 
+    it 'has a deck' do
+        expect(@round.deck).to eq(@deck)
+    end     
+
+    it 'has turns' do
+        expect(@round.turns).to eq([])
+    end 
+
+    it "has a current card" do
+        expect(@round.current_card).to eq(@card_1) 
+    end
+
 end
