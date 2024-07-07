@@ -1,6 +1,6 @@
 require './lib/card'
 
-Rspec.configure do |config|
+RSpec.configure do |config|
   config.formatter = :documentation
 end
 

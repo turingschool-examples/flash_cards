@@ -1,7 +1,7 @@
 require './lib/card'
 require './lib/turn'
 
-Rspec.configure do |config|
+RSpec.configure do |config|
     config.formatter = :documentation
 end
 
