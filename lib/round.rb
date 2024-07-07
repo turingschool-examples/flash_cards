@@ -34,7 +34,7 @@ class Round
         return @correct_guesses
     end
 
-    # def number_correct_by_category(category)
+    def number_correct_by_category(category)
 
-    # end
+    end
 end
