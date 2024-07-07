@@ -11,10 +11,9 @@ class Deck
     end
 
     def cards_in_category(category)
-        # @cards.find_all {|card| card.category == category }
+        # @cards.select {|card| card.category == category }
         @cards.find_all do |card|
           card.category == category
-          require "pry"; binding.pry
         end
     end
 end
