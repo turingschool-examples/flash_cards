@@ -21,4 +21,5 @@ RSpec.describe Card do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     expect(card.category).to eq(:Geography)
   end
+  
 end
