@@ -1,5 +1,3 @@
-require 'card'
-
 class CardGenerator
     attr_reader :filename,
                 :file,
@@ -9,6 +7,7 @@ class CardGenerator
         @filename = filename
         @file = set_file
         @data = get_data
+        @card_data = card_data
     end
 
     def set_file
@@ -31,7 +30,7 @@ class CardGenerator
 
     def cards
         @cards = @card_data.map do |card|
-            Card.new(card[0], card[1], card[3])
+            Card.new(card[0], card[1], card[2])
         end
     end
 end

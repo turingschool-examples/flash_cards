@@ -1,4 +1,5 @@
 require './lib/card_generator'
+require './lib/card'
 
 RSpec.configure do |config|
     config.formatter = :documentation
@@ -36,6 +37,7 @@ RSpec.describe CardGenerator do
 
     it 'create a card using each new string for each attribute' do
         expect(@cards.cards[0]). to be_instance_of Card
+        expect(@cards.cards[6]). to be_instance_of Card
     end
 
     it 'creates a card for each line in the file' do
