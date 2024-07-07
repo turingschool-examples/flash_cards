@@ -34,14 +34,16 @@ RSpec.describe CardGenerator do
         expect(@cards.card_data[6]). to eq ["What cardboard cutout lives at Turing?","Justin bieber","PopCulture"]
     end
 
-    xit 'create a card using each new string for each attribute' do
-    
+    it 'create a card using each new string for each attribute' do
+        expect(@cards.cards[0]). to be_instance_of Card
     end
-    
-    xit 'adds new Card into cards array' do
 
-    end
-    xit 'creates a card for each line in the file' do
+    it 'creates a card for each line in the file' do
         expect(@cards.cards.count). to eq @cards.data.count 
     end
+    
+    # it 'closes the file' do
+    #     @cards.cards
+    #     expect(@cards.file).to be nil
+    # end
 end
