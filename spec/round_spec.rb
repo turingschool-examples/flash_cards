@@ -14,82 +14,90 @@ RSpec.describe 'round' do
         @card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
         @deck = Deck.new([@card_1, @card_2, @card_3])
         @round = Round.new(@deck)
-        # require 'pry';binding.pry
+    end
 
+    describe '#initialize' do 
+        it 'should exist' do
+
+            expect(@round).to be_an_instance_of Round
+        end
+
+        it 'should track the amount of turns taken' do
+            expect(@round.turns).to be_an_instance_of Array
+        end
+
+        it 'has a current_card method which returns the first card in the cards array' do
+            expect(@round.current_card).to eq @card_1
+        end
+    end
+
+    describe '#take_turn' do
+        it 'has a take_turn method that takes a string argument' do
+            expect(@round.take_turn(17)).to eq "Your guess must be a string"
+
+            expect(@round.take_turn(true)).to eq "Your guess must be a string"
+
+            expect(@round.take_turn([])).to eq "Your guess must be a string"
+
+            expect(@round.take_turn(17.00)).to eq "Your guess must be a string"
+        end
+
+        it 'has a take_turn method that creates an instance of a turn object' do
+            @round.take_turn("swag")
+
+            expect(@round.turn).to be_an_instance_of Turn
+        end
         
-    end
-    it 'should exist' do
+        it 'has a take_turn method that stores turn in turns array' do
+            @round.take_turn("swag")
+            
+            expect(@round.turns.length).to be 1
 
-        expect(@round).to be_an_instance_of Round
-    end
+        end
 
-    it 'should have an attribute named turns' do
-        expect(@round.turns).to be_an_instance_of Array
-    end
+        it 'has a take_turn method that increments the current card instance' do
+            @round.take_turn("swag")
 
-    it 'has a current_card method which returns the first card in the cards array' do
-        expect(@round.current_card).to eq @card_1
-    end
-
-    it 'has a take_turn method that takes a string argument' do
-        expect(@round.take_turn(17)).to eq "Your guess must be a string"
-
-        expect(@round.take_turn(true)).to eq "Your guess must be a string"
-
-        expect(@round.take_turn([])).to eq "Your guess must be a string"
-
-        expect(@round.take_turn(17.00)).to eq "Your guess must be a string"
+            expect(@round.current_card).to eq @card_2
+        end
     end
 
-    it 'has a take_turn method that creates an instance of a turn object' do
-        @round.take_turn("swag")
+    describe '#number_correct' do
+        it 'should track number of correct answers' do
+            @round.take_turn("Juneau")
+            @round.take_turn("incorrect answer")
 
-        expect(@round.turn).to be_an_instance_of Turn
-    end
-    
-    it 'has a take_turn method that stores turn in turns array' do
-        @round.take_turn("swag")
-        
-        expect(@round.turns.length).to be 1
-
+            expect(@round.number_correct). to eq 1
+        end
     end
 
-    it 'has a take_turn method that increments the current card instance' do
-        @round.take_turn("swag")
+    describe '#percent_correct' do
+        it 'should track percent of correct answers' do
+            @round.take_turn("Juneau")
+            @round.take_turn("incorrect answer")
 
-        expect(@round.current_card).to eq @card_2
+            expect(@round.percent_correct). to eq 50.0
+        end
     end
 
-    it 'should track number of correct answers' do
-        @round.take_turn("Juneau")
-        @round.take_turn("incorrect answer")
+    describe '#number_correct_by_category' do
+        it 'should track number of correct answers per category' do
+            @round.take_turn("Juneau")
+            @round.take_turn("incorrect answer")
 
-        expect(@round.number_correct). to eq 1
+            expect(@round.number_correct_by_category(:Geography)). to eq 1
+        end
     end
 
-    it 'should track percent of correct answers' do
-        @round.take_turn("Juneau")
-        @round.take_turn("incorrect answer")
-
-        expect(@round.percent_correct). to eq 50.0
-    end
-
-    it 'should track number of correct answers per category' do
-        @round.take_turn("Juneau")
-        @round.take_turn("incorrect answer")
-
-        expect(@round.number_correct_by_category(:Geography)). to eq 1
-    end
-
-    it 'should track percent of correct answers per category' do
-        @round.take_turn("Juneau")
-        @round.take_turn("incorrect answer")
-        @round.take_turn("North north west")
-        
-        expect(@round.percent_correct_by_category(:Geography)). to eq 100.0
-        
-        expect(@round.percent_correct_by_category(:STEM)). to eq 50.0
-
-
+    describe '#percent_correct_by_category' do
+        it 'should track percent of correct answers per category' do
+            @round.take_turn("Juneau")
+            @round.take_turn("incorrect answer")
+            @round.take_turn("North north west")
+            
+            expect(@round.percent_correct_by_category(:Geography)). to eq 100.0
+            
+            expect(@round.percent_correct_by_category(:STEM)). to eq 50.0
+        end
     end
 end
