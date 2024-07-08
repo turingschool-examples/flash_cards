@@ -34,10 +34,26 @@ RSpec.describe Round do
 
     it 'takes a turn' do
         new_turn = @round.take_turn('Juneau')
+        expect(new_turn).to be_an_instance_of(Turn)
         expect(new_turn.guess).to eq('Juneau')
         expect(new_turn.card).to eq(@card_1)
     end
 
-    
+    it 'moves onto next card in deck after take_turn' do
+        new_turn = @round.take_turn('Juneau')
+        expect(new_turn).to be_an_instance_of(Turn)
+        expect(new_turn.guess).to eq('Juneau')
+        expect(new_turn.card).to eq(@card_1)
+        new_turn = @round.take_turn('Mars')
+        expect(new_turn.guess).to eq('Mars')
+        expect(new_turn.card).to eq(@card_2)
+    end
+
+
+    xit 'moves into next card in deck' do
+        new_turn = @round.take_turn('Juneau')
+        expect
+
+     end
 
 end
