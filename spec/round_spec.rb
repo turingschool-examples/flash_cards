@@ -32,4 +32,14 @@ RSpec.describe Round do
         expect(@round.current_card).to eq(@card_1) 
     end
 
+    it 'takes a new turn' do
+        new_turn = @round.take_turn("Juneau")
+        expect(new_turn).to be_an_instance_of(Turn)
+        expect(new_turn.guess).to eq("Juneau")
+        expect(new_turn.card).to eq(@card_1)
+        new_turn = @round.take_turn("Mars")
+        expect(new_turn.guess).to eq("Mars")
+        expect(new_turn.card).to eq(@card_2)
+        # expect(@round.take_turn("Juneau")).to match(Turn.new("Juneau", @card_1))
+    end
 end
