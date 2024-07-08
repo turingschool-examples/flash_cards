@@ -76,5 +76,52 @@
 
 # puts deck.cards[0].category
 
-string = "PetEr"
-puts string.downcase
+# test_var = " Hello"
+
+
+# new_var = test_var.chars        # Converts the string into an array of characters
+#             .join          # Joins the array back into a string (removes the transformation effect of .chars)
+#             .capitalize    # Capitalizes the first character of the string
+#             .size          # Returns the length of the string as an integer
+#             .next          # Increments the integer by 1
+#             .to_s          # Converts the integer to a string
+#             .reverse       # Reverses the string
+#             .to_f          # Converts the string to a float
+#             .*(2)          # Multiplies the float by 2
+# puts new_var 
+# new_var = var.chars.join.capitalize.size.next.to_s.reverse.to_f.*(2)
+
+# puts new_var
+# puts new_var.class
+
+# test = gets.chomp.to_i
+
+# if test == ""
+#   puts true
+# end
+# puts test
+def add_super(num)
+    if num % 7 == 0
+        "Super"
+    end
+end
+
+def add_fizz(num)
+    if num % 3 == 0
+        "Fizz"
+    end
+end
+
+def add_buzz(num)
+    if num % 5 == 0
+        "Buzz"
+    end
+end
+
+(1..1000).each do |num|
+    if num % 3 == 0 || num % 5 == 0 || num % 7 == 0
+        puts "#{add_super(num)}#{add_fizz(num)}#{add_buzz(num)}"
+    else
+        puts num
+    end
+end

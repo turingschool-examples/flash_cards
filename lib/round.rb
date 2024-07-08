@@ -14,6 +14,7 @@ class Round
   end
 
   def new_card
+    # doing greater so that it doesn't move passed the latest index in the array
     if (@deck.count - 1) > @turn_counter # subtracted -1 from deck.count so that it matches computers counting which begins from 0
       @turn_counter += 1
     # puts("Create a new card at index #{@turn_counter}")
@@ -100,7 +101,7 @@ class Round
     turns_by_category = turns_taken_by_category(category)
     correct_answers_by_category = number_correct_by_category(category)
     percent_correct_answers_by_category = (correct_answers_by_category.to_f / turns_by_category.count) * 100
-
+    percent_correct_answers_by_category.round
   end
 
   ## Making things spicy here

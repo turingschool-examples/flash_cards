@@ -57,6 +57,7 @@ end
 
 
 def start(cards)
+
   cards_random = random_array_of_cards(cards)
   deck = Deck.new(cards_random) 
   round = Round.new(deck)
