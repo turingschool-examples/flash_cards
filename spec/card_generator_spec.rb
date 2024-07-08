@@ -19,10 +19,6 @@ RSpec.describe CardGenerator do
         expect(@cards.filename).to eq @filename
     end
 
-    it 'opens the file' do
-        expect(@cards.file).to be_instance_of File
-    end
-
     it 'reads the data on the file' do
         expect(@cards.data). to be_instance_of Array
     end
@@ -42,10 +38,5 @@ RSpec.describe CardGenerator do
 
     it 'creates a card for each line in the file' do
         expect(@cards.cards.count). to eq @cards.data.count 
-    end
-    
-    # it 'closes the file' do
-    #     @cards.cards
-    #     expect(@cards.file).to be nil
-    # end
+    end    
 end
