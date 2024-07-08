@@ -28,6 +28,12 @@ RSpec.describe Round do
         expect(@round.turns).to eq([])
     end
 
-    
+    it 'knows current card' do
+        expect(@round.current_card).to eq(@deck.cards[0])
+    end
+
+    it 'takes a turn' do
+        expect(@round.take_turn).to eq(@card, @turn.guess)
+    end
 
 end
