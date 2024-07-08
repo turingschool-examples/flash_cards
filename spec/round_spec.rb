@@ -50,10 +50,20 @@ RSpec.describe Round do
     end
 
 
-    xit 'moves into next card in deck' do
+    it 'knows if guess was correct' do
         new_turn = @round.take_turn('Juneau')
-        expect
-
+        expect(new_turn).to be_an_instance_of(Turn)
+        expect(new_turn.guess).to eq('Juneau')
+        expect(new_turn.card).to eq(@card_1)
+        expect(new_turn.correct?).to be true
      end
+
+    it 'knows if guess was incorrect' do
+        new_turn = @round.take_turn('Texas')
+        expect(new_turn).to be_an_instance_of(Turn)
+        expect(new_turn.guess).to eq('Texas')
+        expect(new_turn.card).to eq(@card_1)
+        expect(new_turn.correct?).to be false
+    end
 
 end
