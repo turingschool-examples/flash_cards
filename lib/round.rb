@@ -8,8 +8,6 @@ class Round
     end
 
     def current_card
-        #get the first card in the deck
-        # require 'pry';binding.pry
         card = @deck.cards[@card_index]
         return card
     end
@@ -20,7 +18,7 @@ class Round
         #store this new turn and return it from the take turn method
         #round should move on to the next card in the deck when the take turn method is called
         new_turn = Turn.new(guess, current_card)
-        @turns.push(new_turn)
+        # @turns.push(new_turn)
         @card_index += 1
         return new_turn
     end
