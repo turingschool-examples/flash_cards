@@ -45,5 +45,9 @@ class Round
         return correct_by_category
     end
 
+    def percent_correct
+        # require 'pry'; binding.pry
+        @correct_guesses.to_f / @turns.count.to_f * 100
+    end
 
 end
