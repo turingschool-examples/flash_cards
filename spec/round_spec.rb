@@ -33,7 +33,11 @@ RSpec.describe Round do
     end
 
     it 'takes a turn' do
-        expect(@round.take_turn).to eq(@card, @turn.guess)
+        new_turn = @round.take_turn('Juneau')
+        expect(new_turn.guess).to eq('Juneau')
+        expect(new_turn.card).to eq(@card_1)
     end
+
+    
 
 end
