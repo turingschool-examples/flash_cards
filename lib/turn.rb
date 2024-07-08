@@ -7,7 +7,7 @@ class Turn
     end
 
     def correct?
-        @guess == @card.answer
+        @guess.casecmp?(@card.answer)
     end
 
     def feedback
