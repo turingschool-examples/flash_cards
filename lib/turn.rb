@@ -1,5 +1,6 @@
 class Turn
-    attr_reader :guess, :card
+    attr_reader :guess,
+                :card
     
     def initialize(guess, card)
         @guess = guess
@@ -7,7 +8,8 @@ class Turn
     end
 
     def correct?
-        @guess.casecmp?(@card.answer)
+        @guess = @guess.strip
+        @guess.casecmp?(@card.answer.strip)
     end
 
     def feedback

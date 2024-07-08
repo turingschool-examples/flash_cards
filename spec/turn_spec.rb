@@ -40,5 +40,15 @@ RSpec.describe Turn do
             turn = Turn.new('juneau', @card)
             expect(turn.feedback).to eq "Correct!"
         end
+
+        it 'answers correctly if additional white space is added' do
+            expect(@turn.feedback).to eq "Correct!"
+            
+            turn = Turn.new('juneau   ', @card)
+            expect(turn.feedback).to eq "Correct!"
+
+            turn = Turn.new('    juneau', @card)
+            expect(turn.feedback).to eq "Correct!"
+        end 
     end
 end
