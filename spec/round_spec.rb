@@ -36,40 +36,33 @@ RSpec.describe Round do
     expect(new_turn).to be_an_instance_of(Turn)
   end
 
-  xit 'Shows the new class' do
-    new_turn = @round.take_turn("Juneau")
-    new_turn.class
-    
-    expect(new_turn.class).to be_an_instance_of(Turn)
-  end
-
-  xit 'shows if the answer is correct' do
+  it 'shows if the answer is correct' do
     new_turn = @round.take_turn("Juneau")
     
-    expect(new_turn.correct?).to eq True
+    expect(new_turn.correct?).to eq true
   end
 
-  xit 'shows if the answer is incorrect' do 
+  it 'shows if the answer is incorrect' do 
     new_turn = @round.take_turn("Wrong Answer")
     
-    expect(new_turn.correct?).to eq False
+    expect(new_turn.correct?).to eq false
   end
 
-  xit 'changes each turn to the round.turns array' do
+  it 'changes each turn to the round.turns array' do
     @round.take_turn('Juneau')
     @round.take_turn('Mars')
 
     expect(@round.turns.count).to eq(2)
   end
 
-  xit 'gives feedback on the last answer' do
+  it 'gives feedback on the last answer' do
     @round.take_turn('Juneau')
     @round.take_turn('Mars')
 
     expect(@round.turns.last.feedback).to eq("Incorrect.")
   end
 
-  xit 'only counts some answers as correct' do
+  it 'only counts some answers as correct' do
     @round.take_turn('Juneau')
     @round.take_turn('Mars')
     @round.take_turn('East')
@@ -77,7 +70,7 @@ RSpec.describe Round do
     expect(@round.number_correct).to eq(1)
   end
 
-  xit 'shows the number correct for a specific category' do
+  it 'shows the number correct for a specific category' do
     @round.take_turn('Juneau')
     @round.take_turn('Mars')
     @round.take_turn('East')
@@ -85,7 +78,7 @@ RSpec.describe Round do
     expect(@round.number_correct_by_category(:Geography)).to eq(1)
   end
 
-  xit 'shows the number for a specific category' do
+  it 'shows the number for a specific category' do
     @round.take_turn('Juneau')
     @round.take_turn('Mars')
     @round.take_turn('East')
@@ -93,23 +86,20 @@ RSpec.describe Round do
     expect(@round.number_correct_by_category(:STEM)).to eq(0)
   end
 
-  xit 'shows the percent correct for a specific category' do
+  it 'shows the percent correct for a specific category' do
     @round.take_turn('Juneau')
     @round.take_turn('Mars')
-    @round.take_turn('East')
 
     expect(@round.percent_correct).to eq(50.0)
   end
 
-  xit 'shows the percent correct by a different category' do
+  it 'shows the percent correct by a different category' do
     @round.take_turn('Juneau')
-    @round.take_turn('Mars')
-    @round.take_turn('East')
 
     expect(@round.percent_correct_by_category(:Geography)).to eq(100.0)
   end
 
-  xit 'shows the current turn card' do
+  it 'shows the current turn card' do
     @round.take_turn('Juneau')
     @round.take_turn('Mars')
     @round.take_turn('East')
@@ -118,4 +108,3 @@ RSpec.describe Round do
   end
 
 end
-  
