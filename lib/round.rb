@@ -14,4 +14,9 @@ class Round
     def current_card
         current_card = @deck.cards[@turn]
     end
+
+    def take_turn
+        
+
+    end
 end

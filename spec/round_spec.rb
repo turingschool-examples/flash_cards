@@ -28,15 +28,19 @@ RSpec.describe Round do
     end
     
     it 'prints an empty array at the start' do
-        
+
         expect(@round.turns).to eq []
     end
 
     it 'draws the current card' do
 
-    expect(@round.current_card).to be_a(Card)
-    expect(@round.current_card).to eq(@deck.cards[0])
+        expect(@round.current_card).to be_a(Card)
+        expect(@round.current_card).to eq(@deck.cards[0])
     end
 
+    it 'it can start a new turn' do
+        
+        expect(@round.take_turn).to be(Card(guess))
+    end
 
 end
