@@ -26,15 +26,18 @@ class Round
     end
     
     def number_correct
-        @turns.count do |turn|
-            if turn.correct? == true
-                puts @correct_guesses
-            end
+        correct_guesses = @turns.count do |turn|
+            turn if turn.correct? == true
+            # if turn.correct? == true
+            #     puts @correct_guesses
+            # end
         end
         return @correct_guesses
     end
 
     def number_correct_by_category(category)
-
+        @turns.find_all do |turn|
+            
+        end
     end
 end
