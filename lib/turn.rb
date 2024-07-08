@@ -13,9 +13,9 @@ class Turn
 
     def feedback
         if @guess = correct?
-            "Correct!"
+            "Your answer is correct!"
         else
-            "Incorrect."
+           "I'm sorry your answer is incorrect."
         end
     end
 end
