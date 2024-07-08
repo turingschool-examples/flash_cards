@@ -32,7 +32,7 @@
 # card_5 = Card.new("What is the capital of Colorado?", "Denver", :Geography)
 # card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
 # cards = [card_1, card_2, card_3, card_4]
-# deck = Deck.new(cards) # the array of cards object
+# deck = Deck.new(card_count # the array of cards object
 # round = Round.new(deck)
 
 # puts deck.cards_in_category(:STEM)
@@ -100,28 +100,32 @@
 #   puts true
 # end
 # puts test
-def add_super(num)
-    if num % 7 == 0
-        "Super"
-    end
+
+cards = [1,2,3,4,5]
+
+def ask_user_for_amount_of_cards(card_count)
+  
+  puts "\nHow many cards would you like to play with? - Max(#{card_count})"
+  play_count = gets.chomp
+  if play_count == ""
+    puts "Total of 5 then!\n"
+    return card_count_request = 5
+
+  elsif play_count.to_i == 0
+    puts "please try again"
+    ask_user_for_amount_of_cards(card_count)
+
+  elsif play_count.to_i > card_count 
+    puts "There are only #{card_count} in the deck, try again!"
+    ask_user_for_amount_of_cards(card_count)
+
+
+  else
+    # puts "Good number #{play_count}"
+    return card_count_request = play_count
+  end
 end
 
-def add_fizz(num)
-    if num % 3 == 0
-        "Fizz"
-    end
-end
 
-def add_buzz(num)
-    if num % 5 == 0
-        "Buzz"
-    end
-end
-
-(1..1000).each do |num|
-    if num % 3 == 0 || num % 5 == 0 || num % 7 == 0
-        puts "#{add_super(num)}#{add_fizz(num)}#{add_buzz(num)}"
-    else
-        puts num
-    end
-end
+user_request_card_count = ask_user_for_amount_of_cards(cards.size)
+puts test

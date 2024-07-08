@@ -47,6 +47,29 @@ def random_array_of_cards(cards, amount_of_cards = 5)
 end
 
 
+def ask_user_for_amount_of_cards(card_count)
+  
+  puts "\nHow many cards would you like to play with? - Max(#{card_count})"
+  play_count = gets.chomp
+  if play_count == ""
+    puts "Total of 5 then!\n"
+    return card_count_request = 5
+
+  elsif play_count.to_i == 0
+    puts "please try again"
+    ask_user_for_amount_of_cards(card_count)
+
+  elsif play_count.to_i > card_count 
+    puts "There are only #{card_count} in the deck, try again!"
+    ask_user_for_amount_of_cards(card_count)
+
+
+  else
+    # puts "Good number #{play_count}"
+    return card_count_request = play_count
+  end
+end
+
 
 # def initalize_game(cards)
 #   deck = Deck.new(cards) 
@@ -56,14 +79,20 @@ end
 
 
 
+
 def start(cards)
 
-  cards_random = random_array_of_cards(cards)
+  cards_total = ask_user_for_amount_of_cards(cards.count)
+
+  cards_random = random_array_of_cards(cards, cards_total)
   deck = Deck.new(cards_random) 
   round = Round.new(deck)
 
   counter = 0
   # initalize_game(cards_random)
+
+  
+  
 
   puts "Welcome! You're playing with #{round.deck.count} cards.\n-------------------------------------------"
 
