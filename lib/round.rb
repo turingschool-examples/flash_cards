@@ -8,6 +8,7 @@ class Round
         @turns = []
         @correct_guesses = 0
         @card_index = 0
+        @correct_turns = []
     end
 
     def current_card
@@ -21,6 +22,7 @@ class Round
         @card_index += 1
         if new_turn.correct? == true
             @correct_guesses += 1
+            @correct_turns.push(new_turn)
         end
         return new_turn
     end
@@ -28,16 +30,20 @@ class Round
     def number_correct
         correct_guesses = @turns.count do |turn|
             turn if turn.correct? == true
-            # if turn.correct? == true
-            #     puts @correct_guesses
-            # end
         end
         return @correct_guesses
     end
 
     def number_correct_by_category(category)
-        @turns.find_all do |turn|
-            
+        correct_by_category = 0
+        @correct_turns.each do |turn|
+           if turn.card.category == category
+            correct_by_category += 1
+           end
         end
+        puts correct_by_category
+        return correct_by_category
     end
+
+
 end
