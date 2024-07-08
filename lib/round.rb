@@ -8,15 +8,17 @@ class Round
     def initialize(deck)
         @deck=deck
         @turns=[]
-        @turn=0
+        @card_index=0
     end
 
     def current_card
-        current_card = @deck.cards[@turn]
+        @deck.cards[@card_index]
     end
 
-    def take_turn
-        
-
+    def take_turn(guess)
+        new_turn = Turn.new(guess, current_card)
+        @turns.push(new_turn)
+        @deck.cards.shift
+        return new_turn
     end
 end
