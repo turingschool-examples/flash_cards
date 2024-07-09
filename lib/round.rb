@@ -21,11 +21,11 @@ class Round
     def take_turn(guess)
         new_turn = Turn.new(guess, current_card)
         @turns.push(new_turn)
-        @deck.cards.shift
+        # @deck.cards.shift
         if new_turn.correct? == true
             @number_correct += 1.0
         end
-
+        @card_index += 1
         return new_turn
     end
 
