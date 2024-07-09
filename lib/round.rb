@@ -17,14 +17,13 @@ class Round
         new_turn = Turn.new(guess, current_card)
         @turns.push(new_turn)
         @deck.cards.shift
+        if new_turn.correct?
+            @correct_counter += 1   
+        end
         return new_turn
     end
 
-    def number_correct(turn)
-        if turn.correct? == true
-            @correct_counter += 1   
-        end
+    def number_correct
+       @correct_counter  
     end
-
-
 end
