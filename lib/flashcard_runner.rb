@@ -28,7 +28,6 @@ def start(deck)
         categories = deck.cards.map do |category|
             category.category
         end
-        puts categories
         categories.each do |category|
             puts "#{category} - #{round.percent_correct_by_category(category).to_i} % correct"
         end
