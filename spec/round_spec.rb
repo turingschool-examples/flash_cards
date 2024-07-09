@@ -37,12 +37,33 @@ RSpec.describe Round do
         expect(new_turn).to be_an_instance_of(Turn)
         expect(new_turn.guess).to eq("Juneau")
         expect(new_turn.card).to eq(@card_1)
-        new_turn = @round.take_turn("Mars")
-        expect(new_turn.guess).to eq("Mars")
-        expect(new_turn.card).to eq(@card_2)
+    end
+
+    it 'can guess correct' do
+        new_turn = @round.take_turn("Juneau")
+        expect(new_turn.guess).to eq("Juneau")        
         expect(new_turn.correct?).to eq true
     end
 
-    # xit 'returns the number correct'
-    #     expect(round.number_correct).to eq(1)
+    it "can guess incorrect" do
+        new_turn = @round.take_turn("Boston")
+        expect(new_turn.guess).to eq("Boston")        
+        expect(new_turn.correct?).to eq false
+    end
+ 
+    it 'returns the number correct' do
+        new_turn = @round.take_turn("Juneau")
+        expect(@round.number_correct).to eq(1)
+    end
+    
+    it 'can move to the next card' do
+        new_turn = @round.take_turn("Juneau")
+        expect(new_turn).to be_an_instance_of(Turn)
+        expect(new_turn.guess).to eq("Juneau")
+        expect(new_turn.card).to eq(@card_1)
+        new_turn = @round.take_turn("Mars")
+        expect(new_turn.guess).to eq("Mars")
+        expect(new_turn.card).to eq(@card_2)
+    end
+
 end
