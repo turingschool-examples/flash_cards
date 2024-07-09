@@ -40,6 +40,9 @@ RSpec.describe Round do
         new_turn = @round.take_turn("Mars")
         expect(new_turn.guess).to eq("Mars")
         expect(new_turn.card).to eq(@card_2)
-        # expect(@round.take_turn("Juneau")).to match(Turn.new("Juneau", @card_1))
+        expect(new_turn.correct?).to eq true
     end
+
+    # xit 'returns the number correct'
+    #     expect(round.number_correct).to eq(1)
 end
