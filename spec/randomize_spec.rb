@@ -12,7 +12,7 @@ RSpec.describe Randomize do
         filename = "cards.txt"
         cards = CardGenerator.new(filename).cards
         deck = Deck.new(cards)
-        @randomize = Randomize.new(deck)
+        @randomize = Randomize.new(deck.count)
     end
 
     it 'exists' do
@@ -20,7 +20,7 @@ RSpec.describe Randomize do
     end
 
     it 'identifies the number of cards available' do
-        expect(@randomize.card_amount).to eq 7
+        expect(@randomize.card_number.count).to eq 7
     end
 
     it 'creates an array of number of cards' do

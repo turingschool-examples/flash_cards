@@ -17,7 +17,7 @@ def start
     cards = CardGenerator.new(filename).cards
     deck = Deck.new(cards)
     round = Round.new(deck)
-    randomize = Randomize.new(deck)
+    randomize = Randomize.new(deck.count)
 
 
     puts "Welcome! You're playing with #{deck.count} cards."

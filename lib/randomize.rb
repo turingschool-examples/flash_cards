@@ -4,15 +4,13 @@ class Randomize
                 :card_number,
                 :give_number
 
-    def initialize(deck)
-        @deck = deck
-        @card_amount = @deck.count
-        @card_number = set_card_number(deck)
+    def initialize(d_count)
+        @card_number = set_card_number(d_count)
         @give_number = 0
     end
 
-    def set_card_number(deck)
-        (1..deck.count).to_a
+    def set_card_number(deck_count)
+        (1..deck_count).to_a
     end
     
     def pick
