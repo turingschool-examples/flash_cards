@@ -22,11 +22,17 @@ class HighScore
         @user_name = name
     end
 
-    def add_score(name, score)
-        scores << "#{name}, #{score}"
+    def add_score
+        scores << "#{@user_name}, #{@current_score}"
     end
 
     def save
         File.write(@filename, @scores.join("\n"))
+    end
+
+    def display
+        @scores.map do |score|
+            p score.sub(/,/, ": ")
+        end
     end
 end

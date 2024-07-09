@@ -46,11 +46,15 @@ RSpec.describe HighScore do
 
     it 'can add user_name and score to scores array' do
         @high_score.get_user_name("Bobby")
-        @high_score.add_score(@high_score.user_name, @high_score.current_score)
+        @high_score.add_score
         expect(@high_score.scores).to include("Bobby, 2")
     end
 
     it 'can write the score and name to the file' do
         expect(@high_score.save).to eq 8
+    end
+
+    it 'displays score' do
+        expect(@high_score.display). to eq ["Bobby:  2"]
     end
 end
