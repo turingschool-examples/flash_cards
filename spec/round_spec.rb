@@ -78,8 +78,10 @@ RSpec.describe Round do
 
     it 'knows number of correct answers by category' do
         new_turn = @round.take_turn('Juneau')
-        # new_turn = @round.take_turn('Venus')
-        expect(@round.number_correct_by_category(:Geography)).to eq(1)
-        # expect(@round.number_correct_by_category(:STEM)).to eq(0)
+        new_turn = @round.take_turn('Texas')
+        expect(@round.number_correct_by_category(:Geography)).to eq 1
+        expect(@round.number_correct_by_category(:STEM)).to eq 0
     end
+
+    
 end
