@@ -87,4 +87,9 @@ RSpec.describe Round do
         new_turn = @round.take_turn('Texas')
         expect(@round.percent_correct).to eq (50.0)
     end
+
+    it 'knows percent correct by category' do
+
+        expect(round.percent_correct_by_category(:Geography)).to eq(100.0)
+    end
 end

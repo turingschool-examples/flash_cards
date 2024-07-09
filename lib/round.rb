@@ -40,4 +40,8 @@ class Round
     def percent_correct
         @correct_counter / @turns.length.to_f * 100
     end
+
+    def percent_correct_by_category(category)
+        
+    end
 end
