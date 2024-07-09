@@ -16,7 +16,8 @@ class Round
     def take_turn(guess)
         new_turn = Turn.new(guess, current_card)
         @turns.push(new_turn)
-        @deck.cards.shift
+        # @deck.cards.shift
+        @card_index += 1
         if new_turn.correct?
             @correct_counter += 1.0
         end
