@@ -3,13 +3,16 @@ class Round
     attr_reader :deck, 
                 :turns, 
                 :current_card,
-                :turn
+                :turn,
+                :number_correct
 
     def initialize(deck)
         @deck=deck
         @turns=[]
         @card_index=0
         @number_correct=0
+        @STEM_correct=0
+        @Geo_correct=0
     end
 
     def current_card
@@ -27,6 +30,14 @@ class Round
         if turn.correct? == true
         @number_correct += 1
         return @number_correct
+        end
+    end
+
+    def num_correct_by_category(category)
+        if @card.category == category && @new_turn.correct? && @card.category == :STEM
+            @STEM_correct += 1
+        else @card.category == category && @new_turn.correct? && @card.category == :Geography
+            @Geo_correct += 1
         end
     end
 

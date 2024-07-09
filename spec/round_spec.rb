@@ -58,4 +58,11 @@ RSpec.describe Round do
         new_turn = @round.take_turn("Juneau")
         expect(@round.number_correct(new_turn)).to eq(1)
     end
+
+    it 'keeps track of number correct by category' do
+        new_turn = @round.take_turn("Juneau")
+
+        expect(@round.num_correct_by_category(:Geography)).to eq(1)
+        # expect(@round.number_correct(category :STEM)).to eq(0)
+    end
 end
