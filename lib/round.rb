@@ -11,8 +11,7 @@ class Round
         @turns=[]
         @card_index=0
         @number_correct=0
-        @STEM_correct=0
-        @Geo_correct=0
+        @cat_correct=0
     end
 
     def current_card
@@ -33,12 +32,14 @@ class Round
         end
     end
 
-    def num_correct_by_category(category)
-        if @card.category == category && @new_turn.correct? && @card.category == :STEM
-            @STEM_correct += 1
-        else @card.category == category && @new_turn.correct? && @card.category == :Geography
-            @Geo_correct += 1
+    def number_correct_by_category(category)
+        cat_correct = 0
+        @turns.each do |turn|
+            if turn.card.category == category && turn.correct?
+                cat_correct += 1
+            end
         end
+        return cat_correct
     end
 
 end

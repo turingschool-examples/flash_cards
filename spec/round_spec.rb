@@ -61,8 +61,12 @@ RSpec.describe Round do
 
     it 'keeps track of number correct by category' do
         new_turn = @round.take_turn("Juneau")
+        new_turn = @round.take_turn("Venus")
+        expect(@round.number_correct_by_category(:Geography)).to eq 1
+        expect(@round.number_correct_by_category(:STEM)).to eq 0     
+    end
 
-        expect(@round.num_correct_by_category(:Geography)).to eq(1)
-        # expect(@round.number_correct(category :STEM)).to eq(0)
+    it 'tracks the percent correct' do
+        # I want to keep track of every new turn being correct and how so 
     end
 end
