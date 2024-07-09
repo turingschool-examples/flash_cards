@@ -36,9 +36,17 @@ def start(round)
     puts "****** Game Over! ******"
     puts "You had #{round.number_correct} correct guesses out of #{round.deck.count} for a total score of #{round.percent_correct.round(2)}%."
 
-    round.deck.cards.each do |category|
-        puts "#{category} -- #{round.percent_correct_by_category(category)}% correct"
+    
+    categories = round.deck.cards.map do |card|
+        card.category
     end
+    categories = categories.uniq
+
+
+    categories.each do |category|
+        puts "#{category} -- #{round.percent_correct_by_category(category).round(2)}% correct"
+    end
+    
 end
 
-puts start(round)
+start(round)

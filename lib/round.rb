@@ -41,12 +41,19 @@ class Round
             correct_by_category += 1
            end
         end
-        puts correct_by_category
+        # puts correct_by_category
         return correct_by_category
     end
 
     def percent_correct
         @correct_guesses.to_f / @turns.count.to_f * 100
+    end
+
+    def turn_by_category(category)
+        turn_by_category = @turns.find_all do |turn|
+            turn.card.category == category
+        end
+        turn_by_category
     end
 
     def percent_correct_by_category(category)
@@ -56,7 +63,7 @@ class Round
             correct_by_category += 1
            end
         end
-        return correct_by_category.to_f / @correct_turns.count.to_f * 100
+        return correct_by_category.to_f / turn_by_category(category).count.to_f * 100
         
     end
 end
