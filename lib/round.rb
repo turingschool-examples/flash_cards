@@ -5,11 +5,10 @@ class Round
         @deck = deck
         @turns = []
         @card_index = 0
-        #@turn_counter = 0
+        @correct_counter = 0
     end
 
     def current_card
-        #require 'pry'; binding.pry
         card = @deck.cards[@card_index]
         return card  
     end
@@ -19,6 +18,13 @@ class Round
         @turns.push(new_turn)
         @deck.cards.shift
         return new_turn
-       
     end
+
+    def number_correct(turn)
+        if turn.correct? == true
+            @correct_counter += 1   
+        end
+    end
+
+
 end
