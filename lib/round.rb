@@ -1,9 +1,10 @@
 require './lib/card'
 
 class Round
-  attr_reader :deck, :turns, :current_card, :turn_counter, :number_correct
+  attr_reader :deck, :turns, :current_card, :turn_counter, :number_correct, :cards
 
   def initialize(deck)
+    @cards = cards
     @deck = deck
     @turns = []
     @turn_counter = 0
