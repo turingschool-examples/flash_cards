@@ -25,4 +25,8 @@ class HighScore
     def add_score(name, score)
         scores << "#{name}, #{score}"
     end
+
+    def save
+        File.write(@filename, @scores.join("\n"))
+    end
 end

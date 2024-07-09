@@ -50,9 +50,7 @@ RSpec.describe HighScore do
         expect(@high_score.scores).to include("Bobby, 2")
     end
 
-    xit 'can write the score and name to the file' do
-    end
-
-    xit 'can save the file to be used for other rounds' do
+    it 'can write the score and name to the file' do
+        expect(@high_score.save).to eq 8
     end
 end
