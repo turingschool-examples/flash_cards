@@ -50,5 +50,10 @@ class Round
         @number_correct / @turns.count.to_f * 100.0
         # require 'pry'; binding.pry
     end
-    
+
+    def percent_correct_by_category(category)
+        number_correct_by_category(category) / @turns.count.to_f * 200.0
+
+        # I'm not really happy with this method.  I don't think it's dynamic enough
+    end
 end
