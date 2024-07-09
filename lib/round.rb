@@ -5,7 +5,7 @@ class Round
         @deck = deck
         @turns = []
         @card_index = 0
-        @correct_counter = 0
+        @correct_counter = 0.0
     end
 
     def current_card
@@ -35,5 +35,9 @@ class Round
             end
         end
         numbers_correct
+    end
+
+    def percent_correct
+        @correct_counter / @turns.length.to_f * 100
     end
 end
