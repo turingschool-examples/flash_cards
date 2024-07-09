@@ -15,8 +15,8 @@ class Round
         @category_count = set_category_count
     end
 
-    def current_card
-        @current_card = @deck.cards[@turn]
+    def current_card(number)
+        @current_card = @deck.cards[number]
     end
 
     def take_turn(guess)

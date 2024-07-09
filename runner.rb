@@ -3,6 +3,7 @@ require './lib/turn'
 require './lib/deck'
 require './lib/round'
 require './lib/card_generator'
+require './lib/randomize'
 
 
 def start
@@ -14,13 +15,14 @@ def start
     cards = CardGenerator.new(filename).cards
     deck = Deck.new(cards)
     round = Round.new(deck)
+    randomize = Randomize.new(deck)
 
 
     puts "Welcome! You're playing with #{deck.count} cards."
     puts "_________________________________________________"
     while round.turn < deck.count
         puts "This is card number #{(round.turn + 1)} out of #{deck.count}"
-        puts round.current_card.question
+        puts round.current_card(randomize.pick).question
         guess = gets.chomp
         round.take_turn(guess)
         puts "_________________________________________________"
