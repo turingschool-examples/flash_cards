@@ -43,4 +43,29 @@ class Round
     total_in_category = @turns.count {|turn| turn.card.category == category}
     (correct_in_category.to_f / total_in_category) * 100
   end
+
+  def start
+    puts "Welcome! You're playing with #{deck.cards.count} cards"
+    puts "-------------------------------------------------"
+
+    deck.cards.each_with_index do |card, index|
+      puts "This is card number #{index + 1} outof #{deck.cards.count}."
+      puts "Question: #{card.question}"
+      guess = gets.chomp
+      turn = take_turn(guess)
+      puts turn.feedback
+    end
+
+    puts "****** Game over! ******"
+    puts "You had #{number_correct} correct guesses out of #{deck.cards.count} for a total score of #{percent_correct.round(2)}%."
+
+    categories = []
+    deck.cards.each do |card|
+      categories << card.category unless categories.include?(card.category)
+    end
+
+    categories.each do |category|
+      puts "#{category} - #{percent_correct_by_category(category).round(2)}% correct"
+    end
+  end
 end
