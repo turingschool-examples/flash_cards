@@ -5,7 +5,7 @@ class Round
         @deck = deck
         @turns = []
         @card_index = 0
-        @correct_counter = 0.0
+        @correct_counter = 0
     end
 
     def current_card
@@ -42,6 +42,14 @@ class Round
     end
 
     def percent_correct_by_category(category)
-        
+        correct_counter = 0
+        category_total = 0
+        @turns.each do |turn|
+            if turn.card.category == category && turn.correct?
+                correct_counter += 1 
+            end
+        end
+        category_total += 1
+        correct_counter / category_total.to_f * 100
     end
 end
