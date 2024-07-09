@@ -27,8 +27,8 @@ RSpec.describe Deck do
     end
 
     it 'shows the current card' do
-        expect(@round.current_card).to be_instance_of(Card)
-        expect(@round.current_card).to eq(@deck.cards[0])
+        expect(@round.current_card(0)).to be_instance_of(Card)
+        expect(@round.current_card(0)).to eq(@deck.cards[0])
     end
 
     it 'tracks turns' do
@@ -61,7 +61,7 @@ RSpec.describe Deck do
         end
 
         it 'updates current card to the next available' do
-            expect(@round.current_card).to eq(@round.deck.cards[1])
+            expect(@round.current_card(1)).to eq(@round.deck.cards[1])
         end
 
         describe 'data available after two rounds' do
@@ -89,7 +89,7 @@ RSpec.describe Deck do
             end
 
             it 'shows last card in deck' do
-                expect(@round.current_card).to eq(@cards[2])
+                expect(@round.current_card(2)).to eq(@cards[2])
             end
         end
     end
