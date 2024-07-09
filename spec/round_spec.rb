@@ -65,8 +65,18 @@ RSpec.describe Round do
 
     it 'returns number correct by category' do
         new_turn = @round.take_turn("Juneau")
-        # new_turn = @round.take_turn("Steve")
+        new_turn = @round.take_turn("Steve")
         expect(@round.number_correct_by_category(:Geography)).to eq 1
-        # expect(@round.number_correct_by_category(:STEM)).to eq 0
+        expect(@round.number_correct_by_category(:STEM)).to eq 0
+    end
+
+    it 'returns percent correct' do
+        new_turn = @round.take_turn("Juneau")
+        new_turn = @round.take_turn("Steve")
+        expect(@round.percent_correct).to eq 50.0
+    end
+
+    xit 'returns precent correct by category' do
+        expect(@round.percent_correct_by_category(:Geography)).to eq 100.0
     end
 end
