@@ -52,8 +52,16 @@ class Round
     end
 
     def percent_correct_by_category(category)
-        number_correct_by_category(category) / @turns.count.to_f * 200.0
-
-        # I'm not really happy with this method.  I don't think it's dynamic enough
+        correct_counter = 0
+        category_total = 0
+        @turns.each do |turn|
+            if turn.card.category == category && turn.correct?
+                correct_counter += 1
+            end
+        end
+        cat_total = @turns.find_all do |turn|
+            turn.card.category == category
+        end
+        correct_counter / cat_total.size.to_f * 100
     end
 end

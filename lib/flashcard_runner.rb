@@ -22,8 +22,19 @@ def start(deck)
         puts user_input
         turn_taken = round.take_turn(user_input)
         puts turn_taken.feedback
-
     end
+    puts "\n****** Game over! ******"
+    puts "\nYou had #{round.number_correct.to_i} correct guesses out of #{deck.count} for a total score of #{round.percent_correct.to_i}%."
+        categories = deck.cards.map do |category|
+            category.category
+        end
+        puts categories
+        categories.each do |category|
+            puts "#{category} - #{round.percent_correct_by_category(category).to_i} % correct"
+        end
+    
+
+
 end
 
 start(deck)
