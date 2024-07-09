@@ -35,19 +35,27 @@ RSpec.describe Round do
     it 'draws the current card' do
 
         # expect(@round.current_card).to be_a(card_index)
-        expect(@round.current_card).to eq(@card_1)
+        expect(@round.current_card).to eq(@deck.cards[0])
     end
 
     it 'it can start a new turn' do
+
         new_turn = @round.take_turn("Juneau")
         expect(new_turn.guess).to eq("Juneau")
         expect(new_turn.card).to eq(@card_1)
+
         new_turn = @round.take_turn("Mars")
         expect(new_turn.guess).to eq("Mars")
         expect(new_turn.card).to eq(@card_2)
+
         new_turn = @round.take_turn("North north west")
         expect(new_turn.guess).to eq("North north west")
         expect(new_turn.card).to eq(@card_3)
     end
 
+    it 'keeps track of correct answers' do
+
+        new_turn = @round.take_turn("Juneau")
+        expect(@round.number_correct(new_turn)).to eq(1)
+    end
 end
