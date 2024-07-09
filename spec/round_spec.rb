@@ -31,9 +31,17 @@ RSpec.describe Deck do
         expect(@round.current_card).to eq(@deck.cards[0])
     end
 
+    it 'tracks turns' do
+        expect(@round.turn).to eq 0
+    end
+    
     describe 'the turns' do
         before (:all) do
             @new_turn = @round.take_turn("Juneau")
+        end
+
+        it 'tracks turns' do
+            expect(@round.turn).to eq 1
         end
 
         it 'can take turns' do
@@ -77,7 +85,7 @@ RSpec.describe Deck do
             it 'tracks number correct by category and percentage by category' do
                 expect(@round.number_correct_by_category(:Geography)).to eq 1
                 expect(@round.number_correct_by_category(:STEM)).to eq 0
-                # expect(@round.percent_correct_by_category(:Geography)).to eq 100.0
+                expect(@round.percent_correct_by_category(:Geography)).to eq 100.0
             end
 
             it 'shows last card in deck' do

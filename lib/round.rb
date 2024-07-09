@@ -1,9 +1,9 @@
 class Round
-    attr_accessor :deck,
-                  :turns,
-                  :number_correct,
-                  :turn,
-                  :correct_by_category
+    attr_reader :deck,
+                :turns,
+                :number_correct,
+                :turn,
+                :correct_by_category
 
     def initialize(deck)
         @deck = deck
