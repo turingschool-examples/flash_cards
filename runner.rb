@@ -4,6 +4,7 @@ require './lib/deck'
 require './lib/round'
 require './lib/card_generator'
 require './lib/randomize'
+require './lib/high_score'
 
 
 def start
@@ -12,6 +13,7 @@ def start
     # card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
     # cards = [card_1, card_2, card_3]
     filename = "cards.txt"
+    scorefile = "high_score.txt"
     cards = CardGenerator.new(filename).cards
     deck = Deck.new(cards)
     round = Round.new(deck)
@@ -28,9 +30,19 @@ def start
         puts "_________________________________________________"
     end
 
+    high_score = HighScore.new(round, scorefile)
+
     puts "*********** GAME OVER **********"
+    puts "Enter your name: "
+    high_score.get_user_name(gets.chomp)
+    high_score.add_score
+
     puts "You had #{round.number_correct} correct guesses out of #{deck.count} for a total score of #{round.percent_correct}%"
     round.correct_by_category.each_key {|key| puts "#{key} - #{round.percent_correct_by_category(key)}% correct"}
+
+    puts "*********** HIGH SCORES **********"
+    high_score.display
+    high_score.save
 end
 
 start
