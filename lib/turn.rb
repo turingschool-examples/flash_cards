@@ -12,8 +12,8 @@ class Turn
     end
 
     def feedback
-        if @guess = correct?
-            "Your answer is correct!"
+        if self.correct?
+            "*** Your answer is correct! ***"
         else
            "I'm sorry your answer is incorrect."
         end
