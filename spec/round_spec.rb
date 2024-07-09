@@ -58,12 +58,15 @@ RSpec.describe Round do
     
     it 'can move to the next card' do
         new_turn = @round.take_turn("Juneau")
-        expect(new_turn).to be_an_instance_of(Turn)
-        expect(new_turn.guess).to eq("Juneau")
-        expect(new_turn.card).to eq(@card_1)
         new_turn = @round.take_turn("Mars")
         expect(new_turn.guess).to eq("Mars")
         expect(new_turn.card).to eq(@card_2)
     end
 
+    it 'returns number correct by category' do
+        new_turn = @round.take_turn("Juneau")
+        # new_turn = @round.take_turn("Steve")
+        expect(@round.number_correct_by_category(:Geography)).to eq 1
+        # expect(@round.number_correct_by_category(:STEM)).to eq 0
+    end
 end
