@@ -41,7 +41,6 @@ class Round
             correct_by_category += 1
            end
         end
-        # puts correct_by_category
         return correct_by_category
     end
 
