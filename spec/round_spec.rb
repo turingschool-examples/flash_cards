@@ -36,7 +36,6 @@ RSpec.describe Round do
     end
 
     it 'can take turns' do
-       
         turn = Turn.new("Juneau", @card_1)
         expect(@round.turns.length).to eq(0)
         new_turn = @round.take_turn("Juneau")

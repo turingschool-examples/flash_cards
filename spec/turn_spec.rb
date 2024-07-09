@@ -36,16 +36,6 @@ RSpec.describe Turn do
         new_turn1 = Turn.new("Juneau", card_1)
         new_turn2 = Turn.new("Juneau", card_2)
         expect(new_turn1.feedback).to eq("*** Your answer is correct! ***")
-       
         expect(new_turn2.feedback).to eq("I'm sorry your answer is incorrect.")
     end
-
-#    xit 'can be a new turn' do
-#         card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-#         new_turn = Turn.new("Juneau", card)
-#         expect(new_turn).to be_instance_of(Turn)
-#         expect(new_turn.class).to eq(Turn)
-#         expect(new_turn.correct?).to eq(true)
-#     end
-  
 end

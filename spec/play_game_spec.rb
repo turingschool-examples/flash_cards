@@ -3,26 +3,19 @@ require './lib/turn'
 require './lib/deck'
 require './lib/round'
 require './lib/play_game'
-# require './play_game'
-# require './lib/card'
-# require './lib/turn'
-# require './lib/deck'
-# require './lib/round'
-
 
 RSpec.configure do |config|
     config.formatter = :documentation 
     end
 
 describe PlayGame do
-  
   describe '#create_deck' do
-  it 'creates a deck with 4 cards at a time' do
-    game = PlayGame.new
-    deck = game.create_deck
-    expect(deck.cards.size).to eq(4)
+    it 'creates a deck with 4 cards at a time' do
+      game = PlayGame.new
+      deck = game.create_deck
+      expect(deck.cards.size).to eq(4)
+    end
   end
-end
 
 describe '#shuffle_cards' do
     it 'shuffles and selects 4 cards' do

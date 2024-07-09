@@ -25,7 +25,6 @@ class PlayGame
   def shuffle_cards(cards)
     deck_cards = []
     deck_cards << cards.sample(4)
-   
     deck_cards.flatten
   end
 
@@ -38,7 +37,6 @@ class PlayGame
     puts "================================================\n "
 
     total_cards.times do
-      
       puts "This is card number #{@round.turns.count + 1} out of #{total_cards}."
       puts "\nQuestion: #{@round.current_card.question} \n "
       guess = gets.chomp.capitalize
@@ -48,7 +46,6 @@ class PlayGame
         puts "The correct answer was: #{turn.card.answer}\n\n" 
       end
     end
-
     game_over
   end
 
