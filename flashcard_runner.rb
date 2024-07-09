@@ -1,4 +1,4 @@
-require './play_game'
+require './lib/play_game'
 
 # To run the game
 play_game = PlayGame.new

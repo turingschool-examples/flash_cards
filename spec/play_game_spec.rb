@@ -2,7 +2,12 @@ require './lib/card'
 require './lib/turn'
 require './lib/deck'
 require './lib/round'
-require './play_game'
+require './lib/play_game'
+# require './play_game'
+# require './lib/card'
+# require './lib/turn'
+# require './lib/deck'
+# require './lib/round'
 
 
 RSpec.configure do |config|
