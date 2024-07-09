@@ -18,7 +18,7 @@ class Round
         @turns.push(new_turn)
         @deck.cards.shift
         if new_turn.correct?
-            @correct_counter += 1
+            @correct_counter += 1.0
         end
 
         return new_turn
@@ -30,20 +30,30 @@ class Round
 
     def number_correct_by_category(category)
         num_correct = 0.0
+        total_in_category = 0.0
         @turns.each do |turn|
+            if turn.card.category == category
+                total_in_category += 1
+            end
             if turn.card.category == category && turn.correct?
                 num_correct += 1.0
-            end
+            end      
         end
-        return num_correct
+
+        return [num_correct, total_in_category]
     end
 
     def percent_correct
         #divide the number_correct by the turns_taken
         # @correct_counter / .count * 100.0
         @correct_counter / @turns.count.to_f * 100.0
-        # require'pry'; binding.pry
     end
 
-    
+    def percent_correct_by_category(category)
+        # number correct by category divided by the turns_taken in a category
+        # require 'pry'; binding.pry
+        
+        var_1 = number_correct_by_category(category)
+        var_1[0]/var_1[1] * 100
+       end
 end
