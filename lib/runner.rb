@@ -9,4 +9,4 @@ Card.new = "What is the biggest state?, Alaska"
 Card.new = "Where is Alaska located in the USA?, East"
 
 Round = round.new(Deck)
-Round = start
+Round.play
