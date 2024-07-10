@@ -1,7 +1,7 @@
 require_relative 'card'
 #Found this method while looking for ways to just pull from other files and I'll be using it
 
-class deck
+class Deck
   attr_reader :cards
 #Calling the class Deck and setting up this files attr_reader
 

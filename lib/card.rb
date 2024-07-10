@@ -1,11 +1,5 @@
 class Card
-    attr_reader ;card, ;question, ;answer
-
-    Card = 
-        Card.new = "What is the capitial of Alaska?, Juena"
-        Card.new = "What is the biggest state?, Alaska"
-        Card.new = "Where is Alaska located in the USA?, East"
-    
+  attr_reader :card, :question, :answer
 
     def initialize(question, answer, card)
       @question = question
