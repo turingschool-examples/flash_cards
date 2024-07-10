@@ -11,13 +11,12 @@ deck = Deck.new([card_1, card_2, card_3, card_4])
 
 def start(deck)
     round = Round.new(deck)
-    puts "Welceme! You're playing with #{deck.count} cards"
+    puts "Welcome! You're playing with #{deck.count} cards"
     puts "-------------------------------------------------"
     deck.count.times do
         puts "\nThis is card number #{round.turns.count + 1} out of #{deck.count}."
         puts round.current_card.question
         user_input = gets.chomp 
-        # puts user_input
         turn = round.take_turn(user_input)
         puts turn.feedback
     end
@@ -34,6 +33,3 @@ def start(deck)
 end
 
 start(deck)
-
-#line that says how many right and how many turns were taken
-#separate lines showing the percent correct by category

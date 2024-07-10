@@ -16,7 +16,6 @@ class Round
     def take_turn(guess)
         new_turn = Turn.new(guess, current_card)
         @turns.push(new_turn)
-        # @deck.cards.shift
         @card_index += 1
         if new_turn.correct?
             @correct_counter += 1.0
@@ -45,15 +44,10 @@ class Round
     end
 
     def percent_correct
-        #divide the number_correct by the turns_taken
-        # @correct_counter / .count * 100.0
         @correct_counter / @turns.count.to_f * 100.0
     end
 
     def percent_correct_by_category(category)
-        # number correct by category divided by the turns_taken in a category
-        # require 'pry'; binding.pry
-        
         var_1 = number_correct_by_category(category)
         var_1[0]/var_1[1] * 100
        end
