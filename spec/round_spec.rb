@@ -38,9 +38,11 @@ RSpec.describe Round do
     it 'can take turns' do
         turn = Turn.new("Juneau", @card_1)
         expect(@round.turns.length).to eq(0)
+
         new_turn = @round.take_turn("Juneau")
         expect(@round.turns.length).to eq(1)
         expect(@round.turns[0]).to be_instance_of(Turn)
+        
         @round.take_turn("Venus")
         expect(@round.turns.count).to eq(2)
     end

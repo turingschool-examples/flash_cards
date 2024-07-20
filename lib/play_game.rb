@@ -30,7 +30,7 @@ class PlayGame
 
   def start 
     total_cards = @deck.count
-    puts "\n Please enter your name \n"
+    puts "\n Please enter your name \n\n"
     name = gets.chomp
 
     puts "\nGreetings, #{name}, Welcome to Flash Cards!\n You will be playing with #{total_cards} cards. Good luck!\n"
