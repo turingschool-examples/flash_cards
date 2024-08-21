@@ -6,6 +6,7 @@ class Turn
   def initialize(guess, card)
     @player_guess = guess
     @card = card
+    @correct = []
   end
 
   def correct?
@@ -21,6 +22,11 @@ class Turn
     #   puts 'Invalid input try again'
     end
 
+  end
+
+  def feedback
+    correct?
+    @correct == true ? 'You are correct!' : 'You are incorrect!'
   end
 
 end
