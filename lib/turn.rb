@@ -1,5 +1,5 @@
 class Turn
-
+  attr_reader 
   def initialize(string,card)
   end
   def guess
@@ -7,6 +7,7 @@ class Turn
   def card
   end
   def correct?
+    #downcase these to make them case insensitive
   end
   def feedback
   end
