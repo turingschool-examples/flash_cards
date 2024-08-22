@@ -1,19 +1,23 @@
+require './lib/card'
+
 class Turn
+    attr_reader :card, :guess
 
+    def initialize(guess = "Juneau", card)
+        @guess = guess
+        @card = card
+    end
+
+    def correct?
+        return true if guess == card.answer
+        false
+    end
+
+    def feedback
+        if guess == card.answer
+        "Correct!"
+        else
+        "Incorrect."
+        end
+    end
 end
-
-def guess
-
-end
-
-def correct?
-
-end
-
-def feedback
-
-end
-
-turn_1 = Turn.new(guess, card)
-
-#class objects can become the parameter for the next class instance
