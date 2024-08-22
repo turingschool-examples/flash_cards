@@ -1,5 +1,5 @@
-require './lib/turn'
 require './lib/card'
+require './lib/turn'
 
 RSpec.describe Turn do
     it 'exists' do
@@ -10,32 +10,37 @@ RSpec.describe Turn do
         expect(turn.card).to eq(card)
     end
 
-    xit 'returns a guess' do
+    it 'is Juneau by default' do
+        card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
         turn = Turn.new("Juneau", card)
 
-        expect(Turn.guess).to eq("Juneau")
+        expect(turn.guess).to eq("Juneau")
     end
 
-    xit 'returns the Card' do
+    it "does not have to be Juneau" do
+        card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        turn = Turn.new("Spain", card)
+
+        expect(turn.guess).to eq("Spain")
+    end
+
+    it 'returns the Card' do
+        card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
         turn = Turn.new("Juneau", card)
 
-        expect(Turn.card).to eq("What is the capital of Alaska?", "Juneau", :Geography)
-
+        expect(turn.card).to eq(card)
     end
-    xit 'refers to the card object from the Card class' do
-        Turn.new("Juneau", card)
+    
+    it 'indicates if the guess matched the answer on the card' do
+        card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        turn = Turn.new("Juneau", card)
 
-        expect(turn.answer).to eq(card)
-    end
-
-    xit 'evaluates wheteher the answer is correct' do
-        card = Turn.new("Juneau", card)
-
-        expect(turn.correct?).to eq()
+        expect(turn.correct?).to eq(true)
     end
 
-    xit 'provides feedback' do
-        card = Turn.new("Juneau", card)
+    it 'provides feedback' do
+        card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        turn = Turn.new("Juneau", card)
 
         expect(turn.feedback).to eq("Correct!")
     end
