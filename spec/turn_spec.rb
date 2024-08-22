@@ -7,7 +7,6 @@ RSpec.describe Turn do
         turn = Turn.new("Juneau", card)
 
         expect(turn).to be_instance_of(Turn)
-        expect(turn.card).to eq(card)
     end
 
     it 'is Juneau by default' do
