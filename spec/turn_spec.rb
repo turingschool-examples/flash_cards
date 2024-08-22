@@ -30,14 +30,6 @@ RSpec.describe Turn do
     expect(turn.correct?).to eq false
   end
 
-  #Feature not yet added 
-  # xit 'has invalid input' do 
-  #   card = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
-  #   turn = Turn.new("Juneau", card)
-
-  #   expect(turn.correct?).to eq 'Invalid input try again'
-  # end
-
   it 'tell player they are correct' do
     card = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
     turn = Turn.new("Juneau", card)

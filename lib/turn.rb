@@ -17,9 +17,6 @@ class Turn
       @correct = true
     elsif @player_guess != card_answer
       @correct = false
-      #feature not yet added
-    # else
-    #   puts 'Invalid input try again'
     end
 
   end
