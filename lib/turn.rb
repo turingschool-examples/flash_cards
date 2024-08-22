@@ -1,5 +1,4 @@
 class Turn
-  attr_reader 
   def initialize(guess,card)
     @guess = guess
     @card = card
