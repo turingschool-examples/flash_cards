@@ -14,4 +14,5 @@ class Deck
     end
     category_cards.length
   end
+  
 end
