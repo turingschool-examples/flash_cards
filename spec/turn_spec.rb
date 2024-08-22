@@ -8,31 +8,47 @@ RSpec.describe Turn do
     expect(turn).to be_instance_of(Turn)
   end
 
-  xit 'has the user\'s guess' do 
+  it 'has the user\'s guess' do 
     myCard = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("guess", myCard)
-    expect(turn).guess.to eq("guess")
-    expect(turn).guess.not_to eq("Harry Potter")
+    expect(turn.guess).to eq("guess")
+    expect(turn.guess).not_to eq("Harry Potter")
   end 
 
-  xit 'has a card' do
+  it 'has a card' do
   myCard = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
   turn = Turn.new("guess",myCard)
-  expect(turn).card.to eq(myCard)
+  expect(turn.card).to eq(myCard)
   end
 
-  xit 'guess returns the original guess' do
+  it 'guess returns the original guess' do
+  myCard = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+  turn = Turn.new("guess",myCard)
+  expect(turn.guess).to eq("guess")
+  expect(turn.guess).not_to eq "Hermione Granger"
   end
 
-  xit 'correct? returns if the correct answer was given' do
+  it 'correct? returns if the correct answer was given' do
+  myCard = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+  turn = Turn.new("Juneau",myCard)
+  expect(turn.correct?).to eq true
   end
 
-  xit 'correct? returns if the incorrect answer was given' do
+  it 'correct? returns if the incorrect answer was given' do
+  myCard = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+  turn = Turn.new("Anchorage",myCard)
+  expect(turn.correct?).to eq false
   end
 
-  xit 'feedback returns \'Correct!\' if the correct answer was given' do
+  it 'feedback returns \'Correct!\' if the correct answer was given' do
+    myCard = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Juneau",myCard)
+    expect(turn.feedback).to eq "Correct!"
   end
 
-  xit 'feedback returns \'Incorrect.\' if the incorrect answer is given' do
+  it 'feedback returns \'Incorrect.\' if the incorrect answer is given' do
+    myCard = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+  turn = Turn.new("Anchorage",myCard)
+  expect(turn.feedback).to eq "Incorrect."
   end
 end
