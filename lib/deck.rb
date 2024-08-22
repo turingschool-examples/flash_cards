@@ -8,12 +8,10 @@ class Deck
     def cards_in_category(category_request)
         @deck.map do |card|
             in_category = []
-            if category_request == card.category
-               
-            end
-            in_category
-        end
-        
+            card.category == category_request ? in_category << card : nil
+
+            # require 'pry'; binding.pry
+        end.compact
     end
 
 end
