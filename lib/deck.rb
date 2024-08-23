@@ -5,10 +5,14 @@ class Deck
     def initialize(cards)
         @cards = cards
     end
+# require 'pry'; binding.pry
+    def count
+        @cards.length
+    end
 
-    def identify_category(category)
+    def cards_in_category(category)
         @cards.select do |card|
-        card.category == category
+        category == card.category
         end
     end
 end
