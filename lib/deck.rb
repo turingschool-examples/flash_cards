@@ -1,5 +1,6 @@
 class Deck
-
+  attr_reader :cards
+  
   def initialize(cards)
     @cards = cards
   end
@@ -12,7 +13,7 @@ class Deck
     category_cards = @cards.find_all do |card|
     card.category == category
     end
-    category_cards.length
+    category_cards
   end
   
 end
