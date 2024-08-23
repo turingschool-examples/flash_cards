@@ -1,6 +1,7 @@
 require './lib/card'
 require './lib/turn'
 require './lib/deck'
+require './lib/round'
 
 card1  = Card.new("What is Dr. Brown's specialty?", "Ultrasonography", "Personal")
 
@@ -17,6 +18,8 @@ turn3 = Turn.new(card3, "Saphenous")
 cards = [card1, card2, card3]
 
 deck = Deck.new(cards)
+
+round = Round.new(deck)
 
 
 
