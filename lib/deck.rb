@@ -13,6 +13,6 @@ class Deck
         cards.filter_map do |card|
             card if card.category == cat
         end
-
     end
+    
 end
