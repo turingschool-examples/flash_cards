@@ -55,7 +55,18 @@ it 'uses take_turn create a new turn object with a string as a parameter, the tu
   expect(round1.turns[0].guess).to eq("Juneau")
   end
 
-
+  it 'uses take_turn create a new turn object with a string as a parameter, the turn\'s guess, which can be incorrect' do
+    myCard1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    myCard2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+    myCard3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+    cards = [myCard1,myCard2,myCard3]
+    deck1 = Deck.new(cards)
+    round1 = Round.new(deck1)
+    round1.take_turn("Anchorage")
+  
+    expect(round1.turns[0]).to be_instance_of(Turn)
+    expect(round1.turns[0].guess).to eq("Anchorage")
+    end
 #returns current_card in the middle of a round
 
 #returns current_card when there is no more remaining
