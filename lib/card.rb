@@ -9,4 +9,5 @@ class Card
         @answer = answer
         @category = category
     end
+
 end

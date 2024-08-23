@@ -1,18 +1,52 @@
 require './lib/card'
 require './lib/turn'
+require './lib/deck'
 
-card_1  = Card.new("What is Dr. Brown's specialty?", "Ultrasonography", "Personal")
+card1  = Card.new("What is Dr. Brown's specialty?", "Ultrasonography", "Personal")
 
-turn_1 = Turn.new(card_1, "Ultrasonography")
+turn1 = Turn.new(card1, "Chemo")
+
+card2 = Card.new("What does Dr. Reeve love?", "Poms", "Personal")
+
+turn2 = Turn.new(card2, "Poms")
+
+card3 = Card.new("What vein is best to place and IV catheter?", "Cephalic", "Medical")
+
+turn3 = Turn.new(card3, "Saphenous")
+
+cards = [card1, card2, card3]
+
+deck = Deck.new(cards)
+
+
+
 
 
 require 'pry'; binding.pry
 
 
-#RSpec.describe Card do
-  #it 'exists' do
-   # card_1 = Card.new("What is Dr. Brown's specialty?", "Ultrasonography", :Personal)
+RSpec.describe Card do
+  it 'exists' do
+    card_1 = Card.new("What is Dr. Brown's specialty?", "Ultrasonography", "Personal")
 
-    #expect(card_1).to be_instance_of(Card)
-  #end
-#end
+    expect(card_1).to be_instance_of(Card)
+  end
+
+  it 'has a question' do
+    card_1 = Card.new("What is Dr. Brown's specialty?", "Ultrasonography", "Personal")
+  
+    expect(card_1.question).to eq("What is Dr. Brown's specialty?")
+  end
+  
+  it 'has an answer' do
+    card_1 = Card.new("What is Dr. Brown's specialty?", "Ultrasonography", "Personal")
+  
+    expect(card_1.answer).to eq("Ultrasonography")
+  end
+  
+  it 'has a category' do
+    card_1 = Card.new("What is Dr. Brown's specialty?", "Ultrasonography", "Personal")
+  
+    expect(card_1.category).to eq("Personal")
+  end
+end
