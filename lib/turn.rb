@@ -1,3 +1,6 @@
+#Turn class to compare player input to card object
+#returns if correct or incorrect
+
 class Turn
   attr_reader :player_guess,
               :card,

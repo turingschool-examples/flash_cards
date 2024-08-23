@@ -1,3 +1,6 @@
+#Card class for flash_card project
+#all flashcard templates must follow 'question','answer', :category
+
 class Card
   attr_reader :question,
               :answer, 
