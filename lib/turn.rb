@@ -25,7 +25,7 @@ class Turn
   end
 
   def feedback
-    correct?
+    # correct?
     @correct == true ? 'You are correct!' : 'You are incorrect!'
   end
 
