@@ -40,7 +40,7 @@ RSpec.describe Deck do
         cards = [card_1, card_2, card_3]
 
         deck = Deck.new(cards)
-        require 'pry'; binding.pry
+        
         expect(deck.cards_in_category(:Geography).count).to eq(1)
         expect(deck.cards_in_category(:STEM).count).to eq(2)
         expect(deck.cards_in_category('pop culture').count).to eq(0)

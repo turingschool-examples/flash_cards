@@ -10,7 +10,7 @@ class Deck
             in_category = []
             card.category == category_request ? in_category << card : nil
 
-            # require 'pry'; binding.pry
+           
         end.compact
     end
 
