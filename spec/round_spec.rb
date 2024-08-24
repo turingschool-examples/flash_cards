@@ -342,6 +342,4 @@ it 'percent_correct_by_category 2 correct guess and multiple categories' do
 end
 
 #empty deck?
-#round.turns.count
-#round.turns.last.feedback
 end
