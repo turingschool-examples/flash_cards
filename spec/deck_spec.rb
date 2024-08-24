@@ -1,6 +1,10 @@
 require './lib/deck.rb'
 require './lib/card.rb'
 
+RSpec.configure do |config|
+  config.formatter = :documentation
+end
+
 RSpec.describe Deck do
   it 'exists' do
     myCard = Card.new("What is the capital of Alaska?", "Juneau", :Geography)

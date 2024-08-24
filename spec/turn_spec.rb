@@ -1,6 +1,10 @@
 require './lib/turn.rb'
 require './lib/card.rb'
 
+RSpec.configure do |config|
+  config.formatter = :documentation
+end
+
 RSpec.describe Turn do
   it 'exists' do
     myCard = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
@@ -14,7 +18,6 @@ RSpec.describe Turn do
     turn = Turn.new("guess", myCard)
 
     expect(turn.guess).to eq("guess")
-
     expect(turn.guess).not_to eq("Harry Potter")
   end 
 
@@ -39,6 +42,15 @@ RSpec.describe Turn do
 
     expect(turn.correct?).to eq true
   end
+
+  it 'returns correct? as true if the case is mismatched' do
+    myCard = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn1 = Turn.new("juneau",myCard)
+    turn2 = Turn.new("juneau",myCard)
+    expect(turn1.correct?).to eq true
+    expect(turn2.correct?).to eq true
+  end
+
 
   it 'correct? returns if the incorrect answer was given' do
     myCard = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
