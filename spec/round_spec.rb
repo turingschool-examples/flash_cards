@@ -99,6 +99,7 @@ it 'returns turns, an array of turn objects when there are multiple turns' do
     
   expect(round1.turns).to eq([turn1,turn2])
 end
+
 it 'returns current_card when there is no more remaining' do
   myCard1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
   cards = [myCard1]
@@ -108,6 +109,7 @@ it 'returns current_card when there is no more remaining' do
       
   expect(round1.current_card).to eq(nil)
 end
+
 it 'returns turns.correct when correct' do
   myCard1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
   cards = [myCard1]
@@ -117,6 +119,7 @@ it 'returns turns.correct when correct' do
       
   expect(round1.turns[0].correct?).to eq(true)
 end
+
 it 'returns turns.correct when incorrect' do
   myCard1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
   cards = [myCard1]
@@ -126,6 +129,7 @@ it 'returns turns.correct when incorrect' do
       
   expect(round1.turns[0].correct?).to eq(false)
 end
+
 it 'returns number_correct when there have been no guesses' do
   myCard1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
   cards = [myCard1]
@@ -134,6 +138,7 @@ it 'returns number_correct when there have been no guesses' do
       
   expect(round1.number_correct).to eq(0)
 end
+
 it 'returns number_correct when there have been guesses but none correct' do
   myCard1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
   cards = [myCard1]
@@ -179,7 +184,6 @@ it 'returns number_correct_by_category when there have been no guesses and multi
   expect(round1.number_correct_by_category(:Geography)).to eq(0)
 end
 
-
 it 'number_correct_by_category when there have been guesses but none correct and multiple categories' do
   myCard1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
   myCard2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
@@ -194,7 +198,6 @@ it 'number_correct_by_category when there have been guesses but none correct and
   expect(round1.number_correct_by_category(:Geography)).to eq(0)
   expect(round1.number_correct_by_category(:STEM)).to eq(0)
 end
-
 
 it 'number_correct_by_category 1 correct guess and multiple categories' do
   myCard1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
@@ -236,11 +239,51 @@ it '#number_correct_by_category no cards in a category' do
   expect(round1.number_correct_by_category(:History)).to eq(0)
 end
 
-#percent_correct method
-#percent_correct when there have been no guesses
-#percent_correct when there have been guesses but none correct
-#percent_correct 1 correct guess
-#percent_correct 2 correct guesses
+it 'returns percent_correct when there have been no guesses' do
+  myCard1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+  cards = [myCard1]
+  deck1 = Deck.new(cards)
+  round1 = Round.new(deck1)
+      
+  expect(round1.percent_correct).to eq(nil)
+end
+
+it 'returns percent_correct when there have been guesses but none correct' do
+  myCard1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+  cards = [myCard1]
+  deck1 = Deck.new(cards)
+  round1 = Round.new(deck1)
+  turn1 = round1.take_turn("Anchorage")
+      
+  expect(round1.percent_correct).to eq(0)
+end
+
+it 'returns percent_correct when there have been both correct and incorrect guesses' do
+  myCard1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+  myCard2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+  myCard3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+  cards = [myCard1,myCard2,myCard3]
+  deck1 = Deck.new(cards)
+  round1 = Round.new(deck1)
+  turn1 = round1.take_turn("Juneau")
+  turn2 = round1.take_turn("Venus")
+      
+  expect(round1.percent_correct).to eq(50)
+end
+
+it 'returns percent_correct rounded to2 decimal places when there have been both correct and incorrect guesses' do
+  myCard1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+  myCard2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+  myCard3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+  cards = [myCard1,myCard2,myCard3]
+  deck1 = Deck.new(cards)
+  round1 = Round.new(deck1)
+  turn1 = round1.take_turn("Juneau")
+  turn2 = round1.take_turn("Mars")
+  turn1 = round1.take_turn("South-ish")
+
+  expect(round1.percent_correct).to eq(66.67)
+end
 
 #percent_correct_by_category method
 #percent_correct when there have been no guesses
@@ -249,5 +292,6 @@ end
 #percent_correct 2 correct guesses
 
 #empty deck?
-
+#round.turns.count
+#round.turns.last.feedback
 end

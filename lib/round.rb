@@ -19,14 +19,14 @@ class Round
   end
   
   def number_correct
-    correct_answers = turns.find_all do |turn|
+    correct_answers = @turns.find_all do |turn|
     turn.correct? == true
     end
     correct_answers.length
   end
 
   def number_correct_by_category(category)
-    correct_answers = turns.find_all do |turn|
+    correct_answers = @turns.find_all do |turn|
     turn.correct? == true
     end
     correct_answers_by_cat = correct_answers.find_all do |correct_answer|
@@ -35,4 +35,13 @@ class Round
     correct_answers_by_cat.length
   end
 
+  def percent_correct
+    if @turns.length != 0
+      correct_answers = @turns.find_all do |turn|
+        turn.correct? == true
+        end
+#binding.pry
+      return ((correct_answers.length.to_f / @turns.length.to_f) * 100).round(2)
+    end
+  end
 end
