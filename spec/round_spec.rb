@@ -8,14 +8,14 @@ RSpec.configure do |config|
 end
 
 RSpec.describe Round do
-  it 'exists' do
+it 'exists' do
   card1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
   cards = [card1]
   deck1 = Deck.new(cards)
   round1 = Round.new(deck1)
 
   expect(round1).to be_instance_of(Round)
-  end
+end
 
 it 'returns the given deck' do
   card1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
