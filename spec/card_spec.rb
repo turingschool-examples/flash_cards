@@ -5,15 +5,12 @@ require './lib/round'
 
 card1  = Card.new("What is Dr. Brown's specialty?", "Ultrasonography", "Personal")
 
-turn1 = Turn.new(card1, "Chemo")
 
 card2 = Card.new("What does Dr. Reeve love?", "Poms", "Personal")
 
-turn2 = Turn.new(card2, "Poms")
 
 card3 = Card.new("What vein is best to place and IV catheter?", "Cephalic", "Medical")
 
-turn3 = Turn.new(card3, "Saphenous")
 
 cards = [card1, card2, card3]
 
@@ -21,11 +18,11 @@ deck = Deck.new(cards)
 
 round = Round.new(deck)
 
+round.take_turn
 
 
 
-
-require 'pry'; binding.pry
+#require 'pry'; binding.pry
 
 
 RSpec.describe Card do
