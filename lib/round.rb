@@ -41,5 +41,20 @@ class Round
         num_correct_by_cat
     end
 
+    def percent_correct_by_category(cat)
+        per_correct_by_cat=0
+        total_by_cat=0
+        @turns.each do |turn|
+            if turn.card.category == cat
+                total_by_cat +=1
+                if turn.guess == turn.card.answer
+                    per_correct_by_cat +=1
+                end
+            end
+        end
+        #require "pry" ; binding.pry
+        (((per_correct_by_cat).to_f)/total_by_cat)*100
+    end
+
 
 end
