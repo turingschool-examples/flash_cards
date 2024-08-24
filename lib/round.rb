@@ -1,40 +1,33 @@
+require 'turn.rb'
+
 class Round
-    attr_reader :deck, :cards, :card, :turn, :turns
+    attr_reader :deck, :turns, :user_guesses, :number_correct
 
     def initialize(deck)
         @deck = deck
-        @turn = turn
-        @turns = turns
-        @card = card
-        @cards = cards
+        @turns = []
+        @card_number = 0
+        @number_correct = 0
+        @user_guesses = []
     end
 
     def turns
-        @deck = []
+        @turns
+    end
+
+    def user_guesses
+        @user_guesses
     end
 
     def current_card
-        @deck.cards[0]
+        @deck.cards[@card_number]
     end
-
-    # while @deck.cards.empty? == false do
-    # 
-
-    # end
-
-    def count 
 
     def take_turn(guess)
-        new_turn = Turn.new(guess, @deck.cards[@turns.count])
-        @turns << new_turn
-        new_turn
-    end
-    
-    def correct?
-        new_turn = @turn
-        current_card = @deck.cards[0]
-        return true if new_turn[0] == current_card[1]
-            false 
+        return turns << guess = Turn.new(guess, current_card)
+        user_guesses << guess.correct?
+        @number_correct += 1 if guess.correct?
+        @card_number += 1
     end
 end
 
