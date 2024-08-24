@@ -1,10 +1,12 @@
 class Round
     attr_reader :deck,
-                :turns
+                :turns,
+                :number_correct
 
     def initialize(deck)
         @deck=deck
         @turns=[]
+        @number_correct=0
     end
 
     def current_card
@@ -12,12 +14,14 @@ class Round
     end
 
     def take_turn(guess)
-        new_turn = Turn.new(guess,@deck.cards[@turns.count])
-        @turns << new_turn
-        new_turn
-
-
-      
+        new_turn_test = Turn.new(guess,@deck.cards[@turns.count])
+        if new_turn_test.correct? == true
+            @number_correct +=1
+        end
+        #require "pry" ; binding.pry
+        @turns << new_turn_test
+        new_turn_test
     end
+
 
 end
