@@ -1,6 +1,8 @@
 # Deck.rb
-class Turn
-  attr_reader
+class Deck
+  attr_reader :cards
 
-  def initialize; end
+  def initialize(cards)
+    @cards = cards
+  end
 end
