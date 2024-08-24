@@ -1,13 +1,15 @@
 class Round
     attr_reader :deck,
                 :turns,
-                :number_correct
+                :number_correct,
+                :percent_correct
 
 
     def initialize(deck)
         @deck=deck
         @turns=[]
         @number_correct=0
+        @percent_correct=0
         
     end
 
@@ -21,6 +23,7 @@ class Round
             @number_correct +=1
         end
         @turns << new_turn_test
+        @percent_correct= ((@number_correct).to_f/ @turns.count)*100
         #require "pry" ; binding.pry
         new_turn_test
 
