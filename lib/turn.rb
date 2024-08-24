@@ -7,12 +7,12 @@ class Turn
     end
 
     def correct?
-        return true if guess == card.answer
+        return true if guess.downcase == card.answer.downcase
         false
     end
 
     def feedback
-        if guess == card.answer
+        if guess.downcase == card.answer.downcase
         "Correct!"
         else
         "Incorrect."
