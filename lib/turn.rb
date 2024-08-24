@@ -1,11 +1,11 @@
-# turn.rb
+# turn.
 class Turn
   attr_reader :guess, :card
 
   def initialize(guess, card)
     @guess = guess
     @card = card
-    @result = false
+    # @result = false
   end
 
   def a_guess
