@@ -165,16 +165,76 @@ it 'returns number_correct when there have been both correct and incorrect guess
   deck1 = Deck.new(cards)
   round1 = Round.new(deck1)
   turn1 = round1.take_turn("Juneau")
-  turn1 = round1.take_turn("Venus")
+  turn2 = round1.take_turn("Venus")
       
   expect(round1.number_correct).to eq(1)
 end
 
-#number_correct_by_category method
-#number_correct_by_category when there have been no guesses
-#number_correct_by_category when there have been guesses but none correct
-#number_correct_by_category 1 correct guess
-#number_correct_by_category 2 correct guesses
+it 'returns number_correct_by_category when there have been no guesses and multiple categories' do
+  myCard1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+  cards = [myCard1]
+  deck1 = Deck.new(cards)
+  round1 = Round.new(deck1)
+      
+  expect(round1.number_correct_by_category(:Geography)).to eq(0)
+end
+
+
+it 'number_correct_by_category when there have been guesses but none correct and multiple categories' do
+  myCard1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+  myCard2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+  myCard3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+  cards = [myCard1,myCard2,myCard3]
+  deck1 = Deck.new(cards)
+  round1 = Round.new(deck1)
+  turn1 = round1.take_turn("Anchorage")
+  turn2 = round1.take_turn("Venus")
+  turn3 = round1.take_turn("I have no idea")
+
+  expect(round1.number_correct_by_category(:Geography)).to eq(0)
+  expect(round1.number_correct_by_category(:STEM)).to eq(0)
+end
+
+
+it 'number_correct_by_category 1 correct guess and multiple categories' do
+  myCard1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+  myCard2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+  myCard3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+  cards = [myCard1,myCard2,myCard3]
+  deck1 = Deck.new(cards)
+  round1 = Round.new(deck1)
+  turn1 = round1.take_turn("Anchorage")
+  turn2 = round1.take_turn("Mars")
+  turn3 = round1.take_turn("I have no idea")
+
+  expect(round1.number_correct_by_category(:Geography)).to eq(0)
+  expect(round1.number_correct_by_category(:STEM)).to eq(1)
+end
+
+it 'number_correct_by_category 2 correct guess and multiple categories' do
+  myCard1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+  myCard2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+  myCard3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+  cards = [myCard1,myCard2,myCard3]
+  deck1 = Deck.new(cards)
+  round1 = Round.new(deck1)
+  turn1 = round1.take_turn("Juneau")
+  turn2 = round1.take_turn("Mars")
+  turn3 = round1.take_turn("North north west")
+
+  expect(round1.number_correct_by_category(:Geography)).to eq(1)
+  expect(round1.number_correct_by_category(:STEM)).to eq(2)
+end
+
+it '#number_correct_by_category no cards in a category' do
+  myCard1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+  cards = [myCard1]
+  deck1 = Deck.new(cards)
+  round1 = Round.new(deck1)
+  turn1 = round1.take_turn("Juneau")
+
+  expect(round1.number_correct_by_category(:History)).to eq(0)
+end
 
 #percent_correct method
 #percent_correct when there have been no guesses

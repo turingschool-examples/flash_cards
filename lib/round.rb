@@ -25,5 +25,14 @@ class Round
     correct_answers.length
   end
 
+  def number_correct_by_category(category)
+    correct_answers = turns.find_all do |turn|
+    turn.correct? == true
+    end
+    correct_answers_by_cat = correct_answers.find_all do |correct_answer|
+      correct_answer.card.category == category
+    end
+    correct_answers_by_cat.length
+  end
 
 end
