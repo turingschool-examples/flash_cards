@@ -12,9 +12,6 @@ card2 = Card.new("What does Dr. Reeve love?", "Poms", "Personal")
 card3 = Card.new("What vein is best to place and IV catheter?", "Cephalic", "Medical")
 
 
-cards = [card1, card2, card3]
-
-deck = Deck.new(cards)
 
 round = Round.new(deck)
 
