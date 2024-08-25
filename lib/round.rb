@@ -1,16 +1,22 @@
 require './lib/turn'
+require './lib/card'
 
 class Round
-  attr_reader :turns, :current_card, :deck, :new_turn
+  attr_reader :turns, :current_card, :deck
 
   def initialize(deck)
     @deck = deck
-    @turns = []
     @current_card = deck.cards[0]
-    @new_turn
+    @turns = []
   end
 
   def take_turn(guess)
-    Turn.new(guess, current_card)
+    current_turn = Turn.new(guess, current_card)
+    turns << current_turn
+    current_turn
+  end
+
+  def number_correct_by_category(category)
+    turns.count { |turn| turn.card.category == category }
   end
 end
