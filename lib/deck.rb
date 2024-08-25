@@ -2,7 +2,8 @@ class Deck
 
     attr_reader :cards,
                 :count,
-                :category
+                :category,
+                :turn
 
             def initialize (cards)
                 @cards = cards
