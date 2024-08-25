@@ -16,6 +16,7 @@ RSpec.describe Round do
         round = Round.new(deck)
 
         expect(round).to be_an_instance_of(Round)
+        expect(round.deck).to eq(deck)
     end
     
     it 'has a Deck' do
