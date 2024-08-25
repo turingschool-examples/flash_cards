@@ -2,6 +2,7 @@ require './lib/card'
 require './lib/turn'
 require './lib/deck'
 require './lib/round'
+require 'pry'
 
 RSpec.describe Round do
 
@@ -17,7 +18,8 @@ RSpec.describe Round do
         @turns = []
         @user_guesses = []
         @number_correct = 0
-       
+        @card_number = 0
+        
     end
 
     it 'exists' do        
@@ -50,7 +52,11 @@ RSpec.describe Round do
         expect(new_turn.correct?).to eq(true)
     end
 
-    xit 'adds_to_number_correct' do
+    it 'adds_to_number_correct' do
+        new_turn = Turn.new("Juneau", @card_1)
+
+        # require 'pry'; binding.pry
+
         expect(@round.number_correct).to eq(1)
     end
 end
