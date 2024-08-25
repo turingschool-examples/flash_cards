@@ -12,13 +12,6 @@ card2 = Card.new("What does Dr. Reeve love?", "Poms", "Personal")
 card3 = Card.new("What vein is best to place and IV catheter?", "Cephalic", "Medical")
 
 
-
-round = Round.new(deck)
-
-round.take_turn
-
-
-
 #require 'pry'; binding.pry
 
 

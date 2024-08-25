@@ -1,6 +1,7 @@
 require './lib/card'
 require './lib/turn'
 require './lib/deck'
+require './lib/round'
 
 card1  = Card.new("What is Dr. Brown's specialty?", "Ultrasonography", "Personal")
 
@@ -10,10 +11,11 @@ card2 = Card.new("What does Dr. Reeve love?", "Poms", "Personal")
 
 card3 = Card.new("What vein is best to place and IV catheter?", "Cephalic", "Medical")
 
-
 cards = [card1, card2, card3]
 
 deck = Deck.new(cards)
+
+#equire 'pry'; binding.pry
 
 RSpec.describe Deck do
     it 'exists' do
