@@ -1,4 +1,4 @@
- require './card'
+require './card'
 require './deck'
 require './round'
 require './turn'
