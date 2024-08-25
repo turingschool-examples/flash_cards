@@ -33,7 +33,33 @@ class Round
     end
     correct_in_category.count
   end
+
+  def percent_correct
+    total_turns = @turns.count
+    return 0.0 if total_turns.zero?
+    correct_turns = @turns.select do |turn|
+      turn.correct?
+    end  
+    percentage = (correct_turns.count.to_f / total_turns) *100
+
+    percentage.round(2)
+  end
   
+  def percent_correct_by_category(category)
+    category_turns = @turns.select do |turn|
+      turn.card.category == category
+    end
 
+    total_turns_per_category = category_turns.count
+    return 0.0 if total_turns_per_category.zero?
 
+    correct_turns_per_category = category_turns.select do |turn|
+      turn.correct?
+    end
+    
+    percentage = (correct_turns_per_category.count.to_f / total_turns_per_category) * 100
+    percentage.round(2)
+  
+    
+  end
 end
