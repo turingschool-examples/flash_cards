@@ -19,6 +19,14 @@ class Round
     @deck.cards.shift   
     turn
   end
+
+  def number_correct
+    correct_turn = @turns.select do |turn|
+      turn.correct?
+    end
+    correct_turn.count
+  end
+
   
 
 
