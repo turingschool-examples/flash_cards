@@ -41,5 +41,14 @@ RSpec.describe Round do
         expect(round.current_card).to eq(card1)
     end
 
- 
+    it 'starts with an empty array of turns' do
+
+        expect(round.turns).to eq([])
+      end
+
+      it 'can update the current card to the next card in the deck' do
+        round.take_turn("chemo")
+
+        expect(round.current_card).to eq(card2)
+      end
 end
