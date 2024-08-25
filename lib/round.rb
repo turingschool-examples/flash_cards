@@ -10,6 +10,7 @@ class Round
 
   def take_turn(guess, card = @current_card)
     turn = Turn.new(guess, card)
+    puts turn.feedback
     @turns << turn
     @index += 1
     @current_card = deck.cards[@index]

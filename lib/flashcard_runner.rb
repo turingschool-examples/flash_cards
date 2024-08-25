@@ -16,10 +16,15 @@ class Flashcard_runner
     deck1 = Deck.new(cards)
     
     round1 = Round.new(deck1)
-  
     puts "\n\n\n\n\nWelcome! You're playing with #{cards.length} cards.
--------------------------------------------------
-This is card number #{round1.turns.length + 1} out of #{cards.length}"
+-------------------------------------------------"
+
+    round1.deck.cards.each do |card|
+      puts "This is card number #{round1.turns.length + 1} out of #{cards.length}\nQuestion: #{round1.current_card.question}"
+      round1.take_turn(gets.chomp)
+    end
+
+    #add results
   end
 
   Flashcard_runner.start()
