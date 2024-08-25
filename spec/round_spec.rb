@@ -51,4 +51,11 @@ RSpec.describe Round do
 
         expect(round.current_card).to eq(card2)
       end
+
+      it 'can provide feedback' do
+        new_turn = round.take_turn("chemo")
+        
+        expect(new_turn.correct?).to be false
+        expect(new_turn.feedback).to eq("incorrect.")
+      end
 end
