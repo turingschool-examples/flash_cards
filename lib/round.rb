@@ -1,7 +1,7 @@
 require 'turn.rb'
 
 class Round
-    attr_reader :deck, :turns, :user_guesses, :number_correct
+    attr_reader :deck, :turns, :user_guesses, :number_correct, :card_number
 
     def initialize(deck)
         @deck = deck
@@ -24,10 +24,12 @@ class Round
     end
 
     def take_turn(guess)
-        return turns << guess = Turn.new(guess, current_card)
-        user_guesses << guess.correct?
-        @number_correct += 1 if guess.correct?
+        new_turn = Turn.new(guess, current_card)
+        @turns << new_turn
+        @user_guesses << new_turn.correct?
+        @number_correct += 1 if new_turn.correct?
         @card_number += 1
+        new_turn
     end
 end
 
