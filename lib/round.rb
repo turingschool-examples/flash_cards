@@ -1,4 +1,5 @@
-require 'turn.rb'
+require_relative './turn.rb'
+require_relative './card.rb'
 
 class Round
     attr_reader :deck, :turns, :user_guesses, :number_correct, :card_number
@@ -25,14 +26,17 @@ class Round
 
     def take_turn(guess)
         new_turn = Turn.new(guess, current_card)
-        @turns << new_turn
-        @user_guesses << new_turn.correct?
+        @turns << new_turn 
+        @user_guesses << new_turn.correct? #returns true/false boolean
         @number_correct += 1 if new_turn.correct?
         @card_number += 1
         new_turn
     end
-end
 
+    def number_correct_by_category(category)
+        @deck.current_card.category
+    end
+end
     # def number_correct
         
     # end
