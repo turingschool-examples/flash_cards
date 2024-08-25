@@ -17,7 +17,9 @@ class Flashcard_runner
     
     round1 = Round.new(deck1)
   
-    puts "Start is starting!"
+    puts "\n\n\n\n\nWelcome! You're playing with #{cards.length} cards.
+-------------------------------------------------
+This is card number #{round1.turns.length + 1} out of #{cards.length}"
   end
 
   Flashcard_runner.start()
