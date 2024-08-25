@@ -9,7 +9,7 @@ class Turn
 
 
   def correct?
-   @guess == @card.answer
+   @guess.downcase == @card.answer.downcase
   end
 
 
