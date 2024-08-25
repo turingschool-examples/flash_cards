@@ -1,5 +1,5 @@
-require './lib/turn'
-require './lib/card'
+# require './lib/turn'
+# require './lib/card'
 
 class Round
   attr_reader :turns, :current_card, :deck
@@ -18,5 +18,11 @@ class Round
 
   def number_correct_by_category(category)
     turns.count { |turn| turn.card.category == category }
+  end
+
+  def percent_correct
+    correct_turns = turns.count { |turn| turn.correct? == true }
+    ratio = correct_turns / turns.count.to_f
+    ratio * 100
   end
 end

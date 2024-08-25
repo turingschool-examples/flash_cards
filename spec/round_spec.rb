@@ -58,16 +58,26 @@ RSpec.describe Deck do
     round = Round.new(deck)
     new_turn = round.take_turn('bye')
 
-    expect(new_turn).to eq(1)
+    expect(round.number_correct_by_category(:whaatok)).to eq(1)
   end
 
-  xit 'can guess incorrectly' do
+  it 'can calculate total percentage' do
+    card_1 = Card.new('hi1', 'bye', :whaatok)
+    card_2 = Card.new('hi2', 'byebye', :whaatok)
+    card_3 = Card.new('hi3', 'bye', :whaatok)
+    cards = [card_1, card_2, card_3]
+    deck = Deck.new(cards)
+    round = Round.new(deck)
+    round.take_turn('bye')
+    round.take_turn('fsdsfd')
+
+    expect(round.percent_correct).to eq(50.0)
   end
 
   xit 'returns the number of correct guesses by category' do
   end
 
-  xit 'returs the % correct by cateogy' do
+  xit 'returs the % correct by category' do
   end
 
   xit 'returns the total % correct' do
