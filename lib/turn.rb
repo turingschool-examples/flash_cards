@@ -15,7 +15,7 @@ class Turn
         if guess == card.answer
             "Correct!"
         else 
-            "Keep trying!"
+            "Incorrect."
         end
     end
 end
