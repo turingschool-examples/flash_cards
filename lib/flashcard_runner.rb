@@ -12,6 +12,7 @@ card_6 = Card.new("What's the last name of the writer of 1987's Lethal Weapon?",
 deck = Deck.new([card_1, card_2, card_3, card_4, card_5, card_6])
 round = Round.new(deck)
 round.start
+round.play_game
 
 
 
