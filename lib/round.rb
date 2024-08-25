@@ -20,15 +20,13 @@ class Round
     end
 
     def take_turn(guess)
-        new_turn_test = Turn.new(guess,@deck.cards[@turns.count])
-        if new_turn_test.correct? == true
+        new_turn = Turn.new(guess,@deck.cards[@turns.count])
+        if new_turn.correct? == true
             @number_correct +=1
         end
-        @turns << new_turn_test
+        @turns << new_turn
         @percent_correct= ((@number_correct).to_f/ @turns.count)*100
-        #require "pry" ; binding.pry
-        new_turn_test
-
+        new_turn
     end
 
     def number_correct_by_category(cat)
@@ -44,21 +42,16 @@ class Round
     end
 
     def percent_correct_by_category(cat)
-        per_correct_by_cat=0
         total_by_cat=0
         @turns.each do |turn|
             if turn.card.category == cat
                 total_by_cat +=1
-                if turn.guess == turn.card.answer
-                    per_correct_by_cat +=1
-                end
             end
         end
-        #require "pry" ; binding.pry
-        (((per_correct_by_cat).to_f)/total_by_cat)*100
+        (((number_correct_by_category(cat)).to_f)/total_by_cat)*100
     end
 
-    def get_categories
+    def get_unique_categories
         deck.cards.each do |card|
             @unique_categories << card.category
         end
@@ -68,10 +61,9 @@ class Round
     def start
         puts "Welcome! You're playing with #{deck.count} cards"
         puts "------------------------------------------------"
-        #require "pry" ; binding.pry
+
         deck.cards.each do |card|
         puts "This is card number #{deck.cards.index(card)+1} out of #{deck.count}. "
-        # tried deck.count[turns.count] and didn't work
         puts "Question: #{card.question}"
         answer = gets.chomp
         take_turn(answer)
@@ -80,16 +72,10 @@ class Round
 
         puts "**** Game over! ****"
         puts "You had #{number_correct} out of #{turns.count} for a total score of #{percent_correct}%."
-        get_categories
-    
+
+        get_unique_categories
         @unique_categories.each do |category|
-            puts "#{category} : #{percent_correct_by_category(category)} % correct."
-        
-            
+            puts "#{category} - #{(percent_correct_by_category(category)).round}% correct." 
         end
     end
-
-    
-
-
 end
