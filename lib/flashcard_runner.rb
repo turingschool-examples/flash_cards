@@ -24,7 +24,21 @@ class Flashcard_runner
       round1.take_turn(gets.chomp)
     end
 
-    #add results
+    puts "****** Game over! ******
+You had #{round1.number_correct} correct guesses out of #{cards.length} for a total score of #{round1.percent_correct}%."
+
+categories = []
+
+  cards.each do |card|
+    if !categories.include?(card.category)
+      categories << card.category
+    end
+  end
+
+  categories.each do |category|
+    puts "#{category} - #{round1.percent_correct_by_category(category)}% correct"
+    nil
+  end    
   end
 
   Flashcard_runner.start()
