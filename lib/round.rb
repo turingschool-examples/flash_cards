@@ -2,7 +2,8 @@ class Round
     attr_reader :deck,
                 :turns,
                 :number_correct,
-                :percent_correct
+                :percent_correct,
+                :unique_categories
 
 
     def initialize(deck)
@@ -10,6 +11,7 @@ class Round
         @turns=[]
         @number_correct=0
         @percent_correct=0
+        @unique_categories=[]
         
     end
 
@@ -55,6 +57,39 @@ class Round
         #require "pry" ; binding.pry
         (((per_correct_by_cat).to_f)/total_by_cat)*100
     end
+
+    def get_categories
+        deck.cards.each do |card|
+            @unique_categories << card.category
+        end
+        @unique_categories.uniq!
+    end
+
+    def start
+        puts "Welcome! You're playing with #{deck.count} cards"
+        puts "------------------------------------------------"
+        #require "pry" ; binding.pry
+        deck.cards.each do |card|
+        puts "This is card number #{deck.cards.index(card)+1} out of #{deck.count}. "
+        # tried deck.count[turns.count] and didn't work
+        puts "Question: #{card.question}"
+        answer = gets.chomp
+        take_turn(answer)
+        puts turns.last.feedback
+        end
+
+        puts "**** Game over! ****"
+        puts "You had #{number_correct} out of #{turns.count} for a total score of #{percent_correct}%."
+        get_categories
+    
+        @unique_categories.each do |category|
+            puts "#{category} : #{percent_correct_by_category(category)} % correct."
+        
+            
+        end
+    end
+
+    
 
 
 end
