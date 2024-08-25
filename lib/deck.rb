@@ -1,9 +1,10 @@
 class Deck
-    attr_reader :cards
+    attr_reader :cards, :turns
     
     def initialize(cards)
         
         @cards = cards
+        @turns = []
 
     end
 
