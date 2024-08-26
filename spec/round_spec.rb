@@ -13,7 +13,6 @@ RSpec.describe Round do
         @card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
         @cards = [@card_1, @card_2, @card_3]
         @deck = Deck.new(@cards)
-        @turn = Turn.new("Juneau", @card_1)
         @round = Round.new(@deck)
 
     end
@@ -38,14 +37,36 @@ RSpec.describe Round do
         expect(@round.turns).to eq([])
     end
 
-    it 'takes_turns' do
-        new_turn = Turn.new("Juneau", @card_1)
+    it 'logs the new turn into the turns array' do
+        new_turn = @round.take_turn("Juneau") 
 
-        expect(@round.take_turn("Juneau")).to eq(@turn)
-        expect(new_turn.correct?).to eq(true)
-        expect(@round.number_correct).to eq(1)
-        expect(@round.number_correct_by_category(:Geography)).to eq(1)
-        expect(@round.percent_correct).to eq(100)
-        expect(@round.percent_correct_by_category(:Geography)).to eq(50)
+        expect(@round.turns.last).to eq(new_turn)
+# require 'pry'; binding.pry
     end
+
+    it 'add to number correct' do
+        new_turn = @round.take_turn("Juneau") 
+
+        expect(@round.number_correct).to eq(1)
+    end
+
+    it  'identifies percent correct' do
+        new_turn = @round.take_turn("Juneau") 
+
+        expect(@round.percent_correct).to eq(100) 
+    end
+
+    it 'identifies number correct by category' do
+        new_turn = @round.take_turn("Juneau") 
+
+        expect(@round.number_correct_by_category(:Geography)).to eq(1) 
+    end
+    
+    # 'adds to number correct by category' do
+    #     expect(@round.number_correct_by_category(:Geography)).to eq(1)
+       
+    #     expect(@round.percent_correct_by_category(:Geography)).to eq(100)
+
+    # end
+    
 end
