@@ -14,28 +14,27 @@ RSpec.describe Round do
       @deck   = Deck.new(@cards) #instantiating a new deck
       @round  = Round.new(@deck) #instantiating a new round - as to not repeat any information gained from previous
     end
-      
-    it 'has a Round' do
+       
+    it 'has a Round' do #testing if the Round class exists and if it contains the deck
         expect(@round).to be_an_instance_of(Round)
         expect(@round.deck).to eq(@deck)
     end
 
     it 'has turns' do 
-        expect(@rounds.deck).to be_an_instance_of(Round)
+        expect(@rounds.deck).to be_an_instance_of(Round) #is rounds.deck an instance of deck?
         expect(@round.deck).to eq(@deck)
-        expect(@round.turns).to eq([])
-    end
+       end
 
     it 'has an empty array' do
-        expect(@rounds.turn).to eq([])
+        expect(@rounds.turn).to eq([]) #is rounds.turn an empty array?
     end
 
     it 'Start with first card in deck as current' do      
-        expect(@round.current_card).to eq(@card_1)
+        expect(@round.current_card).to eq(@card_1) #is the firt card in current_card card_1?
     end
 
     it 'Testing Taking a Turn' do
-        new_turn = @round.take_turn("Juneau")
+        new_turn = @round.take_turn("Juneau") #within the .take_turn instance. With Juneau as the ,guess, 
         expect(new_turn_turn).to be_an_instance_of(Turn)
         expect(@round.turns).to eq([new_turn])
     end
@@ -74,11 +73,9 @@ end
         expect(@round.percent_correct_by_category(:Geography)).to eq(100.0)
     end
     
-    it 'Shows the final card'
+    it 'Shows the final card' do
         @round.take_turn("Jeans")
         @round.take_turn("Mars")
         expect(@round.current_card).to eq(@card_3)
-end
-
-
+    end
 end
