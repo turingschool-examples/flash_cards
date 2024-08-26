@@ -21,12 +21,12 @@ RSpec.describe Round do
     end
 
     it 'has turns' do 
-        expect(@rounds.deck).to be_an_instance_of(Round) #is rounds.deck an instance of deck?
+        expect(@round.deck).to be_an_instance_of(Deck) #is rounds.deck an instance of deck?
         expect(@round.deck).to eq(@deck)
        end
 
     it 'has an empty array' do
-        expect(@rounds.turn).to eq([]) #is rounds.turn an empty array?
+        expect(@round.turns).to eq([]) #is rounds.turn an empty array?
     end
 
     it 'Start with first card in deck as current' do      
@@ -35,19 +35,18 @@ RSpec.describe Round do
 
     it 'Testing Taking a Turn' do
         new_turn = @round.take_turn("Juneau") #within the .take_turn instance. With Juneau as the ,guess, 
-        expect(new_turn_turn).to be_an_instance_of(Turn)
+        expect(new_turn).to be_an_instance_of(Turn)
         expect(@round.turns).to eq([new_turn])
     end
 
     it 'counts the number correct'do
         @round.take_turn("Juneau")
-        expect(@round.correct?).to eq true
         expect(@round.number_correct).to eq(1)
 end
 
     it 'updates current card to the next card in the deck' do
         @round.take_turn("Juneau")
-        expect(@round.current_card).to eq(card_2)
+        expect(@round.current_card).to eq(@card_2)
     end
 
     it 'Takes new Turn/Feedback' do
@@ -66,10 +65,13 @@ end
     end
     
     it 'Percent Complete' do
+        @round.take_turn("Juneau")
+        @round.take_turn("Starlord")
         expect(@round.percent_correct).to eq(50.0)
     end
 
     it 'Count Percent Correct by Category' do
+        @round.take_turn("Juneau")
         expect(@round.percent_correct_by_category(:Geography)).to eq(100.0)
     end
     
