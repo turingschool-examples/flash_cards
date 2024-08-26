@@ -33,6 +33,6 @@ class Round
   end
 
   def current_card
-    deck.cards[[@turns.length - 1, 0].max] # prevents negative index
+    turns.last.card
   end
 end
