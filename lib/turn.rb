@@ -1,6 +1,5 @@
 class Turn
-    attr_reader :guess
-    attr_reader :card
+    attr_reader :guess, :card
   
     def initialize(guess, card)
         @guess = guess
@@ -8,23 +7,16 @@ class Turn
        
     end
     
-    def card 
-     @card 
-    end
-
-  
     
     def correct?
-        if (guess.upcase) == (answer.upcase)
-            then true
-        else false
-        end
+     @guess.upcase == @card.answer.upcase
+        
     end
     
     def feedback
         if correct? == true
-            then p "Correct"
-        else p "Incorrect"
+          "Correct"
+        else  "Incorrect"
             #2 tests for control flow stuff
 
         end

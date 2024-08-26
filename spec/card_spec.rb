@@ -1,4 +1,5 @@
 require './lib/card'
+card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
 RSpec.describe Card do
   it 'exists' do

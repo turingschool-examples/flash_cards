@@ -1,44 +1,54 @@
-
+# require 'pry';binding.pry
 require './lib/turn'
 require './lib/card'
- 
-RSpec.describe Turn do
-    it 'exists' do
-        turn = Turn.new("Juneau", Card)
-        card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
+RSpec.describe Turn do
+   
+    it 'exists' do
+        card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        turn = Turn.new("Juneau", card)
+      
         expect(turn).to be_instance_of(Turn)
     end
 
     it 'has guess' do 
-        turn = Turn.new("Juneau", Card)
-        card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-
+        card = Card.new("What is the capital of Alaska?", "Juneau", :Geography) 
+        turn = Turn.new("Juneau", card)
+        
         expect(turn.guess).to eq("Juneau")
     end
 
     
     it "has correct guess" do 
-        turn = Turn.new("Juneau", Card)
+       
         card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-
+        turn = Turn.new("Juneau", card)
+       
         expect(turn.correct?).to eq true
     end
 
-    xit "has wrong guess" do
-        turn = Turn.new("florida", Card)
+    it "has wrong guess" do
+        
         card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        turn = Turn.new("florida", card)
 
-        expect(guess.correct?).to eq false
+        expect(turn.correct?).to eq false
     end
 
-    xit "good feedback" do
-        turn = Turn.new("juneau", Card)
+    it "good feedback" do
         card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-
-        expect(guess.feedback).to eq "correct"
+        turn = Turn.new("JUNeau", card)
+       
+        expect(turn.feedback).to eq "Correct"
     end
 
+    it "bad feedback" do 
+       
+        card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        turn = Turn.new("florida", card)
+
+        expect(turn.feedback).to eq "Incorrect"
+    end
    
 end
      #expecting guess to be guess
