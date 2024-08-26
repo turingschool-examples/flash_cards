@@ -4,11 +4,7 @@ require './lib/deck'
 require './lib/round'
 
 card1  = Card.new("What is Dr. Brown's specialty?", "Ultrasonography", "Personal")
-
-
 card2 = Card.new("What does Dr. Reeve love?", "Poms", "Personal")
-
-
 card3 = Card.new("What vein is best to place and IV catheter?", "Cephalic", "Medical")
 
 
