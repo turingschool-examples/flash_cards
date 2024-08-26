@@ -40,44 +40,44 @@ RSpec.describe Round do
     end
 
     it 'counts the number correct'do
-        @round.take_turn("Juneau")
+        @round.take_turn("Juneau") #my first guess is going to be Juneau. My take_turn method, within my Round class, encompasses my number_correct instance. With this, my guess should be correct
         expect(@round.number_correct).to eq(1)
 end
 
     it 'updates current card to the next card in the deck' do
-        @round.take_turn("Juneau")
+        @round.take_turn("Juneau") #Taking my first card. Take_turn method contains contains instance of .current_card. 
         expect(@round.current_card).to eq(@card_2)
     end
 
     it 'Takes new Turn/Feedback' do
-        @round.take_turn("Juneau")
-        @round.take_turn("Venus")
-        expect(@round.turns.count).to eq(2)
-        expect(@round.turns.last.feedback).to eq("Incorrect.")
-        expect(@round.number_correct).to eq(1)
+        @round.take_turn("Juneau") #Taking a turn and guess
+        @round.take_turn("Venus") #Taking a turn and guess
+        expect(@round.turns.count).to eq(2) #my .turns now has two instances of cards. My .count method counts how many "turns" are within my turns array
+        expect(@round.turns.last.feedback).to eq("Incorrect.") #my .last is accessing the last object within the turns array, then accessing the feedback instance within my Turns Class.
+        expect(@round.number_correct).to eq(1) #Using my .number_correct method, I am able to calculate that within the two answers provided, the amount correct = 1
     end
 
     it 'number correct by category' do
-        @round.take_turn("Juneau")
-        @round.take_turn("Planet")
-        expect(@round.number_correct_by_category(:Geography)).to eq(1)
+        @round.take_turn("Juneau") #Take a turn, Juneau as guess
+        @round.take_turn("Planet") #Take a turn, Planet is guess
+        expect(@round.number_correct_by_category(:Geography)).to eq(1) #Based on my category associated in my Card class, we can determine if the guess is correct, access the category, and +1 to how many are correct
         expect(@round.number_correct_by_category(:STEM)).to eq(0)
     end
     
     it 'Percent Complete' do
-        @round.take_turn("Juneau")
+        @round.take_turn("Juneau") 
         @round.take_turn("Starlord")
-        expect(@round.percent_correct).to eq(50.0)
+        expect(@round.percent_correct).to eq(50.0) #See comments in percent complete method
     end
 
     it 'Count Percent Correct by Category' do
         @round.take_turn("Juneau")
-        expect(@round.percent_correct_by_category(:Geography)).to eq(100.0)
+        expect(@round.percent_correct_by_category(:Geography)).to eq(100.0) #See comments in .percent_correcet_by_category method
     end
     
     it 'Shows the final card' do
         @round.take_turn("Jeans")
         @round.take_turn("Mars")
-        expect(@round.current_card).to eq(@card_3)
+        expect(@round.current_card).to eq(@card_3) #After two turns, we want to determine that the current card method has commanded to count that we are now on the third card in the deck of cards of 3
     end
 end
