@@ -7,12 +7,8 @@ class Round
     @turns = []
   end
 
-  def current_card_number
-    @turns.length
-  end
-
   def take_turn(guess)
-    @turns << Turn.new(guess, @deck.cards[current_card_number])
+    @turns << Turn.new(guess, @deck.cards[@turns.length])
     @turns.last
   end
 
@@ -25,19 +21,18 @@ class Round
   end
 
   def get_ratio(divisor, dividend)
-    divisor / dividend * 100
+    divisor / dividend.to_f * 100
   end
 
   def percent_correct
-    get_ratio(number_correct, @turns.count.to_f)
+    get_ratio(number_correct, @turns.count)
   end
 
   def percent_correct_by_category(category)
-    get_ratio(number_correct_by_category(category), @turns.count.to_f)
+    get_ratio(number_correct_by_category(category), @turns.count)
   end
 
   def current_card
-    # length is +1 more then desired index. .max ensures that index is not -1
-    deck.cards[[@turns.length - 1, 0].max]
+    deck.cards[[@turns.length - 1, 0].max] # prevents negative index
   end
 end
