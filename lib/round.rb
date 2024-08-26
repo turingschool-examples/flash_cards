@@ -8,6 +8,32 @@ class Round
     @turns = []
   end
 
+  def start
+    puts "Welcome! You're playing with #{deck.cards.count} cards!"
+    puts "<<<<<--------------------------->>>>>"
+  end
+
+  def play_game
+    while deck.cards.any?
+      card = deck.cards.first
+      ask(card)
+      user_answer = get_input
+      take_turn(user_answer)
+    end
+    puts "********** Game Over **********"
+    results
+
+  end
+
+  def ask(card)
+    puts card.question
+  end
+
+  def get_input
+    print "Your answer: "
+    gets.chomp
+  end
+
   def current_card
     @deck.cards.first
   end
@@ -61,5 +87,22 @@ class Round
     percentage.round(2)
   
     
+  end
+
+  def results
+    correct_guesses = number_correct
+    total_turns = @turns.count    
+    totals = percent_correct
+
+    puts "You had #{correct_guesses} correct guesses out of #{total_turns} for a total score of #{totals}"
+    
+    categories = @turns.map do |turn|
+     categories = turn.card.category
+    end
+    categories = categories.uniq
+    categories.each do |category|
+      category_percent = percent_correct_by_category(category)
+      puts "#{category} - #{category_percent}% correct"  
+    end
   end
 end
