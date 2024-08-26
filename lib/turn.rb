@@ -1,5 +1,6 @@
 class Turn
     attr_reader :card, :guess
+    attr_writer :card, :guess
 
     def initialize(guess, card)
         @guess = guess
@@ -7,19 +8,15 @@ class Turn
     end
 
     def correct?
-        return true if @guess.downcase == @card.answer.downcase
+        return true if card.answer.downcase == guess.downcase 
         false
     end
 
     def feedback
-        if @guess.downcase == @card.answer.downcase
+        if card.answer.downcase == guess.downcase
         "Correct!"
         else
         "Incorrect."
         end
-    end
-
-    def ==(other_turn)
-        self.guess == other_turn.guess && self.card == other_turn.card
     end
 end
