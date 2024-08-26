@@ -2,6 +2,7 @@ require './card'
 require './deck'
 require './round'
 require './turn'
+require './card_reader'
 
 class Flashcard_runner
 

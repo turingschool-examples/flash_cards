@@ -24,7 +24,7 @@ it 'returns the given deck' do
   round1 = Round.new(deck1)
 
   expect(round1.deck).to eq(deck1)
-  end
+end
 
 it 'begins with an empty turns array' do
   card1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
@@ -33,18 +33,18 @@ it 'begins with an empty turns array' do
   round1 = Round.new(deck1)
 
   expect(round1.turns).to eq([])
-  end
+end
 
-  it 'begins with the first card in the deck array' do
-    myCard1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    myCard2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
-    myCard3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-    cards = [myCard1,myCard2,myCard3]
-    deck1 = Deck.new(cards)
-    round1 = Round.new(deck1)
+it 'begins with the first card in the deck array' do
+  myCard1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+  myCard2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+  myCard3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+  cards = [myCard1,myCard2,myCard3]
+  deck1 = Deck.new(cards)
+  round1 = Round.new(deck1)
   
-    expect(round1.current_card).to eq(myCard1)
-    end
+  expect(round1.current_card).to eq(myCard1)
+end
 
 it 'uses take_turn create a new turn object with a string as a parameter, the turn\'s guess' do
   myCard1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
@@ -58,9 +58,9 @@ it 'uses take_turn create a new turn object with a string as a parameter, the tu
   expect(round1.turns[0]).to be_instance_of(Turn)
   expect(round1.turns[0].guess).to eq("Juneau")
   expect(round1.turns[0].class).to eq(Turn)
-  end
+end
 
-it 'uses take_turn create a new turn object with a string as a parameter, the turn\'s guess, which can be incorrect' do
+it 'uses take_turn create a new turn object with the turn\'s guess, which can be incorrect' do
   myCard1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
   myCard2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
   myCard3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
@@ -72,9 +72,7 @@ it 'uses take_turn create a new turn object with a string as a parameter, the tu
   expect(round1.turns[0]).to be_instance_of(Turn)
   expect(round1.turns[0].guess).to eq("Anchorage")
   expect(round1.turns[0].class).to eq(Turn)
-  end
-
-
+end
 
 it 'iterates the current card at the end of take_turn' do
   myCard1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
@@ -86,7 +84,8 @@ it 'iterates the current card at the end of take_turn' do
   round1.take_turn("Anchorage")
   
   expect(round1.current_card).to eq(myCard2)
-  end
+end
+
 it 'returns turns, an array of turn objects when there are multiple turns' do
   myCard1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
   myCard2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
@@ -341,5 +340,4 @@ it 'percent_correct_by_category 2 correct guess and multiple categories' do
   expect(round1.percent_correct_by_category(:STEM)).to eq(66.67)
 end
 
-#empty deck?
 end

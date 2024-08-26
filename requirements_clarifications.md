@@ -1,0 +1,1 @@
+Can I accept multiple answers for a question?
