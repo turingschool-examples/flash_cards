@@ -18,8 +18,9 @@ class Round
       card = deck.cards.first
       ask(card)
       user_answer = get_input
-      take_turn(user_answer)
-    end
+      turn = take_turn(user_answer)
+      puts turn.feedback
+     end
     puts "********** Game Over **********"
     results
 
@@ -32,6 +33,7 @@ class Round
   def get_input
     print "Your answer: "
     gets.chomp
+    
   end
 
   def current_card
