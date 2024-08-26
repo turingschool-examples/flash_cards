@@ -9,12 +9,14 @@ class Deck
 
     def cards_in_category(category_request)
 
-        @deck.map do |card|
+        category = []
+        category = deck.map do |card|
 
             in_category = []
             card.category == category_request ? in_category << card : nil
             
         end.compact
+        
 
     end
 

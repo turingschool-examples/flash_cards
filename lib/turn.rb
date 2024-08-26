@@ -9,7 +9,7 @@ class Turn
   def initialize(guess, card)
     @player_guess = guess
     @card = card
-    @correct = []
+    @correct = nil
   end
 
   def correct?
@@ -26,7 +26,7 @@ class Turn
 
   def feedback
     # correct?
-    @correct == true ? 'You are correct!' : 'You are incorrect!'
+    @correct ? 'You are correct!' : 'You are incorrect!'
   end
 
 end
