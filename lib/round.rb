@@ -1,8 +1,7 @@
 class Round
-  attr_reader :turns, :deck, :turn_number
+  attr_reader :turns, :deck
 
   def initialize(deck)
-    @turn_number = 0
     @deck = deck
     @turns = []
   end
