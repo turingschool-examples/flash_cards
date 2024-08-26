@@ -74,7 +74,7 @@ RSpec.describe Deck do
     expect(round.percent_correct).to eq(50.0)
   end
 
-  xit 'can check the current card' do
+  it 'can check the current card' do
     card_1 = Card.new('hi1', 'bye', :whaatok)
     card_2 = Card.new('hi2', 'byebye', :whaatok)
     card_3 = Card.new('hi3', 'bye', :whaatok)
@@ -84,12 +84,6 @@ RSpec.describe Deck do
     round.take_turn('bye')
     round.take_turn('fsdsfd')
 
-    expect(round.current.card).to eq(card_2)
-  end
-
-  xit 'returs the % correct by category' do
-  end
-
-  xit 'returns the total % correct' do
+    expect(round.current_card).to eq(card_2)
   end
 end
