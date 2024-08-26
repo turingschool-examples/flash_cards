@@ -1,4 +1,3 @@
-# round.rb
 class Round
   attr_reader :turns, :deck, :turn_number
 
@@ -13,9 +12,8 @@ class Round
   end
 
   def take_turn(guess)
-    current_turn = Turn.new(guess, @deck.cards[current_card_number])
-    @turns << current_turn
-    current_turn
+    @turns << Turn.new(guess, @deck.cards[current_card_number])
+    @turns.last
   end
 
   def number_correct_by_category(category)

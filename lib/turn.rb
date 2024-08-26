@@ -4,7 +4,6 @@ class Turn
   def initialize(guess, card)
     @guess = guess
     @card = card
-    # @result = false
   end
 
   def a_guess
@@ -16,15 +15,10 @@ class Turn
   end
 
   def correct?
-    @result = (guess == card.answer)
-    @result
+    (@guess == @card.answer)
   end
 
   def feedback
-    if @result
-      'Correct!'
-    else
-      'Incorrect.'
-    end
+    correct? ? 'Correct' : 'Incorrect'
   end
 end
