@@ -47,4 +47,20 @@ class Round
         stem_catagory = catagory.correct
         stem_catagory.feedback
     end
+
+    def percent_correct(deck)
+        deck = @deck.size
+        @deck.count do |deck|
+            end
+        percent = (deck.correct / deck)
+        perecent.round(2)
+    end
+    
+    def perecent_correct_by_category(deck)
+        deck = @deck.size
+        catagory_correct = @deck.count do |game|
+        end
+        percent = (catagory_correct / catagory)
+        percent.round(2)
+    end
 end
