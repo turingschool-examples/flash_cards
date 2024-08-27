@@ -20,7 +20,7 @@ class Round
     end
 
     def take_turn(guess)
-        new_turn = Turn.new(guess,@deck.cards[@turns.count])
+        new_turn = Turn.new(guess,current_card)
         if new_turn.correct? == true
             @number_correct +=1
         end
