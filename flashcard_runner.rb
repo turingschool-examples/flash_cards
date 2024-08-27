@@ -5,16 +5,19 @@ require './lib/round'
 
 def get_round_from_file
   file_path = './input/flash_cards.csv'
-  cards = File.readlines(file_path)
+  fcards = File.readlines(file_path)
 
-  card_1 = Card.new(cards[0][0], cards[0][1], cards[0][2])
-  card_2 = Card.new(cards[1][0], cards[0][1], cards[0][2])
-  card_3 = Card.new(cards[2][0], cards[0][1], cards[0][2])
-  card_4 = Card.new(cards[3][0], cards[0][1], cards[0][2])
+  card_1 = Card.new(fcards[0][0], fcards[0][1], fcards[0][2])
+  card_2 = Card.new(fcards[1][0], fcards[0][1], fcards[0][2])
+  card_3 = Card.new(fcards[2][0], fcards[0][1], fcards[0][2])
+  card_4 = Card.new(fcards[3][0], fcards[0][1], fcards[0][2])
 
-  deck = [card_1, card_2, card_3, card_4]
+  file_deck = [card_1, card_2, card_3, card_4]
 
-  # Round.new(deck)
+  Round.new(file_deck)
+
+  # still debugging, doesn't work...
+  # puts file_round.deck[0].question
 end
 
 def get_round
@@ -98,4 +101,3 @@ def rgb(input)
 end
 
 start
-# puts get_round_from_file
