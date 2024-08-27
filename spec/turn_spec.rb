@@ -1,4 +1,4 @@
-# turn_spec.rb
+# turn_spec
 require './lib/card'
 require './lib/turn'
 
