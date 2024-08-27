@@ -18,7 +18,8 @@ class Round
     end
 
     def take_turn(card)
-        take_turn 
+        take_turn == @current_card
+    end
 
     def number_correct
         if @turns.correct?
