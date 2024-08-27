@@ -38,5 +38,10 @@ class Round
         last_turn.feedback
     end
 
-    def 
+    def number_of_catagorys_correct_in(deck)
+        last_catagory = catagory.correct
+        last_catagory.feedback
+    end
+    
+
 end
