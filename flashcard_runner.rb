@@ -22,13 +22,38 @@ def start
   round = get_round
   puts "Welcome! You're playing with 4 cards."
   puts '-------------------------------------------------'
-  puts "This is card number #{round.turns.length} out of #{round.deck.cards.length}"
+  puts "This is card number #{round.turns.length + 1} out of #{round.deck.cards.length}"
 
   # first question
   puts "Question: #{round.deck.cards.first.question}"
   guess = gets.chomp
   new_turn = round.take_turn(guess)
   puts new_turn.correct?
+
+  # 2nd question
+  puts "This is card number #{round.turns.length + 1} out of #{round.deck.cards.length}"
+  puts "Question: #{round.deck.cards[1].question}"
+  guess = gets.chomp
+  new_turn = round.take_turn(guess)
+  puts new_turn.correct?
+
+  # 3rd question
+  puts "This is card number #{round.turns.length + 1} out of #{round.deck.cards.length}"
+  puts "Question: #{round.deck.cards[2].question}"
+  guess = gets.chomp
+  new_turn = round.take_turn(guess)
+  puts new_turn.correct?
+
+  # 4th question
+  puts "This is card number #{round.turns.length + 1} out of #{round.deck.cards.length}"
+  puts "Question: #{round.deck.cards[3].question}"
+  guess = gets.chomp
+  new_turn = round.take_turn(guess)
+  puts new_turn.correct?
+
+  # Game stats
+  puts '****** Game over! ******'
+  puts "You had #{round.number_correct} correct guesses out of 4 for a total score of #{round.percent_correct}%."
 end
 
 start
