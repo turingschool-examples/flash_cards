@@ -19,44 +19,66 @@ end
 
 # Start the round using a new method called start
 def start
+  system('clear') # Clear the terminal
+
   round = get_round
+  print rgb('b') # blue text output
   puts "Welcome! You're playing with 4 cards."
-  puts '-------------------------------------------------'
-  puts "This is card number #{round.turns.length + 1} out of #{round.deck.cards.length}"
+  puts '-------------------------------------'
 
-  # first question
-  puts "Question: #{round.deck.cards.first.question}"
-  guess = gets.chomp
-  new_turn = round.take_turn(guess)
-  puts new_turn.correct?
+  cards = round.deck.cards.count
+  card_num = 1
 
-  # 2nd question
-  puts "This is card number #{round.turns.length + 1} out of #{round.deck.cards.length}"
-  puts "Question: #{round.deck.cards[1].question}"
-  guess = gets.chomp
-  new_turn = round.take_turn(guess)
-  puts new_turn.correct?
+  round.deck.cards.each do |card|
+    print rgb('b') + "\n"
 
-  # 3rd question
-  puts "This is card number #{round.turns.length + 1} out of #{round.deck.cards.length}"
-  puts "Question: #{round.deck.cards[2].question}"
-  guess = gets.chomp
-  new_turn = round.take_turn(guess)
-  puts new_turn.correct?
+    # Question
+    puts "This is card number #{card_num} out of #{cards}"
+    print "Question: #{card.question}: "
+    print rgb('x')
 
-  # 4th question
-  puts "This is card number #{round.turns.length + 1} out of #{round.deck.cards.length}"
-  puts "Question: #{round.deck.cards[3].question}"
-  guess = gets.chomp
-  new_turn = round.take_turn(guess)
-  puts new_turn.correct?
+    # Answer
+    guess = gets.chomp
+    new_turn = round.take_turn(guess)
+
+    # Print result of this turn
+    print rgb('b')
+    puts new_turn.correct? ? rgb('g') + 'Correct!' : rgb('r') + 'Incorrect.'
+    print rgb('x')
+
+    card_num += 1 # Next card
+  end
 
   # Game stats
-  puts '****** Game over! ******'
-  puts "You had #{round.number_correct} correct guesses out of 4 for a total score of #{round.percent_correct}%."
-  puts "STEM - #{round.percent_correct_by_category(:STEM)}% correct."
-  puts "Turing Staff - #{round.percent_correct_by_category('Turing Staff')}% correct."
-  puts "Pop Culture - #{round.percent_correct_by_category('Pop Culture')}% correct."
+  puts
+  print rgb('b')
+  puts "****** Game over! ******\n\n"
+  print "You had #{round.number_correct} correct guesses out of #{cards} "
+  print "for a total score of #{round.percent_correct.to_i}%.\n"
+
+  categories = []
+
+  round.deck.cards.each do |card|
+    categories << card.category
+  end
+
+  categories.uniq.each do |category|
+    puts "#{category} - #{round.percent_correct_by_category(category).to_i}% correct."
+  end
+  print rgb('x') # stop colorizing
+end
+
+def rgb(input)
+  # terminal color codes for red, green, blue, and end color
+  if input == 'r'
+    "\e[31m"
+  elsif input == 'g'
+    "\e[32m"
+  elsif input == 'x' # stop code
+    "\e[0m"
+  elsif input == 'b'
+    "\e[34m"
+  end
 end
 
 start

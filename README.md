@@ -1,3 +1,3 @@
 # Flash Cards
 
-This is the starter repository for the [Flash Cards](http://backend.turing.io/module1/projects/flashcards) project.
+A simple game to learn OOB in Ruby.
