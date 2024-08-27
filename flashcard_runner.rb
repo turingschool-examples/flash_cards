@@ -5,10 +5,10 @@ require './lib/round'
 
 def get_round
   # Create some Cards
-  card_1 = Card.new('What is 5 + 5?', '10', :math)
-  card_2 = Card.new("What is Rachel's favorite animal?", 'Turkey', :Turing)
-  card_3 = Card.new("What is Mike's middle name?", 'nobody knows', :Turing)
-  card_4 = Card.new('What cardboard cutout lives at Turing?', 'Justin Bieber', :Turing)
+  card_1 = Card.new('What is 5 + 5?', '10', :STEM)
+  card_2 = Card.new("What is Rachel's favorite animal?", 'Turkey', 'Turing Staff')
+  card_3 = Card.new("What is Mike's middle name?", 'nobody knows', 'Turing Staff')
+  card_4 = Card.new('What cardboard cutout lives at Turing?', 'Justin Bieber', 'Pop Culture')
 
   # Put those card into a Deck
   deck = Deck.new([card_1, card_2, card_3, card_4])
@@ -54,6 +54,9 @@ def start
   # Game stats
   puts '****** Game over! ******'
   puts "You had #{round.number_correct} correct guesses out of 4 for a total score of #{round.percent_correct}%."
+  puts "STEM - #{round.percent_correct_by_category(:STEM)}% correct."
+  puts "Turing Staff - #{round.percent_correct_by_category('Turing Staff')}% correct."
+  puts "Pop Culture - #{round.percent_correct_by_category('Pop Culture')}% correct."
 end
 
 start
