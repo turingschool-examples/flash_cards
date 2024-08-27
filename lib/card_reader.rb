@@ -13,7 +13,6 @@ class Card_reader
       @cards << card
     end
     deck = Deck.new(@cards)
-    deck
   end
 
 end
