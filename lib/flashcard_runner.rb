@@ -19,6 +19,7 @@ def start
         @round.turns
         puts "Welcome! You're playing with #{@cards.length} cards."
         puts "----------------------------------------------------------"
+        
     @round.deck.cards.length.times do
         puts "This is card number #{@round.turn_number} out of #{@cards.length}."
         puts "Question: #{@round.current_card.question}"
@@ -27,10 +28,12 @@ def start
         # require 'pry'; binding.pry
         puts new_turn.feedback
     end
+
     puts "****** Game over! ******"
-    require 'pry'; binding.pry
-    puts "You had #{@round.number_correct} correct guesses out of #{@cards.length} for a total score of #{@round.percent_correct}."
-    puts
+    # require 'pry'; binding.pry
+    puts "You had #{@round.number_correct} correct guesses out of #{@cards.length} for a total score of #{@round.percent_correct}%."
+    puts "#{category} - #{@round.percent_correct_by_category(category)}% correct" #need to figure out how to get these to print for each category
+    puts "#{category} - #{@round.percent_correct_by_category(category)}% correct"
 end
 
 start
