@@ -3,14 +3,17 @@ require './lib/card.rb'
 require './lib/deck.rb'
 require './lib/turn.rb'
 
+cards = []
 
-card_1 = Card.new('What is the capital of Texas?', 'Austin', :Geography)
-card_2 = Card.new('The reason why drones have their engines go in alternating directiosn is because of?', 'Centripetal Force', :STEM)
-card_3 = Card.new('Cats are in what animal family (reminder Kingdom > Phylum > class > order > family)?', 'Felidae', :STEM)
-cards = [card_1, card_2, card_3]
+File.open('./trivia.txt', 'r') do |file|
+    file.each_line do |line|
+        question, answer, category = line.chomp.split(', ', 3)
+        card = Card.new(question, answer, category)
+        cards << card
+    end
+end
+
 game_deck = Deck.new(cards)
-
-puts 'hello?'
 
 
 class Game
@@ -43,7 +46,7 @@ class Game
 
     def player_guessing
         puts "This is card number #{@card_number} of #{@total} "
-        puts "Question is #{@round.current_card.question}"
+        puts "#{@round.current_card.question}"
         player_guess = gets.chomp
         @round.take_turn(player_guess)
         @card_number += 1
@@ -60,6 +63,12 @@ class Game
     end
 
 end
+
+# card_1 = Card.new('What is the capital of Texas?', 'Austin', :Geography)
+# card_2 = Card.new('The reason why drones have their engines go in alternating directions is because of?', 'Centripetal Force', :STEM)
+# card_3 = Card.new('Cats are in what animal family (reminder Kingdom > Phylum > class > order > family)?', 'Felidae', :STEM)
+# cards = [card_1, card_2, card_3]
+# game_deck = Deck.new(cards)
 
 
 game = Game.new(game_deck)
