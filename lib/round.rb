@@ -29,7 +29,7 @@
         end   
         
         def percent_correct_by_category(category)
-            total_in_category = @turns.count { |turn| turn.card.category == category }
+            total_in_category = @turns.count { |turn| turn.card.category == category } #|block| variable
             correct_in_category = number_correct_by_category(category)
             return 0.0 if total_in_category == 0
             (correct_in_category.to_f / total_in_category * 100).round(1)
