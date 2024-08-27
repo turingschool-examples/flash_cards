@@ -28,11 +28,18 @@ deck = Deck.new(cards)
 round = Round.new(deck)
 
 
-require 'pry'; binding.pry
+#require 'pry'; binding.pry
 
 
 RSpec.describe Round do
+    cards = [card1, card2, card3, card4, card5, card6, card7]
 
+    turns = [turn1, turn2, turn3, turn4, turn5, turn6, turn7]
+
+    deck = Deck.new(cards)
+
+    round = Round.new(deck)
+    #require 'pry'; binding.pry
 
     it 'can give the current card' do
         cards = [card1, card2, card3]
