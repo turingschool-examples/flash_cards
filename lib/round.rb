@@ -49,18 +49,23 @@ class Round
     end
 
     def percent_correct_by_category(category) 
-        total_in_category = @turns.count { |turn| turn.card.category == category}
-        #{ |turn| turn.card.category == category } checks if each card associated with a turn object belongs to whatever category is declared in the argument
-        return 0.0 if total_in_category == 0
+        total_in_category = @turns.count { |turn| turn.card.category == category} #use block code here - |turn| is the argument, and the block iterates over each turn in the @turns array
+        #identifies whether the category of the card associated with each turn in the @turns array matches the cateegory of the argument passed into the method
+
+        return 0.0 if total_in_category == 0 #don't care about empty categories 
         ((number_correct_by_category(category).to_f / total_in_category) * 100).round(2)
+        
     end
 
-    # def unique_categories
-    #     @deck.cards.map(&:category).uniq
-    # end
+    def unique_categories
+        @deck.cards.map(&:category).uniq
+    end
 
-    # def return_percent_correct_by_category
-    #     unique_categories.each do |category|
-    # end
+    def return_percent_correct_by_category
+        unique_categories.each do |category|
+            correct_count = number_correct_by_category(category)
+            puts "#{category}: #{percent_correct_by_category(category)}%"
+        end
+    end
 
 end
