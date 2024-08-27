@@ -7,15 +7,8 @@ require './card_reader'
 class Flashcard_runner
 
   def self.start()
-    # myCard1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    # myCard2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
-    # myCard3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-    # myCard4 = Card.new("What is objectively the best rodent?", "Capybara", :STEM)
-    
-    # cards = [myCard1,myCard2,myCard3,myCard4]
     deck_file = './resources/deck2.txt'
     card_reader = Card_reader.new(deck_file)
-    # deck1 = Deck.new(cards)
     deck1 = card_reader.create_deck
 
     round1 = Round.new(deck1)

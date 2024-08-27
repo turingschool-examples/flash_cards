@@ -1,5 +1,3 @@
-require 'pry'
-
 class Card_reader
 
   def initialize(deck_file)
