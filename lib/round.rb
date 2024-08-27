@@ -7,7 +7,7 @@ class Round
         @current_card = current_card
     end
 
-    def new_turn(@guess)
+    def new_turn(guess)
         new_turn = Turn.new(guess, current_card)
         @turns << new_turn
         @current_card = deck.card[@turns.count]
@@ -33,5 +33,10 @@ class Round
         @turns.count == 2
     end
 
-    
+    def turns_last_feedback(turns)
+        last_turn = turns.last
+        last_turn.feedback
+    end
+
+    def 
 end
