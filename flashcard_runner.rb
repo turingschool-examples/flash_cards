@@ -12,7 +12,32 @@ cards = [card1, card2, card3, card4]
 @deck = Deck.new(cards)
 @round = Round.new(@deck)
 
-start(@round) 
+ def start(round)
+ end
 p "Welcome! You're playing with #{cards.count} cards."
 puts "-" * 30
+cards.each_with_index do |card, index| #this is a method for enumerables that is like each but with an index
+puts "this is card nummber #{index + 1} out of #{cards.count}. "
+p "question: #{card.question}"
+guess = gets.chomp #chomp removes the extra spaces created by gets 
+turn = @round.take_turn(guess)
+
+    if turn.correct?
+        p "Correct"
+        else
+        p "Incorrect"
+    end
+
+    puts "-" * 30
+end
+
+p "*****Game Over*****"
+num_turns = @round.turns.count
+correct_turns = @round.number_correct
+percentage = @round.percent_correct
+
+p "You had #{correct_turns} correct guesses out of #{num_turns} for a total score of #{percentage}%."
+
+p "Geography - #{@round.percent_correct_by_category(:Geography)}% correct."
+p "STEM - #{@round.percent_correct_by_category(:STEM)}% correct."
 
