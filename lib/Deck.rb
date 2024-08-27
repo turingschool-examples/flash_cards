@@ -1,4 +1,5 @@
 class Deck
+    
     attr_reader :card, :counts
 
     def initialize(card, count)

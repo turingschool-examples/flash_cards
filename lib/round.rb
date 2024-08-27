@@ -1,4 +1,5 @@
 class Round
+    
     attr_reader :deck, :turns, :current_card
 
     def initialize(guess, turns)

@@ -7,6 +7,12 @@ puts "Welcome to Brody's flashcard game!"
 puts "--------------------------------------"
 puts "press P to start or Q to quit!"
 
+def play
+    deck.cards.each do |card|
+        puts "Question #{card.question}"
+        
+    
+
 input = gets.chomp.upcase
 
 card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
