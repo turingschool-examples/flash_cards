@@ -28,7 +28,15 @@ it 'creates a deck with one card' do
   expect(deck1.cards[0].category).to eq(:Cooking)
 end
 
-#read multiple card deck
+it 'creates a deck with 0 cards' do
+  deck_file = './lib/resources/deck3.txt'
+  card_reader1 = Card_reader.new(deck_file)
+  deck1 = card_reader1.create_deck
+
+  expect(deck1).to be_instance_of(Deck)
+  expect(deck1.count).to eq(0)
+end
+
 it 'creates a deck with four cards' do
   deck_file = './lib/resources/deck2.txt'
   card_reader1 = Card_reader.new(deck_file)
