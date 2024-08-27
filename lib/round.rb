@@ -63,7 +63,6 @@ class Round
 
     def return_percent_correct_by_category
         unique_categories.each do |category|
-            correct_count = number_correct_by_category(category)
             puts "#{category}: #{percent_correct_by_category(category)}%"
         end
     end
