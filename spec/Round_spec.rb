@@ -40,7 +40,7 @@ Respec.describe Round do
         expect(round.number_correct).to eq(1)
     end
 
-    it 'shows current card' do
+    it 'shows current cards at play' do
         card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
         card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
         card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
@@ -58,4 +58,5 @@ Respec.describe Round do
         round = Round.new(deck)
 
         expect(round.take_turn("Venus")).to eq(turn)
+    end
 end
