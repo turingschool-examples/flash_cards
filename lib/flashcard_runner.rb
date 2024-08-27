@@ -25,4 +25,4 @@ deck.cards.each_with_index do |card, index|
 end
 
 puts "Game Over"
-puts "You got #{round.number_correct} correct out of #{deck.cards.count}"
+puts "You got #{round.number_correct} correct out of #{deck.cards.count} for a total score of #{round.percent_correct.to_i}%"

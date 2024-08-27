@@ -1,17 +1,18 @@
-    require './lib/turn'
+    #require './lib/turn' #in order form my Round class to work I need to access 
+                        #my Turn class
 
-    class Round
-        attr_reader :deck, :turns, :current_card, :number_correct
+    class Round #creating my Round class 
+        attr_reader :deck, :turns, :current_card, :number_correct #here I am creating my attribute reader
         
-        def initialize(deck)
-            @deck = deck
-            @turns = []
-            @current_card = @deck.cards.first
-            @number_correct = 0
+        def initialize(deck) #Here I am initialzing my attributes and calling in my deck as a parameter which contains my cards which contains my card (question, answer, :category)
+            @deck = deck 
+            @turns = [] #I am initializing my turns while creating an empty array
+            @current_card = @deck.cards.first #I am initializing my current_card while 
+            @number_correct = 0 #setting number_correct to = 0
         end
 
-        def take_turn(guess)
-            turn = Turn.new(guess, current_card)
+        def take_turn(guess) #defining my take_turn(passing guess instance as parameter)
+            turn = Turn.new(guess, current_card) #instantiating Turn object, creating a new Turn instance with (guess, current_card as parameters)
             @turns << turn
             @number_correct += 1 if turn.correct?
             @current_card = @deck.cards[@turns.count]  
