@@ -66,4 +66,11 @@ RSpec.describe Round do
         expect(new_turn.correct?).to be false
         expect(new_turn.feedback).to eq("incorrect.")
       end
+      it 'can give percent of total correct answers of cards' do
+        
+        round.take_turn("chemo")
+        round.current_card
+    
+      expect(round.percent_correct).to eq(0.0)
+      end
 end
