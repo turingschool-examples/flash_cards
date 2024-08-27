@@ -39,9 +39,12 @@ class Round
     end
 
     def number_of_catagorys_correct_in(deck)
-        last_catagory = catagory.correct
-        last_catagory.feedback
+        geography_catagory = catagory.correct
+        geography_catagory.feedback
     end
-    
 
+    def number_of_catagorys_correct_in(deck)
+        stem_catagory = catagory.correct
+        stem_catagory.feedback
+    end
 end
