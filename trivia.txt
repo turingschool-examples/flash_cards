@@ -4,13 +4,13 @@ Which actor portrayed the character of Neo in 'The Matrix'?, Keanu Reeves, :Sci-
 What is the name of the artificial intelligence in '2001: A Space Odyssey'?, HAL, :Sci-Fi
 In which film series do the characters fight against Skynet?, Terminator, :Sci-Fi
 What is the maximum level a character can reach in Dungeons & Dragons 5th Edition?, 20, :TTRPG
-Which TTRPG uses the slogan 'In the grim darkness of the far future there is only war'?, Warhammer, :TTRPG
+Which TTRPG uses the slogan 'In the grim darkness of the far future there is only war'?(be specific), Warhammer 40k, :TTRPG
 In D&D what is the alignment of a character who follows their own rules but cares for the greater good?, Chaotic Good, :TTRPG
 Which role-playing game is the world of Baldur's Gate built in?(full name not abbreviated), Dungeons and Dragons, :TTRPG
 In Pathfinder what is the name of the world where most of the adventures take place?, Golarion, :TTRPG
 In Greek mythology what creature is part lion part goat and part serpent?, Chimera, :Mythical_creatures
 What is the name of the one-eyed giant in Greek mythology?, Cyclops, :Mythical_creatures
-In Norse mythology what is the name of the world serpent?, Jörmungandr, :Mythical_creatures
+In Norse mythology what is the name of the world serpent?(do not use any special characters), Jormungandr, :Mythical_creatures
 What type of mythical creature explodes in flames when it dies but is reborn from its own ashes?, Phoenix, :Mythical_creatures
 Which mythical creature is said to disguise itself as chests to eat adventurers?, Mimic, :Mythical_creatures
 In D&D what is a the cat like creature that can project an image of itself to confuse it's foes?, Displacer beast, :TTRPG
