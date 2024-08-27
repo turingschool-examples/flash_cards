@@ -65,8 +65,8 @@ class Round
         deck.cards.each do |card|
         puts "This is card number #{deck.cards.index(card)+1} out of #{deck.count}. "
         puts "Question: #{card.question}"
-        answer = gets.chomp
-        take_turn(answer)
+        guess = gets.chomp
+        take_turn(guess)
         puts turns.last.feedback
         end
 
