@@ -33,4 +33,4 @@ Respec.describe Deck do
         expect(deck.cards_in_category(:Geography)).to be_a(Array)
         expect(deck.cards_in_category(:Pop_Culture)).to be_a(Array)
     end
-
+end
