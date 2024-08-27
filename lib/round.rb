@@ -28,4 +28,10 @@ class Round
             0
         end
     end
+
+    def turns_count
+        @turns.count == 2
+    end
+
+    
 end
