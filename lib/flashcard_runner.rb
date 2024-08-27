@@ -23,12 +23,11 @@ def start
         puts "Question: #{@round.current_card.question}"
         user_input = gets.chomp
         new_turn = @round.take_turn(user_input) 
-        # require 'pry'; binding.pry
         puts new_turn.feedback
     end
 
     puts "****** Game over! ******"
-    puts "You had #{@round.number_correct} correct guesses out of #{@cards.length} for a total score of #{@round.percent_correct}%."
+    puts "You had #{@round.number_correct} correct guesses out of #{@cards.length} for a total score of #{@round.percent_correct}."
     @round.return_percent_correct_by_category
 end
 

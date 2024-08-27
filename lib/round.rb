@@ -2,8 +2,7 @@ require_relative './turn.rb'
 require_relative './card.rb'
 
 class Round
-    attr_reader :deck, :turns, :current_card, :user_guesses, :number_correct, :card_number, :number_correct_by_category, :percent_correct, :percent_correct_by_category, :turn_number, :new_turn_category
-    attr_writer :turns
+    attr_reader :deck, :turns, :current_card, :user_guesses, :number_correct, :card_number, :number_correct_by_category, :percent_correct, :percent_correct_by_category, :turn_number, :new_turn_category, :new_card
 
     def initialize(deck)
         @deck = deck
@@ -16,7 +15,6 @@ class Round
         @current_card = current_card
         @percent_correct = 0.0
         @percent_correct_by_category = 0
-        @new_turn_category = []
         @correct_by_category = Hash.new(0)
         
     end
@@ -34,7 +32,7 @@ class Round
                 @number_correct += 1 
                 @correct_by_category[current_card.category] += 1 #@correct_by_category hash tracks the number of correct guesses by category 
             end
-            # require 'pry'; binding.pry
+
             @card_number += 1
             @turn_number += 1
         new_turn
@@ -52,7 +50,7 @@ class Round
         total_in_category = @turns.count { |turn| turn.card.category == category} #use block code here - |turn| is the argument, and the block iterates over each turn in the @turns array
         #identifies whether the category of the card associated with each turn in the @turns array matches the cateegory of the argument passed into the method
 
-        return 0.0 if total_in_category == 0 #don't care about empty categories 
+        return 0 if total_in_category == 0 
         ((number_correct_by_category(category).to_f / total_in_category) * 100).round(2)
         
     end
@@ -63,7 +61,7 @@ class Round
 
     def return_percent_correct_by_category
         unique_categories.each do |category|
-            puts "#{category}: #{percent_correct_by_category(category)}%"
+            puts "#{category}: #{percent_correct_by_category(category)}% correct"
         end
     end
 
