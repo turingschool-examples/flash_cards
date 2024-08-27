@@ -17,4 +17,4 @@ In D&D what is a the cat like creature that can project an image of itself to co
 What does the T in TTRPG stand for?, Table, :TTRPG
 What year was the first 'Star Wars' movie released?, 1977, :Sci-Fi
 In Egyptian mythology what is the name of the god with the head of a jackal?, Anubis, :Mythical_creatures
-Who wrote the orignal Star Wars series?, Geaorge Lucas, :Sci-Fi
+Who wrote the orignal Star Wars series?, George Lucas, :Sci-Fi
