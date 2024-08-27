@@ -14,7 +14,7 @@ In Norse mythology what is the name of the world serpent?, Jörmungandr, :Mythic
 What type of mythical creature explodes in flames when it dies but is reborn from its own ashes?, Phoenix, :Mythical_creatures
 Which mythical creature is said to disguise itself as chests to eat adventurers?, Mimic, :Mythical_creatures
 In D&D what is a the cat like creature that can project an image of itself to confuse it's foes?, Displacer beast, :TTRPG
-What does the T in TTRPG stand for?, Tabletop, :TTRPG
+What does the T in TTRPG stand for?, Table, :TTRPG
 What year was the first 'Star Wars' movie released?, 1977, :Sci-Fi
 In Egyptian mythology what is the name of the god with the head of a jackal?, Anubis, :Mythical_creatures
 Who wrote the orignal Star Wars series?, Geaorge Lucas, :Sci-Fi
