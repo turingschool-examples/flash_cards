@@ -1,10 +1,12 @@
-# lib/round.rb
+
 
 require './lib/turn'
+require './lib/deck'
+require './lib/card'
 
 class Round
   attr_reader :deck, :turns, :current_card, :number_correct
-
+  
   def initialize(deck)
     @deck = deck
     @turns = []
@@ -34,5 +36,25 @@ class Round
     return 0.0 if total_in_category == 0
     (correct_in_category.to_f / total_in_category * 100).round(1)
   end
- 
-end
+
+  def start
+        puts "Welcome! You are playing with #{deck.cards.count} cards."
+        puts "-------------------------------------------------"
+
+  @deck.cards.each_with_index do |card, index|    
+        puts "This is card number #{index + 1} out of #{deck.cards.count}."
+        puts "Question: #{card.question}"
+        guess = gets.chomp
+        #require 'pry'; binding.pry
+        turn = take_turn(guess)
+        puts turn.feedback
+    end
+     
+     puts "** Game over! **"
+     puts "You had #{number_correct} correct guesses out of #{deck.cards.count} for a total score of #{percent_correct}%."
+     categories = deck.cards.map { |card| card.category }.uniq
+     categories.each do |category|
+       puts "#{category} - #{percent_correct_by_category(category)}% correct"
+     end
+    end
+ end
