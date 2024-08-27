@@ -56,8 +56,9 @@ RSpec.describe Round do
 
         round = Round.new(deck)
 
-        # require 'pry'; binding.pry
-        expect(round.take_turn('answer_1')).to eq true #new_turn = round.take_turn(player guess)
+        round.take_turn('answer_1')
+
+        expect(round.number_correct).to eq 1 #new_turn = round.take_turn(player guess)
     end
 
     it 'can display a new current card after a turn' do
@@ -101,7 +102,9 @@ RSpec.describe Round do
 
         round = Round.new(deck)
 
-        expect(round.take_turn('snawer_1')).to eq false
+        round.take_turn('an1')
+
+        expect(round.number_correct).to eq 0 #new_turn = round.take_turn(player guess)
 
     end
 
