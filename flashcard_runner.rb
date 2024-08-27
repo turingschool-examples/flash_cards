@@ -3,6 +3,7 @@ require './lib/deck'
 require './lib/turn'
 require './lib/round'
 
+# Not working yet
 def get_round_from_file
   file_path = './input/flash_cards.csv'
   fcards = File.readlines(file_path)
