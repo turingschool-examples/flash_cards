@@ -12,7 +12,7 @@ class Turn
         false
     end
 
-    def feedback
+    def feedback(guess)
         @guess.correct == false
     end
 end
