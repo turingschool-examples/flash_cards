@@ -1,10 +1,12 @@
 #Deck class stores all cards for current round
 
 class Deck
-    attr_reader :deck
+    attr_reader :deck,
+                :categories
 
     def initialize(cards)
         @deck = cards
+        @categories = []
     end
 
     def cards_in_category(category_request)
@@ -18,6 +20,13 @@ class Deck
         end.compact
         
 
+    end
+
+    def all_categories
+        categories = @deck.map do |card|
+            card.category
+        end
+        categories = categories.uniq()
     end
 
     def guessed

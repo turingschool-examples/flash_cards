@@ -46,6 +46,19 @@ RSpec.describe Deck do
         expect(deck.cards_in_category('pop culture').count).to eq(0)
     end
 
+    it 'makes a list of categories of the availible cards' do
+        card_1 = Card.new('question_1?', 'answer_1', :Geography)
+        card_2 = Card.new('question_2', 'snawer_2', :STEM)
+        card_3 = Card.new('question_3', 'answer_3', :STEM)
+        cards = [card_1, card_2, card_3]
+
+        deck = Deck.new(cards)
+
+        expect(deck.all_categories.count).to eq 2
+
+        
+    end
+
     it 'is able to remove cards' do
         card_1 = Card.new('question_1?', 'answer_1', :Geography)
         card_2 = Card.new('question_2', 'snawer_2', :STEM)

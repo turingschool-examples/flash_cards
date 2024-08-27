@@ -40,6 +40,7 @@ class Round
         @turns << turn
         deck_turn.deck.shift(1)
         turn.correct?
+        turn.feedback
     end
 
     def number_correct
