@@ -56,17 +56,16 @@ RSpec.describe Round do
         expect(@round.percent_correct).to eq(100) 
     end
 
-    it 'identifies number correct by category' do
+    it 'identifies number of cards correct by category' do
         new_turn = @round.take_turn("Juneau") 
-
+# require 'pry'; binding.pry
         expect(@round.number_correct_by_category(:Geography)).to eq(1) 
     end
     
-    # 'adds to number correct by category' do
-    #     expect(@round.number_correct_by_category(:Geography)).to eq(1)
-       
-    #     expect(@round.percent_correct_by_category(:Geography)).to eq(100)
-
-    # end
+    it 'adds to number correct by category' do
+        new_turn = @round.take_turn("Juneau") 
+        # require 'pry'; binding.pry
+        expect(@round.percent_correct_by_category(:Geography)).to eq(100)
+    end
     
 end
