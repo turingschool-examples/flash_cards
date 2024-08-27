@@ -3,6 +3,20 @@ require './lib/deck'
 require './lib/turn'
 require './lib/round'
 
+def get_round_from_file
+  file_path = './input/flash_cards.csv'
+  cards = File.readlines(file_path)
+
+  card_1 = Card.new(cards[0][0], cards[0][1], cards[0][2])
+  card_2 = Card.new(cards[1][0], cards[0][1], cards[0][2])
+  card_3 = Card.new(cards[2][0], cards[0][1], cards[0][2])
+  card_4 = Card.new(cards[3][0], cards[0][1], cards[0][2])
+
+  deck = [card_1, card_2, card_3, card_4]
+
+  # Round.new(deck)
+end
+
 def get_round
   # Create some Cards
   card_1 = Card.new('What is 5 + 5?', '10', :STEM)
@@ -30,7 +44,8 @@ def start
   card_num = 1
 
   round.deck.cards.each do |card|
-    print rgb('b') + "\n"
+    print rgb('b')
+    puts
 
     puts "This is card number #{card_num} out of #{cards}"
 
@@ -83,3 +98,4 @@ def rgb(input)
 end
 
 start
+# puts get_round_from_file
