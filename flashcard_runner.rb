@@ -32,8 +32,9 @@ def start
   round.deck.cards.each do |card|
     print rgb('b') + "\n"
 
-    # Question
     puts "This is card number #{card_num} out of #{cards}"
+
+    # Question
     print "Question: #{card.question}: "
     print rgb('x')
 
@@ -68,8 +69,8 @@ def start
   print rgb('x') # stop colorizing
 end
 
+# terminal color codes for red, green, blue, and end color
 def rgb(input)
-  # terminal color codes for red, green, blue, and end color
   if input == 'r'
     "\e[31m"
   elsif input == 'g'
