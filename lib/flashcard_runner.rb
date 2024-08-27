@@ -7,13 +7,11 @@ require_relative './deck.rb'
 @card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 @card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
 @card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-# @card = Card.new(@question, @answer, @category)
 @cards = [@card_1, @card_2, @card_3]
 @deck = Deck.new(@cards)
 @turn = Turn.new(@guess, @card)
 @round = Round.new(@deck)
 
-# require 'pry'; binding.pry
 def start
         @round.deck
         @round.turns
@@ -30,10 +28,8 @@ def start
     end
 
     puts "****** Game over! ******"
-    # require 'pry'; binding.pry
     puts "You had #{@round.number_correct} correct guesses out of #{@cards.length} for a total score of #{@round.percent_correct}%."
-    puts "#{category} - #{@round.percent_correct_by_category(category)}% correct" #need to figure out how to get these to print for each category
-    puts "#{category} - #{@round.percent_correct_by_category(category)}% correct"
+    @round.return_percent_correct_by_category
 end
 
 start
