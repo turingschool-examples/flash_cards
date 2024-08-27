@@ -1,10 +1,11 @@
 ##  Flash Cards
 
-This is the starter repository for the [Flash Cards](http://backend.turing.io/module1/projects/flashcards) project.
+# This is Jeremiah's Flash card project
 
+You play the game by running 'flashcard_runner.rb'
 
-#This is Jeremiah's Flash card project
+The answers are not case sensitive.
 
-It is currently in iteration  3
+custom questions can be added to the trivia.txt file in the format of 'Question, answer, :category'
 
-all answers provided are automatically converted to a string, but all category requests are case sensitive and require a :<category> format
+The game will end telling you how many you got right and how many in each category you got right in percentages.
