@@ -18,6 +18,7 @@ class Game
       card_hash[card_name] = card_details
     end
     puts card_hash
+    # return the hash instead of the puts
   end
 
   def hash_to_cards(card_hash)
