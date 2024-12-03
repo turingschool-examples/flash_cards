@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Defines a flashcard with a question on one side and an answer on the other.
+# Defines a flashcard with a question, answer, and category.
 class Card
   attr_reader :question, :answer, :category
 
