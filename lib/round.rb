@@ -12,6 +12,6 @@ class Round
     end
 
     def take_turn(response)
-        Turn.new(current_card, response)
+        Turn.new(response, current_card)
     end
 end
