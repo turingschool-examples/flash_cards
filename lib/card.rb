@@ -9,6 +9,7 @@ class Card
         @question = question_string
         @answer = answer_string
         @category = category
+        #Note: no error checking is present here (i.e. a non-string arg could be passed)    
     end
 
     #Other methods
