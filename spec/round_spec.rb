@@ -15,6 +15,10 @@ RSpec.describe Round do
 
     it 'exists' do
         expect(@round).to be_a(Round)
+    end
+
+    it 'can check for the current card at the front of the array' do
+        expect(@round.current_card).to eq(@card1)
         binding.pry
     end
 end
