@@ -21,8 +21,18 @@ class Round
         end
 
         @deck.cards.shift()
-        
+
         @turns << turn
         turn
+    end
+
+    def number_correct_by_category(category)
+        correct = 0
+        for turn in @turns
+            if turn.card.category == category && turn.correct?
+                correct += 1
+            end
+        end
+        correct
     end
 end
