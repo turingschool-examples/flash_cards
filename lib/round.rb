@@ -43,17 +43,17 @@ class Round
                 correct += 1
             end
         end
-        (correct/turns.size) * 100
+        ((correct/turns.size) * 100).round(2)
     end
 
     def percent_correct_by_category(category)
-        correct = number_correct_by_category(category)
+        correct = number_correct_by_category(category).to_f
         turns = []
         for turn in @turns
             if turn.card.category == category
                 turns << turn
             end
         end
-        (correct/turns.length) * 100
+        ((correct/turns.length) * 100).round(2)
     end
 end
