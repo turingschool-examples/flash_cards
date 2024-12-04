@@ -22,6 +22,12 @@ class Turn
         @card
     end
 
+    def correct?()
+        #Check if guess is identical to card's answer
+        #Note: this is strict checking; later can implement more relaxed string interpretation
+        @guess == card.answer
+    end
+
 
 
 end
