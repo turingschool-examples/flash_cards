@@ -22,7 +22,7 @@ RSpec.describe Round do
         expect(@round.current_card).to eq(@card1)
     end
 
-    it 'creates a new instance of turn' do 
+    it 'creates and records a new turn for the round' do 
         new_turn = @round.take_turn("Juneau")
 
         expect(new_turn.class).to eq(Turn)
