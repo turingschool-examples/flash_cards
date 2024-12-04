@@ -30,7 +30,11 @@ class Round
         correct_count
     end
 
-    # def number_correct_by_category
+    def turn_count #refactored these names for clarity and consistency, I believe this is an example of Law of Demeter 
+        @turns.count
+    end
 
-    # end
+    def last_turn 
+        @turns.last
+    end
 end

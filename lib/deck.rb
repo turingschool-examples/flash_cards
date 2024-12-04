@@ -11,7 +11,7 @@ class Deck
         end
     end
 
-    def count
+    def card_count
         @cards.count
     end
 end
