@@ -16,8 +16,8 @@ def start
     puts "Welcome! You're playing with #{deck_size} cards."
     puts "-------------------------------------------------"
 
-    for i in 1..deck.count
-        puts "This is card #{i} out of #{deck_size}"
+    (1..deck.count).each do |round_num|
+        puts "This is card #{round_num} out of #{deck_size}"
         puts "Question: #{round.current_card.question}"
         turn_result = round.take_turn(gets.chomp)
         puts turn_result.feedback
@@ -25,7 +25,7 @@ def start
 
     puts "****** Game over! ******"
     puts "You had #{round.number_correct} out of #{deck_size} for a total score of #{round.percent_correct}"
-    for category in round.deck.categories
+    round.deck.categories.each do |category|
         puts "#{category} - #{round.percent_correct_by_category(category)}% correct"
     end
 end
