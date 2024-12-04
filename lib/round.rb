@@ -31,10 +31,10 @@ class Round
     end
 
     def turn_count #refactored these names for clarity and consistency, I believe this is an example of Law of Demeter 
-        @turns.count
+        @turns.count #previously was def count, @rounds.turns.count (in spec file)
     end
 
-    def last_turn 
+    def last_turn #previously was def last, @round.turns.last (in spec file)
         @turns.last
     end
 end
