@@ -1,9 +1,8 @@
 class Turn
-  attr_reader :question, :answer, :category
+  attr_reader :guess, :card
 
-  def initialize(question, answer, category)
-    @question = question
-    @answer = answer
-    @category = category
+  def initialize(guess , card)
+    @guess = guess
+    @card = card
   end
 end
