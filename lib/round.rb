@@ -20,7 +20,7 @@ class Round
             @number_correct += 1
         end
 
-        @deck.cards.shift()
+        @deck.cards.shift() #Removes the first element in the cards array, keeps current_card accurate
 
         @turns << turn
         turn
@@ -28,32 +28,38 @@ class Round
 
     def number_correct_by_category(category)
         correct = 0
+
         @turns.each do |turn|
             if turn.card.category == category && turn.correct?
                 correct += 1
             end
         end
+
         correct
     end
 
-    def percent_correct
-        correct = 0.00
+    def percent_correct #All percents rounded to two decimal places
+        correct = 0.0 #Float used to ensure percentage not rounded prematurely
+
         @turns.each do |turn|
             if turn.correct?
                 correct += 1
             end
         end
+
         ((correct/turns.size) * 100).round(2)
     end
 
     def percent_correct_by_category(category)
-        correct = number_correct_by_category(category).to_f
+        correct = number_correct_by_category(category).to_f #Float used to ensure percentage not rounded prematurely
         turns = []
+
         @turns.each do |turn|
             if turn.card.category == category
                 turns << turn
             end
         end
+
         ((correct/turns.length) * 100).round(2)
     end
 end
