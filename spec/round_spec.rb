@@ -1,5 +1,6 @@
 require 'pry'
 require './lib/card'
+require './lib/turn'
 require './lib/deck'
 require './lib/round'
 
@@ -19,6 +20,12 @@ RSpec.describe Round do
 
     it 'can check for the current card at the front of the array' do
         expect(@round.current_card).to eq(@card1)
-        binding.pry
+    end
+
+    it 'creates a new instance of turn' do 
+        new_turn = @round.take_turn("Juneau")
+
+        expect(new_turn.class).to eq(Turn)
+        expect(new_turn.correct?).to eq(true)
     end
 end
