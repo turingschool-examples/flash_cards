@@ -45,4 +45,20 @@ class Round
         end
         (correct/turns.size) * 100
     end
+
+    def percent_correct_by_category(category)
+        correct = 0.00
+        for turn in @turns
+            if turn.correct? && turn.card.category == category
+                correct += 1
+            end
+        end
+        turns = []
+        for turn in @turns
+            if turn.card.category == category
+                turns << turn
+            end
+        end
+        (correct/turns.length) * 100
+    end
 end
