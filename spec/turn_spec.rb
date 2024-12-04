@@ -2,14 +2,14 @@ require 'rspec'
 require '../lib/turn'
 require '../lib/card'
 
-Rspec.describe Card do
+describe Card do
   it 'exists and is initialized' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     expect(card).to be_instance_of(Card)
   end
 end
 
-Rspec.describe Turn do
+describe Turn do
   it 'exists and is initalized' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
@@ -31,7 +31,7 @@ Rspec.describe Turn do
   it 'has a working correct? method' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
-    expect(turn.correct?.to be_true)
+    expect(turn.correct?).to eq(true)
   end
 
   it 'has a working feedback method' do
