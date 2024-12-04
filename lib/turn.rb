@@ -7,7 +7,7 @@ class Turn
   end
 
   def correct?
-  #  require "pry"; binding.pry
+  #  require "pry"; binding.pry VERY HELPFUL
    @card.answer == @guess
   end
 end
