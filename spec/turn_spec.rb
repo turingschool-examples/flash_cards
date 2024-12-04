@@ -5,52 +5,62 @@ require_relative '../lib/turn'
 require 'rspec'
 
 RSpec.describe Turn do
-  it 'exists' do
-    card = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
-    turn = Turn.new('Juneau', card)
+  describe 'Initialization' do
+    it 'is an instance of Turn' do
+      card = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
+      turn = Turn.new('Juneau', card)
 
-    expect(turn).to be_instance_of(Turn)
+      expect(turn).to be_instance_of(Turn)
+    end
   end
 
-  it 'has a guess' do
-    card = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
-    turn = Turn.new('Juneau', card)
+  describe 'Store and retrieve data' do
+    it 'has a guess' do
+      card = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
+      turn = Turn.new('Juneau', card)
 
-    expect(turn.guess).to eq('Juneau')
+      expect(turn.guess).to eq('Juneau')
+    end
+
+    it 'has a card' do
+      card = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
+      turn = Turn.new('Juneau', card)
+
+      expect(turn.card).to eq(card)
+    end
   end
 
-  it 'has a card' do
-    card = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
-    turn = Turn.new('Juneau', card)
+  describe 'Compare guess to result' do
+    describe 'Return boolean; true if correct' do
+      it 'can confirm correct guess' do
+        card = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
+        turn = Turn.new('Juneau', card)
 
-    expect(turn.card).to eq(card)
-  end
+        expect(turn.correct?).to be true
+      end
 
-  it 'can confirm correct guess' do
-    card = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
-    turn = Turn.new('Juneau', card)
+      it 'can reject incorrect guess' do
+        card = Card.new('Which planet is closest to the sun?', 'Mercury', :STEM)
+        turn = Turn.new('Saturn', card)
 
-    expect(turn.correct?).to be true
-  end
+        expect(turn.correct?).to be false
+      end
+    end
 
-  it 'can provide feedback' do
-    card = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
-    turn = Turn.new('Juneau', card)
+    describe 'Provide feedback' do
+      it 'can provide feedback for correct guess' do
+        card = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
+        turn = Turn.new('Juneau', card)
 
-    expect(turn.feedback).to eq('Correct!')
-  end
+        expect(turn.feedback).to eq('Correct!')
+      end
 
-  it 'can reject incorrect guess' do
-    card = Card.new('Which planet is closest to the sun?', 'Mercury', :STEM)
-    turn = Turn.new('Saturn', card)
+      it 'can provide feedback for incorrect guess' do
+        card = Card.new('Which planet is closest to the sun?', 'Mercury', :STEM)
+        turn = Turn.new('Saturn', card)
 
-    expect(turn.correct?).to be false
-  end
-
-  it 'can provide feedback for incorrect guess' do
-    card = Card.new('Which planet is closest to the sun?', 'Mercury', :STEM)
-    turn = Turn.new('Saturn', card)
-
-    expect(turn.feedback).to eq('Incorrect.')
+        expect(turn.feedback).to eq('Incorrect.')
+      end
+    end
   end
 end
