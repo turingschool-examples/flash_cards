@@ -29,11 +29,29 @@ RSpec.describe Round do
         expect(new_turn.correct?).to eq(true)
     end
 
+    it 'counts the amount of turns taken' do 
+        expect(@round.turn_count).to eq(0)
+        
+        new_turn = @round.take_turn("Juneau")
+        new_turn = @round.take_turn("Venus")
+
+        expect(@round.turns.count).to eq(2)
+    end
+
     it 'records the number of correct answers in the turns array' do
         new_turn = @round.take_turn("Juneau")
         expect(@round.number_correct).to eq(1)
 
         new_turn = @round.take_turn("Venus")
         expect(@round.number_correct).to eq(1)
+    end
+
+    it 'determines the last turn taken' do
+        turn1 = @round.take_turn("Juneau")
+        turn2 = @round.take_turn("Venus")
+
+        expect(@round.last_turn).to eq(turn2)
+        expect(@round.last_turn.guess).to eq("Venus")
+        expect(@round.last_turn.feedback).to eq("Incorrect.")
     end
 end
