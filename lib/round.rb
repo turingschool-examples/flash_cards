@@ -11,7 +11,7 @@ class Round
         deck.cards[0]
     end
 
-    def take_turn(response)
-        Turn.new(response, current_card)
+    def take_turn(guess)
+        Turn.new(guess, current_card)
     end
 end
