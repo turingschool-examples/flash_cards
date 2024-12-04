@@ -23,7 +23,18 @@ class Round
     @turns << new_turn
     # Add one to the number_correct counter if it was correct
     @number_correct += 1 if new_turn.correct?
-    # Return new_turn, instead of returning the turns array
+    # Add one to the deck_index to move to the next card
+    @deck_index += 1
+    # Return new_turn, instead of returning the deck index
     new_turn
+  end
+
+  def number_correct_by_category(category)
+    # Create a new array of correct answers that match the category
+    counter_array = @turns.select do |turn|
+      turn.correct? && turn.card.category == category
+    end
+    # Return the size of that array
+    counter_array.count
   end
 end
