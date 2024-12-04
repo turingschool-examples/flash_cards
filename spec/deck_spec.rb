@@ -19,11 +19,11 @@ RSpec.describe Deck do
         expect(@deck1.cards).to eq([@card1, @card2, @card3]) 
     end 
 
-    it 'can check what category a card belongs to' do 
+    it 'checks what category a card belongs to' do 
         expect(@deck1.cards_in_category(:STEM)).to eq([@card2, @card3])
     end
 
-    it 'can count how many cards are in the deck' do
-        expect(@deck1.count).to eq(3)
+    it 'counts how many cards are in the deck' do
+        expect(@deck1.card_count).to eq(3)
     end 
 end
