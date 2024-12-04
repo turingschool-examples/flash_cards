@@ -1,4 +1,3 @@
-require 'rspec'
 require './lib/card.rb'
 
 RSpec.describe Card do
