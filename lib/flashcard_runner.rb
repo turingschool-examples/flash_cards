@@ -4,12 +4,14 @@ require_relative 'round'
 require_relative 'deck'
 require_relative 'card'
 require_relative 'turn'
+require_relative 'card_generator'
 
-card1 = Card.new('What is 5 + 5?', '10', 'STEM')
-card2 = Card.new("What is Rachel's favorite animal?", 'red panda', 'Turing Staff')
-card3 = Card.new("What is Mike's middle name?", 'nobody knows', 'Turing Staff')
-card4 = Card.new('What cardboard cutout lives at Turing?', 'Justin bieber', 'PopCulture')
-cards = [card1, card2, card3, card4]
+# card1 = Card.new('What is 5 + 5?', '10', 'STEM')
+# card2 = Card.new("What is Rachel's favorite animal?", 'red panda', 'Turing Staff')
+# card3 = Card.new("What is Mike's middle name?", 'nobody knows', 'Turing Staff')
+# card4 = Card.new('What cardboard cutout lives at Turing?', 'Justin bieber', 'PopCulture')
+# cards = [card1, card2, card3, card4]
+cards = CardGenerator.new('cards.txt').cards
 deck = Deck.new(cards)
 round = Round.new(deck)
 amount_of_cards = round.deck.count
