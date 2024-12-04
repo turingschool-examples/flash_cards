@@ -127,6 +127,7 @@ describe Round do
 
         expect(round.turns.count).to eq(2)
         expect(round.turns.last.feedback).to eq("Incorrect.")
+        expect(round.number_correct).to eq(1)
     end
 
 end
