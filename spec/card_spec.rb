@@ -1,4 +1,4 @@
-require './lib/card'
+require './FLASH_CARDS/lib/card'
 
 RSpec.describe Card do
   it 'exists' do
