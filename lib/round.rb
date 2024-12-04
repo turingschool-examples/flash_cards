@@ -35,4 +35,14 @@ class Round
         end
         correct
     end
+
+    def percent_correct
+        correct = 0.00
+        for turn in @turns
+            if turn.correct?
+                correct += 1
+            end
+        end
+        (correct/turns.size) * 100
+    end
 end
