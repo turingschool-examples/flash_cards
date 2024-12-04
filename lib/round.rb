@@ -28,7 +28,7 @@ class Round
 
     def number_correct_by_category(category)
         correct = 0
-        for turn in @turns
+        @turns.each do |turn|
             if turn.card.category == category && turn.correct?
                 correct += 1
             end
@@ -38,7 +38,7 @@ class Round
 
     def percent_correct
         correct = 0.00
-        for turn in @turns
+        @turns.each do |turn|
             if turn.correct?
                 correct += 1
             end
@@ -49,7 +49,7 @@ class Round
     def percent_correct_by_category(category)
         correct = number_correct_by_category(category).to_f
         turns = []
-        for turn in @turns
+        @turns.each do |turn|
             if turn.card.category == category
                 turns << turn
             end
