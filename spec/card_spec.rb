@@ -1,5 +1,6 @@
 require './lib/card'
 require './lib/turn'
+require '.lib/deck'
 
 RSpec.describe Card do
   it 'exists' do
