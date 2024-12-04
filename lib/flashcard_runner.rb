@@ -15,11 +15,14 @@ round = Round.new(deck)
 amount_of_cards = round.deck.count
 puts "Welcome! You're playing with #{amount_of_cards} cards."
 puts '-------------------------------------------------'
+# A simple loop that will run as many times as there are cards in the deck
 amount_of_cards.times do |card_number|
+  # card_number + 1 is because the card_number variable starts at 0
   puts "This is card number #{card_number + 1} out of #{amount_of_cards}."
   puts "Question: #{round.current_card.question}"
-  new_turn = round.take_turn(gets.chomp)
-  puts new_turn.feedback
+  # This is where the real magic happens; gets takes the input from the user and the chomp method removes the line break.
+  # The chomp is necessary in order to compare the strings like for like. The feedback method is used to display the results to the user
+  puts round.take_turn(gets.chomp).feedback
 end
 puts '****** Game over! ******'
 puts "You had #{round.number_correct} correct guesses out of #{amount_of_cards} for a total score of #{round.percent_correct.to_i}%."
