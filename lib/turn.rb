@@ -13,4 +13,11 @@ class Turn
 
     #Other methods
 
+    def guess
+        #Get guess member variable (I suppose this means attr_reader isn't needed above?)
+        @guess
+    end
+
+    
+
 end
