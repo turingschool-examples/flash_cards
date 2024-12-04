@@ -31,6 +31,7 @@ class Turn
     def feedback()
         #Provide written feedback based on whether the guess was correct or not
         #NOTE: I'd rather utilize calling 'correct?()', but it requires a self-reference...
+        #Alternate approach: pass a boolean 'correct' as an arg here and then run if/else logic
         if @guess == card.answer
             puts "Correct!"
         else
