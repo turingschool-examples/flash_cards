@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Creates a deck that can hold cards and identif them by category.
+# Creates a deck that can hold cards and identify them by category.
 class Deck
   attr_reader :cards
 
