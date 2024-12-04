@@ -35,7 +35,7 @@ describe Round do
 
         round = Round.new(deck)
 
-        expect(deck.turns).to eq([])
+        expect(round.turns).to eq([])
     end
 
 end
