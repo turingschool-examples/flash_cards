@@ -21,11 +21,15 @@ RSpec.describe Turn do
     expect(turn.card).to eq(card)
   end
 
-  it 'is checking answer' do
+  it 'is checking for correct answer' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    turn = Turn.new("Boston" , card)
+    turn = Turn.new("Juneau" , card)
     expect(turn.correct?).to eq(true)
   end
+  it 'is an incorrect answer' do
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("Boston" , card)
+    expect(turn.correct?).to eq(false)
+  end
 
-  
 end

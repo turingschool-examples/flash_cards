@@ -5,4 +5,9 @@ class Turn
     @guess = guess
     @card = card
   end
+
+  def correct?
+  #  require "pry"; binding.pry
+   @card.answer == @guess
+  end
 end
