@@ -47,12 +47,7 @@ class Round
     end
 
     def percent_correct_by_category(category)
-        correct = 0.00
-        for turn in @turns
-            if turn.correct? && turn.card.category == category
-                correct += 1
-            end
-        end
+        correct = number_correct_by_category(category)
         turns = []
         for turn in @turns
             if turn.card.category == category
