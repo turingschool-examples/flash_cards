@@ -44,6 +44,17 @@ RSpec.describe Round do
         end
     end
 
+    describe '#last_turn' do
+    it 'determines the last turn taken' do
+        turn1 = @round.take_turn("Juneau")
+        turn2 = @round.take_turn("Venus")
+
+        expect(@round.last_turn).to eq(turn2)
+        expect(@round.last_turn.guess).to eq("Venus")
+        expect(@round.last_turn.feedback).to eq("Incorrect.")
+        end
+    end
+
     describe '#number_correct' do
       it 'records the number of correct answers in the turns array' do
           @round.take_turn("Juneau")
@@ -54,14 +65,32 @@ RSpec.describe Round do
         end
     end
 
-    describe '#last_turn' do
-      it 'determines the last turn taken' do
-          turn1 = @round.take_turn("Juneau")
-          turn2 = @round.take_turn("Venus")
+    describe '#correct_by_category' do
+      it 'records the number of correct answers for each category' do
+          @round.take_turn("Juneau")
 
-          expect(@round.last_turn).to eq(turn2)
-          expect(@round.last_turn.guess).to eq("Venus")
-          expect(@round.last_turn.feedback).to eq("Incorrect.")
+          expect(@round.correct_by_category(:Geography)).to eq(1)
+          expect(@round.correct_by_category(:STEM)).to eq(0)
         end
+    end
+
+    describe '#percent_correct' do
+      it 'returns the current percentage of correct answers' do 
+        @round.take_turn("Juneau")
+        @round.take_turn("Venus")
+
+        expect(@round.number_correct).to eq(1)
+        expect(@round.percent_correct).to eq(50.0)
+      end
+    end
+
+    describe '#percent_correct_by_category' do
+      it 'returns the current percentage of correct answers by category' do 
+        @round.take_turn("Juneau")
+        @round.take_turn("Venus")
+
+        expect(@round.correct_by_category(:Geography)).to eq(1)
+        expect(@round.percent_correct_by_category(:Geography)).to eq(100.0)
+      end
     end
 end
