@@ -28,6 +28,13 @@ class Turn
         @guess == card.answer
     end
 
-
-
+    def feedback()
+        #Provide written feedback based on whether the guess was correct or not
+        #NOTE: I'd rather utilize calling 'correct?()', but it requires a self-reference...
+        if @guess == card.answer
+            puts "Correct!"
+        else
+            puts "Incorrect."
+        end
+    end
 end
