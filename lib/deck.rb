@@ -1,8 +1,16 @@
 class Deck
     attr_reader :cards
+    attr_reader :categories
 
     def initialize(cards)
         @cards = cards
+        @categories = []
+
+        for card in @cards
+            if !@categories.include?(card.category)
+                @categories << card.category
+            end
+        end
     end
 
     def count
