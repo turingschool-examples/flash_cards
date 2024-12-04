@@ -18,7 +18,7 @@ RSpec.describe Round do
         expect(@round).to be_a(Round)
     end
 
-    it 'can check for the current card at the front of the array' do
+    it 'checks for the current card at the front of the array' do
         expect(@round.current_card).to eq(@card1)
     end
 
@@ -27,5 +27,13 @@ RSpec.describe Round do
 
         expect(new_turn.class).to eq(Turn)
         expect(new_turn.correct?).to eq(true)
+    end
+
+    it 'records the number of correct answers in the turns array' do
+        new_turn = @round.take_turn("Juneau")
+        expect(@round.number_correct).to eq(1)
+
+        new_turn = @round.take_turn("Venus")
+        expect(@round.number_correct).to eq(1)
     end
 end
