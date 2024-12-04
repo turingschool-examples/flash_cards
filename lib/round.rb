@@ -37,4 +37,8 @@ class Round
     # Return the size of that array
     counter_array.count
   end
+
+  def percent_correct
+    @number_correct / @turns.size.to_f * 100
+  end
 end
