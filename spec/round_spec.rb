@@ -141,8 +141,8 @@ describe Round do
         new_turn = round.take_turn("Juneau")
         new_turn_2 = round.take_turn("Venus")
 
-        expect(number_correct_by_category(:Geography)).to eq(1)
-        expect(number_correct_by_category(:Geography)).to eq(0)
+        expect(round.number_correct_by_category(:Geography)).to eq(1)
+        expect(round.number_correct_by_category(:STEM)).to eq(0)
     end
 
 end
