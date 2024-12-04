@@ -15,15 +15,19 @@ RSpec.describe Deck do
         expect(@deck1).to be_a(Deck)
     end
 
-    it 'holds a collection of cards' do
+    it '#cards returns the collection of cards' do
         expect(@deck1.cards).to eq([@card1, @card2, @card3]) 
     end 
 
-    it 'checks what category a card belongs to' do 
-        expect(@deck1.cards_in_category(:STEM)).to eq([@card2, @card3])
+    describe '#cards_in_category' do
+      it 'checks what category a card belongs to' do 
+          expect(@deck1.cards_in_category(:STEM)).to eq([@card2, @card3])
+          expect(@deck1.cards_in_category(:Geography)).to eq([@card1])
+          expect(@deck1.cards_in_category("Pop Culture")).to eq([])
+        end
     end
 
-    it 'counts how many cards are in the deck' do
+    it '#card_count returns the number of cards in the deck' do
         expect(@deck1.card_count).to eq(3)
     end 
 end

@@ -18,40 +18,50 @@ RSpec.describe Round do
         expect(@round).to be_a(Round)
     end
 
-    it 'checks for the current card at the front of the array' do
-        expect(@round.current_card).to eq(@card1)
+    describe '#current_card' do
+      it 'checks for the current card at the front of the deck' do
+          expect(@round.current_card).to eq(@card1)
+        end
     end
 
-    it 'creates and records a new turn for the round' do 
-        new_turn = @round.take_turn("Juneau")
+    describe '#take_turn' do
+      it 'creates and records a new turn for the round' do 
+          new_turn = @round.take_turn("Juneau")
 
-        expect(new_turn.class).to eq(Turn)
-        expect(new_turn.correct?).to eq(true)
+          expect(new_turn.class).to eq(Turn)
+          expect(new_turn.correct?).to eq(true)
+        end
     end
 
-    it 'counts the amount of turns taken' do 
-        expect(@round.turn_count).to eq(0)
+    describe '#turns and #turn_count' do
+      it 'counts the number of turns taken' do 
+          expect(@round.turn_count).to eq(0)
         
-        new_turn = @round.take_turn("Juneau")
-        new_turn = @round.take_turn("Venus")
+          @round.take_turn("Juneau")
+          @round.take_turn("Venus")
 
-        expect(@round.turns.count).to eq(2)
+          expect(@round.turns.count).to eq(2)
+        end
     end
 
-    it 'records the number of correct answers in the turns array' do
-        new_turn = @round.take_turn("Juneau")
-        expect(@round.number_correct).to eq(1)
+    describe '#number_correct' do
+      it 'records the number of correct answers in the turns array' do
+          @round.take_turn("Juneau")
+          expect(@round.number_correct).to eq(1)
 
-        new_turn = @round.take_turn("Venus")
-        expect(@round.number_correct).to eq(1)
+          @round.take_turn("Venus")
+          expect(@round.number_correct).to eq(1)
+        end
     end
 
-    it 'determines the last turn taken' do
-        turn1 = @round.take_turn("Juneau")
-        turn2 = @round.take_turn("Venus")
+    describe '#last_turn' do
+      it 'determines the last turn taken' do
+          turn1 = @round.take_turn("Juneau")
+          turn2 = @round.take_turn("Venus")
 
-        expect(@round.last_turn).to eq(turn2)
-        expect(@round.last_turn.guess).to eq("Venus")
-        expect(@round.last_turn.feedback).to eq("Incorrect.")
+          expect(@round.last_turn).to eq(turn2)
+          expect(@round.last_turn.guess).to eq("Venus")
+          expect(@round.last_turn.feedback).to eq("Incorrect.")
+        end
     end
 end
