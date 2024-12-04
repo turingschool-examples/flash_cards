@@ -30,15 +30,19 @@ class Round
   end
 
   def number_correct_by_category(category)
-    # Create a new array of correct answers that match the category
-    counter_array = @turns.select do |turn|
-      turn.correct? && turn.card.category == category
-    end
-    # Return the size of that array
-    counter_array.count
+    # The count method will only count the turns where the category matches and the answer was correct
+    @turns.count { |turn| turn.correct? && turn.card.category == category }
   end
 
   def percent_correct
     @number_correct / @turns.size.to_f * 100
+  end
+
+  def percent_correct_by_category(category)
+    # There's a bit to unpack here. The numerator calls the number_correct_by_category method from earlier in this class.
+    # The denominator is similar to that method, without the requirement that the answer was correct.
+    # The to_f method converts the integer to a float so we don't get any weird effects from integer division.
+    # Lastly, we multiply by 100 to return a percentage
+    number_correct_by_category(category) / @turns.count { |turn| turn.card.category == category }.to_f * 100
   end
 end
