@@ -20,7 +20,9 @@ class Round
             @number_correct += 1
         end
 
-        turns << turn
+        @deck.cards.shift()
+        
+        @turns << turn
         turn
     end
 end
