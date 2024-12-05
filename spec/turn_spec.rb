@@ -51,4 +51,11 @@ describe Turn do
 
         expect(turn.feedback).to eq("Incorrect.")
     end
+
+    it 'is not case sensitive' do
+        card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+        turn = Turn.new("mercury", card)
+
+        expect(turn.correct?).to eq(true)
+    end
 end
