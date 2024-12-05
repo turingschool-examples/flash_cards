@@ -8,7 +8,7 @@ class Turn
      @card.answer == @guess
     end
     def feedback
-        if @answer == @guess
+        if @card.answer == @guess
             p "Correct!"
         else
             p "Incorrect."
