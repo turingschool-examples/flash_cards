@@ -16,9 +16,7 @@ class Round
     def take_turn(guess)
         turn = Turn.new(guess, current_card)
 
-        if turn.correct?
-            @number_correct += 1
-        end
+        @number_correct += 1 if turn.correct?
 
         @deck.cards.shift() #Removes the first element in the cards array, keeps current_card accurate
 
