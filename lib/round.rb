@@ -48,14 +48,10 @@ class Round
 
     def percent_correct_by_category(category)
         correct = number_correct_by_category(category).to_f #Float used to ensure percentage not rounded prematurely
-        turns = []
+        
+        total_turns = @turns.find_all {|turn| turn.card.category == category}
+        correct_turns = total_turns.find_all {|turn| turn.correct?}
 
-        @turns.each do |turn|
-            if turn.card.category == category
-                turns << turn
-            end
-        end
-
-        ((correct/turns.length) * 100).round(2)
+        ((correct_turns.size.to_f/total_turns.length) * 100).round(2)
     end
 end
