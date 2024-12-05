@@ -27,15 +27,9 @@ class Round
     end
 
     def number_correct_by_category(category)
-        correct = 0
+        
+        @turns.find_all {|turn| turn.correct? && turn.card.category == category}.size
 
-        @turns.each do |turn|
-            if turn.card.category == category && turn.correct?
-                correct += 1
-            end
-        end
-
-        correct
     end
 
     def percent_correct #All percents rounded to two decimal places
