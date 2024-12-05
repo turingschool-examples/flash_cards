@@ -72,10 +72,20 @@ describe Deck do
   end
 
   describe 'List categories' do
-    it 'can return a list of categories' do
+    it 'can return a list of categories-symbols' do
       card1 = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
       card2 = Card.new('The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?', 'Mars', :STEM)
       card3 = Card.new('Describe in words the exact direction that is 697.5° clockwise from due north?', 'North north west', :STEM)
+      cards = [card1, card2, card3]
+      deck = Deck.new(cards)
+
+      expect(deck.categories).to eq(%i[Geography STEM])
+    end
+
+    it 'can return a list of categories-strings' do
+      card1 = Card.new('What is the capital of Alaska?', 'Juneau', 'Geography')
+      card2 = Card.new('The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?', 'Mars', 'STEM')
+      card3 = Card.new('Describe in words the exact direction that is 697.5° clockwise from due north?', 'North north west', 'STEM')
       cards = [card1, card2, card3]
       deck = Deck.new(cards)
 

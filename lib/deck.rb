@@ -22,7 +22,7 @@ class Deck
   end
 
   def categories
-    # For each card, convert the category of the card to a string and add it to a new array. The uniq method removes duplicate entries
-    @cards.map { |card| card.category.to_s }.uniq
+    # For each card add the category to a new array. The uniq method removes duplicate entries
+    @cards.map(&:category).uniq
   end
 end
