@@ -1,8 +1,8 @@
 # round.rb - define the Round class
 
 class Round
-    attr_reader :deck, :turns, :current_card
-    #Note: current_card_index does not need to be externally accessed
+    attr_reader :deck, :turns, :current_card, :current_card_index
+    #Note: I wanted to make current_card_index fully internal to Round, but it is needed at one point externally
 
     def initialize(deck)
         @deck = deck
@@ -74,6 +74,16 @@ class Round
     def percent_correct_by_category(category)
         #Similar observation to number_correct_by_category() method before...
         (number_correct_by_category(category) / turns.length.to_f * 100.0).round(1)
+    end
+
+    def start()
+        #Start the round for the game - introduction + begin with first card
+        puts "\nWelcome!  You're playing with #{deck.count()} cards."
+        puts "------------------------------------------------------"
+        #Alternate to above: run a loop printing '-' at a time
+
+        #QUESTION: where to build the taking turns logic?  Here?  Or the runner file?
+
     end
 
 end
