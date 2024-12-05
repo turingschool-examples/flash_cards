@@ -4,8 +4,8 @@
 require './lib/card'
 require './lib/deck'
 require './lib/turn'
+require './lib/round'
 #Can I just do one line of "require './lib/'?  Or is that not precise / good written habit?"
-
 
 #Testing out basic card, turn, and deck functionality:
 card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
@@ -16,11 +16,33 @@ cards = [card_1, card_2, card_3]
 
 deck = Deck.new(cards)
 
+puts "HELLO I'M GETTING HERE"
+
 puts deck.cards()
 puts deck.count()
 puts deck.cards_in_category(:STEM)
 puts deck.cards_in_category(:Geography)
 puts deck.cards_in_category("Pop culture")
+
+puts "ABOUT TO MOVE TO ROUND STUFF"
+
+#Add round functionality:
+round = Round.new(deck)
+
+puts round.deck
+puts round.turns
+puts round.current_card
+
+#Manually provide static input for now
+new_turn = round.take_turn("Juneau")
+
+puts new_turn.class
+puts new_turn.correct?()
+
+puts round.turns
+# puts round.number_correct()
+puts round.current_card      #Verify we've moved to the next card in the deck
+
 
 
 #Now run it in irb to make checking variables, etc. easy!
