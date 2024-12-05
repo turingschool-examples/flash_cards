@@ -39,15 +39,11 @@ class Round
     end
 
     def percent_correct #All percents rounded to two decimal places
-        correct = 0.0 #Float used to ensure percentage not rounded prematurely
 
-        @turns.each do |turn|
-            if turn.correct?
-                correct += 1
-            end
-        end
+        correct_turns = @turns.find_all {|turn| turn.correct?}
 
-        ((correct/turns.size) * 100).round(2)
+
+        ((correct_turns.size.to_f/turns.size) * 100).round(2)
     end
 
     def percent_correct_by_category(category)
