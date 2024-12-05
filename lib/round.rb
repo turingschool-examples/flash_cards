@@ -15,4 +15,18 @@ class Round
 
     #Other methods
 
+    def take_turn(guess)
+        #Create turn instance, given user's input into 'guess' string
+        # turns << Turn.new(guess, @current_card)
+        new_turn = Turn.new(guess, @current_card)
+        @turns << new_turn
+
+        #Advance to the next card in the deck before returning
+        @current_card_index += 1
+        @current_card = deck[current_card_index]
+
+        return @current_card
+    end
+
+
 end
