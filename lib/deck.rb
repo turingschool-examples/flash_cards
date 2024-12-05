@@ -27,4 +27,25 @@ class Deck
         return card_sublist
     end
 
+    #Optional methods that could be handy
+
+    def number_cards_in_category(category_to_match)
+        #Return the number of cards in the list and provide a total number of cards matching the category_to_match parameter
+        #Optional method not required, but could be handy
+        total = 0
+    
+        @cards.each do |card|
+            if card.category == category_to_match
+                total += 1
+            end
+        end
+    
+        return total
+    end
+    
+    def add_card(single_card)
+        #Add a single card to the card list
+        @cards << single_card
+    end
+
 end
