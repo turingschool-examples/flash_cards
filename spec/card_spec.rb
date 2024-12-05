@@ -2,7 +2,7 @@ require 'rspec'
 require '../lib/card'
 
 describe Card do
-  it 'exists' do
+  it 'exists and is initialized properly' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
     expect(card).to be_instance_of(Card)
