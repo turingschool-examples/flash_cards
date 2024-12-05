@@ -48,6 +48,22 @@ class Round
         return total_correct
     end
 
+    def number_correct_by_category(category)
+        #Iterate through turns and tally total correct for the specified category
+        #Aside: this method and number_correct() methods are very similar...almost wasteful for memory.
+        total_correct = 0
+
+        turns.each do |turn|
+            #Aside: Order of operations important...is best practice to overuse ()s to help others follow?
+            if turn.correct?() && (turn.card.category == category)
+                total_correct += 1
+            end
+        end
+
+        return total_correct
+    end
+
+
     #Add percent_correct() next...
 
 
