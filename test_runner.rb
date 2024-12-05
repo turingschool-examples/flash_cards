@@ -20,17 +20,18 @@ puts "HELLO I'M GETTING HERE"
 
 puts deck.cards()
 puts deck.count()
-puts deck.cards_in_category(:STEM)
-puts deck.cards_in_category(:Geography)
-puts deck.cards_in_category("Pop culture")
+puts "STEM cards: #{deck.cards_in_category(:STEM)}"
+puts "Geography cards: #{deck.cards_in_category(:Geography)}"
+puts "\"Pop culture\" cards: #{deck.cards_in_category("Pop culture")}"
 
 puts "ABOUT TO MOVE TO ROUND STUFF"
 
-#Add round functionality:
+#Add round functionality with a first round:
+
 round = Round.new(deck)
 
 puts round.deck
-puts round.turns
+p round.turns           #puts won't print empty brackets.  Seem to be multiple differences between puts, p, print
 puts round.current_card
 
 #Manually provide static input for now
@@ -40,9 +41,19 @@ puts new_turn.class
 puts new_turn.correct?()
 
 puts round.turns
-# puts round.number_correct()
+puts round.number_correct()
 puts round.current_card      #Verify we've moved to the next card in the deck
 
+#Do a second round:
+round.take_turn("Venus")
+puts round.turns.count()
+puts round.turns.last.feedback()     #Verify the most recent (second) turn is wrong
+puts round.number_correct()
+puts "# correct Geography guesses: #{round.number_correct_by_category(:Geography)}"
+puts "# correct STEM guesses: #{round.number_correct_by_category(:STEM)}"
+puts round.percent_correct()
+puts round.percent_correct_by_category(:Geography)
+puts round.current_card
 
 
 #Now run it in irb to make checking variables, etc. easy!
