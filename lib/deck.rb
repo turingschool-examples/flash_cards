@@ -8,6 +8,6 @@ class Deck
 
   def cards_in_category(category)
     result = @cards.select {|card| card.category == category}
-    return result.length
+    return result
   end
 end
