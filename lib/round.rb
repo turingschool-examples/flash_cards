@@ -67,12 +67,13 @@ class Round
         #Determine number correct guesses divided by total guesses (i.e. turns)
         #Note: I typically express percents as a decimal (math), but my guess is this project wants out of 100
         #Another note: it appears it wants one decimal of precision for rounding, hence the round(1) below
-        (number_correct() / turns.length * 100.0).round(1)
+        #Yet another note: I had to force an int -> float conversion even though I thought the * 100.0 would imply it...
+        (number_correct() / turns.length.to_f * 100.0).round(1)
     end
 
     def percent_correct_by_category(category)
         #Similar observation to number_correct_by_category() method before...
-        (number_correct_by_category(category) / turns.length * 100.0).round(1)
+        (number_correct_by_category(category) / turns.length.to_f * 100.0).round(1)
     end
 
 end
