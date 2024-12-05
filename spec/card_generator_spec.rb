@@ -4,7 +4,7 @@ require_relative '../lib/card_generator'
 require_relative '../lib/deck'
 require 'rspec'
 
-RSpec.describe CardGenerator do
+describe CardGenerator do
   describe 'Initialization' do
     it 'is an instance of CardGenerator' do
       cards = CardGenerator.new('cards.txt')

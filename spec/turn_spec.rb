@@ -4,7 +4,7 @@ require_relative '../lib/card'
 require_relative '../lib/turn'
 require 'rspec'
 
-RSpec.describe Turn do
+describe Turn do
   describe 'Initialization' do
     it 'is an instance of Turn' do
       card = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)

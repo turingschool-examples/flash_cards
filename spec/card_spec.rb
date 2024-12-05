@@ -3,7 +3,7 @@
 require_relative '../lib/card'
 require 'rspec'
 
-RSpec.describe Card do
+describe Card do
   describe 'Initialization' do
     it 'is an instance of Card' do
       card = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)

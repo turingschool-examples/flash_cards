@@ -3,10 +3,9 @@
 require_relative '../lib/round'
 require_relative '../lib/deck'
 require_relative '../lib/card'
-require_relative '../lib/turn'
 require 'rspec'
 
-RSpec.describe Round do
+describe Round do
   describe 'Initialize' do
     it 'is an instance of Round' do
       card1 = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)

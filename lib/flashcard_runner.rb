@@ -3,7 +3,6 @@
 require_relative 'round'
 require_relative 'deck'
 require_relative 'card'
-require_relative 'turn'
 require_relative 'card_generator'
 
 # card1 = Card.new('What is 5 + 5?', '10', 'STEM')
