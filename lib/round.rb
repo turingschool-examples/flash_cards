@@ -31,5 +31,24 @@ class Round
         return new_turn
     end
 
+    def number_correct()
+        #Determine the number of correct guesses (<= number of turns)
+        #Iterate through turns and keep a running tally
+        total_correct = 0
+
+        turns.each do |turn|
+            if turn.correct?()
+                total_correct += 1
+            end
+        end
+
+        #Alternate: could make if logic more compact if I can convert boolean to integer, i.e.:
+        # total_correct += (convert to int) turn.correct?()
+
+        return total_correct
+    end
+
+    #Add percent_correct() next...
+
 
 end
