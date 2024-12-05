@@ -4,10 +4,8 @@ class Turn
         @guess = guess
         @card = card
     end
-  def correct?
-    if @guess = answer
-        puts true
-    else puts false
+    def correct?
+     @card.answer == @guess
+     puts true
     end
-  end
 end
