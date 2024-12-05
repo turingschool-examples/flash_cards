@@ -1,5 +1,6 @@
 # test_runner.rb - for running sample code while building out / testing classes
 #NOTE: also create handy irb session with this at the bottom!
+#NOTE: I created this before getting to iteration 3, where I see we make another runner file
 
 require './lib/card'
 require './lib/deck'
@@ -57,5 +58,8 @@ puts round.current_card
 
 
 #Now run it in irb to make checking variables, etc. easy!
-require 'irb'
-binding.irb
+# require 'irb'
+# binding.irb
+#UPDATE: pry is a bit fancier / better at debugging, so may just use this moving forward:
+require 'pry'
+binding.pry
