@@ -3,7 +3,7 @@
 require_relative 'turn'
 # Where the main game is played. Starts with a deck, tracks statistics.
 class Round
-  attr_reader :deck, :turns, :number_correct
+  attr_reader :deck, :turns, :number_correct, :deck_index
 
   def initialize(deck)
     @deck = deck
