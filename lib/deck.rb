@@ -9,6 +9,9 @@ class Deck
         
     end
 
-    #Add other methods here
-
+    def count()
+        cards.length()
+        #Alternate: cards.count(), though this one can do other things too...
+    end
+    
 end
