@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require_relative 'round'
-require_relative 'deck'
-require_relative 'card'
-require_relative 'card_generator'
+require_relative 'lib/round'
+require_relative 'lib/deck'
+require_relative 'lib/card'
+require_relative 'lib/card_generator'
 
 # card1 = Card.new('What is 5 + 5?', '10', 'STEM')
 # card2 = Card.new("What is Rachel's favorite animal?", 'red panda', 'Turing Staff')
