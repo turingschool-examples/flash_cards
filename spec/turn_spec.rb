@@ -16,17 +16,31 @@ RSpec.describe Turn do
         expect(turn.guess).to eq("Canada")
     end
 
-    it 'determine right or wrong' do
+    it 'determine it is wrong' do
         card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
         turn = Turn.new("Canada", card)
 
         expect(turn.correct?).to eq(false)
     end
 
-    it 'gives feedback string' do
+    it 'gives feedback string wrong' do
         card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
         turn = Turn.new("Canada", card)
 
-        expect(turn.response).to eq("WRONG-O!")
+        expect(turn.feedback).to eq("WRONG-O!")
+    end
+
+    it 'determine it is right' do
+        card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        turn = Turn.new("Juneau", card)
+
+        expect(turn.correct?).to eq(true)
+    end
+
+    it 'gives feedback string correct' do
+        card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+        turn = Turn.new("Juneau", card)
+
+        expect(turn.feedback).to eq("Correct")
     end
 end
