@@ -1,6 +1,10 @@
 require 'rspec'
 require './lib/card'
 
+RSpec.configure do |config|
+  config.formatter = :documentation
+end
+
 describe Card do
   it 'exists' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)

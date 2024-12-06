@@ -2,6 +2,10 @@ require 'rspec'
 require './lib/card_generator'
 require './lib/card'
 
+RSpec.configure do |config|
+    config.formatter = :documentation
+end
+
 describe CardGenerator do 
     it 'exists' do 
         filename = "cards.txt"
