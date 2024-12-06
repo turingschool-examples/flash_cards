@@ -19,12 +19,21 @@ class Round
   end
 
   def number_correct
-    result = turns.select{|turn| turn.card.correct?}
+    result = turns.select{|turn| turn.correct?}
     return result.length
   end
 
   def number_correct_by_category(category)
-    result = turns.select{|turn| turn.card.correct? && (turn.card.category == category)}
+    result = turns.select{|turn| turn.correct? && (turn.card.category == category)}
     return result.length
   end
+
+  def percent_correct
+      return (((number_correct.to_f) / (turns.length)) * 100)
+  end
+
+  def percent_correct_by_category(category)
+      return (((number_correct_by_category(category).to_f) / ((turns.select{|turn| turn.card.category == category}).length)) * 100)
+  end
+
 end
