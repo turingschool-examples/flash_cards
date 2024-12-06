@@ -21,21 +21,30 @@ def start_game(round)
 
     initial_card_count = round.deck.cards.size
 
-    puts "Welcome! You're playing with #{initial_card_count} cards.\n
-    --------------------------------------\n"
-
-    round.deck.cards.each do |card|
-        puts "This is card number #{round.turns.count + 1} out of #{initial_card_count}.\n"
-        puts card.question
-        guess = gets.chomp
-        round.take_turn(guess)
-        puts round.turns.last.feedback 
-    end
+    puts ""
+    puts "Welcome! You're playing Will's Trivia with #{initial_card_count} cards."
+    puts ""
+    puts ">>>---- Game On! ----<<<"
+    puts ""
+    # round.deck.cards.each do |card|
+        while !round.deck.cards.empty? do
+            puts "This is card number #{round.turns.count + 1} out of #{initial_card_count}... 'cue Jeopardy theme song'..."
+            puts ""
+            puts round.current_card.question
+            puts ""
+            guess = gets.chomp
+            round.take_turn(guess)
+            puts ""
+            puts round.turns.last.feedback 
+            puts ""
+        end
     puts "****** Game Over! ******\n"
-    puts "You had #{round.number_correct} correct guesses out of #{round.deck.cards.size} for a total score of #{round.percent_correct}."
-    puts "#{category} - #{round.percent_correct_by_category(category)} correct\n
-    #{category} - #{round.percent_correct_by_category(category)} correct\n
-    #{category} - #{percent_correct_by_category(category)} correct\n"
+    puts ""
+    puts "You had #{round.number_correct} correct guesses out of #{round.deck.cards.size} for a total score of #{round.percent_correct}%."
+    puts ""
+    puts "#{category} - #{round.percent_correct_by_category(category)}% correct\n
+    #{category} - #{round.percent_correct_by_category(category)}% correct\n
+    #{category} - #{percent_correct_by_category(category)}% correct\n"
 end
 
 start_game(round)
