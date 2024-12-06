@@ -1,5 +1,5 @@
 require 'rspec'
-require '../lib/card'
+require './lib/card'
 
 describe Card do
   it 'exists and is initialized properly' do
