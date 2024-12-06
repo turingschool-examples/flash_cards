@@ -17,26 +17,25 @@ deck = Deck.new(cards)
 
 round = Round.new(deck)
 
-def start_game 
-    puts "Welcome! You're playing with #{round.deck.cards.size} cards.\n
+def start_game(round)
+
+    initial_card_count = round.deck.cards.size
+
+    puts "Welcome! You're playing with #{initial_card_count} cards.\n
     --------------------------------------\n"
 
     round.deck.cards.each do |card|
-        puts "This is card number #{round.turns.count + 1} out of #{round.deck.cards.size}.\n"
+        puts "This is card number #{round.turns.count + 1} out of #{initial_card_count}.\n"
         puts card.question
         guess = gets.chomp
         round.take_turn(guess)
         puts round.turns.last.feedback 
     end
-        puts percent_correct
-        puts percent_correct_by_category
-    end
-
     puts "****** Game Over! ******\n"
-    puts "You had #{round.number_correct} correct guesses out of #{round.deck.cards.size} for a total score of #{percent_correct}."
-    puts "#{category} - #{percent_by_category_correct} correct\n
-    #{category} - #{percent_by_category_correct} correct\n
-    #{category} - #{percent_by_category_correct} correct\n"
+    puts "You had #{round.number_correct} correct guesses out of #{round.deck.cards.size} for a total score of #{round.percent_correct}."
+    puts "#{category} - #{round.percent_correct_by_category(category)} correct\n
+    #{category} - #{round.percent_correct_by_category(category)} correct\n
+    #{category} - #{percent_correct_by_category(category)} correct\n"
 end
 
-start_game
+start_game(round)
