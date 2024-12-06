@@ -18,14 +18,25 @@ deck = Deck.new(cards)
 round = Round.new(deck)
 
 def start_game 
-    puts "Welcome! You're playing with 6 cards.\n
-    --------------------------------------\n
-    This is card number 1 out of 6.\n
-    Question: What is the name of the island in Jurassic Park?"
-    gets.chomp
-    if gets.chomp == "Isla Nublar"
-        puts
+    puts "Welcome! You're playing with #{round.deck.cards.size} cards.\n
+    --------------------------------------\n"
+
+    round.deck.cards.each do |card|
+        puts "This is card number #{round.turns.count + 1} out of #{round.deck.cards.size}.\n"
+        puts card.question
+        guess = gets.chomp
+        round.take_turn(guess)
+        puts round.turns.last.feedback 
     end
+        puts percent_correct
+        puts percent_correct_by_category
+    end
+
+    puts "****** Game Over! ******\n"
+    puts "You had #{round.number_correct} correct guesses out of #{round.deck.cards.size} for a total score of #{percent_correct}."
+    puts "#{category} - #{percent_by_category_correct} correct\n
+    #{category} - #{percent_by_category_correct} correct\n
+    #{category} - #{percent_by_category_correct} correct\n"
 end
 
 start_game
