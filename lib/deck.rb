@@ -6,11 +6,7 @@ class Deck
         @categories = []
         @count = cards.size
 
-        @cards.each do |card| #Create a list of all categories in the deck
-            if !@categories.include?(card.category)
-                @categories << card.category
-            end
-        end
+        @cards.each {|card| @categories << card.category if !@categories.include?(card.category)} #Create a list of all categories in the deck
     end
 
     def cards_in_category(category)
