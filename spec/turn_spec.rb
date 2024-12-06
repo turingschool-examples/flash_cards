@@ -39,6 +39,20 @@ describe Turn do
         expect(turn.correct?).to be true
       end
 
+      it 'can disregard case-1' do
+        card = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
+        turn = Turn.new('juneau', card)
+
+        expect(turn.correct?).to be true
+      end
+
+      it 'can disregard case-2' do
+        card = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
+        turn = Turn.new('JUNEAU', card)
+
+        expect(turn.correct?).to be true
+      end
+
       it 'can reject incorrect guess' do
         card = Card.new('Which planet is closest to the sun?', 'Mercury', :STEM)
         turn = Turn.new('Saturn', card)
