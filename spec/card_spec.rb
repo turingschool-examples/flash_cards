@@ -1,36 +1,19 @@
-require './lib/card' # Loads the Card class
+# Test file for the Card class
+require './lib/card' # Require the Card class for testing
 
 RSpec.describe Card do
-  it 'exists' do
-    # Create an instance of Card
+  # Test: Ensure the Card object is created with correct attributes
+  it 'exists and has attributes' do
+    # Create a new Card instance
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
-    # Check if card is an instance of the Card class
-    expect(card).to be_instance_of(Card)
-  end
-
-  it 'has a question' do
-    # Create an instance of Card
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-
-    # Check if the card's question is set correctly
+    # Check that the card is an instance of the Card class
+    expect(card).to be_a(Card)
+    # Verify the question, answer, and category are set correctly
     expect(card.question).to eq("What is the capital of Alaska?")
-  end
-
-  it 'has an answer' do
-    # Create an instance of Card
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-
-    # Check if the card's answer is set correctly
     expect(card.answer).to eq("Juneau")
-  end
-
-  it 'has a category' do
-    # Create an instance of Card
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-
-    # Check if the card's category is set correctly
     expect(card.category).to eq(:Geography)
   end
 end
+
 

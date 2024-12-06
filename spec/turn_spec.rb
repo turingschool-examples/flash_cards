@@ -1,41 +1,38 @@
-require './lib/card' # Load the Card class
-require './lib/turn' # Load the Turn class
+# Test file for the Turn class
+require './lib/card' # Require the Card class
+require './lib/turn' # Require the Turn class
 
 RSpec.describe Turn do
-  it 'exists' do
+  # Test: Ensure the Turn object is created with correct attributes
+  it 'exists and has attributes' do
+    # Create a Card instance and a Turn instance
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
-    expect(turn).to be_instance_of(Turn)
-  end
 
-  it 'has a guess and a card' do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    turn = Turn.new("Juneau", card)
-    expect(turn.guess).to eq("Juneau")
+    # Check that the turn is an instance of the Turn class
+    expect(turn).to be_a(Turn)
+    # Verify the card and guess attributes are set correctly
     expect(turn.card).to eq(card)
+    expect(turn.guess).to eq("Juneau")
   end
 
-  it 'can determine if the guess is correct' do
+  # Test: Check if the guess is correct
+  it 'checks if the guess is correct' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
+
+    # Verify the guess is correct and feedback is "Correct!"
     expect(turn.correct?).to eq(true)
-  end
-
-  it 'can determine if the guess is incorrect' do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    turn = Turn.new("Anchorage", card)
-    expect(turn.correct?).to eq(false)
-  end
-
-  it 'gives feedback for a correct guess' do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    turn = Turn.new("Juneau", card)
     expect(turn.feedback).to eq("Correct!")
   end
 
-  it 'gives feedback for an incorrect guess' do
+  # Test: Handle incorrect guesses
+  it 'handles incorrect guesses' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Anchorage", card)
+
+    # Verify the guess is incorrect and feedback is "Incorrect."
+    expect(turn.correct?).to eq(false)
     expect(turn.feedback).to eq("Incorrect.")
   end
 end
