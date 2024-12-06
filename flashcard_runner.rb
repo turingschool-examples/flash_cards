@@ -12,8 +12,8 @@ def start
     puts "Welcome! You're playing with #{deck.count} cards."
     puts "-------------------------------------------------"
 
-    (1..deck.count).each do |round_num|
-        puts "This is card #{round_num} out of #{deck.count}"
+    deck.count.times do |round_num|
+        puts "This is card #{round_num + 1} out of #{deck.count}"
         puts "Question: #{round.current_card.question}"
         turn_result = round.take_turn(gets.chomp)
         puts turn_result.feedback
