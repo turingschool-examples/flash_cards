@@ -4,17 +4,18 @@ class Turn
     def initialize(string, card)
         @string = string
         @card = card
-
+    end
         def guess
             return string
-        end
+            end
 
-        def correct?
+            def correct?
             guess == card.answer
-        end
+            # @card.answer == @guess
+            end
 
-        def feedback
+            def feedback
             correct? ? 'Correct!' : 'Incorrect.'
-        end
-    end
+            end
+    
 end
