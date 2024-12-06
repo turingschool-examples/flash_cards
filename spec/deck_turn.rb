@@ -1,19 +1,27 @@
-require './lib/card'
-require './lib/turn'
-require './lib/deck'
+require './lib/card.rb'
+require './lib/turn.rb'
+require './lib/deck.rb'
+require './lib/round.rb'
 require 'pry'
 
 RSpec.describe Card do
   it 'exists' do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    @card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    @card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+    @card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?","North north west", :STEM)
+    @cards = [@card_1, @card_2, @card_3]
 
-    expect(card).to be_instance_of(Card)
+    @deck = Deck.new(@cards)
   end
 
   it 'has a question' do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-
-    expect(card.question).to eq("What is the capital of Alaska?")
+    it 'exists and has readable attributes' do
+        @card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    @card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM
+    end
+        expect(@deck).to be_a(Deck)
+        expect(@deck.cards).to eq(@cards)
+      end
   end
 
   it 'has an answer' do
@@ -28,3 +36,6 @@ RSpec.describe Card do
     expect(card.category).to eq(:Geography)
   end
 end
+
+
+####plz commit
