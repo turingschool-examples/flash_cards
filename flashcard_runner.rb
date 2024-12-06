@@ -9,7 +9,7 @@ require './lib/round'
 require 'pry'
 
 #Create 4 cards and build a deck
-card_1 = Card.new("What is 5 + 5?", "10", :STEM)        #NOTE: need .to_s for this kind of guess...add this later!
+card_1 = Card.new("What is 5 + 5?", "10", :STEM)
 card_2 = Card.new("What is Rachel's favorite animal?", "Meerkat", :Turing_staff)  #Why is "\'" not needed?
 card_3 = Card.new("What is Mike's middle name?", "nobody knows", :Turing_staff)
 card_4 = Card.new("What cardboard cutout lives at Turing?", "Justin Bieber", :Pop_culture)

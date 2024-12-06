@@ -7,6 +7,7 @@ require './lib/deck'
 require './lib/turn'
 require './lib/round'
 #Can I just do one line of "require './lib/'?  Or is that not precise / good written habit?"
+#Or perhaps is a single line not showing "developer empathy", i.e. being precise about what's being included?
 
 #Testing out basic card, turn, and deck functionality:
 card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
@@ -17,15 +18,11 @@ cards = [card_1, card_2, card_3]
 
 deck = Deck.new(cards)
 
-puts "HELLO I'M GETTING HERE"
-
 puts deck.cards()
 puts deck.count()
 puts "STEM cards: #{deck.cards_in_category(:STEM)}"
 puts "Geography cards: #{deck.cards_in_category(:Geography)}"
 puts "\"Pop culture\" cards: #{deck.cards_in_category("Pop culture")}"
-
-puts "ABOUT TO MOVE TO ROUND STUFF"
 
 #Add round functionality with a first round:
 
