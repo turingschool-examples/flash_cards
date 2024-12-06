@@ -35,12 +35,25 @@ def start_game(round)
             guess = gets.chomp
             round.take_turn(guess)
             puts ""
-            puts round.turns.last.feedback 
+            # puts round.turns.last.feedback 
+            if turn.guess.correct? && turn.card.category == :Movies
+                puts "Film buff huh? I bet you have a Criterion Collection subscription don't you?"
+            elsif turn.guess.correct? && turn.card.category == :Music
+                puts "Yep, wow, you must have an exquisite vinyl collection..."
+            elsif turn.guess.correct? && turn.card.category == :Geography
+                puts "I'm truly jealous of how worldly you are, take me with you next time?"
+            elsif !turn.guess.correct? && turn.card.category == :Movies
+                puts "Nope. You can use my Netflix password if you want"
+            elsif !turn.guess.correct? && turn.card.category == :Music
+                puts "Uh oh, we've got some serious work to do!"
+            elsif !turn.guess.correct? && turn.card.category == :Geography
+                puts "Welp! Time to invest in a globe!"
+            end
             puts ""
         end
-    puts "****** Game Over! ******\n"
+    puts "****** Game Over! ******"
     puts ""
-    puts "You had #{round.number_correct} correct guesses out of #{round.deck.cards.size} for a total score of #{round.percent_correct}%."
+    puts "You had #{round.number_correct} correct guesses out of #{initial_card_count} for a total score of #{round.percent_correct}%."
     puts ""
     puts "#{category} - #{round.percent_correct_by_category(category)}% correct\n
     #{category} - #{round.percent_correct_by_category(category)}% correct\n
