@@ -1,6 +1,6 @@
 require 'rspec'
-require '../lib/card'
-require '../lib/deck'
+require './lib/card'
+require './lib/deck'
 
 describe Deck do
   it 'exists and is initialized properly' do
