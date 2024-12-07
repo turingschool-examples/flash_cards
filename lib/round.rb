@@ -27,7 +27,7 @@ class Round
         @turns.last
     end
 
-    def number_correct
+    def number_correct #need to test for more options, even if it's working in runner
         correct_count = 0
 
         @turns.each do |turn|
