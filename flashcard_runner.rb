@@ -59,7 +59,7 @@ def start_game(round)
     puts "You had #{round.number_correct} correct guesses out of #{initial_card_count} for a total score of #{round.percent_correct.round(0)}%"
     puts ""
     
-    cards_played = round.turns.map do |turn|
+    cards_played = round.turns.map do |turn| #must use turns to access card objects, deck is depleted
         turn.card
     end
     
