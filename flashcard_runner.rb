@@ -81,7 +81,7 @@ def start_game(round, colors)
     unique_categories = categories.uniq 
 
     unique_categories.each do |category|
-        cputs ("#{category} - #{round.percent_correct_by_category(category).round(0)}% correct", colors)
+        cputs("#{category} - #{round.percent_correct_by_category(category).round(0)}% correct", colors)
     end
     puts ""
 end
