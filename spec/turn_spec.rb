@@ -6,58 +6,68 @@ require 'rspec'
 
 describe Turn do
   let(:card) { Card.new('What is the capital of Alaska?', 'Juneau', :Geography) }
-  let(:turn) { Turn.new('Juneau', card) }
+  let(:turn) { described_class.new('Juneau', card) }
 
-  describe 'Initialization' do
-    it 'is an instance of Turn' do
-      expect(turn).to be_instance_of(Turn)
+  describe '#initialize' do
+    subject(:turn) { described_class.new('Juneau', card) }
+
+    it { is_expected.to be_instance_of(described_class) }
+  end
+
+  describe '#guess' do
+    subject(:guess) { turn.guess }
+
+    it { is_expected.not_to be_nil }
+
+    it 'returns the guess' do
+      expect(guess).to eq('Juneau')
     end
   end
 
-  describe 'Store and retrieve data' do
-    it 'has a guess' do
-      expect(turn.guess).to eq('Juneau')
-    end
+  describe '#card' do
+    subject(:turn_card) { turn.card }
 
-    it 'has a card' do
-      expect(turn.card).to eq(card)
+    it { is_expected.not_to be_nil }
+
+    it 'returns the card' do
+      expect(turn_card).to eq(card)
     end
   end
 
-  describe 'Compare guess to result' do
-    describe 'Return boolean; true if correct' do
-      it 'can confirm correct guess' do
-        expect(turn.correct?).to be true
-      end
+  describe '#correct?' do
+    subject(:correct?) { turn.correct? }
 
-      it 'can disregard case-1' do
-        turn = Turn.new('juneau', card)
+    context 'when guess is exact' do
+      it { is_expected.to be true }
+    end
 
-        expect(turn.correct?).to be true
-      end
+    context 'when guess is right with wrong case' do
+      let(:turn) { described_class.new('JuNeAu', card) }
 
-      it 'can disregard case-2' do
-        turn = Turn.new('JUNEAU', card)
+      it { is_expected.to be true }
+    end
 
-        expect(turn.correct?).to be true
-      end
+    context 'when guess is wrong' do
+      let(:turn) { described_class.new('wrong', card) }
 
-      it 'can reject incorrect guess' do
-        turn = Turn.new('Anchorage', card)
+      it { is_expected.to be false }
+    end
+  end
 
-        expect(turn.correct?).to be false
+  describe '#feedback' do
+    subject(:feedback) { turn.feedback }
+
+    context 'when guess is correct' do
+      it 'returns string "Correct!"' do
+        expect(feedback).to eq('Correct!')
       end
     end
 
-    describe 'Provide feedback' do
-      it 'can provide feedback for correct guess' do
-        expect(turn.feedback).to eq('Correct!')
-      end
+    context 'when guess is incorrect' do
+      let(:turn) { described_class.new('wrong', card) }
 
-      it 'can provide feedback for incorrect guess' do
-        turn = Turn.new('Anchorage', card)
-
-        expect(turn.feedback).to eq('Incorrect.')
+      it 'returns string "Incorrect."' do
+        expect(feedback).to eq('Incorrect.')
       end
     end
   end
