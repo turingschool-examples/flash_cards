@@ -5,7 +5,7 @@ require './lib/deck'
 require './lib/round'
 require 'colorize'
 
-colors = [:red, :green, :yellow, :blue, :magenta, :cyan]
+colors = [:light_red, :light_green, :yellow, :light_blue, :light_magenta, :light_cyan]
 
 def cputs(message, colors)
     puts message.colorize(colors.sample)
@@ -41,7 +41,7 @@ def start_game(round, colors)
         while !round.deck.cards.empty? do
             cputs("This is card number #{round.turns.count + 1} out of #{initial_card_count}... 'cue Jeopardy theme song'...", colors)
             puts ""
-            p round.current_card.question
+            cp(round.current_card.question, colors)
             puts ""
             cputs("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~", colors)
             puts ""
