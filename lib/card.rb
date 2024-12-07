@@ -1,5 +1,3 @@
-require './lib/card'
-require './lib/turn'
 class Card
     attr_reader :question, :answer, :category
     def initialize(question, answer, category)
