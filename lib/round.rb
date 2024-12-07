@@ -7,17 +7,29 @@ class Round
         @take_turn = take_turn
     end
     def current_card
-        #the first card in the deck
-        #displays next card in deck after etc etc...
+        turns = []
+        cards.first do |card|
+            turns << card.take_turn
+        end
+        cards.find(2) do |card|
+            turns << card.take_turn
+        end
+        cards.last do |card|
+            turns << card.take_turn
+        end
     end
     def take_turn(guess)
-        #takes a string representing the guess
         #records appropriate guess and card to 'turns' method
         #round should move onto next card in the deck
     end
-    def turns
-        #this is a list of all the turns taken this round. They are added into an array after the turn is taken
-    end
+    # def turns
+    #     turns_taken = []
+    #     turns_taken << first_card
+    #     turns_taken << second_card
+    #     turns_taken << third_card
+
+    #     #this is a list of all the turns taken this round. They are added into an array after the turn is taken
+    # end
     def correct?
         #checks if guess matches answer
     end
