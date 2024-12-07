@@ -14,9 +14,26 @@ class Round
         #takes a string representing the guess
         #records appropriate guess and card to 'turns' method
         #round should move onto next card in the deck
-    
     end
     def turns
         #this is a list of all the turns taken this round. They are added into an array after the turn is taken
+    end
+    def correct?
+        #checks if guess matches answer
+    end
+    def number_correct
+        #counts num of correct answers
+    end
+    def number_correct
+        #how many were correct
+    end
+    def number_correct_by_category(category)
+        #match which card categories were given correct response
+    end
+    def percent_correct
+        #will give back percent of correct answers
+    end
+    def percent_correct_by_category(category)
+        #explanatory
     end
 end
