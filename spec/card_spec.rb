@@ -4,25 +4,41 @@ require_relative '../lib/card'
 require 'rspec'
 
 describe Card do
-  let(:card) { Card.new('What is the capital of Alaska?', 'Juneau', :Geography) }
+  let(:card) { described_class.new('What is the capital of Alaska?', 'Juneau', :Geography) }
 
-  describe 'Initialization' do
-    it 'is an instance of Card' do
-      expect(card).to be_instance_of(Card)
+  describe '#initialize' do
+    subject(:card) { described_class.new('What is the capital of Alaska?', 'Juneau', :Geography) }
+
+    it { is_expected.to be_instance_of(described_class) }
+  end
+
+  describe '#question' do
+    subject(:question) { card.question }
+
+    it { is_expected.not_to be_nil }
+
+    it 'returns the question' do
+      expect(question).to eq('What is the capital of Alaska?')
     end
   end
 
-  describe 'Store and retrieve data' do
-    it 'has a question' do
-      expect(card.question).to eq('What is the capital of Alaska?')
-    end
+  describe '#answer' do
+    subject(:answer) { card.answer }
 
-    it 'has an answer' do
-      expect(card.answer).to eq('Juneau')
-    end
+    it { is_expected.not_to be_nil }
 
-    it 'has a category' do
-      expect(card.category).to eq(:Geography)
+    it 'returns the answer' do
+      expect(answer).to eq('Juneau')
+    end
+  end
+
+  describe '#category' do
+    subject(:category) { card.category }
+
+    it { is_expected.not_to be_nil }
+
+    it 'returns the category' do
+      expect(category).to eq(:Geography)
     end
   end
 end
