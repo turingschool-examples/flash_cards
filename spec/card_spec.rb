@@ -1,27 +1,35 @@
-require './lib/card'
-require 'rspec'
-require 'pry'
+require './lib/card' #links the card.rb file to the card_spec.rb file
+require 'rspec' #links the rspec gem to the card_spec.rb file
+require 'pry' # This is required to use Pry
 
-RSpec.describe Card do
-  before(:each) do
+RSpec.describe Card do #rspec syntax to describe the Card class
+  before(:each) do #before each test, do the following
     @card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
   end
-
-  it 'exists' do
-    expect(@card).to be_instance_of(Card)
+#creates a new instance of the Card class with the following parameters
+#passes arguments to the Card class to create a new instance of the Card class
+  it 'exists' do #set up
+    expect(@card).to be_instance_of(Card) #execute
   end
-
-  it 'has a question' do
-    expect(@card.question).to eq("What is the capital of Alaska?")
+#test named 'exists' that checks if the card instance is an instance of the Card class
+  it 'has a question' do #set up
+    expect(@card.question).to eq("What is the capital of Alaska?") #execute
   end
-
-  it 'has an answer' do
-    expect(@card.answer).to eq("Juneau")
+#test named 'has a question' that checks if the question is equal to the string "What is the capital of Alaska?"
+  it 'has an answer' do #set up
+    expect(@card.answer).to eq("Juneau") #execute
   end
-
-  it 'has a category' do
-    expect(@card.category).to eq(:Geography)
+#test named 'has an answer' that checks if the answer is equal to the string "Juneau"
+  it 'has a category' do #set up
+    expect(@card.category).to eq(:Geography)  #execute
   end
 end
-
+#test named 'has a category' that checks if the category is equal to the symbol :Geography
 # binding.pry # This will open a Pry session after the test execution
+
+#SEAT 
+
+#set up example: it 'exists' do
+#execute example: expect(@card).to be_instance_of(Card)
+#assert example: expect(Card.new("What is the capital of Alaska?", "Juneau", :Geography)).to be_instance_of(Card)
+#teardown example:  done by RSpec
