@@ -1,18 +1,18 @@
-require './lib/card'
-
+require 'pry'
 class Deck
     attr_reader :cards, :count, :cards_in_category
-    def initialize(card_1, card_2, card_3)
-        @cards = [card_1, card_2, card_3]
+    def initialize(cards)
+        @cards = cards
     end
-    def cards
-        @cards
-    end
-   def count
+    def count
     @cards.count
-   end
-   def cards_in_category(category)
-
-
-   end
+    end
+    def cards_in_category(category)
+        specific_category = cards.find_all do |card|
+            card.category == category
+        end
+    end
+    #look at each card in @cards array
+    #if the card has an identical category put it in an array (set up array cards_in_category[])
+    #return an array of cards that match category
 end
