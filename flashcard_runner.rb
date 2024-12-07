@@ -3,6 +3,17 @@ require './lib/card'
 require './lib/turn'
 require './lib/deck'
 require './lib/round'
+require 'colorize'
+
+colors = [:red, :green, :yellow, :blue, :magenta, :cyan]
+
+def cputs(message, colors)
+    puts message.colorize(colors.sample)
+end
+
+def cp(message, colors)
+    puts message.inspect.colorize(colors.sample)
+  end
 
 card1 = Card.new("What is the name of the island in Jurassic Park?", "Isla Nublar", :Movies)
 card2 = Card.new("What is the title of the Beatles' final album?", "Let it Be", :Music)
@@ -17,22 +28,22 @@ deck = Deck.new(cards)
 
 round = Round.new(deck)
 
-def start_game(round)
+def start_game(round, colors)
 
-    initial_card_count = round.deck.cards.size
+    initial_card_count = round.deck.cards.size # added this variable for correct interpolation in Game Over message
 
     puts ""
-    puts "Welcome! You're playing Will's Trivia with #{initial_card_count} cards."
+    cputs("Welcome! You're playing Will's Trivia with #{initial_card_count} cards.", colors)
     puts ""
-    puts ">>>---- Game On! ----<<<"
+    cputs(">>>---- Game On! ----<<<", colors)
     puts ""
     # round.deck.cards.each do |card|
         while !round.deck.cards.empty? do
-            puts "This is card number #{round.turns.count + 1} out of #{initial_card_count}... 'cue Jeopardy theme song'..."
+            cputs("This is card number #{round.turns.count + 1} out of #{initial_card_count}... 'cue Jeopardy theme song'...", colors)
             puts ""
             p round.current_card.question
             puts ""
-            puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+            cputs("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~", colors)
             puts ""
             guess = gets.chomp
             round.take_turn(guess)
@@ -40,23 +51,23 @@ def start_game(round)
             # puts round.turns.last.feedback 
             case [round.last_turn.correct?, round.last_turn.card.category] 
             when [true, :Movies]
-                p "Film buff huh? I bet you have a Criterion Collection subscription don't you?"
+                cp("Film buff huh? I bet you have a Criterion Collection subscription don't you?", colors)
             when [true, :Music]
-                p "Yep, wow, you must have an exquisite vinyl collection..."
+                cp("Yep, wow, you must have an exquisite vinyl collection...", colors)
             when [true, :Geography]
-                p "I'm truly jealous of how worldly you are, take me with you next time?"
+                cp("I'm truly jealous of how worldly you are, take me with you next time?", colors)
             when [false, :Movies] 
-                p "Nope. You can use my Netflix password if you want."
+                cp("Nope. You can use my Netflix password if you want.", colors)
             when [false, :Music]
-                p "Uh oh, we've got to get you some better headphones!"
+                cp("Uh oh, we've got to get you some better headphones!", colors)
             when[false, :Geography] 
-                p "Welp! Time to invest in a globe!"
+                cp("Welp! Time to invest in a globe!", colors)
             end
             puts ""
         end
-    puts "****** Game Over! ******"
+    cputs("****** Game Over! ******", colors)
     puts ""
-    puts "You had #{round.number_correct} correct guesses out of #{initial_card_count} for a total score of #{round.percent_correct.round(0)}%"
+    cputs("You had #{round.number_correct} correct guesses out of #{initial_card_count} for a total score of #{round.percent_correct.round(0)}%", colors)
     puts ""
     
     cards_played = round.turns.map do |turn| #must use turns to access card objects, deck is depleted
@@ -70,10 +81,10 @@ def start_game(round)
     unique_categories = categories.uniq 
 
     unique_categories.each do |category|
-        puts "#{category} - #{round.percent_correct_by_category(category).round(0)}% correct"
+        cputs ("#{category} - #{round.percent_correct_by_category(category).round(0)}% correct", colors)
     end
     puts ""
 end
 
 
-start_game(round)
+start_game(round, colors)
