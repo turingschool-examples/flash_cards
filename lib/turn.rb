@@ -8,10 +8,19 @@ class Turn
 
     def correct? 
         @card.answer == @guess
-        if guess == answer
-            puts true
+    end
+
+    def feedback
+        if correct? 
+            "Correct"
         else
-            puts false
+            "Incorrect"
         end
     end
+
 end
+
+
+
+# For the Deck class, will the attr_reader
+# be :objects (as the array) and :category ? 
