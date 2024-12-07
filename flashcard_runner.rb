@@ -10,13 +10,9 @@ deck = Deck.new(cards)
 round = Round.new(deck)
 puts "Welcome! You're playing with #{deck.count} cards."
 puts '-------------------------------------------------'
-# A simple loop that will run as many times as there are cards in the deck
 deck.cards.each do
-  # round.deck_index + 1 is because the round.deck_index variable starts at 0, and we want this to start at 1
   puts "This is card number #{round.deck_index + 1} out of #{deck.count}."
   puts "Question: #{round.current_card.question}"
-  # This is where the real magic happens; gets takes the input from the user and the chomp method removes the line break.
-  # The chomp is necessary in order to compare the strings like for like. The feedback method is used to display the results to the user
   puts round.take_turn(gets.chomp).feedback
 end
 puts '****** Game over! ******'

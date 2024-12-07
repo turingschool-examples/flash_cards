@@ -10,12 +10,10 @@ class Turn
   end
 
   def correct?
-    # Is the guess equal to the answer on the card? Returns true or false. downcase method allows it to disregard case.
-    @guess.downcase == card.answer.downcase
+    @guess.capitalize == card.answer
   end
 
   def feedback
-    # Instead of reinventing the wheel, this if statement calls the correct? method we defined earlier
     if correct?
       'Correct!'
     else

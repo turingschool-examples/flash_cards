@@ -13,16 +13,10 @@ class Deck
   end
 
   def cards_in_category(search_category)
-    # The select method will return an array of elements that pass the tests within it's do/end.
-    # In this case, each card in the cards array is passed into the select method as the variable 'card'.
-    # Here we check if the search_category argument matches the category of each card. If true, the card is selected.
-    @cards.select { |card| search_category == card.category }
-    # Once all cards in the array are checked, the implicit return is the new array from the select method.
-    # If no cards match the given category, and empty array is returned
+    @cards.find_all { |card| search_category == card.category }
   end
 
   def categories
-    # For each card add the category to a new array. The uniq method removes duplicate entries
     @cards.map(&:category).uniq
   end
 end
