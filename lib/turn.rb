@@ -19,7 +19,7 @@ class Turn #creates a Turn class
     #? makes the method return a boolean value
     #.downcase makes the string entered by the user and the answer of the card lowercase
     #== compares the string entered by the user and the answer of the card
-    #.answer accesses the answer attribute of the card *update initialize to include answer?*
+    #.answer accesses the answer attribute of the card
     #.downcase makes the answer of the card lowercase
   end
 
