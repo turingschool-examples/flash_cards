@@ -16,7 +16,8 @@ deck.cards.each do
   puts round.take_turn(gets.chomp).feedback
 end
 puts '****** Game over! ******'
-puts "You had #{round.number_correct} correct guesses out of #{deck.count} for a total score of #{round.percent_correct.to_i}%."
+puts "You had #{round.number_correct} correct guesses out of #{deck.count} " \
+     "for a total score of #{round.percent_correct.to_i}%."
 deck.categories.each do |category|
   puts "#{category} - #{round.percent_correct_by_category(category).to_i}% correct"
 end
