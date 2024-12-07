@@ -37,18 +37,20 @@ describe Turn do
   describe '#correct?' do
     subject(:correct?) { turn.correct? }
 
+    it { is_expected.not_to be_nil }
+
     context 'when guess is exact' do
       it { is_expected.to be true }
     end
 
-    context 'when guess is right with wrong case' do
+    context 'when guess is correct with wrong case' do
       let(:turn) { described_class.new('JuNeAu', card) }
 
       it { is_expected.to be true }
     end
 
-    context 'when guess is wrong' do
-      let(:turn) { described_class.new('wrong', card) }
+    context 'when guess is incorrect' do
+      let(:turn) { described_class.new('incorrect', card) }
 
       it { is_expected.to be false }
     end
@@ -56,6 +58,8 @@ describe Turn do
 
   describe '#feedback' do
     subject(:feedback) { turn.feedback }
+
+    it { is_expected.not_to be_nil }
 
     context 'when guess is correct' do
       it 'returns string "Correct!"' do

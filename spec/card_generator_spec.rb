@@ -16,6 +16,8 @@ describe CardGenerator do
   describe '#cards' do
     subject(:cards) { described_class.new('cards.txt').cards }
 
+    it { is_expected.not_to be_nil }
+
     it 'returns array of cards' do
       expect(cards.all?(Card)).to be true
     end
