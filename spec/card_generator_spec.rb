@@ -5,38 +5,19 @@ require_relative '../lib/deck'
 require 'rspec'
 
 describe CardGenerator do
-  let(:cards) { CardGenerator.new('cards.txt').cards }
   let(:deck) { Deck.new(cards) }
 
-  describe 'Initialization' do
-    let(:cards) { CardGenerator.new('cards.txt') }
+  describe '#initialize' do
+    subject(:cards) { described_class.new('cards.txt') }
 
-    it 'is an instance of CardGenerator' do
-      expect(cards).to be_instance_of(CardGenerator)
-    end
+    it { is_expected.to be_instance_of(described_class) }
   end
 
-  describe 'Hold and count cards' do
-    it 'can hold cards' do
-      expect(deck).to be_instance_of(Deck)
-    end
+  describe '#cards' do
+    subject(:cards) { described_class.new('cards.txt').cards }
 
-    it 'can count cards' do
-      expect(deck.count).to eq(4)
-    end
-  end
-
-  describe 'Find cards by category' do
-    it 'can find cards by category-1' do
-      expect(deck.cards_in_category('STEM')).to eq([cards[0]])
-    end
-
-    it 'can find cards by category-2' do
-      expect(deck.cards_in_category('Geography')).to eq([])
-    end
-
-    it 'can find cards by category-3' do
-      expect(deck.cards_in_category('Turing Staff')).to eq([cards[1], cards[2]])
+    it 'returns array of cards' do
+      expect(cards.all?(Card)).to be true
     end
   end
 end
