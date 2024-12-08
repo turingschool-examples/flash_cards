@@ -5,12 +5,16 @@ class Turn
   attr_reader :guess, :card
 
   def initialize(guess, card)
-    @guess = guess
+    @guess = guess.downcase
     @card = card
   end
 
   def correct?
-    @guess.downcase == card.answer.downcase
+    if card.alternate_answer.nil?
+      @guess == card.answer
+    else
+      @guess == card.answer || @guess == card.alternate_answer
+    end
   end
 
   def feedback
