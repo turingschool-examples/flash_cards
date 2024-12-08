@@ -29,7 +29,7 @@ end
 
 #SEAT 
 
-#set up example: it 'exists' do
-#execute example: expect(@card).to be_instance_of(Card)
-#assert example: expect(Card.new("What is the capital of Alaska?", "Juneau", :Geography)).to be_instance_of(Card)
+#set up example: has to have a thing to test as in .new
+#execute example: [expect(@card.answer)] the method actually calling the instance (verbing a noun) 
+#assert example: expect(Card.new("What is the capital of Alaska?", "Juneau", :Geography)).to be_instance_of(Card) "output"
 #teardown example:  done by RSpec
