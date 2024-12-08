@@ -5,7 +5,7 @@ require_relative '../lib/turn'
 require 'rspec'
 
 describe Turn do
-  let(:card) { Card.new('What is the capital of Alaska?', 'Juneau', :Geography) }
+  let(:card) { Card.new('What is the capital of Alaska?', 'Juneau', :Geography, 'alt') }
   let(:turn) { described_class.new('Juneau', card) }
 
   describe '#initialize' do
@@ -45,6 +45,12 @@ describe Turn do
 
     context 'when guess is correct with wrong case' do
       let(:turn) { described_class.new('JuNeAu', card) }
+
+      it { is_expected.to be true }
+    end
+
+    context 'when guess is alternate answer' do
+      let(:turn) { described_class.new('alt', card) }
 
       it { is_expected.to be true }
     end
