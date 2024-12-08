@@ -18,7 +18,7 @@ class Round
 
         @number_correct += 1 if turn.correct?
 
-        @deck.cards.shift() #Removes the first element in the cards array, keeps current_card accurate
+        @deck.cards << @deck.cards.shift() #Removes the first element in the cards array, keeps current_card accurate
 
         @turns << turn
         turn
