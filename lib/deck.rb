@@ -9,7 +9,7 @@ class Deck
   end
 
   def count
-    @cards.count
+    @cards.size
   end
 
   def cards_in_category(search_category)
