@@ -4,32 +4,12 @@ require_relative '../lib/card'
 require 'rspec'
 
 describe Card do
-  let(:card) { described_class.new('What is the capital of Alaska?', 'Juneau', :Geography) }
+  let(:card) { described_class.new(:Geography, 'What is the capital of Alaska?', 'Juneau') }
 
   describe '#initialize' do
-    subject(:card) { described_class.new('What is the capital of Alaska?', 'Juneau', :Geography) }
+    subject(:card) { described_class.new(:Geography, 'What is the capital of Alaska?', 'Juneau') }
 
     it { is_expected.to be_instance_of(described_class) }
-  end
-
-  describe '#question' do
-    subject(:question) { card.question }
-
-    it { is_expected.not_to be_nil }
-
-    it 'returns the question' do
-      expect(question).to eq('What is the capital of Alaska?')
-    end
-  end
-
-  describe '#answer' do
-    subject(:answer) { card.answer }
-
-    it { is_expected.not_to be_nil }
-
-    it 'returns the answer' do
-      expect(answer).to eq('juneau')
-    end
   end
 
   describe '#category' do
@@ -42,20 +22,40 @@ describe Card do
     end
   end
 
-  describe '#alternate_answer' do
-    subject(:alternate_answer) { card.alternate_answer }
+  describe '#question' do
+    subject(:question) { card.question }
 
-    context 'when alternate answer is not given' do
-      it { is_expected.to be_nil }
+    it { is_expected.not_to be_nil }
+
+    it 'returns the question' do
+      expect(question).to eq('What is the capital of Alaska?')
+    end
+  end
+
+  describe '#answers' do
+    subject(:answers) { card.answers }
+
+    it { is_expected.not_to be_nil }
+
+    context 'when no answers given' do
+      let(:card) { described_class.new(:Geography, 'What is the capital of Alaska?') }
+
+      it 'returns empty array' do
+        expect(answers).to eq([])
+      end
     end
 
-    context 'when alternate answer is given' do
-      let(:card) { described_class.new('What is 5 + 5?', '10', :Geography, 'Ten') }
+    context 'when one answer given' do
+      it 'returns array of one answer' do
+        expect(answers).to eq(['juneau'])
+      end
+    end
 
-      it { is_expected.not_to be_nil }
+    context 'when multiple answers given' do
+      let(:card) { described_class.new(:Geography, 'What is the capital of Alaska?', 'Juneau', 'Alternate Answer') }
 
-      it 'returns the alternate answer' do
-        expect(alternate_answer).to eq('ten')
+      it 'returns array of answers' do
+        expect(answers).to eq(['juneau', 'alternate answer'])
       end
     end
   end
