@@ -7,6 +7,6 @@ class Card
   def initialize(category, question, *answers)
     @category = category
     @question = question
-    @answers = answers.map(&:downcase)
+    @answers = answers.flatten.map(&:downcase)
   end
 end
