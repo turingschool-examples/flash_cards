@@ -36,7 +36,7 @@ describe CardGenerator do
       it { is_expected.not_to be_nil }
 
       it 'passes alternate answer' do
-        expect(alternate_answer).to eq 'Ten'
+        expect(alternate_answer).to eq 'ten'
       end
     end
   end
