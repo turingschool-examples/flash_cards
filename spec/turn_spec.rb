@@ -20,7 +20,7 @@ describe Turn do
     it { is_expected.not_to be_nil }
 
     it 'returns the guess' do
-      expect(guess).to eq('Juneau')
+      expect(guess).to eq('juneau')
     end
   end
 

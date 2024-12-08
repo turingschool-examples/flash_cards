@@ -28,7 +28,7 @@ describe Card do
     it { is_expected.not_to be_nil }
 
     it 'returns the answer' do
-      expect(answer).to eq('Juneau')
+      expect(answer).to eq('juneau')
     end
   end
 
@@ -55,7 +55,7 @@ describe Card do
       it { is_expected.not_to be_nil }
 
       it 'returns the alternate answer' do
-        expect(alternate_answer).to eq('Ten')
+        expect(alternate_answer).to eq('ten')
       end
     end
   end

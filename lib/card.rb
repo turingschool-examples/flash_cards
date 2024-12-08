@@ -6,8 +6,8 @@ class Card
 
   def initialize(question, answer, category, alternate_answer = nil)
     @question = question
-    @answer = answer
+    @answer = answer.downcase
     @category = category
-    @alternate_answer = alternate_answer
+    @alternate_answer = alternate_answer.downcase unless alternate_answer.nil?
   end
 end
