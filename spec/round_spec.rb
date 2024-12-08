@@ -52,8 +52,8 @@ describe Round do
       end
     end
 
-    describe '.count' do
-      subject(:count) { round.turns.count }
+    describe '.size' do
+      subject(:size) { round.turns.size }
 
       it { is_expected.not_to be_nil }
 
@@ -61,7 +61,7 @@ describe Round do
         round.take_turn('Juneau')
         round.take_turn('Venus')
 
-        expect(count).to eq(2)
+        expect(size).to eq(2)
       end
     end
   end
