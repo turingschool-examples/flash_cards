@@ -8,8 +8,10 @@ class CardGenerator
   def initialize(filename) # rubocop:disable Metrics/MethodLength,Metrics/AbcSize
     @cards = []
     File.open(filename, 'r') do |file|
-      file.each_line do |card|
-        card_array = card.split(',')
+      file.each_line do |line|
+        next if line.empty? || line.start_with?('#')
+
+        card_array = line.split(',')
         @cards << if card_array.size == 2
                     Card.new(card_array[0], card_array[1].chomp)
                   elsif card_array.size == 3

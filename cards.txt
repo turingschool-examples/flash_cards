@@ -1,7 +1,18 @@
+# add your own flashcards on the lines below
+# separate categories with an empty line
+# use the following format, with each item separated by a single comma
+# category,question,answers(optional)
+# you can add as many or as few answers as you want
+# any item past the question will be interpreted as an answer
+
+
 STEM,What is 5 + 5?,10,ten
 STEM,What is 7 * 2?,14,fourteen
+
 Turing Staff,What is Rachel's favorite animal?,red panda
 Turing Staff,What is Mike's middle name?,nobody knows,no one knows,unknown,n/a
+
 Pop Culture,What cardboard cutout lives at Turing?,Justin Bieber,Bieber,Biebs,The Biebs
 Pop Culture,Who is the artist of the hit song 'Espresso'?,Sabrina Carpenter,Carpenter
+
 Impossible,What would happen if Pinocchio said 'My nose grows now'?
