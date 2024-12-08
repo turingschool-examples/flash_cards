@@ -10,11 +10,7 @@ class Turn
   end
 
   def correct?
-    if card.alternate_answer.nil?
-      @guess == card.answer
-    else
-      @guess == card.answer || @guess == card.alternate_answer
-    end
+    card.answers.include?(@guess)
   end
 
   def feedback
