@@ -1,6 +1,7 @@
-What is 5 + 5?,10,STEM,ten
-What is 7 * 2?,14,STEM,fourteen
-What is Rachel's favorite animal?,red panda,Turing Staff
-What is Mike's middle name?,nobody knows,Turing Staff
-What cardboard cutout lives at Turing?,Justin Bieber,Pop Culture
-Who is the artist of the hit song 'Espresso'?,Sabrina Carpenter,Pop Culture
+STEM,What is 5 + 5?,10,ten
+STEM,What is 7 * 2?,14,fourteen
+Turing Staff,What is Rachel's favorite animal?,red panda
+Turing Staff,What is Mike's middle name?,nobody knows
+Pop Culture,What cardboard cutout lives at Turing?,Justin Bieber
+Pop Culture,Who is the artist of the hit song 'Espresso'?,Sabrina Carpenter
+Impossible,What would happen if Pinocchio said 'My nose grows now'?
