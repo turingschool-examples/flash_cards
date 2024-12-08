@@ -2,12 +2,11 @@
 
 # Defines a flashcard with a question, answer, and category.
 class Card
-  attr_reader :question, :answer, :category, :alternate_answer
+  attr_reader :category, :question, :answers
 
-  def initialize(question, answer, category, alternate_answer = nil)
-    @question = question
-    @answer = answer.downcase
+  def initialize(category, question, *answers)
     @category = category
-    @alternate_answer = alternate_answer.downcase unless alternate_answer.nil?
+    @question = question
+    @answers = answers.map(&:downcase)
   end
 end
