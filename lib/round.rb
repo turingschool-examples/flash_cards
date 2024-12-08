@@ -3,23 +3,20 @@
 require_relative 'turn'
 # Where the main game is played. Starts with a deck, tracks statistics.
 class Round
-  attr_reader :deck, :turns, :deck_index
+  attr_reader :deck, :turns
 
   def initialize(deck)
     @deck = deck
     @turns = []
-    @deck_index = 0
   end
 
   def current_card
-    @deck.cards[@deck_index]
+    @deck.cards[@turns.size]
   end
 
   def take_turn(guess)
-    new_turn = Turn.new(guess, current_card)
-    @turns << new_turn
-    @deck_index += 1
-    new_turn
+    @turns << Turn.new(guess, current_card)
+    @turns.last
   end
 
   def number_correct

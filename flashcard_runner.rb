@@ -11,7 +11,7 @@ round = Round.new(deck)
 puts "Welcome! You're playing with #{deck.count} cards."
 puts '-------------------------------------------------'
 deck.cards.each do
-  puts "This is card number #{round.deck_index + 1} out of #{deck.count}."
+  puts "This is card number #{round.turns.size + 1} out of #{deck.count}."
   puts "Question: #{round.current_card.question}"
   puts round.take_turn(gets.chomp).feedback
 end
