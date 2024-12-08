@@ -23,20 +23,34 @@ describe CardGenerator do
     end
   end
 
-  describe 'parses alternate answers' do
-    context 'when alternate answer is not given' do
-      it 'does not pass alternate answer' do
-        expect(cards[2].alternate_answer).to be_nil
-      end
-    end
-
-    context 'when alternate answer is given' do
-      subject(:alternate_answer) { cards[0].alternate_answer }
+  describe 'parses answers' do
+    context 'when no answer is given' do
+      subject(:answers) { cards[0].answers }
 
       it { is_expected.not_to be_nil }
 
-      it 'passes alternate answer' do
-        expect(alternate_answer).to eq 'ten'
+      it 'returns empty array' do
+        expect(cards[6].answers).to eq []
+      end
+    end
+
+    context 'when one answer is given' do
+      subject(:answers) { cards[2].answers }
+
+      it { is_expected.not_to be_nil }
+
+      it 'returns array with answer' do
+        expect(answers).to eq ['red panda']
+      end
+    end
+
+    context 'when multiple answers are given' do
+      subject(:answers) { cards[3].answers }
+
+      it { is_expected.not_to be_nil }
+
+      it 'returns array of answers' do
+        expect(answers).to eq ['nobody knows', 'no one knows', 'unknown', 'n/a']
       end
     end
   end
