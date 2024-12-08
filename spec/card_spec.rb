@@ -42,20 +42,20 @@ describe Card do
     end
   end
 
-  describe '#additional_answer' do
-    subject(:additional_answer) { card.additional_answer }
+  describe '#alternate_answer' do
+    subject(:alternate_answer) { card.alternate_answer }
 
-    context 'when additional answer is not given' do
+    context 'when alternate answer is not given' do
       it { is_expected.to be_nil }
     end
 
-    context 'when additional answer is given' do
+    context 'when alternate answer is given' do
       let(:card) { described_class.new('What is 5 + 5?', '10', :Geography, 'Ten') }
 
       it { is_expected.not_to be_nil }
 
-      it 'returns the additional answer' do
-        expect(additional_answer).to eq('Ten')
+      it 'returns the alternate answer' do
+        expect(alternate_answer).to eq('Ten')
       end
     end
   end
