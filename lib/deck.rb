@@ -2,10 +2,15 @@ class Deck
      attr_reader :cards
     def initialize(cards)
         @cards = cards
-        cards = []
     end
-    
-    def add_card
-    @cards[] << Card.new(question, answer, category)
+
+    def count
+        cards.count
     end
+
+    def cards_in_category(category)
+        cards.find_all do |card|
+            card.category == category
+    end
+end
 end
