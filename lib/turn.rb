@@ -6,11 +6,17 @@ class Turn
             # @guess = string
             @card = card; end
 
-            def guess; return string; end
+            def guess
+                 return string 
+            end
 
-            def correct?; guess == card.answer; end
+            def correct?
+                 guess == card.answer
+            end
 
-            def feedback; correct? ? 'Correct!' : 'Incorrect.'; end
+            def feedback
+                 correct? ? 'Correct!' : 'Incorrect.'
+            end
         
     
 end
