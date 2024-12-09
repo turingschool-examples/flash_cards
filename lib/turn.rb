@@ -10,4 +10,13 @@ class Turn
   #  require "pry"; binding.pry VERY HELPFUL
    @card.answer == @guess
   end
+  
+  def feedback
+    if correct?
+      "Correct"
+    else 
+      "Incorrect"
+    end
+  end
+
 end
