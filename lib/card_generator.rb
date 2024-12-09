@@ -26,6 +26,9 @@ class CardGenerator
         #Let's go with approach #2:
         file = File.open(filename, 'r')
 
+        #NOTE: don't forget to add comment=ignoring read functionality for text file (so I can add comments there)
+        
+
         #There are other ways to do this, no doubt, but this seems to work.
         #NOTE: gets() returns nil at end of file (EOF), but .readline() DOES NOT!  (Why???)
         while (new_line = file.gets) != nil
