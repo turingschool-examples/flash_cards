@@ -65,6 +65,7 @@ def start_game(round, colors)
             end
             puts ""
         end
+        
     cputs("****** Game Over! ******", colors)
     puts ""
     cputs("You had #{round.number_correct} correct guesses out of #{initial_card_count} for a total score of #{round.percent_correct.round(0)}%", colors)

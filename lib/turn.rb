@@ -7,7 +7,7 @@ class Turn
     end
 
     def correct? 
-        @guess.upcase == @card.answer.upcase
+        @guess.strip.upcase == @card.answer.strip.upcase
     end
 
     def feedback
