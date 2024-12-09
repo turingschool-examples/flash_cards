@@ -1,7 +1,11 @@
+require './lib/deck'
+require './lib/card'
+require './lib/turn'
+
 class Round
-    attr_reader :deck, :turns, :turns_taken, :number_correct
-    def initialize(turn)
-        @deck = deck
+    attr_reader :deck, :turns, :turns_taken, :number_correct, :new_turn
+    def initialize(anything)
+        @deck = anything
         @turns = []
         @turns_taken = 0
         @number_correct = 0
@@ -12,16 +16,20 @@ class Round
     end
 
     def take_turn(guess)
-        new_turn = Turn.new(guess, current_card)
+        @new_turn = Turn.new(guess, current_card)
         @turns << new_turn
         @turns_taken += 1
+        return new_turn
+
     end
 
     def number_correct
-        guess == card.answer
-        if guess.correct?
-            @number_correct + 1
-        end
-    
+        if @new_turn.guess == current_card.answer
+            return @turns_taken - 1
+        end    
+    end
+
+    def percent_correct
+        @turns_taken / @number_correct
     end
 end
