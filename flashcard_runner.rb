@@ -2,6 +2,7 @@ require './lib/card'
 require './lib/deck'
 require './lib/round'
 require './lib/turn'
+require './lib/card_generator'
 
 def start(round_var)
   deck_var = round_var.deck
@@ -35,11 +36,9 @@ def start(round_var)
 
 end
 
-card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
-card_3 = Card.new("Describe in words the exact direction that is 697.5 degrees clockwise from due north?", "North north west", :STEM)
-cards = [card_1, card_2, card_3]
-deck = Deck.new(cards)
+filepath = "cards.txt"
+gen = Card_Generator.new(filepath)
+deck = Deck.new(gen.cards)
 round = Round.new(deck)
 
 start(round)
