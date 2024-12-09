@@ -1,57 +1,61 @@
 class Round
-    attr_reader :deck, :turns, :turn, :guess, :turns_taken
+    attr_reader :deck, :turns, :number_correct
 
     def initialize(deck)
         @deck = deck
         @turns = []
-        @turns_taken = 0
-        @turns_correct = 0
+        @number_correct = 0
     end
 
     def current_card
-       @deck.cards.sample
+       @deck.cards.first
     end
 
     def take_turn(guess)
-        new_turn = Turn
+        new_turn = Turn.new(guess, current_card)
         @turns << new_turn
-        @turns_taken += 1
+        if new_turn.correct?
+          @number_correct += 1
+        end
+        @deck.cards = @deck.cards.rotate(1)
+        
+        new_turn
+
     end
-
-    # def number_correct
-    #     @turns.find_all do |new_turns|
-    #         if new_turns.correct? == true
-    #              @number_correct += 1
-    #         end
-    #     end
-    # end
-
     # def take_turn(guess)
-    #     @turn = Turn.new(guess, card)
-    #     @guess 
-    #     @turns << turn
-    #     @turns_taken += 1
-
-
-    #     @turn
-
-    # end
-
-    # # def take_turn(guess)
-    #    new_turn = Turn.new(guess, card)
-    #    @turns << new_turn
-    #    @turns_taken += 1
+    #     new_turn = Turn.new(guess, current_card)
+    #     @turns << new_turn
+    #     if new_turn.correct?
+    #         @number_correct += 1
+    #     end
     #    @deck.cards = @deck.cards.rotate(1)
 
     #    new_turn
 
     # end
 
-    # def number_correct
-    #     if turn.correct? == true
-    #         @number_correct += 1
-    #     else
-    #     end
-    # end
+    def number_correct_by_category(category)
+        number_correct = 0
+        turns.each do |turn|
+            if turn.card.category == category && turn.correct?
+                number_correct += 1
+            end
+        end
+        number_correct
+    end
+
+    def percent_correct
+        @number_correct / @turns.count.to_f * 100
+    end
+
+    def percent_correct_by_category(category)
+        number = 0
+        turns.each do |turn|
+            if turn.card.category == category
+                number += 1
+            end
+            number
+        end
+    end
 
 end
