@@ -5,19 +5,17 @@ require_relative 'lib/deck'
 require_relative 'lib/card'
 require_relative 'lib/card_generator'
 
-cards = CardGenerator.new('cards.txt').cards
-deck = Deck.new(cards)
-round = Round.new(deck)
-puts "Welcome! You're playing with #{deck.count} cards."
+round = Round.new(Deck.new(CardGenerator.new('cards.txt').cards))
+puts "Welcome! You're playing with #{round.deck.count} cards."
 puts '-------------------------------------------------'
-deck.cards.each do
-  puts "This is card number #{round.turns.size + 1} out of #{deck.count}."
+round.deck.cards.each do
+  puts "This is card number #{round.turns.size + 1} out of #{round.deck.count}."
   puts "Question: #{round.current_card.question}"
   puts round.take_turn(gets.chomp).feedback
 end
 puts '****** Game over! ******'
-puts "You had #{round.number_correct} correct guesses out of #{deck.count} " \
+puts "You had #{round.number_correct} correct guesses out of #{round.deck.count} " \
      "for a total score of #{round.percent_correct.to_i}%."
-deck.categories.each do |category|
+round.deck.categories.each do |category|
   puts "#{category} - #{round.percent_correct_by_category(category).to_i}% correct"
 end
