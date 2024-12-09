@@ -3,8 +3,6 @@ class Deck
 
     def initialize(cards)
         @cards = cards
-            cards = []
-        @card 
     end
 
     def count
