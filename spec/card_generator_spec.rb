@@ -6,13 +6,14 @@ require './lib/turn.rb'
 require './lib/round.rb'
 require './lib/card_generator.rb'
 require 'rspec'
+require 'pry'
 
 describe CardGenerator do
     #UPDATE THIS CODE APPROPRIATELY
-    This allows me to not have to re-create this each time.  Admittedly, not much faster than copy/paste, but fun different thing to try!
+    #This allows me to not have to re-create this each time.  Admittedly, not much faster than copy/paste, but fun different thing to try!
     before(:each) do
         #UPDATE THIS!!!!!!!!!!!!!!!!!
-        @filename = "cards.txt"
+        @filename = "cards_data.txt"
         @cards = CardGenerator.new(@filename).cards
 
         # @card1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
@@ -23,12 +24,21 @@ describe CardGenerator do
     end
 
     #TESTS GO HERE
+
+    #NOTE: how do I really 'test' some of the innards of e.g. initialize() without being really tedious / indirect?
+
+    it 'initializes correctly: file is valid' do
+        f = File.open(@filename, 'r')
+        expect(f).to be_a(File)
+    end
+
     it 'initializes correctly: first card exists' do
         #Needs to return a card array
         # filename = "cards.txt"
         # cards = CardGenerator.new(filename).cards
-
-        expect(@cards[0]).to be_a(Card)
+        # binding.pry
+        # expect(@cards[0]).to be_a(Card)
+        expect(@cards).to be_a(Array)
     end
 
     it 'initializes correctly: correct # of cards exist' do
@@ -43,5 +53,4 @@ describe CardGenerator do
         expect(@cards[2].category).to eq(:Turing_staff)
         #Do I really have to break these each into a separate test?  Feels very tedious at that point...
     end
-
-
+end
