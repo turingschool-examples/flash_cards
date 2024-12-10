@@ -1,0 +1,7 @@
+What is 5 + 5?,10,STEM
+What is the capital of Alaska?,Juneau,Geography
+What is Rachel's favorite animal?,red panda,Turing_staff
+What is the primary physics effect for why the sky is blue?,Rayleigh scattering,STEM
+What is Mike's middle name?,nobody knows,Turing_staff
+What cardboard cutout lives at Turing?,Justin bieber,Pop_culture
+Which set of numbers is uncountable: rational or real numbers?,real,STEM
