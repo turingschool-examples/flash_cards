@@ -4,7 +4,7 @@ require './lib/card'
 
 describe CardGenerator do 
     it 'exists' do 
-        filename = "cards.txt"
+        filename = "spec/cards.txt"
 
         cards = CardGenerator.new(filename)
 
