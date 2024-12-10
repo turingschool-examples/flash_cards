@@ -26,6 +26,16 @@ RSpec.describe Turn do
       it 'can check if the guess is incorrect' do
           expect(@turn2.correct?).to eq(false)
         end
+
+      it 'is case insensitive when checking guesses' do
+          turn = Turn.new("juneau", @card1)
+          expect(turn.correct?).to eq(true)
+        end
+
+      it 'ignores leading and trailing whitespace when checking guesses' do
+          turn = Turn.new("  Juneau  ", @card1)
+          expect(turn.correct?).to eq(true)
+        end
     end
 
     describe '#feedback' do
