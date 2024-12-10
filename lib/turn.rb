@@ -10,7 +10,7 @@ class Turn
         @guess.strip.upcase == @card.answer.strip.upcase
     end
 
-    def feedback
+    def feedback # technically not using this method in game because I wanted to customize the feedback based on category
         if correct? 
             "Correct!"
         else 
