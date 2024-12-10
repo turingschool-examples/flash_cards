@@ -2,6 +2,8 @@ require './lib/card' #links the card.rb file to the card_spec.rb file
 require 'rspec' #links the rspec gem to the card_spec.rb file
 require 'pry' # This is required to use Pry
 
+# to run test in terminal type rspec spec/card_spec.rb
+
 RSpec.describe Card do #rspec syntax to describe the Card class
   before(:each) do #before each test, do the following
     @card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
