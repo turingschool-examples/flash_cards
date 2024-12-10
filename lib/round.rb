@@ -5,8 +5,8 @@ require './lib/turn'
 class Round
     attr_reader :deck, :turns, :turns_taken
     attr_accessor :number_correct, :number_correct_by_category
-    def initialize(anything)
-        @deck = anything
+    def initialize(deck)
+        @deck = deck
         @turns = []
         @turns_taken = 0
         @number_correct = 0
@@ -41,11 +41,12 @@ class Round
             if turn.card.category == category
                 @number_by_category += 1
             end
+        end
             return number_correct_by_category
     end
 
     def percent_correct_by_category
-        @turns_taken / @number_correct_by_category
+        @number_correct_by_category.div(@turns_taken)
     end
 end
-end
+
