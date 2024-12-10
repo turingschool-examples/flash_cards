@@ -16,13 +16,15 @@ def cp(message, colors)
   end
 
 card1 = Card.new("What is the name of the island in Jurassic Park?", "Isla Nublar", :Movies)
-card2 = Card.new("What is the title of the Beatles' final album?", "Let it Be", :Music)
-card3 = Card.new("Who played the hit-man Jules in Pulp Fiction?", "Samuel L Jackson", :Movies)
-card4 = Card.new("What is the capital city of Brazil?", "Brasilia", :Geography)
+card2 = Card.new("What is the title of the Beatles' final album release?", "Let it Be", :Music)
+card3 = Card.new("What is the capital city of Brazil?", "Brasilia", :Geography)
+card4 = Card.new("Who played the hit-man, Jules in the film Pulp Fiction?", "Samuel L Jackson", :Movies)
 card5 = Card.new("What is the smallest US State?", "Rhode Island", :Geography)
 card6 = Card.new("Who wrote the 1971 hit song, What's Going On?", "Marvin Gaye", :Music)
+card7 = Card.new("Who played the character Will, in the film Good Will Hunting?", "Matt Damon", :Movies)
+card8 = Card.new("What is the largest ski area in Colorado?", "Vail", :Geography)
 
-cards = [card1, card2, card3, card4, card5, card6]
+cards = [card1, card2, card3, card4, card5, card6, card7, card8]
 
 deck = Deck.new(cards)
 
@@ -86,6 +88,5 @@ def start_game(round, colors)
     end
     puts ""
 end
-
 
 start_game(round, colors)
