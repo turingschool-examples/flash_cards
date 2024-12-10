@@ -8,7 +8,7 @@ class Turn
 
   def correct?
   #  require "pry"; binding.pry VERY HELPFUL
-   @card.answer == @guess
+   @card.answer.strip.upcase == @guess.strip.upcase
   end
   
   def feedback

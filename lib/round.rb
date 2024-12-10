@@ -15,15 +15,10 @@ class Round
     def take_turn(guess)
       new_turn = Turn.new(guess, current_card)
       @turns << new_turn
-      if new_turn.correct?    
-        @number_correct += 1
-      end
-      @deck.cards = @deck.cards.rotate(1)
-
-
-    new_turn
-    
-  end
+      @deck.cards.shift
+      @number_correct += 1 if new_turn.correct?
+      new_turn
+    end
  
   def number_correct_by_category(category)
        number_correct = 0
