@@ -17,23 +17,23 @@ def start
     puts "-------------------------------------------------"
     puts "This is card number 1 out of 4."
     puts "Question: #{round.current_card.question}"
-    game_turn = round.take_turn(gets.chomp)
+    game_turn = round.take_turn(gets.chomp.upcase.strip)
     puts game_turn.feedback
 
 
     puts "This is card number 2 out of 4"
     puts "Question: #{round.current_card.question}"
-    game_turn_2 = round.take_turn(gets.chomp)
+    game_turn_2 = round.take_turn(gets.chomp.upcase.strip)
     puts game_turn_2.feedback
 
     puts "This is card number 3 out of 4"
     puts "Question: #{round.current_card.question}"
-    game_turn_3 = round.take_turn(gets.chomp)
+    game_turn_3 = round.take_turn(gets.chomp.upcase.strip)
     puts game_turn_3.feedback
 
     puts "This is card number 4 out of 4"
     puts "Question: #{round.current_card.question}"
-    game_turn_4 = round.take_turn(gets.chomp)
+    game_turn_4 = round.take_turn(gets.chomp.upcase.strip)
     puts game_turn_4.feedback
 
     puts "****** Game Over! ******"
