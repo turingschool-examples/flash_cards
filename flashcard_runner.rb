@@ -25,3 +25,13 @@ def start
 end
 
 start
+
+def game_over
+    if current_card == @round.deck.cards.card_1
+    p "****** Game over! ******"
+"You had" @number_correct "correct guesses out of" @turns_taken "for a total score of" @percent_correct.
+"STEM - " percent_correct_by_category(:STEM)
+"Turing Staff - " percent_correct_by_category(:TuringStaff)
+"Pop Culture - " percent_correct_by_category(:PopCulture)
+    end
+end
