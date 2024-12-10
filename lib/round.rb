@@ -23,11 +23,13 @@ Class Round
   end
 
   def percent_correct
-
+    percent = number_correct.to_f
+    size = turn.size.to_f
+    turns.empty = 0 ? return 0 : ((percent / size)*100).round(2)
   end
 
   def number_correct_by_category(cat)
-
+    
   end
 
   def percent_correct_by_category(cat)
