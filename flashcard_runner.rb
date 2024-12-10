@@ -11,7 +11,7 @@ card_4 = Card.new("Question: What cardboard cutout lives at Turing?", "Justin Bi
 
 @cards = [card_1, card_2, card_3, card_4]
 
-deck = Deck.new(cards)
+@deck = Deck.new(cards)
 
 @round = Round.new(deck)
 
@@ -20,7 +20,7 @@ def start
     p "Welcome! You're playing with 4 cards.
     -------------------------------------------------
     This is card number" @turns_taken "out of "@cards.count"."
-    "Question: What is 5 + 5?"
+   cards(card_1(@question))
 
 end
 
