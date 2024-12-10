@@ -4,12 +4,12 @@ class Turn
     def initialize(guess, card )
         @guess = guess  
         @card = card 
-        @correct = []
+        @correct = correct
         @feedback = []
     end
 
     def correct?
-        @guess = card.answer
+        @guess = @card.answer
     end
 
     def feedback
