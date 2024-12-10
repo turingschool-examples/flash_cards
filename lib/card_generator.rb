@@ -3,8 +3,7 @@
 require './lib/card.rb'
 
 class CardGenerator 
-    #I don't like this; shouldn't need to have a member variable referring to the same cards as the deck.  But for now, leave it I guess
-    #(in part to stay compliant with requirements)
+    #I'd rather not have a member variable referring to the same cards that 'Deck' class already knows about...
     attr_reader :cards
 
     def initialize(default_filename)
@@ -39,11 +38,10 @@ class CardGenerator
 
     def open_data_file(default_filename)
         #Loads card information from specified data file, or default_filename otherwise
-        #NOTE: Optional for later: don't forget to add comment=ignoring read functionality for text file (so I can add comments there)
+        #NOTE: Optional for later: don't forget to add comment-ignoring read functionality for text file (so I can add comments there)
 
         user_input_filename = ""        #To ensure variable scope later in method!
 
-        #Not especially elegant...but it works, and I'm pleased.
         loop do
             puts "Please type the file holding all card information, or press [enter] for default:"
             user_input_filename = gets
@@ -56,7 +54,6 @@ class CardGenerator
                 #Important: Need to use the exist?() method here, as open() with invalid path throws an error and I believe halts execution entirely.
                 break
             else
-                puts user_input_filename
                 puts "File does not exist.  Let's try this again."
             end
         end

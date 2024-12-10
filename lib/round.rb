@@ -32,8 +32,6 @@ class Round
         end
     end
 
-    #Other methods
-
     def take_turn(guess)
         #Create turn instance, given user's input into 'guess' string
         new_turn = Turn.new(guess, @current_card)
@@ -51,7 +49,6 @@ class Round
 
     def number_correct()
         #Determine the number of correct guesses (<= number of turns)
-        #Iterate through turns and keep a running tally
         total_correct = 0
 
         turns.each do |turn|
@@ -83,15 +80,12 @@ class Round
 
     def percent_correct()
         #Determine number correct guesses divided by total guesses (i.e. turns)
-        #Note: I typically express percents as a decimal (math), but my guess is this project wants out of 100
-        #Another note: it appears it wants one decimal of precision for rounding, hence the round(1) below
-        #Yet another note: I had to force an int -> float conversion even though I thought the * 100.0 would imply it...
         (number_correct() / count_turns().to_f * 100.0).round(1)
     end
 
     def percent_correct_by_category(category)
         #Similar observation to number_correct_by_category() method before...
-        #Note: this does not check if the category is valid, but should be internally consistent to prevent from happening.
+        #Note: this does not check if the category is valid, but code should be internally consistent to prevent from happening.
         (number_correct_by_category(category) / count_turns(category).to_f * 100.0).round(1)
     end
 
@@ -101,8 +95,6 @@ class Round
 
         puts "\nWelcome!  You're playing with #{deck.count()} cards."
         puts "------------------------------------------------------"
-        #Alternate to above: run a loop printing '-' at a time
-
     end
 
     def finish()
