@@ -5,10 +5,10 @@ require_relative '../lib/deck'
 require 'rspec'
 
 describe Deck do
-  let(:first_card) { Card.new(:Geography, 'What is the capital of Alaska?', 'Juneau') }
-  let(:second_card) { Card.new(:STEM, 'Who is the CEO of SpaceX?', 'Elon Musk') }
+  let(:first_card) { Card.new(:Geography, 'What is the capital of Alaska?', ['Juneau']) }
+  let(:second_card) { Card.new(:STEM, 'Who is the CEO of SpaceX?', ['Elon Musk']) }
   let(:third_card) do
-    Card.new(:STEM, 'Describe in words the exact direction of 697.5° clockwise from due north?', 'North north west')
+    Card.new(:STEM, 'Describe in words the exact direction of 697.5° clockwise from due north?', ['North north west'])
   end
   let(:cards) { [first_card, second_card, third_card] }
   let(:deck) { described_class.new(cards) }
@@ -52,9 +52,9 @@ describe Deck do
 
     context 'when category is not present' do
       it 'returns empty array' do
-        cards = [Card.new(:Geography, 'What is the capital of Alaska?', 'Juneau'),
-                 Card.new(:Fantasy, 'Who is the CEO of SpaceX?', 'Elon Musk'),
-                 Card.new(:Fantasy, 'Some question?', 'North north west')]
+        cards = [Card.new(:Geography, 'What is the capital of Alaska?', ['Juneau']),
+                 Card.new(:Fantasy, 'Who is the CEO of SpaceX?', ['Elon Musk']),
+                 Card.new(:Fantasy, 'Some question?', ['North north west'])]
         deck = described_class.new(cards)
 
         expect(deck.cards_in_category(:STEM)).to eq([])
@@ -75,9 +75,9 @@ describe Deck do
 
     context 'when category is a string' do
       it 'returns array of category strings' do
-        cards = [Card.new('Geography', 'What is the capital of Alaska?', 'Juneau'),
-                 Card.new('STEM', 'Who is the CEO of SpaceX?', 'Elon Musk'),
-                 Card.new('STEM', 'Some question?', 'North north west')]
+        cards = [Card.new('Geography', 'What is the capital of Alaska?', ['Juneau']),
+                 Card.new('STEM', 'Who is the CEO of SpaceX?', ['Elon Musk']),
+                 Card.new('STEM', 'Some question?', ['North north west'])]
         deck = described_class.new(cards)
 
         expect(deck.categories).to eq(%w[Geography STEM])

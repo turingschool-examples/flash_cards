@@ -4,10 +4,10 @@ require_relative '../lib/card'
 require 'rspec'
 
 describe Card do
-  let(:card) { described_class.new(:Geography, 'What is the capital of Alaska?', 'Juneau') }
+  let(:card) { described_class.new(:Geography, 'What is the capital of Alaska?', ['Juneau']) }
 
   describe '#initialize' do
-    subject(:card) { described_class.new(:Geography, 'What is the capital of Alaska?', 'Juneau') }
+    subject(:card) { described_class.new(:Geography, 'What is the capital of Alaska?', ['Juneau']) }
 
     it { is_expected.to be_instance_of(described_class) }
   end
@@ -52,7 +52,7 @@ describe Card do
     end
 
     context 'when multiple answers given' do
-      let(:card) { described_class.new(:Geography, 'What is the capital of Alaska?', 'Juneau', 'Alternate Answer') }
+      let(:card) { described_class.new(:Geography, 'What is the capital of Alaska?', ['Juneau', 'Alternate Answer']) }
 
       it 'returns array of answers' do
         expect(answers).to eq(['juneau', 'alternate answer'])

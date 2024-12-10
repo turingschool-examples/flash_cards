@@ -8,9 +8,9 @@ require 'rspec'
 describe Round do
   let(:cards) do
     [
-      Card.new(:Geography, 'What is the capital of Alaska?', 'Juneau'),
-      Card.new(:STEM, 'Who is the CEO of SpaceX?', 'Elon Musk'),
-      Card.new(:STEM, 'Describe in words the exact direction of 697.5° clockwise from due north?', 'North north west')
+      Card.new(:Geography, 'What is the capital of Alaska?', ['Juneau']),
+      Card.new(:STEM, 'Who is the CEO of SpaceX?', ['Elon Musk']),
+      Card.new(:STEM, 'Describe in words the exact direction of 697.5° clockwise from due north?', ['North north west'])
     ]
   end
   let(:deck) { Deck.new(cards) }

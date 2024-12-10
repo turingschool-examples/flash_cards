@@ -5,7 +5,7 @@ require_relative '../lib/turn'
 require 'rspec'
 
 describe Turn do
-  let(:card) { Card.new(:Geography, 'What is the capital of Alaska?', 'Juneau', 'alt') }
+  let(:card) { Card.new(:Geography, 'What is the capital of Alaska?', %w[Juneau alt]) }
   let(:turn) { described_class.new('Juneau', card) }
 
   describe '#initialize' do
