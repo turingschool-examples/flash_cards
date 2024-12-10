@@ -2,6 +2,7 @@ require './lib/round'
 require './lib/card'
 require './lib/turn'
 require './lib/deck'
+require 'pry'
 RSpec.describe Round do
     it 'exists' do
         card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
@@ -44,7 +45,7 @@ RSpec.describe Round do
         deck = Deck.new([card_1, card_2, card_3])
         round = Round.new(deck)
         round.take_turn('Juneau')
-        expect(number_correct_by_category).to be(@number_correct_by_category)
+        expect(round.number_correct_by_category(:Geography)).to be(1)
     end
 
     it 'shows percent correct' do
@@ -54,8 +55,8 @@ RSpec.describe Round do
         
         deck = Deck.new([card_1, card_2, card_3])
         round = Round.new(deck)
-        percent_correct = percent_correct
-        expect(percent_correct).to eq(percent_correct)
+        round.take_turn('Juneau')
+        expect(round.percent_correct).to eq(100.0)
     end
     it 'shows percent correct by category' do
         card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
@@ -65,6 +66,7 @@ RSpec.describe Round do
         deck = Deck.new([card_1, card_2, card_3])
         round = Round.new(deck)
         round.take_turn('Juneau')
-        expect(round.percent_correct_by_category).to be(0)
+        expect(round.percent_correct_by_category(:Geography)).to be(100)
+        expect(round.percent_correct_by_category(:STEM)).to be(100)
     end
 end
