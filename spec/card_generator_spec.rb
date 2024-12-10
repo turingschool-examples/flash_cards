@@ -4,9 +4,9 @@ require './lib/card'
 RSpec.describe CardGenerator do
     it 'is a card generator'
 
-    filename = cards.txt
+    card_generator = CardGenerator.new(filename)
 
-    card_generator = CardGenerator.new(filename).cards
+    card_generator.read_txt
 
     expect(card_generator).to be_instance_of(CardGenerator)
 end
