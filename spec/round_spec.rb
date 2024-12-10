@@ -22,6 +22,24 @@ RSpec.describe Round do
       it 'checks for the current card at the front of the deck' do
           expect(@round.current_card).to eq(@card1)
         end
+
+      it 'updates the current card after a turn is taken' do
+            expect(@round.current_card).to eq(@card1)
+          
+            @round.take_turn("Juneau")
+            expect(@round.current_card).to eq(@card2)
+          
+            @round.take_turn("Mercury")
+            expect(@round.current_card).to eq(@card3)
+        end
+
+      it 'returns nil for current_card when all cards have been used' do
+            @round.take_turn("Juneau")
+            @round.take_turn("Mercury")
+            @round.take_turn("North north west")
+          
+            expect(@round.current_card).to eq(nil)
+        end
     end
 
     describe '#take_turn' do
@@ -45,7 +63,7 @@ RSpec.describe Round do
     end
 
     describe '#last_turn' do
-    it 'determines the last turn taken' do
+      it 'determines the last turn taken' do
         turn1 = @round.take_turn("Juneau")
         turn2 = @round.take_turn("Venus")
 
@@ -71,6 +89,15 @@ RSpec.describe Round do
 
           expect(@round.correct_by_category(:Geography)).to eq(1)
           expect(@round.correct_by_category(:STEM)).to eq(0)
+        end
+
+      it 'calculates correct answers for multiple questions in the same category' do
+          @round.take_turn("Juneau") 
+          @round.take_turn("Mercury") 
+          @round.take_turn("North north west") 
+          
+          expect(@round.correct_by_category(:STEM)).to eq(2)
+          expect(@round.percent_correct_by_category(:STEM)).to eq(100.0)
         end
     end
 
