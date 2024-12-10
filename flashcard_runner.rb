@@ -42,15 +42,15 @@ require './lib/round'
             def provide_feedback(round)
 
                   puts "--------------------------"
-                  puts "This Game is OVER, do you really even know Chase?!!"
-                  puts "You answered #{round.percent_correct.round(1)} % of these questions correctly. That's okay I guess"
+                  puts "This Game is OVER, do you really know Chase?!!"
+                  puts "You answered #{round.percent_correct.round(1)} % of these questions correctly. That's okay I guess."
                   puts "-------------------------"
-                  puts "You answered #{round.percent_correct_by_category(:Geography)} % of the Chase's Geographical Mysteries questions correctly."
-                  puts "You answered #{round.percent_correct_by_category(:STEM)} % of the Chase In Stem questions correctly. Chase doesn't read books, reading is for NERDS"
+                  puts "You answered #{round.percent_correct_by_category(:Geography)} % of Chase's Geographical Mystery questions correctly."
+                  puts "You answered #{round.percent_correct_by_category(:STEM)} % of the Chase In Stem questions correctly. Chase doesn't read books,especially cookbooks, reading is for NERDS."
                   puts "Thank you for being another lukewarm contestant on....HOW WELL DO YOU KNOW CHASE!!!"
                   puts ""
                   puts ""
-                
+                  puts " THIS GAME IS OVER WHY ARE YOU STILL LINGERING? Chase really doesn't appreciate LINGERERS!"
                   
                   
                     
