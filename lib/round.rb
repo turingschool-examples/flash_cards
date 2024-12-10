@@ -21,13 +21,20 @@ class Round
     def take_turn(guess)
         new_turn = Turn.new(guess, current_card)
         @turns << new_turn
-        if new_turn.correct?
-            @number_correct += 1
-        end
         # new_turn.feedback
         # @turns_taken += 1
         @deck.cards.shift
         new_turn
+    end
+
+    def number_correct
+        correct_count = 0
+        @turns.each do |turn|
+            if turn.correct?
+             correct_count += 1
+            end
+        end
+    correct_count
     end
 
     def turn_count

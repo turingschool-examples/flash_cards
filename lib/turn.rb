@@ -8,7 +8,7 @@ class Turn
      @card.answer == @guess
     end
     def feedback
-        if @card.answer.strip.upcase == @guess
+        if @card.answer.upcase == @guess
             "Correct!"
         else
             "Incorrect."
