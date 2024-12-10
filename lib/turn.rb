@@ -22,5 +22,3 @@ end
 
 
 
-# For the Deck class, will the attr_reader
-# be :objects (as the array) and :category ? 
