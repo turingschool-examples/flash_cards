@@ -27,8 +27,8 @@ class Deck
         return card_sublist
     end
 
-    #Optional methods that could be handy
-
+    #Optional methods not presently used
+    
     def number_cards_in_category(category_to_match)
         #Return the number of cards in the list and provide a total number of cards matching the category_to_match parameter
         #Optional method not required, but could be handy

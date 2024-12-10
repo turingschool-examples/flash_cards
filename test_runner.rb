@@ -1,6 +1,6 @@
 # test_runner.rb - for running sample code while building out / testing classes
-#NOTE: also create handy irb session with this at the bottom!
-#NOTE: I created this before getting to iteration 3, where I see we make another runner file
+#NOTE: DEPRECATED FILE.  I createdd this before getting to iteration 3, where we made a main runner file
+#NOTE: also create handy irb/pry session with this at the bottom!
 
 require './lib/card'
 require './lib/deck'

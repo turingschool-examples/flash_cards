@@ -15,10 +15,6 @@ describe Deck do
     end
 
     it 'deck exists' do
-        # card1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-        # card2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
-        # deck = Deck.new([card1, card2])
-
         expect(@deck).to be_a(Deck)
     end
 

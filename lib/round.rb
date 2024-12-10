@@ -6,20 +6,12 @@ class Round
 
     def initialize(deck)
         @deck = deck
-
-        #Track the current card in the deck via an integer index.  May be unneeded later.
-        @current_card_index = 0
-
-        # @current_card = deck[@current_card_index]
+        @current_card_index = 0     #Track the current card in the deck via an integer index.  May be unneeded later.
         @current_card = deck.cards[@current_card_index]
-
         @turns = []
 
         #This was especially fun for me to figure out :)
-        #Manually define all categories (later, may read in from file)
-        #Could make a 2D array associating symbols to strings (more flexible strings), but I'll keep it simpler with to_s()
-        #OR, I could not be a doofus and build this from the deck!
-        # @all_categories = [:STEM, :Turing_staff, :Pop_culture]
+        #Determine all categories automatically from built deck
         @all_categories = []
 
         #NOTE 12/8/24 - this could optionally be moved to CardGenerator...
@@ -35,7 +27,7 @@ class Round
 
             #I think this way would be even more compact...
             # if !all_categories.find { |check_category| == card.category}
-            #     all_categories << card.category
+            #     @all_categories << card.category
             # end
         end
     end
@@ -44,7 +36,6 @@ class Round
 
     def take_turn(guess)
         #Create turn instance, given user's input into 'guess' string
-        # turns << Turn.new(guess, @current_card)
         new_turn = Turn.new(guess, @current_card)
         @turns << new_turn
 
@@ -106,17 +97,17 @@ class Round
 
     def start()
         #Start the round for the game - introduction + begin with first card
+        #This method is sparse, though in another version this could load the card data file...
+
         puts "\nWelcome!  You're playing with #{deck.count()} cards."
         puts "------------------------------------------------------"
         #Alternate to above: run a loop printing '-' at a time
-
-        #QUESTION: where to build the taking turns logic?  Here?  Or the runner file?
 
     end
 
     def finish()
         #Complete the round and print out results
-        puts "****** Game Over! ******"
+        puts "\n****** Game Over! ******"
         puts "You had #{number_correct()} correct guesses out of #{deck.count()} for a total score of #{percent_correct()}%."
         
         #Hard part: figure out what categories even exist to print.  Hacky workaround for now, manually run the known categoeies based on runner file (ugh).
