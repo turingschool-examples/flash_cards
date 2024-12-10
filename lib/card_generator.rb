@@ -7,7 +7,9 @@ class CardGenerator
     #(in part to stay compliant with requirements)
     attr_reader :cards
 
-    def initialize(filename)
+    #NOTE: I feel weird having a class which only initializes.  Seems to be there for the sake of being there - why not an isolated method?
+
+    def initialize(default_filename)
         #Read data from text file provided and construct card array
         #Then associate card array with deck
 
@@ -24,10 +26,12 @@ class CardGenerator
         #Approach #3: other methods and/or parsing approaches.  What is optimal?
 
         #Let's go with approach #2:
-        file = File.open(filename, 'r')
+        #I've also added a more flexible loading process...
+        file = open_data_file(default_filename)
+        puts "Card information loaded.  Let's go!\n"
 
         #NOTE: don't forget to add comment=ignoring read functionality for text file (so I can add comments there)
-        
+
 
         #There are other ways to do this, no doubt, but this seems to work.
         #NOTE: gets() returns nil at end of file (EOF), but .readline() DOES NOT!  (Why???)
@@ -46,6 +50,35 @@ class CardGenerator
         # card_array << new_card
 
         # return card_array
+    end
+
+    def open_data_file(default_filename)
+        
+        user_input_filename = ""
+
+        loop do
+            puts "Please type the file holding all card information, or press [enter] for default:"
+            user_input_filename = gets
+
+            if user_input_filename.chomp == ''          #Seems some invisible chars (more than just '\n') were present
+                user_input_filename = default_filename
+            end
+            
+            if File.exist?(user_input_filename.chomp) == true
+                #Important: Need to use the exist?() method here, as open() with invalid path throws an error and I believe halts execution entirely.
+                break
+            else
+                puts user_input_filename
+                puts "File does not exist.  Let's try this again."
+            end
+        end
+
+        # while File.exists?(user_input_filename = gets()) == false
+            
+        #     puts "File does not exist.  Let's try this again."
+        # end
+
+        return File.open(user_input_filename.chomp, 'r')         #Return the file object
     end
 
 end
