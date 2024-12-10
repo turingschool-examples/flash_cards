@@ -1,7 +1,7 @@
-require './lib/card.rb'
-require './lib/turn.rb'
-require './lib/deck.rb'
-require './lib/round.rb'
+require_relative '../lib/card'
+require_relative '../lib/turn'
+require_relative '../lib/deck'
+require_relative '../lib/round'
 require 'pry'
 
 
@@ -101,7 +101,7 @@ RSpec.describe Round do
         expect(round.number_correct).to eq(1)
 
         round.take_turn("Venus")
-        
+
         expect(round.number_correct).to eq(1)
     end
 
