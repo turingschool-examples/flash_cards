@@ -13,7 +13,7 @@ RSpec.describe Turn do
         card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
         turn = Turn.new("Canada", card)
 
-        expect(turn.guess).to eq("Canada")
+        expect(turn.guess).to eq("canada")
     end
 
     it 'determine it is wrong' do
