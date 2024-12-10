@@ -18,12 +18,16 @@ Class Round
     turns << new_turn
   end
 
-  def take_turn()
-  
+  def number_correct
+    turns.count (|turn| turn.correct?)
   end
 
-  def number_correct
-  
+  def percent_correct
+
+  end
+
+  def number_correct_by_category(cat)
+
   end
 
   def percent_correct_by_category(cat)
