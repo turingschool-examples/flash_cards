@@ -7,7 +7,7 @@ class Turn
     end
 
     def correct? 
-        @guess.strip.upcase == @card.answer.strip.upcase 
+        @guess.strip.upcase == @card.answer.strip.upcase #case and whitespace insensitivity
     end
 
     def feedback # technically not using this method in game because I wanted to customize the feedback based on category
