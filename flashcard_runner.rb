@@ -16,15 +16,19 @@ require './lib/round'
             initial_card_count = round.deck.cards.size
 
             puts ""
-            puts "Welcome! You're now playing the award-winning game... HOW WELL DO YOU KNOW CHASE!!!"
+            puts ""
+            puts ""
+            puts "Welcome! Chase would like to play his favorite game, he even gave it a cool title... HOW WELL DO YOU KNOW CHASE, the Trivia Game!!!"
             puts ""
             puts "***FURIOUS CLAPPING CAN BE HEARD ALL AROUND YOU***"
+            puts ""
+            puts "Why aren't you clapping? You should absolutely be clapping..."
             puts ""
             puts "-------------------------------------"
             puts ""
 
             while !round.deck.cards.empty? do
-                  puts "This is card number #{round.turns.count + 1} of #{initial_card_count}....'DUN DUN DUNNNNNNNN'..."
+                  puts "This is question number #{round.turns.count + 1} of #{initial_card_count}....DUN DUN DUNNNNNNNN!..."
                   puts round.current_card.question
                   guess = gets.chomp
                   round.take_turn(guess)
