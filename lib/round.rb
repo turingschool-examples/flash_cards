@@ -8,6 +8,7 @@ Class Round
   end
   
   def current_card
+    deck.cards[current_card_num]
 
   end
   
@@ -23,4 +24,7 @@ Class Round
   
   end
 
+  def percent_correct_by_category(cat)
+
+  end
 end

@@ -3,8 +3,8 @@ class Turn
 
         def initialize(string, card)
             @string = string
-            # @guess = string
-            @card = card; end
+            @card = card 
+        end
 
             def guess
                  return string 

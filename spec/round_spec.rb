@@ -101,6 +101,7 @@ RSpec.describe Round do
         expect(round.number_correct).to eq(1)
 
         round.take_turn("Venus")
+        
         expect(round.number_correct).to eq(1)
     end
 
