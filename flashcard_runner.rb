@@ -15,13 +15,13 @@ def cp(message, colors)
     puts message.inspect.colorize(colors.sample)
   end
 
-card1 = Card.new("What is the name of the island in Jurassic Park?", "Isla Nublar", :Movies)
+card1 = Card.new("What is the name of the island in the film Jurassic Park?", "Isla Nublar", :Movies)
 card2 = Card.new("What is the title of the Beatles' final album release?", "Let it Be", :Music)
-card3 = Card.new("What is the capital city of Brazil?", "Brasilia", :Geography)
+card3 = Card.new("What is the capital city of Spain?", "Madrid", :Geography)
 card4 = Card.new("Who played the hit-man, Jules in the film Pulp Fiction?", "Samuel L Jackson", :Movies)
 card5 = Card.new("What is the smallest US State?", "Rhode Island", :Geography)
 card6 = Card.new("Who wrote the 1971 hit song, What's Going On?", "Marvin Gaye", :Music)
-card7 = Card.new("Who played the character Will, in the film Good Will Hunting?", "Matt Damon", :Movies)
+card7 = Card.new("Who played Elizabeth, in the film Pirates of the Caribbean?", "Keira Knightley", :Movies)
 card8 = Card.new("What is the largest ski area in Colorado?", "Vail", :Geography)
 
 cards = [card1, card2, card3, card4, card5, card6, card7, card8]
