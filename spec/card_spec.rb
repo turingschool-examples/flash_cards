@@ -2,6 +2,8 @@ require './lib/card' #links the card.rb file to the card_spec.rb file
 require 'rspec' #links the rspec gem to the card_spec.rb file
 require 'pry' # This is required to use Pry
 
+#rspec spec/card_spec.rb is the command to run the test
+
 # to run test in terminal type rspec spec/card_spec.rb
 
 RSpec.describe Card do #rspec syntax to describe the Card class
