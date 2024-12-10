@@ -40,17 +40,13 @@ RSpec.describe Turn do
         turn = Turn.new("Denver", card)
 
         expect(turn.correct?).to be(false)
-        # I don't think that this will work because it is only testing for this one guess.
-        # Or is it becuase we are running this test for this specific card so we know that it
-        # will be false so we put what the actual outcome will be? 
     end
 
     it 'did you win?' do
         card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
         
         turn = Turn.new("Denver", card)
-# I know that I need to add a method for feedback but I am not sure what i need to put in
-# so that turn and feedback can equal "incorrect"
+
         expect(turn.feedback). to eq("Incorrect")
     end
 end
