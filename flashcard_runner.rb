@@ -9,6 +9,7 @@ require './lib/card_generator'
 
 require 'pry'
 
+#OLD APPROACH (before CardGenerator class existed)
 #Create 4 cards and build a deck
 # card_1 = Card.new("What is 5 + 5?", "10", :STEM)
 # card_2 = Card.new("What is Rachel's favorite animal?", "Meerkat", :Turing_staff)  #Why is "\'" not needed?
@@ -34,25 +35,25 @@ round.start
 #For now, I'll go with the former, but may change it up later.
 
 #First, we need a way to get the user's input:
-def get_user_guess()
-    #Get input via CLI and clean it up (could expand more on this later)
-    #Default will be to interpret all strings in lowercase form only
-    user_input = gets
-    return user_input.to_s.strip.downcase
-end
+# #UPDATE: this method really is superfluous; condense into round.take_turn([condense_here])
+# def get_user_guess()
+#     #Get input via CLI and clean it up (could expand more on this later)
+#     #Default will be to interpret all strings in lowercase form only
+#     user_input = gets
+#     return user_input.to_s.strip.downcase
+# end
 
 #Iterate through the full deck to complete the round
-#I'm using a while loop for this approach
 while round.current_card != nil                 #Whew, it works!
     #Print current card's question
-    puts "This is card number #{round.current_card_index + 1} out of #{round.deck.count}."
+    puts "\nThis is card number #{round.current_card_index + 1} out of #{round.deck.count}."
     puts "Question: " + round.current_card.question
     #Take the turn by getting the user's guess and check against the card, etc.
-    round.take_turn(get_user_guess())
+    round.take_turn(gets().to_s.strip.downcase)
 end
 
 #Wrap it all up
 round.finish()
 
-
+#To check any vars / states at the end
 binding.pry
