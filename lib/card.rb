@@ -1,3 +1,4 @@
+# FILE: lib/card.rb
 require 'pry' # This is required to use Pry
 
 class Card #create a class called Card
@@ -11,10 +12,7 @@ class Card #create a class called Card
 end
 
 
-# to get directoru path use File.dirname(__FILE__)
-# to get the file path use File.expand_path(__FILE__)
-
-#get the file path of the file you are in by using File.expand_path(__FILE__)
 
 
-#create runner files to run the code
+
+
