@@ -6,7 +6,7 @@ require './lib/round'
 require './lib/deck'
 
 describe Round do
-  it 'exists and is initialized properly' do
+  it 'exists' do
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     card_3 = Card.new("Describe in words the exact direction that is 697.5 degrees clockwise from due north?", "North north west", :STEM)
@@ -16,7 +16,7 @@ describe Round do
     expect(round).to be_a(Round)
   end
 
-  it 'has a deck attr_reader' do
+  it 'contains a deck object that holds an array of cards' do
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     card_3 = Card.new("Describe in words the exact direction that is 697.5 degrees clockwise from due north?", "North north west", :STEM)
@@ -26,7 +26,7 @@ describe Round do
     expect(round.deck).to eq(deck)
   end
 
-  it 'has a turns attr_reader' do
+  it 'contains an initially empty turns array' do
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     card_3 = Card.new("Describe in words the exact direction that is 697.5 degrees clockwise from due north?", "North north west", :STEM)
@@ -36,7 +36,7 @@ describe Round do
     expect(round.turns).to eq([])
   end
 
-  it 'has a working current_card method' do
+  it 'tracks which card it is currently working with' do
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     card_3 = Card.new("Describe in words the exact direction that is 697.5 degrees clockwise from due north?", "North north west", :STEM)
@@ -46,7 +46,7 @@ describe Round do
     expect(round.current_card).to eq(card_1)
   end
 
-  it 'has a working take_turn method' do
+  it 'can progress the game by taking turns' do
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     card_3 = Card.new("Describe in words the exact direction that is 697.5 degrees clockwise from due north?", "North north west", :STEM)
@@ -57,7 +57,7 @@ describe Round do
     expect(new_turn).to eq(round.turns[0])
   end
 
-  it 'has a working number_correct method' do
+  it 'tracks how many guesses have been correct' do
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     card_3 = Card.new("Describe in words the exact direction that is 697.5 degrees clockwise from due north?", "North north west", :STEM)
@@ -69,7 +69,7 @@ describe Round do
     expect(round.number_correct).to eq(1)
   end
 
-  it 'has a working number_correct_by_category method (Geography)' do
+  it 'tracks the number of correct guesses in a given category' do
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     card_3 = Card.new("Describe in words the exact direction that is 697.5 degrees clockwise from due north?", "North north west", :STEM)
@@ -81,7 +81,7 @@ describe Round do
     expect(round.number_correct_by_category(:Geography)).to eq(1)
   end
 
-  it 'has a working number_correct_by_category method (STEM)' do
+  it 'tracks the number of correct guesses in another given category' do
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     card_3 = Card.new("Describe in words the exact direction that is 697.5 degrees clockwise from due north?", "North north west", :STEM)
@@ -93,7 +93,7 @@ describe Round do
     expect(round.number_correct_by_category(:STEM)).to eq(0)
   end
 
-  it 'has a working percent_correct method' do
+  it 'tracks the percentage of correct guesses' do
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     card_3 = Card.new("Describe in words the exact direction that is 697.5 degrees clockwise from due north?", "North north west", :STEM)
@@ -105,7 +105,7 @@ describe Round do
     expect(round.percent_correct).to eq(50.0)
   end
 
-  it 'has a working percent_correct_by_category method' do
+  it 'tracks the percentage of correct guesses for a given category' do
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     card_3 = Card.new("Describe in words the exact direction that is 697.5 degrees clockwise from due north?", "North north west", :STEM)
