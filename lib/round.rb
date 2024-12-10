@@ -37,6 +37,7 @@ class Round
 
     def percent_correct
         @number_correct.div(@turns_taken)*100
+        return "#{@number_correct.div(@turns_taken)*100}%"
     end
 
     def number_correct_by_category(category)
@@ -45,6 +46,7 @@ class Round
 
     def percent_correct_by_category(category)
         @correct_count_by_category[category].div(@cards_by_category[category])*100
+        return "#{@correct_count_by_category[category].div(@cards_by_category[category])*100}%"
     end
 end
 
