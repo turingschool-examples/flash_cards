@@ -32,6 +32,12 @@ p "Ooo..."
 p "You really thought that, huh? Interesting..."
 p "Alright. Time to tell you how you did."
 
-p round.percent_correct
-p round.percent_correct_by_category(:History)
+
+p "You got " + round.percent_correct + "out of 100%. Are you proud of yourself?"
+
+p "You knew " + round.percent_correct_by_category(:Games) + "of my strange game facts."
+
+p "But you only got " + round.percent_correct_by_category(:History) + "out of the history questions. Did you enjoy the struggle here?"
+
+p "Well. Hours of my blood, sweat, and tears... for 2 minutes of your time. Thanks for playing, I guess. You could always play again, if you wanted me to feel better."
 
