@@ -1,6 +1,6 @@
 require 'pry'
 class Deck
-    attr_reader :cards, :count, :cards_in_category
+     attr_reader :cards
     def initialize(cards)
         @cards = cards
     end
