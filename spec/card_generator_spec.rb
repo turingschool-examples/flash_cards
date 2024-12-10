@@ -53,4 +53,29 @@ describe CardGenerator do
         expect(@cards[2].category).to eq(:Turing_staff)
         #Do I really have to break these each into a separate test?  Feels very tedious at that point...
     end
+
+    it 'loads default file correctly in open_data_file()' do
+        #This one is weird - this method has already worked once initialize() happens.
+        #Also I'm not sure how it handles encountering gets()
+        card_generator = CardGenerator.new(@filename)
+        
+        default_file = card_generator.open_data_file(@filename)
+
+        expect(default_file).to be_a(File)
+        expect(default_file.readline.strip).to eq("What is 5 + 5?,10,STEM")
+    end
+
+    it 'loads a specified file correctly in open_data_file()' do
+        #Same as before with issues.  Can't really test gets() part.
+        card_generator = CardGenerator.new("cards_moredata.txt")
+        
+        default_file = card_generator.open_data_file("cards_moredata.txt")
+
+        expect(default_file).to be_a(File)
+
+        default_file.readline       #To advance another line through file to get to unique line
+
+        expect(default_file.readline.strip).to eq("What is the capital of Alaska?,Juneau,Geography")
+    end        
+
 end
