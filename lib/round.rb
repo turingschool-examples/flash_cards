@@ -1,10 +1,11 @@
 Class Round 
-  attr_accessor :deck, :turn, :current_card_num
+  attr_accessor :deck, :turn
+  @@current_card_num
 
   def initialize(deck)
     @deck = deck
-    @turn = []
-    @current_card_num = 0
+    @turns = []
+    @@current_card_num += 1
   end
   
   def current_card
@@ -12,8 +13,9 @@ Class Round
 
   end
   
-  def take_turn
-
+  def take_turn(string)
+    new_turn = Turn.new(string, card)
+    turns << new_turn
   end
 
   def take_turn()
