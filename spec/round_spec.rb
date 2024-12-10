@@ -56,7 +56,7 @@ RSpec.describe Round do
     end
 
     describe '#number_correct' do
-      it 'records the number of correct answers in the turns array' do
+      it 'records the total number of correct answers in the turns array' do
           @round.take_turn("Juneau")
           expect(@round.number_correct).to eq(1)
 
