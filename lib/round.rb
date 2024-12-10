@@ -29,10 +29,14 @@ Class Round
   end
 
   def number_correct_by_category(cat)
-    
+
   end
 
   def percent_correct_by_category(cat)
+    
+    turn_category = turn.select (|gory| gory.card.category == cat)
+
+    turns.empty = 0 ? return 0 : ((percent / size)*100).round(2)
 
   end
 end
