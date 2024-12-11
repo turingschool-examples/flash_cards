@@ -8,7 +8,7 @@ class CardGenerator
   def initialize(filename)
     @cards = []
     File.open(filename, 'r').each_line do |line|
-      next if line.empty? || line.start_with?('#') || line.split(',').size < 2
+      next if line.start_with?('#') || line.split(',').size < 2
 
       card_array = line.split(',')
       card_array.last.chomp!
