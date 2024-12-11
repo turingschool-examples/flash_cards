@@ -26,18 +26,18 @@ deck.cards.each do |card|
     p round.turns.last.feedback
 end
 
-p "Got through all the cards, huh? Lemme see how you did..."
-p "Oh?"
-p "Ooo..."
-p "You really thought that, huh? Interesting..."
-p "Alright. Time to tell you how you did."
+puts "Got through all the cards, huh? Lemme see how you did..."
+puts "Oh?"
+puts "Ooo..."
+puts "You really thought that, huh? Interesting..."
+puts "Alright. Time to tell you how you did."
 
 
-p "You got " + round.percent_correct.to_s + "%. Are you proud of yourself?"
+puts "You got " + round.percent_correct.to_s + "%. Are you proud of yourself?"
 
-p "You knew " + round.percent_correct_by_category(:Games).to_s + "% of my strange game facts."
+puts "You knew " + round.percent_correct_by_category(:Games).to_s + "% of my strange game facts."
 
-p "But you only got " + round.percent_correct_by_category(:History).to_s + "% out of the history questions. Did you enjoy the struggle here?"
+puts "But you only got " + round.percent_correct_by_category(:History).to_s + "% out of the history questions. Did you enjoy the struggle here?"
 
-p "Well. Hours of my blood, sweat, and tears... for 2 minutes of your time. Thanks for playing, I guess. You could always play again, if you wanted me to feel better."
+puts "Well. Hours of my blood, sweat, and tears... for 2 minutes of your time. Thanks for playing, I guess. You could always play again, if you wanted me to feel better."
 
