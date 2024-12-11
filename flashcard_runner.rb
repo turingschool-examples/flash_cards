@@ -9,7 +9,7 @@ card_1 = Card.new("Who is the smarty who made this game?", "Jacob", :Misc)
 card_2 = Card.new("What green capped hero saves the title named princess from the villain named Ganon?", "Link", :Games)
 card_3 = Card.new("Shows like Stranger Things and Adventure Time started as ideas formed and based off of what table top roleplaying game?", "Dungeons and Dragons", :Games)
 puts "Ahh dang, I dropped em. One second..."
-card_4 = Card.new("What British Naval Hero lost both and eye and an arm in his service to his country?", "Nelson", :History)
+card_4 = Card.new("What British Naval Hero lost both an eye and an arm in his service to his country?", "Nelson", :History)
 card_5 = Card.new("What eventful year had the assassination of Robert Kennedy, MLK Jr, and the Chicago Riots?", "1968", :History)
 puts "Darn, there's one under the table leg here... Annnnd, got it."
 card_6 = Card.new("What animal was hunted to near extinction, its' furs often turned into hats, and is primarily associated with Canada?", "Beaver", :History)
