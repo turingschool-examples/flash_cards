@@ -6,7 +6,7 @@ class Deck
   end
 
   def count
-    @cards.count
+    @cards.count #.count is an enumerable method that returns the number of elements in the array
   end
 
   def cards_in_category(category)
@@ -15,7 +15,8 @@ class Deck
     #.select is an enumerable method that returns a new array containing all elements of the original array for which the block returns true
     #{ indicates the beginning of a block
     #|card| is the block variable, which represents each element of the array as it iterates through
-    #card.category is the category attribute of the card object
+    #card.category will return the category attribute of the card object
     #== is a comparison operator that returns true if the category attribute of the card object is equal to the category argument
   end
 end
+
