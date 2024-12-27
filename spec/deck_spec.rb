@@ -22,11 +22,11 @@ RSpec.describe Deck do
   it 'can count cards' do
     expect(@deck.count).to eq(3)
   end
-end
-
-it 'can return cards in a specific category' do
-  expect(@deck.cards_in_category(:Geography)).to eq([@card_1])
-  expect(@deck.cards_in_category(:Math)).to eq([@card_2])
-  expect(@deck.cards_in_category(:Literature)).to eq([@card_3])
-  expect(@deck.cards_in_category(:Science)).to eq([])
+  
+  it 'can return cards in a given category' do
+    expect(@deck.cards_in_category(:Geography)).to eq([@card_1])
+    expect(@deck.cards_in_category(:Math)).to eq([@card_2])
+    expect(@deck.cards_in_category(:Literature)).to eq([@card_3])
+    expect(@deck.cards_in_category(:Science)).to eq([])
+  end
 end
