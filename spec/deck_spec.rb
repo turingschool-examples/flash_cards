@@ -24,4 +24,3 @@ RSpec.describe Deck do
   end
 end
 
-#deck = Deck.new(cards) will test for the existence of the Deck class
