@@ -38,4 +38,16 @@ class Round
     (number_correct_by_category(category).to_f / total_in_category) * 100
     #will return the percentage of correct turns for a given category
   end
+
+  def start
+      puts "Welcome! You're playing with #{deck.count} cards."
+      puts "-------------------------------------------------"
+      
+      deck.cards.each_with_index do |card, index|
+        puts "This is card number #{index + 1} out of #{deck.count}."
+        puts "Question: #{card.question}"
+        # You can add more interaction here if needed
+      end
+    end
+  end
 end 
