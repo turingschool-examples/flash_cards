@@ -3,11 +3,12 @@
 require_relative 'lib/card'
 require_relative 'lib/deck'
 require_relative 'lib/round'
+require_relative 'lib/turn'
 
 # Create some Cards
 card_1 = Card.new("What is 5 + 5?", "10", :Math)
 card_2 = Card.new("What is Rachel's favorite animal?", "Dog", :Turing)
-card_3 = Card.new("What is Mike's middle name?", "Nobody knows", :Turing)
+card_3 = Card.new("What is Mike's middle name?", "nobody knows", :Turing)
 card_4 = Card.new("What cardboard cutout lives at Turing?", "Justin Bieber", :PopCulture)
 
 # Put those cards into a Deck
