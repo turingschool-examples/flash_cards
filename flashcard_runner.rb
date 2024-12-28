@@ -1,6 +1,8 @@
-require_relative 'card'
-require_relative 'deck'
-require_relative 'round'
+# to run the program, type ruby flashcard_runner.rb in the terminal
+
+require_relative 'lib/card'
+require_relative 'lib/deck'
+require_relative 'lib/round'
 
 # Create some Cards
 card_1 = Card.new("What is 5 + 5?", "10", :Math)
