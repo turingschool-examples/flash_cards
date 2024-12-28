@@ -4,18 +4,51 @@ require_relative 'lib/card'
 require_relative 'lib/deck'
 require_relative 'lib/round'
 require_relative 'lib/turn'
+require './lib/card_generator'
 
-# Create some Cards
-card_1 = Card.new("What is 5 + 5?", "10", :Math)
-card_2 = Card.new("What is Rachel's favorite animal?", "Dog", :Turing)
-card_3 = Card.new("What is Mike's middle name?", "nobody knows", :Turing)
-card_4 = Card.new("What cardboard cutout lives at Turing?", "Justin Bieber", :PopCulture)
+class Card
+  attr_reader :question, :answer, :category
 
-# Put those cards into a Deck
-deck = Deck.new([card_1, card_2, card_3, card_4])
+  def initialize(question, answer, category)
+    @question = question
+    @answer = answer
+    @category = category
+  end
+end
 
-# Create a new Round using the Deck you created
+class Deck
+  attr_reader :cards
+
+  def initialize(cards)
+    @cards = cards
+  end
+end
+
+class Round
+  def initialize(deck)
+    @deck = deck
+    @current_card_index = 0
+  end
+
+  def start
+    puts "Welcome! You're playing with #{@deck.cards.size} cards."
+    puts "-------------------------------------------------"
+    @deck.cards.each_with_index do |card, index|
+      puts "This is card number #{index + 1} out of #{@deck.cards.size}."
+      puts "Question: #{card.question}"
+      print "Your answer: "
+      user_answer = gets.chomp
+      if user_answer.downcase == card.answer.downcase
+        puts "Correct!"
+      else
+        puts "Incorrect. The correct answer was #{card.answer}."
+      end
+    end
+    puts "Game over! Thanks for playing."
+  end
+end
+
+cards = CardGenerator.new('./cards.txt').cards
+deck = Deck.new(cards)
 round = Round.new(deck)
-
-# Start the round using a new method called start
 round.start

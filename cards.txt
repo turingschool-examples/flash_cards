@@ -1,0 +1,4 @@
+What is 5 + 5?|10|Math
+What is Rachel's favorite animal?|Dog|Turing
+What is Mike's middle name?|Nobody knows|Turing
+What cardboard cutout lives at Turing?|Justin Bieber|PopCulture
