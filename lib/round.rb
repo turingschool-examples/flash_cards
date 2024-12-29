@@ -15,7 +15,7 @@ class Round
   end
 
   def number_correct
-    @turns.count { |turn| turn.correct? }
+    @turns.count { |turn| turn.correct? } 
   end
 
   def number_correct_by_category(category)
