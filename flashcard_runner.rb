@@ -1,4 +1,4 @@
-# to run the program, type ruby flashcard_runner.rb in the terminal
+# ruby flashcard_runner.rb 
 
 require_relative 'lib/card'
 require_relative 'lib/deck'
@@ -48,7 +48,7 @@ class Round
   end
 end
 
-cards = CardGenerator.new('./cards.txt').cards
-deck = Deck.new(cards)
-round = Round.new(deck)
-round.start
+cards = CardGenerator.new('./cards.txt').cards # Use the CardGenerator class to read the cards from the file
+deck = Deck.new(cards) # Create a new Deck object with the cards
+round = Round.new(deck) # Create a new Round object with the deck
+round.start # Start the game
