@@ -13,7 +13,7 @@ class Turn
     @guess == @card.answer
   end
 
-  def feedback
+  def feedback #will return "Correct!" if the guess is correct and "Incorrect." if the guess is incorrect
     correct? ? "Correct!" : "Incorrect."
   end
 end
