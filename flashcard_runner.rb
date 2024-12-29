@@ -31,14 +31,14 @@ class Round
   end
 
   def start
-    puts "Welcome! You're playing with #{@deck.cards.size} cards."
+    puts "Welcome! You're playing with #{@deck.cards.size} cards." #{@deck.cards.size} will return the number of cards
     puts "-------------------------------------------------"
     @deck.cards.each_with_index do |card, index|
-      puts "This is card number #{index + 1} out of #{@deck.cards.size}."
+      puts "This is card number #{index + 1} out of #{@deck.cards.size}." #{index + 1} will return the card number
       puts "Question: #{card.question}"
       print "Your answer: "
-      user_answer = gets.chomp
-      if user_answer.downcase == card.answer.downcase
+      user_answer = gets.chomp #gets.chomp will get the user's answer
+      if user_answer.downcase == card.answer.downcase #this will prevent the user from getting the answer wrong if they use the wrong case
         puts "Correct!"
       else
         puts "Incorrect. The correct answer was #{card.answer}."
