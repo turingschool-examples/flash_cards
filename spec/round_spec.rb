@@ -1,4 +1,3 @@
-# FILE: spec/round_spec.rb
 require_relative '../lib/round'
 require_relative '../lib/deck'
 require_relative '../lib/card'

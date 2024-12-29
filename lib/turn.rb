@@ -1,4 +1,3 @@
-# FILE: lib/turn.rb
 require 'pry'
 require_relative 'card' # Use require_relative to ensure the correct path
 

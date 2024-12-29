@@ -1,4 +1,3 @@
-# filepath: /Users/dontehandy/turing_work/1mod/projects/flash_cards/spec/turn_spec.rb
 require_relative '../lib/card'
 require_relative '../lib/turn'
 require 'rspec'
