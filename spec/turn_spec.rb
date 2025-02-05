@@ -21,7 +21,16 @@ RSpec.describe Turn do
 
         expect(turn.guess).to eq("Juneau")
     end
-    
+    it "has boolien" do
+        turn = Turn.new("Juneau", Card)
+
+        expect(turn.correct?).to eq(true)
+    end
+    it "has feedback" do
+        turn = Turn.new("Juneau", Card)
+
+        expect(turn.feedback)
+    end
 
 end
    
