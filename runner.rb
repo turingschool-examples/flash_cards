@@ -3,6 +3,7 @@ require "./lib/deck"
 require "./lib/round"
 require "./lib/turn"
 require "./lib/card_generator"
+require "./lib/hint"
 require "pry"
 
 filename = "./cards.txt"
@@ -15,6 +16,7 @@ initialize_round = Round.new(play_deck) # initialize the current round
 
 def display_welcome_message(round) # i dont know why im splitting these, but i think it's a good practice for making it more legible.
   puts "Welcome! You're playing with #{round.deck.cards.count} cards." # really no point unless i was using "clear console" commands and reprinting this message
+  puts "You have one hint, use it wisely! (type 'hint' to use it)"
   puts "-------------------------------------------------"
 end
 
@@ -70,9 +72,11 @@ def add_fact_card(file_name) # add a fact card to the file
     answer = gets.chomp
     print "Enter the category: " # get the category
     category = gets.chomp
+    print "Enter the hint: " # get the hint
+    hint = gets.chomp
 
     File.open(file_name, 'a') do |file|
-      file.puts("#{question},#{answer},#{category}")
+      file.puts("#{question},#{answer},#{category},#{hint}") # write the new card to the file
     end
     puts "Your fact card has been added!"
     system("sleep 2") # sleep for 2 seconds

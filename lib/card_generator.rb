@@ -7,8 +7,8 @@ class CardGenerator
 
   def cards
     File.open(@filename).map do |line| # open the file and map over each line
-      question, answer, category = line.chomp.split(',') # split the line into question, answer, and category
-      Card.new(question, answer, category.to_sym) # create a new card
+      question, answer, category, hint = line.chomp.split(',') # split the line into question, answer, and category
+      Card.new(question, answer, category.to_sym, hint) # create a new card
     end
   end
 end
