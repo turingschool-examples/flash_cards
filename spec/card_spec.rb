@@ -1,27 +1,36 @@
 require './lib/card'
+require 'rspec'
+require 'pry'
 
 RSpec.describe Card do
-  it 'exists' do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+  before(:each) do
+    @card = Card.new("What is the capital of Alaska?", "Juneau", :Geography) # i didnt document any of these cause I am dumb
+  end
 
-    expect(card).to be_instance_of(Card)
+  it 'initialize' do
+    expect(@card).to be_instance_of(Card)
   end
 
   it 'has a question' do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-
-    expect(card.question).to eq("What is the capital of Alaska?")
+    expect(@card.question).to eq("What is the capital of Alaska?")
   end
 
   it 'has an answer' do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-
-    expect(card.answer).to eq("Juneau")
+    expect(@card.answer).to eq("Juneau")
   end
 
   it 'has a category' do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    expect(@card.category).to eq(:Geography)
+  end
 
-    expect(card.category).to eq(:Geography)
+  it 'can change the question' do
+    @card.instance_variable_set(:@question, "What is the capital of California?")
+    expect(@card.question).to eq("What is the capital of California?")
+  end
+
+  it 'can change the answer' do
+    @card.instance_variable_set(:@answer, "Sacramento")
+
+    expect(@card.category).to eq(:Geography)
   end
 end
