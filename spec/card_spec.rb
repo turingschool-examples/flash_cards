@@ -2,7 +2,7 @@ require './lib/card'
 require 'rspec'
 require 'pry'
 
-RSpec.describe Card do
+describe Card do
   before(:each) do
     @card = Card.new("What is the capital of Alaska?", "Juneau", :Geography) # i didnt document any of these cause I am dumb
   end

@@ -26,11 +26,21 @@ def get_user_input # Get user input split into a different def to make me accomp
 end
 
 def play_game(round)
+  hint_used = false # set the hint used to false at firsts
   while round.turns.count < round.deck.cards.count # while the number of turns is less than the number of cards in the deck
     puts "This is card number #{round.turns.count + 1} out of #{round.deck.cards.count}." # print the current card number to console
     puts "Question: #{round.deck.cards[round.turns.count].question}" # print the current card question to console (this was a pain in the butt to figure out cause i forgot about the whole ummm card array thing)
-    
-    user_answer = get_user_input # get the user input will only use this method once butttt hey it is clean!
+
+    if !hint_used && round.deck.cards[round.turns.count].hint
+      user_input = gets.chomp.downcase
+      if user_input == 'hint'
+        puts "Hint: #{round.deck.cards[round.turns.count].hint}"
+        hint_used = true
+        user_answer = get_user_input
+      end
+    else
+      user_answer = get_user_input # just as a sanity check
+    end
 
     turn = round.take_turn(user_answer) # take the turn with the user input
     puts "----------------" # print a line to the console
