@@ -31,7 +31,12 @@ def play_game(round)
     user_answer = get_user_input # get the user input will only use this method once butttt hey it is clean!
 
     turn = round.take_turn(user_answer) # take the turn with the user input
+    puts "----------------" # print a line to the console
     puts turn.feedback # print the feedback to the console (correct or incorrect)
+    puts "----------------" # print a line to the console
+    system("sleep 1.7") # sleep for 1.7 seconds
+    system("clear") || system("cls") # clear the console
+
   end
 end
 
@@ -52,13 +57,40 @@ def display_category_performance(round) # display the category performance will 
     percent_correct_in_category = calculate_category_performance(round, category) # calculate the percentage of correct answers in the category
     puts "#{category} - #{percent_correct_in_category}% correct" # print the category and the percentage of correct answers
   end
+  puts "****** Game over! ******" # print game over message to console again to encapsulate the category performance stats
 end
 
-def start(round) # im not going to bother commenting on these
+def add_fact_card(file_name) # add a fact card to the file 
+  print "\nWould you like to add your own fact card? (y/n): "
+  response = gets.chomp.downcase # will ensure that the users input it lowercase (or could just add || response == "Y")
+  if response == 'y' || response == 'yes'
+    print "Enter the question: " # get the question
+    question = gets.chomp
+    print "Enter the answer: " # get the answer
+    answer = gets.chomp
+    print "Enter the category: " # get the category
+    category = gets.chomp
+
+    File.open(file_name, 'a') do |file|
+      file.puts("#{question},#{answer},#{category}")
+    end
+    puts "Your fact card has been added!"
+    system("sleep 2") # sleep for 2 seconds
+    # this next part will only really work based on users hardware but i dont want to deal with windows right now
+    system("clear") || system("cls") # clear the console (I am pretty sure cls is clear screen for windows I am not going to test though)
+    # cls worked in c++ for windows sooooo here is to hoping!
+    puts "Thank you for playing!"
+  else
+    puts "Thank you for playing!"
+  end
+end
+
+def start(round, file_name) # im not going to bother commenting on these
   display_welcome_message(round)
   play_game(round)
   display_game_over_message(round)
   display_category_performance(round)
+  add_fact_card(file_name)
 end
 
-start(initialize_round) # Start the round
+start(initialize_round, filename) # Start the round
