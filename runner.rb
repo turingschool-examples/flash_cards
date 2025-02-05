@@ -62,16 +62,10 @@ def display_game_over_message(round)
   puts "You had #{round.number_correct} correct guesses out of #{round.deck.cards.count} for a total score of #{round.percent_correct}%."
 end
 
-def calculate_category_performance(round, category) # just a large calculation that i seperated from the display categort performance method
-  total_in_category = round.deck.cards.count { |card| card.category == category } # total number of cards in the category
-  correct_in_category = round.turns.count { |turn| turn.card.category == category && turn.correct? } # number of correct answers in the category
-  (correct_in_category.to_f / total_in_category * 100).round(2) # calculate the percentage of correct answers in the category
-end
-
-def display_category_performance(round) # display the category performance will use this method above ^^^
+def display_category_performance(round)
   categories = round.deck.cards.map(&:category).uniq # get the unique categories from the cards
-  categories.each do |category| # for each category
-    percent_correct_in_category = calculate_category_performance(round, category) # calculate the percentage of correct answers in the category
+  categories.each do |category|
+    percent_correct_in_category = round.percent_correct_by_category(category) # calculate the percentage of correct answers in the category
     puts "#{category} - #{percent_correct_in_category}% correct" # print the category and the percentage of correct answers
   end
   puts "****** Game over! ******" # print game over message to console again to encapsulate the category performance stats

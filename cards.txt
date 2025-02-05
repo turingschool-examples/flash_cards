@@ -2,3 +2,4 @@ What is 5 + 5?,10,STEM,can be done on your hands
 What is Rachel's favorite animal?,red panda,Turing Staff,It's a cute animal
 What is Mike's middle name?,nobody knows,Turing Staff,good luck?
 What cardboard cutout lives at Turing?,Justin bieber,PopCulture,Baby baby baby ooooohhhThis is just a test,okay?,dev,okay?
+test card,test,deving,test
