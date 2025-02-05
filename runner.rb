@@ -31,16 +31,21 @@ def play_game(round)
     puts "This is card number #{round.turns.count + 1} out of #{round.deck.cards.count}." # print the current card number to console
     puts "Question: #{round.deck.cards[round.turns.count].question}" # print the current card question to console (this was a pain in the butt to figure out cause i forgot about the whole ummm card array thing)
 
+   user_answer = nil
     if !hint_used && round.deck.cards[round.turns.count].hint
+      print "Your answer: "
       user_input = gets.chomp.downcase
       if user_input == 'hint'
         puts "Hint: #{round.deck.cards[round.turns.count].hint}"
         hint_used = true
         user_answer = get_user_input
+      else
+        user_answer = user_input # accidentally was using "get_user_input" here causing many issues. Fixed it!
       end
     else
-      user_answer = get_user_input # just as a sanity check
+      user_answer = get_user_input # just a sanity check
     end
+
 
     turn = round.take_turn(user_answer) # take the turn with the user input
     puts "----------------" # print a line to the console
@@ -93,9 +98,24 @@ def add_fact_card(file_name) # add a fact card to the file
     # this next part will only really work based on users hardware but i dont want to deal with windows right now
     system("clear") || system("cls") # clear the console (I am pretty sure cls is clear screen for windows I am not going to test though)
     # cls worked in c++ for windows sooooo here is to hoping!
-    puts "Thank you for playing!"
   else
-    puts "Thank you for playing!"
+    puts "Maybe next time!"
+    system("sleep 2")
+    system("clear") || system("cls")
+  end
+end
+
+def prompt_to_play_again(filename)
+  print "Would you like to play again? (y/n): "
+  replay = gets.chomp.downcase
+  if replay == 'y' || replay == 'yes'
+    card_generator = CardGenerator.new(filename)
+    fact_cards = card_generator.cards
+    play_deck = Deck.new(fact_cards)
+    initialize_round = Round.new(play_deck)
+    start(initialize_round, filename)
+  else
+    puts "Thank you for playing! Goodbye!"
   end
 end
 
@@ -105,6 +125,7 @@ def start(round, file_name) # im not going to bother commenting on these
   display_game_over_message(round)
   display_category_performance(round)
   add_fact_card(file_name)
+  prompt_to_play_again(file_name)
 end
 
 start(initialize_round, filename) # Start the round
