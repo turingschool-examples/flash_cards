@@ -1,27 +1,34 @@
+require 'rspec'
 require './lib/card'
 
-RSpec.describe Card do
-  it 'exists' do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
-    expect(card).to be_instance_of(Card)
-  end
+describe Card do
+  describe '#initalize' do 
+    it 'exists' do
+      card = Card.new()
 
-  it 'has a question' do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+      expect(card).to be_instance_of(Card)
+    end
 
-    expect(card.question).to eq("What is the capital of Alaska?")
-  end
+require “pry”; binding.pry
 
-  it 'has an answer' do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    it 'has a question' do
+      card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
-    expect(card.answer).to eq("Juneau")
-  end
+      expect(card.question).to eq("What is the capital of Alaska?")
+    end
 
-  it 'has a category' do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    it 'has an answer' do
+      card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
-    expect(card.category).to eq(:Geography)
+      expect(card.answer).to eq("Juneau")
+    end
+
+    it 'has a category' do
+      card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+
+      expect(card.category).to eq(:Geography)
+    end
+
   end
 end
