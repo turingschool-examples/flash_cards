@@ -8,7 +8,7 @@ RSpec.describe Card do
   end
 
   it 'has a question' do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    card = Card.new("What is the capital of Alaska?", "6(166*())", :Geography)
 
     expect(card.question).to eq("What is the capital of Alaska?")
   end
