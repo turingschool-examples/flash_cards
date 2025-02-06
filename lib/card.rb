@@ -5,7 +5,7 @@ class Card
         @category = category
     end
     def question
-        @question = "What is the capital of Alaska?"
+        @question = "#{question}"
     end
     def answer
         @answer = "Juneau"
