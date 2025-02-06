@@ -30,7 +30,7 @@ describe Round do
     expect(@round.current_card).to eq(@card_1) #=> #<Card:0x00007fa16104e160 @answer="Juneau", @question="What is the capital of Alaska?", @category=:Geography>
   end
 
-  it "can take a turn" do
+  it "can take a turn" do # will fail due to shuffling the cards
     new_turn = @round.take_turn("Juneau") # not putting in before(:each) do because I will reinvoke this below with different data #=> #<Turn:0x00007f99842f09e8 @card=#<Card:0x00007f800e29f0c9 @question=""What is the capital of Alaska?", @answer="Juneau", @category=:Geography>, @guess="Juneau">
     expect(new_turn).to be_instance_of(Turn) #=> Turn
     expect(new_turn.correct?).to be true #=> true
@@ -39,7 +39,7 @@ describe Round do
     expect(@round.current_card).to eq(@card_2) #=> #<Card:0x00007fa160a62e90 @answer="Mars", @question="The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", @category=:STEM>
   end
 
-  it "can take another turn" do
+  it "can take another turn" do # will fail due to shuffling the cards
     @round.take_turn("Juneau") 
     new_turn = @round.take_turn("Venus") #=> #<Turn:0x00007f972a215b38...>
     expect(new_turn).to be_instance_of(Turn) #=> 2
