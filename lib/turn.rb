@@ -6,13 +6,18 @@ class Turn
         @card = card
     end
 
-    #Non-case sensative?
+    #Non-case sensative
     def correct?
         @guess.downcase == @card.answer.downcase
     end
 
     def feedback
-        correct? ? "Correct :)" : "Incorrect :("
+        correct? ? "Correct" : "Incorrect"
+        # if correct?
+        #     "Correct"
+        # else
+        #     "Incorrect"
+        # end
     end
 end
 
