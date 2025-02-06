@@ -1,5 +1,5 @@
-require 'rspec'
 require './lib/card'
+require 'rspec'
 require 'pry' 
 
 
