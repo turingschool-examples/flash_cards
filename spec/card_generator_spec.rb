@@ -8,7 +8,7 @@ describe CardGenerator do
   end
 
   it 'initialize' do
-    expect(@card_generation).to be_an_instance_of(CardGenerator) # just making object for card gen
+    expect(@card_generation).to be_an_instance_of(CardGenerator) # just expecting the object to be card gen
   end
 
   it 'will create the cards' do

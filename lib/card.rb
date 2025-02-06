@@ -1,10 +1,9 @@
 class Card
-  attr_reader :question, :answer, :category, :hint
+  attr_reader :question, :answer, :category
 
-  def initialize(question, answer, category, hint = nil)
+  def initialize(question, answer, category)
     @question = question
     @answer = answer
     @category = category
-    @hint = hint
   end
 end

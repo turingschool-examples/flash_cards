@@ -10,10 +10,10 @@ describe Hint do
   end
 
   it 'initialize' do
-    expect(@hint).to be_instance_of(Hint)
+    expect(@hint).to be_instance_of(Hint) # Check hint is part of hint class
   end
 
   it 'the hint string' do
-    expect(@hint.hint_text).to eq("This is a hint")
+    expect(@hint.hint_text).to eq("This is a hint") # Check hint string is correct
   end
 end

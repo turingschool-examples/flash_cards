@@ -23,7 +23,7 @@ describe Deck do
     expect(@deck.count).to eq(3) #=> 3 for our example
   end
 
-  it "return the cards in a category" do
+  it "return the cards in a category" do # just checks to ensure that we are getting correct return based on category.
     expect(@deck.cards_in_category(:STEM)).to eq([@card_2, @card_3]) # #=> [#<Card:0x00007fa160a62e90...>, #<Card:0x00007fa161a136f0...>]
     expect(@deck.cards_in_category(:Geography)).to eq([@card_1]) # #=> [#<Card:0x00007fa16104e160...>]
     expect(@deck.cards_in_category("Pop Culture")).to eq([]) # empty array

@@ -30,7 +30,6 @@ describe Card do
 
   it 'can change the answer' do
     @card.instance_variable_set(:@answer, "Sacramento")
-
-    expect(@card.category).to eq(:Geography)
+    expect(@card.answer).to eq("Sacramento")
   end
 end

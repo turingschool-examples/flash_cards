@@ -10,6 +10,14 @@ filename = "./cards.txt"
 card_generator = CardGenerator.new(filename)
 fact_cards = card_generator.cards
 
+
+nums = [100, 200, 300, 400]
+
+# print all the numbers in the array
+nums.each do |num|
+  puts num
+end
+
 play_deck = Deck.new(fact_cards) # initialize the deck
 
 initialize_round = Round.new(play_deck) # initialize the current round

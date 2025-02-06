@@ -6,15 +6,15 @@ class Round
   def initialize(deck)
     @deck = deck
     @turns = []
-    @current_card = deck.cards.first
+    @current_card = deck.cards.first # using the first card in the deck as the current card to start off with, this will be updated as the game goes on by +1
     @number_correct = 0
   end
 
   def take_turn(guess)
     turn = Turn.new(guess, @current_card)
     @turns << turn
-    @number_correct += 1 if turn.correct?
-    @current_card = @deck.cards[@turns.count]
+    @number_correct += 1 if turn.correct? # increment the number correct if the turn is correct
+    @current_card = @deck.cards[@turns.count] # update the current card to the next card in the deck
     turn
   end
 
@@ -27,12 +27,12 @@ class Round
   end
 
   def percent_correct
-    (@number_correct.to_f / @turns.count) * 100
+    (@number_correct.to_f / @turns.count) * 100 # just convert to a %
   end
 
   def percent_correct_by_category(category) # will be calculating the percentage instead of storing it and doing calculation later (just to make my runner.rb less cluttered and speeding up calculations by having it in the instance)
-    total_in_category = @turns.count { |turn| turn.card.category == category }
-    correct_in_category = number_correct_by_category(category)
-    (correct_in_category.to_f / total_in_category) * 100
+    total_in_category = @turns.count { |turn| turn.card.category == category } # total number of turns in the category
+    correct_in_category = number_correct_by_category(category) # number of correct turns in the category
+    (correct_in_category.to_f / total_in_category) * 100 # return the percentage
   end
 end
