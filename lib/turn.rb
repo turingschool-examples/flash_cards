@@ -2,7 +2,7 @@ class Turn
     # The attr reader creates getter methods for instnace variables(ex. @guess,@card)
     attr_reader :guess, :card
     # Our initialize method is calling 2 parameters, guess and card.
-    # It then assigns the values to our instnace values @guess and @card
+    # It then assigns the values to our instance values @guess and @card
     def initialize(guess,card)
         @guess = guess # stores the guess
         @card = card # stores the card object which contains the question and answer
