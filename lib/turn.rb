@@ -17,7 +17,6 @@ class Turn
         else 
         return "Incorrect."
         end 
-       
     
     end
 end
