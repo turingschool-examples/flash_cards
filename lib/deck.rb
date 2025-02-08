@@ -9,15 +9,8 @@ class Deck
         @cards.length
     end
 
-    def cards_in_category(category) #which cards are in the category given
-        match = []
-
-        @cards.each do |card|
-            if card.category == category
-                match << card
-            end
-        end
+    def cards_in_category(category)
+        @cards.select { |card| card.category == category }
     end
-
 
 end
