@@ -30,13 +30,6 @@ describe Card do
     expect(card.category).to eq(:Geography)
   end
 
-
-
-
-
-
-
-  
 end
 
 
