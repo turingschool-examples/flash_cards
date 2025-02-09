@@ -1,5 +1,5 @@
 require './lib/turn'
-# require'pry';binding.pry
+
 require './lib/card'
 
 RSpec.describe Turn do
