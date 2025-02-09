@@ -39,7 +39,5 @@ RSpec.describe Deck do
         deck.cards_in_category(:STEM)
         deck.cards_in_category(:Geography)
         deck.cards_in_category("Pop Culture")
-
-
     end
 end
