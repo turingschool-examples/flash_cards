@@ -17,7 +17,6 @@ class Round
 
         @turns << new_turn
         @current_card_index += 1 #do I need more here?
-        #adding if @current_card_index < @decks.cards.length - 1
         new_turn #I have to print the new turn
     end
 
