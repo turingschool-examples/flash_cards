@@ -4,11 +4,12 @@ require 'pry'
 
 
 describe Card do
-  describe '#initialize'
-  it 'exists' do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+  describe '#initialize' do
+    it 'exists' do
+      card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
-    expect(card).to be_instance_of(Card)
+      expect(card).to be_instance_of(Card)
+    end
   end
 
   it 'has a question' do
@@ -28,4 +29,16 @@ describe Card do
 
     expect(card.category).to eq(:Geography)
   end
+
+
+
+
+
+
+
+  
 end
+
+
+
+
