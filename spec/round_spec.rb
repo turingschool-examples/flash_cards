@@ -31,6 +31,7 @@ describe Round do
   end
 
   it "can take a turn" do # will fail due to shuffling the cards
+    Binding.pry
     new_turn = @round.take_turn("Juneau") # not putting in before(:each) do because I will reinvoke this below with different data #=> #<Turn:0x00007f99842f09e8 @card=#<Card:0x00007f800e29f0c9 @question=""What is the capital of Alaska?", @answer="Juneau", @category=:Geography>, @guess="Juneau">
     expect(new_turn).to be_instance_of(Turn) #=> Turn
     expect(new_turn.correct?).to be true #=> true

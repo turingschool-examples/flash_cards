@@ -23,6 +23,9 @@ class Round
   end # used this way due to simplicity and readability, cons are I could have messed something up easier (messing up the incrementation etc)
 
   def number_correct_by_category(category)
+    @turns.count do |turn|
+      
+    end
     @turns.count { |turn| turn.correct? && turn.card.category == category }
   end
 
