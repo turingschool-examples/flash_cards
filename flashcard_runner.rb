@@ -2,22 +2,26 @@ require './lib/card'
 require './lib/turn'
 require './lib/deck'
 require './lib/round'
+require './lib/card_generator'
 require 'pry'
 
 
 def start_game
 
-    card_1 = Card.new("what is 5 + 5", "10", :STEM)
-    card_2 = Card.new("what is Rachel's favorite animal?", "panda", :Turing_Staff)
-    card_3 = Card.new("What is Mike's middle name?", "nobody knows", :Pop_Culture)
-    card_4 = Card.new("what cardboard cutout lives at Turing?", "Justin Bieber", :Turing_Staff)
+    # card_1 = Card.new("what is 5 + 5", "10", :STEM)
+    # card_2 = Card.new("what is Rachel's favorite animal?", "panda", :Turing_Staff)
+    # card_3 = Card.new("What is Mike's middle name?", "nobody knows", :Turing_Staff)
+    # card_4 = Card.new("what cardboard cutout lives at Turing?", "Justin Bieber", :Pop_Culture)
 
-    cards = [card_1, card_2, card_3, card_4]
+    # cards = [card_1, card_2, card_3, card_4]
+    cards = CardGenerator.new(filename).cards
+    binding.pry
     deck = Deck.new(cards)
 
     round = Round.new(deck)
 
     puts "Welcome to the flashcards game! You are playing with #{cards.length} cards."
+    puts ""
 
     card_number = 0
     n = cards.length
@@ -25,10 +29,9 @@ def start_game
     
     n.times do 
         puts "This is card number #{card_number += 1} out of 4 cards"
-        puts "Question #{round.current_card.question}"
+        puts "Question: #{round.current_card.question}?"
         guess = gets.chomp
         round.take_turn(guess)
-       # binding.pry
         puts round.turns.last.feedback
     end
     
