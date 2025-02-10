@@ -14,8 +14,10 @@ def start_game
     # card_4 = Card.new("what cardboard cutout lives at Turing?", "Justin Bieber", :Pop_Culture)
 
     # cards = [card_1, card_2, card_3, card_4]
+    filename = "./cards.txt"
+
     cards = CardGenerator.new(filename).cards
-    binding.pry
+   
     deck = Deck.new(cards)
 
     round = Round.new(deck)
