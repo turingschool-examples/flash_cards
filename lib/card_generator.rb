@@ -5,12 +5,9 @@ class CardGenerator
     end
 
     def cards
-        File.open(@filename).map do |line| 
-        # cards_file = File.open(@filename).read
-        # cards_file.map do |line|
-            question, answer, category = line.split(",")
-            
-        # end
+        cards_file = File.open(@filename)
+        cards_file.map do |line|
+            question,answer,category = line.split(",")
             Card.new(question,answer,category)
         end
     end

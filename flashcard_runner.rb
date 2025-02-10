@@ -31,7 +31,7 @@ def start_game
     
     n.times do 
         puts "This is card number #{card_number += 1} out of 4 cards"
-        puts "Question: #{round.current_card.question}?"
+        puts "Question: #{round.current_card.question}"
         guess = gets.chomp
         round.take_turn(guess)
         puts round.turns.last.feedback
@@ -42,9 +42,10 @@ def start_game
 
     puts "You had #{round.number_correct} guesses out of 4 for a total score of #{round.percent_correct}%"
 
-    puts " STEM - #{round.percent_correct_by_category(:STEM)}% correct"
-    puts " Turing_Staff - #{round.percent_correct_by_category(:Turing_Staff)}% correct"
-    puts " Pop_Culture - #{round.percent_correct_by_category(:Pop_Culture)}% correct"
+    puts " STEM - #{round.percent_correct_by_category("STEM\n")}% correct"
+    puts " Turing_Staff - #{round.percent_correct_by_category("Turing_Staff\n")}% correct"
+    puts " Pop_Culture - #{round.percent_correct_by_category("Pop_Culture\n")}% correct"
+    #binding.pry
 
 
 end
