@@ -61,6 +61,6 @@ end
     expect(new_turn).to be_instance_of(Turn)
     expect(round.current_card).to eq(card_2)
     expect(new_turn.correct?).to eq(true)
-    binding.pry
+    #binding.pry
   end
 end
