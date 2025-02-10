@@ -29,7 +29,9 @@ def start
      puts "Question: #{round.current_card.question}"
      guess = gets.chomp
      round.take_turn(guess)
-     puts "#{turns.correct?}"
+     puts round.turns.last.feedback
+      
+     #binding.pry
 
 end
 
