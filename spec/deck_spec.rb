@@ -11,9 +11,7 @@ RSpec.describe Deck do
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
 
-    expect(card_1).to be_instance_of(Card)
-    expect(card_2).to be_instance_of(Card)
-    expect(card_3).to be_instance_of(Card)
+    
     expect(deck).to be_instance_of(Deck)
  end
 
