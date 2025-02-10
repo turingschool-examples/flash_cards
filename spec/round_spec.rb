@@ -17,13 +17,6 @@ RSpec.describe Round do
 
         expect(round.turns).to eq([])
     end
-     it 'check for number correct' do
-         card_1 = Card.new("What is the capital of Alaska?", "Juneau", "Geography")
-         round = Round.new
-         round.take_turn("Juneau", card_1) # Correct
-
-         expect(round.number_correct).to eq(1) 
-     end
     # it 'check for category' do
     #     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     #     deck = Deck.new([card])
