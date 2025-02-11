@@ -4,7 +4,7 @@ class Round
     def initialize(deck)
         @deck = deck
         @turns = []
-        @current_card_index = 0
+        @cards= 0
     end
     def take_turn(guess) # this is creating the take_turn method and is taking the argument guess from the Card
         # current_card is returning the current card in the deck
@@ -19,9 +19,11 @@ class Round
         puts "Current Card: #{current_card.question}"
     end
     def current_card
-        @deck.cards[@current_card_index]  # get the current card by its index
+        @deck.cards[@cards]  # get the current card by its index place starts at 0
     end
+    # this is supposed to get the next card, it's not quite working how I want it to
     def next_card
-        @current_card_index += 1 if @current_card_index < @deck.cards.length - 1
+        # 
+        @cards += 1
     end
 end

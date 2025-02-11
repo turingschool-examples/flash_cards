@@ -29,6 +29,7 @@ def start(round)
     end
     round.next_card
     end
+    
     puts "Game Over"
 end 
 
