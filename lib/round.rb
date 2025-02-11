@@ -13,7 +13,7 @@ class Round
         @turns << new_turn
 
         @current_card_index += 1
-        @current_card = @deck.cards[@current_card_index]  #tried .rotate, failed my tests, swapped to .shift called above
+        @current_card = @deck.cards[@current_card_index]  #tried .rotate, .shift, and wasn't able to get the test to pass. Best luck I had was with an index
 
         new_turn #I have to print the new turn
     end
@@ -33,7 +33,7 @@ class Round
 
     def percent_correct_by_category(category)
         category_turns = @turns.select {|turn| turn.card.category == category}
-        return 0.0 if category_turns.empty?
+        return 0.0 if category_turns.empty? #same as above but with percent_correct_by_category
         correct_in_category = category_turns.count {|turn| turn.correct?}
         (correct_in_category.to_f / category_turns.length * 100).round(1)
     end
