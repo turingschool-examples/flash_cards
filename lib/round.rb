@@ -18,6 +18,7 @@ class Round
         end
         @current_card = @deck.cards[@turns.count]
         turn
+       
     end
 
     def number_correct
