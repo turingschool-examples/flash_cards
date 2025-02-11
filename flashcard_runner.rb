@@ -17,7 +17,7 @@ def round.start
     puts "Welcome! You're playing with #{total_cards} cards."
     puts "................................................."
 
-    #Guess using gets? user_guess = gets.
+    user_guess = gets.chomp
     turn = take_turn(guess)
     puts turn.feedback
 end
@@ -28,8 +28,6 @@ puts " You had #{number_correct} correct guesses out of #{total_cards} for a tot
 
 #Display category percentages
 categories = @deck.cards.map(&:category) #categories present in the cards
-categories.each do |category| #looping through each element?
-    puts "#{category} - #{percent_correct_by_category(category)} correct" #will this match correctly?
+categories.each do |category| #looping through each element
+    puts "#{category} - #{percent_correct_by_category(category)} correct"
 end
-
-#Review displaying categories & the guess portion of this code with Alec
