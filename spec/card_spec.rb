@@ -1,8 +1,8 @@
-require './lib/card'
+require './lib/card.rb'
 
 RSpec.describe Card do
   it 'exists' do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+  card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
     expect(card).to be_instance_of(Card)
   end
