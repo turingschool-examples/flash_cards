@@ -4,7 +4,7 @@ class Round
     def initialize(deck)
         @deck = deck
         @turns = []
-        @cards= 0
+        @cards = 0
     end
     def take_turn(guess) # this is creating the take_turn method and is taking the argument guess from the Card
         # current_card is returning the current card in the deck
@@ -23,7 +23,6 @@ class Round
     end
     # this is supposed to get the next card, it's not quite working how I want it to
     def next_card
-        # 
         @cards += 1
     end
 end
