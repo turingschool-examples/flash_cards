@@ -20,7 +20,7 @@ class Round
 
         @deck.cards.each do |card|
         puts "Question: #{card.question}"
-        user_guess = gets.chomp 
+        user_guess = gets.chomp
         turn = take_turn(user_guess)
         puts turn.feedback
         end

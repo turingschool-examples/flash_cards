@@ -55,7 +55,7 @@ RSpec.describe Round do
         new_turn = round.take_turn("Juneau")
 
         expect(new_turn).to be_a(Turn)
-        expect(new_turn.correct?).to be true
+        expect(new_turn.correct?).to be true3
         expect(round.turns.count).to eq(1)
         expect(round.current_card).to eq(card_2)
     end
@@ -96,7 +96,7 @@ RSpec.describe Round do
 
         round.take_turn("Juneau")
         round.take_turn("Mercury")
-
+# add in rounding test
         expect(round.percent_correct).to eq(50.0)
     end
 
@@ -109,7 +109,7 @@ RSpec.describe Round do
 
         round.take_turn("Juneau")
         round.take_turn("Mercury")
-
+# add in rounding test
         expect(round.percent_correct_by_category(:Geography)).to eq(100.0)
         expect(round.percent_correct_by_category(:STEM)).to eq(0.0)
     end
