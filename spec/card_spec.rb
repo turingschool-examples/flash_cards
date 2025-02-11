@@ -1,10 +1,15 @@
 require './lib/card'
+require 'rspec'
+require 'pry' 
 
-RSpec.describe Card do
-  it 'exists' do
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
 
-    expect(card).to be_instance_of(Card)
+describe Card do
+  describe '#initialize' do
+    it 'exists' do
+      card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+
+      expect(card).to be_instance_of(Card)
+    end
   end
 
   it 'has a question' do
@@ -24,4 +29,9 @@ RSpec.describe Card do
 
     expect(card.category).to eq(:Geography)
   end
+
 end
+
+
+
+
