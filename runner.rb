@@ -8,7 +8,7 @@ require "pry"
 
 filename = "./cards.txt"
 card_generator = CardGenerator.new(filename)
-fact_cards = card_generator.cards
+fact_cards = card_generator.cards.take(4) # well it is either 4 or it is 500. Shuffle method still overrides the take method so I dont mind.
 
 
 nums = [100, 200, 300, 400]
@@ -112,7 +112,7 @@ def prompt_to_play_again(filename)
   replay = gets.chomp.downcase
   if replay == 'y' || replay == 'yes'
     card_generator = CardGenerator.new(filename)
-    fact_cards = card_generator.cards
+    fact_cards = card_generator.cards.take(4)
     play_deck = Deck.new(fact_cards)
     initialize_round = Round.new(play_deck)
     start(initialize_round, filename)

@@ -563,3 +563,4 @@ What is the term for a young kangaroo?,Joey,Science,No Hint Available (need to a
 What is the chemical symbol for calcium?,Ca,Science,No Hint Available (need to add them lol)
 Who directed The Godfather?,Francis Ford Coppola,Movies,No Hint Available (need to add them lol)
 What is the name of the largest planet in the solar system?,Jupiter,Science,No Hint Available (need to add them lol)
+what is the average snowfall in colorado,300,meteorology,sparta
