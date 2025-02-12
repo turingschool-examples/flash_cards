@@ -29,6 +29,7 @@ def start(round)
         puts "Incorrect"
     end
     round.next_card # move to the next card
+    
     end
     
     puts "Game Over"
